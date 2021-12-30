@@ -1,5 +1,9 @@
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # Format the terminal
-export PS1="\e[1;32m\u@\H:\e[0m\e[1;34m\w\e[0m\$ "
+export PS1="\[\e[1;32m\]\u@\h:\[\e[1;34m\]\w\[\e[31m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 # Set vi mode to default
 set -o vi
