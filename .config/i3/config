@@ -1,6 +1,3 @@
-set $TERMINAL urxvt
-set $BROWSER firefox
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -150,7 +147,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id dunst
 exec --no-startup-id compton
-exec --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.png
+exec --no-startup-id exec $TERMINAL $HOME/.fehbg
 
 # remove title bar from new windows
 new_window 1pixel
