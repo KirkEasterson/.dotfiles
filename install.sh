@@ -20,6 +20,6 @@ for entry in `ls -aA`; do
 		if ! [[ ${ign_files[*]} =~ (^|[[:space:]])"$entry"($|[[:space:]]) ]]; then
 
 				# create sym link
-				ln -s -f $(pwd)/"$entry" $HOME/"$entry"
+				ln -sf $(pwd)/"$entry" $HOME/"$entry"
 		fi
 done
