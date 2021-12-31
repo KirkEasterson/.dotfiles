@@ -1,3 +1,11 @@
+export KALE=$HOME/kale
+export DOTFILES=$HOME/.dotfiles
+export BROWSER=firefox
+export TERMINAL=urxvt
+export FILEMANAGER=ranger
+export EDITOR=nvim
+export VISUAL=nvim
+
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -8,10 +16,7 @@ export PS1="\[\e[1;32m\]\u@\h:\[\e[1;34m\]\w\[\e[31m\]\$(parse_git_branch)\[\e[0
 # Set vi mode to default
 set -o vi
 
-# Set the default editor
-export EDITOR=vim
-export VISUAL=vim
-alias vim='edit'
+alias v='edit'
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
