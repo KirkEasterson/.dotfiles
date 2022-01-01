@@ -24,3 +24,5 @@ for entry in `ls -aA`; do
 				ln -sfn $(pwd)/"$entry" $HOME/"$entry"
 		fi
 done
+
+./nv_env.sh
