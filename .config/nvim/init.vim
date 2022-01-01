@@ -47,15 +47,20 @@ let mapleader=","					" leader is comma
 
 inoremap jk <esc>" jk is escap				" jk is escape
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/gruvbox-community/gruvbox'
-Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/preservim/nerdtree'
-Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/neoclide/coc.nvim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
