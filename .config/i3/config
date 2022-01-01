@@ -147,7 +147,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id dunst
 exec --no-startup-id compton
-exec --no-startup-id exec $TERMINAL $HOME/.fehbg
+exec --no-startup-id $HOME/.fehbg
 
 # remove title bar from new windows
 new_window 1pixel
