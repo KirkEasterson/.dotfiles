@@ -1,5 +1,5 @@
 # TODO: use environment variables
-set $TERMINAL urxvt
+set $TERMINAL xfce4-terminal
 set $BROWSER firefox
 
 set $mod Mod4

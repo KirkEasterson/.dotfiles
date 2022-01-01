@@ -1,7 +1,7 @@
 export KALE=$HOME/kale
 export DOTFILES=$HOME/.dotfiles
 export BROWSER=firefox
-export TERMINAL=urxvt
+export TERMINAL=xfce4-terminal
 export FILEMANAGER=ranger
 export EDITOR=nvim
 export VISUAL=nvim
