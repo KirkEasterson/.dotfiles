@@ -8,6 +8,7 @@ ign_files=(
 		".git"
 		"README.md"
 		"clean.sh"
+		"nv_env.sh"
 )
 
 # add name of script dynamically in case the name is changed
