@@ -1,3 +1,5 @@
+source $HOME/.config/nvim/plug-config/coc.vim
+
 set number relativenumber				" turn hybrid line numbers on
 set cursorline						" highlight current line
 
@@ -47,6 +49,7 @@ let mapleader=","					" leader is comma
 
 inoremap jk <esc>" jk is escap				" jk is escape
 
+" install vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -55,12 +58,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'gruvbox-community/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'gruvbox-community/gruvbox'
+	Plug 'vim-airline/vim-airline'
+	Plug 'preservim/nerdtree'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'tpope/vim-commentary'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -68,3 +71,9 @@ nnoremap <C-f> :NERDTreeToggle<CR>
 
 set number relativenumber				" turn hybrid line numbers on
 colorscheme gruvbox
+
+" auto-install any missing plugins
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
