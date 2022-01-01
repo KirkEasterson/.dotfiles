@@ -31,5 +31,4 @@ ScrollingLines=100000
 FontUseSystem=TRUE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0,850000
-ColorUseTheme=TRUE
 
