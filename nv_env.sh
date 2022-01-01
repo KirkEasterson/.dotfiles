@@ -7,4 +7,4 @@ if ! which node > /dev/null; then
 fi
 
 # install coc extension
-coc_restore.sh
+./coc_restore.sh
