@@ -58,10 +58,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # resize focused window
-bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
-bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+y resize shrink width 2 px or 2 ppt
+bindsym $mod+Shift+u resize grow height 2 px or 2 ppt
+bindsym $mod+Shift+i resize shrink height 2 px or 2 ppt
+bindsym $mod+Shift+o resize grow width 2 px or 2 ppt
 
 # split orientation of next window
 bindsym $mod+t split toggle
