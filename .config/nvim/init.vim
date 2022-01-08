@@ -44,6 +44,9 @@ set exrc							" use local vimrc, if it exists
 nnoremap j gj						" move vertically by visual line
 nnoremap k gk						" move vertically by visual line
 
+" transparent background
+au ColorScheme * hi Normal ctermbg=none guibg=none
+
 
 """ Leader shortcuts
 let mapleader=","					" leader is comma
@@ -59,7 +62,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline'
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
@@ -69,8 +71,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 nnoremap <C-f> :NERDTreeToggle<CR>
-
-colorscheme gruvbox
 
 " auto-install any missing plugins
 autocmd VimEnter *
