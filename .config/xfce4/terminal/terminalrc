@@ -30,5 +30,5 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingLines=100000
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.850000
-FontName=Ubuntu Mono 12
+FontName=UbuntuMono Nerd Font 12
 
