@@ -5,6 +5,7 @@ export TERMINAL=xfce4-terminal
 export FILEMANAGER=ranger
 export EDITOR=nvim
 export VISUAL=nvim
+export PATH="${PATH}:${HOME}/.local/bin/"
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
