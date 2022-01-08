@@ -26,6 +26,7 @@ set colorcolumn=80					" 80col limit
 
 set tabstop=4						" number of visual spaces per TAB
 set softtabstop=4					" number of spaces in tab when editing
+set shiftwidth=4					" number of spaces when indenting with <>
 filetype indent on					" load filetype-specific indent files
 
 set laststatus=2					" always display the status bar
@@ -69,7 +70,6 @@ call plug#end()
 
 nnoremap <C-f> :NERDTreeToggle<CR>
 
-set number relativenumber				" turn hybrid line numbers on
 colorscheme gruvbox
 
 " auto-install any missing plugins
