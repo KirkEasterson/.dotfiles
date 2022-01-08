@@ -1,13 +1,3 @@
-! font styling
-URxvt.dpi: 96
-URxvt.antialias: true
-URxvt.rgba: rgb
-URxvt.hinting: true
-URxvt.hintstyle: hintfull
-
-! font
-URxvt.font:xft: DejaVuSansMono:regular:size=10
-
 ! transparency in terminal
 *transparent: true
 *shading:10
