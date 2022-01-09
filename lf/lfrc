@@ -98,3 +98,7 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+# set preview to use feh
+set preview
+set previewer feh
