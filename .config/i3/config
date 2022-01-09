@@ -42,8 +42,8 @@ bindsym $alt+space exec dmenu_run
 # launch browser
 bindsym $mod+w exec $BROWSER
 
-# launch ranger
-bindsym $mod+r exec $TERMINAL -e ranger
+# launch lf
+bindsym $mod+r exec $TERMINAL -e lf
 
 # change focus
 bindsym $mod+h focus left

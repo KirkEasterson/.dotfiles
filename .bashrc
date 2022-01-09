@@ -57,7 +57,6 @@ alias lm='ls -alh |more' # pipe through 'more'
 alias lw='ls -xAh' # wide listing format
 alias ll='ls -Fls' # long listing format
 alias labc='ls -lap' #alphabetical sort
-alias lf="ls -l | egrep -v '^d'" # files only
 alias ldir="ls -l | egrep '^d'" # directories only
 
 # Search command line history
