@@ -5,10 +5,11 @@
 # TODO: use a map instead of an array
 # contents to ignore when making sym links
 ign_files=(
-		".git"
-		"README.md"
-		"clean.sh"
-		"nv_env.sh"
+	".git"
+	"README.md"
+	"clean.sh"
+	"nv_env.sh"
+	"coc_restore.sh"
 )
 
 # add name of script dynamically in case the name is changed
