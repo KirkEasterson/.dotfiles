@@ -100,5 +100,5 @@ cmd zip ${{
 }}
 
 # set preview to use feh
-set preview
-set previewer feh
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
