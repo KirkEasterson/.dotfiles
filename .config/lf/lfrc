@@ -102,3 +102,4 @@ cmd zip ${{
 # set preview to use feh
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
+set ratios 1:2:3
