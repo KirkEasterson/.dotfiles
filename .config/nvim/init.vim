@@ -47,6 +47,11 @@ nnoremap k gk						" move vertically by visual line
 " transparent background
 au ColorScheme * hi Normal ctermbg=none guibg=none
 
+" gitgutter config
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#BBBB00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#FF2222 ctermfg=Red
+
 
 """ Leader shortcuts
 let mapleader=","					" leader is comma
@@ -66,7 +71,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/plugged')
 
+	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline'
+	Plug 'airblade/vim-gitgutter'
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'tpope/vim-commentary'
@@ -81,3 +88,5 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
+colorscheme gruvbox
