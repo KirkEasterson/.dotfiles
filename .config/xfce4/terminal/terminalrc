@@ -31,4 +31,5 @@ ScrollingLines=100000
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.950000
 FontName=UbuntuMono Nerd Font 12
+ColorUseTheme=TRUE
 
