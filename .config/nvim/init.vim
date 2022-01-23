@@ -52,6 +52,8 @@ highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#BBBB00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#FF2222 ctermfg=Red
 
+" comments in jsonc
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 """ Leader shortcuts
 let mapleader=","					" leader is comma
