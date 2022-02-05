@@ -1,5 +1,3 @@
-source $HOME/.config/nvim/plug-config/coc.vim
-
 set number relativenumber				" turn hybrid line numbers on
 set cursorline						" highlight current line
 
@@ -73,13 +71,14 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/plugged')
 
+	Plug 'neovim/nvim-lspconfig'
 	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'tpope/vim-commentary'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -92,3 +91,7 @@ autocmd VimEnter *
   \| endif
 
 colorscheme gruvbox
+
+lua <<EOF
+require'lspconfig'.pyright.setup{}
+EOF
