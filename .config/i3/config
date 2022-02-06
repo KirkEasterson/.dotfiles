@@ -1,5 +1,5 @@
 # TODO: use environment variables
-set $TERMINAL xfce4-terminal
+set $TERMINAL alacritty
 set $BROWSER firefox
 
 set $alt Mod1
