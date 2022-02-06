@@ -43,7 +43,8 @@ bindsym $alt+space exec dmenu_run
 bindsym $mod+w exec $BROWSER
 
 # launch lfrun
-bindsym $mod+r exec $TERMINAL -e lfrun
+bindsym $mod+e exec $TERMINAL -e lfrun
+bindsym $mod+Shift+e exec thunar
 
 # change focus
 bindsym $mod+h focus left
@@ -126,7 +127,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #bindsym $mod+r mode "resize"
 
@@ -148,5 +149,5 @@ exec --no-startup-id compton
 exec --no-startup-id $HOME/.fehbg
 
 # thin, crispy borders
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 3
+default_floating_border pixel 3
