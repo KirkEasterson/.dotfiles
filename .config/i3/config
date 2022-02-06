@@ -59,10 +59,16 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # resize focused window
-bindsym $mod+Shift+y resize shrink width 2 px or 2 ppt
-bindsym $mod+Shift+u resize grow height 2 px or 2 ppt
-bindsym $mod+Shift+i resize shrink height 2 px or 2 ppt
-bindsym $mod+Shift+o resize grow width 2 px or 2 ppt
+bindsym $mod+y resize shrink width 2 px or 2 ppt
+bindsym $mod+u resize grow height 2 px or 2 ppt
+bindsym $mod+i resize shrink height 2 px or 2 ppt
+bindsym $mod+o resize grow width 2 px or 2 ppt
+
+bindsym $mod+m gaps outer all minus 2; gaps inner all minus 2
+bindsym $mod+comma gaps outer all plus 2; gaps inner all plus 2
+bindsym $mod+Shift+m gaps outer all minus 2
+bindsym $mod+Shift+comma gaps outer all plus 2
+bindsym $mod+n gaps outer all set 0; gaps inner all set 0
 
 # split orientation of next window
 bindsym $mod+t split toggle
