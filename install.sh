@@ -26,4 +26,3 @@ for entry in `ls -aA`; do
 		fi
 done
 
-./nv_env.sh
