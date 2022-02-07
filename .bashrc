@@ -43,6 +43,7 @@ alias .....='cd ../../../..'
 alias bd='cd "$OLDPWD"'
 
 # Alias's for multiple directory listing commands
+alias ls='ls -lah --color=auto'
 alias la='ls -Alh' # show hidden files
 alias lx='ls -lXBh' # sort by extension
 alias lk='ls -lSrh' # sort by size
