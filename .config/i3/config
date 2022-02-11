@@ -69,6 +69,7 @@ bindsym $mod+comma gaps outer all plus 2; gaps inner all plus 2
 bindsym $mod+Shift+m gaps outer all minus 2
 bindsym $mod+Shift+comma gaps outer all plus 2
 bindsym $mod+n gaps outer all set 0; gaps inner all set 0
+bindsym $mod+Shift+n gaps outer all set 15; gaps inner all set 15
 
 # split orientation of next window
 bindsym $mod+t split toggle
