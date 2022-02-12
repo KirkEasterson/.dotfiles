@@ -121,12 +121,6 @@ alias upg="sudo apt update && sudo apt upgrade"
 # mkdir create parent directories
 alias mkdir="mkdir -pv"
 
-# confirmations
-alias mv="mv -i"
-alias cp="cp -i"
-alias rm="rm -i"
-alias ln="ln -i"
-
 # start starship
 eval "$(starship init bash)"
 
