@@ -157,6 +157,9 @@ exec --no-startup-id compton
 exec --no-startup-id $HOME/.fehbg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+# swap capslock and escape
+exec --no-startup-id setxkbmap -option caps:swapescape
+
 # thin, crispy borders
 default_border pixel 3
 default_floating_border pixel 3
