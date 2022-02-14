@@ -92,6 +92,11 @@ bindsym $mod+Shift+a exec setxkbmap us
 bindsym $mod+Shift+s exec setxkbmap se
 bindsym $mod+Shift+g exec setxkbmap no
 
+# notes
+for_window [title="notetaker"] floating enable, move position center
+bindsym $mod+c exec --no-startup-id alacritty -t 'notetaker' -e $HOME/scripts/notes.sh
+bindsym $mod+Shift+c exec ~/scripts/most_recent_note.sh
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -135,10 +140,8 @@ bindsym --release Print exec "~/scripts/screenshot.sh -s ~/Pictures/screenshots/
 # take a screenshot of a whole window and copy it to a clipboard
 bindsym --release Shift+Print exec "~/scripts/screenshot.sh ~/Pictures/screenshots/"
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
