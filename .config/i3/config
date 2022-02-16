@@ -139,11 +139,8 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# take a screenshot of a screen region and copy it to a clipboard
-bindsym --release Print exec "~/scripts/screenshot.sh -s ~/Pictures/screenshots/"
-
-# take a screenshot of a whole window and copy it to a clipboard
-bindsym --release Shift+Print exec "~/scripts/screenshot.sh ~/Pictures/screenshots/"
+bindsym --release Print exec flameshot gui
+bindsym --release Shift+Print exec flameshot full -p $HOME/Pictures/screenshots
 
 # reload the configuration file
 bindsym $mod+r reload
@@ -165,6 +162,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id dunst
 exec --no-startup-id compton
 exec --no-startup-id $HOME/.fehbg
+exec --no-startup-id flameshot
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # swap capslock and escape
