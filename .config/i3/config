@@ -107,7 +107,7 @@ bindsym $mod+Shift+g exec setxkbmap no
 
 # notes
 for_window [title="^notetaker$"] floating enable, move position center
-bindsym $mod+d exec --no-startup-id alacritty -t 'notetaker' -e $HOME/scripts/notes.sh
+bindsym $mod+d exec --no-startup-id $TERMINAL -t 'notetaker' -e $HOME/scripts/notes.sh
 bindsym $mod+Shift+d exec ~/scripts/most_recent_note.sh
 
 # todos
