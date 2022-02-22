@@ -186,8 +186,8 @@ exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id flameshot
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# swap capslock and escape
-exec --no-startup-id setxkbmap -option caps:swapescape
+# make capslock an additional escape
+exec --no-startup-id setxkbmap -option caps:escape
 
 # thin, crispy borders
 default_border pixel 5
