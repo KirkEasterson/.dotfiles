@@ -39,15 +39,15 @@ floating_modifier $mod
 
 ## Dropdown/Scratchpad terminals
 # dropdown
-exec_always --no-startup-id $TERMINAL -t 'scratchpad_dropdown'
+exec --no-startup-id $TERMINAL -t 'scratchpad_dropdown'
 for_window [title="^scratchpad_dropdown$"] floating enable, resize set 625 400, move scratchpad
 
 # todo
-exec_always --no-startup-id $TERMINAL -t 'scratchpad_todo' -e tudu
+exec --no-startup-id $TERMINAL -t 'scratchpad_todo' -e tudu
 for_window [title="^scratchpad_todo$"] floating enable, resize set 800 400, move scratchpad
 
 # calculator
-exec_always --no-startup-id $TERMINAL -t 'scratchpad_calculator' -e python3 -q
+exec --no-startup-id $TERMINAL -t 'scratchpad_calculator' -e python3 -q
 for_window [title="^scratchpad_calculator$"] floating enable, resize set 800 300, move scratchpad
 
 # start a terminal
@@ -155,6 +155,10 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# move to next/prev workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 bindsym --release Print exec flameshot gui
 bindsym --release Shift+Print exec flameshot full -p $HOME/Pictures/screenshots
