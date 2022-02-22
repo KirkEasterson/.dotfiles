@@ -37,11 +37,24 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+## Dropdown/Scratchpad terminals
+# dropdown
+exec_always --no-startup-id $TERMINAL -t 'scratchpad_dropdown'
+for_window [title="^scratchpad_dropdown$"] floating enable, resize set 625 400, move scratchpad
+
+# todo
+exec_always --no-startup-id $TERMINAL -t 'scratchpad_todo' -e tudu
+for_window [title="^scratchpad_todo$"] floating enable, resize set 800 400, move scratchpad
+
+# calculator
+exec_always --no-startup-id $TERMINAL -t 'scratchpad_calculator' -e python3 -q
+for_window [title="^scratchpad_calculator$"] floating enable, resize set 800 300, move scratchpad
+
 # start a terminal
 bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+q [con_id="__focused__" title="^(?!scratchpad_).*$"] kill
 
 # start dmenu (a program launcher)
 bindsym $alt+space exec dmenu_run
@@ -93,23 +106,18 @@ bindsym $mod+Shift+s exec setxkbmap se
 bindsym $mod+Shift+g exec setxkbmap no
 
 # notes
-for_window [title="notetaker"] floating enable, move position center
+for_window [title="^notetaker$"] floating enable, move position center
 bindsym $mod+d exec --no-startup-id alacritty -t 'notetaker' -e $HOME/scripts/notes.sh
 bindsym $mod+Shift+d exec ~/scripts/most_recent_note.sh
 
 # todos
-# TODO: Replace tudu since development has stopped
-for_window [title="todo"] floating enable, move position center
-bindsym $mod+Shift+t exec --no-startup-id alacritty -t 'todo' -e tudu
+bindsym $mod+Shift+t [title="^scratchpad_todo$"] scratchpad show, move position center
 
-## TODO: make this toggle the terminal isntead of spawning a new one every time
-# scratch terminal
-for_window [title="scratchpad"] floating enable, move position center
-bindsym $mod+space exec --no-startup-id alacritty -t 'scratchpad' 
+# dropdown terminal
+bindsym $mod+space [title="^scratchpad_dropdown$"] scratchpad show, move position center
 
-# calculator terminal
-for_window [title="calculator"] floating enable, move position center
-bindsym $mod+c exec --no-startup-id alacritty -t 'calculator'  -e R -q
+# calculator
+bindsym $mod+c [title="^scratchpad_calculator$"] scratchpad show, move position center
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
