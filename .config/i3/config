@@ -22,6 +22,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy -gp -f Ubunt
 
 # natural scrolling
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
+exec --no-startup-id synclient PalmDetect=1
+exec --no-startup-id synclient TapButton1=1
+exec --no-startup-id synclient TapButton2=3
+exec --no-startup-id synclient TapButton3=2
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -61,6 +65,7 @@ bindsym $alt+space exec dmenu_run
 
 # launch browser
 bindsym $mod+w exec $BROWSER
+bindsym $mod+Shift+w exec chromium
 
 # launch lfrun
 bindsym $mod+e exec $TERMINAL -e lfrun
