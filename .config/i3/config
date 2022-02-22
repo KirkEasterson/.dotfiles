@@ -18,7 +18,7 @@ font JetBrains Mono Nerd Font 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy -gp -f Ubuntu-Mono-Nerd-Font-Complete"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -e -c 000000
 
 # natural scrolling
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
@@ -176,7 +176,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # lock i3
-bindsym $mod+x exec "i3lock-fancy -gp -f Ubuntu-Mono-Nerd-Font-Complete"
+bindsym $mod+x exec i3lock -e -c 000000
 
 #bindsym $mod+r mode "resize"
 
