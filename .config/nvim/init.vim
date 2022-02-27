@@ -42,6 +42,11 @@ set exrc							" use local vimrc, if it exists
 nnoremap j gj						" move vertically by visual line
 nnoremap k gk						" move vertically by visual line
 
+nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
+
+" Build if a note file
+autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
+
 " transparent background
 au ColorScheme * hi Normal ctermbg=none guibg=none
 
@@ -72,6 +77,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.config/nvim/plugged')
 
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'numToStr/Comment.nvim'
 	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline'
 	Plug 'airblade/vim-gitgutter'
@@ -130,6 +136,7 @@ lua <<EOF
   })
 EOF
 
+" TODO: More this functionality outside of on_attach so it works for all files
 lua <<EOF
 require'lspconfig'.pyright.setup{
 capabilities=capabilities,
@@ -145,3 +152,87 @@ end,
 }
 EOF
 
+lua <<EOF
+  lspconfig = require "lspconfig"
+  lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+  }
+EOF
+
+" lua <<EOF
+" -- Prettier function for formatter
+" local prettier = function()
+"   return {
+"     exe = "prettier",
+"     args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+"     stdin = true,
+"   }
+" end
+
+" require("formatter").setup({
+"   logging = false,
+"   filetype = {
+"     typescriptreact = { prettier },
+"     javascriptreact = { prettier },
+"     javascript = { prettier },
+"     typescript = { prettier },
+"     json = { prettier },
+"     jsonc = { prettier },
+"     html = { prettier },
+"     css = { prettier },
+"     scss = { prettier },
+"     markdown = { prettier },
+"     vue = { prettier },
+"     lua = {
+"       -- Stylua
+"       function()
+"         return {
+"           exe = "stylua",
+"           args = {},
+"           stdin = false,
+"         }
+"       end,
+"     },
+"     python = {
+"       -- autopep8
+"       function()
+"         return {
+"           exe = "autopep8",
+"           args = { "--in-place" },
+"           stdin = false,
+"         }
+"       end,
+"     },
+"     --[[ yaml = {
+"       -- yamlfmt
+"       function()
+"         return {
+"           exe = "yamlfmt",
+"           args = { "-w" },
+"           stdin = false,
+"         }
+"       end,
+"     }, ]]
+"   },
+" })
+
+" -- Runs Formmater on save
+" vim.api.nvim_exec(
+"   [[
+" augroup FormatAutogroup
+"   autocmd!
+"   autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.lua,.*.json,*.jsonc,*.vue,*.py FormatWrite
+" augroup END
+" ]],
+"   true
+" )
+
+" EOF
