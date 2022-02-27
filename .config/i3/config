@@ -85,8 +85,8 @@ bindsym $mod+Shift+l move right
 
 # resize focused window
 bindsym $mod+y resize shrink width 2 px or 2 ppt
-bindsym $mod+u resize grow height 2 px or 2 ppt
-bindsym $mod+i resize shrink height 2 px or 2 ppt
+bindsym $mod+u resize shrink height 2 px or 2 ppt
+bindsym $mod+i resize grow height 2 px or 2 ppt
 bindsym $mod+o resize grow width 2 px or 2 ppt
 
 bindsym $mod+m gaps outer all minus 2; gaps inner all minus 2
