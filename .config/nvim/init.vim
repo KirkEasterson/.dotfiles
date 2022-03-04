@@ -44,8 +44,36 @@ augroup END
 
 set exrc							" use local vimrc, if it exists
 
-nnoremap j gj						" move vertically by visual line
-nnoremap k gk						" move vertically by visual line
+" nnoremap j gj						" move vertically by visual line
+" nnoremap k gk						" move vertically by visual line
+
+" ThePrimeagen remappings
+" 'Y' to behave like other capitals
+nnoremap Y $y
+
+" easier navigation
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" easier undos
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap [ [<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" add large enough relative jumps to jump list
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'gk'
+
+" move text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
 
 nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
 
