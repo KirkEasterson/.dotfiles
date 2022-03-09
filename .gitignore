@@ -8,4 +8,10 @@
 .config/pavucontrol.ini
 .config/systemd/*
 .config/zoomus.conf
-
+.config/autostart
+.config/QtProject.conf
+.config/evolution/*
+.config/mono.addins/*
+.config/lf/cleaner
+.config/lf/preview
+.config/pulse/*
