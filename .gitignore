@@ -1,0 +1,11 @@
+.config/JetBrains/*
+.config/autorandr/*
+.config/dconf/*
+.config/htop/*
+.config/ibus/*
+.config/ibus/*
+.config/nvim/plugged/*
+.config/pavucontrol.ini
+.config/systemd/*
+.config/zoomus.conf
+
