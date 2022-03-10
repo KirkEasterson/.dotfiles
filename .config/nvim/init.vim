@@ -127,6 +127,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
+	Plug 'mfussenegger/nvim-dap'
+	Plug 'rcarriga/nvim-dap-ui'
+	Plug 'leoluz/nvim-dap-go'
 
 call plug#end()
 
@@ -299,6 +302,12 @@ function goimports(timeoutms)
 		vim.lsp.buf.execute_command(action)
 	end
 end
+EOF
+
+
+lua <<EOF
+require("dapui").setup()
+require('dap-go').setup()
 EOF
 
 " lua <<EOF
