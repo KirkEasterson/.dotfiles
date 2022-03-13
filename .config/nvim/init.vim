@@ -130,6 +130,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mfussenegger/nvim-dap'
 	Plug 'rcarriga/nvim-dap-ui'
 	Plug 'leoluz/nvim-dap-go'
+	Plug 'L3MON4D3/LuaSnip'
 
 call plug#end()
 
@@ -150,6 +151,8 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+lua require('init')
 
 lua <<EOF
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
