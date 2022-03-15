@@ -40,6 +40,11 @@ augroup WrapLineInLatexFile
 	autocmd FileType tex setlocal wrap
 augroup END
 
+augroup WrapLineInMarkdownFile
+	autocmd!
+	autocmd FileType markdown setlocal wrap
+augroup END
+
 "set lazyredraw						" redraw only when we need to.
 
 set exrc							" use local vimrc, if it exists
