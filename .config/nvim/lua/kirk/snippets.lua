@@ -95,6 +95,7 @@ ls.snippets = {
 		ls.parser.parse_snippet("for", "for i := 0; i < $1; i++ {\n\t$2\n}"),
 		ls.parser.parse_snippet("pr", "fmt.Println($0)"),
 		ls.parser.parse_snippet("prf", "fmt.Printf($1, $0)"),
+		ls.parser.parse_snippet("test", "func $1(t *testing.T) {\n\twant := $2\n\tcontains := $3\n\n\tif want != contains {\n\t\tt.Fatalf(`$0`, contains, want)\n\t}\n}"),
 	},
 
 	-- Lua specific snippets
