@@ -136,6 +136,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'rcarriga/nvim-dap-ui'
 	Plug 'leoluz/nvim-dap-go'
 	Plug 'L3MON4D3/LuaSnip'
+	Plug 'tpope/vim-surround'
 
 call plug#end()
 
