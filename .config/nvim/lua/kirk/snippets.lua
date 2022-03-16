@@ -91,6 +91,7 @@ ls.snippets = {
 		ls.parser.parse_snippet("mn", "package main\n\nfunc main() {\n\t$0\n}"),
 		ls.parser.parse_snippet("fn", "func $1($2) $3{\n\t$0\n}"),
 		ls.parser.parse_snippet("stru", "type $1 struct {\n\t$0\n}"),
+		ls.parser.parse_snippet("in", "type $1 interface {\n\t$0\n}"),
 		ls.parser.parse_snippet("err", "if err != nil {\n\t$0\n}"),
 		ls.parser.parse_snippet("for", "for i := 0; i < $1; i++ {\n\t$2\n}"),
 		ls.parser.parse_snippet("pr", "fmt.Println($0)"),
