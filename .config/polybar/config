@@ -17,7 +17,7 @@ line-size = 1
 line-color = #f00
 
 padding-left = 0
-padding-right = 2
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
