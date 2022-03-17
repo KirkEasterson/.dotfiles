@@ -188,9 +188,6 @@ bindsym $mod+x exec i3lock -e -c 000000
 
 # init applets
 exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
-exec --no-startup-id blueman-applet
-exec --no-startup-id redshift-gtk
 exec --no-startup-id dunst
 exec --no-startup-id compton
 exec --no-startup-id $HOME/.fehbg
