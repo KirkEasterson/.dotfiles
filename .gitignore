@@ -15,3 +15,20 @@
 .config/lf/cleaner
 .config/lf/preview
 .config/pulse/*
+.config/1Password/*
+.config/BraveSoftware/*
+.config/Code/*
+.config/Postman/*
+.config/Slack/*
+.config/Unknown\ Organization/*
+.config/VSCodium/*
+.config/chromium/*
+.config/discord/*
+.config/google-chrome-beta/*
+.config/google-chrome-unstable/*
+.config/google-chrome/*
+.config/microsoft-edge-dev/*
+.config/mimeapps.list
+.config/vivaldi-snapshot/*
+.config/vivaldi/*
+.config/whatscli/*
