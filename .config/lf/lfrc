@@ -3,7 +3,7 @@ set cleaner ~/.config/lf/cleaner
 set ratios 1:2:3
 set hidden true
 set drawbox on
-set icons true
+/* set icons true */
 set ignorecase true
 set shell sh
 set shellopts '-eu'
