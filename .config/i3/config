@@ -125,7 +125,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # launch browsers
 bindsym $mod+w exec $BROWSER
-bindsym $mod+Shift+w exec chromium
+# bindsym $mod+Shift+w exec chromium
 
 # launch lfrun; launch thunar
 bindsym $mod+e exec $TERMINAL -e lfrun
