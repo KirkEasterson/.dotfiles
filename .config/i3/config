@@ -47,7 +47,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -e -c 000000
 # natural scrolling
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 exec --no-startup-id synclient PalmDetect=1
-exec --no-startup-id synclient TapButton1=1
+exec --no-startup-id synclient TapButton1=0
 exec --no-startup-id synclient TapButton2=3
 exec --no-startup-id synclient TapButton3=2
 
