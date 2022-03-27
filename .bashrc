@@ -1,4 +1,4 @@
-source ~/.commonrc
+source ~/.config/shell/commonrc
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then

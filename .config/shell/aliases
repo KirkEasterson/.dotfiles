@@ -1,5 +1,6 @@
 # Edit this .bashrc file
 alias ebrc='edit ~/.bashrc'
+alias ezrc='edit ~/.zshrc'
 
 # switch between shells
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"

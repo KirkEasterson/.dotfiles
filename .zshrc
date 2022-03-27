@@ -1,4 +1,4 @@
-source ~/.commonrc
+source ~/.config/shell/commonrc
 
 HISTSIZE=100000
 SAVEHIST=100000
