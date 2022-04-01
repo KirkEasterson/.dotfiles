@@ -3,6 +3,7 @@ source ~/.config/shell/commonrc
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.cache/zsh/history
+setopt INC_APPEND_HISTORY_TIME
 
 # Basic auto/tab complete
 autoload -U compinit
