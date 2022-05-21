@@ -40,5 +40,6 @@
 .config/gcloud/*
 .config/vscode-sqltools/*
 .config/xfce4/xfconf/*
+.config/Thunar/*
 
 .config/shell/local_exports
