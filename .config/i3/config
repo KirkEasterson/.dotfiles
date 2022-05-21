@@ -13,17 +13,22 @@ set $refresh_i3status killall -SIGUSR1 i3status
 font JetBrains Mono Nerd Font 8
 
 # thicc, chonky borders
-default_border pixel 5
-default_floating_border pixel 5
+default_border pixel 8
+default_floating_border pixel 3
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # scratchpad window rules
-for_window [title="^scratchpad_dropdown$"] floating enable, resize set 625 400, move scratchpad
-for_window [title="^scratchpad_todo$"] floating enable, resize set 800 400, move scratchpad
-for_window [title="^scratchpad_calculator$"] floating enable, resize set 800 300, move scratchpad
+for_window [title="^scratchpad_dropdown$"] floating enable, resize set 1400 900, move scratchpad
+for_window [title="^scratchpad_todo$"] floating enable, resize set 1400 900, move scratchpad
+for_window [title="^scratchpad_calculator$"] floating enable, resize set 1400 900, move scratchpad
 for_window [title="^notetaker$"] floating enable, move position center
+
+# zoom window rules
+for_window [class="zoom"] floating enable
+for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+for_window [class="zoom" title="Zoom Meeting"] floating disable
 
 # set variables for workspace names
 set $ws1 "1"
@@ -46,20 +51,29 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -e -c 000000
 
 # synclient options
 # uncomment the below lines if the file at /etc/X11/xorg.conf.d/70-synaptics.conf doesn't exist
-# exec --no-startup-id synclient TapButton1=0
-# exec --no-startup-id synclient TapButton2=3
-# exec --no-startup-id synclient TapButton3=2
-# exec --no-startup-id synclient ClickFinger1=1
-# exec --no-startup-id synclient ClickFinger2=3
-# exec --no-startup-id synclient ClickFinger3=2
-# exec --no-startup-id synclient HorizTwoFingerScroll=1
-# exec --no-startup-id synclient NaturalScrolling=1
-# exec --no-startup-id synclient VertScrollDelta=-113
-# exec --no-startup-id synclient HorizScrollDelta=-113
-# exec --no-startup-id synclient RightButtonAreaLeft=0
-# exec --no-startup-id synclient RightButtonAreaTop=0
-# exec --no-startup-id synclient TapAndDragGesture=1
-# exec --no-startup-id synclient FastTaps=1
+exec --no-startup-id synclient LTCornerButton=0
+exec --no-startup-id synclient LBCornerButton=0
+exec --no-startup-id synclient RTCornerButton=0
+exec --no-startup-id synclient RBCornerButton=0
+
+exec --no-startup-id synclient TapButton1=0
+exec --no-startup-id synclient TapButton2=3
+exec --no-startup-id synclient TapButton3=2
+
+exec --no-startup-id synclient ClickFinger1=1
+exec --no-startup-id synclient ClickFinger2=3
+exec --no-startup-id synclient ClickFinger3=2
+
+exec --no-startup-id synclient RightButtonAreaLeft=0
+exec --no-startup-id synclient RightButtonAreaRight=0
+exec --no-startup-id synclient RightButtonAreaTop=0
+exec --no-startup-id synclient RightButtonAreaBottom=0
+
+exec --no-startup-id synclient HorizTwoFingerScroll=1
+exec --no-startup-id synclient VertScrollDelta=-113
+exec --no-startup-id synclient HorizScrollDelta=-113
+exec --no-startup-id synclient TapAndDragGesture=1
+exec --no-startup-id synclient FastTaps=1
 
 # init applets
 exec --no-startup-id dunst
@@ -71,7 +85,7 @@ exec --no-startup-id flameshot
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # make capslock an additional escape
-exec --no-startup-id setxkbmap -option caps:escape
+exec_always --no-startup-id setxkbmap -option caps:escape
 
 # Dropdown/Scratchpad terminals
 exec --no-startup-id $TERMINAL -t 'scratchpad_dropdown'
