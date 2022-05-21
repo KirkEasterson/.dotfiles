@@ -188,3 +188,6 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+
+# source local exports, which don't need to be in version control
+source ~/.config/shell/local_exports 2> /dev/null

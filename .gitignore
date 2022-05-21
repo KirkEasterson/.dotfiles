@@ -33,3 +33,12 @@
 .config/vivaldi/*
 .config/whatscli/*
 .config/Mousepad/*
+.config/Docker Desktop/*
+.config/gh/*
+.config/cef_user_data/*
+.config/dlv/*
+.config/gcloud/*
+.config/vscode-sqltools/*
+.config/xfce4/xfconf/*
+
+.config/shell/local_exports
