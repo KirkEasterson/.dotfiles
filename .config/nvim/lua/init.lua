@@ -2,3 +2,4 @@
 require('kirk.lsp.lsp')
 require('kirk.snippets')
 require('kirk.telescope')
+require('kirk.comment')
