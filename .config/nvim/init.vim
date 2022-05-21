@@ -1,7 +1,5 @@
 source $HOME/.vim/vimrc
 
-nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
-
 " gitgutter config
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#BBBB00 ctermfg=Yellow

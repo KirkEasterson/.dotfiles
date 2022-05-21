@@ -1,3 +1,8 @@
+-- TODO: replace rust-tools with a rust-analyzer implementation that uses
+--		my common `on_attach` function
+-- require('kirk.lsp.on_attach')
+
+-- First implementation
 -- local nvim_lsp = require'lspconfig'
 
 -- local on_attach = function(client)
@@ -20,6 +25,11 @@
 --             },
 --         }
 --     }
+-- })
+
+-- Second implementation
+-- require'lspconfig'.rust_analyzer.setup({
+-- 	on_attach=on_attach,
 -- })
 
 require('rust-tools').setup({})
