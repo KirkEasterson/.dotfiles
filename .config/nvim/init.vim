@@ -43,6 +43,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'leoluz/nvim-dap-go'
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'tpope/vim-surround'
+	Plug 'simrat39/rust-tools.nvim'
 
 call plug#end()
 
