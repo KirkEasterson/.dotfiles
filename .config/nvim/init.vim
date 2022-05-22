@@ -1,5 +1,6 @@
 source $HOME/.vim/vimrc
 
+" fast update times
 set updatetime=100
 
 " tabs of open buffers on top
@@ -27,34 +28,47 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/plugged')
 
+	" lsp
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-lua/popup.nvim'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
-	Plug 'mfussenegger/nvim-dap'
 	Plug 'rcarriga/nvim-dap-ui'
 	Plug 'leoluz/nvim-dap-go'
 
+	" git
 	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-rhubarb'
+	Plug 'mhinz/vim-signify'
 
+	" general utility
 	Plug 'numToStr/Comment.nvim'
 	Plug 'tpope/vim-surround'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'mbbill/undotree'
 
-	Plug 'preservim/nerdtree'
+	" debugger
+	Plug 'mfussenegger/nvim-dap'
 
+	" a e s t h e t i c
 	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline'
-	Plug 'mhinz/vim-signify'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'psliwka/vim-smoothie'
 
+	" language specific, because I'm lazy
 	Plug 'simrat39/rust-tools.nvim'
+
+	" misc
+	Plug 'jbyuki/venn.nvim'
+	Plug 'preservim/nerdtree'
 
 call plug#end()
 
