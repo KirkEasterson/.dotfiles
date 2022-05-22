@@ -1,9 +1,18 @@
 source $HOME/.vim/vimrc
 
-" gitgutter config
-highlight GitGutterAdd guifg=#009900 ctermfg=Green
-highlight GitGutterChange guifg=#BBBB00 ctermfg=Yellow
-highlight GitGutterDelete guifg=#FF2222 ctermfg=Red
+set updatetime=100
+
+" tabs of open buffers on top
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_highlighting_cache = 1
+
+" gruvbox config
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = 'hard'
 
 " Install vim-plug if not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -19,33 +28,37 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.config/nvim/plugged')
 
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'numToStr/Comment.nvim'
-	Plug 'gruvbox-community/gruvbox'
-	Plug 'vim-airline/vim-airline'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'preservim/nerdtree'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'tpope/vim-commentary'
-	Plug 'jiangmiao/auto-pairs'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzy-native.nvim'
+	Plug 'nvim-lua/plenary.nvim'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	Plug 'mfussenegger/nvim-dap'
 	Plug 'rcarriga/nvim-dap-ui'
 	Plug 'leoluz/nvim-dap-go'
-	Plug 'L3MON4D3/LuaSnip'
+
+	Plug 'tpope/vim-fugitive'
+
+	Plug 'numToStr/Comment.nvim'
 	Plug 'tpope/vim-surround'
+	Plug 'jiangmiao/auto-pairs'
+
+	Plug 'preservim/nerdtree'
+
+	Plug 'gruvbox-community/gruvbox'
+	Plug 'vim-airline/vim-airline'
+	Plug 'mhinz/vim-signify'
+	Plug 'ryanoasis/vim-devicons'
+
 	Plug 'simrat39/rust-tools.nvim'
 
 call plug#end()
 
-nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 " auto-install any missing plugins
 autocmd VimEnter *
@@ -54,6 +67,7 @@ autocmd VimEnter *
   \| endif
 
 colorscheme gruvbox
+highlight Normal guibg=none
 
 " Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
