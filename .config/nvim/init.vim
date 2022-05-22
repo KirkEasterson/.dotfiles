@@ -30,8 +30,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" lsp
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-lua/popup.nvim'
 	Plug 'hrsh7th/nvim-cmp'
@@ -42,6 +40,11 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'rcarriga/nvim-dap-ui'
 	Plug 'leoluz/nvim-dap-go'
+
+	" telescope/harpoon
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzy-native.nvim'
+	Plug 'ThePrimeagen/harpoon'
 
 	" git
 	Plug 'tpope/vim-fugitive'
@@ -74,21 +77,10 @@ call plug#end()
 
 nnoremap <leader>t :NERDTreeToggle<CR>
 
-" auto-install any missing plugins
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
-
 colorscheme gruvbox
 highlight Normal guibg=none
 
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
+" load init.lua
 lua require('init')
 
 
