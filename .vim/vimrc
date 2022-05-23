@@ -1,3 +1,7 @@
+let mapleader=","					" leader is comma
+nnoremap <leader>ve :e $MYVIMRC<CR>
+nnoremap <leader>vr :so $MYVIMRC<CR>
+
 set number relativenumber				" turn hybrid line numbers on
 set cursorline						" highlight current line
 
@@ -90,7 +94,6 @@ au ColorScheme * hi Normal ctermbg=none guibg=none
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 """ Leader shortcuts
-let mapleader=","					" leader is comma
 
 inoremap jk <esc>" jk is escap				" jk is escape
 
