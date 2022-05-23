@@ -32,14 +32,17 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-lua/popup.nvim'
+
+	" completion
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
+	Plug 'onsails/lspkind.nvim'
+
+	" snippets
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
-	Plug 'rcarriga/nvim-dap-ui'
-	Plug 'leoluz/nvim-dap-go'
 
 	" telescope/harpoon
 	Plug 'nvim-telescope/telescope.nvim'
@@ -59,6 +62,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" debugger
 	Plug 'mfussenegger/nvim-dap'
+	Plug 'rcarriga/nvim-dap-ui'
+	Plug 'leoluz/nvim-dap-go'
 
 	" a e s t h e t i c
 	Plug 'gruvbox-community/gruvbox'
