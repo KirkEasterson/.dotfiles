@@ -41,5 +41,13 @@
 .config/vscode-sqltools/*
 .config/xfce4/xfconf/*
 .config/Thunar/*
+.config/.gsd-keyboard.settings-ported
+.config/gnome-control-center/*
+.config/gnome-initial-setup-done
+.config/gtk-3.0/bookmarks
+.config/pop-shell/*
+.config/pop-system-updater/*
+.config/qalculate/*
+.config/touchegg/*
 
 .config/shell/local_exports
