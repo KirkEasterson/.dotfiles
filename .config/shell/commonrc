@@ -4,7 +4,9 @@ source ~/.config/shell/exports
 source ~/.config/shell/aliases
 source ~/.config/shell/functions
 
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ] ;
+  then . "$HOME/.cargo/env"
+fi
 
 # PATH
 if [ -d "$HOME/.bin" ] ;
