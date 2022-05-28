@@ -73,6 +73,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" language specific, because I'm lazy
 	Plug 'simrat39/rust-tools.nvim'
+	Plug 'jose-elias-alvarez/null-ls.nvim'
+	Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 	" misc
 	Plug 'jbyuki/venn.nvim'
