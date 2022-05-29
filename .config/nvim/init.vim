@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-lua/popup.nvim'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	" completion
 	Plug 'hrsh7th/nvim-cmp'
@@ -59,6 +60,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-surround'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'mbbill/undotree'
+	Plug 'lukas-reineke/indent-blankline.nvim'
 
 	" debugger
 	Plug 'mfussenegger/nvim-dap'
@@ -75,12 +77,16 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+	Plug 'windwp/nvim-ts-autotag'
+	" Plug 'nathanaelkane/vim-indent-guides'
 
 	" misc
 	Plug 'jbyuki/venn.nvim'
 	Plug 'preservim/nerdtree'
 
 call plug#end()
+
+" let g:indent_guides_enable_on_vim_startup = 1
 
 nnoremap <leader>t :NERDTreeToggle<CR>
 
