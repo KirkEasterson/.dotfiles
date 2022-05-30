@@ -6,8 +6,10 @@
 # contents to ignore when making sym links
 ign_files=(
 	".git"
+	".gitignore"
 	"README.md"
 	"clean.sh"
+	"install.sh"
 )
 
 # add name of script dynamically in case the name is changed
