@@ -71,6 +71,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'psliwka/vim-smoothie'
 
 	" language specific, because I'm lazy
@@ -82,13 +83,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" misc
 	Plug 'jbyuki/venn.nvim'
-	Plug 'preservim/nerdtree'
+	Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
 
 " let g:indent_guides_enable_on_vim_startup = 1
 
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>t :NvimTreeToggle<CR>
 
 colorscheme gruvbox
 highlight Normal guibg=none
