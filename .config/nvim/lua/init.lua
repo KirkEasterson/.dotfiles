@@ -7,3 +7,6 @@ require('kirk.comment')
 require('kirk.harpoon')
 require('kirk.indent')
 require('kirk.tree')
+require('kirk.scrollbar')
+require('kirk.neoscroll')
+

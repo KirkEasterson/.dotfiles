@@ -72,14 +72,14 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'psliwka/vim-smoothie'
+	Plug 'karb94/neoscroll.nvim'
+	Plug 'petertriho/nvim-scrollbar'
 
 	" language specific, because I'm lazy
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 	Plug 'windwp/nvim-ts-autotag'
-	" Plug 'nathanaelkane/vim-indent-guides'
 
 	" misc
 	Plug 'jbyuki/venn.nvim'
@@ -97,73 +97,3 @@ highlight Normal guibg=none
 " load init.lua
 lua require('init')
 
-
-" lua <<EOF
-" -- Prettier function for formatter
-" local prettier = function()
-"   return {
-"     exe = "prettier",
-"     args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
-"     stdin = true,
-"   }
-" end
-
-" require("formatter").setup({
-"   logging = false,
-"   filetype = {
-"     typescriptreact = { prettier },
-"     javascriptreact = { prettier },
-"     javascript = { prettier },
-"     typescript = { prettier },
-"     json = { prettier },
-"     jsonc = { prettier },
-"     html = { prettier },
-"     css = { prettier },
-"     scss = { prettier },
-"     markdown = { prettier },
-"     vue = { prettier },
-"     lua = {
-"       -- Stylua
-"       function()
-"         return {
-"           exe = "stylua",
-"           args = {},
-"           stdin = false,
-"         }
-"       end,
-"     },
-"     python = {
-"       -- autopep8
-"       function()
-"         return {
-"           exe = "autopep8",
-"           args = { "--in-place" },
-"           stdin = false,
-"         }
-"       end,
-"     },
-"     --[[ yaml = {
-"       -- yamlfmt
-"       function()
-"         return {
-"           exe = "yamlfmt",
-"           args = { "-w" },
-"           stdin = false,
-"         }
-"       end,
-"     }, ]]
-"   },
-" })
-
-" -- Runs Formmater on save
-" vim.api.nvim_exec(
-"   [[
-" augroup FormatAutogroup
-"   autocmd!
-"   autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.lua,.*.json,*.jsonc,*.vue,*.py FormatWrite
-" augroup END
-" ]],
-"   true
-" )
-
-" EOF
