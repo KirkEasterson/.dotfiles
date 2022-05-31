@@ -44,20 +44,20 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" git
 	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-rhubarb'
+	" Plug 'tpope/vim-rhubarb'
 	Plug 'mhinz/vim-signify'
 
 	" general utility
 	Plug 'numToStr/Comment.nvim'
 	Plug 'tpope/vim-surround'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'mbbill/undotree'
+	" Plug 'mbbill/undotree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
 	" debugger
-	Plug 'mfussenegger/nvim-dap'
-	Plug 'rcarriga/nvim-dap-ui'
-	Plug 'leoluz/nvim-dap-go'
+	" Plug 'mfussenegger/nvim-dap'
+	" Plug 'rcarriga/nvim-dap-ui'
+	" Plug 'leoluz/nvim-dap-go'
 
 	" a e s t h e t i c
 	Plug 'gruvbox-community/gruvbox'
@@ -78,7 +78,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'euclidianAce/BetterLua.vim'
 
 	" misc
-	Plug 'jbyuki/venn.nvim'
+	" Plug 'jbyuki/venn.nvim'
 	Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
