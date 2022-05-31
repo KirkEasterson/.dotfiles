@@ -13,4 +13,3 @@ require('kirk.alpha')
 -- require('kirk.neoscroll')
 
 require('lualine').setup()
-require('nvim-startup').setup()

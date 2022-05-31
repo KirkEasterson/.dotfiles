@@ -53,7 +53,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'mbbill/undotree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
-	Plug 'henriquehbr/nvim-startup.lua'
 
 	" debugger
 	Plug 'mfussenegger/nvim-dap'
@@ -83,8 +82,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
-
-" let g:indent_guides_enable_on_vim_startup = 1
 
 nnoremap <leader>t :NvimTreeToggle<CR>
 
