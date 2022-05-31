@@ -3,14 +3,6 @@ source $HOME/.vim/vimrc
 " fast update times
 set updatetime=100
 
-" tabs of open buffers on top
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline_highlighting_cache = 1
-
 " gruvbox config
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
@@ -61,6 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'mbbill/undotree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'henriquehbr/nvim-startup.lua'
 
 	" debugger
 	Plug 'mfussenegger/nvim-dap'
@@ -69,17 +62,21 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" a e s t h e t i c
 	Plug 'gruvbox-community/gruvbox'
-	Plug 'vim-airline/vim-airline'
+	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'petertriho/nvim-scrollbar'
+	Plug 'romgrk/barbar.nvim'
+	Plug 'goolord/alpha-nvim'
 
 	" language specific, because I'm lazy
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 	Plug 'windwp/nvim-ts-autotag'
+	" Plug 'tjdevries/nlua.nvim'
+	" Plug 'euclidianAce/BetterLua.vim'
 
 	" misc
 	Plug 'jbyuki/venn.nvim'

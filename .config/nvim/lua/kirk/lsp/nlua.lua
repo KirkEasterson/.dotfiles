@@ -1,0 +1,9 @@
+-- require('kirk.lsp.on_attach')
+--
+-- require('nlua.lsp.nvim').setup(require('lspconfig'), {
+--   on_attach = on_attach,
+--
+--   globals = {
+--     "Color", "c", "Group", "g", "s",
+--   }
+-- })
