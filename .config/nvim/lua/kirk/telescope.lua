@@ -1,14 +1,13 @@
 local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
 
-local map = require("util").map
+local util = require("util")
 
-
-map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-map("n", "<leader>fG", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
-map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
-map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
+util.map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+util.map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+util.map("n", "<leader>fG", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
+util.map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
+util.map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 
 require('telescope').setup{
 	defaults = {
@@ -34,3 +33,6 @@ require('telescope').setup{
 		}
 	}
 }
+
+require("telescope").load_extension("fzy_native")
+-- require("telescope").load_extension("git_worktree")
