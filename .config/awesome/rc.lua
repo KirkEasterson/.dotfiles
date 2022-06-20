@@ -3,9 +3,8 @@
 --	- customize top bar
 --	- figure out how gaps work
 --	- screen locking
---	- changing screens/moving windows to other screens
---		- how to tags work with other windows?
 --	- get a battery module
+--	- get volume/media keys working
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -30,6 +29,13 @@ require("awful.hotkeys_popup.keys")
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
+
+-- widgets
+-- https://github.com/streetturtle/awesome-wm-widgets
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -222,6 +228,13 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mykeyboardlayout,
+			ram_widget({}),
+			cpu_widget({}),
+			battery_widget({
+				path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
+				show_current_level = true,
+			}),
+			volume_widget({}),
 			wibox.widget.systray(),
 			mytextclock,
 			s.mylayoutbox,
