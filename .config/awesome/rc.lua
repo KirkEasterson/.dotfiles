@@ -1,10 +1,13 @@
 -- TODO:
+--	- in general: CLEAN THIS UP
+--		- THIS IS EMBARASSING
 --	- deconstruct this rc into multiple files
 --	- get scratchpad terminals working
---	- bindings to change kb layout
---		- eventually build a widget with options for choosing kb layout
---	- screen locking (NEEDS TESTING)
---		- add keyboard shrotcut
+--	- eventually build a widget with options for choosing kb layout
+--	- automate trackpad config outside of configs
+--		- put the file in /etc/X11/something in ansible
+--	- debug flameshot
+--	- change height of windows in a keybinding
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -71,7 +74,9 @@ beautiful.init("~/.config/awesome/theme.lua")
 
 -- DEFAULT EDITOR
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "editor"
+browser = "firefox"
+file_manager = "thunar"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- MOD KEY
@@ -291,8 +296,14 @@ globalkeys = gears.table.join(
 		{ description = "focus previous by index", group = "client" }
 	),
 
-	awful.key({ modkey, }, "w", function() awful.util.spawn("firefox") end,
-		{ description = "open firefox", group = "kirk" }),
+	awful.key({ modkey, }, "w", function() awful.util.spawn(browser) end,
+		{ description = "open browser", group = "kirk" }),
+
+	awful.key({ modkey, }, "e", function() awful.util.spawn("thunar") end,
+		{ description = "open file manager", group = "kirk" }),
+
+	awful.key({ modkey, }, "x", function() awful.util.spawn("i3lock -e -c 000000") end,
+		{ description = "lock screen", group = "kirk" }),
 
 	-- Layout manipulation
 	awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
