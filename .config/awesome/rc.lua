@@ -85,9 +85,6 @@ modkey = "Mod4"
 -- TODO: Reduce this to ones that I actually want
 awful.layout.layouts = {
 	awful.layout.suit.tile,
-	awful.layout.suit.tile.left,
-	awful.layout.suit.fair,
-	awful.layout.suit.fair.horizontal,
 	awful.layout.suit.floating,
 }
 
@@ -665,4 +662,3 @@ awful.spawn.with_shell("compton")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
--- awful.spawn.with_shell("$HOME/.config/polybar/launch.sh")
