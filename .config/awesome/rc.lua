@@ -1,9 +1,10 @@
 -- TODO:
+--	- deconstruct this rc into multiple files
 --	- get scratchpad terminals working
---	- figure out how gaps work
---	- screen locking
---	- get a battery module
---	- get volume/media keys working
+--	- bindings to change kb layout
+--		- eventually build a widget with options for choosing kb layout
+--	- screen locking (NEEDS TESTING)
+--		- add keyboard shrotcut
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -35,6 +36,10 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local separator = wibox.widget.textbox(" | ")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -120,6 +125,13 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock('%a %d %b %Y %T')
+local cw = calendar_widget({
+	placement = 'top_right',
+})
+mytextclock:connect_signal("button::press",
+	function(_, _, _, button)
+		if button == 1 then cw.toggle() end
+	end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -215,23 +227,38 @@ awful.screen.connect_for_each_screen(function(s)
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
-			mylauncher,
+			logout_menu_widget({
+				onlock = function() awful.spawn.with_shell('i3lock -e -c 000000') end
+			}),
 			s.mytaglist,
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
+			wibox.widget.systray(),
+			separator,
 			mykeyboardlayout,
+			separator,
 			ram_widget({}),
+			separator,
 			cpu_widget({}),
+			separator,
+			brightness_widget({
+				type = "icon_and_text",
+				program = "brightnessctl",
+				percentage = true,
+			}),
+			separator,
+			volume_widget({}),
+			separator,
 			battery_widget({
 				path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
 				show_current_level = true,
 			}),
-			volume_widget({}),
-			wibox.widget.systray(),
+			separator,
 			mytextclock,
+			separator,
 			s.mylayoutbox,
 		},
 	}
@@ -339,10 +366,10 @@ globalkeys = gears.table.join(
 
 	-- gaps
 	-- TODO: eventually add bindings for resetting gaps and setting to some nice number
-	awful.key({ modkey, "Control" }, "h", function() awful.tag.incgap(2) end,
+	awful.key({ modkey, "Control" }, "h", function() awful.tag.incgap(-2) end,
 		{ description = "decrease gaps", group = "gaps" }),
 
-	awful.key({ modkey, "Control" }, "l", function() awful.tag.incgap(-2) end,
+	awful.key({ modkey, "Control" }, "l", function() awful.tag.incgap(2) end,
 		{ description = "increase gaps", group = "gaps" }),
 
 	-- volume keys
@@ -372,11 +399,28 @@ globalkeys = gears.table.join(
 		{ description = "previous in media", group = "media" }),
 
 	-- brightness keys
-	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=2 -q set 3%-", false) end,
+	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=5 -q set 5%-", false) end,
 		{ description = "decrease monitor brightness", group = "brightness" }),
 
-	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 3%+", false) end,
-		{ description = "increase monitor brightness", group = "brightness" })
+	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 5%+", false) end,
+		{ description = "increase monitor brightness", group = "brightness" }),
+
+	-- screenshots
+	awful.key({}, "Print", function() awful.util.spawn("flameshot gui", false) end,
+		{ description = "screenshot selected area", group = "screenshot" }),
+
+	awful.key({ "Shift" }, "Print", function() awful.util.spawn("flameshot full -p $HOME/Pictures/screenshots", false) end,
+		{ description = "screenshot selected full screen", group = "screenshot" }),
+
+	-- keyboard layouts
+	awful.key({ modkey, "Shift" }, "a", function() awful.util.spawn("setxkbmap us", false) end,
+		{ description = "set us keyboard layout", group = "keyboard" }),
+
+	awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("setxkbmap se", false) end,
+		{ description = "set swedish keyboard layout", group = "keyboard" }),
+
+	awful.key({ modkey, "Shift" }, "g", function() awful.util.spawn("setxkbmap no", false) end,
+		{ description = "set norwegian keyboard layout", group = "keyboard" })
 )
 
 clientkeys = gears.table.join(
@@ -588,6 +632,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 0
 
 -- AUTO-EXEC
+awful.spawn.with_shell("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
