@@ -279,6 +279,7 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+local scratch = require("awesome-scratch.scratch")
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
@@ -353,11 +354,11 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "l", function() awful.tag.incnmaster(-1, nil, true) end,
 		{ description = "decrease the number of master clients", group = "layout" }),
 
-	awful.key({ modkey, }, "space", function() awful.layout.inc(1) end,
-		{ description = "select next", group = "layout" }),
+	-- awful.key({ modkey, }, "space", function() awful.layout.inc(1) end,
+	-- 	{ description = "select next", group = "layout" }),
 
-	awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
-		{ description = "select previous", group = "layout" }),
+	-- awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
+	-- 	{ description = "select previous", group = "layout" }),
 
 	awful.key({ modkey, "Control" }, "n",
 		function()
@@ -431,7 +432,15 @@ globalkeys = gears.table.join(
 		{ description = "set swedish keyboard layout", group = "keyboard" }),
 
 	awful.key({ modkey, "Shift" }, "g", function() awful.util.spawn("setxkbmap no", false) end,
-		{ description = "set norwegian keyboard layout", group = "keyboard" })
+		{ description = "set norwegian keyboard layout", group = "keyboard" }),
+
+	-- scratchpads
+	awful.key({ modkey, }, "space", function() scratch.toggle("alacritty --class scratch-main -t scratch-main", { instance = "scratch-main" }) end,
+		{ description = "open browser", group = "kirk" }),
+
+	awful.key({ modkey, }, "c", function() scratch.toggle("alacritty --class scratch-py -t scratch-py -e python3 -q", { instance = "scratch-py" }) end,
+		{ description = "open browser", group = "kirk" })
+
 )
 
 clientkeys = gears.table.join(
@@ -573,35 +582,43 @@ awful.rules.rules = {
 	},
 
 	-- Floating clients.
-	{ rule_any = {
-		instance = {
-			"DTA", -- Firefox addon DownThemAll.
-			"copyq", -- Includes session name in class.
-			"pinentry",
-		},
-		class = {
-			"Arandr",
-			"Blueman-manager",
-			"Gpick",
-			"Kruler",
-			"MessageWin", -- kalarm.
-			"Sxiv",
-			"Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-			"Wpa_gui",
-			"veromix",
-			"xtightvncviewer" },
+	{
+		rule_any = {
+			instance = {
+				"DTA", -- Firefox addon DownThemAll.
+				"copyq", -- Includes session name in class.
+				"pinentry",
+				"scratch-main",
+				"scratch-py",
+			},
+			class = {
+				"Arandr",
+				"Blueman-manager",
+				"Gpick",
+				"Kruler",
+				"MessageWin", -- kalarm.
+				"Sxiv",
+				"Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+				"Wpa_gui",
+				"veromix",
+				"xtightvncviewer",
+			},
 
-		-- Note that the name property shown in xprop might be set slightly after creation of the client
-		-- and the name shown there might not match defined rules here.
-		name = {
-			"Event Tester", -- xev.
-		},
-		role = {
-			"AlarmWindow", -- Thunderbird's calendar.
-			"ConfigManager", -- Thunderbird's about:config.
-			"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+			-- Note that the name property shown in xprop might be set slightly after creation of the client
+			-- and the name shown there might not match defined rules here.
+			name = {
+				"Event Tester", -- xev.
+			},
+			role = {
+				"AlarmWindow", -- Thunderbird's calendar.
+				"ConfigManager", -- Thunderbird's about:config.
+				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+			}
+		}, properties = {
+			floating = true,
+			placement = awful.placement.centered,
 		}
-	}, properties = { floating = true } },
+	},
 
 	-- Add titlebars to normal clients and dialogs
 	{ rule_any = { type = { "normal", "dialog" }
