@@ -2,7 +2,6 @@
 --	- in general: CLEAN THIS UP
 --		- THIS IS EMBARASSING
 --	- deconstruct this rc into multiple files
---	- get scratchpad terminals working
 --	- eventually build a widget with options for choosing kb layout
 --	- automate trackpad config outside of configs
 --		- put the file in /etc/X11/something in ansible
@@ -279,6 +278,7 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+-- https://github.com/notnew/awesome-scratch
 local scratch = require("awesome-scratch.scratch")
 -- {{{ Key bindings
 globalkeys = gears.table.join(
