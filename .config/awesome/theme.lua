@@ -124,7 +124,7 @@ theme.border_normal = theme.gtk.wm_border_unfocused_color
 theme.border_focus  = theme.gtk.wm_border_focused_color
 theme.border_marked = theme.gtk.success_color
 
-theme.border_width  = dpi(theme.gtk.button_border_width or 1)
+theme.border_width  = dpi(5)
 theme.border_radius = theme.gtk.button_border_radius
 
 
