@@ -69,7 +69,7 @@ end
 -- }}}
 
 -- THEME
-beautiful.init("~/.config/awesome/theme.lua")
+beautiful.init("~/.config/awesome/themes/gruvbox/theme.lua")
 
 -- DEFAULT EDITOR
 terminal = "alacritty"
