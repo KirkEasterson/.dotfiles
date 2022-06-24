@@ -640,7 +640,7 @@ beautiful.useless_gap = 0
 
 -- AUTO-EXEC
 awful.spawn.with_shell("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
-awful.spawn.with_shell("compton")
+awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
