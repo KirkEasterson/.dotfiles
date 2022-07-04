@@ -18,6 +18,7 @@ ls.add_snippets("go", {
 		t({"", "}"}),
 	}),
 	s("err", {
+		-- fmt({"if err != nil {{",	"\treturn {}", "}}"})
 		t({"if err != nil {", "\treturn "}),
 		i(0),
 		t({"", "}"})

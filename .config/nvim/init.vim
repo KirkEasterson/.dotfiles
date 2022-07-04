@@ -3,6 +3,9 @@ source $HOME/.vim/vimrc
 " fast update times
 set updatetime=100
 
+" making copying easier
+set clipboard+=unnamedplus
+
 " gruvbox config
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
@@ -39,6 +42,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" telescope/harpoon
 	Plug 'nvim-telescope/telescope.nvim'
+	" Plug 'nvim-telescope/telescope.nvim', {  'as': 'telescope-dev', 'branch': 'dev' }
+	" Plug '~/dev/telescope.nvim/'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	Plug 'ThePrimeagen/harpoon'
 
@@ -67,6 +72,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'petertriho/nvim-scrollbar'
 	Plug 'romgrk/barbar.nvim'
+	" Plug '~/dev/barbar.nvim/'
 	Plug 'goolord/alpha-nvim'
 
 	" language specific, because I'm lazy
@@ -74,8 +80,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 	Plug 'windwp/nvim-ts-autotag'
-	" Plug 'tjdevries/nlua.nvim'
-	" Plug 'euclidianAce/BetterLua.vim'
+	Plug 'tjdevries/nlua.nvim'
+	Plug 'euclidianAce/BetterLua.vim'
 
 	" misc
 	" Plug 'jbyuki/venn.nvim'
