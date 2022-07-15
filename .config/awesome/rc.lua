@@ -315,14 +315,14 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
 		{ description = "jump to urgent client", group = "client" }),
 
-	awful.key({ modkey, }, "Tab",
-		function()
-			awful.client.focus.history.previous()
-			if client.focus then
-				client.focus:raise()
-			end
-		end,
-		{ description = "go back", group = "client" }),
+	-- awful.key({ modkey, }, "Tab",
+	-- 	function()
+	-- 		awful.client.focus.history.previous()
+	-- 		if client.focus then
+	-- 			client.focus:raise()
+	-- 		end
+	-- 	end,
+	-- 	{ description = "go back", group = "client" }),
 
 	-- Standard program
 	awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
@@ -348,10 +348,10 @@ globalkeys = gears.table.join(
 		{ description = "decrease the number of master clients", group = "layout" }),
 
 	awful.key({ modkey, "Control" }, "h", function() awful.tag.viewprev() end,
-		{ description = "decrease gaps", group = "layout" }),
+		{ description = "move to next tag", group = "layout" }),
 
 	awful.key({ modkey, "Control" }, "l", function() awful.tag.viewnext() end,
-		{ description = "increase gaps", group = "layout" }),
+		{ description = "move to previous tag", group = "layout" }),
 
 	awful.key({ modkey, "Control" }, "n",
 		function()
@@ -370,12 +370,17 @@ globalkeys = gears.table.join(
 		{ description = "show the menubar", group = "launcher" }),
 
 	-- gaps
-	-- TODO: eventually add bindings for resetting gaps and setting to some nice number
-	-- awful.key({ modkey, "Control" }, "h", function() awful.tag.incgap(-2) end,
-	-- 	{ description = "decrease gaps", group = "gaps" }),
-	--
-	-- awful.key({ modkey, "Control" }, "l", function() awful.tag.incgap(2) end,
-	-- 	{ description = "increase gaps", group = "gaps" }),
+	awful.key({ modkey }, "Tab", function() awful.tag.incgap(-2) end,
+		{ description = "decrease gaps", group = "gaps" }),
+
+	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.incgap(2) end,
+		{ description = "increase gaps", group = "gaps" }),
+
+	awful.key({ modkey, "Control" }, "Tab", function() awful.tag.setgap(15) end,
+		{ description = "reset gaps", group = "gaps" }),
+
+	awful.key({ modkey, "Control", "Shift" }, "Tab", function() awful.tag.setgap(0) end,
+		{ description = "reset gaps", group = "gaps" }),
 
 	-- volume keys
 	awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
