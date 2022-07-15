@@ -80,7 +80,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 	Plug 'windwp/nvim-ts-autotag'
-	Plug 'tjdevries/nlua.nvim'
+	" Plug 'tjdevries/nlua.nvim'
 	Plug 'euclidianAce/BetterLua.vim'
 
 	" misc
