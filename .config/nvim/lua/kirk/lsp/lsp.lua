@@ -1,3 +1,4 @@
+require('kirk.lsp.inc_rename')
 require('kirk.lsp.completion')
 -- require('kirk.lsp.dap')
 require('kirk.lsp.go')

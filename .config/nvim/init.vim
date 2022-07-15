@@ -21,6 +21,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source ~/.config/nvim/init.vim
 \| endif
 
+set laststatus=3
+" vim.cmd('highlight WinSeparator guibg=None') " TODO: Figure out why this isn't working
+
 call plug#begin('~/.config/nvim/plugged')
 
 	" lsp
@@ -28,6 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-lua/popup.nvim'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'smjonas/inc-rename.nvim'
 
 	" completion
 	Plug 'hrsh7th/nvim-cmp'
