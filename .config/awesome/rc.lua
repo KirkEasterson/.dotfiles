@@ -85,6 +85,20 @@ modkey = "Mod4"
 -- TODO: Reduce this to ones that I actually want
 awful.layout.layouts = {
 	awful.layout.suit.tile,
+	awful.layout.suit.tile.left,
+	awful.layout.suit.tile.bottom,
+	awful.layout.suit.tile.top,
+	awful.layout.suit.fair,
+	awful.layout.suit.fair.horizontal,
+	-- awful.layout.suit.spiral,
+	-- awful.layout.suit.spiral.dwindle,
+	-- awful.layout.suit.max,
+	-- awful.layout.suit.max.fullscreen,
+	awful.layout.suit.magnifier,
+	awful.layout.suit.corner.nw,
+	awful.layout.suit.corner.ne,
+	awful.layout.suit.corner.sw,
+	awful.layout.suit.corner.se,
 	awful.layout.suit.floating,
 }
 
@@ -333,11 +347,11 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "l", function() awful.tag.incnmaster(-1, nil, true) end,
 		{ description = "decrease the number of master clients", group = "layout" }),
 
-	-- awful.key({ modkey, }, "space", function() awful.layout.inc(1) end,
-	-- 	{ description = "select next", group = "layout" }),
+	awful.key({ modkey, "Control" }, "h", function() awful.tag.viewprev() end,
+		{ description = "decrease gaps", group = "layout" }),
 
-	-- awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
-	-- 	{ description = "select previous", group = "layout" }),
+	awful.key({ modkey, "Control" }, "l", function() awful.tag.viewnext() end,
+		{ description = "increase gaps", group = "layout" }),
 
 	awful.key({ modkey, "Control" }, "n",
 		function()
@@ -357,11 +371,11 @@ globalkeys = gears.table.join(
 
 	-- gaps
 	-- TODO: eventually add bindings for resetting gaps and setting to some nice number
-	awful.key({ modkey, "Control" }, "h", function() awful.tag.incgap(-2) end,
-		{ description = "decrease gaps", group = "gaps" }),
-
-	awful.key({ modkey, "Control" }, "l", function() awful.tag.incgap(2) end,
-		{ description = "increase gaps", group = "gaps" }),
+	-- awful.key({ modkey, "Control" }, "h", function() awful.tag.incgap(-2) end,
+	-- 	{ description = "decrease gaps", group = "gaps" }),
+	--
+	-- awful.key({ modkey, "Control" }, "l", function() awful.tag.incgap(2) end,
+	-- 	{ description = "increase gaps", group = "gaps" }),
 
 	-- volume keys
 	awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
