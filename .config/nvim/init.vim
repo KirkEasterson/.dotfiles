@@ -52,6 +52,10 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'tpope/vim-rhubarb'
 	Plug 'mhinz/vim-signify'
 
+	" DB
+	Plug 'tpope/vim-dadbod'
+	Plug 'kristijanhusak/vim-dadbod-ui'
+
 	" general utility
 	Plug 'rmagatti/auto-session'
 	Plug 'numToStr/Comment.nvim'
@@ -73,8 +77,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'petertriho/nvim-scrollbar'
 	Plug 'romgrk/barbar.nvim'
-	" Plug '~/dev/barbar.nvim/'
 	Plug 'goolord/alpha-nvim'
+	" Plug 'norcalli/nvim-colorizer.lua'
 
 	" language specific, because I'm lazy
 	Plug 'simrat39/rust-tools.nvim'
@@ -94,6 +98,12 @@ nnoremap <leader>t :NvimTreeToggle<CR>
 
 colorscheme gruvbox
 highlight Normal guibg=none
+
+" vim dadbod
+nnoremap <silent> <leader>du :DBUIToggle<CR>
+nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
+nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
+nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>let g:db_ui_save_location = '~/.config/db_ui'
 
 " load init.lua
 lua require('init')

@@ -13,3 +13,4 @@ require('kirk.barbar')
 require('kirk.alpha')
 require('kirk.scrollbar')
 require('kirk.neoscroll')
+-- require('kirk.colorizer') -- TODO: figure out why this doesn't work
