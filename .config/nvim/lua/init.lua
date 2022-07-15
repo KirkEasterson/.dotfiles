@@ -1,4 +1,6 @@
 -- require('kirk.settings')
+require('kirk.auto_session')
+require('kirk.lualine')
 require('kirk.treesitter')
 require('kirk.lsp.lsp')
 require('kirk.snippets.snippets')
@@ -11,5 +13,3 @@ require('kirk.barbar')
 require('kirk.alpha')
 require('kirk.scrollbar')
 require('kirk.neoscroll')
-
-require('lualine').setup()

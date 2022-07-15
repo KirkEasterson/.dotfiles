@@ -53,6 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mhinz/vim-signify'
 
 	" general utility
+	Plug 'rmagatti/auto-session'
 	Plug 'numToStr/Comment.nvim'
 	Plug 'tpope/vim-surround'
 	Plug 'jiangmiao/auto-pairs'
