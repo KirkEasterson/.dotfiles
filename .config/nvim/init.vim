@@ -44,11 +44,13 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 
-	" telescope/harpoon
+	" telescope
 	Plug 'nvim-telescope/telescope.nvim'
 	" Plug 'nvim-telescope/telescope.nvim', {  'as': 'telescope-dev', 'branch': 'dev' }
 	" Plug '~/dev/telescope.nvim/'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
+	Plug 'nvim-telescope/telescope-frecency.nvim'
+	Plug 'tami5/sqlite.lua'
 	Plug 'ThePrimeagen/harpoon'
 
 	" git

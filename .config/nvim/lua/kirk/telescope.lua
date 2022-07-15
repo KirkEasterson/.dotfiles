@@ -38,6 +38,11 @@ require('telescope').setup {
 			override_generic_sorter = false,
 			override_file_sorter = true,
 		},
+		frecency = {
+			show_scores = false,
+			show_unindexed = true,
+			ignore_patterns = { "*.git/*", "*/tmp/*" },
+		},
 	},
 	pickers = {
 		find_files = {
@@ -48,4 +53,5 @@ require('telescope').setup {
 }
 
 require("telescope").load_extension("fzy_native")
+require('telescope').load_extension('frecency')
 -- require("telescope").load_extension("git_worktree")
