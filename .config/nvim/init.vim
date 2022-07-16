@@ -57,6 +57,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-fugitive'
 	" Plug 'tpope/vim-rhubarb'
 	Plug 'mhinz/vim-signify'
+	Plug 'pwntester/octo.nvim'
 
 	" DB
 	Plug 'tpope/vim-dadbod'
