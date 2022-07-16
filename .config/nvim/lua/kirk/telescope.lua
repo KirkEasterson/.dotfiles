@@ -8,7 +8,7 @@ util.map("n", "<leader>FF", "<cmd>lua require('telescope.builtin').current_buffe
 util.map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 util.map("n", "<leader>fG", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
 util.map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
-util.map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
+-- util.map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 util.map("n", "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
 util.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 util.map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<CR>")
@@ -48,7 +48,7 @@ require('telescope').setup {
 		find_files = {
 			hidden = true,
 			theme = "dropdown",
-		}
+		},
 	}
 }
 
