@@ -52,6 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-telescope/telescope-frecency.nvim'
 	Plug 'tami5/sqlite.lua'
 	Plug 'ThePrimeagen/harpoon'
+	Plug 'rmagatti/session-lens'
 
 	" git
 	Plug 'tpope/vim-fugitive'
