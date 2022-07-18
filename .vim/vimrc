@@ -91,6 +91,13 @@ autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" use relative numbers only in active buffer
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 " transparent background
 au ColorScheme * hi Normal ctermbg=none guibg=none
 
