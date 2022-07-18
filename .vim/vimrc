@@ -78,12 +78,10 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'gk'
 
 " move text
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
+vnoremap <A-j>  :m '>+1<CR>gv=gv
+vnoremap <A-k>  :m '<-2<CR>gv=gv
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k>  :m .-2<CR>==
 
 " Build if a note file
 autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
