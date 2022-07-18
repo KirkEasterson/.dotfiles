@@ -88,6 +88,9 @@ nnoremap <leader>k :m .-2<CR>==
 " Build if a note file
 autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
 
+" remove trailing whitespace on each save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " transparent background
 au ColorScheme * hi Normal ctermbg=none guibg=none
 
