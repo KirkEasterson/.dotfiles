@@ -83,6 +83,10 @@ vnoremap <A-k>  :m '<-2<CR>gv=gv
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k>  :m .-2<CR>==
 
+" re-select the selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
 " Build if a note file
 autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
 
