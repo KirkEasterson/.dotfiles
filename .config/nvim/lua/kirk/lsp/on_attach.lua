@@ -1,3 +1,5 @@
+-- TODO: make this a module
+
 on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -46,4 +48,15 @@ on_attach = function(client, bufnr)
 			augroup END
 		]], false)
 	end
+end
+
+
+ts_on_attach = function(client, bufnr)
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.document_range_formatting = false
+
+	local ts_utils = require("nvim-lsp-ts-utils")
+	ts_utils.setup({})
+	ts_utils.setup_client(client)
+	on_attach(client, bufnr)
 end
