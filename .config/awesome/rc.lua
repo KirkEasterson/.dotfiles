@@ -245,6 +245,8 @@ awful.screen.connect_for_each_screen(function(s)
 				type = "icon_and_text",
 				program = "brightnessctl",
 				percentage = true,
+				base = 70,
+				timeout = 1,
 			}),
 			separator,
 			volume_widget({}),
