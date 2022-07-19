@@ -71,6 +71,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	" Plug 'mbbill/undotree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'ellisonleao/glow.nvim'
 
 	" debugger
 	" Plug 'mfussenegger/nvim-dap'
