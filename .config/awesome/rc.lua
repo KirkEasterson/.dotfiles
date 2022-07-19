@@ -34,6 +34,7 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
+local apt_widget = require("awesome-wm-widgets.apt-widget.apt-widget")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
@@ -234,6 +235,8 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
+			separator,
+			apt_widget(),
 			separator,
 			mykeyboardlayout,
 			separator,
@@ -672,11 +675,11 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 0
 
 -- AUTO-EXEC
-awful.spawn("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
-awful.spawn("picom --experimental-backends")
-awful.spawn("$HOME/.fehbg")
-awful.spawn("flameshot")
-awful.spawn("setxkbmap -option caps:escape")
+awful.spawn.with_shell("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
+awful.spawn.with_shell("picom --experimental-backends")
+awful.spawn.with_shell("$HOME/.fehbg")
+awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("setxkbmap -option caps:escape")
 -- awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
 
 collectgarbage("setpause", 160)
