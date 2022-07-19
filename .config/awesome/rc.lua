@@ -388,16 +388,19 @@ globalkeys = gears.table.join(
 		{ description = "reset gaps", group = "gaps" }),
 
 	-- volume keys
-	awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
+	awful.key({}, "XF86AudioRaiseVolume",
+		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
 		{ description = "raise volume", group = "volume" }),
 
-	awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%", false) end,
+	awful.key({}, "XF86AudioLowerVolume",
+		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%", false) end,
 		{ description = "lower volume", group = "volume" }),
 
 	awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
 		{ description = "mute audio", group = "volume" }),
 
-	awful.key({}, "XF86AudioMicMute", function() awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false) end,
+	awful.key({}, "XF86AudioMicMute",
+		function() awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false) end,
 		{ description = "mute mic", group = "volume" }),
 
 	-- media keys
@@ -414,7 +417,8 @@ globalkeys = gears.table.join(
 		{ description = "previous in media", group = "media" }),
 
 	-- brightness keys
-	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=10 -q set 10%-", false) end,
+	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=10 -q set 10%-", false) end
+		,
 		{ description = "decrease monitor brightness", group = "brightness" }),
 
 	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 10%+", false) end,
@@ -440,10 +444,13 @@ globalkeys = gears.table.join(
 	-- scratchpads
 	-- TODO: find out how to make tmux script work
 	-- awful.key({ modkey, }, "space", function() scratch.toggle("alacritty --class scratch-main -t scratch-main -e tmux_scratch.sh", { instance = "scratch-main" }) end,
-	awful.key({ modkey, }, "space", function() scratch.toggle("alacritty --class scratch-main -t scratch-main", { instance = "scratch-main" }) end,
+	awful.key({ modkey, }, "space",
+		function() scratch.toggle("alacritty --class scratch-main -t scratch-main", { instance = "scratch-main" }) end,
 		{ description = "open browser", group = "kirk" }),
 
-	awful.key({ modkey, }, "c", function() scratch.toggle("alacritty --class scratch-py -t scratch-py -e python3 -q", { instance = "scratch-py" }) end,
+	awful.key({ modkey, }, "c",
+		function() scratch.toggle("alacritty --class scratch-py -t scratch-py -e python3 -q", { instance = "scratch-py" }) end
+		,
 		{ description = "open browser", group = "kirk" })
 
 )
