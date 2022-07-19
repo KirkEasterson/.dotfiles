@@ -369,7 +369,7 @@ globalkeys = gears.table.join(
 		{ description = "restore minimized", group = "client" }),
 
 	-- Menubar
-	awful.key({ modkey }, "p", function() awful.spawn.with_shell("rofi -show run") end,
+	awful.key({ modkey }, "p", function() awful.spawn("rofi -show run") end,
 		{ description = "show the menubar", group = "launcher" }),
 
 	-- gaps
@@ -412,10 +412,10 @@ globalkeys = gears.table.join(
 		{ description = "previous in media", group = "media" }),
 
 	-- brightness keys
-	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=5 -q set 5%-", false) end,
+	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=10 -q set 10%-", false) end,
 		{ description = "decrease monitor brightness", group = "brightness" }),
 
-	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 5%+", false) end,
+	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 10%+", false) end,
 		{ description = "increase monitor brightness", group = "brightness" }),
 
 	-- screenshots
@@ -663,12 +663,12 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 0
 
 -- AUTO-EXEC
-awful.spawn.with_shell("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
-awful.spawn.with_shell("picom --experimental-backends")
-awful.spawn.with_shell("$HOME/.fehbg")
-awful.spawn.with_shell("flameshot")
-awful.spawn.with_shell("setxkbmap -option caps:escape")
-awful.spawn.with_shell("pcmanfm -d")
+awful.spawn("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
+awful.spawn("picom --experimental-backends")
+awful.spawn("$HOME/.fehbg")
+awful.spawn("flameshot")
+awful.spawn("setxkbmap -option caps:escape")
+awful.spawn("pcmanfm -d")
 
 collectgarbage("setpause", 160)
 collectgarbage("setstepmul", 400)
