@@ -293,8 +293,11 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, }, "w", function() awful.util.spawn(browser) end,
 		{ description = "open browser", group = "kirk" }),
 
-	awful.key({ modkey, }, "e", function() awful.util.spawn("thunar") end,
+	awful.key({ modkey, }, "e", function() awful.util.spawn(file_manager) end,
 		{ description = "open file manager", group = "kirk" }),
+
+	awful.key({ modkey, "Shift" }, "e", function() awful.util.spawn(terminal .. " -e lfrun") end,
+		{ description = "open termainl file manager", group = "kirk" }),
 
 	awful.key({ modkey, }, "x", function() awful.util.spawn("i3lock -e -c 000000") end,
 		{ description = "lock screen", group = "kirk" }),
