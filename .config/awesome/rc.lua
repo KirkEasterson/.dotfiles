@@ -665,7 +665,7 @@ awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
-awful.spawn.with_shell("pcmanfm --desktop &")
+awful.spawn.with_shell("pcmanfm -d")
 
 collectgarbage("setpause", 160)
 collectgarbage("setstepmul", 400)
