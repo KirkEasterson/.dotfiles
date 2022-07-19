@@ -670,7 +670,7 @@ awful.spawn("picom --experimental-backends")
 awful.spawn("$HOME/.fehbg")
 awful.spawn("flameshot")
 awful.spawn("setxkbmap -option caps:escape")
-awful.spawn("pcmanfm -d")
+-- awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
 
 collectgarbage("setpause", 160)
 collectgarbage("setstepmul", 400)
