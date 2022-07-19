@@ -433,6 +433,8 @@ globalkeys = gears.table.join(
 		{ description = "set norwegian keyboard layout", group = "keyboard" }),
 
 	-- scratchpads
+	-- TODO: find out how to make tmux script work
+	-- awful.key({ modkey, }, "space", function() scratch.toggle("alacritty --class scratch-main -t scratch-main -e tmux_scratch.sh", { instance = "scratch-main" }) end,
 	awful.key({ modkey, }, "space", function() scratch.toggle("alacritty --class scratch-main -t scratch-main", { instance = "scratch-main" }) end,
 		{ description = "open browser", group = "kirk" }),
 
