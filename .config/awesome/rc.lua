@@ -446,15 +446,17 @@ globalkeys = gears.table.join(
 
 	-- scratchpads
 	-- TODO: find out how to make tmux script work
-	-- awful.key({ modkey, }, "space", function() scratch.toggle("alacritty --class scratch-main -t scratch-main -e tmux_scratch.sh", { instance = "scratch-main" }) end,
 	awful.key({ modkey, }, "space",
-		function() scratch.toggle("alacritty --class scratch-main -t scratch-main", { instance = "scratch-main" }) end,
-		{ description = "open browser", group = "kirk" }),
+		function() scratch.toggle("alacritty --class scratch-main -t scratch-main -e tmux a -t scratchpad; select-window -t main"
+				, { instance = "scratch-main" }, true)
+		end,
+		{ description = "open scratch terminal", group = "kirk" }),
 
 	awful.key({ modkey, }, "c",
-		function() scratch.toggle("alacritty --class scratch-py -t scratch-py -e python3 -q", { instance = "scratch-py" }) end
-		,
-		{ description = "open browser", group = "kirk" })
+		function() scratch.toggle("alacritty --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator"
+				, { instance = "scratch-py" }, true)
+		end,
+		{ description = "open calculator", group = "kirk" })
 
 )
 
