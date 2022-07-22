@@ -2,13 +2,13 @@ window:
   padding:
     x: 2
     y: 2
-  opacity: 0.8
+  opacity: 0.9
 
 scrolling:
   history: 100000
 
 font:
-  size: 10.0
+  size: 7.0
   normal:
     family: JetBrains Mono Nerd Font
     style: Medium
