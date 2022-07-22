@@ -42,7 +42,7 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
-local separator = wibox.widget.textbox(" | ")
+local separator = wibox.widget.textbox("  |  ")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -140,7 +140,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock('%a %d %b %Y %T', 1)
+mytextclock = wibox.widget.textclock('%a %d %b %Y, wk %V, %T', 1)
 local cw = calendar_widget({
 	placement = 'top_right',
 })
@@ -236,14 +236,14 @@ awful.screen.connect_for_each_screen(function(s)
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
 			separator,
-			apt_widget(),
-			separator,
+			wibox.widget.textbox(' '),
 			mykeyboardlayout,
 			separator,
+			wibox.widget.textbox('RAM:'),
 			ram_widget({}),
 			separator,
+			wibox.widget.textbox('CPU: '),
 			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 5),
-			separator,
 			cpu_widget({}),
 			separator,
 			brightness_widget({
@@ -261,6 +261,7 @@ awful.screen.connect_for_each_screen(function(s)
 				show_current_level = true,
 			}),
 			separator,
+			wibox.widget.textbox('  '),
 			mytextclock,
 			separator,
 			s.mylayoutbox,
