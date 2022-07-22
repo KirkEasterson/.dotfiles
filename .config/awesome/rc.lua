@@ -685,6 +685,7 @@ awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
+awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
 -- awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
 
 -- rounded corners for all windows
