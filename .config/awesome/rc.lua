@@ -243,7 +243,7 @@ awful.screen.connect_for_each_screen(function(s)
 			ram_widget({}),
 			separator,
 			wibox.widget.textbox('CPU: '),
-			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 5),
+			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1),
 			cpu_widget({}),
 			separator,
 			brightness_widget({
