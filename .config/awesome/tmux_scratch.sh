@@ -20,5 +20,6 @@ if [ $? != 0 ]; then
 	window=2
 	tmux new-window -t $session:$window -n 'calculator' -c $session_directory
 	tmux send-keys -t $session:$window 'python3 -q' Enter
+	tmux send-keys -t $session:$window C-l
 fi
 
