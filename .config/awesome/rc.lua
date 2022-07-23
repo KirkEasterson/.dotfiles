@@ -34,7 +34,6 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
-local apt_widget = require("awesome-wm-widgets.apt-widget.apt-widget")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
@@ -43,6 +42,10 @@ local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightne
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local separator = wibox.widget.textbox("  |  ")
+
+-- scratchpad terminal
+-- https://github.com/notnew/awesome-scratch
+local scratch = require("awesome-scratch.scratch")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -279,8 +282,6 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
--- https://github.com/notnew/awesome-scratch
-local scratch = require("awesome-scratch.scratch")
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
@@ -685,8 +686,8 @@ awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
-awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
 -- awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
+-- awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh") -- uncomment if not using tmux-continuum
 
 -- rounded corners for all windows
 client.connect_signal("manage", function(c)
