@@ -590,8 +590,10 @@ root.keys(globalkeys)
 awful.rules.rules = {
 
 	-- All clients will match this rule.
-	{ rule = {},
-		properties = { border_width = beautiful.border_width,
+	{
+		rule = {},
+		properties = {
+			border_width = beautiful.border_width,
 			border_color = beautiful.border_normal,
 			focus = awful.client.focus.filter,
 			raise = true,
@@ -599,9 +601,8 @@ awful.rules.rules = {
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen
-		}
+		},
 	},
-
 	-- Floating clients.
 	{
 		rule_any = {
@@ -635,10 +636,43 @@ awful.rules.rules = {
 				"ConfigManager", -- Thunderbird's about:config.
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			}
-		}, properties = {
+		},
+		properties = {
 			floating = true,
 			placement = awful.placement.centered,
-		}
+		},
+	},
+	-- {
+	-- 	rule = {
+	-- 		instance = 'scratch-main'
+	-- 	},
+	-- 	properties = {
+	-- 		floating = true,
+	-- 		placement = awful.placement.centered,
+	-- 		width = awful.screen.focused().workarea.width * 0.8,
+	-- 		height = awful.screen.focused().workarea.height * 0.8,
+	-- 	},
+	-- },
+	{
+		rule_any = {
+			instance = { "scratch-main" },
+			class = { "scratch-main" },
+		},
+		properties = {
+			skip_taskbar = false,
+			floating = true,
+			ontop = false,
+			minimized = true,
+			sticky = false,
+			width = awful.screen.focused().workarea.width * 0.7,
+			height = awful.screen.focused().workarea.height * 0.75
+		},
+		callback = function(c)
+			awful.placement.centered(c, { honor_padding = true, honor_workarea = true })
+			gears.timer.delayed_call(function()
+				c.urgent = false
+			end)
+		end
 	},
 
 	-- Add titlebars to normal clients and dialogs
