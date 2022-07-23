@@ -642,17 +642,6 @@ awful.rules.rules = {
 			placement = awful.placement.centered,
 		},
 	},
-	-- {
-	-- 	rule = {
-	-- 		instance = 'scratch-main'
-	-- 	},
-	-- 	properties = {
-	-- 		floating = true,
-	-- 		placement = awful.placement.centered,
-	-- 		width = awful.screen.focused().workarea.width * 0.8,
-	-- 		height = awful.screen.focused().workarea.height * 0.8,
-	-- 	},
-	-- },
 	{
 		rule_any = {
 			instance = { "scratch-main" },
