@@ -229,7 +229,7 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
 			logout_menu_widget({
-				onlock = function() awful.spawn.with_shell('i3lock -e -c 000000') end
+				onlock = function() awful.spawn.with_shell('light-locker-command -l') end
 			}),
 			s.mytaglist,
 			s.mypromptbox,
@@ -308,7 +308,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "e", function() awful.util.spawn(terminal .. " -e lfrun") end,
 		{ description = "open termainl file manager", group = "kirk" }),
 
-	awful.key({ modkey, }, "x", function() awful.util.spawn("i3lock -e -c 000000") end,
+	awful.key({ modkey, }, "x", function() awful.util.spawn("light-locker-command -l") end,
 		{ description = "lock screen", group = "kirk" }),
 
 	-- Layout manipulation
@@ -704,7 +704,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 0
 
 -- AUTO-EXEC
-awful.spawn.with_shell("xss-lock --transfer-sleep-lock -- i3lock -e -c 000000")
+awful.spawn.with_shell("light-locker --lock-after-screensave=5 --lock-on-suspend --lock-on-lid --idle-hint")
 awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
