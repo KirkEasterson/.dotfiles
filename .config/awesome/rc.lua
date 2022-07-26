@@ -704,7 +704,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 0
 
 -- AUTO-EXEC
-awful.spawn.with_shell("light-locker --lock-after-screensave=5 --lock-on-suspend --lock-on-lid --idle-hint")
+awful.spawn.with_shell("light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint")
 awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
