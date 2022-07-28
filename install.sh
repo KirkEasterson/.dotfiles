@@ -25,3 +25,5 @@ for entry in `ls -aA`; do
 	fi
 done
 
+mkdir -p ~/.cache/zsh
+touch ~/.cache/zsh/history
