@@ -708,6 +708,7 @@ awful.spawn.with_shell("light-locker --lock-after-screensaver=5 --lock-on-suspen
 awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("$HOME/.fehbg")
 awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("caffeine-indicator")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
 -- awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh") -- uncomment if not using tmux-continuum
