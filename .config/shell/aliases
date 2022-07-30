@@ -85,7 +85,7 @@ alias gx="ign = ls-files -o -i --exclude-standard"
 alias grmc="git rm -r --cached"
 
 # updating ubuntu
-alias upg="sudo apt update && sudo apt upgrade"
+alias upg="sudo apt update && sudo apt upgrade && flatpak update"
 
 # mkdir create parent directories
 alias mkdir="mkdir -pv"
