@@ -702,6 +702,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- GAPS
 beautiful.useless_gap = 0
+beautiful.systray_icon_spacing = 5
 
 -- AUTO-EXEC
 awful.spawn.with_shell("light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint")
