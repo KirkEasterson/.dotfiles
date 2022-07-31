@@ -36,7 +36,8 @@ set laststatus=2					" always display the status bar
 
 set mouse=a						" enable mouse for scrolling and resizing
 
-" set spell						" enable spellchecking
+" set spell spelllang=en_us					" enable spellchecking
+" set spelloptions=camel
 
 set wildmenu						" visual autocomplete for command menu
 

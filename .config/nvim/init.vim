@@ -72,6 +72,9 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'mbbill/undotree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'ellisonleao/glow.nvim'
+	" Plug 'lewis6991/spellsitter.nvim'
+	Plug 'kamykn/spelunker.vim'
+	Plug 'kamykn/popup-menu.nvim'
 
 	" debugger
 	" Plug 'mfussenegger/nvim-dap'
@@ -113,6 +116,15 @@ nnoremap <silent> <leader>du :DBUIToggle<CR>
 nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
 nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
 nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>let g:db_ui_save_location = '~/.config/db_ui'
+
+let g:enable_spelunker_vim = 1
+let g:enable_spelunker_vim_on_readonly = 1
+let g:spelunker_check_type = 2
+let g:spelunker_highlight_type = 1
+let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
+let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord'
+highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=undercurl guifg=NONE
+highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=undercurl guifg=NONE
 
 " load init.lua
 lua require('init')
