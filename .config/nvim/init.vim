@@ -117,6 +117,7 @@ nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
 nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
 nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>let g:db_ui_save_location = '~/.config/db_ui'
 
+" spelunker
 let g:enable_spelunker_vim = 1
 let g:enable_spelunker_vim_on_readonly = 1
 let g:spelunker_check_type = 2
@@ -128,4 +129,3 @@ highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underc
 
 " load init.lua
 lua require('init')
-
