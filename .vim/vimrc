@@ -1,4 +1,4 @@
-let mapleader=","					" leader is comma
+let mapleader=" "					" leader is space
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vr :so $MYVIMRC<CR>
 
