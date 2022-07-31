@@ -1,8 +1,17 @@
 require('kirk.lsp.on_attach')
 lspconfig = require('lspconfig')
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local go_on_attach = function(client, bufnr)
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.document_range_formatting = false
+	on_attach(client, bufnr)
+end
+
 lspconfig.gopls.setup {
-	cmd = {"gopls", "serve"},
+	cmd = { "gopls", "serve" },
 	capabilities = capabilities,
 	settings = {
 		gopls = {
@@ -13,7 +22,7 @@ lspconfig.gopls.setup {
 			staticcheck = true,
 		},
 	},
-	on_attach = on_attach,
+	on_attach = go_on_attach,
 }
 
 function goimports(timeoutms)
@@ -45,3 +54,13 @@ function goimports(timeoutms)
 		vim.lsp.buf.execute_command(action)
 	end
 end
+
+local null_ls = require("null-ls")
+null_ls.setup({
+	sources = {
+		-- null_ls.builtins.diagnostics.gofmt,
+		-- null_ls.builtins.code_actions.gofmt,
+		null_ls.builtins.formatting.gofumpt,
+	},
+	on_attach = on_attach,
+})
