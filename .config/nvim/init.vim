@@ -55,7 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'rmagatti/session-lens'
 
 	" git
-	Plug 'tpope/vim-fugitive'
+	Plug 'TimUntersberger/neogit'
 	" Plug 'tpope/vim-rhubarb'
 	Plug 'lewis6991/gitsigns.nvim'
 	Plug 'pwntester/octo.nvim'
