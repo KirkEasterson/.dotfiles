@@ -424,11 +424,11 @@ globalkeys = gears.table.join(
 		{ description = "previous in media", group = "media" }),
 
 	-- brightness keys
-	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=10 -q set 10%-", false) end
+	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=5 -q set 5%-", false) end
 		,
 		{ description = "decrease monitor brightness", group = "brightness" }),
 
-	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 10%+", false) end,
+	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 5%+", false) end,
 		{ description = "increase monitor brightness", group = "brightness" }),
 
 	-- screenshots
