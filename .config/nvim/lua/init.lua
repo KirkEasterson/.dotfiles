@@ -15,5 +15,6 @@ require('kirk.alpha')
 require('kirk.scrollbar')
 require('kirk.neoscroll')
 require('kirk.session_lens')
+require('kirk.gitsigns')
 -- require('kirk.spellsitter')
 -- require('kirk.colorizer') -- TODO: figure out why this doesn't work
