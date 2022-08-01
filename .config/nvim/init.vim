@@ -51,14 +51,14 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	Plug 'nvim-telescope/telescope-frecency.nvim'
 	Plug 'tami5/sqlite.lua'
-	Plug 'ThePrimeagen/harpoon'
-	Plug 'rmagatti/session-lens'
+	" Plug 'ThePrimeagen/harpoon'
+	" Plug 'rmagatti/session-lens'
 
 	" git
 	Plug 'TimUntersberger/neogit'
 	" Plug 'tpope/vim-rhubarb'
 	Plug 'lewis6991/gitsigns.nvim'
-	Plug 'pwntester/octo.nvim'
+	" Plug 'pwntester/octo.nvim'
 
 	" DB
 	Plug 'tpope/vim-dadbod'
@@ -67,8 +67,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" general utility
 	Plug 'rmagatti/auto-session'
 	Plug 'numToStr/Comment.nvim'
-	Plug 'tpope/vim-surround'
-	Plug 'jiangmiao/auto-pairs'
+	" Plug 'jiangmiao/auto-pairs'
+	Plug 'windwp/nvim-autopairs'
 	" Plug 'mbbill/undotree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'ellisonleao/glow.nvim'
@@ -82,9 +82,9 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'leoluz/nvim-dap-go'
 
 	" a e s t h e t i c
-	Plug 'gruvbox-community/gruvbox'
+	Plug 'ellisonleao/gruvbox.nvim'
 	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'ryanoasis/vim-devicons'
+	" Plug 'ryanoasis/vim-devicons'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'petertriho/nvim-scrollbar'
