@@ -84,7 +84,6 @@ call plug#begin('~/.config/nvim/plugged')
 	" a e s t h e t i c
 	Plug 'ellisonleao/gruvbox.nvim'
 	Plug 'nvim-lualine/lualine.nvim'
-	" Plug 'ryanoasis/vim-devicons'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'petertriho/nvim-scrollbar'
