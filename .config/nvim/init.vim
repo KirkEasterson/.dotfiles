@@ -6,10 +6,6 @@ set updatetime=100
 " making copying easier
 set clipboard+=unnamedplus
 
-" gruvbox config
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
-
 " Install vim-plug if not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -104,9 +100,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
-
-colorscheme gruvbox
-highlight Normal guibg=none
 
 " vim dadbod
 nnoremap <silent> <leader>du :DBUIToggle<CR>
