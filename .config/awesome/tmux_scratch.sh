@@ -21,5 +21,7 @@ if [ $? != 0 ]; then
 	tmux new-window -t $session:$window -n 'calculator' -c $session_directory
 	tmux send-keys -t $session:$window 'python3 -q' Enter
 	tmux send-keys -t $session:$window C-l
+
+	tmux set -t $session:$window: status off
 fi
 
