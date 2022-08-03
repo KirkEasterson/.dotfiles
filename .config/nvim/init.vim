@@ -105,8 +105,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 call plug#end()
 
-nnoremap <leader>t :NvimTreeToggle<CR>
-
 colorscheme gruvbox
 highlight Normal guibg=none
 
