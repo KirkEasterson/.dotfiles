@@ -2,6 +2,8 @@ let mapleader=" "					" leader is space
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>vr :so $MYVIMRC<CR>
 
+set updatetime=100					" fast update times
+
 set number relativenumber				" turn hybrid line numbers on
 set cursorline						" highlight current line
 set termguicolors
@@ -40,6 +42,8 @@ set mouse=a						" enable mouse for scrolling and resizing
 " set spelloptions=camel
 
 set wildmenu						" visual autocomplete for command menu
+
+set clipboard+=unnamedplus			" making copying easier
 
 augroup WrapLineInLatexFile
 	autocmd!

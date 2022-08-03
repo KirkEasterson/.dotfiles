@@ -1,11 +1,5 @@
 source $HOME/.vim/vimrc
 
-" fast update times
-set updatetime=100
-
-" making copying easier
-set clipboard+=unnamedplus
-
 " Install vim-plug if not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
