@@ -1,7 +1,9 @@
 require('lualine').setup {
 	sections = {
-		lualine_c = {
-			require('auto-session-library').current_session_name
-		}
-	}
+		lualine_c = {},
+		lualine_x = { 'filetype' },
+	},
+	options = {
+		globalstatus = true,
+	},
 }
