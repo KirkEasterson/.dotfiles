@@ -5,7 +5,6 @@ nnoremap <leader>vr :so $MYVIMRC<CR>
 set updatetime=100					" fast update times
 
 set number relativenumber				" turn hybrid line numbers on
-set cursorline						" highlight current line
 set termguicolors
 
 set incsearch						" highlight matches as you type
