@@ -54,7 +54,7 @@ augroup WrapLineInMarkdownFile
 	autocmd FileType markdown setlocal wrap
 augroup END
 
-"set lazyredraw						" redraw only when we need to.
+set lazyredraw						" redraw only when we need to.
 
 set exrc							" use local vimrc, if it exists
 
