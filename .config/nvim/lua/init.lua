@@ -1,4 +1,5 @@
 -- require('kirk.settings')
+require('kirk.gruvbox')
 require('kirk.auto_session')
 require('kirk.lualine')
 require('kirk.treesitter')
@@ -18,6 +19,5 @@ require('kirk.neoscroll')
 require('kirk.neogit')
 require('kirk.gitsigns')
 require('kirk.autopairs')
-require('kirk.gruvbox')
 -- require('kirk.spellsitter')
 -- require('kirk.colorizer') -- TODO: figure out why this doesn't work
