@@ -95,6 +95,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 call plug#end()
 
+set mousemodel=extend
+
 " vim dadbod
 nnoremap <silent> <leader>du :DBUIToggle<CR>
 nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
