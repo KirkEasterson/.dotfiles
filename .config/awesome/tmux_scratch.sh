@@ -19,7 +19,7 @@ if [ $? != 0 ]; then
 	# manage the calculator
 	window=2
 	tmux new-window -t $session:$window -n 'calculator' -c $session_directory
-	tmux send-keys -t $session:$window 'python3 -q' Enter
+	tmux send-keys -t $session:$window 'ptpython --vi --dark-bg' Enter
 	tmux send-keys -t $session:$window C-l
 
 	tmux set -t $session:$window: status off
