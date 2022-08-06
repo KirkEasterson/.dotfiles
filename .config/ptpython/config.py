@@ -38,7 +38,7 @@ def configure(repl):
     repl.show_line_numbers = False
 
     # Show status bar.
-    repl.show_status_bar = False
+    repl.show_status_bar = True
 
     # When the sidebar is visible, also show the help text.
     repl.show_sidebar_help = True
@@ -57,7 +57,7 @@ def configure(repl):
 
     # Complete while typing. (Don't require tab before the
     # completion menu is shown.)
-    repl.complete_while_typing = False
+    repl.complete_while_typing = True
 
     # Fuzzy and dictionary completion.
     repl.enable_fuzzy_completion = True
