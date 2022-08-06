@@ -210,7 +210,7 @@ awful.screen.connect_for_each_screen(function(s)
 	s.mytaglist = awful.widget.taglist {
 		screen  = s,
 		filter  = awful.widget.taglist.filter.noempty,
-		buttons = taglist_buttons
+		buttons = taglist_buttons,
 	}
 
 	-- Create a tasklist widget
@@ -221,7 +221,7 @@ awful.screen.connect_for_each_screen(function(s)
 	}
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s, height = 16 })
+	s.mywibox = awful.wibar({ position = "top", screen = s, height = 20 })
 
 	-- Add widgets to the wibox
 	s.mywibox:setup {
@@ -630,6 +630,9 @@ awful.rules.rules = {
 			-- and the name shown there might not match defined rules here.
 			name = {
 				"Event Tester", -- xev.
+				"Lock Screen — 1Password",
+				"zoom",
+				"Zoom Cloud Meetings",
 			},
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
