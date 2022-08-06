@@ -41,3 +41,7 @@ mouse:
 #  - { mouse: Right,                 action: ExpandSelection }
 #  - { mouse: Right,  mods: Control, action: ExpandSelection }
 #  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
+
+# true color settings
+env:
+  TERM: xterm-256color
