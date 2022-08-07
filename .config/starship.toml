@@ -18,6 +18,10 @@ $character
 
 continuation_prompt = "▶▶  "
 
+[directory]
+truncation_length = 5
+truncate_to_repo = true
+
 [line_break]
 disabled = true
 
