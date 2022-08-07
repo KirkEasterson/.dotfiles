@@ -76,11 +76,11 @@ end
 beautiful.init("~/.config/awesome/themes/gruvbox/theme.lua")
 
 -- DEFAULT EDITOR
-terminal = "alacritty"
-browser = "firefox"
-file_manager = "pcmanfm"
-editor = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
+local terminal = "alacritty"
+local browser = "firefox"
+local file_manager = "pcmanfm"
+local editor = os.getenv("EDITOR") or "nvim"
+local editor_cmd = terminal .. " -e " .. editor
 
 -- MOD KEY
 modkey = "Mod4"
@@ -89,20 +89,20 @@ modkey = "Mod4"
 -- TODO: Reduce this to ones that I actually want
 awful.layout.layouts = {
 	awful.layout.suit.tile,
-	awful.layout.suit.tile.left,
-	awful.layout.suit.tile.bottom,
-	awful.layout.suit.tile.top,
-	awful.layout.suit.fair,
-	awful.layout.suit.fair.horizontal,
+	-- awful.layout.suit.tile.left,
+	-- awful.layout.suit.tile.bottom,
+	-- awful.layout.suit.tile.top,
+	-- awful.layout.suit.fair,
+	-- awful.layout.suit.fair.horizontal,
 	-- awful.layout.suit.spiral,
 	-- awful.layout.suit.spiral.dwindle,
 	-- awful.layout.suit.max,
 	-- awful.layout.suit.max.fullscreen,
-	awful.layout.suit.magnifier,
-	awful.layout.suit.corner.nw,
-	awful.layout.suit.corner.ne,
-	awful.layout.suit.corner.sw,
-	awful.layout.suit.corner.se,
+	-- awful.layout.suit.magnifier,
+	-- awful.layout.suit.corner.nw,
+	-- awful.layout.suit.corner.ne,
+	-- awful.layout.suit.corner.sw,
+	-- awful.layout.suit.corner.se,
 	awful.layout.suit.floating,
 }
 
@@ -211,13 +211,28 @@ awful.screen.connect_for_each_screen(function(s)
 		screen  = s,
 		filter  = awful.widget.taglist.filter.noempty,
 		buttons = taglist_buttons,
+		style   = {
+			shape = gears.shape.rounded_rect,
+			spacing = 2,
+		},
+		layout  = {
+			layout = wibox.layout.fixed.horizontal
+		},
 	}
 
 	-- Create a tasklist widget
 	s.mytasklist = awful.widget.tasklist {
 		screen  = s,
 		filter  = awful.widget.tasklist.filter.currenttags,
-		buttons = tasklist_buttons
+		buttons = tasklist_buttons,
+		style   = {
+			shape = gears.shape.rounded_rect,
+		},
+		layout  = {
+			spacing = 5,
+			max_widget_size = awful.screen.focused().workarea.width * 0.12,
+			layout = wibox.layout.flex.horizontal
+		},
 	}
 
 	-- Create the wibox
