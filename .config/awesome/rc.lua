@@ -731,6 +731,7 @@ awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
 awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh") -- uncomment if not using tmux-continuum
+awful.spawn.with_shell("autorandr --change")
 
 -- rounded corners for all windows
 client.connect_signal("manage", function(c)
