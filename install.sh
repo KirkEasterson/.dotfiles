@@ -24,9 +24,10 @@ for entry in `ls -aA $SCRIPT_DIR`; do
 	# if current entry is not in the ignore list
 	if ! [[ ${ign_files[*]} =~ (^|[[:space:]])"$entry"($|[[:space:]]) ]]; then
 		# create sym link
-		ln -sfn $(SCRIPT_DIR)/"$entry" $HOME/"$entry"
+		ln -sfn $SCRIPT_DIR/$entry $HOME/$entry
 	fi
 done
 
+# touch the zsh history
 mkdir -p ~/.cache/zsh
 touch ~/.cache/zsh/history
