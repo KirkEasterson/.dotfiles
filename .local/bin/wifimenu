@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Inspired by:
+#	- https://github.com/ericmurphyxyz/archrice/blob/master/.local/bin/wifimenu
+#	- https://life-prog.com/tech/a-simple-wifi-menu-with-rofi-on-i3/
+
 # Starts a scan of available broadcasting SSIDs
 # nmcli dev wifi rescan
 notify-send "Getting list of available Wi-Fi networks..."
@@ -38,7 +42,3 @@ else
 		nmcli connection up id $chosen_network
 	fi
 fi
-# if [[ -n $(nmcli -g NAME connection | grep $chosen_network) ]]; then
-# else
-#     nmcli device wifi connect $chosen_network
-# fi
