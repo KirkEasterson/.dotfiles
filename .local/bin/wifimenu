@@ -31,10 +31,14 @@ else
 	if [[ $(echo "$saved_connections" | grep -w "$chosen_id") = "$chosen_id" ]]; then
 		nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
 	else
-		# TODO: check if a connection already exists; and make the password hidden, or use something else
 		if [[ "$chosen_network" =~ "" ]]; then
 			wifi_password=$(rofi -dmenu -p "Password: " )
+			nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
 		fi
-		nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
+		nmcli connection up id $chosen_network
 	fi
 fi
+# if [[ -n $(nmcli -g NAME connection | grep $chosen_network) ]]; then
+# else
+#     nmcli device wifi connect $chosen_network
+# fi
