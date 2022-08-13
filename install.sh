@@ -28,6 +28,10 @@ for entry in `ls -aA $SCRIPT_DIR`; do
 	fi
 done
 
+# touch the bash history
+mkdir -p ~/.cache/bash
+touch ~/.cache/bash/history
+
 # touch the zsh history
 mkdir -p ~/.cache/zsh
 touch ~/.cache/zsh/history
