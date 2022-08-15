@@ -38,8 +38,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-telescope/telescope.nvim'
 	" Plug 'nvim-telescope/telescope.nvim', {  'as': 'telescope-dev', 'branch': 'dev' }
 	" Plug '~/dev/telescope.nvim/'
+	" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
-	Plug 'nvim-telescope/telescope-frecency.nvim'
+	" Plug 'nvim-telescope/telescope-frecency.nvim'
 	Plug 'tami5/sqlite.lua'
 	" Plug 'ThePrimeagen/harpoon'
 	" Plug 'rmagatti/session-lens'
