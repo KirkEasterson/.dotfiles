@@ -723,10 +723,13 @@ client.connect_signal("request::titlebars", function(c)
 		)
 
 		-- Widgets that are aligned to the left
-		local left_layout = wibox.layout.fixed.horizontal()
-		left_layout:add(awful.titlebar.widget.closebutton(c))
-		left_layout:add(awful.titlebar.widget.minimizebutton(c))
-		left_layout:add(awful.titlebar.widget.maximizedbutton(c))
+		local left_layout = wibox.widget {
+			layout = wibox.layout.fixed.horizontal,
+			spacing = 5,
+			awful.titlebar.widget.closebutton(c),
+			awful.titlebar.widget.maximizedbutton(c),
+			awful.titlebar.widget.minimizebutton(c),
+		}
 
 		-- The title goes in the middle
 		local middle_layout = wibox.layout.flex.horizontal()
@@ -736,10 +739,13 @@ client.connect_signal("request::titlebars", function(c)
 		middle_layout:buttons(buttons)
 
 		-- Widgets that are aligned to the right
-		local right_layout = wibox.layout.fixed.horizontal()
-		right_layout:add(awful.titlebar.widget.floatingbutton(c))
-		right_layout:add(awful.titlebar.widget.stickybutton(c))
-		right_layout:add(awful.titlebar.widget.ontopbutton(c))
+		local right_layout = wibox.widget {
+			layout = wibox.layout.fixed.horizontal,
+			spacing = 5,
+			awful.titlebar.widget.floatingbutton(c),
+			awful.titlebar.widget.stickybutton(c),
+			awful.titlebar.widget.ontopbutton(c),
+		}
 
 		-- Now bring it all together
 		local layout = wibox.layout.align.horizontal()
@@ -747,22 +753,22 @@ client.connect_signal("request::titlebars", function(c)
 		layout:set_middle(middle_layout)
 		layout:set_right(right_layout)
 
-		awful.titlebar(c, { size = 18 }):set_widget(layout)
+		local margin_layout = wibox.container.margin(layout, 5, 5, 5, 5)
+
+		awful.titlebar(c, { size = 24 }):set_widget(margin_layout)
 	end
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-	c:emit_signal("request::activate", "mouse_enter", { raise = false })
-end)
+-- client.connect_signal("mouse::enter", function(c)
+-- 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
+-- end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-
 -- GAPS
-beautiful.useless_gap = 0
 beautiful.systray_icon_spacing = 5
 
 -- AUTO-EXEC
@@ -778,7 +784,9 @@ awful.spawn.with_shell("autorandr --change")
 
 -- rounded corners for all windows
 client.connect_signal("manage", function(c)
-	c.shape = gears.shape.rounded_rect
+	c.shape = function(cr, w, h)
+		gears.shape.rounded_rect(cr, w, h, 8)
+	end
 end)
 
 -- make the garbage collector collect more often
