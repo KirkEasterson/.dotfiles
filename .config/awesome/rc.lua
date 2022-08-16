@@ -41,7 +41,7 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
-local separator = wibox.widget.textbox("  |  ")
+local separator = wibox.widget.textbox("   |   ")
 
 -- scratchpad terminal
 -- https://github.com/notnew/awesome-scratch
@@ -272,7 +272,10 @@ awful.screen.connect_for_each_screen(function(s)
 				timeout = 1,
 			}),
 			separator,
-			volume_widget({}),
+			volume_widget({
+				step = 10,
+				widget_type = 'icon_and_text',
+			}),
 			separator,
 			battery_widget({
 				path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
@@ -380,21 +383,12 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "l", function() awful.tag.viewnext() end,
 		{ description = "move to previous tag", group = "layout" }),
 
-	awful.key({ modkey, "Control" }, "n",
-		function()
-			local c = awful.client.restore()
-			-- Focus restored client
-			if c then
-				c:emit_signal(
-					"request::activate", "key.unminimize", { raise = true }
-				)
-			end
-		end,
-		{ description = "restore minimized", group = "client" }),
+	awful.key({ modkey }, "n", function() awful.spawn("wifimenu") end,
+		{ description = "show wifi menu", group = "client" }),
 
 	-- Menubar
 	awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
-		{ description = "show the menubar", group = "launcher" }),
+		{ description = "show program launcher", group = "launcher" }),
 
 	-- gaps
 	awful.key({ modkey }, "Tab", function() awful.tag.incgap(-2) end,
@@ -411,14 +405,15 @@ globalkeys = gears.table.join(
 
 	-- volume keys
 	awful.key({}, "XF86AudioRaiseVolume",
-		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
+		function() volume_widget:inc() end,
 		{ description = "raise volume", group = "volume" }),
 
 	awful.key({}, "XF86AudioLowerVolume",
-		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%", false) end,
+		function() volume_widget:dec() end,
 		{ description = "lower volume", group = "volume" }),
 
-	awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
+	awful.key({}, "XF86AudioMute",
+		function() volume_widget:toggle() end,
 		{ description = "mute audio", group = "volume" }),
 
 	awful.key({}, "XF86AudioMicMute",
@@ -705,6 +700,54 @@ client.connect_signal("manage", function(c)
 		and not c.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
+	end
+end)
+
+-- Create titlebar
+client.connect_signal("request::titlebars", function(c)
+	-- Code to create your titlebar here
+	local titlebars_enabled = true
+	if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
+		-- buttons for the titlebar
+		local buttons = awful.util.table.join(
+			awful.button({}, 1, function()
+				client.focus = c
+				c:raise()
+				awful.mouse.client.move(c)
+			end),
+			awful.button({}, 3, function()
+				client.focus = c
+				c:raise()
+				awful.mouse.client.resize(c)
+			end)
+		)
+
+		-- Widgets that are aligned to the left
+		local left_layout = wibox.layout.fixed.horizontal()
+		left_layout:add(awful.titlebar.widget.closebutton(c))
+		left_layout:add(awful.titlebar.widget.minimizebutton(c))
+		left_layout:add(awful.titlebar.widget.maximizedbutton(c))
+
+		-- The title goes in the middle
+		local middle_layout = wibox.layout.flex.horizontal()
+		local title = awful.titlebar.widget.titlewidget(c)
+		title:set_align("center")
+		middle_layout:add(title)
+		middle_layout:buttons(buttons)
+
+		-- Widgets that are aligned to the right
+		local right_layout = wibox.layout.fixed.horizontal()
+		right_layout:add(awful.titlebar.widget.floatingbutton(c))
+		right_layout:add(awful.titlebar.widget.stickybutton(c))
+		right_layout:add(awful.titlebar.widget.ontopbutton(c))
+
+		-- Now bring it all together
+		local layout = wibox.layout.align.horizontal()
+		layout:set_left(left_layout)
+		layout:set_middle(middle_layout)
+		layout:set_right(right_layout)
+
+		awful.titlebar(c, { size = 18 }):set_widget(layout)
 	end
 end)
 
