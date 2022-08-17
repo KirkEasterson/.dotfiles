@@ -720,62 +720,60 @@ end
 
 -- Create titlebar
 client.connect_signal("request::titlebars", function(c)
-	-- Code to create your titlebar here
-	local titlebars_enabled = true
-	if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
-		-- buttons for the titlebar
-		local buttons = awful.util.table.join(
-			awful.button({}, 1, function()
-				c:emit_signal("request::activate", "titlebar", { raise = true })
-				if is_double_click() then
-					c.maximized = not c.maximized
-					c:raise()
-				else
-					awful.mouse.client.move(c)
-				end
-			end),
-			awful.button({}, 3, function()
-				client.focus = c
+	-- buttons for the titlebar
+	local buttons = awful.util.table.join(
+		awful.button({}, 1, function()
+			if is_double_click() then
+				c.maximized = not c.maximized
 				c:raise()
-				awful.mouse.client.resize(c)
-			end)
-		)
+			else
+				awful.mouse.client.move(c)
+			end
+		end),
+		awful.button({}, 2, function()
+			c:kill()
+		end),
+		awful.button({}, 3, function()
+			client.focus = c
+			c:raise()
+			awful.mouse.client.resize(c)
+		end)
+	)
 
-		-- Widgets that are aligned to the left
-		local left_layout = wibox.widget {
-			layout = wibox.layout.fixed.horizontal,
-			spacing = 5,
-			awful.titlebar.widget.closebutton(c),
-			awful.titlebar.widget.maximizedbutton(c),
-			awful.titlebar.widget.minimizebutton(c),
-		}
+	-- Widgets that are aligned to the left
+	local left_layout = wibox.widget {
+		layout = wibox.layout.fixed.horizontal,
+		spacing = 5,
+		awful.titlebar.widget.closebutton(c),
+		awful.titlebar.widget.maximizedbutton(c),
+		awful.titlebar.widget.minimizebutton(c),
+	}
 
-		-- The title goes in the middle
-		local middle_layout = wibox.layout.flex.horizontal()
-		local title = awful.titlebar.widget.titlewidget(c)
-		title:set_align("center")
-		middle_layout:add(title)
-		middle_layout:buttons(buttons)
+	-- The title goes in the middle
+	local middle_layout = wibox.layout.flex.horizontal()
+	local title = awful.titlebar.widget.titlewidget(c)
+	title:set_align("center")
+	middle_layout:add(title)
+	middle_layout:buttons(buttons)
 
-		-- Widgets that are aligned to the right
-		local right_layout = wibox.widget {
-			layout = wibox.layout.fixed.horizontal,
-			spacing = 5,
-			awful.titlebar.widget.floatingbutton(c),
-			awful.titlebar.widget.stickybutton(c),
-			awful.titlebar.widget.ontopbutton(c),
-		}
+	-- Widgets that are aligned to the right
+	local right_layout = wibox.widget {
+		layout = wibox.layout.fixed.horizontal,
+		spacing = 5,
+		awful.titlebar.widget.floatingbutton(c),
+		awful.titlebar.widget.stickybutton(c),
+		awful.titlebar.widget.ontopbutton(c),
+	}
 
-		-- Now bring it all together
-		local layout = wibox.layout.align.horizontal()
-		layout:set_left(left_layout)
-		layout:set_middle(middle_layout)
-		layout:set_right(right_layout)
+	-- Now bring it all together
+	local layout = wibox.layout.align.horizontal()
+	layout:set_left(left_layout)
+	layout:set_middle(middle_layout)
+	layout:set_right(right_layout)
 
-		local margin_layout = wibox.container.margin(layout, 5, 5, 5, 5)
+	local margin_layout = wibox.container.margin(layout, 5, 5, 5, 5)
 
-		awful.titlebar(c, { size = 24 }):set_widget(margin_layout)
-	end
+	awful.titlebar(c, { size = 24 }):set_widget(margin_layout)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
