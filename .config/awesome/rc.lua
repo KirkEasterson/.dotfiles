@@ -41,7 +41,12 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
-local separator = wibox.widget.textbox("   |   ")
+local separator = wibox.widget {
+	widget = wibox.widget.separator,
+	orientation = "vertical",
+	forced_width = 10,
+	color = "#353535",
+}
 
 -- scratchpad terminal
 -- https://github.com/notnew/awesome-scratch
@@ -262,6 +267,7 @@ awful.screen.connect_for_each_screen(function(s)
 			separator,
 			wibox.widget.textbox('CPU: '),
 			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1),
+			wibox.widget.textbox(' '),
 			cpu_widget({}),
 			separator,
 			brightness_widget({
