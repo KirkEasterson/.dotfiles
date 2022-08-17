@@ -703,6 +703,21 @@ client.connect_signal("manage", function(c)
 	end
 end)
 
+-- hacky way to determine if it was a double click
+local double_click_timer = nil
+local function is_double_click()
+	if double_click_timer then
+		double_click_timer:stop()
+		double_click_timer = nil
+		return true
+	end
+
+	double_click_timer = gears.timer.start_new(0.20, function()
+		double_click_timer = nil
+		return false
+	end)
+end
+
 -- Create titlebar
 client.connect_signal("request::titlebars", function(c)
 	-- Code to create your titlebar here
@@ -711,9 +726,13 @@ client.connect_signal("request::titlebars", function(c)
 		-- buttons for the titlebar
 		local buttons = awful.util.table.join(
 			awful.button({}, 1, function()
-				client.focus = c
-				c:raise()
-				awful.mouse.client.move(c)
+				c:emit_signal("request::activate", "titlebar", { raise = true })
+				if is_double_click() then
+					c.maximized = not c.maximized
+					c:raise()
+				else
+					awful.mouse.client.move(c)
+				end
 			end),
 			awful.button({}, 3, function()
 				client.focus = c
