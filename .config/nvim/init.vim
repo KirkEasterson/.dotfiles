@@ -80,7 +80,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'karb94/neoscroll.nvim'
 	Plug 'petertriho/nvim-scrollbar'
 	Plug 'romgrk/barbar.nvim'
-	Plug 'goolord/alpha-nvim'
+	" Plug 'goolord/alpha-nvim'
 	" Plug 'norcalli/nvim-colorizer.lua'
 
 	" language specific, because I'm lazy

@@ -1,6 +1,7 @@
 require('nvim-tree').setup {
+	sync_root_with_cwd = true,
 	view = {
-		-- side = "right",
+		-- side = "right", -- this doesn't look good with barbar
 	},
 	renderer = {
 		add_trailing = true,
@@ -15,7 +16,12 @@ require('nvim-tree').setup {
 	},
 	git = {
 		ignore = false,
-	}
+	},
+	actions = {
+		change_dir = {
+			enable = false,
+		},
+	},
 }
 
 local map = vim.api.nvim_set_keymap
