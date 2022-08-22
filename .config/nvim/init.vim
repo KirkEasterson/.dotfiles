@@ -50,6 +50,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'tpope/vim-rhubarb'
 	Plug 'lewis6991/gitsigns.nvim'
 	" Plug 'pwntester/octo.nvim'
+	Plug 'ThePrimeagen/git-worktree.nvim'
 
 	" DB
 	Plug 'tpope/vim-dadbod'

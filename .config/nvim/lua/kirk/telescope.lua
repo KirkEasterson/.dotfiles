@@ -21,6 +21,9 @@ util.map("n", "<leader>rr", "<cmd>lua require('telescope.builtin').registers()<C
 
 util.map("n", "<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>")
 
+util.map("n", "<leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
+util.map("n", "<leader>gW", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
+
 
 require('telescope').setup {
 	defaults = {
@@ -62,4 +65,4 @@ require('telescope').setup {
 -- require("telescope").load_extension("fzf")
 require("telescope").load_extension("fzy_native")
 -- require('telescope').load_extension('frecency')
--- require("telescope").load_extension("git_worktree")
+require("telescope").load_extension("git_worktree")
