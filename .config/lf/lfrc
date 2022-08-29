@@ -18,17 +18,32 @@ cmd open ${{
     esac
 }}
 
-cmd mkdir ${{
-  printf "Directory Name: "
-  read ans
-  mkdir $ans
+cmd open-with %"$@" "$fx"
+map ` push :open-with<space>
+
+cmd paste &{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    case "$mode" in
+        copy)
+            rsync -av --ignore-existing --progress -- "$@" . |
+            stdbuf -i0 -o0 -e0 tr '\r' '\n' |
+            while IFS= read -r line; do
+                lf -remote "send $id echo $line"
+            done
+            ;;
+        move) mv -n -- "$@" .;;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
 }}
 
-cmd mkfile ${{
-  printf "File Name: "
-  read ans
-  $EDITOR $ans
-}}
+cmd mkdir %mkdir -p "$@"
+map a push :mkdir<space>
+
+cmd mkfile %touch "$@"
+map o push :mkfile<space>
 
 cmd chmod ${{
   printf "Mode Bits: "
@@ -77,7 +92,41 @@ cmd zip ${{
     rm -rf $1
 }}
 
-cmd setwallpaper %cp "$f" ~/.config/wall.jpg && ~/.fehbg
+cmd bulk-rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
+}}
+
+cmd trash %trash-put $fx
+
+cmd setwallpaper ${{
+    cp "$f" ~/.config/wall.jpg
+	~/.fehbg
+}}
+
+cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+cmd yank-basename-without-extension &basename -a -- $fx | cut -d. -f1 | head -c-1 | xclip -i -selection clipboard
 
 map . set hidden!
 map DD delete
