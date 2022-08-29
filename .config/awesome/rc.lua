@@ -34,11 +34,8 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local separator = wibox.widget {
@@ -270,24 +267,6 @@ awful.screen.connect_for_each_screen(function(s)
 			wibox.widget.textbox(' '),
 			cpu_widget({}),
 			separator,
-			brightness_widget({
-				type = "icon_and_text",
-				program = "brightnessctl",
-				percentage = true,
-				base = 70,
-				timeout = 1,
-			}),
-			separator,
-			volume_widget({
-				step = 10,
-				widget_type = 'icon_and_text',
-			}),
-			separator,
-			battery_widget({
-				path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
-				show_current_level = true,
-			}),
-			separator,
 			wibox.widget.textbox('  '),
 			mytextclock,
 			separator,
@@ -403,23 +382,22 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.incgap(2) end,
 		{ description = "increase gaps", group = "gaps" }),
 
-	awful.key({ modkey, "Control" }, "Tab", function() awful.tag.setgap(15) end,
-		{ description = "reset gaps", group = "gaps" }),
+	awful.key({ modkey, "Control" }, "Tab", function() awful.tag.setgap(8) end,
+		{ description = "reset gaps to nice gap", group = "gaps" }),
 
 	awful.key({ modkey, "Control", "Shift" }, "Tab", function() awful.tag.setgap(0) end,
-		{ description = "reset gaps", group = "gaps" }),
+		{ description = "reset gaps to 0", group = "gaps" }),
 
 	-- volume keys
 	awful.key({}, "XF86AudioRaiseVolume",
-		function() volume_widget:inc() end,
+		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
 		{ description = "raise volume", group = "volume" }),
 
 	awful.key({}, "XF86AudioLowerVolume",
-		function() volume_widget:dec() end,
+		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%", false) end,
 		{ description = "lower volume", group = "volume" }),
 
-	awful.key({}, "XF86AudioMute",
-		function() volume_widget:toggle() end,
+	awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
 		{ description = "mute audio", group = "volume" }),
 
 	awful.key({}, "XF86AudioMicMute",
@@ -683,10 +661,35 @@ awful.rules.rules = {
 		end
 	},
 
+	-- TODO: remove titlebar from scratch windows
 	-- Add titlebars to normal clients and dialogs
 	{ rule_any = { type = { "normal", "dialog" }
 	}, properties = { titlebars_enabled = true }
 	},
+
+	{ rule = {}, except = { instance = "cairo-dock" },
+		properties = { border_width = beautiful.border_width,
+			border_color = beautiful.border_normal,
+			focus = awful.client.focus.filter,
+			keys = clientkeys,
+			buttons = clientbuttons }
+	},
+	{ rule = { class = "MPlayer" },
+		properties = { floating = true }
+	},
+	{ rule = { instance = "cairo-dock" },
+		--      type = "dock",
+		properties = {
+			floating = true,
+			ontop = true,
+			focus = false
+		}
+	},
+
+	{ rule = { name = "cairo-dock" },
+		properties = { border_width = 0 } },
+	{ rule = { name = "cairo-dock-sub" },
+		properties = { border_width = 0 } },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
@@ -795,15 +798,30 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.systray_icon_spacing = 5
 
 -- AUTO-EXEC
-awful.spawn.with_shell("light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint")
-awful.spawn.with_shell("picom --experimental-backends")
-awful.spawn.with_shell("$HOME/.fehbg")
-awful.spawn.with_shell("flameshot")
--- awful.spawn.with_shell("caffeine-indicator")
-awful.spawn.with_shell("setxkbmap -option caps:escape")
-awful.spawn("pcmanfm -d") -- TODO: figure out how to start the daemon with spawning a window
-awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh") -- uncomment if not using tmux-continuum
-awful.spawn.with_shell("autorandr --change")
+awful.spawn.with_shell("~/.fehbg")
+awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
+
+-- Autorun programs
+autorun = true
+autorunApps =
+{
+	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
+	"picom --experimental-backends",
+	"flameshot",
+	-- "caffeine-indicator",
+	"setxkbmap -option caps:escape",
+	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
+	"autorandr --change",
+	"nm-applet",
+	"cbatticon",
+	"volumeicon",
+	-- "cairo-dock",
+}
+if autorun then
+	for app = 1, #autorunApps do
+		awful.util.spawn(autorunApps[app])
+	end
+end
 
 -- rounded corners for all windows
 client.connect_signal("manage", function(c)
