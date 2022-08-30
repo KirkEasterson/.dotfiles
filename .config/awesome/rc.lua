@@ -77,6 +77,7 @@ beautiful.init("~/.config/awesome/themes/gruvbox/theme.lua")
 
 -- DEFAULT EDITOR
 local terminal = "alacritty"
+local terminal_secondary = "kitty"
 local browser = "firefox"
 local file_manager = "pcmanfm"
 local editor = os.getenv("EDITOR") or "nvim"
@@ -336,6 +337,9 @@ globalkeys = gears.table.join(
 	-- Standard program
 	awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
 		{ description = "open a terminal", group = "launcher" }),
+
+	awful.key({ modkey, "Shift" }, "Return", function() awful.spawn(terminal_secondary) end,
+		{ description = "open a secondary terminal", group = "launcher" }),
 
 	awful.key({ modkey, "Shift" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
