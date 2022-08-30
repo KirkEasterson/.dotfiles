@@ -2,7 +2,7 @@ export KALE=$HOME/kale
 export DOTFILES=$HOME/.dotfiles
 export BROWSER=firefox
 export TERMINAL=alacritty
-export FILEMANAGER=lfrun
+export FILEMANAGER=pcmanfm
 export EDITOR=nvim
 export VISUAL=nvim
 
