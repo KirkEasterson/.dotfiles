@@ -5,7 +5,7 @@ scrolling:
   history: 100000
 
 font:
-  size: 7.0
+  size: 8.0
   normal:
     family: JetBrains Mono Nerd Font
     style: Medium
