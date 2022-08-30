@@ -258,7 +258,6 @@ awful.screen.connect_for_each_screen(function(s)
 			wibox.widget.textbox(' '),
 			mykeyboardlayout,
 			separator,
-			wibox.widget.textbox('RAM:'),
 			wibox.widget.textbox('CPU: '),
 			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1),
 			separator,
