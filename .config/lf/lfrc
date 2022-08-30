@@ -117,7 +117,7 @@ cmd bulk-rename ${{
 
 cmd trash %trash-put $fx
 
-cmd setwallpaper ${{
+cmd bg ${{
     cp "$f" ~/.config/wall.jpg
 	~/.fehbg
 }}
