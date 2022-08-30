@@ -1,6 +1,5 @@
 .gsd-keyboard.settings-ported
 1Password/*
-cairo-dock/*
 BraveSoftware/*
 Code/*
 Docker Desktop/*
@@ -15,6 +14,7 @@ VSCodium/*
 VirtualBox/*
 autorandr/*
 autostart
+cairo-dock/*
 cef_user_data/*
 chromium/*
 dconf/*
