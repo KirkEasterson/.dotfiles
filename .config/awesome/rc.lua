@@ -34,8 +34,6 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local separator = wibox.widget {
@@ -260,12 +258,8 @@ awful.screen.connect_for_each_screen(function(s)
 			mykeyboardlayout,
 			separator,
 			wibox.widget.textbox('RAM:'),
-			ram_widget({}),
-			separator,
 			wibox.widget.textbox('CPU: '),
 			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1),
-			wibox.widget.textbox(' '),
-			cpu_widget({}),
 			separator,
 			wibox.widget.textbox('  '),
 			mytextclock,
