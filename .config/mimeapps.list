@@ -1,7 +1,7 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
 inode/directory=pcmanfm.desktop
-text/plain=neovim.desktop
+text/plain=nvim.desktop
 video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
 image/gif=mpvgif.desktop
