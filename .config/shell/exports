@@ -32,6 +32,8 @@ export PATH="$HOME/.local/share/flatpak/exports/share:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
 export LF_ICONS="\
 di=:\
 fi=:\
