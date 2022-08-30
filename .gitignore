@@ -28,7 +28,6 @@
 .config/google-chrome-unstable/*
 .config/google-chrome/*
 .config/microsoft-edge-dev/*
-.config/mimeapps.list
 .config/vivaldi-snapshot/*
 .config/vivaldi/*
 .config/whatscli/*
