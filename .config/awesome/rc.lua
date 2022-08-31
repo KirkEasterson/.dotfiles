@@ -39,7 +39,7 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local separator = wibox.widget {
 	widget = wibox.widget.separator,
 	orientation = "vertical",
-	forced_width = 10,
+	forced_width = 15,
 	color = "#353535",
 }
 
