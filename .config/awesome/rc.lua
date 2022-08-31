@@ -801,9 +801,6 @@ autorunApps =
 	"setxkbmap -option caps:escape",
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
 	"autorandr --change",
-	"nm-applet",
-	"cbatticon",
-	"volumeicon",
 	-- "cairo-dock",
 }
 if autorun then
@@ -811,6 +808,10 @@ if autorun then
 		awful.util.spawn(autorunApps[app])
 	end
 end
+
+awful.spawn.with_shell("~/.config/awesome/run_once.sh cbatticon")
+awful.spawn.with_shell("~/.config/awesome/run_once.sh volumeicon")
+awful.spawn.with_shell("~/.config/awesome/run_once.sh nm-applet")
 
 -- rounded corners for all windows
 client.connect_signal("manage", function(c)
