@@ -51,6 +51,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lewis6991/gitsigns.nvim'
 	" Plug 'pwntester/octo.nvim'
 	Plug 'ThePrimeagen/git-worktree.nvim'
+	" Plug '~/dev/git-worktree.nvim/'
 
 	" DB
 	Plug 'tpope/vim-dadbod'
