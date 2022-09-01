@@ -45,7 +45,7 @@ theme.taglist_squares_unsel = theme.wd .. "tags/base.png"
 theme.taglist_font          = theme.taglist_font
 
 -- tasklist
-theme.tasklist_disable_icon = true
+theme.tasklist_disable_icon = false
 
 -- menu
 theme.menu_submenu_icon = theme.wd .. "submenu.png"
