@@ -32,6 +32,9 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+-- Bootstrap library
+require("bootstrap.bootstrap")
+
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
@@ -74,6 +77,7 @@ end
 
 -- THEME
 beautiful.init("~/.config/awesome/themes/gruvbox/theme.lua")
+beautiful.icon_theme = "Papirus-Dark"
 
 -- DEFAULT EDITOR
 local terminal = "alacritty"
@@ -144,7 +148,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock('%a %d %b %Y, wk %V, %T', 1)
+mytextclock = wibox.widget.textclock('%a %d %b %Y  %T', 1)
 local cw = calendar_widget({
 	placement = 'top_right',
 })
@@ -247,6 +251,9 @@ awful.screen.connect_for_each_screen(function(s)
 			logout_menu_widget({
 				onlock = function() awful.spawn.with_shell('light-locker-command -l') end
 			}),
+			separator,
+			s.mylayoutbox,
+			separator,
 			s.mytaglist,
 			s.mypromptbox,
 		},
@@ -264,10 +271,8 @@ awful.screen.connect_for_each_screen(function(s)
 			wibox.widget.textbox(' '),
 			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1),
 			separator,
-			wibox.widget.textbox('  '),
+			-- wibox.widget.textbox('  '),
 			mytextclock,
-			separator,
-			s.mylayoutbox,
 		},
 	}
 
@@ -692,15 +697,21 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
+
 	-- Set the windows at the slave,
 	-- i.e. put it at the end of others instead of setting it master.
 	-- if not awesome.startup then awful.client.setslave(c) end
-
 	if awesome.startup
 		and not c.size_hints.user_position
 		and not c.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
+	end
+
+
+	-- rounded corners for all windows
+	c.shape = function(cr, w, h)
+		gears.shape.rounded_rect(cr, w, h, 8)
 	end
 end)
 
@@ -789,7 +800,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- GAPS
 beautiful.systray_icon_spacing = 5
 
-local bootstrap = require("bootstrap.bootstrap")
 
 -- AUTO-EXEC
 awful.spawn.with_shell("~/.fehbg")
@@ -808,6 +818,7 @@ autorunApps =
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
 	"picom --experimental-backends",
 	"setxkbmap -option caps:escape",
+	"unclutter",
 	"volumeicon",
 }
 if autorun then
@@ -820,13 +831,6 @@ end
 -- spawn_once("cbatticon")
 -- spawn_once("volumeicon")
 -- spawn_once("nm-applet")
-
--- rounded corners for all windows
-client.connect_signal("manage", function(c)
-	c.shape = function(cr, w, h)
-		gears.shape.rounded_rect(cr, w, h, 8)
-	end
-end)
 
 -- make the garbage collector collect more often
 collectgarbage("setpause", 160)
