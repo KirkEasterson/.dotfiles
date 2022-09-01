@@ -803,7 +803,6 @@ autorunApps =
 	-- "caffeine-indicator",
 	"setxkbmap -option caps:escape",
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
-	"autorandr --change",
 	-- "cairo-dock",
 }
 if autorun then
