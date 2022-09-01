@@ -42,7 +42,7 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local separator = wibox.widget {
 	widget = wibox.widget.separator,
 	orientation = "vertical",
-	forced_width = 15,
+	forced_width = 13,
 	color = "#353535",
 }
 
@@ -217,8 +217,8 @@ awful.screen.connect_for_each_screen(function(s)
 		filter  = awful.widget.taglist.filter.noempty,
 		buttons = taglist_buttons,
 		style   = {
-			shape = gears.shape.rounded_rect,
-			spacing = 2,
+			-- shape = gears.shape.rectangle,
+			-- spacing = 0,
 		},
 		layout  = {
 			layout = wibox.layout.fixed.horizontal
@@ -231,12 +231,16 @@ awful.screen.connect_for_each_screen(function(s)
 		filter  = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 		style   = {
-			shape = gears.shape.rounded_rect,
+			shape = gears.shape.rounded_bar,
+			shape_border_width = 1,
+			shape_border_color = beautiful.border_normal,
+			shape_border_width_focus = 1,
+			shape_border_color_focus = beautiful.border_focus,
 		},
 		layout  = {
-			spacing = 5,
+			spacing = 0,
 			max_widget_size = awful.screen.focused().workarea.width * 0.12,
-			layout = wibox.layout.flex.horizontal
+			layout = wibox.layout.flex.horizontal,
 		},
 	}
 
@@ -251,10 +255,10 @@ awful.screen.connect_for_each_screen(function(s)
 			logout_menu_widget({
 				onlock = function() awful.spawn.with_shell('light-locker-command -l') end
 			}),
-			separator,
 			s.mylayoutbox,
 			separator,
 			s.mytaglist,
+			separator,
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
