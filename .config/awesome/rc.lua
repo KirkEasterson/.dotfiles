@@ -789,6 +789,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- GAPS
 beautiful.systray_icon_spacing = 5
 
+local bootstrap = require("bootstrap.bootstrap")
+
 -- AUTO-EXEC
 awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
@@ -797,23 +799,27 @@ awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
 autorun = true
 autorunApps =
 {
-	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
-	"picom --experimental-backends",
-	"flameshot",
 	-- "caffeine-indicator",
-	"setxkbmap -option caps:escape",
-	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
 	-- "cairo-dock",
+	"cbatticon",
+	"flameshot",
+	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
+	"nm-applet",
+	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
+	"picom --experimental-backends",
+	"setxkbmap -option caps:escape",
+	"volumeicon",
 }
 if autorun then
 	for app = 1, #autorunApps do
-		awful.util.spawn(autorunApps[app])
+		spawn_once(autorunApps[app])
 	end
 end
 
-awful.spawn.with_shell("~/.config/awesome/run_once.sh cbatticon")
-awful.spawn.with_shell("~/.config/awesome/run_once.sh volumeicon")
-awful.spawn.with_shell("~/.config/awesome/run_once.sh nm-applet")
+-- spawn_once("flameshot")
+-- spawn_once("cbatticon")
+-- spawn_once("volumeicon")
+-- spawn_once("nm-applet")
 
 -- rounded corners for all windows
 client.connect_signal("manage", function(c)
