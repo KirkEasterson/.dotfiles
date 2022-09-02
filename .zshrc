@@ -4,25 +4,15 @@ HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.cache/zsh/history
 setopt INC_APPEND_HISTORY_TIME
-
-# Basic auto/tab complete
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-
-# vi mode
-bindkey -v
-bindkey '^R' history-incremental-search-backward
 export KEYTIMEOUT=1
 
-# Use vim keys in tab complete menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+# Search backwards and forwards with a pattern
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M vicmd '?' history-incremental-pattern-search-forward
+
+# set up for insert mode too
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 # Change cursor shape for different vi modes
 function zle-keymap-select {
@@ -45,6 +35,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
@@ -57,24 +48,26 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-# Case-insensitive tab completion
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
 
-# Enable colors and change prompt
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# Download Znap, if it's not there yet.
+[[ -f ~/.config/zsh-snap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh-snap
+source ~/.config/zsh-snap/znap.zsh
 
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+znap source zsh-users/zsh-syntax-highlighting
+znap source zsh-users/zsh-autosuggestions
+znap source marlonrichert/zsh-autocomplete
+# znap source jeffreytse/zsh-vi-mode
+
+# TODO: try to use this with curl so I don't need to add the install to ansible
+znap eval starship 'starship init zsh --print-full-init'
+znap prompt
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
-
-# start starship
-eval "$(starship init zsh)"
 
