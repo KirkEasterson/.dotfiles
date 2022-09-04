@@ -122,7 +122,7 @@ myawesomemenu = {
 mypoweroptsmenu = {
 	{ "log out", function() awesome.quit() end },
 	{ "lock", function() awful.spawn.with_shell('light-locker-command -l') end },
-	{ "reboot", function() awful.spawn.with_shell("reboot now") end },
+	{ "reboot", function() awful.spawn.with_shell("reboot") end },
 	{ "suspend", function() awful.spawn.with_shell("systemctl suspend") end },
 	{ "poweroff", function() awful.spawn.with_shell("shutdown now") end },
 
