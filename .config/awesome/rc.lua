@@ -38,7 +38,6 @@ require("bootstrap.bootstrap")
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local separator = wibox.widget {
 	widget = wibox.widget.separator,
 	orientation = "vertical",
@@ -118,11 +117,20 @@ myawesomemenu = {
 	{ "manual", terminal .. " -e man awesome" },
 	{ "edit config", editor_cmd .. " " .. awesome.conffile },
 	{ "restart", awesome.restart },
-	{ "quit", function() awesome.quit() end },
 }
 
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
+mypoweroptsmenu = {
+	{ "log out", function() awesome.quit() end },
+	{ "lock", function() awful.spawn.with_shell('light-locker-command -l') end },
+	{ "reboot", function() awful.spawn.with_shell("reboot now") end },
+	{ "suspend", function() awful.spawn.with_shell("systemctl suspend") end },
+	{ "poweroff", function() awful.spawn.with_shell("shutdown now") end },
+
+}
+
+local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon, }
+local menu_terminal = { "open terminal", terminal, }
+local menu_poweropts = { "leave", mypoweroptsmenu, }
 
 if has_fdo then
 	mymainmenu = freedesktop.menu.build({
@@ -133,11 +141,17 @@ else
 	mymainmenu = awful.menu({
 		items = {
 			menu_awesome,
-			{ "Debian", debian.menu.Debian_menu.Debian },
+			{ "programs", debian.menu.Debian_menu.Debian },
 			menu_terminal,
+			menu_poweropts,
 		}
 	})
 end
+
+mylauncher = awful.widget.launcher({
+	image = beautiful.awesome_icon,
+	menu = mymainmenu
+})
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -252,10 +266,7 @@ awful.screen.connect_for_each_screen(function(s)
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
-			logout_menu_widget({
-				onlock = function() awful.spawn.with_shell('light-locker-command -l') end
-			}),
-			s.mylayoutbox,
+			mylauncher,
 			separator,
 			s.mytaglist,
 			separator,
@@ -277,6 +288,8 @@ awful.screen.connect_for_each_screen(function(s)
 			separator,
 			-- wibox.widget.textbox('  '),
 			mytextclock,
+			separator,
+			s.mylayoutbox,
 		},
 	}
 
