@@ -50,10 +50,10 @@ bindkey -s '^o' 'lfcd\n'
 
 
 # Download Znap, if it's not there yet.
-[[ -f ~/.config/zsh-snap/znap.zsh ]] ||
+[[ -f ~/.config/zsh/plugins/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh-snap
-source ~/.config/zsh-snap/znap.zsh
+        https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/plugins/zsh-snap
+source ~/.config/zsh/plugins/zsh-snap/znap.zsh
 
 znap source zsh-users/zsh-syntax-highlighting
 znap source zsh-users/zsh-autosuggestions
