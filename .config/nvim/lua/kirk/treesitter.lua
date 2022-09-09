@@ -1,30 +1,7 @@
 -- local ts_utils = require 'nvim-treesitter.ts_utils'
 
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = {
-		"bash",
-		"bibtex",
-		"css",
-		"dockerfile",
-		"go",
-		"gomod",
-		"gowork",
-		"html",
-		"javascript",
-		"json",
-		"json5",
-		"latex",
-		"lua",
-		"make",
-		"markdown",
-		"python",
-		"regex",
-		"rust",
-		"tsx",
-		"typescript",
-		"vim",
-		"yaml",
-	},
+	ensure_installed = "all",
 	sync_install = false,
 	highlight = {
 		enable = true,
@@ -36,3 +13,5 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 require("nvim-treesitter.install").prefer_git = true
+
+require('treesitter-context').setup{}
