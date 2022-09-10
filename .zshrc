@@ -23,6 +23,7 @@ bindkey -M vicmd '?' history-incremental-pattern-search-forward
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
 
+# TODO: do this in a cleaner way
 # Change cursor shape for different vi modes
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
@@ -44,29 +45,41 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-
 # Download Znap, if it's not there yet.
 [[ -f ~/.config/zsh/plugins/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
         https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/plugins/zsh-snap
 source ~/.config/zsh/plugins/zsh-snap/znap.zsh
 
+# configuration for plugins
+zstyle ':autocomplete:recent-dirs' no
+zstyle ':autocomplete:*' widget-style menu-select
+zstyle ':autocomplete:*' min-input 1
+zstyle ':autocomplete:*' insert-unambiguous yes
+
+# zsh plugins
 znap source zsh-users/zsh-autosuggestions
 znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-syntax-highlighting
 
-bindkey '^Y' autosuggest-accept
-zstyle ':autocomplete:*' insert-unambiguous yes
-zstyle ':autocomplete:*' widget-style menu-select
-
 # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+bindkey -v '^?' backward-delete-char # hacky bug fix; don't remove
+
+# Use emacs next/prev bindings
+# TODO: make these cycle through the completion options, and act as 'Tab' does
+# TODO: prevent 'Tab' from cycling. It should just insert the unambiguous substring
+bindkey -M menuselect '^n' up-line-or-history
+bindkey -M menuselect '^p' down-line-or-history
+
+# Like my nvim binding
+bindkey '^Y' autosuggest-accept
 
 # TODO: try to use this with curl so I don't need to add the install to ansible
+# TODO: checkout powerlevel10k
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt
 
