@@ -13,13 +13,11 @@ if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # vi mode
-bindkey -v
+bindkey -v '^?' backward-delete-char # hacky bug fix; don't remove
 
-# Search backwards and forwards with a pattern
+# forward/backward search in vi mode
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
-
-# set up for insert mode too
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
 
@@ -56,6 +54,8 @@ zstyle ':autocomplete:recent-dirs' no
 zstyle ':autocomplete:*' widget-style menu-select
 zstyle ':autocomplete:*' min-input 1
 zstyle ':autocomplete:*' insert-unambiguous yes
+ZSH_AUTOSUGGEST_STRATEGY=( history )
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 # zsh plugins
 znap source zsh-users/zsh-autosuggestions
@@ -67,16 +67,16 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' down-line-or-history
 bindkey -M menuselect 'k' up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
-bindkey -v '^?' backward-delete-char # hacky bug fix; don't remove
 
 # Use emacs next/prev bindings
 # TODO: make these cycle through the completion options, and act as 'Tab' does
 # TODO: prevent 'Tab' from cycling. It should just insert the unambiguous substring
-bindkey -M menuselect '^n' up-line-or-history
-bindkey -M menuselect '^p' down-line-or-history
+bindkey -M menuselect '^n' up-line-or-select
+bindkey -M menuselect '^p' down-line-or-select
 
 # Like my nvim binding
 bindkey '^Y' autosuggest-accept
+bindkey -M menuselect -r '\t'
 
 # TODO: try to use this with curl so I don't need to add the install to ansible
 # TODO: checkout powerlevel10k
