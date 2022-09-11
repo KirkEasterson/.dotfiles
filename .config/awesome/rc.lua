@@ -801,8 +801,9 @@ client.connect_signal("request::titlebars", function(c)
 	layout:set_right(right_layout)
 
 	local margin_layout = wibox.container.margin(layout, 5, 5, 5, 5)
+	local titlebar_height = math.max(awful.screen.focused().workarea.height * 0.015, 24)
 
-	awful.titlebar(c, { size = 24 }):set_widget(margin_layout)
+	awful.titlebar(c, { size = titlebar_height }):set_widget(margin_layout)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
