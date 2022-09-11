@@ -58,9 +58,10 @@ ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 # zsh plugins
-znap source zsh-users/zsh-autosuggestions
 znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
+znap source spaceship-prompt/spaceship-prompt spaceship.zsh
 
 # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
@@ -77,9 +78,3 @@ bindkey -M menuselect '^p' down-line-or-select
 # Like my nvim binding
 bindkey '^Y' autosuggest-accept
 bindkey -M menuselect -r '\t'
-
-# TODO: try to use this with curl so I don't need to add the install to ansible
-# TODO: checkout powerlevel10k
-znap eval starship 'starship init zsh --print-full-init'
-znap prompt
-
