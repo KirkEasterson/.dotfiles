@@ -6,10 +6,7 @@ HISTFILE=~/.cache/zsh/history
 setopt INC_APPEND_HISTORY_TIME
 export KEYTIMEOUT=1
 
-# The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # vi mode
@@ -43,6 +40,15 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# Basic auto/tab complete
+autoload -U compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+
 # Download Znap, if it's not there yet.
 [[ -f ~/.config/zsh/plugins/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
@@ -50,15 +56,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 source ~/.config/zsh/plugins/zsh-snap/znap.zsh
 
 # configuration for plugins
-zstyle ':autocomplete:recent-dirs' no
-zstyle ':autocomplete:*' widget-style menu-select
-zstyle ':autocomplete:*' min-input 1
-zstyle ':autocomplete:*' insert-unambiguous yes
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 # zsh plugins
-znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 # znap source spaceship-prompt/spaceship-vi-mode spaceship-vi-mode.plugin.zsh
