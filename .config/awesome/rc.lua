@@ -845,10 +845,8 @@ if autorun then
 	end
 end
 
--- spawn_once("flameshot")
--- spawn_once("cbatticon")
--- spawn_once("volumeicon")
--- spawn_once("nm-applet")
+-- set focus to primary screen
+awful.screen.focus(screen.primary)
 
 -- make the garbage collector collect more often
 collectgarbage("setpause", 160)
