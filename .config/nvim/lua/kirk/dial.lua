@@ -14,19 +14,5 @@ require("dial.config").augends:register_group {
 		augend.date.alias["%Y-%m-%d"],
 		augend.date.alias["%d/%m/%Y"],
 		augend.date.alias["%d-%m-%Y"],
-		augend.date.alias["%m/%d/%Y"],
-		augend.date.alias["%m-%d-%Y"],
-		augend.date.alias["%H:%M:%S"],
-		augend.date.alias["%H:%M"],
-		augend.constant.new {
-			elements = { "&&", "||" },
-			word = false,
-			cyclic = true,
-		},
-		augend.constant.new {
-			elements = { "and", "or" },
-			word = true,
-			cyclic = true,
-		},
 	},
 }
