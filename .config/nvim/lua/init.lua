@@ -19,6 +19,7 @@ require('kirk.neoscroll')
 require('kirk.neogit')
 require('kirk.gitsigns')
 require('kirk.autopairs')
+require('kirk.winshift')
 require('kirk.git.git')
 -- require('kirk.spellsitter')
 -- require('kirk.colorizer') -- TODO: figure out why this doesn't work

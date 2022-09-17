@@ -96,6 +96,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" misc
 	" Plug 'jbyuki/venn.nvim'
 	Plug 'kyazdani42/nvim-tree.lua'
+	Plug 'sindrets/winshift.nvim'
 
 call plug#end()
 
