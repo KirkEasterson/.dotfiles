@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/nvim-treesitter-context'
 	Plug 'smjonas/inc-rename.nvim'
+	Plug 'theHamsta/nvim-semantic-tokens'
 
 	" completion
 	Plug 'hrsh7th/nvim-cmp'

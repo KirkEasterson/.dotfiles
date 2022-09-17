@@ -7,6 +7,7 @@ require('kirk.lsp.py')
 require('kirk.lsp.rust')
 require('kirk.lsp.tex')
 require('kirk.lsp.ts')
+require('kirk.lsp.semantic_tokens')
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
