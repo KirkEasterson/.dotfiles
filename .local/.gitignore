@@ -1,4 +1,5 @@
 !bin/.gitignore
+!bin/chtsh
 !bin/powermenu
 !bin/wifimenu
 
