@@ -1,6 +1,6 @@
-!bin/.gitignore
-!bin/chtsh
+*
+
+!.gitignore
+!bin/cht.sh
 !bin/powermenu
 !bin/wifimenu
-
-*
