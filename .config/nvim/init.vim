@@ -25,6 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 	Plug 'smjonas/inc-rename.nvim'
 	Plug 'theHamsta/nvim-semantic-tokens'
+	Plug 'kylechui/nvim-surround'
 
 	" completion
 	Plug 'hrsh7th/nvim-cmp'
