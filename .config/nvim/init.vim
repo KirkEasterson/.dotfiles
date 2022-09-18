@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'smjonas/inc-rename.nvim'
 	Plug 'theHamsta/nvim-semantic-tokens'
 	Plug 'kylechui/nvim-surround'
+	Plug 'm-demare/hlargs.nvim'
 
 	" completion
 	Plug 'hrsh7th/nvim-cmp'

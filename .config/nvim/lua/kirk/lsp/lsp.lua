@@ -1,6 +1,7 @@
 require('kirk.lsp.semantic_tokens')
 require('kirk.lsp.inc_rename')
 require('kirk.lsp.completion')
+require('kirk.lsp.hlargs')
 -- require('kirk.lsp.dap')
 require('kirk.lsp.go')
 require('kirk.lsp.nlua')
