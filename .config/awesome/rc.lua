@@ -135,7 +135,10 @@ local menu_poweropts = { "leave", mypoweroptsmenu, }
 if has_fdo then
 	mymainmenu = freedesktop.menu.build({
 		before = { menu_awesome },
-		after = { menu_terminal }
+		after = {
+			menu_poweropts,
+			menu_terminal,
+		}
 	})
 else
 	mymainmenu = awful.menu({
