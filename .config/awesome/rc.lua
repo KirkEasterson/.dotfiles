@@ -827,11 +827,12 @@ awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
 
 -- Autorun programs
-autorun = true
-autorunApps =
+local autorun = true
+local autorunApps =
 {
 	-- "caffeine-indicator",
 	-- "cairo-dock",
+	"blueman-applet",
 	"cbatticon",
 	"flameshot",
 	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
