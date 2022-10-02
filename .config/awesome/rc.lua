@@ -819,7 +819,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- GAPS
-beautiful.systray_icon_spacing = 5
+beautiful.systray_icon_spacing = 13
 
 
 -- AUTO-EXEC
