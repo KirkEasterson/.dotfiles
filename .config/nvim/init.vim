@@ -11,9 +11,12 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source ~/.config/nvim/init.vim
 \| endif
 
+" hide the command line
 set cmdheight=0
+
+" aesthetic win separators
 set laststatus=3
-" vim.cmd('highlight WinSeparator guibg=None') " TODO: Figure out why this isn't working
+highlight WinSeparator guibg=None guifg=#928374
 
 call plug#begin('~/.config/nvim/plugged')
 
