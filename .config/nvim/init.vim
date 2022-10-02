@@ -20,7 +20,8 @@ highlight WinSeparator guibg=None guifg=#928374
 
 " winbar
 set winbar=%=%m\ %t%=
-highlight WinBar guibg=#32302f
+highlight WinBar guibg=#3c3836
+highlight WinBarNC guibg=#282828
 
 call plug#begin('~/.config/nvim/plugged')
 
