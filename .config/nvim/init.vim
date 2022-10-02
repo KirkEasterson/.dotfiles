@@ -18,6 +18,10 @@ set cmdheight=0
 set laststatus=3
 highlight WinSeparator guibg=None guifg=#928374
 
+" winbar
+set winbar=%=%m\ %t%=
+highlight WinBar guibg=#32302f
+
 call plug#begin('~/.config/nvim/plugged')
 
 	" lsp
