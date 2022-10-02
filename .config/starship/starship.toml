@@ -17,6 +17,7 @@ $character
 """
 
 continuation_prompt = "▶▶  "
+command_timeout = 10000
 
 [directory]
 truncation_length = 5
