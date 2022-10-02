@@ -11,6 +11,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source ~/.config/nvim/init.vim
 \| endif
 
+set cmdheight=0
 set laststatus=3
 " vim.cmd('highlight WinSeparator guibg=None') " TODO: Figure out why this isn't working
 
