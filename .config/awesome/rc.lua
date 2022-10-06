@@ -837,6 +837,7 @@ local autorunApps =
 	"flameshot",
 	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
 	"nm-applet",
+	"package-update-indicator",
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
 	"picom --experimental-backends",
 	"setxkbmap -option caps:escape",
