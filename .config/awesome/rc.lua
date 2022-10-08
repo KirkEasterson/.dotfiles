@@ -454,7 +454,7 @@ globalkeys = gears.table.join(
 	awful.key({}, "Print", function() awful.util.spawn("flameshot gui", false) end,
 		{ description = "screenshot selected area", group = "screenshot" }),
 
-	awful.key({ "Shift" }, "Print", function() awful.util.spawn("flameshot full -p $HOME/Pictures/screenshots", false) end,
+	awful.key({ "Shift" }, "Print", function() awful.util.spawn("flameshot full", false) end,
 		{ description = "screenshot selected full screen", group = "screenshot" }),
 
 	-- keyboard layouts
