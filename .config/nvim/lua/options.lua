@@ -16,7 +16,7 @@ vim.opt.breakindent = true -- preserve indenting on wrapped lines
 vim.cmd([[syntax enable]]) -- TODO: do this natively with lua
 vim.opt.showmatch = true -- highlight matching brackets
 vim.opt.scrolloff = 8 -- scroll when x away from edge
-vim.opt.signcolumn = 'auto' -- column for linting
+vim.opt.signcolumn = 'auto:1-9' -- column for linting
 vim.opt.colorcolumn = '80' -- show line for 80char soft-limit
 
 vim.opt.tabstop = 4 -- number of visual spaces per tab
@@ -28,7 +28,6 @@ vim.opt.mouse = 'a' -- enable mouse for scrolling and resizing
 vim.opt.mousemodel = 'extend'
 
 vim.opt.wildmenu = true -- visual autocompletion for command menu
--- vim.cmd([[set clipboard+=namedplus]]) -- use system clipboard when yanking
 vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
 vim.opt.cmdheight = 0 -- hide the command line
@@ -38,8 +37,6 @@ vim.cmd([[highlight WinSeparator guibg=None guifg=#928374]])
 
 vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
--- vim.opt.exrc = true -- use local vimrc if it exists
 
 -- winbar
 -- vim.opt.winbar = '%=%m\ %t%='
@@ -69,15 +66,6 @@ vim.cmd([[
 -- 	{
 -- 		pattern = '*',
 -- 		callback = ":%s/\s\+$//e",
--- 	}
--- )
-
--- -- transparent background
--- vim.api.nvim_create_autocmd(
--- 	'ColorScheme',
--- 	{
--- 		pattern = "*",
--- 		callback = "highlight Normal ctermbg=none guibg=none",
 -- 	}
 -- )
 
