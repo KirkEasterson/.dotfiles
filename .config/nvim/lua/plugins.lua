@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
 			'nvim-telescope/telescope-fzy-native.nvim',
 			'ThePrimeagen/git-worktree.nvim',
 		},
+		config = function() require("kirk.telescope") end,
 	}
 
 	-- git
@@ -80,6 +81,7 @@ return require('packer').startup(function(use)
 		requires = {
 			'nvim-lua/plenary.nvim',
 		},
+		config = function() require("kirk.neogit") end,
 	}
 	use {
 		'lewis6991/gitsigns.nvim',

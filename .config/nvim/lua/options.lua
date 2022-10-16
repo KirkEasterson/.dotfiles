@@ -16,7 +16,7 @@ vim.opt.breakindent = true -- preserve indenting on wrapped lines
 vim.cmd([[syntax enable]]) -- TODO: do this natively with lua
 vim.opt.showmatch = true -- highlight matching brackets
 vim.opt.scrolloff = 8 -- scroll when x away from edge
-vim.opt.signcolumn = 'auto:1-9' -- column for linting
+vim.opt.signcolumn = 'yes' -- column for linting
 vim.opt.colorcolumn = '80' -- show line for 80char soft-limit
 
 vim.opt.tabstop = 4 -- number of visual spaces per tab
