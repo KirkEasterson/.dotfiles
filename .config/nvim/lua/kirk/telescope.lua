@@ -3,13 +3,15 @@ local sorters = require("telescope.sorters")
 
 require('telescope').setup {
 	defaults = {
-		file_sorter = sorters.get_fzy_sorter,
+		color_devicons = true,
 		file_previewer = previewers.vim_buffer_cat.new,
+		file_sorter = sorters.get_fzy_sorter,
 		grep_previewer = previewers.vim_buffer_vimgrep.new,
 		qflist_previewer = previewers.vim_buffer_qflist.new,
-
-		color_devicons = false,
-
+		sorting_strategy = "ascending",
+		layout_config = {
+			prompt_position = 'top',
+		},
 		file_ignore_patterns = {
 			"%.a",
 			"%.class",
@@ -33,11 +35,10 @@ require('telescope').setup {
 			override_file_sorter = true,
 		},
 		fzf = {
-			fuzzy = true, -- false will only do exact matching
-			override_generic_sorter = true, -- override the generic sorter
-			override_file_sorter = true, -- override the file sorter
-			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-			-- the default case_mode is "smart_case"
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
 		},
 		frecency = {
 			show_scores = false,
@@ -51,9 +52,8 @@ require('telescope').setup {
 	pickers = {
 		find_files = {
 			hidden = true,
-			theme = "dropdown",
 		},
-	}
+	},
 }
 
 -- require("telescope").load_extension("fzf")
