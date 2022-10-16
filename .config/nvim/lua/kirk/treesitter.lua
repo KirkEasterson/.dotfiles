@@ -1,6 +1,6 @@
 -- local ts_utils = require 'nvim-treesitter.ts_utils'
 
-require 'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup({
 	ensure_installed = "all",
 	sync_install = false,
 	highlight = {
@@ -10,13 +10,13 @@ require 'nvim-treesitter.configs'.setup {
 	indent = {
 		enable = true,
 	}
-}
+})
 
 require("nvim-treesitter.install").prefer_git = true
 
-require('treesitter-context').setup {}
+require('treesitter-context').setup({})
 
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.configs').setup({
 	textobjects = {
 		lsp_interop = {
 			enable = true,
@@ -82,4 +82,4 @@ require('nvim-treesitter.configs').setup {
 			},
 		},
 	},
-}
+})
