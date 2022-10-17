@@ -28,6 +28,15 @@ require('telescope').setup {
 			"node%_modules",
 			"node%_modules/*",
 		},
+		vimgrep_arguments = {
+			"rg",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--hidden",
+			"--max-depth=99"
+		}
 	},
 	extensions = {
 		fzy_native = {
@@ -56,7 +65,5 @@ require('telescope').setup {
 	},
 }
 
--- require("telescope").load_extension("fzf")
 require("telescope").load_extension("fzy_native")
--- require('telescope').load_extension('frecency')
 require("telescope").load_extension("git_worktree")
