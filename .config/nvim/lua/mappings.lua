@@ -31,11 +31,13 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv")
 map('n', '<A-j>', ':m .+1<CR>==')
 map('n', '<A-k>', ':m .-2<CR>==')
 
--- easier window navigation with <leader>+direction
-map('n', '<leader>h', ':wincmd h<CR>', { silent = true })
-map('n', '<leader>j', ':wincmd j<CR>', { silent = true })
-map('n', '<leader>k', ':wincmd k<CR>', { silent = true })
-map('n', '<leader>l', ':wincmd l<CR>', { silent = true })
+-- nvim-tmux navigation
+map('n', "<C-h>", "nvim_tmux_nav.NvimTmuxNavigateLeft", { silent = true })
+map('n', "<C-j>", "nvim_tmux_nav.NvimTmuxNavigateDown", { silent = true })
+map('n', "<C-k>", "nvim_tmux_nav.NvimTmuxNavigateUp", { silent = true })
+map('n', "<C-l>", "nvim_tmux_nav.NvimTmuxNavigateRight", { silent = true })
+map('n', "<C-\\>", "nvim_tmux_nav.NvimTmuxNavigateLastActive", { silent = true })
+map('n', "<C-Space>", "nvim_tmux_nav.NvimTmuxNavigateNext", { silent = true })
 
 -- telescope
 map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")

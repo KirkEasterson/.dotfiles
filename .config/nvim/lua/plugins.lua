@@ -188,6 +188,10 @@ return require('packer').startup(function(use)
 		'monaqa/dial.nvim',
 		config = function() require("kirk.dial") end,
 	}
+	use {
+		'alexghergh/nvim-tmux-navigation',
+		config = function() require("kirk.nvim_tmux_navigator") end,
+	}
 
 	if packer_bootstrap then
 		require('packer').sync()
