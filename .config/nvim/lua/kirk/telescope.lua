@@ -21,6 +21,7 @@ require('telescope').setup {
 			"%.out",
 			"%.pdf",
 			"%.zip",
+			"packer_compiled.lua",
 			"./node%_modules/*",
 			".cache",
 			".git/",

@@ -1,4 +1,3 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local cmp = require('cmp')
 
 local ok, lspkind = pcall(require, "lspkind")
@@ -21,9 +20,11 @@ cmp.setup({
 				behavior = cmp.ConfirmBehavior.Insert,
 				select = true,
 			},
-			{ "i", "c" }
+			{
+				"i",
+				"c",
+			}
 		),
-
 		["<c-space>"] = cmp.mapping {
 			i = cmp.mapping.complete(),
 			c = function(
@@ -41,11 +42,10 @@ cmp.setup({
 	},
 
 	sources = cmp.config.sources({
+		{ name = 'luasnip' },
 		{ name = 'nvim_lsp' },
 		{ name = 'path' },
-		{ name = 'luasnip' },
 		{ name = 'spell' },
-		-- { name = 'buffer', keyword_length = 5 },
 	}, {
 		{ name = 'buffer' },
 	}),
@@ -61,11 +61,11 @@ cmp.setup({
 			with_text = true,
 			menu = {
 				buffer = "[buf]",
+				gh_issues = "[issues]",
+				luasnip = "[snip]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[api]",
 				path = "[path]",
-				luasnip = "[snip]",
-				gh_issues = "[issues]",
 				tn = "[TabNine]",
 			},
 		},
@@ -74,5 +74,5 @@ cmp.setup({
 	experimental = {
 		native_menu = false,
 		ghost_text = true,
-	}
+	},
 })

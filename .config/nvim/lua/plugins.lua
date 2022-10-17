@@ -16,19 +16,20 @@ return require('packer').startup(function(use)
 
 	-- lsp
 	use {
+		-- 'williamboman/mason.nvim',
+		-- 'williamboman/mason-lspconfig.nvim',
 		'neovim/nvim-lspconfig',
 		config = function() require("kirk.lsp.lsp") end,
 	}
-	-- use 'nvim-lua/plenary.nvim'
-	use 'nvim-lua/popup.nvim'
 	use {
 		'nvim-treesitter/nvim-treesitter',
+		'nvim-treesitter/nvim-treesitter-context',
+		'nvim-treesitter/nvim-treesitter-textobjects',
 		run = function()
 			require('nvim-treesitter.install').update({ with_sync = true })
 		end,
+		config = function() require("kirk.treesitter") end,
 	}
-	use 'nvim-treesitter/nvim-treesitter-context'
-	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use {
 		'smjonas/inc-rename.nvim',
 		config = function() require("kirk.lsp.inc_rename") end,
