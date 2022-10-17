@@ -15,7 +15,10 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- lsp
-	use 'neovim/nvim-lspconfig'
+	use {
+		'neovim/nvim-lspconfig',
+		config = function() require("kirk.lsp.lsp") end,
+	}
 	-- use 'nvim-lua/plenary.nvim'
 	use 'nvim-lua/popup.nvim'
 	use {

@@ -1,12 +1,8 @@
-require('kirk.lsp.semantic_tokens')
-require('kirk.lsp.inc_rename')
-require('kirk.lsp.completion')
-require('kirk.lsp.hlargs')
 -- require('kirk.lsp.dap')
 require('kirk.lsp.go')
 require('kirk.lsp.nlua')
 require('kirk.lsp.py')
-require('kirk.lsp.rust')
+-- require('kirk.lsp.rust') -- rust-tools config calls this
 require('kirk.lsp.tex')
 require('kirk.lsp.ts')
 
