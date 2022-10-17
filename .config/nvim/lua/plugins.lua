@@ -16,8 +16,8 @@ return require('packer').startup(function(use)
 
 	-- lsp
 	use {
-		-- 'williamboman/mason.nvim',
-		-- 'williamboman/mason-lspconfig.nvim',
+		'williamboman/mason.nvim',
+		'williamboman/mason-lspconfig.nvim',
 		'neovim/nvim-lspconfig',
 		config = function() require("kirk.lsp.lsp") end,
 	}
