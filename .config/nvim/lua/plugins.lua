@@ -14,6 +14,43 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- a e s t h e t i c
+	use {
+		'ellisonleao/gruvbox.nvim',
+		config = function() require("kirk.gruvbox") end,
+	}
+	-- use({
+	-- 	"folke/noice.nvim",
+	-- 	requires = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- 	config = function() require("kirk.noice") end,
+	-- 	event = "VimEnter",
+	-- })
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function() require("kirk.lualine") end,
+	}
+	use {
+		'karb94/neoscroll.nvim',
+		config = function() require("kirk.neoscroll") end,
+	}
+	use {
+		'petertriho/nvim-scrollbar',
+		config = function() require("kirk.scrollbar") end,
+	}
+	use 'kyazdani42/nvim-web-devicons' -- this shouldn't be necessary
+	use {
+		'romgrk/barbar.nvim',
+		requires = {
+			'kyazdani42/nvim-web-devicons'
+		},
+		config = function() require("kirk.barbar") end,
+	}
+	-- use 'goolord/alpha-nvim'
+
 	-- lsp
 	use {
 		'williamboman/mason.nvim',
@@ -75,6 +112,7 @@ return require('packer').startup(function(use)
 			'nvim-lua/plenary.nvim',
 			'nvim-telescope/telescope-fzy-native.nvim',
 			'ThePrimeagen/git-worktree.nvim',
+			-- 'folke/noice.nvim',
 		},
 		config = function() require("kirk.telescope") end,
 	}
@@ -121,33 +159,6 @@ return require('packer').startup(function(use)
 	-- use 'kamykn/spelunker.vim'
 	use 'kamykn/popup-menu.nvim'
 
-	-- a e s t h e t i c
-	use {
-		'ellisonleao/gruvbox.nvim',
-		config = function() require("kirk.gruvbox") end,
-	}
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		config = function() require("kirk.lualine") end,
-	}
-	use {
-		'karb94/neoscroll.nvim',
-		config = function() require("kirk.neoscroll") end,
-	}
-	use {
-		'petertriho/nvim-scrollbar',
-		config = function() require("kirk.scrollbar") end,
-	}
-	use 'kyazdani42/nvim-web-devicons' -- this shouldn't be necessary
-	use {
-		'romgrk/barbar.nvim',
-		requires = {
-			'kyazdani42/nvim-web-devicons'
-		},
-		config = function() require("kirk.barbar") end,
-	}
-	-- use 'goolord/alpha-nvim'
 
 	-- language specific, because I'm lazy
 	use {

@@ -68,3 +68,4 @@ require('telescope').setup {
 
 require("telescope").load_extension("fzy_native")
 require("telescope").load_extension("git_worktree")
+-- require("telescope").load_extension("noice")
