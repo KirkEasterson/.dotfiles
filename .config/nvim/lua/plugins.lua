@@ -52,13 +52,11 @@ return require('packer').startup(function(use)
 	-- use 'goolord/alpha-nvim'
 
 	-- lsp
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
 	use {
 		'neovim/nvim-lspconfig',
 		config = function() require("kirk.lsp.lsp") end,
-		requires = {
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim',
-		}
 	}
 	use {
 		'nvim-treesitter/nvim-treesitter',
