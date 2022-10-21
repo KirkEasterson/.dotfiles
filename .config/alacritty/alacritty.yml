@@ -16,15 +16,21 @@ font:
     family: JetBrains Mono Nerd Font
     style: Bold Italic
 
+# # this block enables the transparent background
 # colors:
-#   transparent_background_colors: false
+#   transparent_background_colors: true
+# window:
+#   opacity: 0.97
+
 mouse:
   hide_when_typing: true
 
 # true color settings
 env:
   TERM: alacritty
+
 colors:
+
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
@@ -53,4 +59,3 @@ colors:
     magenta: '#d3869b'
     cyan: '#8ec07c'
     white: '#ebdbb2'
-theme: Gruvbox-Dark
