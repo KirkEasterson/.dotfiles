@@ -203,6 +203,10 @@ return require('packer').startup(function(use)
 		'alexghergh/nvim-tmux-navigation',
 		config = function() require("kirk.nvim_tmux_navigator") end,
 	}
+	use {
+		'kamykn/spelunker.vim',
+		config = function() require("kirk.spelunker") end,
+	}
 
 	if packer_bootstrap then
 		require('packer').sync()
