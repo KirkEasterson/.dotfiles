@@ -64,10 +64,16 @@ vim.cmd([[
 	augroup END
 ]])
 
+-- remove trailing whitespace on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
 	command = [[%s/\s\+$//e]],
 })
+
+-- highlight yanked text
+vim.cmd([[
+    au TextYankPost * silent! lua vim.highlight.on_yank()
+]])
 
 -- build notes files
 vim.api.nvim_create_autocmd(
