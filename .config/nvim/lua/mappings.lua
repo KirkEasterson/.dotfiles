@@ -6,6 +6,10 @@ local function map(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- QOL mapping to type commands without needing shift
+map('n', ';', ':')
+map('n', ':', ';')
+
 map('n', 'Y', '$y') -- Y to behave like other capitals
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
 
