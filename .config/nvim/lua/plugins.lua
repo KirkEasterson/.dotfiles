@@ -60,8 +60,10 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		'nvim-treesitter/nvim-treesitter-context',
-		'nvim-treesitter/nvim-treesitter-textobjects',
+		requires = {
+			'nvim-treesitter/nvim-treesitter-context',
+			'nvim-treesitter/nvim-treesitter-textobjects',
+		},
 		run = function()
 			require('nvim-treesitter.install').update({ with_sync = true })
 		end,
