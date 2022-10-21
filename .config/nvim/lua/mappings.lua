@@ -70,3 +70,7 @@ map("n", "<leader><leader>h", "<cmd>WinShift left<CR>")
 map("n", "<leader><leader>j", "<cmd>WinShift down<CR>")
 map("n", "<leader><leader>k", "<cmd>WinShift up<CR>")
 map("n", "<leader><leader>l", "<cmd>WinShift right<CR>")
+
+-- barbar
+map("n", "<Tab>", "<cmd>BufferNext<CR>")
+map("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
