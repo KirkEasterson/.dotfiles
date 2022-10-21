@@ -76,5 +76,7 @@ map("n", "<Tab>", "<cmd>BufferNext<CR>")
 map("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
 
 -- neogit
-
 map("n", "<leader>gg", "<cmd>Neogit<CR>")
+
+-- nvim tree
+map('n', '<leader>t', '<Cmd>NvimTreeToggle<CR>', { silent = true })
