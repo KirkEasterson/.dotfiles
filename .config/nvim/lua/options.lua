@@ -31,6 +31,7 @@ vim.opt.mouse = 'a' -- enable mouse for scrolling and resizing
 vim.opt.mousemodel = 'extend'
 
 vim.opt.wildmenu = true -- visual autocompletion for command menu
+vim.opt.wildmode = { 'longest', 'list', 'full' }
 vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
 vim.opt.swapfile = false -- don't create swap files
