@@ -23,7 +23,7 @@ mouse:
 
 # true color settings
 env:
-  TERM: xterm-256color
+  TERM: alacritty
 colors:
   # Default colors
   primary:
