@@ -13,6 +13,8 @@ vim.opt.wrap = false -- don't wrap lines
 vim.opt.linebreak = true -- if wrapping, wrap on complete words
 vim.opt.breakindent = true -- preserve indenting on wrapped lines
 
+vim.opt.visualbell = true
+
 vim.opt.syntax = 'enable' -- show syntax highlighting
 vim.opt.showmatch = true -- highlight matching brackets
 vim.opt.scrolloff = 8 -- scroll when y away from vertical edge
@@ -71,9 +73,18 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- highlight yanked text
-vim.cmd([[
-    au TextYankPost * silent! lua vim.highlight.on_yank()
-]])
+local highlight_group = vim.api.nvim_create_augroup("highlight_yank", {
+	clear = true
+})
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 700,
+		})
+	end,
+	group = highlight_group
+})
 
 -- build notes files
 vim.api.nvim_create_autocmd(
