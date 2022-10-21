@@ -64,14 +64,10 @@ vim.cmd([[
 	augroup END
 ]])
 
--- -- remove trailing whitespace on each save
--- vim.api.nvim_create_autocmd(
--- 	'BufWritePre',
--- 	{
--- 		pattern = '*',
--- 		callback = ":%s/\s\+$//e",
--- 	}
--- )
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
+})
 
 -- build notes files
 vim.api.nvim_create_autocmd(
