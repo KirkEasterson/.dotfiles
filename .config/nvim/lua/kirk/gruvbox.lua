@@ -10,8 +10,7 @@ require("gruvbox").setup({
 	invert_intend_guides = false,
 	inverse = true,
 	contrast = "hard",
+	transparent_mode = true,
 })
 
-vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[highlight Normal guibg=none]])
