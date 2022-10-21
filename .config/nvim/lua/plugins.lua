@@ -54,7 +54,6 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.barbar") end,
 	}
-	-- use 'goolord/alpha-nvim'
 
 	-- lsp
 	use 'williamboman/mason.nvim'
@@ -63,6 +62,8 @@ return require('packer').startup(function(use)
 		'neovim/nvim-lspconfig',
 		config = function() require("kirk.lsp.lsp") end,
 	}
+	use 'nvim-treesitter/nvim-treesitter-context'
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		requires = {
@@ -94,6 +95,11 @@ return require('packer').startup(function(use)
 	}
 
 	-- completion
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-path"
+	use "onsails/lspkind.nvim"
+	use "saadparwaiz1/cmp_luasnip"
 	use {
 		'hrsh7th/nvim-cmp',
 		requires = {
@@ -113,6 +119,9 @@ return require('packer').startup(function(use)
 	}
 
 	-- telescope
+	use 'nvim-lua/plenary.nvim'
+	use 'nvim-telescope/telescope-fzy-native.nvim'
+	use 'ThePrimeagen/git-worktree.nvim'
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -175,6 +184,8 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.lsp.rust") end,
 	}
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'windwp/nvim-ts-autotag'
 	use {
 		'jose-elias-alvarez/nvim-lsp-ts-utils',
 		requires = {
