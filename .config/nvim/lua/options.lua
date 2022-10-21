@@ -13,9 +13,10 @@ vim.opt.wrap = false -- don't wrap lines
 vim.opt.linebreak = true -- if wrapping, wrap on complete words
 vim.opt.breakindent = true -- preserve indenting on wrapped lines
 
-vim.cmd([[syntax enable]]) -- TODO: do this natively with lua
+vim.opt.syntax = 'enable' -- show syntax highlighting
 vim.opt.showmatch = true -- highlight matching brackets
-vim.opt.scrolloff = 8 -- scroll when x away from edge
+vim.opt.scrolloff = 8 -- scroll when y away from vertical edge
+vim.opt.sidescroll = 4 -- scroll when x away from horizontal edge
 vim.opt.signcolumn = 'yes' -- column for linting
 vim.opt.colorcolumn = '80' -- show line for 80char soft-limit
 
