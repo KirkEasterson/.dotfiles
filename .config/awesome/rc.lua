@@ -777,8 +777,8 @@ client.connect_signal("request::titlebars", function(c)
 		layout = wibox.layout.fixed.horizontal,
 		spacing = 5,
 		awful.titlebar.widget.closebutton(c),
-		awful.titlebar.widget.maximizedbutton(c),
 		awful.titlebar.widget.minimizebutton(c),
+		awful.titlebar.widget.maximizedbutton(c),
 	}
 
 	-- The title goes in the middle
