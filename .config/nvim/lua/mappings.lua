@@ -3,7 +3,7 @@ local function map(mode, lhs, rhs, opts)
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- TODO: look into mappings for function and shift+function keys
@@ -38,45 +38,45 @@ map('n', '<A-j>', ':m .+1<CR>==')
 map('n', '<A-k>', ':m .-2<CR>==')
 
 -- nvim-tmux navigation
-map('n', "<C-h>", "nvim_tmux_nav.NvimTmuxNavigateLeft", { silent = true })
-map('n', "<C-j>", "nvim_tmux_nav.NvimTmuxNavigateDown", { silent = true })
-map('n', "<C-k>", "nvim_tmux_nav.NvimTmuxNavigateUp", { silent = true })
-map('n', "<C-l>", "nvim_tmux_nav.NvimTmuxNavigateRight", { silent = true })
-map('n', "<C-\\>", "nvim_tmux_nav.NvimTmuxNavigateLastActive", { silent = true })
-map('n', "<C-Space>", "nvim_tmux_nav.NvimTmuxNavigateNext", { silent = true })
+map('n', "<C-h>", function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end, { silent = true })
+map('n', "<C-j>", function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end, { silent = true })
+map('n', "<C-k>", function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end, { silent = true })
+map('n', "<C-l>", function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, { silent = true })
+map('n', "<C-\\>", function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, { silent = true })
+map('n', "<C-Space>", function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, { silent = true })
 
 -- telescope
-map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-map("n", "<leader>FF", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
-map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-map("n", "<leader>fG", "<cmd>lua require('telescope.builtin').grep_string()<CR>")
-map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
--- map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
-map("n", "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
-map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
-map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<CR>")
-map("n", "<leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>")
-map("n", "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<CR>")
-map("n", "<leader>bc", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>")
-map("n", "<leader>rr", "<cmd>lua require('telescope.builtin').registers()<CR>")
-map("n", "<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>")
-map("n", "<leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
-map("n", "<leader>gW", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
+map('n', "<leader>ff", function() require('telescope.builtin').find_files() end, { silent = true })
+map("n", "<leader>FF", function() require('telescope.builtin').current_buffer_fuzzy_find() end)
+map("n", "<leader>fg", function() require('telescope.builtin').live_grep() end)
+map("n", "<leader>fG", function() require('telescope.builtin').grep_string() end)
+map("n", "<leader>fb", function() require('telescope.builtin').buffers() end)
+map("n", "<leader>fh", function() require('telescope.builtin').help_tags() end)
+map("n", "<leader>fr", function() require('telescope.builtin').lsp_references() end)
+map("n", "<leader>fs", function() require('telescope.builtin').lsp_document_symbols() end)
+map("n", "<leader>ft", function() require('telescope.builtin').treesitter() end)
+map("n", "<leader>gb", function() require('telescope.builtin').git_branches() end)
+map("n", "<leader>gc", function() require('telescope.builtin').git_commits() end)
+map("n", "<leader>bc", function() require('telescope.builtin').git_bcommits() end)
+map("n", "<leader>rr", function() require('telescope.builtin').registers() end)
+map("n", "<leader>dd", function() require('telescope.builtin').diagnostics() end)
+map("n", "<leader>gw", function() require('telescope').extensions.git_worktree.git_worktrees() end)
+map("n", "<leader>gW", function() require('telescope').extensions.git_worktree.create_git_worktree() end)
 
 -- winshift
-map("n", "<leader><leader>w", "<cmd>WinShift<CR>")
-map("n", "<leader><leader>s", "<cmd>WinShift swap<CR>")
-map("n", "<leader><leader>h", "<cmd>WinShift left<CR>")
-map("n", "<leader><leader>j", "<cmd>WinShift down<CR>")
-map("n", "<leader><leader>k", "<cmd>WinShift up<CR>")
-map("n", "<leader><leader>l", "<cmd>WinShift right<CR>")
+map("n", "<leader><leader>w", function() require('Winshift.lib').start_move_mode() end)
+map("n", "<leader><leader>s", function() require('WinShift.lib').start_swap_mode("swap") end)
+map("n", "<leader><leader>h", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'left') end)
+map("n", "<leader><leader>j", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'down') end)
+map("n", "<leader><leader>k", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'up') end)
+map("n", "<leader><leader>l", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'right') end)
 
 -- barbar
 map("n", "<Tab>", "<cmd>BufferNext<CR>")
 map("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
 
 -- neogit
-map("n", "<leader>gg", "<cmd>Neogit<CR>")
+map("n", "<leader>gg", function() require('neogit').open() end)
 
 -- nvim tree
-map('n', '<leader>t', '<Cmd>NvimTreeToggle<CR>', { silent = true })
+map('n', '<leader>t', function() require("nvim-tree").toggle() end)
