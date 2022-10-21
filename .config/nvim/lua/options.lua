@@ -30,6 +30,9 @@ vim.opt.mousemodel = 'extend'
 vim.opt.wildmenu = true -- visual autocompletion for command menu
 vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
+vim.opt.splitright = true --  splits open to the right
+vim.opt.splitbelow = true --  splits open below
+
 vim.opt.cmdheight = 0 -- hide the command line
 
 vim.opt.laststatus = 3 -- aesthetic win separators
