@@ -40,6 +40,8 @@ vim.opt.splitbelow = true --  splits open below
 
 vim.opt.cmdheight = 0 -- hide the command line
 
+vim.opt.confirm = true -- show confirm dialog when closing unsaved files
+
 vim.opt.laststatus = 3 -- aesthetic win separators
 vim.cmd([[highlight WinSeparator guibg=None guifg=#928374]])
 
