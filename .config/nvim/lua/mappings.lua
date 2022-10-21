@@ -74,3 +74,7 @@ map("n", "<leader><leader>l", "<cmd>WinShift right<CR>")
 -- barbar
 map("n", "<Tab>", "<cmd>BufferNext<CR>")
 map("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
+
+-- neogit
+
+map("n", "<leader>gg", "<cmd>Neogit<CR>")
