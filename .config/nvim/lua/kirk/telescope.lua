@@ -1,16 +1,21 @@
+local telescope = require("telescope")
 local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
 
-require('telescope').setup {
+telescope.setup {
 	defaults = {
 		color_devicons = true,
+		entry_prefix = "  ",
 		file_previewer = previewers.vim_buffer_cat.new,
 		file_sorter = sorters.get_fzy_sorter,
 		grep_previewer = previewers.vim_buffer_vimgrep.new,
+		prompt_prefix = "   ",
 		qflist_previewer = previewers.vim_buffer_qflist.new,
+		selection_caret = "  ",
 		sorting_strategy = "ascending",
 		layout_config = {
 			prompt_position = 'top',
+			preview_width = 0.6,
 		},
 		file_ignore_patterns = {
 			"%.a",
@@ -37,7 +42,7 @@ require('telescope').setup {
 			"--column",
 			"--hidden",
 			"--max-depth=99"
-		}
+		},
 	},
 	extensions = {
 		fzy_native = {
@@ -66,6 +71,8 @@ require('telescope').setup {
 	},
 }
 
-require("telescope").load_extension("fzy_native")
-require("telescope").load_extension("git_worktree")
--- require("telescope").load_extension("noice")
+vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal number]])
+
+telescope.load_extension("fzy_native")
+telescope.load_extension("git_worktree")
+-- telescope.load_extension("noice")
