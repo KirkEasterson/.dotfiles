@@ -46,6 +46,7 @@ local separator = wibox.widget {
 }
 
 -- scratchpad terminal
+-- TODO: convert this to just a hidden window running tmux so it is much faster
 -- https://github.com/notnew/awesome-scratch
 local scratch = require("awesome-scratch.scratch")
 
