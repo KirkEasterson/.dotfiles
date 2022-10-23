@@ -34,7 +34,8 @@ on_attach = function(client, bufnr)
 	end
 
 	-- Set autocommands conditional on server_capabilities
-	if client.server_capabilities.document_highlight then
+	local caps = client.server_capabilities
+	if caps.document_highlight then
 		vim.api.nvim_exec([[
 			hi LspReferenceRead cterm=bold ctermbg=DarkMagenta guibg=LightYellow
 			hi LspReferenceText cterm=bold ctermbg=DarkMagenta guibg=LightYellow
@@ -48,7 +49,7 @@ on_attach = function(client, bufnr)
 	end
 
 	-- Semantic tokens
-	if client.server_capabilities.semanticTokensProvider and client.server_capabilities.semanticTokensProvider.full then
+	if caps.semanticTokensProvider and caps.semanticTokensProvider.full then
 		local augroup = vim.api.nvim_create_augroup("SemanticTokens", {})
 		vim.api.nvim_create_autocmd("TextChanged", {
 			group = augroup,
