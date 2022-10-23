@@ -90,7 +90,9 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'm-demare/hlargs.nvim',
-		requires = { 'nvim-treesitter/nvim-treesitter' },
+		requires = {
+			'nvim-treesitter/nvim-treesitter',
+		},
 		config = function() require("kirk.lsp.hlargs") end,
 	}
 
@@ -121,7 +123,10 @@ return require('packer').startup(function(use)
 	-- telescope
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope-fzy-native.nvim'
-	use 'ThePrimeagen/git-worktree.nvim'
+	use {
+		'ThePrimeagen/git-worktree.nvim',
+		config = function() require("kirk.git.git-worktree") end,
+	}
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -145,10 +150,6 @@ return require('packer').startup(function(use)
 		'lewis6991/gitsigns.nvim',
 		config = function() require("kirk.gitsigns") end,
 	}
-	use {
-		'ThePrimeagen/git-worktree.nvim',
-		config = function() require("kirk.git.git-worktree") end,
-	}
 
 	-- general utility
 	use {
@@ -168,12 +169,6 @@ return require('packer').startup(function(use)
 		'lukas-reineke/indent-blankline.nvim',
 		config = function() require("kirk.indent") end,
 	}
-	use {
-		'ellisonleao/glow.nvim',
-		config = function() require("kirk.glow") end,
-	}
-	-- use 'kamykn/spelunker.vim'
-	use 'kamykn/popup-menu.nvim'
 
 
 	-- language specific, because I'm lazy
@@ -194,12 +189,10 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.lsp.ts") end,
 	}
-	-- use 'tjdevries/nlua.nvim'
 	use {
 		'euclidianAce/BetterLua.vim',
 		config = function() require("kirk.lsp.nlua") end,
 	}
-	-- use 'lervag/vimtex'
 
 	-- misc
 	use {
