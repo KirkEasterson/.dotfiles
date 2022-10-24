@@ -655,6 +655,13 @@ awful.rules.rules = {
 		properties = {
 			floating = true,
 			placement = awful.placement.centered,
+			border_width = beautiful.border_width,
+			border_color = beautiful.border_normal,
+			focus = awful.client.focus.filter,
+			raise = true,
+			keys = clientkeys,
+			buttons = clientbuttons,
+			screen = awful.screen.preferred,
 		},
 	},
 	{
