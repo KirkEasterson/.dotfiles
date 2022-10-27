@@ -672,11 +672,14 @@ awful.rules.rules = {
 		properties = {
 			skip_taskbar = false,
 			floating = true,
-			ontop = false,
+			ontop = true,
 			minimized = true,
-			sticky = false,
+			placement = awful.placement.centered,
+			sticky = true,
 			width = awful.screen.focused().workarea.width * 0.7,
-			height = awful.screen.focused().workarea.height * 0.75
+			height = awful.screen.focused().workarea.height * 0.75,
+			border_width = beautiful.border_width,
+			border_color = beautiful.border_normal,
 		},
 		callback = function(c)
 			awful.placement.centered(c, { honor_padding = true, honor_workarea = true })
