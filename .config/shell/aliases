@@ -91,7 +91,3 @@ alias nupg="sudo nala upgrade"
 
 # mkdir create parent directories
 alias mkdir="mkdir -pv"
-
-# the terminal rickroll
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
-
