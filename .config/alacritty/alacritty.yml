@@ -4,16 +4,16 @@ scrolling:
 font:
   size: 8.0
   normal:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Medium
   bold:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Italic
   bold_italic:
-    family: JetBrains Mono Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
 # # this block enables the transparent background
