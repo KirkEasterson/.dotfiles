@@ -81,4 +81,5 @@ bindkey -M menuselect '^p' down-line-or-select
 bindkey '^Y' autosuggest-accept
 bindkey -M menuselect -r '\t'
 
-znap eval starship 'starship init zsh --print-full-init'
+# znap eval starship 'starship init zsh --print-full-init'
+eval "$(starship init zsh)"
