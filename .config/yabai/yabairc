@@ -1,15 +1,7 @@
 #!/usr/bin/env sh
 
-#
-# for this to work you must configure sudo such that
-# it will be able to run the command without password
-#
-# see this wiki page for information:
-#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-#
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
-#
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 # global settings
 yabai -m config mouse_follows_focus off
@@ -40,9 +32,12 @@ yabai -m config left_padding 12
 yabai -m config right_padding 12
 yabai -m config window_gap 06
 yabai -m config layout bsp
-yabai -m config mouse_modifier fn
+yabai -m config mouse_modifier cmd
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m config mouse_drop_action swap
+
+# enable debug logging
+yabai -m config debug_output on
 
 echo "yabai configuration loaded.."
