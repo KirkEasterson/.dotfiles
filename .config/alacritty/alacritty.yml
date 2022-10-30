@@ -23,7 +23,7 @@ font:
 #   opacity: 0.97
 
 mouse:
-  hide_when_typing: true
+  hide_when_typing: false
 
 # true color settings
 env:
