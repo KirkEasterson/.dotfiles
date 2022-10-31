@@ -198,7 +198,7 @@ return require('packer').startup(function(use)
 		requires = {
 			'nvim-tree/nvim-web-devicons',
 		},
-		config = function() require("kirk.tree") end,
+		config = function() require("kirk.nvim-tree") end,
 	}
 	use {
 		'sindrets/winshift.nvim',
