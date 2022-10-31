@@ -76,6 +76,10 @@ return require('packer').startup(function(use)
 		config = function() require("kirk.treesitter") end,
 	}
 	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		config = function() require("kirk.null-ls") end,
+	}
+	use {
 		'smjonas/inc-rename.nvim',
 		config = function() require("kirk.lsp.inc_rename") end,
 	}
@@ -179,14 +183,8 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.lsp.rust") end,
 	}
-	use 'jose-elias-alvarez/null-ls.nvim'
-	use 'windwp/nvim-ts-autotag'
 	use {
 		'jose-elias-alvarez/nvim-lsp-ts-utils',
-		requires = {
-			'jose-elias-alvarez/null-ls.nvim',
-			'windwp/nvim-ts-autotag',
-		},
 		config = function() require("kirk.lsp.ts") end,
 	}
 	use {

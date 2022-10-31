@@ -34,7 +34,7 @@ function goimports(timeoutms)
 
 	-- See the implementation of the textDocument/codeAction callback
 	-- (lua/vim/lsp/handler.lua) for how to do this properly.
-	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
 	if not result or next(result) == nil then return end
 	local actions = result[1].result
 	if not actions then return end
@@ -54,13 +54,3 @@ function goimports(timeoutms)
 		vim.lsp.buf.execute_command(action)
 	end
 end
-
-local null_ls = require("null-ls")
-null_ls.setup({
-	sources = {
-		-- null_ls.builtins.diagnostics.gofmt,
-		-- null_ls.builtins.code_actions.gofmt,
-		null_ls.builtins.formatting.gofumpt,
-	},
-	on_attach = on_attach,
-})
