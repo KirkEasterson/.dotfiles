@@ -81,3 +81,22 @@ map("n", "<leader>gg", function() require('neogit').open() end)
 
 -- nvim tree
 map('n', '<leader>t', function() require("nvim-tree").toggle() end)
+
+
+-- barbar
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true })
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true })
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { silent = true })
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', { silent = true })
+map('n', '<A-p>', '<Cmd>BufferPin<CR>', { silent = true })
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', { silent = true })
+map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { silent = true })
+map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { silent = true })
+map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { silent = true })
+map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', { silent = true })
+map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', { silent = true })
+map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', { silent = true })
+map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', { silent = true })
+map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', { silent = true })
+map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', { silent = true })
+map('n', '<A-0>', '<Cmd>BufferGoto 10<CR>', { silent = true })
