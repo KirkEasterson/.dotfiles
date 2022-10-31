@@ -1,1 +1,6 @@
-require('neogit').setup({})
+require('neogit').setup({
+	signs = {
+		section = { "", "" },
+		item = { "", "" },
+	},
+})
