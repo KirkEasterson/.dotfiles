@@ -211,8 +211,8 @@ return require('packer').startup(function(use)
 		config = function() require("kirk.dial") end,
 	}
 	use {
-		'alexghergh/nvim-tmux-navigation',
-		config = function() require("kirk.nvim_tmux_navigator") end,
+		'aserowy/tmux.nvim',
+		config = function() require("kirk.tmux-nvim") end,
 	}
 	use {
 		'kamykn/spelunker.vim',
