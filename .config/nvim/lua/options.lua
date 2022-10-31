@@ -49,12 +49,6 @@ vim.cmd([[highlight WinSeparator guibg=None guifg=#928374]])
 vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
--- winbar
--- vim.opt.winbar = '%=%m\ %t%='
-vim.cmd([[set winbar=%=%m\ %t%=]])
-vim.cmd([[highlight WinBar guibg=#3c3836]])
-vim.cmd([[highlight WinBarNC guibg=#282828]])
-
 -- enable wrapping in *.tex files
 vim.cmd([[
 	augroup WrapLineInLatexFile
