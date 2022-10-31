@@ -23,23 +23,3 @@ map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
 map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
 map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
 map('n', '<A-0>', '<Cmd>BufferGoto 10<CR>', opts)
-
--- adjust the offset for barbar
-local nvim_tree_events = require('nvim-tree.events')
-local bufferline_api = require('bufferline.api')
-
-local function get_tree_size()
-	return require 'nvim-tree.view'.View.width
-end
-
-nvim_tree_events.subscribe('TreeOpen', function()
-	bufferline_api.set_offset(get_tree_size(), "File Tree")
-end)
-
-nvim_tree_events.subscribe('Resize', function()
-	bufferline_api.set_offset(get_tree_size(), "File Tree")
-end)
-
-nvim_tree_events.subscribe('TreeClose', function()
-	bufferline_api.set_offset(0)
-end)

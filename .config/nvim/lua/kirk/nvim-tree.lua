@@ -1,7 +1,7 @@
 require('nvim-tree').setup {
 	sync_root_with_cwd = true,
 	view = {
-		-- side = "right", -- this doesn't look good with barbar
+		side = "right", -- this doesn't look good with barbar
 	},
 	renderer = {
 		add_trailing = true,
