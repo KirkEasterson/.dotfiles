@@ -31,20 +31,6 @@ map('i', '[', '[<c-g>u')
 map('i', '!', '!<c-g>u')
 map('i', '?', '?<c-g>u')
 
--- moving text with alt+direction
-map('v', '<A-j>', ":m '>+1<CR>gv=gv")
-map('v', '<A-k>', ":m '<-2<CR>gv=gv")
-map('n', '<A-j>', ':m .+1<CR>==')
-map('n', '<A-k>', ':m .-2<CR>==')
-
--- nvim-tmux navigation
-map('n', "<C-h>", function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end, { silent = true })
-map('n', "<C-j>", function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end, { silent = true })
-map('n', "<C-k>", function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end, { silent = true })
-map('n', "<C-l>", function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, { silent = true })
-map('n', "<C-\\>", function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, { silent = true })
-map('n', "<C-Space>", function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, { silent = true })
-
 -- telescope
 map('n', "<leader>ff", function() require('telescope.builtin').find_files() end, { silent = true })
 map("n", "<leader>FF", function() require('telescope.builtin').current_buffer_fuzzy_find() end)
@@ -81,7 +67,6 @@ map("n", "<leader>gg", function() require('neogit').open() end)
 
 -- nvim tree
 map('n', '<leader>t', function() require("nvim-tree").toggle() end)
-
 
 -- barbar
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true })
