@@ -6,10 +6,11 @@
 
     /* Comment the color theme you don't want to use */
 
-    /* Dark Theme Colors */
+    /* Dark Theme Colors
     --window-colour:               #1f2122;
     --secondary-colour:            #141616;
     --inverted-colour:             #FAFAFC;
+    */
 
     /* Light Theme Colors
     --window-colour:               #FAFAFC;
@@ -17,8 +18,13 @@
     --inverted-colour:             #1E2021;
     */
 
+	 /* Gruvbox Colors */
+    --window-colour:               #282828;
+    --secondary-colour:            #1d2021;
+    --inverted-colour:             #ebdbb2;
 
-    /* Containter Tab Colours */
+
+    /* Containter Tab Colours
     --uc-identity-color-blue:      #7ED6DF;
     --uc-identity-color-turquoise: #55E6C1;
     --uc-identity-color-green:     #B8E994;
@@ -27,6 +33,18 @@
     --uc-identity-color-red:       #FC5C65;
     --uc-identity-color-pink:      #F78FB3;
     --uc-identity-color-purple:    #786FA6;
+    */
+
+    /* Gruvbox Containter Tab Colours */
+    --uc-identity-color-blue:      #458588;
+    --uc-identity-color-turquoise: #427b58;
+    --uc-identity-color-green:     #98971a;
+    --uc-identity-color-yellow:    #d79921;
+    --uc-identity-color-orange:    #d65d0e;
+    --uc-identity-color-red:       #cc241d;
+    --uc-identity-color-pink:      #b16286;
+    --uc-identity-color-purple:    #8f3f71;
+
 
 
     /* URL colour in URL bar suggestions */
@@ -63,7 +81,7 @@
      | B | U | T | T | O | N | S |
      +---+---+---+---+---+---+---*/
 
-     /* showing only the back button */
+     /* removing only the stop button */
      #back-button{ display: -moz-inline-box !important; }
      #forward-button{ display: -moz-inline-box !important; }
      #stop-button{ display: none !important; }
@@ -73,7 +91,7 @@
      #star-button{ display: none !important; }
 
      /* zoom indicator */
-     #urlbar-zoom-button { display: none !important; }
+     #urlbar-zoom-button { display: -moz-inline-box !important; }
 
      /* Show Hamburger Menu */
      #PanelUI-button { display: -moz-inline-box !important;}
@@ -81,13 +99,13 @@
      #reader-mode-button{ display: none !important; }
 
      /* tracking protection shield icon */
-     #tracking-protection-icon-container { display: none !important; }
+     #tracking-protection-icon-container { display: -moz-inline-box !important; }
 
      /* #identity-box { display: none !important } /* hides encryption AND permission items */
-     #identity-permission-box { display: none !important; } /* only hides permission items */
+     #identity-permission-box { display: -moz-inline-box !important; } /* only hides permission items */
 
      /* e.g. playing indicator (secondary - not icon) */
-     .tab-secondary-label { display: none !important; }
+     .tab-secondary-label { display: -moz-inline-box !important; }
 
      #pageActionButton { display: none !important; }
      #page-action-buttons { display: none !important; }
@@ -208,7 +226,7 @@ window,
 /* active tab background */
 .tabbrowser-tab[selected]
     > .tab-stack
-    > .tab-background { background: var(--uc-hover-colour) !important; }
+    > .tab-background { background: var(--uc-identity-color-orange) !important; }
 
 
 /* tab close button options */
