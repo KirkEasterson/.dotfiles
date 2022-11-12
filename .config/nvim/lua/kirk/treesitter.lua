@@ -41,7 +41,7 @@ require('nvim-treesitter.configs').setup({
 		},
 		move = {
 			enable = true,
-			set_jumps = false,
+			set_jumps = true,
 			goto_next_start = {
 				["]m"] = "@function.outer",
 				["]]"] = "@class.outer",
@@ -73,7 +73,7 @@ require('nvim-treesitter.configs').setup({
 				['@function.outer'] = 'V', -- linewise
 				['@class.outer'] = '<c-v>', -- blockwise
 			},
-			include_surrounding_whitespace = false,
+			include_surrounding_whitespace = true,
 		},
 		swap = {
 			enable = true,
