@@ -385,16 +385,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "q", awesome.quit,
 		{ description = "quit awesome", group = "awesome" }),
 
-
-	awful.key({ modkey, "Control" }, "h", function() awful.tag.viewprev() end,
-		{ description = "move to next tag", group = "layout" }),
-
-	awful.key({ modkey, "Control" }, "l", function() awful.tag.viewnext() end,
-		{ description = "move to previous tag", group = "layout" }),
-
-	awful.key({ modkey }, "n", function() awful.spawn("wifimenu") end,
-		{ description = "show wifi menu", group = "client" }),
-
 	-- Menubar
 	awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
 		{ description = "show program launcher", group = "launcher" }),
