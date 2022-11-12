@@ -8,7 +8,6 @@ end
 lspkind.init()
 
 cmp.setup({
-
 	mapping = {
 		["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
 		["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
@@ -58,6 +57,7 @@ cmp.setup({
 
 	formatting = {
 		format = lspkind.cmp_format {
+			ellipsis_char = '…',
 			with_text = true,
 			menu = {
 				buffer = "[buf]",
