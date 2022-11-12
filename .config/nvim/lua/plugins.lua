@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
 	}
 	use 'nvim-treesitter/nvim-treesitter-context'
 	use 'nvim-treesitter/nvim-treesitter-textobjects'
+	use 'nvim-treesitter/nvim-treesitter-refactor'
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		requires = {
@@ -78,10 +79,6 @@ return require('packer').startup(function(use)
 	use {
 		'jose-elias-alvarez/null-ls.nvim',
 		config = function() require("kirk.null-ls") end,
-	}
-	use {
-		'smjonas/inc-rename.nvim',
-		config = function() require("kirk.lsp.inc_rename") end,
 	}
 	use {
 		'theHamsta/nvim-semantic-tokens',
