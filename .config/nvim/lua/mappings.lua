@@ -58,10 +58,6 @@ map("n", "<leader><leader>j", function() require('WinShift.lib').move_win(api.nv
 map("n", "<leader><leader>k", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'up') end)
 map("n", "<leader><leader>l", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'right') end)
 
--- barbar
-map("n", "<Tab>", "<cmd>BufferNext<CR>")
-map("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
-
 -- neogit
 map("n", "<leader>gg", function() require('neogit').open() end)
 
