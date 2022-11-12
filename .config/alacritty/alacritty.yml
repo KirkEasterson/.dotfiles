@@ -22,6 +22,9 @@ font:
 # window:
 #   opacity: 0.97
 
+window:
+  dynamic_title: true
+
 mouse:
   hide_when_typing: false
 

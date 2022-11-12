@@ -1,6 +1,8 @@
 vim.g.mapleader = ' ' -- prefix key
 vim.g.maplocalleader = ' ' -- secondary prefix key
 
+vim.opt.title = true
+
 vim.opt.updatetime = 50 -- fast updates
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
