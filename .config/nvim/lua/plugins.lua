@@ -209,6 +209,11 @@ return require('packer').startup(function(use)
 		'aserowy/tmux.nvim',
 		config = function() require("kirk.tmux-nvim") end,
 	}
+	use {
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function() require("kirk.todo-comments") end,
+	}
 	-- use {
 	-- 	'kamykn/spelunker.vim',
 	-- 	config = function() require("kirk.spelunker") end,

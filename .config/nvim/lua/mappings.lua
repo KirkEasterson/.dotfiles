@@ -64,6 +64,9 @@ map("n", "<leader>gg", function() require('neogit').open() end)
 -- nvim tree
 map('n', '<leader>t', function() require("nvim-tree").toggle() end)
 
+-- todo-comments
+map('n', '<leader>dt', ':TodoTelescope<CR>')
+
 -- barbar
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true })
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true })
