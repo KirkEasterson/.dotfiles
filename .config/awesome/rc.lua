@@ -336,12 +336,26 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "l", function() awful.client.swap.bydirection("right") end,
 		{ description = "swap with window to the right", group = "client" }),
 
-	-- Layout manipulation
-	awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_relative(1) end,
-		{ description = "focus the next screen", group = "screen" }),
+	-- Basic screen management
+	awful.key({ modkey, "Control" }, "h", function() awful.screen.focus_bydirection("left") end,
+		{ description = "focus window to the left", group = "client" }),
 
-	awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
-		{ description = "focus the previous screen", group = "screen" }),
+	awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_bydirection("down") end,
+		{ description = "focus window below", group = "client" }),
+
+	awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_bydirection("up") end,
+		{ description = "focus window above", group = "client" }),
+
+	awful.key({ modkey, "Control" }, "l", function() awful.screen.focus_bydirection("right") end,
+		{ description = "focus window to the right", group = "client" }),
+
+
+	-- Layout manipulation
+	-- awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_relative(1) end,
+	-- 	{ description = "focus the next screen", group = "screen" }),
+	--
+	-- awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
+	-- 	{ description = "focus the previous screen", group = "screen" }),
 
 	awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
 		{ description = "jump to urgent client", group = "client" }),
