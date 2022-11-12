@@ -8,7 +8,7 @@ set ignorecase true
 set shell sh
 set shellopts '-eu'
 set ifs "\n"
-set scrolloff 10
+set scrolloff 4
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
