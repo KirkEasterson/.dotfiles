@@ -65,8 +65,8 @@ map("n", "<leader>gg", function() require('neogit').open() end)
 map('n', '<leader>t', function() require("nvim-tree").toggle() end)
 
 -- barbar
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true })
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true })
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true })
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true })
 map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { silent = true })
 map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', { silent = true })
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', { silent = true })
