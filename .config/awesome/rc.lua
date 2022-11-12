@@ -379,7 +379,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, }, "x", function() awful.util.spawn("light-locker-command -l") end,
 		{ description = "lock screen", group = "kirk" }),
 
-	awful.key({ modkey, "Shift" }, "r", awesome.restart,
+	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
 
 	awful.key({ modkey, "Shift" }, "q", awesome.quit,
