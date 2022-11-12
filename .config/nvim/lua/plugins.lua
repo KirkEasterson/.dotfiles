@@ -34,6 +34,11 @@ return require('packer').startup(function(use)
 	-- 	event = "VimEnter",
 	-- })
 	use {
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function() require("kirk.trouble") end,
+	}
+	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = function() require("kirk.lualine") end,
