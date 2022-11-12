@@ -214,6 +214,10 @@ return require('packer').startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 		config = function() require("kirk.todo-comments") end,
 	}
+	use {
+		"nvim-zh/colorful-winsep.nvim",
+		config = function() require("kirk.colorful-winsep") end,
+	}
 	-- use {
 	-- 	'kamykn/spelunker.vim',
 	-- 	config = function() require("kirk.spelunker") end,
