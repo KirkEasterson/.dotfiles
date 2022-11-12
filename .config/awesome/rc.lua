@@ -374,7 +374,7 @@ globalkeys = gears.table.join(
 		{ description = "open file manager", group = "kirk" }),
 
 	awful.key({ modkey, "Shift" }, "e", function() awful.util.spawn(terminal .. " -e lfrun") end,
-		{ description = "open termainl file manager", group = "kirk" }),
+		{ description = "open terminal file manager", group = "kirk" }),
 
 	awful.key({ modkey, }, "x", function() awful.util.spawn("light-locker-command -l") end,
 		{ description = "lock screen", group = "kirk" }),
