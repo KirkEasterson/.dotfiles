@@ -226,6 +226,10 @@ return require('packer').startup(function(use)
 		config = function() require("kirk.colorful-winsep") end,
 	}
 	-- use {
+	-- 	'lervag/vimtex',
+	-- 	config = function() require("kirk.vimtex") end,
+	-- }
+	-- use {
 	-- 	'kamykn/spelunker.vim',
 	-- 	config = function() require("kirk.spelunker") end,
 	-- }
