@@ -161,6 +161,15 @@ return require('packer').startup(function(use)
 		'lewis6991/gitsigns.nvim',
 		config = function() require("kirk.gitsigns") end,
 	}
+	use {
+		'pwntester/octo.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope.nvim',
+			'kyazdani42/nvim-web-devicons',
+		},
+		config = function() require("kirk.octo") end,
+	}
 
 	-- general utility
 	use {
