@@ -24,7 +24,10 @@ return require('packer').startup(function(use)
 		'ellisonleao/gruvbox.nvim',
 		config = function() require("kirk.gruvbox") end,
 	}
-	-- use "rcarriga/nvim-notify"
+	-- use {
+	-- 	"rcarriga/nvim-notify",
+	-- 	config = function() require("kirk.nvim-notify") end,
+	-- }
 	-- use({
 	-- 	"folke/noice.nvim",
 	-- 	requires = {
