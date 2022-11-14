@@ -79,17 +79,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- highlight yanked text
-local highlight_group = vim.api.nvim_create_augroup("highlight_yank", {
-	clear = true
-})
 vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
 			higroup = "IncSearch",
 			timeout = 700,
 		})
 	end,
-	group = highlight_group
 })
 
 -- build notes files
