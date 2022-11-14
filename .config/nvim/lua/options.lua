@@ -51,6 +51,8 @@ vim.cmd([[highlight WinSeparator guibg=None guifg=#928374]])
 vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- winbar
 vim.cmd([[set winbar=%=%m\ %t%=]])
 vim.cmd([[highlight WinBar guibg=#3c3836]])
