@@ -838,7 +838,6 @@ local autorunApps =
 	"nm-applet",
 	"package-update-indicator",
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
-	"xcompmgr -c -C -l-5 -t-5 -r7 -o.5",
 	-- "picom",
 	"setxkbmap -option caps:escape",
 	"unclutter",
