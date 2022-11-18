@@ -105,6 +105,10 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.lsp.hlargs") end,
 	}
+	use {
+		'simrat39/symbols-outline.nvim',
+		config = function() require("kirk.lsp.symbols-outline") end,
+	}
 
 	-- completion
 	use "hrsh7th/cmp-buffer"
