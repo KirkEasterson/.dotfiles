@@ -2,6 +2,7 @@ require("aerial").setup({
 	backends = { "lsp", "treesitter", "markdown", "man" },
 	layout = {
 		min_width = 20,
+		max_width = { 40, 0.3 },
 		default_direction = "right",
 	},
 	keymaps = {
