@@ -382,9 +382,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
 
-	awful.key({ modkey, "Shift" }, "q", awesome.quit,
-		{ description = "quit awesome", group = "awesome" }),
-
 	-- Menubar
 	awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
 		{ description = "show program launcher", group = "launcher" }),
