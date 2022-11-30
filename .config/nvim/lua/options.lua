@@ -53,6 +53,9 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+vim.g.loaded_netrw = 1 -- disable netrw
+vim.g.loaded_netrwPlugin = 1
+
 -- winbar
 vim.cmd([[set winbar=%=%m\ %t%=]])
 vim.cmd([[highlight WinBar guibg=#3c3836]])
