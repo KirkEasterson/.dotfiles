@@ -241,6 +241,11 @@ return require('packer').startup(function(use)
 		"nvim-zh/colorful-winsep.nvim",
 		config = function() require("kirk.colorful-winsep") end,
 	}
+	use {
+		"eandrju/cellular-automaton.nvim",
+		config = function() require("kirk.cellular-automaton") end,
+	}
+	use 'eandrju/cellular-automaton.nvim'
 	-- use {
 	-- 	'lervag/vimtex',
 	-- 	config = function() require("kirk.vimtex") end,

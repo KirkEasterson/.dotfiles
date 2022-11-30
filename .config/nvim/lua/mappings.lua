@@ -64,6 +64,9 @@ map("n", "<leader>gg", function() require('neogit').open() end)
 -- nvim tree
 map('n', '<leader>t', function() require("nvim-tree").toggle() end)
 
+-- cellular-automaton
+map("n", "<leader>fml", function() require("cellular-automaton").start_animation("make_it_rain") end)
+
 -- todo-comments
 map('n', '<leader>dt', ':TodoTelescope<CR>')
 
