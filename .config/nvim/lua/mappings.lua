@@ -72,7 +72,7 @@ map('n', '<leader>dt', ':TodoTelescope<CR>')
 
 -- aerial
 map('n', '<leader><leader>o', '<Cmd>AerialToggle!<CR>', { silent = true })
-map('i', '<leader><leader>o', '<Cmd>AerialToggle!<CR>', { silent = true })
+map('v', '<leader><leader>o', '<Cmd>AerialToggle!<CR>', { silent = true })
 
 -- barbar
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true })
