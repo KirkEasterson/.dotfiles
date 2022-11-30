@@ -1,6 +1,9 @@
 require('nvim-tree').setup {
+	sort_by = "case_sensitive",
 	sync_root_with_cwd = true,
+	disable_netrw = true,
 	view = {
+		adaptive_size = true,
 		side = "right", -- this doesn't look good with barbar
 	},
 	renderer = {
