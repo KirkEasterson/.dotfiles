@@ -3,12 +3,6 @@ local config = {
 	name = 'snake',
 }
 
--- init function is invoked only once at the start
--- config.init = function (grid)
---
--- end
-
--- update function
 config.update = function(grid)
 	for i = 1, #grid do
 		local prev = grid[i][#(grid[i])]
