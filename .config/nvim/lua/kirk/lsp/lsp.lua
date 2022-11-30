@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
 		"gopls",
 		"html",
 		"jsonls",
+		"kotlin_language_server",
 		"pyright",
 		"rust_analyzer",
 		"sumneko_lua",
@@ -35,6 +36,7 @@ require("mason-lspconfig").setup({
 require('kirk.lsp.go')
 require('kirk.lsp.py')
 require('kirk.lsp.tex')
+require('kirk.lsp.kotlin')
 
 local signs = {
 	Error = " ",
