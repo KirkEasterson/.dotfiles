@@ -245,7 +245,6 @@ return require('packer').startup(function(use)
 		"eandrju/cellular-automaton.nvim",
 		config = function() require("kirk.cellular-automaton") end,
 	}
-	use 'eandrju/cellular-automaton.nvim'
 	-- use {
 	-- 	'lervag/vimtex',
 	-- 	config = function() require("kirk.vimtex") end,
