@@ -36,7 +36,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-export SPACESHIP_CONFIG_FILE="$HOME/.config/spaceship/spaceshiprc.zsh"
+export SPACESHIP_CONFIG_FILE="$HOME/.config/spaceship/spaceship.zsh"
 
 # source local exports, which don't need to be in version control
 source ~/.config/shell/local_exports 2> /dev/null
