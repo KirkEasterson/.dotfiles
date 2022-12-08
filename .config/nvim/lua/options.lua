@@ -36,6 +36,8 @@ vim.opt.wildmenu = true -- visual autocompletion for command menu
 vim.opt.wildmode = { 'longest', 'list', 'full' }
 vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
+vim.opt.fillchars = { eob = " "} -- no tilde (~) at the end of the buffer
+
 vim.opt.swapfile = false -- don't create swap files
 
 vim.opt.splitright = true --  splits open to the right
