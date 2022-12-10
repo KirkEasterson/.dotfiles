@@ -155,13 +155,6 @@ return require('packer').startup(function(use)
 
 	-- git
 	use {
-		'TimUntersberger/neogit',
-		requires = {
-			'nvim-lua/plenary.nvim',
-		},
-		config = function() require("kirk.neogit") end,
-	}
-	use {
 		'lewis6991/gitsigns.nvim',
 		config = function() require("kirk.gitsigns") end,
 	}
@@ -192,6 +185,11 @@ return require('packer').startup(function(use)
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		config = function() require("kirk.indent") end,
+	}
+	use {
+		"akinsho/toggleterm.nvim",
+		tag = '*',
+		config = function() require("kirk.toggleterm") end,
 	}
 
 

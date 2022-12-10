@@ -58,8 +58,19 @@ map("n", "<leader><leader>j", function() require('WinShift.lib').move_win(api.nv
 map("n", "<leader><leader>k", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'up') end)
 map("n", "<leader><leader>l", function() require('WinShift.lib').move_win(api.nvim_get_current_win(), 'right') end)
 
--- neogit
-map("n", "<leader>gg", function() require('neogit').open() end)
+-- lazygit
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit  = Terminal:new({
+	cmd = "lazygit",
+	hidden = true,
+	direction = 'tab',
+})
+function _lazygit_toggle()
+	lazygit:toggle()
+end
+map("n", "<leader>gg", function() _lazygit_toggle() end)
+
+
 
 -- nvim tree
 map('n', '<leader>t', function() require("nvim-tree").toggle() end)
