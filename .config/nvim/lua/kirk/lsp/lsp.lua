@@ -37,6 +37,8 @@ require('kirk.lsp.go')
 require('kirk.lsp.py')
 require('kirk.lsp.tex')
 require('kirk.lsp.kotlin')
+require('kirk.lsp.csharp')
+require('kirk.lsp.fsharp')
 
 local signs = {
 	Error = " ",
