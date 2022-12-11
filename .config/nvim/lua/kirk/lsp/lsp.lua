@@ -33,12 +33,12 @@ require("mason-lspconfig").setup({
 -- require('kirk.lsp.nlua')
 -- require('kirk.lsp.rust')
 -- require('kirk.lsp.ts')
+require('kirk.lsp.csharp')
+require('kirk.lsp.fsharp')
 require('kirk.lsp.go')
 require('kirk.lsp.py')
 require('kirk.lsp.tex')
 require('kirk.lsp.kotlin')
-require('kirk.lsp.csharp')
-require('kirk.lsp.fsharp')
 
 local signs = {
 	Error = " ",
