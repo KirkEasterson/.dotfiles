@@ -1,6 +1,6 @@
 require('tmux').setup({
 	copy_sync = {
-		enable = false,
+		enable = true,
 		redirect_to_clipboard = true,
 	},
 	resize = {
