@@ -71,7 +71,10 @@ telescope.setup {
 	},
 }
 
-vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal number]])
+vim.api.nvim_create_autocmd({ "User" }, {
+	pattern = "TelescopePreviewerLoaded",
+	command = "setlocal number"
+})
 
 telescope.load_extension("fzy_native")
 telescope.load_extension("git_worktree")
