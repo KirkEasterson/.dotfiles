@@ -89,6 +89,7 @@ local editor_cmd = terminal .. " -e " .. editor
 
 -- MOD KEY
 modkey = "Mod4"
+altkey = "Mod1"
 
 -- AVAILABLE LAYOUTS
 -- TODO: Reduce this to ones that I actually want
@@ -311,32 +312,46 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
--- Basic window management
-	awful.key({ modkey, }, "h", function() awful.client.focus.bydirection("left") end,
+-- focus window
+	awful.key({ modkey, }, "h", function() awful.client.focus.global_bydirection("left") end,
 		{ description = "focus window to the left", group = "client" }),
 
-	awful.key({ modkey, }, "j", function() awful.client.focus.bydirection("down") end,
+	awful.key({ modkey, }, "j", function() awful.client.focus.global_bydirection("down") end,
 		{ description = "focus window below", group = "client" }),
 
-	awful.key({ modkey, }, "k", function() awful.client.focus.bydirection("up") end,
+	awful.key({ modkey, }, "k", function() awful.client.focus.global_bydirection("up") end,
 		{ description = "focus window above", group = "client" }),
 
-	awful.key({ modkey, }, "l", function() awful.client.focus.bydirection("right") end,
+	awful.key({ modkey, }, "l", function() awful.client.focus.global_bydirection("right") end,
 		{ description = "focus window to the right", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "h", function() awful.client.swap.bydirection("left") end,
+	-- swap window
+	awful.key({ modkey, "Shift" }, "h", function() awful.client.swap.global_bydirection("left") end,
 		{ description = "swap with window to the left", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.bydirection("down") end,
+	awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.global_bydirection("down") end,
 		{ description = "swap with window below", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.bydirection("up") end,
+	awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.global_bydirection("up") end,
 		{ description = "swap with window above", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "l", function() awful.client.swap.bydirection("right") end,
+	awful.key({ modkey, "Shift" }, "l", function() awful.client.swap.global_bydirection("right") end,
 		{ description = "swap with window to the right", group = "client" }),
 
-	-- Basic screen management
+	-- resize window
+	awful.key({ modkey, altkey }, "h", function() awful.tag.incmwfact(-0.01) end,
+		{ description = "move left window border left", group = "client" }),
+
+	awful.key({ modkey, altkey }, "j", function() awful.client.incwfact(-0.05) end,
+		{ description = "move bottom window border down", group = "client" }),
+
+	awful.key({ modkey, altkey }, "k", function() awful.client.incwfact(0.05) end,
+		{ description = "move top window border up", group = "client" }),
+
+	awful.key({ modkey, altkey }, "l", function() awful.tag.incmwfact(0.01) end,
+		{ description = "move right window border right", group = "client" }),
+
+	-- focus screen
 	awful.key({ modkey, "Control" }, "h", function() awful.screen.focus_bydirection("left") end,
 		{ description = "focus window to the left", group = "client" }),
 
@@ -348,14 +363,6 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey, "Control" }, "l", function() awful.screen.focus_bydirection("right") end,
 		{ description = "focus window to the right", group = "client" }),
-
-
-	-- Layout manipulation
-	-- awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_relative(1) end,
-	-- 	{ description = "focus the next screen", group = "screen" }),
-	--
-	-- awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
-	-- 	{ description = "focus the previous screen", group = "screen" }),
 
 	awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
 		{ description = "jump to urgent client", group = "client" }),
@@ -382,7 +389,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
 
-	-- Menubar
 	awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
 		{ description = "show program launcher", group = "launcher" }),
 
@@ -429,8 +435,7 @@ globalkeys = gears.table.join(
 		{ description = "previous in media", group = "media" }),
 
 	-- brightness keys
-	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=5 -q set 5%-", false) end
-		,
+	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=5 -q set 5%-", false) end,
 		{ description = "decrease monitor brightness", group = "brightness" }),
 
 	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 5%+", false) end,
@@ -456,13 +461,13 @@ globalkeys = gears.table.join(
 	-- scratchpads
 	-- TODO: find out how to make tmux script work
 	awful.key({ modkey, }, "space",
-		function() scratch.toggle("alacritty --class scratch-main -t scratch-main -e tmux a -t scratchpad; select-window -t main"
+		function() scratch.toggle(terminal.." --class scratch-main -t scratch-main -e tmux a -t scratchpad; select-window -t main"
 				, { instance = "scratch-main" }, true)
 		end,
 		{ description = "open scratch terminal", group = "kirk" }),
 
 	awful.key({ modkey, }, "c",
-		function() scratch.toggle("alacritty --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator"
+		function() scratch.toggle(terminal.." --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator"
 				, { instance = "scratch-py" }, true)
 		end,
 		{ description = "open calculator", group = "kirk" })
@@ -471,7 +476,6 @@ globalkeys = gears.table.join(
 
 clientkeys = gears.table.join(
 	awful.key({ modkey, }, "f",
-
 		function(c)
 			c.fullscreen = not c.fullscreen
 			c:raise()
@@ -487,10 +491,7 @@ clientkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
 		{ description = "move to master", group = "client" }),
 
-	awful.key({ modkey, }, "o", function(c) c:move_to_screen() end,
-		{ description = "move to screen", group = "client" }),
-
-	awful.key({ modkey, }, "t", function(c) c.ontop = not c.ontop end,
+	awful.key({ modkey, }, "s", function(c) c.sticky = not c.sticky end,
 		{ description = "toggle keep on top", group = "client" }),
 
 	awful.key({ modkey, }, "m",
@@ -498,21 +499,7 @@ clientkeys = gears.table.join(
 			c.maximized = not c.maximized
 			c:raise()
 		end,
-		{ description = "(un)maximize", group = "client" }),
-
-	awful.key({ modkey, "Control" }, "m",
-		function(c)
-			c.maximized_vertical = not c.maximized_vertical
-			c:raise()
-		end,
-		{ description = "(un)maximize vertically", group = "client" }),
-
-	awful.key({ modkey, "Shift" }, "m",
-		function(c)
-			c.maximized_horizontal = not c.maximized_horizontal
-			c:raise()
-		end,
-		{ description = "(un)maximize horizontally", group = "client" })
+		{ description = "(un)maximize", group = "client" })
 )
 
 -- Bind all key numbers to tags.
@@ -716,7 +703,7 @@ client.connect_signal("manage", function(c)
 
 	-- Set the windows at the slave,
 	-- i.e. put it at the end of others instead of setting it master.
-	-- if not awesome.startup then awful.client.setslave(c) end
+	if not awesome.startup then awful.client.setslave(c) end
 	if awesome.startup
 		and not c.size_hints.user_position
 		and not c.size_hints.program_position then
