@@ -63,21 +63,11 @@ vim.cmd([[set winbar=%=%m\ %t%=]])
 vim.cmd([[highlight WinBar guibg=#3c3836]])
 vim.cmd([[highlight WinBarNC guibg=#282828]])
 
--- enable wrapping in *.tex files
-vim.cmd([[
-	augroup WrapLineInLatexFile
-		autocmd!
-		autocmd FileType tex setlocal wrap
-	augroup END
-]])
-
--- enable wrapping in *.md files
-vim.cmd([[
-	augroup WrapLineInMarkdownFile
-		autocmd!
-		autocmd FileType markdown setlocal wrap
-	augroup END
-]])
+-- enable wrapping in specific files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "markdown", "tex", "text" },
+	command = "setlocal wrap",
+})
 
 -- remove trailing whitespace on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
