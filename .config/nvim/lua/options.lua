@@ -36,7 +36,7 @@ vim.opt.wildmenu = true -- visual autocompletion for command menu
 vim.opt.wildmode = { 'longest', 'list', 'full' }
 vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
-vim.opt.fillchars = { eob = " "} -- no tilde (~) at the end of the buffer
+vim.opt.fillchars = { eob = " " } -- no tilde (~) at the end of the buffer
 
 vim.opt.swapfile = false -- don't create swap files
 
@@ -57,6 +57,11 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
+
+if vim.env.TERM == 'xterm-kitty' then
+	vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
+	vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
+end
 
 -- winbar
 vim.cmd([[set winbar=%=%m\ %t%=]])
