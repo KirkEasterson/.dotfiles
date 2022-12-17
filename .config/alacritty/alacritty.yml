@@ -32,6 +32,27 @@ mouse:
 env:
   TERM: alacritty
 
+# key bindings
+key_bindings:
+
+  # for bindings in neovim/various programs
+  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+  - { key: H, mods: Control|Shift, chars: "\x1b[72;5u" }
+  - { key: J, mods: Control|Shift, chars: "\x1b[74;5u" }
+  - { key: K, mods: Control|Shift, chars: "\x1b[75;5u" }
+  - { key: L, mods: Control|Shift, chars: "\x1b[76;5u" }
+
+  # QOL for MacOS
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: Space, mods: Alt, chars: " " }
+  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Left, mods: Alt, chars: "\x1bb" } # one word left
+  - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+
+
 colors:
 
   # Default colors
