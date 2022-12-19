@@ -57,10 +57,10 @@ map("n", "<leader>gW", function() require('telescope').extensions.git_worktree.c
 
 -- winshift
 map("n", "<leader><leader>s", "<Cmd>WinShift<CR>")
-map("n", "<C-S-h>", "<Cmd>WinShift left<CR>")
-map("n", "<C-S-j>", "<Cmd>WinShift down<CR>")
-map("n", "<C-S-k>", "<Cmd>WinShift up<CR>")
-map("n", "<C-S-l>", "<Cmd>WinShift right<CR>")
+map("n", "<A-S-h>", "<Cmd>WinShift left<CR>")
+map("n", "<A-S-j>", "<Cmd>WinShift down<CR>")
+map("n", "<A-S-k>", "<Cmd>WinShift up<CR>")
+map("n", "<A-S-l>", "<Cmd>WinShift right<CR>")
 
 -- lazygit
 local toggletermTerm = require('toggleterm.terminal').Terminal
