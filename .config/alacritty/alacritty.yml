@@ -1,3 +1,7 @@
+# true color settings
+env:
+  TERM: alacritty
+
 scrolling:
   history: 100000
 
@@ -24,13 +28,10 @@ font:
 
 window:
   dynamic_title: true
+  dynamic_padding: true
 
 mouse:
   hide_when_typing: false
-
-# true color settings
-env:
-  TERM: alacritty
 
 # key bindings
 key_bindings:
@@ -38,6 +39,11 @@ key_bindings:
   # for bindings in neovim/various programs
   - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
   - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+
+  # The escape sequence is made of the following parts:
+  #     - \x1b[ is a CSI (control sequence introducer), meaning ESC+[
+  #     - 72 is the decimal value of char J
+  #     - 5 is the sum of bits for the ctrl and shift modifiers (1 is shift, 2 is alt, 4 is ctrl); u stands for unicode
   - { key: H, mods: Control|Shift, chars: "\x1b[72;5u" }
   - { key: J, mods: Control|Shift, chars: "\x1b[74;5u" }
   - { key: K, mods: Control|Shift, chars: "\x1b[75;5u" }
