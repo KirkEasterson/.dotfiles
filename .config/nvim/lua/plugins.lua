@@ -63,6 +63,14 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.barbar") end,
 	}
+	use {
+		'goolord/alpha-nvim',
+		requires = {
+			'nvim-tree/nvim-web-devicons',
+			'BlakeJC94/alpha-nvim-fortune',
+		},
+		config = function() require("kirk.alpha") end,
+	}
 
 	-- lsp
 	use 'williamboman/mason.nvim'
