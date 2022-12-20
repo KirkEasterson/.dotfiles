@@ -37,8 +37,8 @@ vim.opt.wildmode = { 'longest', 'list', 'full' }
 vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
 vim.opt.list = true
-vim.opt.listchars = { lead = '·', trail = '▒', extends = '►', precedes = '◄' }
-vim.opt.fillchars = { eob = " " } -- no tilde (~) at the end of the buffer
+vim.opt.listchars:append({ lead = '·', trail = '▒', extends = '►', precedes = '◄' })
+vim.opt.fillchars:append({ eob = " " })
 
 vim.opt.swapfile = false -- don't create swap files
 
