@@ -259,6 +259,19 @@ return require('packer').startup(function(use)
 		'kamykn/spelunker.vim',
 		config = function() require("kirk.spelunker") end,
 	}
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup({
+				welcome_message = "",
+			})
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim"
+		}
+	})
 
 	if packer_bootstrap then
 		require('packer').sync()
