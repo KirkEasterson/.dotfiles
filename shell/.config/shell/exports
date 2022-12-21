@@ -1,0 +1,47 @@
+export KALE=$HOME/kale
+export DOTFILES=$HOME/.dotfiles
+export BROWSER=firefox
+export TERMINAL=alacritty
+export FILEMANAGER=pcmanfm
+export EDITOR=nvim
+export VISUAL=nvim
+
+# "batcat" as manpager
+export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+
+# Color for manpages in less makes manpages a little easier to read
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+export GOPATH="$HOME/go"
+export GOROOT="/usr/lib/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOROOT/bin"
+
+export PATH="$PATH:$HOME/.config/emacs/bin"
+
+export PATH=~/.npm-global/bin:$PATH
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH="/var/lib/flatpak/exports/share:$PATH"
+export PATH="$HOME/.local/share/flatpak/exports/share:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export SPACESHIP_CONFIG_FILE="$HOME/.config/spaceship/spaceship.zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# source local exports, which don't need to be in version control
+source ~/.config/shell/local_exports 2> /dev/null

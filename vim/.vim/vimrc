@@ -1,0 +1,94 @@
+let mapleader=" "					" leader is space
+set updatetime=50					" fast update times
+
+set number relativenumber				" turn hybrid line numbers on
+set cursorline							" highlight current line
+set termguicolors
+
+set incsearch						" highlight matches as you type
+set hlsearch						" highlight matches once a search is complete
+set nohlsearch						" turn off search highlight
+
+set autoindent						" new lines inherit the indentation of previous lines.
+set nowrap							" don't wrap lines
+set linebreak						" avoid wrapping a line in the middle of a word
+
+syntax enable						" enable syntax highlighting
+set showmatch						" highlight matching [{()}]
+
+set scrolloff=8						" scroll when x away from edge
+set signcolumn=yes					" column for linting
+set colorcolumn=80					" 80col limit
+
+set tabstop=4						" number of visual spaces per TAB
+set softtabstop=4					" number of spaces in tab when editing
+set shiftwidth=4					" number of spaces when indenting with <>
+filetype indent on					" load filetype-specific indent files
+
+set mouse=a						" enable mouse for scrolling and resizing
+
+set wildmenu						" visual autocomplete for command menu
+
+set clipboard+=unnamedplus			" making copying easier
+
+augroup WrapLineInLatexFile
+	autocmd!
+	autocmd FileType tex setlocal wrap
+augroup END
+
+augroup WrapLineInMarkdownFile
+	autocmd!
+	autocmd FileType markdown setlocal wrap
+augroup END
+
+set lazyredraw						" redraw only when we need to.
+
+set exrc							" use local vimrc, if it exists
+
+" ThePrimeagen remappings
+" 'Y' to behave like other capitals
+nnoremap Y $y
+
+" easier navigation
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" easier undos
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap [ [<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" move text
+vnoremap <A-j>  :m '>+1<CR>gv=gv
+vnoremap <A-k>  :m '<-2<CR>gv=gv
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k>  :m .-2<CR>==
+
+" re-select the selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" Build if a note file
+autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
+
+" remove trailing whitespace on each save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" transparent background
+au ColorScheme * hi Normal ctermbg=none guibg=none
+
+""" Leader shortcuts
+
+" Primeagen pasting
+xnoremap <leader>p "_dP
+
+" easy window navigation shortcuts
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
+
+set completeopt=menu,menuone,noselect
