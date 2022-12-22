@@ -11,6 +11,8 @@ end
 -- QOL mapping to type commands without needing shift
 map('n', ';', ':')
 map('n', ':', ';')
+map('v', ';', ':')
+map('v', ':', ';')
 
 -- faster save and quits
 map('n', '<leader>w', ':w<cr>')
