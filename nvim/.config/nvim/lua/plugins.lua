@@ -48,8 +48,9 @@ return require('packer').startup(function(use)
 		config = function() require("kirk.lualine") end,
 	}
 	use {
-		'karb94/neoscroll.nvim',
-		config = function() require("kirk.neoscroll") end,
+		'echasnovski/mini.nvim',
+		branch = 'main',
+		config = function() require("kirk.mini") end,
 	}
 	use {
 		'petertriho/nvim-scrollbar',
