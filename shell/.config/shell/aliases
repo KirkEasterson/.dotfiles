@@ -23,6 +23,9 @@ alias l.='exa -a --icons | egrep "^\."'
 # Change "less"" to "batcat"
 alias less='batcat'
 
+# Quickly create new tmux sessions
+alias tn='tmux new -As $(basename $PWD | tr . -)'
+
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
