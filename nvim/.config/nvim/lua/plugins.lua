@@ -103,11 +103,6 @@ return require('packer').startup(function(use)
 		config = function() require("kirk.lsp.semantic_tokens") end,
 	}
 	use {
-		'kylechui/nvim-surround',
-		tag = "*",
-		config = function() require("kirk.surround") end,
-	}
-	use {
 		'm-demare/hlargs.nvim',
 		requires = {
 			'nvim-treesitter/nvim-treesitter',
