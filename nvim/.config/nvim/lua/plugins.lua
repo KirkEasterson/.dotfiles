@@ -243,6 +243,7 @@ return require('packer').startup(function(use)
 		"nvim-zh/colorful-winsep.nvim",
 		config = function() require("kirk.colorful-winsep") end,
 	}
+	use 'tamton-aquib/duck.nvim'
 	use {
 		"eandrju/cellular-automaton.nvim",
 		config = function() require("kirk.cellular-automaton") end,

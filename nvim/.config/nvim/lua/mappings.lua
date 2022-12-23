@@ -96,6 +96,10 @@ map('n', '<leader>dt', ':TodoTelescope<CR>')
 map('n', '<leader><leader>o', '<Cmd>AerialToggle!<CR>', { silent = true })
 map('v', '<leader><leader>o', '<Cmd>AerialToggle!<CR>', { silent = true })
 
+-- duck
+map('n', '<leader>dh', function() require("duck").hatch("") end)
+map('n', '<leader>dc', function() require("duck").cook() end)
+
 -- barbar
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', { silent = true })
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', { silent = true })
