@@ -6,4 +6,5 @@
 
 eval $(dbus-launch --sh-syntax)
 unclutter &
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 exec awesome
