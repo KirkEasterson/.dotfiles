@@ -367,30 +367,8 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
 		{ description = "jump to urgent client", group = "client" }),
 
-	-- Standard program
-	awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
-		{ description = "open a terminal", group = "launcher" }),
-
-	awful.key({ modkey, "Shift" }, "Return", function() awful.spawn(terminal_secondary) end,
-		{ description = "open a secondary terminal", group = "launcher" }),
-
-	awful.key({ modkey, }, "w", function() awful.util.spawn(browser) end,
-		{ description = "open browser", group = "kirk" }),
-
-	awful.key({ modkey, }, "e", function() awful.util.spawn(terminal .. " -e lfrun") end,
-		{ description = "open terminal file manager", group = "kirk" }),
-
-	awful.key({ modkey, "Shift" }, "e", function() awful.util.spawn(file_manager) end,
-		{ description = "open file manager", group = "kirk" }),
-
-	awful.key({ modkey, }, "x", function() awful.util.spawn("light-locker-command -l") end,
-		{ description = "lock screen", group = "kirk" }),
-
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
-
-	awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
-		{ description = "show program launcher", group = "launcher" }),
 
 	-- gaps
 	awful.key({ modkey }, "Tab", function() awful.tag.incgap(-2) end,
@@ -404,59 +382,6 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey, "Control", "Shift" }, "Tab", function() awful.tag.setgap(0) end,
 		{ description = "reset gaps to 0", group = "gaps" }),
-
-	-- volume keys
-	awful.key({}, "XF86AudioRaiseVolume",
-		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%", false) end,
-		{ description = "raise volume", group = "volume" }),
-
-	awful.key({}, "XF86AudioLowerVolume",
-		function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%", false) end,
-		{ description = "lower volume", group = "volume" }),
-
-	awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
-		{ description = "mute audio", group = "volume" }),
-
-	awful.key({}, "XF86AudioMicMute",
-		function() awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false) end,
-		{ description = "mute mic", group = "volume" }),
-
-	-- media keys
-	awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end,
-		{ description = "play/pause media", group = "media" }),
-
-	awful.key({}, "XF86AudioStop", function() awful.util.spawn("playerctl stop", false) end,
-		{ description = "stop media", group = "media" }),
-
-	awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next", false) end,
-		{ description = "next in media", group = "media" }),
-
-	awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl previous", false) end,
-		{ description = "previous in media", group = "media" }),
-
-	-- brightness keys
-	awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl --min-val=5 -q set 5%-", false) end,
-		{ description = "decrease monitor brightness", group = "brightness" }),
-
-	awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl -q set 5%+", false) end,
-		{ description = "increase monitor brightness", group = "brightness" }),
-
-	-- screenshots
-	awful.key({}, "Print", function() awful.util.spawn("flameshot gui", false) end,
-		{ description = "screenshot selected area", group = "screenshot" }),
-
-	awful.key({ "Shift" }, "Print", function() awful.util.spawn("flameshot full", false) end,
-		{ description = "screenshot selected full screen", group = "screenshot" }),
-
-	-- keyboard layouts
-	awful.key({ modkey, "Shift" }, "a", function() awful.util.spawn("setxkbmap us", false) end,
-		{ description = "set us keyboard layout", group = "keyboard" }),
-
-	awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("setxkbmap se", false) end,
-		{ description = "set swedish keyboard layout", group = "keyboard" }),
-
-	awful.key({ modkey, "Shift" }, "g", function() awful.util.spawn("setxkbmap no", false) end,
-		{ description = "set norwegian keyboard layout", group = "keyboard" }),
 
 	-- scratchpads
 	-- TODO: find out how to make tmux script work
@@ -826,6 +751,7 @@ local autorunApps =
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
 	"picom --experimental-backends",
 	-- "picom",
+	"sxhkd", -- TODO: figure out how to get this to work with .xinitrc
 	"unclutter",
 	"volumeicon",
 }
