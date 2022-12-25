@@ -8,7 +8,7 @@ super + {_,shift +} w
 
 # file managers
 super + {_,shift +} e
-	{~/.config/bin/lflauncher,pcmanfm}
+	{pcmanfm,lflauncher}
 
 # screen locker
 super + x
