@@ -735,6 +735,7 @@ beautiful.systray_icon_spacing = 13
 -- AUTO-EXEC
 awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
+awful.spawn.with_shell("setxkbmap -option caps:escape")
 
 -- Autorun programs
 local autorun = true
@@ -750,7 +751,6 @@ local autorunApps =
 	"package-update-indicator",
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
 	"picom --experimental-backends",
-	-- "picom",
 	"sxhkd", -- TODO: figure out how to get this to work with .xinitrc
 	"unclutter",
 	"volumeicon",
