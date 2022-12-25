@@ -286,10 +286,13 @@ awful.screen.connect_for_each_screen(function(s)
 			mykeyboardlayout,
 			separator,
 			wibox.widget.textbox(' '),
-			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1),
+			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1), -- CPU temp
+			separator,
+			wibox.widget.textbox('  '),
+			awful.widget.watch([[bash -c "echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%""]], 1), -- CPU usage
 			separator,
 			wibox.widget.textbox(' '),
-			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1),
+			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
 			separator,
 			-- wibox.widget.textbox('  '),
 			mytextclock,
