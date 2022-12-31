@@ -15,8 +15,8 @@ map('v', ';', ':')
 map('v', ':', ';')
 
 -- faster save and quits
-map('n', '<leader>w', ':w<cr>')
-map('n', '<leader>q', ':q<cr>')
+map('n', '<leader>w', ':silent w<cr>')
+map('n', '<leader>q', ':silent q<cr>')
 
 -- reselect text after indenting
 map('v', '<', '<gv')
