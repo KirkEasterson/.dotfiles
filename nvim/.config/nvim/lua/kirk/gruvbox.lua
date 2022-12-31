@@ -14,10 +14,18 @@ require("gruvbox").setup({
 })
 
 vim.cmd([[colorscheme gruvbox]])
-
 palette = require('gruvbox.palette')
+
+-- nvim tree
 vim.cmd("highlight NvimTreeNormal guibg=" .. palette.dark0_hard)
 vim.cmd("highlight NvimTreeWinSeparator guibg=" .. palette.dark0_hard .. " guifg=" .. palette.dark0_hard)
+
+-- winbar
+vim.cmd("highlight WinBar guibg=" .. palette.dark2)
+vim.cmd("highlight WinBarNC guibg=" .. palette.dark1)
+
+-- winseparator
+vim.cmd("highlight WinSeparator guibg=None guifg=" .. palette.gray)
 
 -- uncomment to have a "flat" telescope
 -- vim.cmd([[highlight TelescopePromptBorder guibg=#32302f guifg=#32302f]])

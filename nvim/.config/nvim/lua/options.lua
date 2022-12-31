@@ -50,7 +50,6 @@ vim.opt.cmdheight = 0 -- hide the command line
 vim.opt.confirm = true -- show confirm dialog when closing unsaved files
 
 vim.opt.laststatus = 3 -- aesthetic win separators
-vim.cmd([[highlight WinSeparator guibg=None guifg=#928374]])
 
 vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -67,8 +66,6 @@ end
 
 -- winbar
 vim.cmd([[set winbar=%=%m\ %t%=]])
-vim.cmd([[highlight WinBar guibg=#3c3836]])
-vim.cmd([[highlight WinBarNC guibg=#282828]])
 
 -- enable wrapping in specific files
 vim.api.nvim_create_autocmd({ "FileType" }, {
