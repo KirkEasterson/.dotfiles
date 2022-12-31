@@ -13,10 +13,11 @@ require("gruvbox").setup({
 	transparent_mode = true,
 })
 
--- TODO: make a module with these color definitions, or see if it already exists
 vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[highlight NvimTreeNormal guibg=#1d2021]])
-vim.cmd([[highlight NvimTreeWinSeparator guibg=#1d2021 guifg=#1d2021]])
+
+palette = require('gruvbox.palette')
+vim.cmd("highlight NvimTreeNormal guibg=" .. palette.dark0_hard)
+vim.cmd("highlight NvimTreeWinSeparator guibg=" .. palette.dark0_hard .. " guifg=" .. palette.dark0_hard)
 
 -- uncomment to have a "flat" telescope
 -- vim.cmd([[highlight TelescopePromptBorder guibg=#32302f guifg=#32302f]])
