@@ -24,24 +24,6 @@ return require('packer').startup(function(use)
 		'ellisonleao/gruvbox.nvim',
 		config = function() require("kirk.gruvbox") end,
 	}
-	-- use {
-	-- 	"rcarriga/nvim-notify",
-	-- 	config = function() require("kirk.nvim-notify") end,
-	-- }
-	-- use({
-	-- 	"folke/noice.nvim",
-	-- 	requires = {
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		"rcarriga/nvim-notify",
-	-- 	},
-	-- 	config = function() require("kirk.noice") end,
-	-- 	event = "VimEnter",
-	-- })
-	use {
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function() require("kirk.trouble") end,
-	}
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -51,10 +33,6 @@ return require('packer').startup(function(use)
 		'echasnovski/mini.nvim',
 		branch = 'main',
 		config = function() require("kirk.mini") end,
-	}
-	use {
-		'petertriho/nvim-scrollbar',
-		config = function() require("kirk.scrollbar") end,
 	}
 	use 'kyazdani42/nvim-web-devicons' -- this shouldn't be necessary
 	use {
@@ -81,12 +59,13 @@ return require('packer').startup(function(use)
 		config = function() require("kirk.lsp.lsp") end,
 	}
 	use 'nvim-treesitter/nvim-treesitter-context'
-	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use 'nvim-treesitter/nvim-treesitter-refactor'
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		requires = {
 			'nvim-treesitter/nvim-treesitter-context',
+			'nvim-treesitter/nvim-treesitter-refactor',
 			'nvim-treesitter/nvim-treesitter-textobjects',
 		},
 		run = function()
