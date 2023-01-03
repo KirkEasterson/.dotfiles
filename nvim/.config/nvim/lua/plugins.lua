@@ -235,6 +235,11 @@ return require('packer').startup(function(use)
 		'kamykn/spelunker.vim',
 		config = function() require("kirk.spelunker") end,
 	}
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+		config = function() require("kirk.markdown-preview") end,
+	})
 	-- use({
 	-- 	"jackMort/ChatGPT.nvim",
 	-- 	config = function()
