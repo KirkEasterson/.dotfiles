@@ -368,10 +368,10 @@ globalkeys = gears.table.join(
 		{ description = "focus window to the right", group = "client" }),
 
 	-- page through tags
-	awful.key({ modkey }, "Tab", function() awful.tag.viewnext(awful.screen.focused()) end,
+	awful.key({ modkey }, "Tab", function() awful.tag.viewnext() end,
 		{ description = "focus next tag", group = "tags" }),
 
-	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.viewprev(awful.screen.focused()) end,
+	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.viewprev() end,
 		{ description = "focus previous tag", group = "tags" }),
 
 
