@@ -374,9 +374,8 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.viewprev(awful.screen.focused()) end,
 		{ description = "focus previous tag", group = "tags" }),
 
-	awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
-		{ description = "jump to urgent client", group = "client" }),
 
+	-- restart awesome
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
 
