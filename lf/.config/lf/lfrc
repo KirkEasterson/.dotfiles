@@ -44,6 +44,8 @@ map A push :mkdir<space>
 cmd mkfile %touch "$@"
 map a push :mkfile<space>
 
+cmd setwallpaper %cp "$f" ~/.config/wall.jpg && ~/.fehbg
+
 cmd chmod ${{
   printf "Mode Bits: "
   read ans
