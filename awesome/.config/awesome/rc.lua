@@ -367,24 +367,18 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "l", function() awful.screen.focus_bydirection("right") end,
 		{ description = "focus window to the right", group = "client" }),
 
+	-- page through tags
+	awful.key({ modkey }, "Tab", function() awful.tag.viewnext(awful.screen.focused()) end,
+		{ description = "focus next tag", group = "tags" }),
+
+	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.viewprev(awful.screen.focused()) end,
+		{ description = "focus previous tag", group = "tags" }),
+
 	awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
 		{ description = "jump to urgent client", group = "client" }),
 
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome" }),
-
-	-- gaps
-	awful.key({ modkey }, "Tab", function() awful.tag.incgap(-2) end,
-		{ description = "decrease gaps", group = "gaps" }),
-
-	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.incgap(2) end,
-		{ description = "increase gaps", group = "gaps" }),
-
-	awful.key({ modkey, "Control" }, "Tab", function() awful.tag.setgap(8) end,
-		{ description = "reset gaps to nice gap", group = "gaps" }),
-
-	awful.key({ modkey, "Control", "Shift" }, "Tab", function() awful.tag.setgap(0) end,
-		{ description = "reset gaps to 0", group = "gaps" }),
 
 	-- scratchpads
 	-- TODO: find out how to make tmux script work
