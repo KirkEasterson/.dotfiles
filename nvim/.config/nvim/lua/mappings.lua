@@ -15,8 +15,9 @@ map('v', ';', ':')
 map('v', ':', ';')
 
 -- faster save and quits
-map('n', '<leader>w', ':silent w<cr>')
-map('n', '<leader>q', ':silent qa<cr>')
+map('n', '<leader>w', function() vim.cmd('w') end, { silent = true })
+map('n', '<leader>qq', function() vim.cmd('q') end, { silent = true })
+map('n', '<leader>qa', function() vim.cmd('qa') end, { silent = true })
 
 -- reselect text after indenting
 map('v', '<', '<gv')
