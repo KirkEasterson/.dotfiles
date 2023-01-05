@@ -68,6 +68,9 @@ telescope.setup {
 		find_files = {
 			hidden = true,
 		},
+		oldfiles = {
+			cwd_only = true,
+		}
 	},
 }
 
@@ -78,4 +81,3 @@ vim.api.nvim_create_autocmd({ "User" }, {
 
 telescope.load_extension("fzy_native")
 telescope.load_extension("git_worktree")
--- telescope.load_extension("noice")
