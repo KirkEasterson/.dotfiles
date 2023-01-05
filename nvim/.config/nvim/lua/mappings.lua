@@ -38,25 +38,33 @@ map('i', '?', '?<c-g>u')
 map('n', 'Y', '$y') -- Y to behave like other capitals
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
 
--- telescope
+-- telescope file helpers
 map('n', "<leader>ff", function() require('telescope.builtin').find_files() end, { silent = true })
+map('n', "<leader>fo", function() require('telescope.builtin').oldfiles() end, { silent = true })
 map("n", "<leader>FF", function() require('telescope.builtin').current_buffer_fuzzy_find() end)
 map("n", "<leader>fg", function() require('telescope.builtin').live_grep() end)
 map("n", "<leader>fG", function() require('telescope.builtin').grep_string() end)
 map("n", "<leader>fb", function() require('telescope.builtin').buffers() end)
-map("n", "<leader>fh", function() require('telescope.builtin').help_tags() end)
-map("n", "<leader>fH", function() require('telescope.builtin').highlights() end)
+
+-- telescope lsp/treesitter helpers
 map("n", "<leader>fr", function() require('telescope.builtin').lsp_references() end)
 map("n", "<leader>fs", function() require('telescope.builtin').lsp_document_symbols() end)
 map("n", "<leader>ft", function() require('telescope.builtin').treesitter() end)
-map("n", "<leader>fk", function() require('telescope.builtin').keymaps() end)
+map("n", "<leader>dd", function() require('telescope.builtin').diagnostics() end)
+
+-- telescope git helpers
+map("n", "<leader>gf", function() require('telescope.builtin').git_files() end)
 map("n", "<leader>gb", function() require('telescope.builtin').git_branches() end)
 map("n", "<leader>gc", function() require('telescope.builtin').git_commits() end)
 map("n", "<leader>bc", function() require('telescope.builtin').git_bcommits() end)
-map("n", "<leader>rr", function() require('telescope.builtin').registers() end)
-map("n", "<leader>dd", function() require('telescope.builtin').diagnostics() end)
 map("n", "<leader>gw", function() require('telescope').extensions.git_worktree.git_worktrees() end)
 map("n", "<leader>gW", function() require('telescope').extensions.git_worktree.create_git_worktree() end)
+
+-- telescope util helpers
+map("n", "<leader>fh", function() require('telescope.builtin').help_tags() end)
+map("n", "<leader>fk", function() require('telescope.builtin').keymaps() end)
+map("n", "<leader>fS", function() require('telescope.builtin').spell_suggest() end)
+-- map("n", "<leader>rr", function() require('telescope.builtin').registers() end)
 
 -- winshift
 map("n", "<leader><leader>s", "<Cmd>WinShift<CR>")
