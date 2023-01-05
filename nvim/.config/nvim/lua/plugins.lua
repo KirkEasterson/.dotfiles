@@ -138,6 +138,10 @@ return require('packer').startup(function(use)
 
 	-- git
 	use {
+		'kdheepak/lazygit.nvim',
+		config = function() require("kirk.lazygit") end,
+	}
+	use {
 		'lewis6991/gitsigns.nvim',
 		config = function() require("kirk.gitsigns") end,
 	}
@@ -168,11 +172,6 @@ return require('packer').startup(function(use)
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		config = function() require("kirk.indent") end,
-	}
-	use {
-		"akinsho/toggleterm.nvim",
-		tag = '*',
-		config = function() require("kirk.toggleterm") end,
 	}
 
 

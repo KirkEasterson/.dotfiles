@@ -74,14 +74,7 @@ map("n", "<C-S-k>", "<Cmd>WinShift up<CR>")
 map("n", "<C-S-l>", "<Cmd>WinShift right<CR>")
 
 -- lazygit
-local toggletermTerm = require('toggleterm.terminal').Terminal
-local lazygit        = toggletermTerm:new({
-	cmd = "lazygit",
-	hidden = true,
-	direction = 'tab',
-})
-map("n", "<leader>gg", function() lazygit:toggle() end)
-
+map("n", "<leader>gg", function() require('lazygit').lazygit() end)
 
 -- nvim tree
 map('n', '<leader>t', function()
