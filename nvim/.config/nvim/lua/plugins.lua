@@ -20,8 +20,9 @@ return require('packer').startup(function(use)
 	}
 
 	-- a e s t h e t i c
+	use 'ellisonleao/gruvbox.nvim' -- OG nvim gruvbox
 	use {
-		'ellisonleao/gruvbox.nvim',
+		'luisiacc/gruvbox-baby',
 		config = function() require("kirk.gruvbox") end,
 	}
 	use {
