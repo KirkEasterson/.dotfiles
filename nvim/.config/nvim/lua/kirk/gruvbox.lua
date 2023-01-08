@@ -1,8 +1,8 @@
-vim.g.gruvbox_baby_transparent_mode = false
-vim.g.gruvbox_baby_use_original_palette = true
-vim.g.gruvbox_baby_string_style = 'italic'
+-- gruvbox config
+vim.g.gruvbox_baby_transparent_mode = true
 vim.cmd [[colorscheme gruvbox-baby]]
 
+-- other theming
 local palette = require('gruvbox.palette')
 
 -- nvim tree
