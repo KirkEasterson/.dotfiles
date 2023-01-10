@@ -19,6 +19,10 @@ map('n', '<leader>w', function() vim.cmd('w') end, { silent = true })
 map('n', '<leader>q', function() vim.cmd('q') end, { silent = true })
 map('n', '<leader>z', function() vim.cmd('qa') end, { silent = true })
 
+-- easier jumps to line endings
+map('n', 'H', '^')
+map('n', 'L', '$')
+
 -- reselect text after indenting
 map('v', '<', '<gv')
 map('v', '>', '>gv')
@@ -37,6 +41,7 @@ map('i', '?', '?<c-g>u')
 
 map('n', 'Y', 'y$') -- Y to behave like other capitals
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
+map('n', 'U', '<C-r>') -- easier redo
 
 -- telescope file helpers
 map('n', "<leader>ff", function() require('telescope.builtin').find_files() end, { silent = true })
