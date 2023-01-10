@@ -13,7 +13,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier,
 
 		-- golang
-		null_ls.builtins.formatting.gofumpt,
+		-- null_ls.builtins.formatting.gofumpt,
 	},
 	on_attach = on_attach,
 })
