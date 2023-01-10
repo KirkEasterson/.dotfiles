@@ -35,7 +35,7 @@ map('i', '[', '[<c-g>u')
 map('i', '!', '!<c-g>u')
 map('i', '?', '?<c-g>u')
 
-map('n', 'Y', '$y') -- Y to behave like other capitals
+map('n', 'Y', 'y$') -- Y to behave like other capitals
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
 
 -- telescope file helpers
