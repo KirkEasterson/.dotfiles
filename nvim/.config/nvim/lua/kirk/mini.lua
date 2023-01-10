@@ -8,20 +8,20 @@ require('mini.jump').setup({
 	},
 })
 
-require('mini.animate').setup({
-	cursor = {
-		enable = false,
-	},
-	scroll = {
-		enable = true,
-	},
-	resize = {
-		enable = false,
-	},
-	open = {
-		enable = false,
-	},
-	close = {
-		enable = false,
-	},
-})
+-- require('mini.animate').setup({
+-- 	cursor = {
+-- 		enable = false,
+-- 	},
+-- 	scroll = {
+-- 		enable = true,
+-- 	},
+-- 	resize = {
+-- 		enable = false,
+-- 	},
+-- 	open = {
+-- 		enable = false,
+-- 	},
+-- 	close = {
+-- 		enable = false,
+-- 	},
+-- })
