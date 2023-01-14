@@ -1,41 +1,4 @@
-# focus window
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
-
-# swap window
-cmd + shift - h : yabai -m window --swap west
-cmd + shift - j : yabai -m window --swap south
-cmd + shift - k : yabai -m window --swap north
-cmd + shift - l : yabai -m window --swap east
-
-# resize window
-cmd + alt - h : yabai -m window west --resize right:-20:0 2> /dev/null || yabai -m window --resize right:-20:0
-cmd + alt - j : yabai -m window north --resize bottom:0:20 2> /dev/null || yabai -m window --resize bottom:0:20
-cmd + alt - k : yabai -m window south --resize top:0:-20 2> /dev/null || yabai -m window --resize top:0:-20
-cmd + alt - l : yabai -m window east --resize left:20:0 2> /dev/null || yabai -m window --resize left:20:0
-
-# move managed window
-# TODO: investigate if this is worth using
-# shift + cmd + alt - h : yabai -m window --warp west
-# shift + cmd + alt - j : yabai -m window --warp south
-# shift + cmd + alt - k : yabai -m window --warp north
-# shift + cmd + alt - l : yabai -m window --warp east
-
-# toggle window fullscreen zoom
-cmd - f : yabai -m window --toggle zoom-fullscreen
-
-# toggle padding and gap
-cmd + ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
-
-# toggle window split type
-cmd - e : yabai -m window --toggle split
-
-# balance size of windows
-shift + cmd - 0 : yabai -m space --balance
-
-# focus workspace
+### cmd + KEY
 cmd - 1 : yabai -m query --spaces --space 1 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 cmd - 2 : yabai -m query --spaces --space 2 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 cmd - 3 : yabai -m query --spaces --space 3 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
@@ -46,8 +9,6 @@ cmd - 7 : yabai -m query --spaces --space 7 | jq -r '.windows[0] // empty' | xar
 cmd - 8 : yabai -m query --spaces --space 8 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 cmd - 9 : yabai -m query --spaces --space 9 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 cmd - tab : yabai -m query --spaces --space next | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
-cmd + shift - tab : yabai -m query --spaces --space prev | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
-## use the below lines if SIP is disabled; they are faster
 # cmd - 1 : yabai -m space --focus 1
 # cmd - 2 : yabai -m space --focus 2
 # cmd - 3 : yabai -m space --focus 3
@@ -58,9 +19,22 @@ cmd + shift - tab : yabai -m query --spaces --space prev | jq -r '.windows[0] //
 # cmd - 8 : yabai -m space --focus 8
 # cmd - 9 : yabai -m space --focus 9
 # cmd - tab : yabai -m space --focus next
-# cmd + shift - tab : yabai -m space --focus prev
+cmd - q : yabai -m window --close
+cmd - w : open -n -a /Applications/Firefox.app 
+cmd - e : open .
+cmd - f : yabai -m window --toggle zoom-fullscreen
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+cmd - return : open -n -a /Applications/Alacritty.app 
 
-# move window to workspace
+
+
+
+### cmd + shift + KEY
+cmd + shift - tab : yabai -m query --spaces --space prev | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
+# cmd + shift - tab : yabai -m space --focus prev
 cmd + shift - 1 : yabai -m window --space 1
 cmd + shift - 2 : yabai -m window --space 2
 cmd + shift - 3 : yabai -m window --space 3
@@ -70,21 +44,30 @@ cmd + shift - 6 : yabai -m window --space 6
 cmd + shift - 7 : yabai -m window --space 7
 cmd + shift - 8 : yabai -m window --space 8
 cmd + shift - 9 : yabai -m window --space 9
+cmd + shift - 0 : yabai -m space --balance
+cmd + shift - e : yabai -m window --toggle split # TODO: change this to avoid file manager conflict
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - l : yabai -m window --swap east
 
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + alt - n : yabai -m space --create && \
-                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                   yabai -m window --space "${index}" && \
-                   yabai -m space --focus "${index}"
 
-# fast focus desktop
-# TODO: what does this do?
-# alt - 0 : yabai -m space --focus recent
 
-# send window to monitor and follow focus
-shift + alt - n : yabai -m window --display next; yabai -m display --focus next
-shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
 
-# restart yabai
-ctrl + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+### cmd + ctrl + KEY
+cmd + ctrl - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
+
+
+
+### cmd + alt + KEY
+cmd + alt - h : yabai -m window west --resize right:-20:0 2> /dev/null || yabai -m window --resize right:-20:0
+cmd + alt - j : yabai -m window north --resize bottom:0:20 2> /dev/null || yabai -m window --resize bottom:0:20
+cmd + alt - k : yabai -m window south --resize top:0:-20 2> /dev/null || yabai -m window --resize top:0:-20
+cmd + alt - l : yabai -m window east --resize left:20:0 2> /dev/null || yabai -m window --resize left:20:0
+
+
+
+
+### cmd + ctrl + alt + KEY
+cmd + ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
