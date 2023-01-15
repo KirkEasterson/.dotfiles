@@ -1,5 +1,16 @@
 require('gitsigns').setup({
-	current_line_blame = true,
+	current_line_blame      = true,
+	signs                   = {
+		add          = { text = "▌" },
+		change       = { text = "▌" },
+		topdelete    = { text = "▔" },
+		delete       = { text = "▁" },
+		changedelete = { text = "▁" },
+		untracked    = { text = "▌" }
+	},
+	current_line_blame_opts = {
+		delay = 10,
+	},
 })
 
 vim.cmd([[highlight SignColumn guibg=none]])
