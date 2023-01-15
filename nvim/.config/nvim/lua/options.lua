@@ -59,6 +59,8 @@ vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,winpos,terminal,lo
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
 
+vim.o.statuscolumn = '%s%=%{v:wrap?"":(v:relnum?v:relnum:v:lnum)}│'
+
 if vim.env.TERM == 'xterm-kitty' then
 	vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
 	vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
