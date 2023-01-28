@@ -8,16 +8,16 @@ scrolling:
 font:
   size: 12.0
   normal:
-    family: Comic Code Ligatures Nerd Font
+    family: ComicCodeLigatures Nerd Font
     style: Regular
   bold:
-    family: Comic Code Ligatures Nerd Font
+    family: ComicCodeLigatures Nerd Font
     style: Bold
   italic:
-    family: Comic Code Ligatures Nerd Font
+    family: ComicCodeLigatures Nerd Font
     style: Italic
   bold_italic:
-    family: Comic Code Ligatures Nerd Font
+    family: ComicCodeLigatures Nerd Font
     style: Bold Italic
 
 # # this block enables the transparent background
