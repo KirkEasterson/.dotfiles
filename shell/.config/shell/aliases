@@ -20,7 +20,7 @@ alias lls='exa --color=always --group-directories-first --icons'
 alias lla='exa -a --color=always --group-directories-first --icons'
 alias l.='exa -a --icons | egrep "^\."'
 
-# Change "less"" to "batcat"
+# Change "less"" to "bat"
 alias less='bat'
 
 # Quickly create new tmux sessions
