@@ -27,7 +27,6 @@ vim.opt.colorcolumn = '80' -- show line for 80char soft-limit
 vim.opt.tabstop = 4 -- number of visual spaces per tab
 vim.opt.softtabstop = 4 -- number of spaces in tab when editing
 vim.opt.shiftwidth = 4 -- number of spaces when indenting with <>
-vim.cmd([[filetype indent on]]) -- load filetype-specific indents
 
 vim.opt.mouse = 'a' -- enable mouse for scrolling and resizing
 vim.opt.mousemodel = 'extend'
