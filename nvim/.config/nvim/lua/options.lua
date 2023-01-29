@@ -67,7 +67,7 @@ if vim.env.TERM == 'xterm-kitty' then
 end
 
 -- winbar
-vim.cmd([[set winbar=%=%m\ %t%=]])
+-- vim.cmd([[set winbar=%=%m\ %t%=]])
 
 -- enable wrapping in specific files
 vim.api.nvim_create_autocmd({ "FileType" }, {

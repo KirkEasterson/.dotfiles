@@ -51,7 +51,17 @@ return require('packer').startup(function(use)
 		},
 		config = function() require("kirk.alpha") end,
 	}
-
+	use({
+		"utilyre/barbecue.nvim",
+		tag = "*",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		after = "nvim-web-devicons", -- keep this if you're using NvChad
+		config = function() require("kirk.barbecue") end,
+	})
 	-- lsp
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
