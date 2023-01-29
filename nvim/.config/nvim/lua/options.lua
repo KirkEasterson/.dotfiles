@@ -72,8 +72,12 @@ end
 -- enable wrapping in specific files
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "markdown", "tex", "text" },
-	command = "setlocal wrap",
+	callback = function()
+		vim.opt_local.wrap = true
+	end,
 })
+
+
 
 -- -- remove trailing whitespace on save
 -- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -101,6 +105,47 @@ vim.api.nvim_create_autocmd(
 		callback = 'silent! ~/scripts/build_notes.sh %:p',
 	}
 )
+
+-- enable wrapping in specific files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "markdown", "tex", "text" },
+	callback = function()
+		vim.opt_local.wrap = true
+	end,
+})
+
+
+
+-- change indenting for js/ts files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+	callback = function()
+		vim.opt_local.expandtab = true
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.shiftwidth = 2
+	end,
+}
+)
+
+-- this might not be necessary
+-- -- change indenting when exiting a js/ts file
+-- vim.api.nvim_create_autocmd(
+-- 	'BufwritePost',
+-- 	{
+-- 		pattern = '*note-*.md',
+-- 		callback = function()
+-- 			vim.opt_local.expandtab = true
+-- 			vim.opt_local.softtabstop = 4
+
+
+
+
+-- 			vim.opt_local.shiftwidth = 4
+-- 		end,
+-- 		callback = ,
+-- 	}
+-- )
 
 -- -- set fsharp file types
 -- vim.api.nvim_create_autocmd(
