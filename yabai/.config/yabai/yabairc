@@ -22,7 +22,7 @@ yabai -m config right_padding 15
 yabai -m config window_gap 15
 
 # split ratios
-yabai -m config auto_balance off
+yabai -m config auto_balance on
 yabai -m config split_ratio 0.50
 
 # mouse support
