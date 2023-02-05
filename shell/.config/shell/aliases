@@ -13,15 +13,9 @@ alias eddot='cd ~/.dotfiles/ && nvim && cd - > /dev/null'
 # Alias to show the date
 alias da='date "+%A %d %B %Y %T %Z"'
 
-# Changing "ls" to "exa"
-alias ls='exa -l --color=always --group-directories-first --icons'
-alias la='exa -la --color=always --group-directories-first --icons'
-alias lls='exa --color=always --group-directories-first --icons'
-alias lla='exa -a --color=always --group-directories-first --icons'
-alias l.='exa -a --icons | egrep "^\."'
-
-# Change "less"" to "bat"
-alias less='bat'
+# # Changing "ls" to "exa"
+alias sl='exa -l --color=always --group-directories-first --icons'
+alias sla='exa -la --color=always --group-directories-first --icons'
 
 # Quickly create new tmux sessions
 alias tn='tmux new -As $(basename $PWD | tr . -)'
