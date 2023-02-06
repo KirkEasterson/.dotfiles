@@ -33,6 +33,9 @@ window:
 mouse:
   hide_when_typing: false
 
+mouse_bindings:
+  - { mouse: Middle, action: None }
+
 # key bindings
 key_bindings:
 
