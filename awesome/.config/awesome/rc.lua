@@ -80,8 +80,8 @@ beautiful.init("~/.config/awesome/themes/gruvbox/theme.lua")
 beautiful.icon_theme = "Papirus-Dark"
 
 -- DEFAULT EDITOR
-local terminal = "alacritty"
-local terminal_secondary = "kitty"
+local terminal = "flatpak run org.wezfurlong.wezterm" -- temp for flatpak installation of wezterm
+local terminal_secondary = "alacritty"
 local browser = "firefox"
 local file_manager = "pcmanfm"
 local editor = os.getenv("EDITOR") or "nvim"
