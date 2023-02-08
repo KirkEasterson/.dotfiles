@@ -1,11 +1,9 @@
 local wezterm = require('wezterm')
-return {
-	font = wezterm.font(
-		'ComicCodeLigatures Nerd Font',
-		{
-			stretch = 'Condensed',
-		}
-	),
+local config = {
+	font = wezterm.font({
+		family = 'ComicCodeLigatures Nerd Font',
+		stretch = 'Condensed', -- TODO: make this work correctly
+	}),
 	font_size = 14,
 	harfbuzz_features = {
 		"calt=0",
@@ -20,8 +18,14 @@ return {
 		top = 0,
 		bottom = 0,
 	},
-	enable_scroll_bar = true, -- this might not be working
 	scrollback_lines = 100000,
 	cursor_blink_rate = 0,
-	window_close_confirmation = 'NeverPrompt',
+	hide_mouse_cursor_when_typing = true,
+	pane_focus_follows_mouse = true,
+	enable_wayland = false,
+	max_fps = 120,
+	window_close_configmation = 'NeverPrompt',
+	audible_bell = 'Disabled',
 }
+
+return config
