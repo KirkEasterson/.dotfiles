@@ -23,4 +23,5 @@ return {
 	enable_scroll_bar = true, -- this might not be working
 	scrollback_lines = 100000,
 	cursor_blink_rate = 0,
+	window_close_confirmation = 'NeverPrompt',
 }
