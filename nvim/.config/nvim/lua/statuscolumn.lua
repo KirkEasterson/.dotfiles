@@ -82,17 +82,17 @@ _G.get_statuscol = function()
 
 	local parts = {
 		["diagnostics"] = "%{%v:lua.get_statuscol_diag(bufnr(), v:lnum)%}",
-		["fold"] = "%C",
+		["fold"] = '%=%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }',
 		["gitsigns"] = "%{%v:lua.get_statuscol_gitsign(bufnr(), v:lnum)%}",
-		["num"] = "%{v:relnum?v:relnum:v:lnum}",
+		["num"] = "%=%{v:relnum?v:relnum:v:lnum}",
 		["sep"] = "%=",
 		["signcol"] = "%s",
-		["space"] = " "
+		["space"] = " ",
 	}
 
 	local order = {
 		"diagnostics",
-		"sep",
+		-- "sep",
 		"num",
 		-- "space",
 		"gitsigns",

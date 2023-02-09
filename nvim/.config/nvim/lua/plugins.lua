@@ -185,6 +185,11 @@ return require('packer').startup(function(use)
 		'lukas-reineke/indent-blankline.nvim',
 		config = function() require("kirk.indent") end,
 	}
+	use {
+		'kevinhwang91/nvim-ufo',
+		requires = 'kevinhwang91/promise-async',
+		config = function() require("kirk.ufo") end,
+	}
 
 
 	-- language specific, because I'm lazy

@@ -35,6 +35,12 @@ on_attach = function(client, bufnr)
 
 	-- Set autocommands conditional on server_capabilities
 	local capabilities = client.server_capabilities
+	if capabilities.textDocument then
+		capabilities.textDocument.foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true
+		}
+	end
 	if capabilities.document_highlight then
 		vim.api.nvim_exec([[
 			hi LspReferenceRead cterm=bold ctermbg=DarkMagenta guibg=LightYellow
