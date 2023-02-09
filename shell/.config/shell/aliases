@@ -82,6 +82,9 @@ alias gx="ign = ls-files -o -i --exclude-standard"
 # Untrack Files without deleting them
 alias grmc="git rm -r --cached"
 
+# lazygit
+alias lg="lazygit"
+
 # updating ubuntu
 alias aupg="sudo apt update -y && sudo apt upgrade -y"
 alias nupg="sudo nala upgrade -y"
