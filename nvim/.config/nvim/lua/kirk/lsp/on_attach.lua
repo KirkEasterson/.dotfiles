@@ -35,6 +35,9 @@ on_attach = function(client, bufnr)
 
 	-- Set autocommands conditional on server_capabilities
 	local capabilities = client.server_capabilities
+	if capabilities == nil then
+		capabilities = vim.lsp.protocol.make_client_capabilities()
+	end
 	if capabilities.textDocument then
 		capabilities.textDocument.foldingRange = {
 			dynamicRegistration = false,
