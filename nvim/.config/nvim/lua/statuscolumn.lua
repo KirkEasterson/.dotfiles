@@ -10,11 +10,11 @@ local gitsigns_hl_pool = {
 }
 
 local diag_signs_icons = {
-	DiagnosticSignError = " ",
-	DiagnosticSignWarn = " ",
-	DiagnosticSignInfo = " ",
-	DiagnosticSignHint = "",
-	DiagnosticSignOk = " "
+	DiagnosticSignError = "",
+	DiagnosticSignWarn  = "",
+	DiagnosticSignInfo  = "",
+	DiagnosticSignHint  = "",
+	DiagnosticSignOk    = "",
 }
 
 
@@ -82,7 +82,7 @@ _G.get_statuscol = function()
 
 	local parts = {
 		["diagnostics"] = "%{%v:lua.get_statuscol_diag(bufnr(), v:lnum)%}",
-		["fold"] = '%=%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }',
+		["fold"] = '%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }',
 		["gitsigns"] = "%{%v:lua.get_statuscol_gitsign(bufnr(), v:lnum)%}",
 		["num"] = "%=%{v:relnum?v:relnum:v:lnum}",
 		["sep"] = "%=",
@@ -97,7 +97,7 @@ _G.get_statuscol = function()
 		-- "space",
 		"gitsigns",
 		"fold",
-		"space",
+		-- "space",
 	}
 
 	for _, val in ipairs(order) do
