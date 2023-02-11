@@ -24,7 +24,7 @@ local config = {
 	pane_focus_follows_mouse = true,
 	enable_wayland = false,
 	max_fps = 120,
-	window_close_configmation = 'NeverPrompt',
+	window_close_confirmation = 'NeverPrompt',
 	audible_bell = 'Disabled',
 }
 
