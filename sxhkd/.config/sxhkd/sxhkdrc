@@ -15,7 +15,7 @@ super + x
 	light-locker-command -l
 
 # program launcher
-super + p
+super + space
 	rofi -show drun
 
 # media keys
