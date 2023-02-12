@@ -38,12 +38,7 @@ on_attach = function(client, bufnr)
 	if capabilities == nil then
 		capabilities = vim.lsp.protocol.make_client_capabilities()
 	end
-	if capabilities.textDocument then
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true
-		}
-	end
+
 	if capabilities.document_highlight then
 		vim.api.nvim_exec([[
 			hi LspReferenceRead cterm=bold ctermbg=DarkMagenta guibg=LightYellow
