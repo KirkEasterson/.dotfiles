@@ -22,7 +22,7 @@ require("mason-lspconfig").setup({
 		"kotlin_language_server",
 		"pyright",
 		"rust_analyzer",
-		"sumneko_lua",
+		"lua_ls",
 		"texlab",
 		"tsserver",
 		"vimls",
