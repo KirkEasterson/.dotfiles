@@ -731,6 +731,7 @@ awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
 awful.spawn.with_shell("setxkbmap -option caps:escape")
 
+
 -- Autorun programs
 local autorun = true
 local autorunApps =
@@ -748,6 +749,7 @@ local autorunApps =
 	"sxhkd", -- TODO: figure out how to get this to work with .xinitrc
 	"unclutter",
 	"volumeicon",
+	"xcape -e 'Shift_L=parenleft;Shift_R=parenright",
 }
 if autorun then
 	for app = 1, #autorunApps do
