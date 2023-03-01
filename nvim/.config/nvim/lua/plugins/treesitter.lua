@@ -6,10 +6,10 @@ return {
 		'nvim-treesitter/nvim-treesitter-textobjects',
 	},
 	build = function()
+		require("nvim-treesitter.install").prefer_git = true
 		require('nvim-treesitter.install').update({ with_sync = true })
 	end,
 	config = function()
-
 		require('nvim-treesitter.configs').setup({
 			ensure_installed = "all",
 			sync_install = false,
@@ -19,12 +19,7 @@ return {
 			},
 			indent = {
 				enable = true,
-			}
-		})
-
-		require("nvim-treesitter.install").prefer_git = true
-
-		require('nvim-treesitter.configs').setup({
+			},
 			refactor = {
 				highlight_current_scope = {
 					enable = false,
