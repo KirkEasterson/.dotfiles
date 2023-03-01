@@ -43,6 +43,10 @@ map('n', 'Y', 'y$') -- Y to behave like other capitals
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
 map('n', 'U', '<C-r>') -- easier redo
 
+-- disable middle click paste
+map('n', '<MiddleMouse>', '')
+map('i', '<MiddleMouse>', '')
+map('v', '<MiddleMouse>', '')
 
 -- TODO: move these to the lazy config
 -- barbar
