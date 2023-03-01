@@ -1,6 +1,6 @@
 return {
 	'simrat39/rust-tools.nvim',
-	event = 'BufEnter *.rs',
+	event = 'FileType *.rs',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},

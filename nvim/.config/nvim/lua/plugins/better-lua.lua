@@ -1,6 +1,6 @@
 return {
 	'euclidianAce/BetterLua.vim',
-	event = 'BufEnter *.lua',
+	event = 'FileType *.lua',
 	config = function()
 		require('kirk.lsp.on_attach')
 		require('lspconfig').lua_ls.setup {
