@@ -54,7 +54,7 @@ vim.opt.cmdheight = 0 -- hide the command line
 
 vim.opt.confirm = true -- show confirm dialog when closing unsaved files
 
-vim.opt.laststatus = 3 -- aesthetic win separators
+-- vim.opt.laststatus = 3 -- aesthetic win separators
 
 vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -64,7 +64,7 @@ vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,winpos,terminal,lo
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
 
-require('statuscolumn')
+-- require('statuscolumn')
 
 if vim.env.TERM == 'xterm-kitty' then
 	vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
