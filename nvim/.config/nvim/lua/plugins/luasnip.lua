@@ -21,6 +21,7 @@ return {
 			},
 		}
 
+		-- TODO: move this to 'keys'
 		vim.keymap.set({ "i", "s" }, "<c-k>", function()
 			if ls.expand_or_jumpable() then
 				ls.expand_or_jump()
@@ -38,7 +39,5 @@ return {
 				ls.change_choice(1)
 			end
 		end)
-
-		-- require("kirk.snippets.go")
 	end,
 }
