@@ -1,12 +1,13 @@
 return {
 	'monaqa/dial.nvim',
 	keys = {
-		{ "<C-a>", function() require('dial.map').inc_normal() end },
-		{ "<C-x>", function() require('dial.map').dec_normal() end },
-		{ "<C-a>", function() require('dial.map').inc_visual() end, mode = "v" },
-		{ "<C-x>", function() require('dial.map').dec_visual() end, mode = "v" },
-		{ "g<C-a>", function() require('dial.map').inc_gvisual() end, mode = "v" },
-		{ "g<C-a>", function() require('dial.map').inc_gvisual() end, mode = "v" },
+		-- TODO: figure out why the lua calls didn't work
+		{ "<C-a>", "<Cmd>DialIncrement<CR>" },
+		{ "<C-x>", "<Cmd>DialDecrement<CR>" },
+		{ "<C-a>", "<Cmd>DialIncrement<CR>", mode = "v" },
+		{ "<C-x>", "<Cmd>DialDecrement<CR>", mode = "v" },
+		{ "g<C-a>", "<Cmd>DialIncrement<CR>", mode = "v" },
+		{ "g<C-a>", "<Cmd>DialDecrement<CR>", mode = "v" },
 	},
 	config = function()
 		local augend = require("dial.augend")
