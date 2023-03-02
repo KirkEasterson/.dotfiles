@@ -7,6 +7,8 @@ return {
 		"hrsh7th/cmp-path",
 		"onsails/lspkind.nvim",
 		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-emoji",
+		"hrsh7th/cmp-calc",
 	},
 	config = function()
 
@@ -55,7 +57,9 @@ return {
 				{ name = 'luasnip' },
 				{ name = 'nvim_lsp' },
 				{ name = 'path' },
+				{ name = 'calc' },
 				{ name = 'spell' },
+				{ name = 'emoji' },
 			}, {
 				{ name = 'buffer' },
 			}),
