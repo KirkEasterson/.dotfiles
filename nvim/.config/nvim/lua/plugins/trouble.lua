@@ -1,16 +1,21 @@
 return {
 	"folke/trouble.nvim",
-	enabled = false,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	cmd = {
 		'Trouble',
 		'TroubleClose',
-		'TroubleToggle',
 		'TroubleRefresh',
+		'TroubleToggle',
 	},
-	dependencies = {
-		"nvim-tree/nvim-web-devicons"
+	keys = {
+		{ "<leader><leader>o", "<cmd>TroubleToggle<CR>" },
+		{ "gr", "<cmd>TroubleToggle lsp_references<CR>" },
+		{ "gd", "<cmd>TroubleToggle lsp_definitions<CR>" },
+		{ "gt", "<cmd>TroubleToggle lsp_type_definitions<CR>" },
 	},
 	config = {
-		se_diagnostic_signs = true,
+		use_diagnostic_signs = true,
 	},
 }

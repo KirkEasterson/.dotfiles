@@ -3,11 +3,14 @@ return {
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		'nvim-telescope/telescope-fzy-native.nvim',
+		"folke/trouble.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local previewers = require("telescope.previewers")
 		local sorters = require("telescope.sorters")
+
+		local trouble = require("trouble.providers.telescope")
 
 		telescope.setup {
 			defaults = {
@@ -49,6 +52,10 @@ return {
 					"--column",
 					"--hidden",
 					"--max-depth=99"
+				},
+				mappings = {
+					i = { ["<c-t>"] = trouble.open_with_trouble },
+					n = { ["<c-t>"] = trouble.open_with_trouble },
 				},
 			},
 			extensions = {

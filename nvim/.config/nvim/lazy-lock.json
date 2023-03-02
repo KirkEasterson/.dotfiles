@@ -21,7 +21,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "3b6c0a6412b31b91eb26bb8f712562cf7bb1d3be" },
   "gruvbox-baby": { "branch": "main", "commit": "03c525c6462d51a8b593e4aa3dcd2be2aa8b59ac" },
   "gruvbox.nvim": { "branch": "main", "commit": "3e31f9ab01fed42ebac75738c681daacb8c82bff" },
-  "hlargs.nvim": { "branch": "main", "commit": "2a7f9878326cdfd0eb8c91ad543c07680c976227" },
+  "hlargs.nvim": { "branch": "main", "commit": "82841a8e1b1d6a5f5dc64ba48078954bdbeb2eed" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
   "lazy.nvim": { "branch": "main", "commit": "8d18ef44e769e98a8dc974ca85275de1d8cc7c04" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
@@ -39,7 +39,7 @@
   "nvim-lspconfig": { "branch": "master", "commit": "95b7a69bc6da2a6a740584ea3c555e5327638b7d" },
   "nvim-surround": { "branch": "main", "commit": "a06dea11e7fdcf338776fa51fa5277163ffb048d" },
   "nvim-tree.lua": { "branch": "master", "commit": "362ecbeed69fae91a287004619decadcb6f7c113" },
-  "nvim-treesitter": { "branch": "master", "commit": "b31312729e1b779e2773d99bf83355b09b5ba3d3" },
+  "nvim-treesitter": { "branch": "master", "commit": "07fb134752b4af49d1a87cc735573edeadcbb271" },
   "nvim-treesitter-context": { "branch": "master", "commit": "895ec44f5c89bc67ba5440aef3d1f2efa3d59a41" },
   "nvim-treesitter-refactor": { "branch": "master", "commit": "75f5895cc662d61eb919da8050b7a0124400d589" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "4b30081d2736e09f90c890a8a7adfe4df36f5b36" },
@@ -53,6 +53,7 @@
   "telescope.nvim": { "branch": "master", "commit": "a3f17d3baf70df58b9d3544ea30abe52a7a832c2" },
   "tmux.nvim": { "branch": "main", "commit": "feafcf8f48c49c720ee64e745648d69d42cb9c5a" },
   "todo-comments.nvim": { "branch": "main", "commit": "74c7d28cb50b0713c881ef69bcb6cdd77d8907d1" },
+  "trouble.nvim": { "branch": "main", "commit": "67337644e38144b444d026b0df2dc5fa0038930f" },
   "vim-fugitive": { "branch": "master", "commit": "bba8d1beb37fe933a9f182b6bdf981e01f31499a" },
   "winshift.nvim": { "branch": "main", "commit": "37468ed6f385dfb50402368669766504c0e15583" }
 }
