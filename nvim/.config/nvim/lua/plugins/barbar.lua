@@ -1,7 +1,8 @@
 return {
 	'romgrk/barbar.nvim',
 	dependencies = {
-		'nvim-tree/nvim-web-devicons'
+		'nvim-tree/nvim-web-devicons',
+		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
 	},
 	config = function()
 		require('bufferline').setup({

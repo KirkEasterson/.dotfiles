@@ -2,7 +2,7 @@ return {
 	'nvim-tree/nvim-tree.lua',
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
-		'luisiacc/gruvbox-baby',
+		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
 	},
 	cmd = {
 		'NvimTreeClipboard',
@@ -68,5 +68,4 @@ return {
 		vim.cmd("highlight NvimTreeNormal guibg=" .. palette.colors.dark0_hard)
 		vim.cmd("highlight NvimTreeWinSeparator guibg=" .. palette.colors.dark0_hard .. " guifg=" .. palette.colors.dark0_hard)
 	end
-
 }
