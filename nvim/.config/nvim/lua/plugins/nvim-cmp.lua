@@ -9,6 +9,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-emoji",
 		"hrsh7th/cmp-calc",
+		'David-Kunz/cmp-npm',
 	},
 	config = function()
 
@@ -56,6 +57,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'luasnip' },
 				{ name = 'nvim_lsp' },
+				{ name = 'npm' },
 				{ name = 'path' },
 				{ name = 'calc' },
 				{ name = 'spell' },
