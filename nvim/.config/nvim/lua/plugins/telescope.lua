@@ -110,7 +110,7 @@ return {
 		{ "<leader>bc", function() require('telescope.builtin').git_bcommits() end },
 
 		-- telescope util helpers
-		{ "<leader>fh", function() require('telescope.builtin').help_tags() end },
+		-- { "<leader>fh", function() require('telescope.builtin').help_tags() end },
 		{ "<leader>fk", function() require('telescope.builtin').keymaps() end },
 		{ "<leader>fS", function() require('telescope.builtin').spell_suggest() end },
 		-- {"<leader>rr", function() require('telescope.builtin').registers() end},
