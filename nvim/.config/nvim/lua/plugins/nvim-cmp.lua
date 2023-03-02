@@ -51,7 +51,6 @@ return {
 					end,
 				},
 			},
-
 			sources = cmp.config.sources({
 				{ name = 'luasnip' },
 				{ name = 'nvim_lsp' },
@@ -60,13 +59,11 @@ return {
 			}, {
 				{ name = 'buffer' },
 			}),
-
 			snippet = {
 				expand = function(args)
 					require('luasnip').lsp_expand(args.body)
 				end,
 			},
-
 			formatting = {
 				format = lspkind.cmp_format {
 					ellipsis_char = '…',
@@ -80,6 +77,16 @@ return {
 						path = "[path]",
 						tn = "[TabNine]",
 					},
+				},
+			},
+			window = {
+				completion = {
+					border = 'rounded',
+					scrollbar = '║',
+				},
+				documentation = {
+					border = 'rounded',
+					scrollbar = '║',
 				},
 			},
 
