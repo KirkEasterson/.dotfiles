@@ -11,7 +11,7 @@ return {
 		{ "ga", "<cmd>Lspsaga code_action<CR>" },
 		{ "<leader>e", "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
 		{ "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>" },
-		{ "<leader>rn", "<cmd>Lspsaga rename<CR>" },
+		-- { "<leader>rn", "<cmd>Lspsaga rename<CR>" },
 		{ "K", "<cmd>Lspsaga hover_doc<CR>" },
 		{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>" },
 		{ "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>" },
