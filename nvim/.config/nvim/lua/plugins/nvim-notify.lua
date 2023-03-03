@@ -9,7 +9,6 @@ return {
 		end }
 	},
 	config = function()
-		vim.notify = require("notify")
 		require('notify').setup({
 			fps = 60,
 			render = "compact",
