@@ -29,5 +29,7 @@ return {
 			vim.lsp.diagnostic.on_publish_diagnostics, {
 			virtual_text = false,
 		})
+
+		require('lspconfig.ui.windows').default_options.border = 'rounded'
 	end,
 }
