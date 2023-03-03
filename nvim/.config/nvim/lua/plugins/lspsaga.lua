@@ -9,7 +9,7 @@ return {
 	keys = {
 		-- { "<leader><leader>o", "<cmd>Lspsaga outline<CR>" },
 		{ "ga", "<cmd>Lspsaga code_action<CR>" },
-		{ "<leader>e", "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
+		{ "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>" },
 		{ "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>" },
 		-- { "<leader>rn", "<cmd>Lspsaga rename<CR>" },
 		{ "K", "<cmd>Lspsaga hover_doc<CR>" },
