@@ -4,6 +4,7 @@ return {
 		'nvim-lua/plenary.nvim',
 		'nvim-telescope/telescope-fzy-native.nvim',
 		"folke/trouble.nvim",
+		"rcarriga/nvim-notify",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -94,6 +95,7 @@ return {
 		})
 
 		telescope.load_extension("fzy_native")
+		telescope.load_extension("notify")
 	end,
 	keys = {
 		-- telescope file helpers
@@ -121,5 +123,9 @@ return {
 		{ "<leader>fk", function() require('telescope.builtin').keymaps() end },
 		{ "<leader>fS", function() require('telescope.builtin').spell_suggest() end },
 		-- {"<leader>rr", function() require('telescope.builtin').registers() end},
+
+		-- notify
+		{ "<leader>fh", function() require('telescope').extensions.notify.notify() end },
+
 	},
 }
