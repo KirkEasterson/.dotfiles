@@ -3,6 +3,9 @@ vim.g.maplocalleader = ' ' -- secondary prefix key
 
 vim.opt.title = true
 
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }
+
 vim.opt.updatetime = 750 -- fast updates
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
@@ -63,6 +66,13 @@ vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,winpos,terminal,lo
 
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
+
+if vim.g.neovide then
+	vim.o.guifont = "ComicCodeLigatures Nerd Font"
+	vim.g.neovide_refresh_rate = 120
+	vim.g.neovide_refresh_rate_idle = 5
+	vim.g.neovide_input_macos_alt_is_meta = true
+end
 
 -- require('statuscolumn')
 
