@@ -27,7 +27,6 @@ return {
 		},
 		symbol_in_winbar = {
 			separator = "  ",
-			hide_keyword = false,
 			folder_level = 8,
 			respect_root = true,
 		},
