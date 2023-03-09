@@ -10,6 +10,7 @@ return {
 		"hrsh7th/cmp-emoji",
 		"hrsh7th/cmp-calc",
 		'David-Kunz/cmp-npm',
+		"f3fora/cmp-spell",
 	},
 	config = function()
 
