@@ -7,6 +7,7 @@ return {
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons",
 		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
+		'luisiacc/gruvbox-baby',
 	},
 	config = function()
 		local palette = require('gruvbox.palette')
