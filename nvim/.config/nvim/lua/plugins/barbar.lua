@@ -1,5 +1,6 @@
 return {
 	'romgrk/barbar.nvim',
+	enabled = false,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
 		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
