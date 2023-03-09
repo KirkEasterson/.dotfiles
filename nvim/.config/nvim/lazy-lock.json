@@ -7,7 +7,6 @@
   "alpha-nvim": { "branch": "main", "commit": "906649c3991903d14cef8fae1fe5557193ca743c" },
   "alpha-nvim-fortune": { "branch": "main", "commit": "a73e3bb8dbeaea54d378fa0460f14d07286ef19f" },
   "auto-session": { "branch": "main", "commit": "04ccdac802200ecc363b251cf922b2b022bb515c" },
-  "barbar.nvim": { "branch": "master", "commit": "b2956f1a3cb8a8e1b6cd4d3f678cc40abdb5ec92" },
   "bufdelete.nvim": { "branch": "master", "commit": "8933abc09df6c381d47dc271b1ee5d266541448e" },
   "bufferline.nvim": { "branch": "main", "commit": "b337fd393cef2e3679689d220e2628722c20ddcb" },
   "cellular-automaton.nvim": { "branch": "main", "commit": "679943b8e1e5ef79aaeeaf4b00782c52eb4e928f" },
