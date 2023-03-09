@@ -5,6 +5,7 @@ local config = {
 		stretch = 'Condensed', -- TODO: make this work correctly
 	}),
 	font_size = 14,
+	line_height = 1.1,
 	harfbuzz_features = {
 		"calt=0",
 		"clig=0",
