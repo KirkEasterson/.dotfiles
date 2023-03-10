@@ -11,7 +11,7 @@ return {
 	-- 	{ 'zR', require('ufo').openAllFolds},
 	-- 	{ 'zM', require('ufo').closeAllFolds },
 	-- },
-	config = {
+	opts = {
 		provider_selector = function(bufnr, filetype, buftype)
 			return { 'treesitter', 'indent' }
 		end

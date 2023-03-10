@@ -21,7 +21,7 @@ return {
 		{ "<leader>gd", "<cmd>Lspsaga peek_goto_definition<CR>" },
 		{ "<leader>gt", "<cmd>Lspsaga peek_goto_type_definition<CR>" },
 	},
-	config = {
+	opts = {
 		lightbulb = {
 			virtual_text = false,
 		},

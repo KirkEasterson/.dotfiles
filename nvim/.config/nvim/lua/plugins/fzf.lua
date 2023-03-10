@@ -30,7 +30,7 @@ return {
 		{ "<leader>fk", function() require('fzf-lua').keymaps() end },
 		{ "<leader>fS", function() require('fzf-lua').spell_suggest() end },
 	},
-	config = {
+	opts = {
 		grep = {
 			rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --max-depth=99 --hidden",
 		},

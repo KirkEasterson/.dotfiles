@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		'williamboman/mason.nvim',
 	},
-	config = {
+	opts = {
 		automatic_installation = true,
 		ensure_installed = {
 			"bashls",

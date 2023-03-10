@@ -19,7 +19,7 @@ return {
 		{ '<leader>pk', '<Cmd>PetsKill Peeve<CR>' },
 		{ '<leader>pt', '<Cmd>PetsHideToggle<CR>' },
 	},
-	config = {
+	opts = {
 		speed_multiplier = 2,
 	},
 }

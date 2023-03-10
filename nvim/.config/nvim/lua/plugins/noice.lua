@@ -4,7 +4,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	},
-	config = {
+	opts = {
 		cmdline = {
 			view = "cmdline",
 		},

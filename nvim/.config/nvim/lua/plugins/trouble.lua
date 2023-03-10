@@ -15,7 +15,7 @@ return {
 		{ "gd", "<cmd>TroubleToggle lsp_definitions<CR>" },
 		{ "gt", "<cmd>TroubleToggle lsp_type_definitions<CR>" },
 	},
-	config = {
+	opts = {
 		use_diagnostic_signs = true,
 	},
 }

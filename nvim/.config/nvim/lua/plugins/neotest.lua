@@ -30,7 +30,7 @@ return {
 			end
 		},
 	},
-	config = {
+	opts = {
 		adapters = {
 			-- require("neotest-go"),
 			-- require("neotest-dotnet"),

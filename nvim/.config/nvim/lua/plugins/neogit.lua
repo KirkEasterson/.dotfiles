@@ -12,7 +12,7 @@ return {
 			end
 		},
 	},
-	config = {
+	opts = {
 		kind = 'split',
 		signs = {
 			-- { CLOSED, OPENED }

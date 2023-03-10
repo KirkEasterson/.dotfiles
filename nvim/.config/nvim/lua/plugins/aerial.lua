@@ -4,7 +4,7 @@ return {
 	keys = {
 		{ '<leader><leader>o', '<Cmd>AerialToggle!<CR>' },
 	},
-	config = {
+	opts = {
 		backends = { "lsp", "treesitter", "markdown", "man" },
 		layout = {
 			min_width = 20,

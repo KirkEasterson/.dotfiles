@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		'nvim-lualine/lualine.nvim',
 	},
-	config = {
+	opts = {
 		log_level = 'error',
 		auto_save_enabled = true,
 		auto_restore_enabled = true,
