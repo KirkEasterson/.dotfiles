@@ -1,5 +1,6 @@
 return {
 	'kamykn/spelunker.vim',
+	event = "InsertEnter",
 	config = function()
 		vim.api.nvim_set_var("enable_spelunker", 1)
 		vim.api.nvim_set_var("enable_spelunker_vim_on_readonly ", 1)
