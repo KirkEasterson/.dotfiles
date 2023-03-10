@@ -126,6 +126,5 @@ return {
 
 		-- notify
 		{ "<leader>fh", function() require('telescope').extensions.notify.notify() end },
-
 	},
 }
