@@ -10,7 +10,7 @@ vim.opt.updatetime = 750 -- fast updates
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.cursorline = true -- highlight the current line
-vim.opt.termguicolors = true -- allow curtom highlighting
+vim.opt.termguicolors = true -- allow custom highlighting
 vim.opt.incsearch = true -- highlight matches as you type
 vim.opt.hlsearch = false -- unhighlight matches after searching
 vim.opt.autoindent = true -- new lines inherit indenting
@@ -33,6 +33,7 @@ vim.opt.shiftwidth = 4 -- number of spaces when indenting with <>
 
 vim.opt.mouse = 'a' -- enable mouse for scrolling and resizing
 vim.opt.mousemodel = 'extend'
+vim.opt.mousemoveevent = true
 
 vim.opt.wildmenu = true -- visual autocompletion for command menu
 vim.opt.wildmode = { 'longest', 'list', 'full' }
