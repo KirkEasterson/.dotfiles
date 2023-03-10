@@ -10,7 +10,7 @@ return {
 	},
 	config = function()
 		require('notify').setup({
-			fps = 60,
+			fps = 120,
 			render = "compact",
 			stages = "slide",
 		})
