@@ -5,6 +5,7 @@ return {
 		'nvim-treesitter/nvim-treesitter-refactor',
 		'nvim-treesitter/nvim-treesitter-textobjects',
 	},
+	event = "VeryLazy",
 	build = function()
 		require("nvim-treesitter.install").prefer_git = true
 		require('nvim-treesitter.install').update({ with_sync = true })
