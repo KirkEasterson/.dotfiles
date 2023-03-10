@@ -1,0 +1,10 @@
+gui:
+  timeFormat: '02 Jan 2006 15:04 MST' # https://pkg.go.dev/time#Time.Format
+  showRandomTip: false
+  showIcons: true
+git:
+  disableForcePushing: true
+update:
+  method: never # can be: prompt | background | never
+quitOnTopLevelReturn: true
+disableStartupPopups: true
