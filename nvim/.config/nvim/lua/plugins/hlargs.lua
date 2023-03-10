@@ -1,6 +1,7 @@
 return {
 	'm-demare/hlargs.nvim',
-	event = 'VeryLazy',
+	enabled = false,
+	event = 'BufEnter',
 	dependencies = {
 		'nvim-treesitter/nvim-treesitter',
 	},
