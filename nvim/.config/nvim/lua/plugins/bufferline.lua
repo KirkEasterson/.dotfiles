@@ -9,41 +9,43 @@ return {
 	lazy = false,
 	version = "v3.*",
 	keys = {
-		{ '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>' },
-		{ '<Tab>', '<Cmd>BufferLineCycleNext<CR>' },
-		{ '<A-1>', '<Cmd>BufferLineGoToBuffer 1<CR>' },
-		{ '<A-2>', '<Cmd>BufferLineGoToBuffer 2<CR>' },
-		{ '<A-3>', '<Cmd>BufferLineGoToBuffer 3<CR>' },
-		{ '<A-4>', '<Cmd>BufferLineGoToBuffer 4<CR>' },
-		{ '<A-5>', '<Cmd>BufferLineGoToBuffer 5<CR>' },
-		{ '<A-6>', '<Cmd>BufferLineGoToBuffer 6<CR>' },
-		{ '<A-7>', '<Cmd>BufferLineGoToBuffer 7<CR>' },
-		{ '<A-8>', '<Cmd>BufferLineGoToBuffer 8<CR>' },
-		{ '<A-9>', '<Cmd>BufferLineGoToBuffer 9<CR>' },
-		{ '<A-0>', '<Cmd>BufferLineGoToBuffer 10<CR>' },
-		{ '<A-<>', '<Cmd>BufferLineMovePrev<CR>' },
-		{ '<A->>', '<Cmd>BufferLineMoveNext<CR>' },
+		{ '<S-Tab>', function() require('bufferline').cycle(-1) end },
+		{ '<Tab>', function() require('bufferline').cycle(1) end },
+		{ '<A-1>', function() require('bufferline').go_to_buffer(1, true) end },
+		{ '<A-2>', function() require('bufferline').go_to_buffer(2, true) end },
+		{ '<A-3>', function() require('bufferline').go_to_buffer(3, true) end },
+		{ '<A-4>', function() require('bufferline').go_to_buffer(4, true) end },
+		{ '<A-5>', function() require('bufferline').go_to_buffer(5, true) end },
+		{ '<A-6>', function() require('bufferline').go_to_buffer(6, true) end },
+		{ '<A-7>', function() require('bufferline').go_to_buffer(7, true) end },
+		{ '<A-8>', function() require('bufferline').go_to_buffer(8, true) end },
+		{ '<A-9>', function() require('bufferline').go_to_buffer(9, true) end },
+		{ '<A-0>', function() require('bufferline').go_to_buffer(10, true) end },
+		{ '<A-<>', function() require('bufferline').move(-1) end },
+		{ '<A->>', function() require('bufferline').move(1) end },
 	},
-	config = function()
-		vim.opt.termguicolors = true
-		require('bufferline').setup({
-			options = {
-				right_mouse_command = "",
-				middle_mouse_command = "bdelete! %d",
-				separator_style = "slant",
-				diagnostics = "nvim_lsp",
-				offsets = {
-					{
-						filetype = "NvimTree",
-						text = "File Explorer",
-						text_align = "center",
-						separator = true,
-					},
+	opts = {
+		options = {
+			right_mouse_command = "",
+			middle_mouse_command = "bdelete! %d",
+			separator_style = "slant",
+			diagnostics = "nvim_lsp",
+			offsets = {
+				{
+					filetype = "NvimTree",
+					text = "File Explorer",
+					text_align = "center",
+					separator = true,
 				},
-				numbers = function(opts)
-					return opts.raise(opts.ordinal)
-				end,
 			},
-		})
-	end,
+			hover = {
+				enabled = true,
+				delay = 10,
+				reveal = { 'close' }
+			},
+			numbers = function(opts)
+				return opts.raise(opts.ordinal)
+			end,
+		},
+	}
 }
