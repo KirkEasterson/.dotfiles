@@ -1,6 +1,6 @@
 return {
 	"glepnir/lspsaga.nvim",
-	event = "BufRead",
+	event = "VeryLazy",
 	dependencies = {
 		'neovim/nvim-lspconfig',
 		"nvim-tree/nvim-web-devicons",
@@ -26,9 +26,10 @@ return {
 			virtual_text = false,
 		},
 		symbol_in_winbar = {
-			separator = "  ",
-			folder_level = 8,
-			respect_root = true,
+			enabled = false,
+			-- 	separator = "  ",
+			-- 	folder_level = 8,
+			-- 	respect_root = true,
 		},
 	},
 }
