@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 local config = {
 	font = wezterm.font({
 		family = 'ComicCodeLigatures Nerd Font',
-		stretch = 'Condensed', -- TODO: make this work correctly
+		stretch = 'Normal',
 	}),
 	font_size = 14,
 	line_height = 1.1,
@@ -27,6 +27,7 @@ local config = {
 	max_fps = 120,
 	window_close_confirmation = 'NeverPrompt',
 	audible_bell = 'Disabled',
+	animation_fps = 120,
 }
 
 return config
