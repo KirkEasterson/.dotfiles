@@ -24,7 +24,7 @@ vim.opt.syntax = 'enable' -- show syntax highlighting
 vim.opt.showmatch = true -- highlight matching brackets
 vim.opt.scrolloff = 8 -- scroll when y away from vertical edge
 vim.opt.sidescrolloff = 8 -- scroll when x away from horizontal edge
--- vim.opt.signcolumn = 'auto' -- column for linting
+vim.opt.signcolumn = 'yes' -- column for linting
 vim.opt.colorcolumn = '80' -- show line for 80char soft-limit
 
 vim.opt.tabstop = 4 -- number of visual spaces per tab
