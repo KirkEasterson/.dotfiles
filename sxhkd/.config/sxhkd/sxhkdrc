@@ -11,7 +11,7 @@ super + {_,shift +} e
 	{pcmanfm,lflauncher}
 
 # screen locker
-super + x
+super + ctrl + q
 	light-locker-command -l
 
 # program launcher
