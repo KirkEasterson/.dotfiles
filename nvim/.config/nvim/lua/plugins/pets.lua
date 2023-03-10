@@ -15,9 +15,9 @@ return {
 		"PetsSleepToggle",
 	},
 	keys = {
-		{
-			'<leader>pt', '<Cmd>PetsHideToggle<CR>'
-		},
+		{ '<leader>pn', '<Cmd>PetsNew Peeve<CR>' },
+		{ '<leader>pk', '<Cmd>PetsKill Peeve<CR>' },
+		{ '<leader>pt', '<Cmd>PetsHideToggle<CR>' },
 	},
 	config = {
 		speed_multiplier = 2,
