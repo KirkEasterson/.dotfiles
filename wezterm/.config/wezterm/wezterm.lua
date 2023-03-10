@@ -1,5 +1,6 @@
 local wezterm = require('wezterm')
-local config = {
+local act = wezterm.action
+return {
 	font = wezterm.font({
 		family = 'ComicCodeLigatures Nerd Font',
 		stretch = 'Normal',
@@ -21,13 +22,36 @@ local config = {
 	},
 	scrollback_lines = 100000,
 	cursor_blink_rate = 0,
-	hide_mouse_cursor_when_typing = true,
 	pane_focus_follows_mouse = true,
 	enable_wayland = false,
 	max_fps = 120,
 	window_close_confirmation = 'NeverPrompt',
 	audible_bell = 'Disabled',
 	animation_fps = 120,
+	disable_default_key_bindings = true,
+	keys = {
+		{ key = '+', mods = 'CTRL', action = act.IncreaseFontSize },
+		{ key = '+', mods = 'SHIFT|CTRL', action = act.IncreaseFontSize },
+		{ key = '-', mods = 'CTRL', action = act.DecreaseFontSize },
+		{ key = '-', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
+		{ key = '-', mods = 'SUPER', action = act.DecreaseFontSize },
+		{ key = '0', mods = 'CTRL', action = act.ResetFontSize },
+		{ key = '0', mods = 'SHIFT|CTRL', action = act.ResetFontSize },
+		{ key = '0', mods = 'SUPER', action = act.ResetFontSize },
+		{ key = '=', mods = 'CTRL', action = act.IncreaseFontSize },
+		{ key = '=', mods = 'SHIFT|CTRL', action = act.IncreaseFontSize },
+		{ key = '=', mods = 'SUPER', action = act.IncreaseFontSize },
+		{ key = 'C', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
+		{ key = 'V', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
+		{ key = '_', mods = 'CTRL', action = act.DecreaseFontSize },
+		{ key = '_', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
+		{ key = 'c', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
+		{ key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
+		{ key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
+		{ key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
+		{ key = 'PageUp', mods = 'SHIFT', action = act.ScrollByPage(-1) },
+		{ key = 'PageDown', mods = 'SHIFT', action = act.ScrollByPage(1) },
+		{ key = 'Copy', mods = 'NONE', action = act.CopyTo 'Clipboard' },
+		{ key = 'Paste', mods = 'NONE', action = act.PasteFrom 'Clipboard' },
+	},
 }
-
-return config
