@@ -22,6 +22,7 @@ return {
 				separator = "",
 			},
 			show_navic = false,
+			attach_navic = false,
 		})
 	end,
 }
