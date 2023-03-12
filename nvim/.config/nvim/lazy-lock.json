@@ -3,7 +3,6 @@
   "Comment.nvim": { "branch": "master", "commit": "8d3aa5c22c2d45e788c7a5fe13ad77368b783c20" },
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LuaSnip": { "branch": "master", "commit": "436857749a905b48c1e8205b996639c28f006556" },
-  "RecentlyClosedBuffer.nvim": { "branch": "main", "commit": "5f064f8698a5d86c17f3f0984ee7cb737ad9b976" },
   "alpha-nvim": { "branch": "main", "commit": "4e1c4dedf5983e84b3ed305228b2235c56c7023c" },
   "alpha-nvim-fortune": { "branch": "main", "commit": "a73e3bb8dbeaea54d378fa0460f14d07286ef19f" },
   "auto-session": { "branch": "main", "commit": "1d3dd70a2d48e0f3441128eb4fb0b437a0bf2cc4" },
