@@ -28,6 +28,7 @@ return {
 	window_close_confirmation = 'NeverPrompt',
 	audible_bell = 'Disabled',
 	animation_fps = 120,
+	check_for_updates = false,
 	disable_default_key_bindings = true,
 	keys = {
 		{ key = '+', mods = 'CTRL', action = act.IncreaseFontSize },
