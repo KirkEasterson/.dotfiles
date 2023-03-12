@@ -10,19 +10,16 @@ return {
 		'luisiacc/gruvbox-baby',
 	},
 	cmd = "Barbecue",
-	config = function()
-		local palette = require('gruvbox.palette')
-		require("barbecue").setup({
-			theme = {
-				normal = {
-					bg = palette.colors.dark0_hard,
-				},
+	opts = {
+		theme = {
+			normal = {
+				bg = require('gruvbox.palette').colors.dark0_hard,
 			},
-			symbols = {
-				separator = "",
-			},
-			show_navic = false,
-			attach_navic = false,
-		})
-	end,
+		},
+		symbols = {
+			separator = "",
+		},
+		show_navic = false,
+		attach_navic = false,
+	},
 }
