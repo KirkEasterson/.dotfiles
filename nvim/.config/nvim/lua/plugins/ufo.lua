@@ -6,10 +6,10 @@ return {
 		'nvim-treesitter/nvim-treesitter',
 
 	},
-	-- keys = {
-	-- 	{ 'zR', require('ufo').openAllFolds},
-	-- 	{ 'zM', require('ufo').closeAllFolds },
-	-- },
+	keys = {
+		{ 'zR', function() require('ufo').openAllFolds() end },
+		{ 'zM', function() require('ufo').closeAllFolds() end },
+	},
 	opts = {
 		provider_selector = function(bufnr, filetype, buftype)
 			return { 'treesitter', 'indent' }
