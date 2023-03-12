@@ -1,6 +1,7 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+	event = "BufEnter",
 	opts = {
 		options = {
 			globalstatus = true,

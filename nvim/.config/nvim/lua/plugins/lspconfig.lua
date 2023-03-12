@@ -1,5 +1,6 @@
 return {
 	'neovim/nvim-lspconfig',
+	event = "BufEnter",
 	config = function()
 		-- require('kirk.lsp.dap')
 		-- require('kirk.lsp.nlua')

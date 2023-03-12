@@ -4,6 +4,7 @@ return {
 		'nvim-tree/nvim-web-devicons',
 		'BlakeJC94/alpha-nvim-fortune',
 	},
+	event = "BufEnter",
 	config = function()
 
 		local alpha = require("alpha")

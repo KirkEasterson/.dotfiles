@@ -1,7 +1,7 @@
 return {
 	'akinsho/bufferline.nvim',
 	dependencies = {
-		'neovim/nvim-lspconfig',
+		-- 'neovim/nvim-lspconfig',
 		'nvim-tree/nvim-web-devicons',
 		'ellisonleao/gruvbox.nvim',
 		'luisiacc/gruvbox-baby',

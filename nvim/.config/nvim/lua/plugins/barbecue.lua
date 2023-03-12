@@ -3,7 +3,7 @@ return {
 	lazy = false,
 	version = "v0.4.*",
 	dependencies = {
-		"neovim/nvim-lspconfig",
+		-- "neovim/nvim-lspconfig",
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons",
 		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
