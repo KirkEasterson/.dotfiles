@@ -26,10 +26,10 @@ return {
 			virtual_text = false,
 		},
 		symbol_in_winbar = {
-			enabled = false,
-			-- 	separator = "  ",
-			-- 	folder_level = 8,
-			-- 	respect_root = true,
+			enable = false,
+			separator = "  ",
+			folder_level = 8,
+			respect_root = true,
 		},
 	},
 }
