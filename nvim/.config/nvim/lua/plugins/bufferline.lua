@@ -7,7 +7,7 @@ return {
 		'luisiacc/gruvbox-baby',
 	},
 	lazy = false,
-	version = "v3.*",
+	version = "v3.5.*",
 	keys = {
 		{ '<S-Tab>', function() require('bufferline').cycle(-1) end },
 		{ '<Tab>', function() require('bufferline').cycle(1) end },
