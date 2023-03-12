@@ -6,6 +6,9 @@ configuration {
 	modi: "window,run,drun";
 	show-icons: true;
 	icon-theme: "Papirus";
+	matching: "fuzzy";
+	sorting-method: "fzf";
+	sort: true;
 }
 
 @theme "gruvbox-dark-soft"
@@ -15,5 +18,4 @@ configuration {
   border-radius: 8px;
   border-color:	#0c0c0c;
   width: 20%;
-  padding: 4;
 }
