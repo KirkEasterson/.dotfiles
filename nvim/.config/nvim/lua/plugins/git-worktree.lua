@@ -1,11 +1,13 @@
 return {
 	'ThePrimeagen/git-worktree.nvim',
 	enabled = false,
-	-- dependencies = 'nvim-telescope/telescope.nvim',
-	-- keys = {
-	-- 	{ "<leader>gw", function() require('telescope').extensions.git_worktree.git_worktrees() end },
-	-- 	{ "<leader>gW", function() require('telescope').extensions.git_worktree.create_git_worktree() end },
-	-- },
+	dependencies = {
+		'nvim-telescope/telescope.nvim',
+	},
+	keys = {
+		{ "<leader>gw", function() require('telescope').extensions.git_worktree.git_worktrees() end },
+		{ "<leader>gW", function() require('telescope').extensions.git_worktree.create_git_worktree() end },
+	},
 	config = function()
 
 		local worktree = require("git-worktree")
