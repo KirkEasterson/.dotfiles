@@ -1,5 +1,6 @@
 return {
 	'echasnovski/mini.jump',
+	enabled = false,
 	event = "BufEnter",
 	version = '*',
 	config = function()
