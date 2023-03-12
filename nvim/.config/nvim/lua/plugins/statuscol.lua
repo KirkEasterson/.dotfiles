@@ -56,7 +56,7 @@ local function get_name_from_group(bufnum, lnum, group)
 	return get_sign_name(cur_sign_tbl)
 end
 
-_G.get_statuscol_gitsign = function(bufnr, lnum)
+local get_statuscol_gitsign = function(bufnr, lnum)
 	local cur_sign_nm = get_name_from_group(bufnr, lnum, "gitsigns_vimfn_signs_")
 
 	if cur_sign_nm ~= nil then
@@ -67,7 +67,7 @@ _G.get_statuscol_gitsign = function(bufnr, lnum)
 	end
 end
 
-_G.get_statuscol_diag = function(bufnum, lnum)
+local get_statuscol_diag = function(bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "*")
 
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "DiagnosticSign") then
@@ -77,36 +77,6 @@ _G.get_statuscol_diag = function(bufnum, lnum)
 	end
 end
 
-_G.get_statuscol = function()
-	local str_table = {}
-
-	local parts = {
-		["diagnostics"] = "%{%v:lua.get_statuscol_diag(bufnr(), v:lnum)%}",
-		["fold"] = '%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }',
-		["gitsigns"] = "%{%v:lua.get_statuscol_gitsign(bufnr(), v:lnum)%}",
-		["num"] = "%=%{v:relnum?v:relnum:v:lnum}",
-		["sep"] = "%=",
-		["signcol"] = "%s",
-		["space"] = " ",
-	}
-
-	local order = {
-		"diagnostics",
-		-- "sep",
-		"num",
-		-- "space",
-		"gitsigns",
-		"fold",
-		-- "space",
-	}
-
-	for _, val in ipairs(order) do
-		table.insert(str_table, parts[val])
-	end
-
-	return table.concat(str_table)
-end
-
 return {
 	"luukvbaal/statuscol.nvim",
 	dependencies = {
@@ -114,6 +84,7 @@ return {
 		"folke/todo-comments.nvim",
 	},
 	enabled = function() return vim.fn.has('nvim-0.9') == 1 end,
+	event = "BufEnter",
 	config = function()
 		local builtin = require("statuscol.builtin")
 		require("statuscol").setup({
