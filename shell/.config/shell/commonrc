@@ -4,8 +4,8 @@ source ~/.config/shell/exports
 source ~/.config/shell/aliases
 source ~/.config/shell/functions
 
-if [ -f "$HOME/.cargo/env" ] ;
-  then . "$HOME/.cargo/env"
+if [ -f "$XDG_DATA_HOME/cargo/env" ] ;
+  then . "$XDG_DATA_HOME/cargo/env"
 fi
 
 # PATH
