@@ -19,17 +19,7 @@ return {
 		'NvimTreeToggle',
 	},
 	keys = {
-		{ '<leader>t', function()
-			-- TODO: detect when the tree is open an focus it, instead of pure toggle
-			require("nvim-tree").toggle()
-			-- local view = require("nvim-tree.view")
-			-- local api = require("nvim-tree.api")
-			-- if view.is_visible() then
-			-- 	api.tree.close()
-			-- else
-			-- 	require("nvim-tree").open_replacing_current_buffer()
-			-- end
-		end },
+		{ '<leader>t', '<Cmd>NvimTreeToggle<CR>' },
 	},
 	config = function()
 		require('nvim-tree').setup({
