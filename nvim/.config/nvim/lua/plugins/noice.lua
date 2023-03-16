@@ -2,7 +2,7 @@ return {
 	"folke/noice.nvim",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
+		-- "rcarriga/nvim-notify",
 	},
 	event = "VeryLazy",
 	opts = {
@@ -20,6 +20,9 @@ return {
 			long_message_to_split = true,
 			inc_rename = false,
 			lsp_doc_border = false,
+		},
+		messages = {
+			enabled = false,
 		},
 	},
 }
