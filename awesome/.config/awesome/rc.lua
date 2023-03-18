@@ -29,7 +29,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
-local debian = require("debian.menu")
+local has_debian, debian = pcall(require, "debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- Bootstrap library
@@ -146,7 +146,7 @@ else
 	mymainmenu = awful.menu({
 		items = {
 			menu_awesome,
-			{ "programs", debian.menu.Debian_menu.Debian },
+			-- { "programs", debian.menu.Debian_menu.Debian },
 			menu_terminal,
 			menu_poweropts,
 		}
