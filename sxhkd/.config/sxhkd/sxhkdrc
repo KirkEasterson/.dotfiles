@@ -1,6 +1,6 @@
 # terminals
 super + {_,shift +} Return
-	{flatpak run org.wezfurlong.wezterm,alacritty}
+	{wezterm,alacritty}
 
 # browsers
 super + {_,shift +} w
