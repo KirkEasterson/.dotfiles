@@ -2,8 +2,8 @@ local wezterm = require('wezterm')
 local act = wezterm.action
 return {
 	font = wezterm.font_with_fallback({
-		'ComicCodeLigatures Nerd Font',
-		'UbuntuMono Nerd Font',
+		'Comic Code Ligatures Nerd Font',
+		'Ubuntu Mono Nerd Font',
 	}),
 	font_size = 12,
 	line_height = 1.1,
