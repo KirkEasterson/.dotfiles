@@ -745,7 +745,7 @@ local autorunApps =
 	"nm-applet",
 	"package-update-indicator",
 	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
-	"picom",
+	-- "picom",
 	"sxhkd", -- TODO: figure out how to get this to work with .xinitrc
 	"unclutter",
 	"volumeicon",
