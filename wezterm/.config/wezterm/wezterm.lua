@@ -1,11 +1,11 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
 return {
-	font = wezterm.font({
-		family = 'ComicCodeLigatures Nerd Font',
-		stretch = 'Normal',
+	font = wezterm.font_with_fallback({
+		'ComicCodeLigatures Nerd Font',
+		'UbuntuMono Nerd Font',
 	}),
-	font_size = 14,
+	font_size = 12,
 	line_height = 1.1,
 	harfbuzz_features = {
 		"calt=0",
