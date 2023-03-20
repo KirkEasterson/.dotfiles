@@ -13,6 +13,7 @@ return {
 		automatic_setup = true,
 		ensure_installed = {
 			"autopep8",
+			"flake8",
 			"pylint",
 			"black",
 			"eslint_d",
