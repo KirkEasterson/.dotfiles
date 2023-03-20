@@ -1,6 +1,6 @@
 # terminals
 super + {_,shift +} Return
-	{wezterm,alacritty}
+	{alacritty,wezterm}
 
 # browsers
 super + {_,shift +} w
