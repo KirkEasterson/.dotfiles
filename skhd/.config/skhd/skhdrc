@@ -20,14 +20,14 @@ cmd - 8 : yabai -m space --focus 8
 cmd - 9 : yabai -m space --focus 9
 cmd - tab : yabai -m space --focus next
 cmd - q : yabai -m window --close
-cmd - w : open -n -a /Applications/Firefox.app 
+cmd - w : open -n -a /Applications/Firefox.app
 cmd - e : open -n .
 # cmd - f : yabai -m window --toggle zoom-fullscreen
 cmd - h : yabai -m window --focus west
 cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
 cmd - l : yabai -m window --focus east
-cmd - return : open -n -a /Applications/WezTerm.app
+cmd - return : open -n -a /Applications/Alacritty.app
 
 
 
