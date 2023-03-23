@@ -1,14 +1,16 @@
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 FONT="UbuntuMono Nerd Font"
 
+
 ##### Bar Appearance #####
 sketchybar --bar height=38 \
-                 blur_radius=100 \
+                 blur_radius=0 \
                  position=top \
-                 sticky=off \
-                 padding_left=10 \
-                 padding_right=10 \
+                 sticky=on \
+                 padding_left=5 \
+                 padding_right=5 \
                  color=0xff000000
+
 
 ##### Changing Defaults #####
 sketchybar --default icon.font="$FONT:Bold:17.0" \
@@ -17,14 +19,15 @@ sketchybar --default icon.font="$FONT:Bold:17.0" \
                      label.color=0xffffffff \
                      padding_left=5 \
                      padding_right=5 \
-                     label.padding_left=4 \
-                     label.padding_right=4 \
-                     icon.padding_left=4 \
-                     icon.padding_right=4
+                     label.padding_left=2 \
+                     label.padding_right=2 \
+                     icon.padding_left=2 \
+                     icon.padding_right=2 \
+                     updates=when_shown
+
 
 sketchybar --add item apple.logo left \
            --set apple.logo icon="" \
-                 icon.font="$FONT:Bold:14.0" \
                  icon.color=0xffffffff \
                  label.drawing=off \
                  click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
@@ -45,6 +48,7 @@ sketchybar --add item apple.logo left \
                             label="Lock Screen" \
                             click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off"
 
+
 ##### Adding Mission Control Space Indicators #####
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 for i in "${!SPACE_ICONS[@]}"
@@ -62,22 +66,18 @@ do
                               click_script="yabai -m space --focus $sid"
 done
 
-##### Adding Left Items #####
-# We add some regular items to the left side of the bar
-# only the properties deviating from the current defaults need to be set
 
+##### Adding Left Items #####
 sketchybar --add item space_separator left \
-           --set space_separator icon="" \
-                                 padding_left=10 \
+           --set space_separator padding_left=10 \
                                  padding_right=10 \
                                  label.drawing=off \
            --add item front_app left \
            --set front_app       script="$PLUGIN_DIR/front_app.sh" \
-                                 icon.drawing=off \
            --subscribe front_app front_app_switched
 
-##### Adding Right Items #####
 
+##### Adding Right Items #####
 sketchybar --add item clock right \
            --set clock   update_freq=1 \
                          script="$PLUGIN_DIR/clock.sh"
@@ -111,7 +111,7 @@ sketchybar --add item spotify right \
            --subscribe spotify spotify_change \
            --set spotify script="$PLUGIN_DIR/spotify.sh" \
                          icon= \
-                         icon.font="$FONT:Bold:20.0" \
+                         icon.font="$FONT:Bold:14.0" \
                          icon.y_offset=1 \
                          label.drawing=off \
                          label.padding_left=2 \
