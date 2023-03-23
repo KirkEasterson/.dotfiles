@@ -13,10 +13,8 @@ WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?format=j1")
 
 # Fallback if empty
 if [ -z $WEATHER_JSON ]; then
-
-  sketchybar --set $NAME label=$LOCATION
+  sketchybar --set $NAME label="" icon.drawing=off
   sketchybar --set $NAME.moon icon=
-
   return
 fi
 
