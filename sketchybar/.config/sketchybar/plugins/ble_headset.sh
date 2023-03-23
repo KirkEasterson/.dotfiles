@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/null | jq '.SPBluetoothDataType' | jq '.[0]' | jq '.device_title' | jq -r '.[] | keys[] as $k | "\($k) \(.[$k] | .device_isconnected) \(.[$k] | .device_minorClassOfDevice_string)"' | grep 'attrib_Yes' | grep 'Headphones')"
+DEVICES=$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/null | jq '.SPBluetoothDataType[0].device_connected[]? | select( .[] | .device_minorType == "Headphones") | keys[]')
 
 if [ "$DEVICES" = "" ]; then
-  sketchybar -m --set $NAME drawing=off
+  sketchybar --set $NAME icon.drawing=off background.padding_right=0 background.padding_left=0 label=""
 else
-  sketchybar -m --set $NAME drawing=on
+  sketchybar --set $NAME icon.drawing=on background.padding_right=1 background.padding_left=4 label="$DEVICES"
 fi
