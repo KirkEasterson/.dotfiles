@@ -10,7 +10,6 @@ BT_DEVICES="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/de
 if [ "$BT_DEVICES" != "" ]; then
   ICON=󰋋
 else
-  ICON=󰋋
   case ${VOLUME} in
     [7-9][0-9]|100) ICON="󰕾"
     ;;
