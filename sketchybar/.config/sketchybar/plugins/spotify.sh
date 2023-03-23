@@ -48,7 +48,7 @@ update_track() {
   elif [ $PLAYER_STATE = "Stopped" ]; then
     sketchybar --set $NAME icon.color=0xffeed49f label.drawing=no icon.padding_right=7
   else
-    sketchybar --set $NAME icon.color=0xffeed49f
+    sketchybar --set $NAME icon.drawing=off
   fi
 }
 
