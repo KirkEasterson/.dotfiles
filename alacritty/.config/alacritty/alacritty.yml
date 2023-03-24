@@ -19,6 +19,9 @@ font:
   bold_italic:
     family: ComicCodeLigatures Nerd Font
     style: Bold Italic
+  offset:
+    x: 1
+    y: 0
 draw_bold_text_with_bright_colors: true
 
 # # this block enables the transparent background
@@ -28,52 +31,48 @@ draw_bold_text_with_bright_colors: true
 #   opacity: 0.97
 
 window:
-  dynamic_title: true
   dynamic_padding: true
+  dynamic_title: true
 
 mouse:
   hide_when_typing: false
 
 mouse_bindings:
-  - { mouse: Middle, action: None }
+  - { action: None, mouse: Middle }
 
 key_bindings:
-  # for bindings in neovim/various programs
-  - { key: Tab, mods: Alt, chars: "\e[27;3;9~" }
-  - { key: Tab, mods: Alt|Shift, chars: "\e[27;4;9~" }
-  - { key: Tab, mods: Control, chars: "\e[27;5;9~" }
-  - { key: Tab, mods: Control|Shift, chars: "\e[27;6;9~" }
   - { key: H, mods: Control|Shift, chars: "\e[27;6;72~" }
   - { key: J, mods: Control|Shift, chars: "\e[27;6;74~" }
   - { key: K, mods: Control|Shift, chars: "\e[27;6;75~" }
   - { key: L, mods: Control|Shift, chars: "\e[27;6;76~" }
+  - { key: Tab, mods: Alt, chars: "\e[27;3;9~" }
+  - { key: Tab, mods: Alt|Shift, chars: "\e[27;4;9~" }
+  - { key: Tab, mods: Control, chars: "\e[27;5;9~" }
+  - { key: Tab, mods: Control|Shift, chars: "\e[27;6;9~" }
 
 colors:
-  # Default colors
+  bright:
+    black: "#928374"
+    blue: "#83a598"
+    cyan: "#8ec07c"
+    green: "#b8bb26"
+    magenta: "#d3869b"
+    red: "#fb4934"
+    white: "#ebdbb2"
+    yellow: "#fabd2f"
+
+  normal:
+    black: "#282828"
+    blue: "#458588"
+    cyan: "#689d6a"
+    green: "#98971a"
+    magenta: "#b16286"
+    red: "#cc241d"
+    white: "#a89984"
+    yellow: "#d79921"
+
   primary:
     # hard contrast: background = '#1d2021'
     background: "#282828"
     # soft contrast: background = '#32302f'
     foreground: "#ebdbb2"
-
-  # Normal colors
-  normal:
-    black: "#282828"
-    red: "#cc241d"
-    green: "#98971a"
-    yellow: "#d79921"
-    blue: "#458588"
-    magenta: "#b16286"
-    cyan: "#689d6a"
-    white: "#a89984"
-
-  # Bright colors
-  bright:
-    black: "#928374"
-    red: "#fb4934"
-    green: "#b8bb26"
-    yellow: "#fabd2f"
-    blue: "#83a598"
-    magenta: "#d3869b"
-    cyan: "#8ec07c"
-    white: "#ebdbb2"
