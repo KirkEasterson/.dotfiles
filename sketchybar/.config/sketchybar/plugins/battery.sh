@@ -59,4 +59,14 @@ if [[ $CHARGING != "" ]]; then
   esac
 fi
 
-sketchybar --set $NAME icon="$ICON" label="${PERCENTAGE}%"
+case ${PERCENTAGE} in
+  [8-9][0-9]|100) HIGHLIGHT="0xffb8bb26"
+  ;;
+  [3-7][0-9]|100) HIGHLIGHT="0xfffabd2f"
+  ;;
+  *) HIGHLIGHT="0xffcc241d"
+esac
+
+sketchybar --set $NAME icon="$ICON" \
+                       icon.color="$HIGHLIGHT" \
+                       label="${PERCENTAGE}%"
