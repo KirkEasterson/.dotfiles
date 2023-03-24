@@ -13,6 +13,9 @@ case $INFO in
   "System Settings")
     ICON=
     ;;
+  "App Store")
+    ICON=󰒚
+    ;;
   "Neovide")
     ICON=
     ;;
