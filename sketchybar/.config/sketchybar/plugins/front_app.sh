@@ -7,6 +7,9 @@ case $INFO in
   "Calendar")
     ICON=
     ;;
+  "System Information")
+    ICON=
+    ;;
   "System Settings")
     ICON=
     ;;
