@@ -40,13 +40,21 @@ sketchybar --add item apple.logo left \
                             label="Preferences" \
                             click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off" \
            --add item apple.activity popup.apple.logo \
-           --set apple.activity icon= \
+           --set apple.activity icon= \
                             label="Activity" \
                             click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off" \
            --add item apple.lock popup.apple.logo \
            --set apple.lock icon= \
                             label="Lock Screen" \
-                            click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off"
+                            click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off" \
+           --add item apple.reboot popup.apple.logo \
+           --set apple.reboot icon= \
+                            label="Reboot" \
+                            click_script="osascript -e 'tell app \"System Events\" to restart'" \
+           --add item apple.shutdown popup.apple.logo \
+           --set apple.shutdown icon= \
+                            label="Shutdown" \
+                            click_script="osascript -e 'tell app \"System Events\" to shut down'"
 
 
 ##### Adding Mission Control Space Indicators #####
