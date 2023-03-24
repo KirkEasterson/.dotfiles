@@ -43,6 +43,10 @@ sketchybar --add item apple.logo left \
            --set apple.settings icon= \
                             label="System Settings" \
                             click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off" \
+           --add item apple.store popup.apple.logo \
+           --set apple.store icon=󰒚 \
+                            label="App Store" \
+                            click_script="open -a 'App Store'; sketchybar -m --set apple.logo popup.drawing=off" \
            --add item apple.activity popup.apple.logo \
            --set apple.activity icon= \
                             label="Activity" \
@@ -91,24 +95,19 @@ done
 
 ##### Adding Left Items #####
 sketchybar --add item space_separator left \
-           --set space_separator padding_left=5 \
-                                 padding_right=5 \
-                                 label.drawing=off
+           --set space_separator label.drawing=off
 
-sketchybar --add item front_app left \
-           --subscribe front_app front_app_switched \
-           --set front_app script="$PLUGIN_DIR/front_app.sh" \
-                           icon.color=0xffd65d0e
+# sketchybar --add item front_app left \
+#            --subscribe front_app front_app_switched \
+#            --set front_app script="$PLUGIN_DIR/front_app.sh" \
+#                            icon.color=0xffd65d0e
 
 sketchybar --add item spotify left \
            --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
            --subscribe spotify spotify_change \
            --set spotify script="$PLUGIN_DIR/spotify.sh" \
-                         icon= \
-                         icon.color=0xff1db954 \
-                         icon.y_offset=1 \
-                         label.drawing=off \
-                         label.padding_left=2 \
+                         icon.drawing=off \
+                         label.drawing=off
 
 
 ##### Adding Right Items #####
@@ -117,11 +116,6 @@ sketchybar --add item clock right \
                        update_freq=1 \
                        label.color=0xfffbf1c7
 
-
-sketchybar --add item volume right \
-           --subscribe volume volume_change \
-           --set volume  script="$PLUGIN_DIR/volume.sh" \
-                         icon.color=0xff458588
 
 sketchybar --add item battery right \
            --subscribe battery system_woke power_source_change \
@@ -141,6 +135,11 @@ sketchybar --add item ram right \
                         icon=󰍛 \
                         icon.color=0xffcc241d
 
+sketchybar --add item volume right \
+           --subscribe volume volume_change \
+           --set volume  script="$PLUGIN_DIR/volume.sh" \
+                         icon.color=0xff458588
+
 sketchybar --add item kb right \
            --add event input_change "AppleSelectedInputSourcesChangedNotification" \
            --subscribe kb input_change \
@@ -148,6 +147,13 @@ sketchybar --add item kb right \
                        label.font="$FONT:Italic:14.0" \
                        icon= \
                        icon.color=0xffa89984
+
+sketchybar --add item weather right \
+           --set weather script="$PLUGIN_DIR/weather.sh" \
+                      update_freq=60 \
+                      icon.color=0xffd65d0e \
+                      icon=
+
 
 sketchybar --add item brew right \b16286
            --set brew script="$PLUGIN_DIR/brew.sh" \
