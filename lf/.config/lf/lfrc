@@ -46,6 +46,16 @@ map a push :mkfile<space>
 
 cmd setwallpaper %cp "$f" ~/.config/wall.jpg && ~/.fehbg
 
+cmd z %{{
+    result="$(zoxide query --exclude $PWD $@)"
+    lf -remote "send $id cd $result"
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i)"
+    lf -remote "send $id cd $result"
+}}
+
 cmd chmod ${{
   printf "Mode Bits: "
   read ans
