@@ -57,4 +57,5 @@ case $INFO in
     ;;
 esac
 
-sketchybar --set $NAME icon=$ICON label="$INFO"
+sketchybar --set $NAME icon=$ICON \
+                       label="$INFO"
