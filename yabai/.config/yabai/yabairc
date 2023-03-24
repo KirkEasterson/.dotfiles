@@ -68,5 +68,6 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
 
 echo "yabai configuration loaded.."
