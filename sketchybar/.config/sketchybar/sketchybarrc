@@ -35,26 +35,38 @@ sketchybar --add item apple.logo left \
                  popup.background.corner_radius=3 \
                  popup.background.color=0xff000000 \
                  popup.background.border_color=0xff9dd274 \
-           --add item apple.preferences popup.apple.logo \
-           --set apple.preferences icon= \
-                            label="Preferences" \
+           --add item apple.about popup.apple.logo \
+           --set apple.about icon= \
+                            label="About This Mac" \
+                            click_script="open -a \"About This Mac\"; sketchybar -m --set apple.logo popup.drawing=off" \
+           --add item apple.settings popup.apple.logo \
+           --set apple.settings icon= \
+                            label="System Settings" \
                             click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off" \
            --add item apple.activity popup.apple.logo \
            --set apple.activity icon= \
                             label="Activity" \
                             click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off" \
+           --add item apple.sleep popup.apple.logo \
+           --set apple.sleep icon=󰤄 \
+                            label="Sleep" \
+                            click_script="osascript -e 'tell app \"System Events\" to sleep'" \
+           --add item apple.restart popup.apple.logo \
+           --set apple.restart icon= \
+                            label="Restart" \
+                            click_script="osascript -e 'tell app \"loginwindow\" to «event aevtrrst»'" \
+           --add item apple.shutdown popup.apple.logo \
+           --set apple.shutdown icon= \
+                            label="Shutdown" \
+                            click_script="osascript -e 'tell app \"loginwindow\" to «event aevtrsdn»'" \
            --add item apple.lock popup.apple.logo \
            --set apple.lock icon= \
                             label="Lock Screen" \
                             click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off" \
-           --add item apple.reboot popup.apple.logo \
-           --set apple.reboot icon= \
-                            label="Reboot" \
-                            click_script="osascript -e 'tell app \"System Events\" to restart'" \
-           --add item apple.shutdown popup.apple.logo \
-           --set apple.shutdown icon= \
-                            label="Shutdown" \
-                            click_script="osascript -e 'tell app \"System Events\" to shut down'"
+           --add item apple.logout popup.apple.logo \
+           --set apple.logout icon=󰗽 \
+                            label="Logout" \
+                            click_script="osascript -e 'tell app \"System Events\" to log out'; sketchybar -m --set apple.logo popup.drawing=off"
 
 
 ##### Adding Mission Control Space Indicators #####
