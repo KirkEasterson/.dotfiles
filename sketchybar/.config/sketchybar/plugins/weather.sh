@@ -9,12 +9,12 @@ COUNTRY="$(echo $LOCATION_JSON | jq '.country' | tr -d '"')"
 
 # Line below replaces spaces with +
 LOCATION_ESCAPED="${LOCATION// /+}+${REGION// /+}"
-WEATHER_JSON=$(curl -s "https://wttr.in/?format=%c+%t+%m")
+WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?format=%c+%t+%m")
 
 # Fallback if empty
 if [ -z $WEATHER_JSON ]; then
   sketchybar --set $NAME label.drawin=off icon.drawing=off
-  # sketchybar --set $NAME.moon icon=
+  # sketchybar --set $NAME.moon icon.drawing=off
   return
 fi
 
@@ -24,5 +24,6 @@ TEMPERATURE="${parts[1]}"
 MOON_PHASE="${parts[2]}"
 
 sketchybar --set $NAME label="$LOCATION $TEMPERATURE" \
-                       icon=$WEATHER_ICON
+                       icon=$WEATHER_ICON \
+                       icon.font="$FONT:Bold:14.0" \
 # sketchybar --set $NAME.moon icon=$ICON
