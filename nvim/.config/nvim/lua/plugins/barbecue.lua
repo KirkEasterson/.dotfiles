@@ -1,6 +1,5 @@
 return {
 	"utilyre/barbecue.nvim",
-	lazy = false,
 	version = "v0.4.*",
 	dependencies = {
 		-- "neovim/nvim-lspconfig",

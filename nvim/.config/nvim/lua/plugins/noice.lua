@@ -4,6 +4,11 @@ return {
 		"MunifTanjim/nui.nvim",
 		-- "rcarriga/nvim-notify",
 	},
+	cmd = {
+		"Noice",
+		"NoiceDisable",
+		"NoiceLast",
+	},
 	event = "VeryLazy",
 	opts = {
 		cmdline = {

@@ -1,6 +1,9 @@
 return {
 	'lewis6991/gitsigns.nvim',
 	event = 'VeryLazy',
+	cmd = {
+		"Gitsigns",
+	},
 	config = function()
 		require('gitsigns').setup({
 			current_line_blame      = true,

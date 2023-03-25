@@ -7,6 +7,9 @@ return {
 		"folke/trouble.nvim",
 		"rcarriga/nvim-notify",
 	},
+	cmd = {
+		"Telescope",
+	},
 	config = function()
 		local telescope = require("telescope")
 		local previewers = require("telescope.previewers")

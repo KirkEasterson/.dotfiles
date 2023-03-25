@@ -1,6 +1,12 @@
 return {
 	"folke/todo-comments.nvim",
 	event = "VeryLazy",
+	cmd = {
+		"TodoLocList",
+		"TodoQuickFix",
+		"TodoTelescope",
+		"TodoTrouble",
+	},
 	-- keys = {
 	-- 	{ '<leader>dt', ':TodoTelescope<CR>' },
 	-- },

@@ -1,6 +1,5 @@
 return {
 	"iamcco/markdown-preview.nvim",
-	event = "FileType markdown",
 	cmd = "MarkdownPreview",
 	keys = {
 		{ "<leader>md", "<Cmd>MarkdownPreview<CR>" },

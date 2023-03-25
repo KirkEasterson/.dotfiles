@@ -8,5 +8,6 @@ return {
 		'FileType typescriptreact',
 		'FileType tsx',
 	},
-	config = function() require("kirk.lsp.ts") end,
+	-- config = function() require("kirk.lsp.ts") end,
+	opts = {},
 }

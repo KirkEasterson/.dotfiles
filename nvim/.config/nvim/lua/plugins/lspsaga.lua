@@ -1,11 +1,12 @@
 return {
 	"glepnir/lspsaga.nvim",
-	event = "BufEnter",
 	dependencies = {
 		'neovim/nvim-lspconfig',
 		"nvim-tree/nvim-web-devicons",
 		"nvim-treesitter/nvim-treesitter",
 	},
+	event = "BufEnter",
+	cmd = "LspSaga",
 	keys = {
 		-- { "<leader><leader>o", "<cmd>Lspsaga outline<CR>" },
 		{ "ga", "<cmd>Lspsaga code_action<CR>" },

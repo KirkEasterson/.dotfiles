@@ -2,7 +2,12 @@ return {
 	"smjonas/inc-rename.nvim",
 	cmd = "IncRename",
 	keys = {
-		{ "<leader>rn", ":IncRename " },
+		{ "<leader>rn",
+			function()
+				return ":IncRename " .. vim.fn.expand("<cword>")
+			end,
+			expr = true,
+		},
 	},
-	config = true,
+	opts = {},
 }

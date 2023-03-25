@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},
+	cmd = "Notifications",
 	keys = {
 		{ "<leader>hi", function()
 			require("notify").history()

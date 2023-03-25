@@ -8,5 +8,5 @@ return {
 		'FileType typescriptreact',
 		'FileType tsx',
 	},
-	config = true,
+	opts = {},
 }

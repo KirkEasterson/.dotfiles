@@ -1,5 +1,8 @@
 return {
 	'sindrets/winshift.nvim',
+	cmd = {
+		"WinShift",
+	},
 	keys = {
 		{ "<leader><leader>s", "<Cmd>WinShift<CR>" },
 		{ "<C-S-h>", "<Cmd>WinShift left<CR>" },
