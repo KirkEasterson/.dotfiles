@@ -33,7 +33,7 @@ end
 return {
 	'VonHeikemen/lsp-zero.nvim',
 	branch = 'v1.x',
-	event = "VeryLazy",
+	event = "VimEnter",
 	dependencies = {
 		-- LSP Support
 		{ 'neovim/nvim-lspconfig' },

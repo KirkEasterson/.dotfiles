@@ -4,7 +4,7 @@ return {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-dap",
 	},
-	event = "VeryLazy",
+	event = "VimEnter",
 	cmd = {
 		"DapInstall",
 		"DapUninstall",

@@ -1,6 +1,6 @@
 return {
 	'kamykn/spelunker.vim',
-	event = "BufEnter",
+	event = "VimEnter",
 	cmd = "SpelunkerAddAll",
 	config = function()
 		vim.api.nvim_set_var("enable_spelunker", 1)

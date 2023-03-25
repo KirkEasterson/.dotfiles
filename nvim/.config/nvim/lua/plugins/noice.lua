@@ -9,13 +9,19 @@ return {
 		"NoiceDisable",
 		"NoiceLast",
 	},
-	event = "VeryLazy",
+	event = "VimEnter",
 	opts = {
 		cmdline = {
 			view = "cmdline",
 		},
 		lsp = {
+			hover = {
+				enabled = false,
+			},
 			progress = {
+				enabled = false,
+			},
+			signature = {
 				enabled = false,
 			},
 		},

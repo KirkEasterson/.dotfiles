@@ -1,8 +1,14 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-	event = "BufEnter",
+	event = "BufNew",
 	opts = {
+		disabled_filetypes = {
+			statusline = {
+				'Scratch',
+				'NVimTree',
+			},
+		},
 		options = {
 			globalstatus = true,
 			component_separators = { left = '', right = '' },

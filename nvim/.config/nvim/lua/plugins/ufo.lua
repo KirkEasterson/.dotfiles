@@ -1,7 +1,7 @@
 return {
 	'kevinhwang91/nvim-ufo',
 	enabled = function() return vim.fn.has('nvim-0.9') == 1 end,
-	event = "BufEnter",
+	event = "VimEnter",
 	cmd = {
 		"UfoEnable",
 		"UfoDisable",

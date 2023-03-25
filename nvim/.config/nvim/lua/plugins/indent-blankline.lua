@@ -1,6 +1,6 @@
 return {
 	'lukas-reineke/indent-blankline.nvim',
-	event = "BufEnter",
+	event = "VimEnter",
 	opts = {
 		use_treesitter = true,
 		show_current_context = true,
