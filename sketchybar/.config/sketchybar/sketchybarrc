@@ -8,8 +8,8 @@ sketchybar --bar height=38 \
                  blur_radius=0 \
                  position=top \
                  sticky=on \
-                 padding_left=5 \
-                 padding_right=5 \
+                 padding_left=14 \
+                 padding_right=14 \
                  color=0xff000000
 
 
@@ -120,8 +120,7 @@ sketchybar --add item clock right \
 sketchybar --add item battery right \
            --subscribe battery system_woke power_source_change \
            --set battery script="$PLUGIN_DIR/battery.sh" \
-                         update_freq=120 \
-                         icon.color=0xfffabd2f
+                         update_freq=120
 
 sketchybar --add item cpu right \
            --set cpu    script="$PLUGIN_DIR/cpu.sh" \
@@ -152,7 +151,7 @@ sketchybar --add item weather right \
            --set weather script="$PLUGIN_DIR/weather.sh" \
                       update_freq=60 \
                       icon.color=0xffd65d0e \
-                      icon=
+                      icon.font="$FONT:Bold:24.0"
 
 
 sketchybar --add item brew right \b16286

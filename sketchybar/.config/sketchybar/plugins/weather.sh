@@ -24,6 +24,5 @@ TEMPERATURE="${parts[1]}"
 MOON_PHASE="${parts[2]}"
 
 sketchybar --set $NAME label="$LOCATION $TEMPERATURE" \
-                       icon=$WEATHER_ICON \
-                       icon.font="$FONT:Bold:14.0" \
+                       icon=$WEATHER_ICON
 # sketchybar --set $NAME.moon icon=$ICON
