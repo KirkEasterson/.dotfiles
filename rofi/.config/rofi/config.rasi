@@ -14,8 +14,8 @@ configuration {
 @theme "gruvbox-dark-soft"
 
 #window {
-  border: 1px;
-  border-radius: 8px;
-  border-color:	#0c0c0c;
-  width: 20%;
+	border: 1px;
+	border-radius: 8px;
+	border-color:	#0c0c0c;
+	width: 20%;
 }
