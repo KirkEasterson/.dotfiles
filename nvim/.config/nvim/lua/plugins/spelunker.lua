@@ -1,6 +1,6 @@
 return {
 	'kamykn/spelunker.vim',
-	event = "VimEnter",
+	event = "FileReadPost",
 	cmd = "SpelunkerAddAll",
 	config = function()
 		vim.api.nvim_set_var("enable_spelunker", 1)
