@@ -1,14 +1,14 @@
 # terminals
 super + {_,shift +} Return
-	{alacritty,wezterm}
+	{$TERMINAL,$TERMINAL_SECONDARY}
 
 # browsers
 super + {_,shift +} w
-	{firefox,chromium-browser}
+	{$BROWSER,$BROWSER_SECONDARY}
 
 # file managers
 super + {_,shift +} e
-	{pcmanfm,lflauncher}
+	{$FILEMANAGER,$TERMINAL -e lf}
 
 # screen locker
 super + ctrl + q
