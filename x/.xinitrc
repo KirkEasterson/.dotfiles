@@ -3,8 +3,18 @@
 # # export keyring
 # export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
+if [ -s ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
 
-eval $(dbus-launch --sh-syntax)
+blueman-applet &
+cbatticon &
+flameshot &
+nm-applet &
+package-update-indicator &
+picom --experimental-backends &
+sxhkd &
 unclutter &
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+volumeicon &
+eval $(dbus-launch --sh-syntax)
 exec awesome
