@@ -17,4 +17,3 @@ sxhkd &
 unclutter &
 volumeicon &
 eval $(dbus-launch --sh-syntax)
-exec awesome
