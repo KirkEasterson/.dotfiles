@@ -87,11 +87,12 @@ alias grmc="git rm -r --cached"
 alias lg="lazygit"
 
 # updating ubuntu
+alias uupg="sudo nala upgrade -y && flatpak upgrade -y"
 alias aupg="sudo apt update -y && sudo apt upgrade -y"
 alias nupg="sudo nala upgrade -y"
 alias fupg="flatpak upgrade -y"
-alias upg="sudo nala upgrade -y && flatpak upgrade -y"
 alias bupg="brew update && brew upgrade"
+alias pupg="sudo pacman -Syyu"
 
 # mkdir create parent directories
 alias mkdir="mkdir -pv"
