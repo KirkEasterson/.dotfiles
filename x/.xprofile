@@ -5,7 +5,7 @@
 
 export DOTFILES=$HOME/.dotfiles
 export BROWSER=firefox
-export BROWSER_SECONDARY=chromium-browser
+export BROWSER_SECONDARY=chromium
 export TERMINAL=wezterm
 export TERMINAL_SECONDARY=alacritty
 export FILEMANAGER=pcmanfm
