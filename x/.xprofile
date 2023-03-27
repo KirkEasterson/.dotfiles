@@ -25,4 +25,4 @@ picom --experimental-backends &
 sxhkd &
 unclutter &
 volumeicon &
-eval $(dbus-launch --sh-syntax)
+# eval $(dbus-launch --sh-syntax)
