@@ -8,6 +8,7 @@
 # cmd - 7 : yabai -m query --spaces --space 7 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 # cmd - 8 : yabai -m query --spaces --space 8 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 # cmd - 9 : yabai -m query --spaces --space 9 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
+# cmd - 0 : yabai -m query --spaces --space 10 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 # cmd - tab : yabai -m query --spaces --space next | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
 cmd - 1 : yabai -m space --focus 1
 cmd - 2 : yabai -m space --focus 2
@@ -18,6 +19,7 @@ cmd - 6 : yabai -m space --focus 6
 cmd - 7 : yabai -m space --focus 7
 cmd - 8 : yabai -m space --focus 8
 cmd - 9 : yabai -m space --focus 9
+cmd - 0 : yabai -m space --focus 10
 cmd - tab : yabai -m space --focus next
 cmd - q : yabai -m window --close
 cmd - w : open -n -a /Applications/Firefox.app
@@ -44,7 +46,7 @@ cmd + shift - 6 : yabai -m window --space 6
 cmd + shift - 7 : yabai -m window --space 7
 cmd + shift - 8 : yabai -m window --space 8
 cmd + shift - 9 : yabai -m window --space 9
-cmd + shift - 0 : yabai -m space --balance
+cmd + shift - 0 : yabai -m window --space 10
 cmd + shift - e : open -n -a /Applications/Alacritty.app --args -e lf
 cmd + shift - h : yabai -m window --swap west
 cmd + shift - j : yabai -m window --swap south
