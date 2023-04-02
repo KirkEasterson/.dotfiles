@@ -282,6 +282,8 @@ awful.screen.connect_for_each_screen(function(s)
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(true),
 			separator,
+			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t"]], 60), -- weather
+			separator,
 			wibox.widget.textbox(' '),
 			mykeyboardlayout,
 			separator,
