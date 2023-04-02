@@ -37,7 +37,6 @@ vim.opt.mousemoveevent = true
 
 vim.opt.wildmenu = true -- visual autocompletion for command menu
 vim.opt.wildmode = { 'longest', 'list', 'full' }
-vim.opt.clipboard:append('unnamedplus') -- use system clipboard when yanking
 
 vim.opt.list = true
 vim.opt.listchars:append({ lead = '·', trail = '▒', extends = '', precedes = '', tab = null })
@@ -140,3 +139,61 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- 		callback = 'set filetype=fsharp',
 -- 	}
 -- )
+
+-- sync neovim with system clipboard
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	once = true,
+	callback = function()
+		require('kirk.utils.uname')
+		if IS_LINUX or IS_WSL then
+			if vim.fn.executable("xclip") == 1 then
+				vim.g.clipboard = {
+					copy = {
+						["+"] = "xclip -selection clipboard",
+						["*"] = "xclip -selection clipboard",
+					},
+					paste = {
+						["+"] = "xclip -selection clipboard -o",
+						["*"] = "xclip -selection clipboard -o",
+					},
+				}
+			elseif vim.fn.executable("xsel") == 1 then
+				vim.g.clipboard = {
+					copy = {
+						["+"] = "xsel --clipboard --input",
+						["*"] = "xsel --clipboard --input",
+					},
+					paste = {
+						["+"] = "xsel --clipboard --output",
+						["*"] = "xsel --clipboard --output",
+					},
+				}
+			end
+		elseif IS_MAC then
+			vim.g.clipboard = {
+				copy = {
+					["+"] = "pbcopy",
+					["*"] = "pbcopy",
+				},
+				paste = {
+					["+"] = "pbpaste",
+					["*"] = "pbpaste",
+				},
+			}
+		elseif IS_WINDOWS then
+			vim.g.clipboard = {
+				copy = {
+					["+"] = "win32yank.exe -i --crlf",
+					["*"] = "win32yank.exe -i --crlf",
+				},
+				paste = {
+					["+"] = "win32yank.exe -o --lf",
+					["*"] = "win32yank.exe -o --lf",
+				},
+			}
+		end
+
+		vim.opt.clipboard = "unnamedplus"
+	end,
+	desc = "Lazy load clipboard",
+})
