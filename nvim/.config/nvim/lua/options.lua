@@ -93,11 +93,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 
--- remove trailing whitespace on save -- this is annoying when working with others
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
--- 	pattern = { "*" },
--- 	command = [[%s/\s\+$//e]],
--- })
+-- remove trailing whitespace on save
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
+})
 
 -- highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
