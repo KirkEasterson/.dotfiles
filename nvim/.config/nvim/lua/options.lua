@@ -140,6 +140,56 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- 	}
 -- )
 
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		vim.opt_local.relativenumber = false
+		vim.opt_local.number = false
+		vim.cmd "startinsert!"
+	end,
+	desc = "start terminal in insert mode",
+})
+
+vim.api.nvim_create_autocmd(
+	'FileType',
+	{
+		pattern = { 'gitcommit', 'gitrebase', },
+		command = 'startinsert | 1',
+		desc    = "start git messages in insert mode",
+	}
+)
+
+
+vim.api.nvim_create_autocmd("VimResized", {
+	callback = function()
+		vim.cmd "wincmd ="
+	end,
+	desc = "Equalize Splits",
+})
+
+vim.api.nvim_create_autocmd(
+	"User",
+	{
+		pattern = "AlphaReady",
+		callback = function()
+			vim.opt.cmdheight = 0
+			vim.opt.showtabline = 0
+			vim.opt.laststatus = 0
+
+			vim.api.nvim_create_autocmd(
+				"BufUnload",
+				{
+					pattern = "<buffer>",
+					callback = function()
+						vim.opt.cmdheight = 1
+						vim.opt.showtabline = 2
+						vim.opt.laststatus = 3
+					end,
+				}
+			)
+		end,
+		desc = "Disable Bufferline And Lualine in Alpha",
+	})
+
 -- sync neovim with system clipboard
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
