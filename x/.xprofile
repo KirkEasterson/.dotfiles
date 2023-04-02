@@ -25,4 +25,6 @@ picom --experimental-backends &
 sxhkd &
 unclutter &
 volumeicon &
+xcape -e "Shift_L=parenleft;Shift_R=parenright" &
+light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint &
 # eval $(dbus-launch --sh-syntax)

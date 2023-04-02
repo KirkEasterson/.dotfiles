@@ -736,9 +736,7 @@ awful.spawn.with_shell("setxkbmap -option caps:escape")
 local autorun = true
 local autorunApps =
 {
-	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
-	"package-update-indicator",
-	"xcape -e 'Shift_L=parenleft;Shift_R=parenright",
+	-- "package-update-indicator", -- uncomment if on debian
 }
 if autorun then
 	for app = 1, #autorunApps do
