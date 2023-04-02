@@ -736,19 +736,8 @@ awful.spawn.with_shell("setxkbmap -option caps:escape")
 local autorun = true
 local autorunApps =
 {
-	-- "caffeine-indicator",
-	-- "cairo-dock",
-	"blueman-applet",
-	"cbatticon",
-	"flameshot",
 	"light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint",
-	"nm-applet",
 	"package-update-indicator",
-	-- "pcmanfm -d", -- TODO: figure out how to start the daemon with spawning a window
-	-- "picom",
-	"sxhkd", -- TODO: figure out how to get this to work with .xinitrc
-	"unclutter",
-	"volumeicon",
 	"xcape -e 'Shift_L=parenleft;Shift_R=parenright",
 }
 if autorun then
