@@ -6,13 +6,19 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- TODO: look into mappings for function and shift+function keys
-
 -- QOL mapping to type commands without needing shift
 map('n', ';', ':')
 map('n', ':', ';')
 map('v', ';', ':')
 map('v', ':', ';')
+
+-- center the cursor on movements
+map('n', '<C-i>', '<C-i>zz')
+map('n', '<C-o>', '<C-o>zz')
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-d>', '<C-d>zz')
+map('n', 'n', 'nzz')
+map('n', 'N', 'Nzz')
 
 -- faster save and quits
 map('n', '<leader>w', function() vim.cmd('w') end, { silent = true })
@@ -42,3 +48,5 @@ map('i', '?', '?<c-g>u')
 map('n', 'Y', 'y$') -- Y to behave like other capitals
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
 map('n', 'U', '<C-r>') -- easier redo
+
+-- TODO: look into mappings for function and shift+function keys
