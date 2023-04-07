@@ -57,7 +57,7 @@ vim.opt.cmdheight = 0 -- hide the command line
 
 vim.opt.confirm = true -- show confirm dialog when closing unsaved files
 
--- vim.opt.laststatus = 3 -- aesthetic win separators
+vim.opt.laststatus = 3 -- aesthetic win separators
 
 -- vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
