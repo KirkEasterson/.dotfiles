@@ -21,7 +21,7 @@ return {
 	},
 	opts = {
 		provider_selector = function(bufnr, filetype, buftype)
-			return { 'treesitter', 'indent' }
+			return { 'lsp' }
 		end
 	},
 }
