@@ -1,6 +1,11 @@
 return {
 	'kevinhwang91/nvim-ufo',
 	enabled = function() return vim.fn.has('nvim-0.9') == 1 end,
+	dependencies = {
+		'kevinhwang91/promise-async',
+		'nvim-treesitter/nvim-treesitter',
+	},
+	event = "VeryLazy",
 	cmd = {
 		"UfoEnable",
 		"UfoDisable",
@@ -9,10 +14,6 @@ return {
 		"UfoDetach",
 		"UfoEnableFold",
 		"UfoDisableFold",
-	},
-	dependencies = {
-		'kevinhwang91/promise-async',
-		'nvim-treesitter/nvim-treesitter',
 	},
 	keys = {
 		{ 'zR', function() require('ufo').openAllFolds() end },
