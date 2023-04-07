@@ -31,13 +31,31 @@ return {
 			},
 			view = {
 				adaptive_size = true,
-				side = "right", -- this doesn't look good with barbar
+				side = "right",
+				signcolumn = "no",
+				number = true,
+				relativenumber = true,
 			},
 			renderer = {
 				add_trailing = true,
 				highlight_git = true,
+				highlight_modified = 'all',
 				icons = {
-					git_placement = 'signcolumn',
+					git_placement = 'after',
+					modified_placement = 'after',
+					show = {
+						folder_arrow = false,
+					},
+				},
+				indent_markers = {
+					enable = true,
+					icons = {
+						corner = "└",
+						edge = "│",
+						item = "├",
+						bottom = "─",
+						none = " "
+					},
 				},
 			},
 			diagnostics = {
