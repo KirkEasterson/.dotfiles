@@ -6,7 +6,6 @@ return {
 		"RestoreSession",
 		"SaveSession",
 	},
-	lazy = false,
 	opts = {
 		log_level = 'error',
 		auto_save_enabled = true,
