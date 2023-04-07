@@ -113,8 +113,8 @@ return {
 					condition = { true },
 				},
 				{ -- fold
-					text = { builtin.foldfunc, " " },
-					condition = { true, builtin.not_empty },
+					text = { builtin.foldfunc },
+					condition = { true },
 					click = "v:lua.ScFa",
 				},
 			},
