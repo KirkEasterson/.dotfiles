@@ -1,10 +1,3 @@
-function next_paragraph_line_count(search_direction)
-	local current_line = vim.api.nvim_win_get_cursor(0)[1]
-	local next_paragraph = vim.fn.search("\\(^$\\)\\(\\n^$\\)\\@!", search_direction)
-	local distance_to_scroll = next_paragraph - current_line
-	return distance_to_scroll
-end
-
 return {
 	'karb94/neoscroll.nvim',
 	keys = {
@@ -17,8 +10,6 @@ return {
 		{ "zz" },
 		{ "zt" },
 		{ "zb" },
-		{ "{" },
-		{ "}" },
 	},
 	opts = {
 		performance_mode = true,
@@ -47,12 +38,4 @@ return {
 			-- vim.fn.feedkeys("zz")
 		end,
 	},
-	config = function(_, opts)
-		require('neoscroll.config').set_mappings({
-			['{'] = { 'scroll', { 'next_paragraph_line_count("b")', 'false', '50' } },
-			['}'] = { 'scroll', { 'next_paragraph_line_count("n")', 'false', '50' } },
-		})
-		require('neoscroll').setup(opts)
-
-	end
 }
