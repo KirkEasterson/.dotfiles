@@ -19,9 +19,5 @@ return {
 		{ 'zR', function() require('ufo').openAllFolds() end },
 		{ 'zM', function() require('ufo').closeAllFolds() end },
 	},
-	opts = {
-		provider_selector = function(bufnr, filetype, buftype)
-			return { 'lsp' }
-		end
-	},
+	opts = {},
 }
