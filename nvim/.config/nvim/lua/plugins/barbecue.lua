@@ -1,6 +1,6 @@
 return {
 	"utilyre/barbecue.nvim",
-	version = "v0.4.*",
+	version = "*",
 	dependencies = {
 		-- "neovim/nvim-lspconfig",
 		"SmiteshP/nvim-navic",
@@ -8,6 +8,7 @@ return {
 		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
 		'luisiacc/gruvbox-baby',
 	},
+	event = "VeryLazy",
 	cmd = "Barbecue",
 	opts = {
 		theme = {
