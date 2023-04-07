@@ -12,6 +12,14 @@ map('n', ':', ';')
 map('v', ';', ':')
 map('v', ':', ';')
 
+-- nice scolling
+map('n', '<ScrollWheelUp>', '<C-y>')
+map('n', '<ScrollWheelDown>', '<C-e>')
+map('i', '<ScrollWheelUp>', '<C-y>')
+map('i', '<ScrollWheelDown>', '<C-e>')
+map('v', '<ScrollWheelUp>', '<C-y>')
+map('v', '<ScrollWheelDown>', '<C-e>')
+
 -- center the cursor on movements
 map('n', '<C-i>', '<C-i>zz')
 map('n', '<C-o>', '<C-o>zz')
