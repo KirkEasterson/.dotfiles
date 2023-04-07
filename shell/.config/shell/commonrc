@@ -4,15 +4,15 @@ source ~/.config/shell/exports
 source ~/.config/shell/aliases
 source ~/.config/shell/functions
 
-if [ -f "$XDG_DATA_HOME/cargo/env" ] ;
-  then . "$XDG_DATA_HOME/cargo/env"
+if [ -d "$XDG_DATA_HOME/cargo/env" ]; then
+  . "$XDG_DATA_HOME/cargo/env"
 fi
 
 # PATH
-if [ -d "$HOME/.bin" ] ;
-  then PATH="$HOME/.bin:$PATH"
+if [ -d "$HOME/.bin" ]; then
+  PATH="$HOME/.bin:$PATH"
 fi
 
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
