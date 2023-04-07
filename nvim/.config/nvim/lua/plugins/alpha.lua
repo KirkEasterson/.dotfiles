@@ -44,6 +44,7 @@ return {
 			dashboard.button("f", "  > Find file", ":FzfLua files<CR>"),
 			dashboard.button("o", "  > Recent", ":FzfLua oldfiles<CR>"),
 			dashboard.button("r", "󰦛  > Restore session", ":RestoreSession<CR>"),
+			dashboard.button("t", "  > File tree", ":NvimTreeOpen<CR>"),
 			dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 		}
 
