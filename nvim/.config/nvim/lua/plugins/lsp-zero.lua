@@ -14,20 +14,13 @@ local on_attach = function(client, bufnr)
 		capabilities = vim.lsp.protocol.make_client_capabilities()
 	end
 
-	-- -- Set autocommands conditional on server_capabilities
-	-- if capabilities.document_highlight then
-	-- 	vim.api.nvim_exec([[
-	-- 		hi LspReferenceRead cterm=bold ctermbg=DarkMagenta guibg=LightYellow
-	-- 		hi LspReferenceText cterm=bold ctermbg=DarkMagenta guibg=LightYellow
-	-- 		hi LspReferenceWrite cterm=bold ctermbg=DarkMagenta guibg=LightYellow
-	-- 		augroup lsp_document_highlight
-	-- 			autocmd! * <buffer>
-	-- 			autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-	-- 			autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-	-- 		augroup END
-	-- 	]], false)
-	-- end
-
+	-- for ufo folding
+	capabilities.textDocument = {
+		foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		},
+	}
 end
 
 return {
