@@ -1,4 +1,4 @@
-local gitsigns_bar = '┃'
+local gitsigns_bar = '│'
 
 local gitsigns_hl_pool = {
 	GitSignsAdd          = "DiagnosticOk",
@@ -62,8 +62,7 @@ local get_statuscol_gitsign = function(bufnr, lnum)
 	if cur_sign_nm ~= nil then
 		return mk_hl(gitsigns_hl_pool[cur_sign_nm], gitsigns_bar)
 	else
-		return "│"
-		-- return ""
+		return gitsigns_bar
 	end
 end
 
