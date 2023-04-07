@@ -1,6 +1,6 @@
 return {
 	'aserowy/tmux.nvim',
-	event = "VimEnter",
+	event = 'VeryLazy',
 	opts = {
 		copy_sync = {
 			enable = true,

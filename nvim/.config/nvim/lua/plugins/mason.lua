@@ -1,6 +1,5 @@
 return {
 	'williamboman/mason.nvim',
-	event = "VimEnter",
 	opts = {
 		ui = {
 			border = "rounded",

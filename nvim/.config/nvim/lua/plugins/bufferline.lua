@@ -6,7 +6,7 @@ return {
 		'ellisonleao/gruvbox.nvim',
 		'luisiacc/gruvbox-baby',
 	},
-	event = "BufNew",
+	event = 'VeryLazy',
 	version = "v3.5.*",
 	keys = {
 		{ '<S-Tab>', function() require('bufferline').cycle(-1) end },

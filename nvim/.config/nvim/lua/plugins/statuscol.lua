@@ -84,7 +84,7 @@ return {
 		"folke/todo-comments.nvim",
 	},
 	enabled = function() return vim.fn.has('nvim-0.9') == 1 end,
-	event = "VimEnter",
+	event = 'VeryLazy',
 	config = function()
 		local builtin = require("statuscol.builtin")
 		require("statuscol").setup({

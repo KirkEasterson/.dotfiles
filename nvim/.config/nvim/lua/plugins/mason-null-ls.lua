@@ -4,7 +4,6 @@ return {
 		"williamboman/mason.nvim",
 		"jose-elias-alvarez/null-ls.nvim",
 	},
-	event = "VimEnter",
 	opts = {
 		automatic_installation = true,
 		automatic_setup = true,

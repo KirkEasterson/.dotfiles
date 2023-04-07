@@ -9,7 +9,7 @@ return {
 		"NoiceDisable",
 		"NoiceLast",
 	},
-	event = "VimEnter",
+	event = "VeryLazy",
 	opts = {
 		cmdline = {
 			view = "cmdline",

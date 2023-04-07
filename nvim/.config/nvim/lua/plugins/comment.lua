@@ -1,6 +1,5 @@
 return {
 	'numToStr/Comment.nvim',
-	event = "VimEnter",
 	keys = {
 		{ "gcc" },
 		{ "gbc" },
@@ -10,5 +9,5 @@ return {
 		{ "gc", mode = "v" },
 		{ "gb", mode = "v" },
 	},
-	config = true,
+	opts = {},
 }

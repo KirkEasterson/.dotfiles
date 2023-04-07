@@ -1,7 +1,7 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-	event = "BufNew",
+	event = 'VeryLazy',
 	opts = {
 		disabled_filetypes = {
 			statusline = {

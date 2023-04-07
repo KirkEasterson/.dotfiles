@@ -1,6 +1,6 @@
 return {
 	"nvim-zh/colorful-winsep.nvim",
-	event = "VimEnter",
+	event = "VeryLazy",
 	dependencies = {
 		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
 		'luisiacc/gruvbox-baby',
