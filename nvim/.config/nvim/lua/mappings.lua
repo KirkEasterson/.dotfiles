@@ -23,8 +23,6 @@ map('v', '<ScrollWheelDown>', '<C-e>')
 -- center the cursor on movements
 map('n', '<C-i>', '<C-i>zz')
 map('n', '<C-o>', '<C-o>zz')
-map('n', '<C-d>', '<C-d>zz')
-map('n', '<C-d>', '<C-d>zz')
 map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 
