@@ -19,7 +19,7 @@ return {
 		'NvimTreeToggle',
 	},
 	keys = {
-		{ '<leader>t', '<Cmd>NvimTreeToggle<CR>' },
+		{ '<leader>t', function () require('nvim-tree.api').tree.toggle() end},
 	},
 	config = function()
 		require('nvim-tree').setup({
