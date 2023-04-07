@@ -26,6 +26,10 @@ map('n', '<C-o>', '<C-o>zz')
 map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 
+-- mouse navigation -- TODO: make this work in terminals
+map('n', '<X1Mouse>', '<C-o>')
+map('n', '<X2Mouse>', '<C-i>')
+
 -- faster save and quits
 map('n', '<leader>w', function() vim.cmd('w') end, { silent = true })
 map('n', '<leader>q', function() vim.cmd('q') end, { silent = true })
