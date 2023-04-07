@@ -5,6 +5,7 @@ return {
 		'BlakeJC94/alpha-nvim-fortune',
 	},
 	lazy = false,
+	priority = 999, -- 1 less than gruvbox
 	config = function()
 
 		local alpha = require("alpha")
