@@ -24,7 +24,7 @@ cbatticon &
 flameshot &
 nm-applet &
 package-update-indicator &
-picom --experimental-backends &
+picom &
 sxhkd &
 unclutter &
 volumeicon &
