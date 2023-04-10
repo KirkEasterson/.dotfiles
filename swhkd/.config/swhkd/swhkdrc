@@ -1,0 +1,45 @@
+# terminals
+super + {_,shift +} Return
+	{$TERMINAL,$TERMINAL_SECONDARY}
+
+# browsers
+super + {_,shift +} w
+	{$BROWSER,$BROWSER_SECONDARY}
+
+# file managers
+super + {_,shift +} e
+	{$FILEMANAGER,$TERMINAL -e lf}
+
+# screen locker
+super + ctrl + q
+	light-locker-command -l
+
+# program launcher
+super + space
+	rofi -show drun
+
+# media keys
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+XF86Audio{Play,Stop,Prev,Next}
+	playerctl {play-pause,stop,prev,next}
+
+# brightness keys
+XF86MonBrightness{Down,Up}
+	brightnessctl -q set 5%{-,+}
+
+# screenshot
+{_,shift +} Print
+	flameshot {gui,full}
+
+# keyboard layouts
+super + shift + a
+	setxkbmap us
+super + shift + s
+	setxkbmap se
+super + shift + g
+	setxkbmap no
