@@ -1,0 +1,8 @@
+mode=drun
+width=20%
+prompt=Applications
+matching=fuzzy
+insensitive=true
+allow_markdown=true
+allow_images=true
+image_size=20

@@ -1,0 +1,10 @@
+modmap:
+  - name: Global
+    remap:
+      CapsLock: Esc
+      LeftShift:
+        alone: KPLeftParen
+        held: LeftShift
+      RightShift:
+        alone: KPRightParen
+        held: RightShift

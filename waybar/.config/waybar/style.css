@@ -1,0 +1,155 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Ubuntu Mono Nerd Font";
+  font-size: 14px;
+  /*font-weight: bold;*/
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  color: #ebdbb2;
+  background: #282828;
+  /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button {
+  margin: 0 1px;
+  /* background: transparent; */
+  color: #ebdbb2;
+  border-top: 1px solid #7c6f64;
+}
+
+#workspaces button.active {
+  background: #3c3836;
+  /* color: #282828; */
+  border-top: 2px solid #a89984;
+}
+
+#workspaces button.urgent {
+  background-color: #bf616a;
+}
+
+#mode {
+  background: #64727d;
+  border-bottom: 3px solid #ffffff;
+}
+
+/* #clock, */
+/* #battery, */
+/* #cpu, */
+/* #memory, */
+/* #temperature, */
+/* #backlight, */
+/* #network, */
+/* #pulseaudio, */
+/* #custom-media, */
+/* #tray, */
+/* #mode, */
+/* #idle_inhibitor { */
+/*   padding: 0 4px; */
+/*   margin: 0 4px; */
+/* } */
+
+/* #clock { */
+/*   background-color: #64727D; */
+/*   font-weight: bold; */
+/* } */
+
+#battery {
+  /*background-color: #000000;*/
+  color: #ebdbb2;
+}
+
+#battery.charging {
+  /*background-color: #000000;*/
+  color: #ebdbb2;
+}
+
+@keyframes blink {
+  to {
+    /*background-color: #ffffff;*/
+    color: #ebdbb2;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background: #f53c3c;
+  color: #ebdbb2;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  /*background: #2ecc71;*/
+}
+
+#memory {
+  /*background: #9b59b6;*/
+}
+
+#backlight {
+  /*background: #90b1b1;*/
+}
+
+#network {
+  /*background: #2980b9;*/
+}
+
+#network.disconnected {
+  /*background: #f53c3c;*/
+}
+
+#pulseaudio {
+  /*background: #000000;*/
+}
+
+#pulseaudio.muted {
+  /*background: #000000;*/
+}
+
+#custom-separator {
+  color: #3c3836;
+  margin: 0 2px;
+}
+
+#custom-media {
+  background: #66cc99;
+  color: #ebdbb2;
+}
+
+.custom-spotify {
+  background: #66cc99;
+}
+
+.custom-vlc {
+  background: #ffa000;
+}
+
+/* #temperature { */
+/*   background: #f0932b; */
+/* } */
+
+#temperature.critical {
+  background: #eb4d4b;
+}
+
+#tray {
+  /*background-color: #2980b9;*/
+  color: #ebdbb2;
+}
+
+#idle_inhibitor {
+  background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #ebdbb2;
+}
