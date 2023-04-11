@@ -33,7 +33,9 @@ vim.opt.shiftwidth = 4 -- number of spaces when indenting with <>
 
 vim.opt.mouse = 'a' -- enable mouse for scrolling and resizing
 vim.opt.mousemodel = 'extend'
+vim.opt.mousehide = true
 vim.opt.mousemoveevent = true
+vim.opt.mousescroll = 'ver:1,hor:1'
 
 vim.opt.wildmenu = true -- visual autocompletion for command menu
 vim.opt.wildmode = { 'longest', 'list', 'full' }
