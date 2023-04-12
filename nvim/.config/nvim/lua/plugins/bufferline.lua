@@ -6,7 +6,7 @@ return {
 		'ellisonleao/gruvbox.nvim',
 		'luisiacc/gruvbox-baby',
 	},
-	event = 'VeryLazy',
+	event = 'VimEnter',
 	version = "v3.5.*",
 	keys = {
 		{ '<S-Tab>', function() require('bufferline').cycle(-1) end },
@@ -33,7 +33,7 @@ return {
 			offsets = {
 				{
 					filetype = "NvimTree",
-					text = "File Explorer",
+					text = "Files",
 					text_align = "center",
 					separator = true,
 				},
