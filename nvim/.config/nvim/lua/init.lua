@@ -34,11 +34,12 @@ require('lazy').setup('plugins', {
 				"matchit",
 				"matchparen",
 				"netrwPlugin",
+				"rplugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
 				"zipPlugin",
-			}
+			},
 		},
 	},
 })
