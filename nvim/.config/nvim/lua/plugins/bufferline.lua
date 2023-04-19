@@ -7,7 +7,7 @@ return {
 		'luisiacc/gruvbox-baby',
 	},
 	event = 'VimEnter',
-	version = "v3.5.*",
+	version = "v3.*",
 	keys = {
 		{ '<S-Tab>', function() require('bufferline').cycle(-1) end },
 		{ '<Tab>', function() require('bufferline').cycle(1) end },
@@ -47,5 +47,5 @@ return {
 				return opts.raise(opts.ordinal)
 			end,
 		},
-	}
+	},
 }
