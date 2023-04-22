@@ -1,6 +1,6 @@
 return {
 	'windwp/nvim-ts-autotag',
-	event = {
+	event = { -- TODO: change this to 'ft'
 		'FileType html',
 		'FileType xml',
 		'FileType javascriptreact',
