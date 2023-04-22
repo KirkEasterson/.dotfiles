@@ -49,13 +49,13 @@ done
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-# compinit -C
+compinit -C
 _comp_options+=(globdots)
 
 # bootstrap antidote
-[[ ! -d ${ZDOTDIR:-~}/antidote ]] &&
-	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/antidote
-source ${ZDOTDIR:-~}/antidote/antidote.zsh
+[[ ! -d ${XDG_CONFIG_HOME:-~}/zsh/antidote ]] &&
+	git clone --depth=1 https://github.com/mattmc3/antidote.git ${XDG_CONFIG_HOME:-~}/zsh/antidote
+source ${XDG_CONFIG_HOME:-~}/zsh/antidote/antidote.zsh
 antidote load
 
 # zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
@@ -70,13 +70,6 @@ antidote load
 # configuration for plugins
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
-
-# zsh plugins
-# znap source zsh-users/zsh-autosuggestions
-# znap source zsh-users/zsh-syntax-highlighting
-# znap source jeffreytse/zsh-vi-mode
-# znap source spaceship-prompt/spaceship-vi-mode spaceship-vi-mode.plugin.zsh
-# znap source spaceship-prompt/spaceship-prompt spaceship.zsh
 
 # # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
