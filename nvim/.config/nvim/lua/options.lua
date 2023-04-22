@@ -42,11 +42,11 @@ vim.opt.wildmode = { 'longest', 'list', 'full' }
 
 vim.opt.list = true
 vim.opt.listchars:append({
-	lead = '·',
+	lead = nil,
 	trail = '▒',
 	extends = '',
 	precedes = '',
-	tab = null
+	tab = nil
 })
 vim.opt.fillchars:append({
 	eob = " ",
