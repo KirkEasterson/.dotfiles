@@ -738,7 +738,11 @@ awful.spawn.with_shell("setxkbmap -option caps:escape")
 local autorun = true
 local autorunApps =
 {
-	-- "package-update-indicator", -- uncomment if on debian
+	-- arch
+	"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
+
+	-- ubuntu
+	"/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
 }
 if autorun then
 	for app = 1, #autorunApps do
