@@ -56,6 +56,17 @@ return {
 		{ 'Hoffs/omnisharp-extended-lsp.nvim' },
 		{ "adelarsq/neofsharp.vim" },
 	},
+	keys = {
+		{ "gd", function() vim.lsp.buf.definition() end },
+		{ "gt", function() vim.lsp.buf.type_definition() end },
+		-- { "ga", function () vim.lsp.buf.code_action() end },
+		-- { "<leader>e", function () vim.lsp.buf.diagnostic() end },
+		-- { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>" }, --
+		-- { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>" }, --
+		-- { "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>" },
+		-- { "K", function() vim.lsp.buf.hover() end}, --
+		-- { "gb", "<cmd>Lspsaga show_buf_diagnostics<CR>" }, --
+	},
 	config = function()
 		local lsp_zero = require('lsp-zero').preset({
 			name = 'minimal',
