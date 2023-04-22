@@ -53,16 +53,18 @@ return {
 		{ 'rafamadriz/friendly-snippets' },
 
 		{ 'nvim-lua/plenary.nvim' },
+		{ 'Hoffs/omnisharp-extended-lsp.nvim' },
+		{ "adelarsq/neofsharp.vim" },
 	},
 	config = function()
-		local lsp = require('lsp-zero').preset({
+		local lsp_zero = require('lsp-zero').preset({
 			name = 'minimal',
 			set_lsp_keymaps = true,
 			manage_nvim_cmp = true,
 			suggest_lsp_servers = true,
 		})
 
-		lsp.ensure_installed({
+		lsp_zero.ensure_installed({
 			"ansiblels",
 			"bashls",
 			"clangd",
@@ -73,6 +75,7 @@ return {
 			"docker_compose_language_service",
 			"dockerls",
 			"eslint",
+			"fsautocomplete",
 			"golangci_lint_ls",
 			"gopls",
 			"html",
@@ -81,8 +84,8 @@ return {
 			"lemminx",
 			"lua_ls",
 			"marksman",
+			"omnisharp",
 			"pyright",
-			-- "rnix",
 			"rust_analyzer",
 			"sqlls",
 			"taplo",
@@ -90,14 +93,15 @@ return {
 			"tsserver",
 			"vimls",
 			"yamlls",
+			-- "rnix",
 		})
 
-		lsp.on_attach(on_attach)
+		lsp_zero.on_attach(on_attach)
 
 		-- TODO: see if this can be simplified
 		local ts_capabilities = vim.lsp.protocol.make_client_capabilities()
 		ts_capabilities.textDocument.completion.completionItem.snippetSupport = true
-		lsp.configure('tsserver', {
+		lsp_zero.configure('tsserver', {
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.document_range_formatting = false
@@ -105,9 +109,22 @@ return {
 			capabilities = ts_capabilities,
 		})
 
-		local null_ls = require('null-ls')
-		local null_opts = lsp.build_options('null-ls', {})
+		local csharp_on_attach = function(client, bufnr)
+			client.server_capabilities.semanticTokensProvider = nil
+			on_attach(client, bufnr)
+		end
+		lsp_zero.configure('omnisharp', {
+			handlers = {
+				["textDocument/definition"] = require('omnisharp_extended').handler,
+			},
+			on_attach = csharp_on_attach,
+			cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+			enable_import_completion = true,
+			organize_imports_on_format = true,
+		})
 
+		local null_ls = require('null-ls')
+		local null_opts = lsp_zero.build_options('null-ls', {})
 		null_ls.setup({
 			on_attach = on_attach,
 			sources = {
@@ -127,20 +144,20 @@ return {
 		})
 
 		-- configure lua language server for neovim
-		lsp.nvim_workspace()
+		lsp_zero.nvim_workspace()
 
-		lsp.set_sign_icons({
+		lsp_zero.set_sign_icons({
 			error = "",
 			hint = "",
 			info = "",
 			warn = "",
 		})
 
-		lsp.setup()
+		lsp_zero.setup()
 
 		local cmp = require('cmp')
 		cmp.setup(
-			lsp.defaults.cmp_config({
+			lsp_zero.defaults.cmp_config({
 				window = {
 					completion    = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
