@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 source ~/.config/shell/commonrc
 
 HISTSIZE=100000
@@ -40,40 +41,52 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Basic auto/tab complete
-autoload -U compinit
+# # Basic auto/tab complete
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+# compinit -C
 _comp_options+=(globdots)
 
+# bootstrap antidote
+[[ ! -d ${ZDOTDIR:-~}/antidote ]] &&
+	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/antidote
+source ${ZDOTDIR:-~}/antidote/antidote.zsh
+antidote load
 
-# Download Znap, if it's not there yet.
-[[ -f ~/.config/zsh/plugins/zsh-snap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/plugins/zsh-snap
-source ~/.config/zsh/plugins/zsh-snap/znap.zsh
+# zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
+# [[ -f ${zsh_plugins:r}.txt ]] || touch ${zsh_plugins:r}.txt
+# fpath+=(${ZDOTDIR:-~}/antidote)
+# autoload -Uz $fpath[-1]/antidote
+# if [[ ! $zsh_plugins -nt ${zsh_plugins:r}.txt ]]; then
+#   (antidote bundle <${zsh_plugins:r}.txt >|$zsh_plugins)
+# fi
+# source $zsh_plugins
 
 # configuration for plugins
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 # zsh plugins
-znap source zsh-users/zsh-autosuggestions
-znap source zsh-users/zsh-syntax-highlighting
+# znap source zsh-users/zsh-autosuggestions
+# znap source zsh-users/zsh-syntax-highlighting
+# znap source jeffreytse/zsh-vi-mode
 # znap source spaceship-prompt/spaceship-vi-mode spaceship-vi-mode.plugin.zsh
 # znap source spaceship-prompt/spaceship-prompt spaceship.zsh
 
-# Use vim keys in tab complete menu
+# # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' down-line-or-history
 bindkey -M menuselect 'k' up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-# Use emacs next/prev bindings
-# TODO: make these cycle through the completion options, and act as 'Tab' does
-# TODO: prevent 'Tab' from cycling. It should just insert the unambiguous substring
+# # Use emacs next/prev bindings
+# # TODO: make these cycle through the completion options, and act as 'Tab' does
+# # TODO: prevent 'Tab' from cycling. It should just insert the unambiguous substring
 bindkey -M menuselect '^n' up-line-or-select
 bindkey -M menuselect '^p' down-line-or-select
 
@@ -86,3 +99,4 @@ eval "$(zoxide init zsh)"
 
 # znap eval starship 'starship init zsh --print-full-init'
 eval "$(starship init zsh)"
+# zprof
