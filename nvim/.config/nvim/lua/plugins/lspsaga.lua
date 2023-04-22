@@ -8,7 +8,7 @@ return {
 	cmd = "LspSaga",
 	keys = {
 		-- { "<leader><leader>o", "<cmd>Lspsaga outline<CR>" },
-		{ "ga", "<cmd>Lspsaga code_action<CR>" },
+		-- { "ga", "<cmd>Lspsaga code_action<CR>" },
 		{ "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>" },
 		{ "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>" },
 		-- { "<leader>rn", "<cmd>Lspsaga rename<CR>" },
