@@ -18,9 +18,6 @@ require('lazy').setup('plugins', {
 	defaults = {
 		lazy = true,
 	},
-	install = {
-		missing = false,
-	},
 	ui = {
 		border = "rounded",
 	},
