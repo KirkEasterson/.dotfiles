@@ -82,7 +82,6 @@ return {
 		"lewis6991/gitsigns.nvim",
 		"folke/todo-comments.nvim",
 	},
-	enabled = function() return vim.fn.has('nvim-0.9') == 1 end,
 	event = 'VeryLazy',
 	config = function()
 		local builtin = require("statuscol.builtin")
