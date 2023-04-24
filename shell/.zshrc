@@ -1,6 +1,12 @@
 # zmodload zsh/zprof
 source ~/.config/shell/commonrc
 
+# ensure history file exists
+if [[ ! -a "$HOME/.cache/zsh/history" ]]; then
+	mkdir -p "$HOME/.cache/zsh" >/dev/null 2>&1
+	touch "$HOME/.cache/zsh/history"
+fi
+
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.cache/zsh/history
