@@ -100,6 +100,7 @@ return {
 			"rust_analyzer",
 			"sqlls",
 			"taplo",
+			"terraformls",
 			"texlab",
 			"tsserver",
 			"vimls",
