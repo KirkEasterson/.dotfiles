@@ -12,14 +12,15 @@ local on_attach = function(client, bufnr)
 	if client.server_capabilities == nil then
 		client.server_capabilities = vim.lsp.protocol.make_client_capabilities()
 	end
+	local capabilities = client.server_capabilities
 
-	-- for ufo folding
-	capabilities.textDocument = {
-		foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		},
-	}
+	-- -- for ufo folding
+	-- capabilities.textDocument = {
+	-- 	foldingRange = {
+	-- 		dynamicRegistration = false,
+	-- 		lineFoldingOnly = true,
+	-- 	},
+	-- }
 end
 
 return {
@@ -132,6 +133,14 @@ return {
 			cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
 			enable_import_completion = true,
 			organize_imports_on_format = true,
+		})
+
+		lsp_zero.configure('yamlls', {
+			settings = {
+				yaml = {
+					keyOrdering = false,
+				},
+			},
 		})
 
 		local null_ls = require('null-ls')
