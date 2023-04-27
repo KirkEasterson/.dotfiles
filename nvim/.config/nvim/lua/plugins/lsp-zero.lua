@@ -9,9 +9,8 @@ local on_attach = function(client, bufnr)
 		buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
 	end
 
-	local capabilities = client.server_capabilities
-	if capabilities == nil then
-		capabilities = vim.lsp.protocol.make_client_capabilities()
+	if client.server_capabilities == nil then
+		client.server_capabilities = vim.lsp.protocol.make_client_capabilities()
 	end
 
 	-- for ufo folding
