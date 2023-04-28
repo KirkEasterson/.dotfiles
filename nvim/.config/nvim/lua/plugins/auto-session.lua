@@ -1,5 +1,6 @@
 return {
 	'rmagatti/auto-session',
+	commit = "63984ed9c0fb7eae61eb1c2982bc1147e202d23e", -- temp fix until telescope fix is merged
 	cmd = {
 		"Autosession",
 		"DeleteSession",
