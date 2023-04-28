@@ -58,6 +58,9 @@ zmodload zsh/complist
 compinit -C
 _comp_options+=(globdots)
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
 # bootstrap antidote
 [[ ! -d ${XDG_CONFIG_HOME:-~}/zsh/antidote ]] &&
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${XDG_CONFIG_HOME:-~}/zsh/antidote

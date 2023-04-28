@@ -17,6 +17,8 @@ bind -m vi-insert 'Control-l: clear-screen'
 # Ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
+complete -C /usr/bin/terraform terraform
+
 # init zoxide
 eval "$(zoxide init bash)"
 
