@@ -47,7 +47,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# # Basic auto/tab complete
+# Basic auto/tab complete
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
