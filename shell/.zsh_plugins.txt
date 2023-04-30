@@ -1,5 +1,3 @@
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
-# jeffreytse/zsh-vi-mode
-# spaceship-prompt/spaceship-vi-mode spaceship-vi-mode.plugin.zsh
-# spaceship-prompt/spaceship-prompt spaceship.zsh
+zdharma-continuum/fast-syntax-highlighting
+jeffreytse/zsh-vi-mode
