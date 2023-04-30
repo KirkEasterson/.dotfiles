@@ -1,4 +1,4 @@
-# zmodload zsh/zprof
+# zmodload zsh/zprof # uncomment for profiling
 source ~/.config/shell/commonrc
 
 # ensure history file exists
@@ -101,4 +101,4 @@ eval "$(zoxide init zsh)"
 
 # znap eval starship 'starship init zsh --print-full-init'
 eval "$(starship init zsh)"
-# zprof
+# zprof # uncomment for profiling
