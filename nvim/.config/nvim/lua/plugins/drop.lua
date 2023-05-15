@@ -29,6 +29,7 @@ return {
 	event = "VimEnter",
 	opts = {
 		theme = month_themes[os.date("*t").month],
-		screensaver = 1000 * 60 * 10, -- show after 10 minutes
+		-- screensaver = 1000 * 60 * 10, -- show after 10 minutes
+		screensaver = false,
 	},
 }
