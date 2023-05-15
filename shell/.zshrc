@@ -38,9 +38,10 @@ antidote load
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
-# Like my nvim binding
-bindkey '^Y' autosuggest-accept
-bindkey -M menuselect -r '\t'
+function zvm_after_init() {
+  # Like my nvim binding
+  zvm_bindkey viins '^Y' autosuggest-accept
+}
 
 # init zoxide
 eval "$(zoxide init zsh)"
