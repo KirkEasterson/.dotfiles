@@ -90,9 +90,9 @@
 		// "format-critical": "{temperatureC}°C {icon}",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": [
-			"",
+			"󰉬",
 			"",
-			""
+			"󰉪"
 		]
 	},
 	"backlight": {
@@ -146,8 +146,8 @@
 		"tooltip-format": "{volume}%",
 		"format-icons": {
 			"headphone": "",
-			"hands-free": "",
-			"headset": "",
+			"hands-free": "󰂑",
+			"headset": "󰂑",
 			"phone": "",
 			"portable": "",
 			"car": "",
