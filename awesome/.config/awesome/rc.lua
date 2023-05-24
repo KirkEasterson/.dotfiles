@@ -284,7 +284,7 @@ awful.screen.connect_for_each_screen(function(s)
 			separator,
 			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t"]], 60), -- weather
 			separator,
-			wibox.widget.textbox(' '),
+			wibox.widget.textbox('󰌓 '),
 			mykeyboardlayout,
 			separator,
 			wibox.widget.textbox(' '),
@@ -293,7 +293,7 @@ awful.screen.connect_for_each_screen(function(s)
 			wibox.widget.textbox('  '),
 			awful.widget.watch([[bash -c "echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%""]], 1), -- CPU usage
 			separator,
-			wibox.widget.textbox(' '),
+			wibox.widget.textbox('󰍛 '),
 			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
 			separator,
 			-- wibox.widget.textbox('  '),
