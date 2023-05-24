@@ -811,7 +811,7 @@ xplr.config.node_types.extension = {}
 --
 -- ```lua
 -- xplr.config.node_types.special["Cargo.toml"] = { meta = { icon = "" } }
--- xplr.config.node_types.special["Downloads"] = { meta = { icon = "" }, style = { fg = "Blue" } }
+-- xplr.config.node_types.special["Downloads"] = { meta = { icon = "󰉍" }, style = { fg = "Blue" } }
 -- ```
 xplr.config.node_types.special = {}
 
