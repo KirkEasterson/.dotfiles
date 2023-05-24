@@ -96,3 +96,6 @@ alias pupg="sudo pacman -Syyu"
 
 # mkdir create parent directories
 alias mkdir="mkdir -pv"
+
+# less characters to type 'terraform'
+alias tf="terraform"
