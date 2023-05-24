@@ -299,11 +299,11 @@ return {
 		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("f", "  > Find file", ":FzfLua files<CR>"),
+			dashboard.button("f", "󰈞  > Find file", ":FzfLua files<CR>"),
 			dashboard.button("o", "  > Recent", ":FzfLua oldfiles<CR>"),
 			dashboard.button("r", "󰦛  > Restore session", ":RestoreSession<CR>"),
 			dashboard.button("t", "  > File tree", ":NvimTreeOpen<CR>"),
-			dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+			dashboard.button("q", "󰅚  > Quit NVIM", ":qa<CR>"),
 		}
 
 		local fortune = require("alpha.fortune")

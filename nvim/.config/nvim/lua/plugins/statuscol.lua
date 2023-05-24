@@ -10,11 +10,11 @@ local gitsigns_hl_pool = {
 }
 
 local diag_signs_icons = {
-	DiagnosticSignError = " ",
+	DiagnosticSignError = "󰅘 ",
 	DiagnosticSignWarn  = " ",
-	DiagnosticSignInfo  = " ",
-	DiagnosticSignHint  = " ",
-	DiagnosticSignOk    = " ",
+	DiagnosticSignInfo  = "󰋽 ",
+	DiagnosticSignHint  = "󰌶 ",
+	DiagnosticSignOk    = "󰄬 ",
 }
 
 local function get_sign_name(cur_sign)

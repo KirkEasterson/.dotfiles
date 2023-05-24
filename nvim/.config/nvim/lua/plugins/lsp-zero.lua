@@ -167,8 +167,8 @@ return {
 		lsp_zero.nvim_workspace()
 
 		lsp_zero.set_sign_icons({
-			error = "",
-			hint = "",
+			error = "󰅘",
+			hint = "󰌶",
 			info = "",
 			warn = "",
 		})
