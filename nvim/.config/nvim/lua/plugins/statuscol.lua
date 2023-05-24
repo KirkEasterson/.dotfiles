@@ -81,6 +81,7 @@ return {
 	dependencies = {
 		"lewis6991/gitsigns.nvim",
 		"folke/todo-comments.nvim",
+		-- 'kevinhwang91/nvim-ufo',
 	},
 	event = 'VeryLazy',
 	config = function()
@@ -89,7 +90,8 @@ return {
 			setopt = true,
 			relculright = true,
 			segments = {
-				{ -- diagnsotics
+				{
+					-- diagnsotics
 					text = {
 						function()
 							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
@@ -97,12 +99,14 @@ return {
 					},
 					condition = { true },
 				},
-				{ -- line numbers
+				{
+					-- line numbers
 					text = { builtin.lnumfunc },
 					condition = { true },
 					click = "v:lua.ScLa",
 				},
-				{ -- git signs
+				{
+					-- git signs
 					text = {
 						function()
 							return get_statuscol_gitsign(vim.fn.bufnr(), vim.v.lnum)
@@ -110,11 +114,11 @@ return {
 					},
 					condition = { true },
 				},
-				{ -- fold
-					text = { builtin.foldfunc },
-					condition = { true },
-					click = "v:lua.ScFa",
-				},
+				-- { -- fold
+				-- 	text = { builtin.foldfunc },
+				-- 	condition = { true },
+				-- 	click = "v:lua.ScFa",
+				-- },
 			},
 		})
 	end
