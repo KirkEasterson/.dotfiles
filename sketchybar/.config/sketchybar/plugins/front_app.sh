@@ -20,7 +20,7 @@ case $INFO in
     ICON=
     ;;
   "Discord")
-    ICON=ﭮ
+    ICON=󰙯
     ;;
   "1Password")
     ICON=󰢁
@@ -29,7 +29,7 @@ case $INFO in
     ICON=
     ;;
   "Finder")
-    ICON=
+    ICON=󰀶
     ;;
   "Firefox")
     ICON=󰈹
@@ -41,10 +41,10 @@ case $INFO in
     ICON=󰒱
     ;;
   "Messages")
-    ICON=
+    ICON=󰍡
     ;;
   "Notion")
-    ICON=
+    ICON=󰂺
     ;;
   "PS Remote Play")
     ICON=
@@ -59,7 +59,7 @@ case $INFO in
     ICON=󰨞
     ;;
   *)
-    ICON=﯂
+    ICON=󰛄
     ;;
 esac
 
