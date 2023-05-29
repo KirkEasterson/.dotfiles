@@ -1,5 +1,6 @@
 return {
 	'ibhagwan/fzf-lua',
+	enabled = false,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
 	},
@@ -32,7 +33,8 @@ return {
 	},
 	opts = {
 		grep = {
-			rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --max-depth=99 --hidden",
+			rg_opts =
+			"--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --max-depth=99 --hidden",
 		},
 		oldfiles = {
 			cwd_only = true,

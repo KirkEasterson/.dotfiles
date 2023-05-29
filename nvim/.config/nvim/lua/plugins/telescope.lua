@@ -1,9 +1,9 @@
 return {
 	'nvim-telescope/telescope.nvim',
-	enabled = false,
 	dependencies = {
 		'nvim-lua/plenary.nvim',
-		'nvim-telescope/telescope-fzy-native.nvim',
+		-- 'nvim-telescope/telescope-fzy-native.nvim',
+		'nvim-telescope/telescope-fzf-native.nvim',
 		"folke/trouble.nvim",
 		"rcarriga/nvim-notify",
 	},
@@ -98,8 +98,9 @@ return {
 			command = "setlocal number"
 		})
 
-		telescope.load_extension("fzy_native")
-		telescope.load_extension("notify")
+		-- telescope.load_extension("fzy_native")
+		telescope.load_extension("fzf")
+		-- telescope.load_extension("notify")
 	end,
 	keys = {
 		-- telescope file helpers
