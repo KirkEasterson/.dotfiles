@@ -1,4 +1,4 @@
-vim.g.mapleader = ' ' -- prefix key
+vim.g.mapleader = ' '      -- prefix key
 vim.g.maplocalleader = ' ' -- secondary prefix key
 
 vim.opt.title = true
@@ -6,32 +6,32 @@ vim.opt.title = true
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
 
-vim.opt.updatetime = 750 -- fast updates
-vim.opt.number = true -- show line numbers
+vim.opt.updatetime = 750      -- fast updates
+vim.opt.number = true         -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
-vim.opt.cursorline = true -- highlight the current line
-vim.opt.termguicolors = true -- allow custom highlighting
-vim.opt.incsearch = true -- highlight matches as you type
-vim.opt.hlsearch = false -- unhighlight matches after searching
-vim.opt.autoindent = true -- new lines inherit indenting
-vim.opt.wrap = false -- don't wrap lines
-vim.opt.linebreak = true -- if wrapping, wrap on complete words
-vim.opt.breakindent = true -- preserve indenting on wrapped lines
+vim.opt.cursorline = true     -- highlight the current line
+vim.opt.termguicolors = true  -- allow custom highlighting
+vim.opt.incsearch = true      -- highlight matches as you type
+vim.opt.hlsearch = false      -- unhighlight matches after searching
+vim.opt.autoindent = true     -- new lines inherit indenting
+vim.opt.wrap = false          -- don't wrap lines
+vim.opt.linebreak = true      -- if wrapping, wrap on complete words
+vim.opt.breakindent = true    -- preserve indenting on wrapped lines
 
 vim.opt.visualbell = true
 
-vim.opt.syntax = 'enable' -- show syntax highlighting
-vim.opt.showmatch = true -- highlight matching brackets
-vim.opt.scrolloff = 4 -- scroll when y away from vertical edge
-vim.opt.sidescrolloff = 8 -- scroll when x away from horizontal edge
+vim.opt.syntax = 'enable'  -- show syntax highlighting
+vim.opt.showmatch = true   -- highlight matching brackets
+vim.opt.scrolloff = 4      -- scroll when y away from vertical edge
+vim.opt.sidescrolloff = 8  -- scroll when x away from horizontal edge
 vim.opt.signcolumn = 'yes' -- column for linting
 vim.opt.colorcolumn = '80' -- show line for 80char soft-limit
 
-vim.opt.tabstop = 4 -- number of visual spaces per tab
-vim.opt.softtabstop = 4 -- number of spaces in tab when editing
-vim.opt.shiftwidth = 4 -- number of spaces when indenting with <>
+vim.opt.tabstop = 4        -- number of visual spaces per tab
+vim.opt.softtabstop = 4    -- number of spaces in tab when editing
+vim.opt.shiftwidth = 4     -- number of spaces when indenting with <>
 
-vim.opt.mouse = 'a' -- enable mouse for scrolling and resizing
+vim.opt.mouse = 'a'        -- enable mouse for scrolling and resizing
 vim.opt.mousemodel = 'extend'
 vim.opt.mousehide = true
 vim.opt.mousemoveevent = true
@@ -58,21 +58,21 @@ vim.opt.fillchars:append({
 })
 
 vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 
-vim.opt.swapfile = false -- don't create swap files
+vim.opt.swapfile = false  -- don't create swap files
 
 vim.opt.splitright = true --  splits open to the right
 vim.opt.splitbelow = true --  splits open below
 
-vim.opt.cmdheight = 0 -- hide the command line
+vim.opt.cmdheight = 0     -- hide the command line
 
-vim.opt.confirm = true -- show confirm dialog when closing unsaved files
+vim.opt.confirm = true    -- show confirm dialog when closing unsaved files
 
-vim.opt.laststatus = 3 -- aesthetic win separators
+vim.opt.laststatus = 3    -- aesthetic win separators
 
 -- vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
