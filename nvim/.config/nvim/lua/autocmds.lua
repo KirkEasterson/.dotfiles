@@ -1,8 +1,23 @@
+local function map(mode, lhs, rhs, opts)
+	local options = { noremap = true, buffer = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
+end
+
 -- enable wrapping in specific files
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "markdown", "tex", "text" },
 	callback = function()
 		vim.opt_local.wrap = true
+
+		-- easier undos
+		map('i', ',', ',<c-g>u')
+		map('i', '.', '.<c-g>u')
+		map('i', '[', '[<c-g>u')
+		map('i', '!', '!<c-g>u')
+		map('i', '?', '?<c-g>u')
 	end,
 })
 
