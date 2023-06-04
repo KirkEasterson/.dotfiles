@@ -16,6 +16,9 @@ export KEYTIMEOUT=1
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
+# opam configuration
+[[ ! -r /home/kirk/.opam/opam-init/init.zsh ]] || source /home/kirk/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 # Basic auto/tab complete
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
