@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require('options')
+require('mappings')
+require('autocmds')
+
 require('lazy').setup('plugins', {
 	defaults = {
 		lazy = true,
@@ -40,6 +43,3 @@ require('lazy').setup('plugins', {
 		},
 	},
 })
-
-require('mappings')
-require('autocmds')
