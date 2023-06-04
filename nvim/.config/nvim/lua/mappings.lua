@@ -6,6 +6,10 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- -- convenient buffer switching
+-- map('n', '<Tab>', ':bnext')
+-- map('n', '<S-Tab>', ':bprev')
+
 -- QOL mapping to type commands without needing shift
 map('n', ';', ':')
 map('n', ':', ';')
@@ -15,6 +19,8 @@ map('v', ':', ';')
 -- center the cursor on movements
 map('n', '<C-i>', '<C-i>zz')
 map('n', '<C-o>', '<C-o>zz')
+map('n', '<C-u>', '<C-u>zz')
+map('n', '<C-d>', '<C-d>zz')
 map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 
@@ -40,9 +46,13 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 
+map('n', 'U', '<C-r>')
 
-map('n', 'Y', 'y$') -- Y to behave like other capitals
+-- easier yanking/pasting
+map('v', 'y', 'ygv<ESC>')     -- keep cursor in same spot when yanking
+map('n', 'Y', 'y$')           -- Y to behave like other capitals
+map('n', 'p', 'p=`]')         -- paste with formatting
+map('n', 'P', 'P=`]')         -- paste with formatting
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
-map('n', 'U', '<C-r>') -- easier redo
 
 -- TODO: look into mappings for function and shift+function keys
