@@ -14,6 +14,12 @@ return {
 		},
 	},
 	opts = {
+		disable_signs = false,
+		disable_hint = true,
+		disable_commit_confirmation = true,
+		disable_insert_on_commit = false,
+		auto_refresh = true,
+		use_per_project_settings = false,
 		kind = 'split',
 		signs = {
 			-- { CLOSED, OPENED }
