@@ -1,0 +1,19 @@
+[DetailsMode]
+HighlightEntireRow=false
+SidePadding=0
+
+[General]
+SortingChoice=CaseSensitiveSorting
+Version=202
+ViewPropsTimestamp=2023,6,7,7,59,25.608
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail

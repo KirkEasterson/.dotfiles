@@ -15,6 +15,8 @@ export FILEMANAGER=pcmanfm
 export EDITOR=nvim
 export VISUAL=nvim
 
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
