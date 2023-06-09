@@ -642,7 +642,10 @@ client.connect_signal("manage", function(c)
 end)
 
 -- automatically jump to tag with urgent window
-client.connect_signal("property::urgent", function(c) c:jump_to() end)
+client.connect_signal("property::urgent", function(c)
+	c.minimized = false
+	c:jump_to()
+end)
 
 -- hacky way to determine if it was a double click
 local double_click_timer = nil
