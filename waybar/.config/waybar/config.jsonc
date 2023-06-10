@@ -6,8 +6,8 @@
 	"spacing": 4, // Gaps between modules (4px)
 	// Choose the order of the modules
 	"modules-left": [
-		"custom/linux",
-		"custom/separator",
+		// "custom/linux",
+		// "custom/separator",
 		"wlr/workspaces",
 		"sway/workspaces",
 		"custom/separator",
@@ -164,11 +164,11 @@
 		},
 		"on-click": "pavucontrol"
 	},
-	"custom/linux": {
-		"format": "󰌽",
-		"interval": "once",
-		"tooltip": false
-	},
+	// "custom/linux": {
+	// 	"format": "󰌽",
+	// 	"interval": "once",
+	// 	"tooltip": false
+	// },
 	"custom/separator": {
 		"format": "│",
 		"interval": "once",
