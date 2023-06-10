@@ -14,8 +14,6 @@ return {
 		"Ggrep",
 		"Ghdiffsplit",
 		"Git",
-		"Git_--paginate",
-		"Git_blame",
 		"Gread",
 		"Gsplit",
 		"Gvdiffsplit",
