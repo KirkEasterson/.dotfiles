@@ -9,6 +9,7 @@
 		"custom/linux",
 		"custom/separator",
 		"wlr/workspaces",
+		"sway/workspaces",
 		"custom/separator",
 		"hyprland/window"
 		// "custom/media"
@@ -35,6 +36,10 @@
 	"wlr/workspaces": {
 		"format": "{name}",
 		"on-click": "activate"
+	},
+	"sway/workspaces": {
+		"format": "{name}",
+		"disable-scroll": true
 	},
 	"hyprland/window": {
 		"separate-outputs": true
