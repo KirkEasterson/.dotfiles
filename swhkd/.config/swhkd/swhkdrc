@@ -12,11 +12,11 @@ super + {_,shift +} e
 
 # screen locker
 super + ctrl + q
-	light-locker-command -l
+	swaylock -f -c 000000
 
 # program launcher
 super + space
-	rofi -show drun
+	wofi
 
 # media keys
 XF86Audio{Raise,Lower}Volume
