@@ -11,12 +11,14 @@
 		"wlr/workspaces",
 		"sway/workspaces",
 		"custom/separator",
-		"hyprland/window"
+		"hyprland/window",
+		"sway/window"
 		// "custom/media"
 	],
 	"modules-right": [
 		// "mpd",
 		"tray",
+		"sway/language",
 		"custom/separator",
 		"temperature",
 		"custom/separator",
@@ -43,6 +45,9 @@
 	},
 	"hyprland/window": {
 		"separate-outputs": true
+	},
+	"sway/window": {
+		"icon": true
 	},
 	"mpd": {
 		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -73,6 +78,9 @@
 	"tray": {
 		// "icon-size": 21,
 		"spacing": 10
+	},
+	"sway/language": {
+		"format": "󰌓 {short}"
 	},
 	"clock": {
 		// "timezone": "America/New_York",
