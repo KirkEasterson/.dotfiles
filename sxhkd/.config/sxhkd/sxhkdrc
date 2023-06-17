@@ -20,7 +20,7 @@ super + space
 
 # media keys
 XF86Audio{Raise,Lower}Volume
-	pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86AudioMicMute
