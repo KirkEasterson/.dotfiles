@@ -242,5 +242,7 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 exec_always ~/.config/waybar/waybar.sh
+# exec_always swhks
+# exec_always pkexec swhkd
 
 include @sysconfdir@/sway/config.d/*
