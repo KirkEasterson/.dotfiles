@@ -14,9 +14,6 @@ output * bg $background fill
 
 font pango:Ubuntu Nerd Font 12
 
-### DISPLAY SETTINGS
-output eDP-1 scale 1.25
-
 # clamshell mode
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
