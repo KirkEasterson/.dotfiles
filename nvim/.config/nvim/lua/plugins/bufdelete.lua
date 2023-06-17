@@ -5,7 +5,7 @@ return {
 		"Bwipeout",
 	},
 	keys = {
-		{ '<C-w>', function() require('bufdelete').bufdelete(0, true) end }
+		{ '<C-w>', function() require('bufdelete').bufdelete(0, false) end }
 	},
 	config = false,
 }
