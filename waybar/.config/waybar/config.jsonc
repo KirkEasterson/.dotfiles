@@ -18,6 +18,7 @@
 	"modules-right": [
 		// "mpd",
 		"tray",
+		"custom/separator",
 		"sway/language",
 		"custom/separator",
 		"temperature",
@@ -47,7 +48,7 @@
 		"separate-outputs": true
 	},
 	"sway/window": {
-		"icon": true
+		"icon": false
 	},
 	"mpd": {
 		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
