@@ -1,6 +1,5 @@
 return {
 	'kdheepak/lazygit.nvim',
-	enabled = false,
 	cmd = {
 		"LazyGit",
 		"LazyGitCurrentFile",
@@ -9,6 +8,6 @@ return {
 		"LazyGitConfig",
 	},
 	keys = {
-		{ "<leader>gg", function() require('lazygit').lazygit() end },
+		{ "<leader>lg", function() require('lazygit').lazygit() end },
 	},
 }
