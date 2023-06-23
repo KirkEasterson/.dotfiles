@@ -54,9 +54,11 @@ local scratch = require("awesome-scratch.scratch")
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-	naughty.notify({ preset = naughty.config.presets.critical,
+	naughty.notify({
+		preset = naughty.config.presets.critical,
 		title = "Oops, there were errors during startup!",
-		text = awesome.startup_errors })
+		text = awesome.startup_errors
+	})
 end
 
 -- Handle runtime errors after startup
@@ -67,9 +69,11 @@ do
 		if in_error then return end
 		in_error = true
 
-		naughty.notify({ preset = naughty.config.presets.critical,
+		naughty.notify({
+			preset = naughty.config.presets.critical,
 			title = "Oops, an error happened!",
-			text = tostring(err) })
+			text = tostring(err)
+		})
 		in_error = false
 	end)
 end
@@ -115,17 +119,17 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-	{ "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-	{ "manual", terminal .. " -e man awesome" },
+	{ "hotkeys",     function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+	{ "manual",      terminal .. " -e man awesome" },
 	{ "edit config", editor_cmd .. " " .. awesome.conffile },
-	{ "restart", awesome.restart },
+	{ "restart",     awesome.restart },
 }
 
 mypoweroptsmenu = {
-	{ "log out", function() awesome.quit() end },
-	{ "lock", function() awful.spawn.with_shell('light-locker-command -l') end },
-	{ "reboot", function() awful.spawn.with_shell("reboot") end },
-	{ "suspend", function() awful.spawn.with_shell("systemctl suspend") end },
+	{ "log out",  function() awesome.quit() end },
+	{ "lock",     function() awful.spawn.with_shell('light-locker-command -l') end },
+	{ "reboot",   function() awful.spawn.with_shell("reboot") end },
+	{ "suspend",  function() awful.spawn.with_shell("systemctl suspend") end },
 	{ "poweroff", function() awful.spawn.with_shell("shutdown now") end },
 
 }
@@ -269,7 +273,8 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Add widgets to the wibox
 	s.mywibox:setup {
 		layout = wibox.layout.align.horizontal,
-		{ -- Left widgets
+		{
+			-- Left widgets
 			layout = wibox.layout.fixed.horizontal,
 			mylauncher,
 			separator,
@@ -278,7 +283,8 @@ awful.screen.connect_for_each_screen(function(s)
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
-		{ -- Right widgets
+		{
+			-- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(true),
 			separator,
@@ -302,7 +308,6 @@ awful.screen.connect_for_each_screen(function(s)
 			s.mylayoutbox,
 		},
 	}
-
 end)
 -- }}}
 
@@ -318,59 +323,46 @@ globalkeys = gears.table.join(
 -- focus window
 	awful.key({ modkey, }, "h", function() awful.client.focus.global_bydirection("left") end,
 		{ description = "focus window to the left", group = "client" }),
-
 	awful.key({ modkey, }, "j", function() awful.client.focus.global_bydirection("down") end,
 		{ description = "focus window below", group = "client" }),
-
 	awful.key({ modkey, }, "k", function() awful.client.focus.global_bydirection("up") end,
 		{ description = "focus window above", group = "client" }),
-
 	awful.key({ modkey, }, "l", function() awful.client.focus.global_bydirection("right") end,
 		{ description = "focus window to the right", group = "client" }),
 
 	-- swap window
 	awful.key({ modkey, "Shift" }, "h", function() awful.client.swap.global_bydirection("left") end,
 		{ description = "swap with window to the left", group = "client" }),
-
 	awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.global_bydirection("down") end,
 		{ description = "swap with window below", group = "client" }),
-
 	awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.global_bydirection("up") end,
 		{ description = "swap with window above", group = "client" }),
-
 	awful.key({ modkey, "Shift" }, "l", function() awful.client.swap.global_bydirection("right") end,
 		{ description = "swap with window to the right", group = "client" }),
 
 	-- resize window
 	awful.key({ modkey, altkey }, "h", function() awful.tag.incmwfact(-0.01) end,
 		{ description = "move left window border left", group = "client" }),
-
 	awful.key({ modkey, altkey }, "j", function() awful.client.incwfact(-0.05) end,
 		{ description = "move bottom window border down", group = "client" }),
-
 	awful.key({ modkey, altkey }, "k", function() awful.client.incwfact(0.05) end,
 		{ description = "move top window border up", group = "client" }),
-
 	awful.key({ modkey, altkey }, "l", function() awful.tag.incmwfact(0.01) end,
 		{ description = "move right window border right", group = "client" }),
 
 	-- focus screen
 	awful.key({ modkey, "Control" }, "h", function() awful.screen.focus_bydirection("left") end,
 		{ description = "focus window to the left", group = "client" }),
-
 	awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_bydirection("down") end,
 		{ description = "focus window below", group = "client" }),
-
 	awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_bydirection("up") end,
 		{ description = "focus window above", group = "client" }),
-
 	awful.key({ modkey, "Control" }, "l", function() awful.screen.focus_bydirection("right") end,
 		{ description = "focus window to the right", group = "client" }),
 
 	-- page through tags
 	awful.key({ modkey }, "Tab", function() awful.tag.viewnext() end,
 		{ description = "focus next tag", group = "tags" }),
-
 	awful.key({ modkey, "Shift" }, "Tab", function() awful.tag.viewprev() end,
 		{ description = "focus previous tag", group = "tags" }),
 
@@ -382,14 +374,16 @@ globalkeys = gears.table.join(
 	-- scratchpads
 	-- TODO: find out how to make tmux script work
 	awful.key({ modkey, }, "p",
-		function() scratch.toggle(terminal_secondary ..
+		function()
+			scratch.toggle(terminal_secondary ..
 				" --class scratch-main -t scratch-main -e tmux a -t scratchpad; select-window -t main"
 				, { instance = "scratch-main" }, true)
 		end,
 		{ description = "open scratch terminal", group = "kirk" }),
 
 	awful.key({ modkey, }, "c",
-		function() scratch.toggle(terminal_secondary ..
+		function()
+			scratch.toggle(terminal_secondary ..
 				" --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator"
 				, { instance = "scratch-py" }, true)
 		end,
@@ -407,13 +401,10 @@ clientkeys = gears.table.join(
 
 	awful.key({ modkey, }, "q", function(c) c:kill() end,
 		{ description = "close", group = "client" }),
-
 	awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
 		{ description = "toggle floating", group = "client" }),
-
 	awful.key({ modkey, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
 		{ description = "move to master", group = "client" }),
-
 	awful.key({ modkey, }, "s", function(c) c.sticky = not c.sticky end,
 		{ description = "toggle keep on top", group = "client" }),
 
@@ -586,21 +577,29 @@ awful.rules.rules = {
 
 	-- TODO: remove titlebar from scratch windows
 	-- Add titlebars to normal clients and dialogs
-	{ rule_any = { type = { "normal", "dialog" }
-	}, properties = { titlebars_enabled = true }
+	{
+		rule_any = { type = { "normal", "dialog" }
+		},
+		properties = { titlebars_enabled = true }
 	},
 
-	{ rule = {}, except = { instance = "cairo-dock" },
-		properties = { border_width = beautiful.border_width,
+	{
+		rule = {},
+		except = { instance = "cairo-dock" },
+		properties = {
+			border_width = beautiful.border_width,
 			border_color = beautiful.border_normal,
 			focus = awful.client.focus.filter,
 			keys = clientkeys,
-			buttons = clientbuttons }
+			buttons = clientbuttons
+		}
 	},
-	{ rule = { class = "MPlayer" },
+	{
+		rule = { class = "MPlayer" },
 		properties = { floating = true }
 	},
-	{ rule = { instance = "cairo-dock" },
+	{
+		rule = { instance = "cairo-dock" },
 		--      type = "dock",
 		properties = {
 			floating = true,
@@ -609,10 +608,14 @@ awful.rules.rules = {
 		}
 	},
 
-	{ rule = { name = "cairo-dock" },
-		properties = { border_width = 0 } },
-	{ rule = { name = "cairo-dock-sub" },
-		properties = { border_width = 0 } },
+	{
+		rule = { name = "cairo-dock" },
+		properties = { border_width = 0 }
+	},
+	{
+		rule = { name = "cairo-dock-sub" },
+		properties = { border_width = 0 }
+	},
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
@@ -623,7 +626,6 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
-
 	-- Set the windows at the slave,
 	-- i.e. put it at the end of others instead of setting it master.
 	if not awesome.startup then awful.client.setslave(c) end
