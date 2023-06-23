@@ -14,7 +14,7 @@ return {
 	},
 	opts = {
 		sources = {
-			require("dbee.sources").FileSource:new(vim.fn.stdpath("cache") .. "/dbee/persistence.json"),
+			-- require("dbee.sources").FileSource:new(vim.fn.stdpath("cache") .. "/dbee/persistence.json"),
 		},
 	},
 }
