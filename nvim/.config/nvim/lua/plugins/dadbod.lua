@@ -1,9 +1,9 @@
 local conn_file = vim.fn.stdpath("cache") .. "/dbee/persistence.json"
 
 return {
-	"tpope/vim-dadbod",
+	"kristijanhusak/vim-dadbod-ui",
 	dependencies = {
-		"kristijanhusak/vim-dadbod-ui",
+		"tpope/vim-dadbod",
 		"kristijanhusak/vim-dadbod-completion",
 		'hrsh7th/nvim-cmp',
 	},
@@ -14,10 +14,11 @@ return {
 		"DBUILastQueryInfo",
 	},
 	keys = {
+		-- TODO: use this and find more keys needed
 		{ "<leader>db", function() vim.cmd('DBUIToggle') end },
 	},
 	config = function(_, opts)
-		-- vim.g.gruvbox_baby_transparent_mode = true
+		vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
 		vim.cmd([[
 		  autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni
 		  autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
