@@ -13,17 +13,6 @@ local month_themes = {
 	[12] = "xmas",
 }
 
--- local custom_theme = {
--- 	symbols = { "❄️ ", " ", "❅", "❇", "*", "." },
--- 	colors = {
--- 		"#c6fbff",
--- 		"#abf0ff",
--- 		"#99c4ce",
--- 		"#73999a",
--- 		"#628485",
--- 	},
--- }
-
 return {
 	"folke/drop.nvim",
 	event = "VimEnter",
