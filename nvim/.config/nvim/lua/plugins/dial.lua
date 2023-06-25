@@ -1,5 +1,9 @@
 return {
 	'monaqa/dial.nvim',
+	cmd = {
+		"DialIncrement",
+		"DialDecrement",
+	},
 	keys = {
 		-- TODO: figure out why the lua calls didn't work
 		{ "<C-a>", "<Cmd>DialIncrement<CR>", mode = { "n", "v" } },
