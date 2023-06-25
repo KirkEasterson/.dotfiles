@@ -162,14 +162,38 @@ return {
 			on_attach = on_attach,
 			sources = {
 				-- python
-				null_ls.builtins.diagnostics.pylint,
 				-- null_ls.builtins.code_actions.pyright, -- TODO: find code_actions for python
+				null_ls.builtins.diagnostics.pylint, -- TODO: experiment with ruff
 				null_ls.builtins.formatting.black,
 
 				-- js/ts
 				null_ls.builtins.diagnostics.eslint,
 				null_ls.builtins.code_actions.eslint,
 				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.code_actions.eslint,
+
+				-- styling
+				null_ls.builtins.diagnostics.stylelint,
+
+				-- proto buffs
+				null_ls.builtins.diagnostics.protoc_gen_lint,
+				null_ls.builtins.formatting.buf,
+
+				-- docker
+				null_ls.builtins.diagnostics.hadolint,
+
+				-- markdown
+				null_ls.builtins.diagnostics.markdownlint,
+				null_ls.builtins.formatting.markdownlint,
+
+				-- terraform
+				null_ls.builtins.diagnostics.terraform_validate,
+
+				-- general utility
+				null_ls.builtins.code_actions.refactoring,
+				null_ls.builtins.code_actions.proselint,
+				null_ls.builtins.diagnostics.commitlint,
+				null_ls.builtins.diagnostics.todo_comments,
 
 				-- golang
 				-- null_ls.builtins.formatting.gofumpt,
