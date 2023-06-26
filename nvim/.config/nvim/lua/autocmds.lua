@@ -50,7 +50,13 @@ vim.api.nvim_create_autocmd(
 
 -- change indenting for js/ts files
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+	pattern = {
+		'javascript',
+		'javascriptreact',
+		'typescript',
+		'typescriptreact',
+		'markdown',
+	},
 	callback = function()
 		vim.opt_local.expandtab = true
 		vim.opt_local.tabstop = 2
