@@ -48,8 +48,8 @@ return {
 			pattern = { 'norg' },
 			callback = function()
 				-- TODO: experiment to see if I don't need all modes
-				vim.opt.concealcursor = 'nvic'
-				vim.opt.conceallevel = 3
+				vim.opt_local.concealcursor = 'nvic'
+				vim.opt_local.conceallevel = 3
 			end,
 		})
 		require('neorg').setup(opts)
