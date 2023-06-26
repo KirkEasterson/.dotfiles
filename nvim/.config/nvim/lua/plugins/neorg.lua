@@ -12,6 +12,12 @@ return {
 	ft = {
 		"norg",
 	},
+	keys = {
+		{ "<leader>nd", "<Cmd>Neorg workspace notes<CR>" },
+		{ "<leader>nr", "<Cmd>Neorg return<CR>" },
+		{ "<leader>nt", "<Cmd>Neorg toggle-concealer<CR>" },
+		{ "<leader>nn", "<Cmd>Neorg keybind norg core.dirman.new.note<CR>" },
+	},
 	build = ":Neorg sync-parsers",
 	opts = {
 		load = {
