@@ -46,6 +46,12 @@ return {
 					default_workspace = "notes",
 				},
 			},
+			["core.qol.todo_items"] = {},
+			["core.qol.toc"] = {
+				config = {
+					close_after_use = true
+				},
+			},
 		},
 	},
 }
