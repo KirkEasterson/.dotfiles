@@ -42,16 +42,4 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		-- set conceal only for norg files
-		vim.api.nvim_create_autocmd({ "FileType" }, {
-			pattern = { 'norg' },
-			callback = function()
-				-- TODO: experiment to see if I don't need all modes
-				vim.opt_local.concealcursor = 'nvic'
-				vim.opt_local.conceallevel = 3
-			end,
-		})
-		require('neorg').setup(opts)
-	end
 }
