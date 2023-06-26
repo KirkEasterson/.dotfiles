@@ -1,5 +1,9 @@
 return {
 	'kamykn/spelunker.vim',
+	ft = {
+		"markdown",
+		"text",
+	},
 	event = "FileReadPost",
 	cmd = "SpelunkerAddAll",
 	config = function()
