@@ -3,7 +3,7 @@ vim.g.maplocalleader = ' ' -- secondary prefix key
 
 vim.opt.title = true
 
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = { 'en_us' }
 
 vim.opt.updatetime = 750      -- fast updates
