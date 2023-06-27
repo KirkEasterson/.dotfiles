@@ -312,7 +312,34 @@ return {
 		-- Send config to alpha
 		alpha.setup(dashboard.opts)
 
-		-- Disable folding on alpha buffer
-		vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
+		vim.api.nvim_create_autocmd({ "FileType" }, {
+			pattern = { 'alpha', },
+			callback = function()
+				vim.opt_local.foldenable = false
+			end,
+			desc = "Disable folding in Alpha",
+		})
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "AlphaReady",
+			callback = function()
+				vim.opt.cmdheight = 0
+				vim.opt.showtabline = 0
+				vim.opt.laststatus = 0
+
+				vim.api.nvim_create_autocmd(
+					"BufUnload",
+					{
+						pattern = "<buffer>",
+						callback = function()
+							vim.opt.cmdheight = 1
+							vim.opt.showtabline = 2
+							vim.opt.laststatus = 3
+						end,
+					}
+				)
+			end,
+			desc = "Disable Bufferline And Lualine in Alpha",
+		})
 	end,
 }
