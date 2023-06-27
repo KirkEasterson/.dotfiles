@@ -19,10 +19,24 @@ return {
 	},
 	config = function(_, opts)
 		vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
-		vim.cmd([[
-		  autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni
-		  autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
-		]])
+
+		vim.api.nvim_create_autocmd({ "FileType" }, {
+			pattern = { 'sql', },
+			callback = function()
+				vim.opt_local.omnifunc = 'vim_dadbod_completion#omni'
+			end,
+		})
+
+		vim.api.nvim_create_autocmd({ "FileType" }, {
+			pattern = { 'sql', 'mysql', 'plsql' },
+			callback = function()
+				require('cmp').setup.buffer({
+					sources = {
+						{ name = 'vim-dadbod-completion' },
+					}
+				})
+			end,
+		})
 	end,
 	opts = {},
 }
