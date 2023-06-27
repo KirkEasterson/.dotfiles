@@ -95,7 +95,9 @@ return {
 
 		vim.api.nvim_create_autocmd({ "User" }, {
 			pattern = "TelescopePreviewerLoaded",
-			command = "setlocal number"
+			callback = function()
+				vim.opt_local.number = true
+			end
 		})
 
 		-- telescope.load_extension("fzy_native")
