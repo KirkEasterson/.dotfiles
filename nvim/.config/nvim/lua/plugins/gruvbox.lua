@@ -13,6 +13,14 @@ return {
 				fg = require('gruvbox-baby.colors').config(opts).soft_yellow,
 				style = "italic",
 			},
+			["@text.underline"] = {
+				fg = require('gruvbox-baby.colors').config(opts).soft_yellow,
+				style = "underline",
+			},
+			["@text.strike"] = {
+				fg = require('gruvbox-baby.colors').config(opts).medium_gray,
+				style = "strikethrough",
+			},
 		}
 		vim.cmd [[colorscheme gruvbox-baby]]
 	end,
