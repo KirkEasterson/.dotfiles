@@ -15,7 +15,7 @@ return {
 	},
 	keys = {
 		-- TODO: use this and find more keys needed
-		{ "<leader>db", function() vim.cmd('DBUIToggle') end },
+		{ "<leader>db", '<Cmd>DBUIToggle<CR>' },
 	},
 	config = function(_, opts)
 		vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
