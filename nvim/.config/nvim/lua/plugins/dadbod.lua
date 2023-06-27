@@ -29,6 +29,7 @@ return {
 					}
 				})
 			end,
+			desc = 'Add completion for vim-dadbod'
 		})
 	end,
 	opts = {},
