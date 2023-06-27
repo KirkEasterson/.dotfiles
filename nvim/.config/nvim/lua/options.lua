@@ -47,7 +47,6 @@ vim.opt.listchars:append({
 	trail = '▒',
 	extends = '',
 	precedes = '',
-	tab = nil
 })
 vim.opt.fillchars:append({
 	eob = " ",
