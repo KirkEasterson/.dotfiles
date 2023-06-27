@@ -76,13 +76,6 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
 
-vim.diagnostic.config({
-	virtual_text = false,
-	float = {
-		border = "rounded",
-	}
-})
-
 if vim.g.neovide then
 	vim.o.guifont = "ComicCodeLigatures Nerd Font"
 	vim.g.neovide_refresh_rate = 120

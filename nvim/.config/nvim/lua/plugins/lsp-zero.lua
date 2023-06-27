@@ -68,6 +68,13 @@ return {
 		-- { "gb", "<cmd>Lspsaga show_buf_diagnostics<CR>" }, --
 	},
 	config = function()
+		vim.diagnostic.config({
+			virtual_text = false,
+			float = {
+				border = "rounded",
+			}
+		})
+
 		local lsp_zero = require('lsp-zero').preset({
 			name = 'minimal',
 			set_lsp_keymaps = true,
