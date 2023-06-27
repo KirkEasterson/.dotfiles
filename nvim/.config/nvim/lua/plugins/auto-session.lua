@@ -16,4 +16,8 @@ return {
 			"NvimTreeClose",
 		},
 	},
+	config = function(_, opts)
+		vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
+		require('auto-session').setup(opts)
+	end
 }

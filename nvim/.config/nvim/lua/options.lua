@@ -76,7 +76,6 @@ vim.opt.laststatus = 3    -- aesthetic win separators
 -- vim.opt.lazyredraw = true -- redraw only when needed
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
