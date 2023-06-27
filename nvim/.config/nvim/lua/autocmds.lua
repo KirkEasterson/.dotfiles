@@ -65,22 +65,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- set conceal only for norg files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { 'norg' },
-	callback = function()
-		vim.opt_local.concealcursor = 'nvic' -- TODO: experiment to see if I don't need all modes
-		vim.opt_local.conceallevel = 3
-
-		-- TODO: figure out why the indenting still happens
-		vim.opt_local.autoindent = false
-		vim.opt_local.smartindent = false
-		vim.opt_local.cindent = false
-		vim.opt_local.expandtab = false
-		vim.cmd [[filetype indent off]]
-	end,
-})
-
 -- -- set fsharp file types
 -- vim.api.nvim_create_autocmd(
 -- 	{ 'BufNewFile', 'BufRead' },
