@@ -82,6 +82,7 @@ vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
 
 vim.diagnostic.config({
+	virtual_text = false,
 	float = {
 		border = "rounded",
 	}
