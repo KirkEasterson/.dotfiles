@@ -42,8 +42,8 @@ vim.opt.wildmode = { 'longest', 'list', 'full' }
 
 vim.opt.list = true
 vim.opt.listchars:append({
-	lead = nil,
-	tab = nil,
+	lead = ' ',
+	tab = '  ',
 	trail = '▒',
 	extends = '',
 	precedes = '',
