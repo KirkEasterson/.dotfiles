@@ -101,7 +101,7 @@ return {
 			"eslint",
 			"fennel_language_server",
 			"fsautocomplete",
-			"golangci_lint_ls",
+			-- "golangci_lint_ls", -- TODO: figure out why this doesnt work
 			"gopls",
 			"gradle_ls",
 			"hls",
