@@ -16,6 +16,12 @@ local diag_signs_icons = {
 	DiagnosticSignHint  = "󰌶",
 	DiagnosticSignOk    = "󰄬",
 }
+
+local debug_signs_icons = {
+	DapBreakpoint          = "",
+	DapBreakpointCondition = "󰋗",
+	DapBreakpointRejected  = "󰅙",
+	DapLogPoint            = "󰛿",
 }
 
 local function get_sign_name(cur_sign)
@@ -77,6 +83,16 @@ local get_statuscol_diag = function(bufnum, lnum)
 	end
 end
 
+local get_statuscol_debug = function(bufnum, lnum)
+	local cur_sign_nm = get_name_from_group(bufnum, lnum, "dap_breakpoints")
+
+	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "Dap") then
+		return mk_hl(cur_sign_nm, debug_signs_icons[cur_sign_nm] .. " ")
+	else
+		return "  "
+	end
+end
+
 local filter_table = function(t, filterIter)
 	local out = {}
 	for k, v in pairs(t) do
@@ -119,6 +135,19 @@ return {
 						return next(filtered_table) ~= nil
 					end
 					},
+				},
+				{
+					-- dap
+					text = { function()
+						return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
+					end },
+					condition = { function()
+						local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
+							group = "dap_breakpoints",
+						})
+						return next(cur_sign_tbl[1].signs) ~= nil
+					end },
+					-- click = "v:lua.ScLa",
 				},
 				{
 					-- line numbers
