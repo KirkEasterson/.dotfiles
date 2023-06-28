@@ -22,9 +22,21 @@ return {
 			"node2",
 			"python",
 		},
+		handlers = {
+			function(config)
+				require('mason-nvim-dap').default_setup(config)
+			end,
+			python = function(config)
+				config.adapters = {
+					type = "executable",
+					command = "/usr/bin/python3",
+					args = {
+						"-m",
+						"debugpy.adapter",
+					},
+				}
+				require('mason-nvim-dap').default_setup(config) -- don't forget this!
+			end,
+		},
 	},
-	config = function(_, opts)
-		require('mason-nvim-dap').setup(opts)
-		require('mason-nvim-dap').setup_handlers()
-	end
 }
