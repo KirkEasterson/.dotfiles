@@ -10,11 +10,12 @@ local gitsigns_hl_pool = {
 }
 
 local diag_signs_icons = {
-	DiagnosticSignError = "󰅘 ",
-	DiagnosticSignWarn  = " ",
-	DiagnosticSignInfo  = "󰋽 ",
-	DiagnosticSignHint  = "󰌶 ",
-	DiagnosticSignOk    = "󰄬 ",
+	DiagnosticSignError = "󰅘",
+	DiagnosticSignWarn  = "",
+	DiagnosticSignInfo  = "󰋽",
+	DiagnosticSignHint  = "󰌶",
+	DiagnosticSignOk    = "󰄬",
+}
 }
 
 local function get_sign_name(cur_sign)
@@ -70,10 +71,20 @@ local get_statuscol_diag = function(bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "*")
 
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "DiagnosticSign") then
-		return mk_hl(cur_sign_nm, diag_signs_icons[cur_sign_nm])
+		return mk_hl(cur_sign_nm, diag_signs_icons[cur_sign_nm] .. " ")
 	else
-		return " "
+		return "  "
 	end
+end
+
+local filter_table = function(t, filterIter)
+	local out = {}
+	for k, v in pairs(t) do
+		if filterIter(v) then
+			table.insert(out, v)
+		end
+	end
+	return out
 end
 
 return {
@@ -91,13 +102,23 @@ return {
 			relculright = true,
 			segments = {
 				{
-					-- diagnsotics
+					-- diagnostics
 					text = {
 						function()
 							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
 						end
 					},
-					condition = { true },
+					condition = { function()
+						local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
+							group = "*",
+						})
+						local filtered_table = filter_table(cur_sign_tbl[1].signs, function(v)
+							print(v.name)
+							return string.find(v.name, "Diagnostic", 0, true)
+						end)
+						return next(filtered_table) ~= nil
+					end
+					},
 				},
 				{
 					-- line numbers
