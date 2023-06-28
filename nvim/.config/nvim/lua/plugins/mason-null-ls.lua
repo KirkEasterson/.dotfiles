@@ -4,6 +4,7 @@ return {
 		"williamboman/mason.nvim",
 		"jose-elias-alvarez/null-ls.nvim",
 	},
+	event = "VeryLazy",
 	opts = {
 		automatic_installation = true,
 		automatic_setup = true,
