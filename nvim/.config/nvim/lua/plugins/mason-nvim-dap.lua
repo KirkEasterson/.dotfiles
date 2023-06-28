@@ -4,6 +4,7 @@ return {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-dap",
 	},
+	event = "VeryLazy",
 	cmd = {
 		"DapInstall",
 		"DapUninstall",
@@ -12,11 +13,14 @@ return {
 		automatic_installation = true,
 		automatic_setup = true,
 		ensure_installed = {
-			"delve",
-			"python",
-			"node2",
-			"js",
 			"bash",
+			"delve",
+			"haskell",
+			"javadbg",
+			"js",
+			"kotlin",
+			"node2",
+			"python",
 		},
 	},
 	config = function(_, opts)
