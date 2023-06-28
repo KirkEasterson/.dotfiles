@@ -116,6 +116,15 @@ return {
 		require("statuscol").setup({
 			setopt = true,
 			relculright = true,
+			ft_ignore = {
+				"help",
+				"startify",
+				"dashboard",
+				"packer",
+				"neogitstatus",
+				"Trouble",
+				"Alpha",
+			},
 			segments = {
 				{
 					-- diagnostics
