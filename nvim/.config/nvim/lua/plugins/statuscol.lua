@@ -138,7 +138,6 @@ return {
 							group = "*",
 						})
 						local filtered_table = filter_table(cur_sign_tbl[1].signs, function(v)
-							print(v.name)
 							return string.find(v.name, "Diagnostic", 0, true)
 						end)
 						return next(filtered_table) ~= nil
