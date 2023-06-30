@@ -10,5 +10,10 @@ return {
 		{ "gc", mode = "v" },
 		{ "gb", mode = "v" },
 	},
-	opts = {},
+	opts = {
+		-- mappings = {
+		-- 	basic = false,
+		-- 	extra = false,
+		-- },
+	},
 }
