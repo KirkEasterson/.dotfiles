@@ -4,9 +4,34 @@ local global = vim.g
 global.mapleader = ' '      -- prefix key
 global.maplocalleader = ' ' -- secondary prefix key
 
-global.loaded_netrw = 1 -- disable netrw
-global.loaded_netrwPlugin = 1
+-- disable builtin plugins
+local builtin_plugins = {
+	"gzip",
+	"zip",
+	"zipPlugin",
+	"tar",
+	"tarPlugin",
 
+	"getscript",
+	"getscriptPlugin",
+	"vimball",
+	"vimballPlugin",
+	"2html_plugin",
+
+	"matchit",
+	"matchparen",
+	"logiPat",
+	"rrhelper",
+
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+}
+for _, v in pairs(builtin_plugins) do
+	global['loaded_' .. v] = true
+end
+
+-- neovide
 if global.neovide then
 	vim.o.guifont = "ComicCodeLigatures Nerd Font"
 	global.neovide_refresh_rate = 120
