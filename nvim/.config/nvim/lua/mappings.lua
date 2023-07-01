@@ -1,5 +1,5 @@
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
+	local options = { noremap = true, silent = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
@@ -29,9 +29,9 @@ map('n', '<X1Mouse>', '<C-o>')
 map('n', '<X2Mouse>', '<C-i>')
 
 -- faster save and quits
-map('n', '<leader>w', function() vim.cmd('w') end, { silent = true })
-map('n', '<leader>q', function() vim.cmd('q') end, { silent = true })
-map('n', '<leader>z', function() vim.cmd('qa') end, { silent = true })
+map('n', '<leader>w', function() vim.cmd('w') end)
+map('n', '<leader>q', function() vim.cmd('q') end)
+map('n', '<leader>z', function() vim.cmd('qa') end)
 
 -- easier jumps to line endings
 map('n', 'H', '^')
