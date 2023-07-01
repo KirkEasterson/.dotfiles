@@ -1,8 +1,8 @@
 local opt = vim.opt
-local global = vim.g
+local g = vim.g
 
-global.mapleader = ' '      -- prefix key
-global.maplocalleader = ' ' -- secondary prefix key
+g.mapleader = ' '      -- prefix key
+g.maplocalleader = ' ' -- secondary prefix key
 
 -- disable builtin plugins
 local builtin_plugins = {
@@ -28,15 +28,15 @@ local builtin_plugins = {
 	"netrwSettings",
 }
 for _, v in pairs(builtin_plugins) do
-	global['loaded_' .. v] = true
+	g['loaded_' .. v] = true
 end
 
 -- neovide
-if global.neovide then
+if g.neovide then
 	vim.o.guifont = "ComicCodeLigatures Nerd Font"
-	global.neovide_refresh_rate = 120
-	global.neovide_refresh_rate_idle = 5
-	global.neovide_input_macos_alt_is_meta = true
+	g.neovide_refresh_rate = 120
+	g.neovide_refresh_rate_idle = 5
+	g.neovide_input_macos_alt_is_meta = true
 end
 
 opt.title = true
