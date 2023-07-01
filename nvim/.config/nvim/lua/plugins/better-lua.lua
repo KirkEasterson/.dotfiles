@@ -1,10 +1,11 @@
 return {
 	'euclidianAce/BetterLua.vim',
-	event = 'FileType lua',
+	enabled = false,
+	ft = 'lua',
 	config = function()
-		require('kirk.lsp.on_attach')
+		-- require('kirk.lsp.on_attach')
 		require('lspconfig').lua_ls.setup {
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 			settings = {
 				Lua = {
 					runtime = {
