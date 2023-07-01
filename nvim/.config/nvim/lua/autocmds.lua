@@ -1,3 +1,6 @@
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = true, buffer = true }
 	if opts then
@@ -7,7 +10,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- enable wrapping in specific files
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
 	pattern = { "markdown", "tex", "text" },
 	callback = function()
 		vim.opt_local.wrap = true
@@ -22,14 +25,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- remove trailing whitespace on save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
 	command = [[%s/\s\+$//e]],
 })
 
 -- highlight yanked text
-vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+autocmd("TextYankPost", {
+	group = augroup("highlight_yank", { clear = true }),
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
@@ -40,7 +43,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- build notes files
-vim.api.nvim_create_autocmd(
+autocmd(
 	'BufwritePost',
 	{
 		pattern = '*note-*.md',
@@ -49,7 +52,7 @@ vim.api.nvim_create_autocmd(
 )
 
 -- change indenting for js/ts files
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
 	pattern = {
 		'javascript',
 		'javascriptreact',
@@ -66,7 +69,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- -- set fsharp file types
--- vim.api.nvim_create_autocmd(
+-- autocmd(
 -- 	{ 'BufNewFile', 'BufRead' },
 -- 	{
 -- 		pattern = '*.fs,*.fsx,*.fsi',
@@ -74,7 +77,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- 	}
 -- )
 
-vim.api.nvim_create_autocmd("TermOpen", {
+autocmd("TermOpen", {
 	callback = function()
 		vim.opt_local.relativenumber = false
 		vim.opt_local.number = false
@@ -83,7 +86,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	desc = "start terminal in insert mode",
 })
 
-vim.api.nvim_create_autocmd(
+autocmd(
 	'FileType',
 	{
 		pattern = { 'gitcommit', 'gitrebase', },
@@ -92,7 +95,7 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
-vim.api.nvim_create_autocmd("VimResized", {
+autocmd("VimResized", {
 	callback = function()
 		vim.cmd "wincmd ="
 	end,
@@ -100,7 +103,7 @@ vim.api.nvim_create_autocmd("VimResized", {
 })
 
 -- sync neovim with system clipboard
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		require('kirk.utils.uname')
