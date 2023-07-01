@@ -1,9 +1,3 @@
-require('options')
-require('mappings')
-require('autocmds')
--- require('lazy')
-
--- TODO: move this to another file
 -- bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -19,7 +13,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins', {
+-- Use a protected call so we don't error out on first use
+local status_ok, lazy = pcall(require, 'lazy')
+if not status_ok then
+	return
+end
+
+lazy.setup('plugins', {
 	defaults = {
 		lazy = true,
 	},
