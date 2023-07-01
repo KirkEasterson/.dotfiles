@@ -49,7 +49,6 @@ opt.title = true
 opt.spell = false
 opt.spelllang = { 'en_us' }
 
-opt.updatetime = 750      -- fast updates
 opt.number = true         -- show line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.cursorline = true     -- highlight the current line
@@ -62,6 +61,12 @@ opt.linebreak = true      -- if wrapping, wrap on complete words
 opt.breakindent = true    -- preserve indenting on wrapped lines
 
 opt.visualbell = true
+
+opt.hidden = true      -- Enable background buffers
+opt.history = 100      -- Remember N lines in history
+opt.lazyredraw = true  -- Faster scrolling
+opt.synmaxcol = 240    -- Max column for syntax highlight
+opt.updatetime = 250   -- ms to wait for trigger an event
 
 opt.syntax = 'enable'  -- show syntax highlighting
 opt.showmatch = true   -- highlight matching brackets
@@ -110,7 +115,6 @@ opt.confirm = true    -- show confirm dialog when closing unsaved files
 
 opt.laststatus = 3    -- aesthetic win separators
 
--- opt.lazyredraw = true -- redraw only when needed
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 if vim.env.TERM == 'xterm-kitty' then
