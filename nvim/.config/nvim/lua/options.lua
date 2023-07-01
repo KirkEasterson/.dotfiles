@@ -6,26 +6,31 @@ g.maplocalleader = ' ' -- secondary prefix key
 
 -- disable builtin plugins
 local builtin_plugins = {
-	"gzip",
-	"zip",
-	"zipPlugin",
-	"tar",
-	"tarPlugin",
-
+	"2html_plugin",
+	"bugreport",
+	"compiler",
+	"ftplugin",
 	"getscript",
 	"getscriptPlugin",
-	"vimball",
-	"vimballPlugin",
-	"2html_plugin",
-
+	"gzip",
+	"logipat",
 	"matchit",
-	"matchparen",
-	"logiPat",
-	"rrhelper",
-
 	"netrw",
+	"netrwFileHandlers",
 	"netrwPlugin",
 	"netrwSettings",
+	"optwin",
+	"rplugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"synmenu",
+	"tar",
+	"tarPlugin",
+	"tutor",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
 }
 for _, v in pairs(builtin_plugins) do
 	g['loaded_' .. v] = true
