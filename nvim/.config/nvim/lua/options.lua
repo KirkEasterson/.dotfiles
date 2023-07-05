@@ -82,6 +82,7 @@ opt.updatetime = 250   -- ms to wait for trigger an event
 opt.syntax = 'enable'  -- show syntax highlighting
 opt.showmatch = true   -- highlight matching brackets
 opt.scrolloff = 4      -- scroll when y away from vertical edge
+-- opt.smoothscroll = true
 opt.sidescrolloff = 8  -- scroll when x away from horizontal edge
 opt.signcolumn = 'yes' -- column for linting
 opt.colorcolumn = '80' -- show line for 80char soft-limit
