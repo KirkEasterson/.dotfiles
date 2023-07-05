@@ -102,7 +102,7 @@ return {
 
 		-- telescope.load_extension("fzy_native")
 		telescope.load_extension("fzf")
-		-- telescope.load_extension("notify")
+		telescope.load_extension("notify")
 	end,
 	keys = {
 		-- telescope file helpers
