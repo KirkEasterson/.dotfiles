@@ -70,7 +70,8 @@ opt.wrap = false          -- don't wrap lines
 opt.linebreak = true      -- if wrapping, wrap on complete words
 opt.breakindent = true    -- preserve indenting on wrapped lines
 
-opt.visualbell = true
+opt.visualbell = false
+opt.belloff = "all"
 
 opt.hidden = true      -- Enable background buffers
 opt.history = 100      -- Remember N lines in history
