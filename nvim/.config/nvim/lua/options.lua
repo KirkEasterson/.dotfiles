@@ -44,6 +44,16 @@ if g.neovide then
 	g.neovide_input_macos_alt_is_meta = true
 end
 
+opt.wildignore:append({
+	"*.o",
+	"*.pyc",
+	"*pycache*",
+	"*~",
+	"Cargo.Bazel.lock",
+	"Cargo.lock",
+	"__pycache__",
+})
+
 opt.title = true
 
 opt.spell = false
