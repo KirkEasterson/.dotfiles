@@ -1,6 +1,6 @@
 return {
 	'rcarriga/nvim-notify',
-	enabled = false,
+	event = 'VeryLazy',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},
@@ -10,11 +10,13 @@ return {
 			require("notify").history()
 		end }
 	},
-	config = function()
-		require('notify').setup({
-			fps = 120,
-			render = "compact",
-			stages = "slide",
-		})
+	opts = {
+		fps = 120,
+		render = "compact",
+		stages = "slide",
+	},
+	config = function(_, opts)
+		require('notify').setup(opts)
+		vim.notify = require('notify')
 	end,
 }
