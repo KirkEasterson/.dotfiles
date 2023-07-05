@@ -33,7 +33,7 @@ local builtin_plugins = {
 	"zipPlugin",
 }
 for _, v in pairs(builtin_plugins) do
-	g['loaded_' .. v] = true
+	g['loaded_' .. v] = 1
 end
 
 -- neovide
