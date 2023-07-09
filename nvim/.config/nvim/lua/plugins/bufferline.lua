@@ -28,7 +28,7 @@ return {
 		options = {
 			right_mouse_command = "",
 			middle_mouse_command = "bdelete! %d",
-			separator_style = "slant",
+			separator_style = "thin",
 			diagnostics = "nvim_lsp",
 			offsets = {
 				{
