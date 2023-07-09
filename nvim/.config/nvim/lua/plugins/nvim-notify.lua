@@ -10,7 +10,7 @@ return {
 		{ "<leader>hc", function() require("notify").dismiss() end },
 	},
 	opts = {
-		fps = 120,
+		fps = 30,
 		render = "compact",
 		stages = "slide",
 	},
