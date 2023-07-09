@@ -9,6 +9,7 @@ return {
 	keys = {
 		{ "<leader>hi", function() require("notify").history() end },
 		{ "<leader>hc", function() require("notify").dismiss() end },
+		{ "<leader>fh", function() require('telescope').extensions.notify.notify() end },
 	},
 	opts = {
 		fps = 30,

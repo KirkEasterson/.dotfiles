@@ -128,8 +128,5 @@ return {
 		{ "<leader>fk", function() require('telescope.builtin').keymaps() end },
 		{ "<leader>fS", function() require('telescope.builtin').spell_suggest() end },
 		-- {"<leader>rr", function() require('telescope.builtin').registers() end},
-
-		-- notify
-		{ "<leader>fh", function() require('telescope').extensions.notify.notify() end },
 	},
 }
