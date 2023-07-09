@@ -6,9 +6,8 @@ return {
 	},
 	cmd = "Notifications",
 	keys = {
-		{ "<leader>hi", function()
-			require("notify").history()
-		end }
+		{ "<leader>hi", function() require("notify").history() end },
+		{ "<leader>hc", function() require("notify").dismiss() end },
 	},
 	opts = {
 		fps = 120,
