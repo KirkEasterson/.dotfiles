@@ -5,7 +5,6 @@ return {
 		-- 'nvim-telescope/telescope-fzy-native.nvim',
 		'nvim-telescope/telescope-fzf-native.nvim',
 		"folke/trouble.nvim",
-		"rcarriga/nvim-notify",
 	},
 	cmd = {
 		"Telescope",
@@ -102,7 +101,6 @@ return {
 
 		-- telescope.load_extension("fzy_native")
 		telescope.load_extension("fzf")
-		telescope.load_extension("notify")
 	end,
 	keys = {
 		-- telescope file helpers

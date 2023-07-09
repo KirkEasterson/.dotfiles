@@ -3,6 +3,7 @@ return {
 	event = 'VeryLazy',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
+		'nvim-telescope/telescope.nvim',
 	},
 	cmd = "Notifications",
 	keys = {
@@ -17,5 +18,6 @@ return {
 	config = function(_, opts)
 		require('notify').setup(opts)
 		vim.notify = require('notify')
+		require("telescope").load_extension("notify")
 	end,
 }
