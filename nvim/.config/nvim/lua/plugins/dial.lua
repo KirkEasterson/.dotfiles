@@ -6,10 +6,18 @@ return {
 	},
 	keys = {
 		-- TODO: figure out why the lua calls didn't work
-		{ "<C-a>", "<Cmd>DialIncrement<CR>", mode = { "n", "v" } },
-		{ "<C-x>", "<Cmd>DialDecrement<CR>", mode = { "n", "v" } },
-		{ "g<C-a>", "<Cmd>DialIncrement<CR>", mode = "v" },
-		{ "g<C-a>", "<Cmd>DialDecrement<CR>", mode = "v" },
+		{
+			"<C-a>",
+			"<Cmd>DialIncrement<CR>",
+			mode = { "n", "v" },
+			-- desc = "Increment",
+		},
+		{
+			"<C-x>",
+			"<Cmd>DialDecrement<CR>",
+			mode = { "n", "v" },
+			-- desc = "Decrement",
+		},
 	},
 	config = function()
 		local augend = require("dial.augend")

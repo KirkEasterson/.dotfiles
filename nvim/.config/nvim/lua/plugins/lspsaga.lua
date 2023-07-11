@@ -7,19 +7,71 @@ return {
 	},
 	cmd = "LspSaga",
 	keys = {
-		-- { "<leader><leader>o", "<cmd>Lspsaga outline<CR>" },
-		-- { "ga", "<cmd>Lspsaga code_action<CR>" },
-		{ "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>" },
-		{ "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>" },
-		-- { "<leader>rn", "<cmd>Lspsaga rename<CR>" },
-		{ "K", "<cmd>Lspsaga hover_doc<CR>" },
-		{ "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>" },
-		{ "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>" },
-		{ "gb", "<cmd>Lspsaga show_buf_diagnostics<CR>" },
-		-- { "gd", "<cmd>Lspsaga goto_definition<CR>" },
-		-- { "gt", "<cmd>Lspsaga goto_type_definition<CR>" },
-		{ "<leader>gd", "<cmd>Lspsaga peek_goto_definition<CR>" },
-		{ "<leader>gt", "<cmd>Lspsaga peek_goto_type_definition<CR>" },
+		-- {
+		-- 	"<leader><leader>o",
+		-- 	"<cmd>Lspsaga outline<CR>",
+		-- 	desc = "Code outline",
+		-- },
+		-- {
+		-- 	"ga",
+		-- 	"<cmd>Lspsaga code_action<CR>",
+		-- 	desc = "Code action",
+		-- },
+		{
+			"<leader>e",
+			"<cmd>Lspsaga show_line_diagnostics<CR>",
+			desc = "Line diagnostics",
+		},
+		{
+			"<leader>gh",
+			"<cmd>Lspsaga lsp_finder<CR>",
+			desc = "LSP finder",
+		},
+		-- {
+		-- 	"<leader>rn",
+		-- 	"<cmd>Lspsaga rename<CR>",
+		-- 	desc = "Rename",
+		-- },
+		{
+			"K",
+			"<cmd>Lspsaga hover_doc<CR>",
+			desc = "Hover docs",
+		},
+		{
+			"[d",
+			"<cmd>Lspsaga diagnostic_jump_prev<CR>",
+			desc = "Previous diagnostic",
+		},
+		{
+			"]d",
+			"<cmd>Lspsaga diagnostic_jump_next<CR>",
+			desc = "Next diagnostic",
+		},
+		{
+			"gb",
+			"<cmd>Lspsaga show_buf_diagnostics<CR>",
+			desc = "Buffer diagnostics",
+		},
+		-- {
+		-- 	"gd",
+		-- 	"<cmd>Lspsaga goto_definition<CR>",
+		-- 	desc = "Definition",
+		-- },
+		-- {
+		-- 	"gt",
+		-- 	"<cmd>Lspsaga goto_type_definition<CR>",
+		-- 	desc = "Type definition",
+		-- },
+		{
+			"<leader>gd",
+			"<cmd>Lspsaga peek_goto_definition<CR>",
+			desc = "Peek definition",
+		},
+		{
+			"<leader>gt",
+			"<cmd>Lspsaga peek_goto_type_definition<CR>",
+			desc = "Peek type definition",
+		},
 	},
 	opts = {
 		lightbulb = {

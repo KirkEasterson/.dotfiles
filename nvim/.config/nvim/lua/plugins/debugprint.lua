@@ -1,14 +1,37 @@
 return {
 	"andrewferrier/debugprint.nvim",
+	enabled = false,
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter"
+		"nvim-treesitter/nvim-treesitter",
 	},
 	keys = {
-		{ "g?p", function() require('debugprint').debugprint() end },
-		{ "g?P", function() require('debugprint').debugprint({ above = true }) end },
-		{ "g?v", function() require('debugprint').debugprint({ variable = true }) end,               mode = { "n", "v" } },
-		{ "g?V", function() require('debugprint').debugprint({ variable = true, above = true }) end, mode = { "n", "v" } },
-		{ "g?d", function() require('debugprint').deleteprints() end },
+		{
+			"g?p",
+			function() require('debugprint').debugprint() end,
+			desc = "Debug print line below",
+		},
+		{
+			"g?P",
+			function() require('debugprint').debugprint({ above = true }) end,
+			desc = "Debug print line above",
+		},
+		{
+			"g?v",
+			function() require('debugprint').debugprint({ variable = true }) end,
+			mode = { "n", "v" },
+			desc = "Debug print variable below",
+		},
+		{
+			"g?V",
+			function() require('debugprint').debugprint({ variable = true, above = true }) end,
+			mode = { "n", "v" },
+			desc = "Debug print variable above",
+		},
+		{
+			"g?d",
+			function() require('debugprint').deleteprints() end,
+			desc = "Clear debug prints",
+		},
 	},
 	cmd = {
 		"DeleteDebugPrints",

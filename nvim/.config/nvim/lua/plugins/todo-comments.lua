@@ -1,5 +1,10 @@
 return {
 	"folke/todo-comments.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"folke/trouble.nvim",
+		'nvim-telescope/telescope.nvim',
+	},
 	event = "VeryLazy",
 	cmd = {
 		"TodoLocList",
@@ -7,13 +12,12 @@ return {
 		"TodoTelescope",
 		"TodoTrouble",
 	},
-	-- keys = {
-	-- 	{ '<leader>dt', ':TodoTelescope<CR>' },
-	-- },
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"folke/trouble.nvim",
-		'nvim-telescope/telescope.nvim',
+	keys = {
+		-- {
+		-- 	'<leader>dt',
+		-- 	':TodoTelescope<CR>',
+		-- 	desc = "View TODOs",
+		-- },
 	},
 	opts = {},
 }

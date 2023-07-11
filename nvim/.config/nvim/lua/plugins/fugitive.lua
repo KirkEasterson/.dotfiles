@@ -20,7 +20,11 @@ return {
 		"Gwrite",
 	},
 	keys = {
-		{ "<leader>gg", "<Cmd>Git<CR>" }
+		{
+			"<leader>gg",
+			"<Cmd>Git<CR>",
+			desc = "Show git-fugitive UI",
+		}
 	},
 	config = false,
 }

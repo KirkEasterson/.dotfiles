@@ -5,11 +5,18 @@ return {
 		'nvim-telescope/telescope.nvim',
 	},
 	keys = {
-		{ "<leader>gw", function() require('telescope').extensions.git_worktree.git_worktrees() end },
-		{ "<leader>gW", function() require('telescope').extensions.git_worktree.create_git_worktree() end },
+		{
+			"<leader>gw",
+			function() require('telescope').extensions.git_worktree.git_worktrees() end,
+			desc = "Git worktrees",
+		},
+		{
+			"<leader>gW",
+			function() require('telescope').extensions.git_worktree.create_git_worktree() end,
+			desc = "Create git worktree",
+		},
 	},
 	config = function()
-
 		local worktree = require("git-worktree")
 
 		worktree.setup({
@@ -28,7 +35,6 @@ return {
 				update_on_new_worktree(op, metadata)
 			end
 		end)
-
 
 		require("telescope").load_extension("git_worktree")
 	end,

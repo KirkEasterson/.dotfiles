@@ -8,6 +8,10 @@ return {
 		"LazyGitConfig",
 	},
 	keys = {
-		{ "<leader>lg", function() require('lazygit').lazygit() end },
+		{
+			"<leader>lg",
+			function() require('lazygit').lazygit() end,
+			desc = "Lazygit",
+		},
 	},
 }

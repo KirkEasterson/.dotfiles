@@ -6,7 +6,7 @@ return {
 	},
 	event = "FileReadPost",
 	cmd = "SpelunkerAddAll",
-	config = function()
+	init = function()
 		vim.api.nvim_set_var("enable_spelunker", 1)
 		vim.api.nvim_set_var("enable_spelunker_vim_on_readonly ", 1)
 		vim.api.nvim_set_var("spelunker_check_type", 2)

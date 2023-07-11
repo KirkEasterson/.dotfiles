@@ -1,21 +1,20 @@
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-	if client.supports_method('textDocument/formatting') then
-		buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
-	end
-
 	if client.server_capabilities == nil then
 		client.server_capabilities = vim.lsp.protocol.make_client_capabilities()
 	end
-	local capabilities = client.server_capabilities
+
+	if client.supports_method('textDocument/formatting') then
+		-- buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
+		buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+	end
 
 	-- -- for ufo folding
-	-- capabilities.textDocument = {
+	-- client.server_capabilities.textDocument = {
 	-- 	foldingRange = {
 	-- 		dynamicRegistration = false,
 	-- 		lineFoldingOnly = true,
@@ -57,15 +56,51 @@ return {
 		{ "adelarsq/neofsharp.vim" },
 	},
 	keys = {
-		{ "gd", function() vim.lsp.buf.definition() end },
-		{ "gt", function() vim.lsp.buf.type_definition() end },
-		-- { "ga", function () vim.lsp.buf.code_action() end },
-		-- { "<leader>e", function () vim.lsp.buf.diagnostic() end },
-		-- { "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>" }, --
-		-- { "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>" }, --
-		-- { "<leader>gh", "<cmd>Lspsaga lsp_finder<CR>" },
-		-- { "K", function() vim.lsp.buf.hover() end}, --
-		-- { "gb", "<cmd>Lspsaga show_buf_diagnostics<CR>" }, --
+		{
+			"gd",
+			function() vim.lsp.buf.definition() end,
+			desc = "Definition",
+		},
+		{
+			"gt",
+			function() vim.lsp.buf.type_definition() end,
+			desc = "Type definition",
+		},
+		-- {
+		-- 	"ga",
+		-- 	function() vim.lsp.buf.code_action() end,
+		-- 	desc = "Code actions",
+		-- },
+		-- {
+		-- 	"<leader>e",
+		-- 	function() vim.lsp.buf.diagnostic() end,
+		-- 	desc = "LSP diagnostics",
+		-- },
+		-- {
+		-- 	"[d",
+		-- 	"<cmd>Lspsaga diagnostic_jump_prev<CR>",
+		-- 	desc = "Previous diagnostic",
+		-- },
+		-- {
+		-- 	"]d",
+		-- 	"<cmd>Lspsaga diagnostic_jump_next<CR>",
+		-- 	desc = "Next diagnostic",
+		-- },
+		-- {
+		-- 	"<leader>gh",
+		-- 	"<cmd>Lspsaga lsp_finder<CR>",
+		-- 	desc = "LSP finder",
+		-- },
+		-- {
+		-- 	"K",
+		-- 	function() vim.lsp.buf.hover() end,
+		-- 	desc = "Hover docs",
+		-- },
+		-- {
+		-- 	"gb",
+		-- 	"<cmd>Lspsaga show_buf_diagnostics<CR>",
+		-- 	desc = "Buffer diagnostics",
+		-- },
 	},
 	config = function()
 		vim.diagnostic.config({
@@ -163,6 +198,14 @@ return {
 			},
 		})
 
+		-- lsp_zero.configure('luals', {
+		-- 	settings = {
+		-- 		yaml = {
+		-- 			keyOrdering = false,
+		-- 		},
+		-- 	},
+		-- })
+
 		local null_ls = require('null-ls')
 		local null_opts = lsp_zero.build_options('null-ls', {})
 		null_ls.setup({
@@ -172,6 +215,9 @@ return {
 				-- null_ls.builtins.code_actions.pyright, -- TODO: find code_actions for python
 				null_ls.builtins.diagnostics.pylint, -- TODO: experiment with ruff
 				null_ls.builtins.formatting.black,
+
+				-- -- lua
+				-- null_ls.builtins.formatting.stylua,
 
 				-- js/ts
 				null_ls.builtins.diagnostics.eslint,
@@ -207,7 +253,6 @@ return {
 			}
 		})
 
-		-- configure lua language server for neovim
 		lsp_zero.nvim_workspace()
 
 		lsp_zero.set_sign_icons({

@@ -12,5 +12,5 @@ return {
 		'DiffviewRefresh',
 		'DiffviewToggleFiles',
 	},
-	config = true,
+	opts = {},
 }

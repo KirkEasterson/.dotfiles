@@ -15,9 +15,21 @@ return {
 		"PetsSleepToggle",
 	},
 	keys = {
-		{ '<leader>pn', '<Cmd>PetsNew Peeve<CR>' },
-		{ '<leader>pk', '<Cmd>PetsKill Peeve<CR>' },
-		{ '<leader>pt', '<Cmd>PetsHideToggle<CR>' },
+		{
+			'<leader>pn',
+			'<Cmd>PetsNew Peeve<CR>',
+			desc = "Create new pet",
+		},
+		{
+			'<leader>pk',
+			'<Cmd>PetsKill Peeve<CR>',
+			desc = "Kill pet",
+		},
+		{
+			'<leader>pt',
+			'<Cmd>PetsHideToggle<CR>',
+			desc = "Hide pet",
+		},
 	},
 	opts = {
 		speed_multiplier = 2,

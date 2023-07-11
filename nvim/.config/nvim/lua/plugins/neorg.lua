@@ -13,10 +13,26 @@ return {
 		"norg",
 	},
 	keys = {
-		{ "<leader>nd", "<Cmd>Neorg workspace notes<CR>" },
-		{ "<leader>nr", "<Cmd>Neorg return<CR>" },
-		{ "<leader>nt", "<Cmd>Neorg toggle-concealer<CR>" },
-		{ "<leader>nn", "<Cmd>Neorg keybind norg core.dirman.new.note<CR>" },
+		{
+			"<leader>nd",
+			"<Cmd>Neorg workspace notes<CR>",
+			desc = "Open notes",
+		},
+		{ -- TODO: move this to only be in *.norg buffers
+			"<leader>nr",
+			"<Cmd>Neorg return<CR>",
+			desc = "Close notes",
+		},
+		{ -- TODO: move this to only be in *.norg buffers
+			"<leader>nt",
+			"<Cmd>Neorg toggle-concealer<CR>",
+			desc = "Toggle neorg concealer",
+		},
+		{
+			"<leader>nn",
+			"<Cmd>Neorg keybind norg core.dirman.new.note<CR>",
+			desc = "Create new note",
+		},
 	},
 	build = ":Neorg sync-parsers",
 	opts = {

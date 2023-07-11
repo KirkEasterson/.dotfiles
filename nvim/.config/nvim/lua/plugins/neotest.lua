@@ -9,25 +9,30 @@ return {
 		'Issafalcon/neotest-dotnet',
 	},
 	keys = {
-		{ "<leader>Tr",
+		{
+			"<leader>Tr",
 			function()
 				require("neotest").run.run()
-			end
+			end,
+			desc = "Run test",
 		},
 		{ "<leader>Ts",
 			function()
 				require("neotest").run.stop()
-			end
+			end,
+			desc = "Stop test",
 		},
 		{ "<leader>Ta",
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
-			end
+			end,
+			desc = "Run test",
 		},
 		{ "<leader>Td",
 			function()
 				require("neotest").run.run({ strategy = "dap" })
-			end
+			end,
+			desc = "Debug test",
 		},
 	},
 	opts = {

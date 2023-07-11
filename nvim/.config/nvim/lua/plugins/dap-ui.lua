@@ -7,17 +7,61 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 	},
 	keys = {
-		{ "<leader>do", function() require('dapui').toggle() end },
-		{ "<leader>dt", function() require('dap').toggle_breakpoint() end },
-		{ "<leader>dT", function() require('dap').clear_breakpoints() end },
-		{ "<F5>",       function() require('dap').continue() end },
-		{ "<S-F5>",     function() require('dap').run_to_cursor() end },
-		{ "<F6>",       function() require('dap').step_into() end },
-		{ "<F7>",       function() require('dap').step_over() end },
-		{ "<F8>",       function() require('dap').step_out() end },
-		{ "<F9>",       function() require('dap').step_back() end },
-		{ "<F10>",      function() require('dap').restart() end },
-		{ "<F11>",      function() require('dap').terminate() end },
+		{
+			"<leader>do",
+			function() require('dapui').toggle() end,
+			desc = "Toggle debug UI",
+		},
+		{
+			"<leader>dt",
+			function() require('dap').toggle_breakpoint() end,
+			desc = "Toggle breakpoint",
+		},
+		{
+			"<leader>dT",
+			function() require('dap').clear_breakpoints() end,
+			desc = "Clear breakpoints",
+		},
+		{
+			"<F5>",
+			function() require('dap').continue() end,
+			desc = "Continue program",
+		},
+		{
+			"<S-F5>",
+			function() require('dap').run_to_cursor() end,
+			desc = "Run to cursor",
+		},
+		{
+			"<F6>",
+			function() require('dap').step_into() end,
+			desc = "Step into",
+		},
+		{
+			"<F7>",
+			function() require('dap').step_over() end,
+			desc = "Step over",
+		},
+		{
+			"<F8>",
+			function() require('dap').step_out() end,
+			desc = "Step out",
+		},
+		{
+			"<F9>",
+			function() require('dap').step_back() end,
+			desc = "Step back",
+		},
+		{
+			"<F10>",
+			function() require('dap').restart() end,
+			desc = "Restart program",
+		},
+		{
+			"<F11>",
+			function() require('dap').terminate() end,
+			desc = "Terminate program",
+		},
 	},
 	opts = {},
 	config = function(_, opts)

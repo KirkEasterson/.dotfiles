@@ -10,7 +10,11 @@ return {
 		require("dbee").install()
 	end,
 	keys = {
-		{ "<leader>db", function() vim.cmd('e ' .. conn_file) end },
+		{
+			"<leader>db",
+			function() vim.cmd('e ' .. conn_file) end,
+			desc = "Edit DBee connection file",
+		},
 	},
 	opts = {
 		sources = {

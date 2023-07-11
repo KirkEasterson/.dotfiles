@@ -10,10 +10,26 @@ return {
 		'TroubleToggle',
 	},
 	keys = {
-		{ "<leader><leader>o", "<cmd>TroubleToggle<CR>" },
-		{ "gr", "<cmd>TroubleToggle lsp_references<CR>" },
-		{ "gd", "<cmd>TroubleToggle lsp_definitions<CR>" },
-		{ "gt", "<cmd>TroubleToggle lsp_type_definitions<CR>" },
+		{
+			"<leader><leader>o",
+			"<cmd>TroubleToggle<CR>",
+			desc = "Trouble",
+		},
+		{
+			"gr",
+			"<cmd>TroubleToggle lsp_references<CR>",
+			desc = "References",
+		},
+		{
+			"gd",
+			"<cmd>TroubleToggle lsp_definitions<CR>",
+			desc = "Definition",
+		},
+		{
+			"gt",
+			"<cmd>TroubleToggle lsp_type_definitions<CR>",
+			desc = "Type definition",
+		},
 	},
 	opts = {
 		use_diagnostic_signs = true,

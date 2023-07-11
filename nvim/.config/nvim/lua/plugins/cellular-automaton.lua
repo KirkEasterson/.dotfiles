@@ -2,7 +2,11 @@ return {
 	"eandrju/cellular-automaton.nvim",
 	cmd = 'CellularAutomaton',
 	keys = {
-		{ "<leader>fml", function() require("cellular-automaton").start_animation("make_it_rain") end },
+		{
+			"<leader>fml",
+			function() require("cellular-automaton").start_animation("make_it_rain") end,
+			desc = "Make it rain",
+		},
 	},
 	config = function()
 		local config = {

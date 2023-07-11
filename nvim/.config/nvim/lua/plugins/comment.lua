@@ -2,13 +2,36 @@ return {
 	'numToStr/Comment.nvim',
 	event = "VeryLazy",
 	keys = {
-		{ "gcc" },
-		{ "gbc" },
-		{ "gcA" },
-		{ "gco" },
-		{ "gcO" },
-		{ "gc", mode = "v" },
-		{ "gb", mode = "v" },
+		{
+			"gcc",
+			desc = "Toggle line comment",
+		},
+		{
+			"gbc",
+			desc = "Toggle block comment",
+		},
+		{
+			"gcA",
+			desc = "Add comment at end of line",
+		},
+		{
+			"gco",
+			desc = "Add comment below line",
+		},
+		{
+			"gcO",
+			desc = "Add comment above line",
+		},
+		{
+			"gc",
+			mode = "v",
+			desc = "Toggle line comment",
+		},
+		{
+			"gb",
+			mode = "v",
+			desc = "Toggle block comment",
+		},
 	},
 	opts = {
 		-- mappings = {

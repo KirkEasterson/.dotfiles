@@ -10,23 +10,21 @@ return {
 		automatic_setup = true,
 		ensure_installed = {
 			"autopep8",
-			"flake8",
-			"pylint",
 			"black",
-			"eslint_d",
-			"stylelint",
-			"protoc_gen_lint",
 			"buf",
+			"commitlint",
+			"eslint_d",
+			"flake8",
+			"gofumpt",
 			"hadolint",
 			"markdownlint",
-			"terraform_validate",
-			"proselint",
-			"commitlint",
 			"prettier",
-			"gofumpt",
+			"proselint",
+			"protoc_gen_lint",
+			"pylint",
+			"stylelint",
+			"stylua",
+			"terraform_validate",
 		},
 	},
-	config = function(_, opts)
-		require('mason-null-ls').setup(opts)
-	end
 }

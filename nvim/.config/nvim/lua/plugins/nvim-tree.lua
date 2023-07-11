@@ -19,7 +19,11 @@ return {
 		'NvimTreeToggle',
 	},
 	keys = {
-		{ '<leader>t', function () require('nvim-tree.api').tree.toggle() end},
+		{
+			'<leader>t',
+			function() require('nvim-tree.api').tree.toggle() end,
+			desc = "File tree",
+		},
 	},
 	config = function()
 		require('nvim-tree').setup({
@@ -74,6 +78,7 @@ return {
 
 		local palette = require('gruvbox.palette')
 		vim.cmd("highlight NvimTreeNormal guibg=" .. palette.colors.dark0_hard)
-		vim.cmd("highlight NvimTreeWinSeparator guibg=" .. palette.colors.dark0_hard .. " guifg=" .. palette.colors.dark0_hard)
+		vim.cmd("highlight NvimTreeWinSeparator guibg=" ..
+			palette.colors.dark0_hard .. " guifg=" .. palette.colors.dark0_hard)
 	end
 }

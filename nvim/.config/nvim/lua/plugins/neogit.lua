@@ -7,10 +7,10 @@ return {
 	},
 	cmd = 'Neogit',
 	keys = {
-		{ '<leader>gg',
-			function()
-				require('neogit').open()
-			end
+		{
+			'<leader>gg',
+			function() require('neogit').open() end,
+			desc = "Open neogit",
 		},
 	},
 	opts = {

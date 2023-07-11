@@ -15,7 +15,11 @@ return {
 	},
 	keys = {
 		-- TODO: use this and find more keys needed
-		{ "<leader>db", '<Cmd>DBUIToggle<CR>' },
+		{
+			"<leader>db",
+			'<Cmd>DBUIToggle<CR>',
+			desc = "Toggle database UI",
+		},
 	},
 	config = function(_, opts)
 		vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
@@ -32,5 +36,4 @@ return {
 			desc = 'Add completion for vim-dadbod'
 		})
 	end,
-	opts = {},
 }

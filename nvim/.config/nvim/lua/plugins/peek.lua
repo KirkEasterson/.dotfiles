@@ -3,15 +3,28 @@ return {
 	enabled = false,
 	build = 'deno task --quiet build:fast',
 	keys = {
-		{ "<leader>mdp", function() require('peek').open() end },
-		{ "<leader>mds", function() require('peek').close() end },
-		{ "<leader>mdt", function()
-			if require('peek').is_open() then
-				require('peek').close()
-			else
-				require('peek').open()
-			end
-		end },
+		{
+			"<leader>mdp",
+			function() require('peek').open() end,
+			desc = "Open markdown preview",
+		},
+		{
+			"<leader>mds",
+			function() require('peek').close() end,
+			desc = "Close markdown preview",
+		},
+		{
+			"<leader>mdt",
+			function()
+				local peek = require('peek')
+				if peek.is_open() then
+					peek.close()
+				else
+					peek.open()
+				end
+			end,
+			desc = "Toggle markdown preview"
+		},
 	},
 	opts = {},
 }
