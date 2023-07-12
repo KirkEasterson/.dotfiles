@@ -38,6 +38,9 @@ require("bootstrap.bootstrap")
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local pacman_widget = require("awesome-wm-widgets.pacman-widget.pacman")
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local separator = wibox.widget {
 	widget = wibox.widget.separator,
 	orientation = "vertical",
@@ -301,6 +304,24 @@ awful.screen.connect_for_each_screen(function(s)
 			separator,
 			wibox.widget.textbox('󰍛 '),
 			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
+			separator,
+			volume_widget({
+				device = "default",
+				widget_type = "icon_and_text",
+				icon_dir = "/usr/share/icons/Papirus-Dark/symbolic/status/",
+			}),
+			separator,
+			pacman_widget({
+				polkit_agent_path = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
+			}),
+			separator,
+			battery_widget({
+				path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
+				display_notification = true,
+				warning_msg_title = "Low battery",
+				warning_msg_text = "Please charge battery",
+				warning_msg_position = "top_right",
+			}),
 			separator,
 			-- wibox.widget.textbox('  '),
 			mytextclock,
