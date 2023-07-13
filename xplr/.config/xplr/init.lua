@@ -157,11 +157,11 @@ xplr.config.general.logs.error.style = { fg = "Red" }
 -- * format: nullable string
 -- * style: [Style](https://xplr.dev/en/style)
 xplr.config.general.table.header.cols = {
-	{ format = " index", style = {} },
+	{ format = " index",            style = {} },
 	{ format = "╭─── path", style = {} },
-	{ format = "permissions", style = {} },
-	{ format = "size", style = {} },
-	{ format = "modified", style = {} },
+	{ format = "permissions",       style = {} },
+	{ format = "size",              style = {} },
+	{ format = "modified",          style = {} },
 }
 
 -- Style of the table header.
@@ -648,7 +648,7 @@ xplr.config.general.panel_ui.sort_and_filter.border_style = {}
 -- Type: nullable list of [Node Sorter](https://xplr.dev/en/sorting#node-sorter-applicable)
 xplr.config.general.initial_sorting = {
 	{ sorter = "ByCanonicalIsDir", reverse = true },
-	{ sorter = "ByIRelativePath", reverse = false },
+	{ sorter = "ByIRelativePath",  reverse = false },
 }
 
 -- The name of one of the modes to use when xplr loads.
@@ -1245,21 +1245,21 @@ xplr.config.modes.builtin.default = {
 }
 
 xplr.config.modes.builtin.default.key_bindings.on_key["tab"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-i"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-i"]
 xplr.config.modes.builtin.default.key_bindings.on_key["v"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["space"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["space"]
 xplr.config.modes.builtin.default.key_bindings.on_key["V"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-a"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-a"]
 xplr.config.modes.builtin.default.key_bindings.on_key["/"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-f"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-f"]
 xplr.config.modes.builtin.default.key_bindings.on_key["h"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["left"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["left"]
 xplr.config.modes.builtin.default.key_bindings.on_key["j"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["down"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["down"]
 xplr.config.modes.builtin.default.key_bindings.on_key["k"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["up"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["up"]
 xplr.config.modes.builtin.default.key_bindings.on_key["l"] =
-xplr.config.modes.builtin.default.key_bindings.on_key["right"]
+	xplr.config.modes.builtin.default.key_bindings.on_key["right"]
 
 -- The builtin debug error mode.
 --
@@ -1618,9 +1618,9 @@ xplr.config.modes.builtin.number = {
 }
 
 xplr.config.modes.builtin.number.key_bindings.on_key["j"] =
-xplr.config.modes.builtin.number.key_bindings.on_key["down"]
+	xplr.config.modes.builtin.number.key_bindings.on_key["down"]
 xplr.config.modes.builtin.number.key_bindings.on_key["k"] =
-xplr.config.modes.builtin.number.key_bindings.on_key["up"]
+	xplr.config.modes.builtin.number.key_bindings.on_key["up"]
 
 -- The builtin go to mode.
 --
@@ -2034,9 +2034,9 @@ xplr.config.modes.builtin.search = {
 }
 
 xplr.config.modes.builtin.search.key_bindings.on_key["ctrl-n"] =
-xplr.config.modes.builtin.search.key_bindings.on_key["down"]
+	xplr.config.modes.builtin.search.key_bindings.on_key["down"]
 xplr.config.modes.builtin.search.key_bindings.on_key["ctrl-p"] =
-xplr.config.modes.builtin.search.key_bindings.on_key["up"]
+	xplr.config.modes.builtin.search.key_bindings.on_key["up"]
 
 -- The builtin filter mode.
 --
