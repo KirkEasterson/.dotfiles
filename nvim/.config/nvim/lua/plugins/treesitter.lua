@@ -1,18 +1,18 @@
 return {
-	'nvim-treesitter/nvim-treesitter',
+	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		'nvim-treesitter/nvim-treesitter-context',
-		'nvim-treesitter/nvim-treesitter-refactor',
-		'nvim-treesitter/nvim-treesitter-textobjects',
-		'JoosepAlviste/nvim-ts-context-commentstring',
+		"nvim-treesitter/nvim-treesitter-context",
+		"nvim-treesitter/nvim-treesitter-refactor",
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	event = "VeryLazy",
-	build = function()
+	build = function ()
 		require("nvim-treesitter.install").prefer_git = true
-		require('nvim-treesitter.install').update({ with_sync = true })
+		require("nvim-treesitter.install").update({ with_sync = true, })
 	end,
-	config = function()
-		require('nvim-treesitter.configs').setup({
+	config = function ()
+		require("nvim-treesitter.configs").setup({
 			ensure_installed = "all",
 			sync_install = false,
 			highlight = {
@@ -43,7 +43,7 @@ return {
 			textobjects = {
 				lsp_interop = {
 					enable = true,
-					border = 'none',
+					border = "none",
 					peek_definition_code = {
 						["<leader>df"] = "@function.outer",
 						["<leader>dF"] = "@class.outer",
@@ -79,9 +79,9 @@ return {
 						["ic"] = "@class.inner",
 					},
 					selection_modes = {
-						['@parameter.outer'] = 'v', -- charwise
-						['@function.outer'] = 'V', -- linewise
-						['@class.outer'] = '<c-v>', -- blockwise
+						["@parameter.outer"] = "v", -- charwise
+						["@function.outer"] = "V", -- linewise
+						["@class.outer"] = "<c-v>", -- blockwise
 					},
 					include_surrounding_whitespace = true,
 				},
@@ -95,6 +95,27 @@ return {
 					},
 				},
 			},
+		})
+
+		local ts_parsers = require("nvim-treesitter.parsers")
+
+		vim.api.nvim_create_autocmd("BufEnter", {
+			pattern = { "*", },
+			callback = function ()
+				local ft = vim.bo.filetype
+				if not ft then
+					return
+				end
+				local parser = ts_parsers.filetype_to_parsername[ft]
+				if not parser then
+					return
+				end
+				local is_installed = ts_parsers.has_parser(ts_parsers.ft_to_lang(
+					ft))
+				if not is_installed then
+					vim.cmd("TSInstall " .. parser)
+				end
+			end,
 		})
 	end,
 }
