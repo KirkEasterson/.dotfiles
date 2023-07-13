@@ -25,7 +25,7 @@ blueman-applet &
 cbatticon &
 flameshot &
 nm-applet &
-package-update-indicator &
+# package-update-indicator & # uncomment for debian distros
 picom &
 sxhkd &
 unclutter &
