@@ -6,12 +6,10 @@ return {
 		enable_check_bracket_line = false,
 		ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol
 	},
-	config = function(_, opts)
+	init = function ()
 		local autopairs = require("nvim-autopairs")
 		local rule = require('nvim-autopairs.rule')
 		local ts_conds = require('nvim-autopairs.ts-conds')
-
-		autopairs.setup(opts)
 
 		autopairs.add_rules({
 			rule("%", "%", "lua")
