@@ -809,6 +809,8 @@ if autorun then
 		spawn_once(autorunApps[app])
 	end
 end
+awful.util.spawn("killall cbatticon")
+awful.util.spawn("killall volumeicon")
 
 -- set focus to primary screen
 awful.screen.focus(screen.primary)
