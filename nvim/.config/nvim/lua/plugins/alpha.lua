@@ -288,14 +288,9 @@ return {
 	},
 	lazy = false,
 	priority = 999, -- 1 less than gruvbox
-	config = function()
-		local alpha = require("alpha")
+	config = function (_, opts)
 		local dashboard = require("alpha.themes.dashboard")
-
-		-- Set header
 		dashboard.section.header.val = month_arts[os.date("*t").month]
-
-		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
@@ -308,9 +303,9 @@ return {
 		local fortune = require("alpha.fortune")
 		dashboard.section.footer.val = fortune()
 
-		-- Send config to alpha
-		alpha.setup(dashboard.opts)
-
+		require("alpha").setup(dashboard.opts)
+	end,
+	init = function()
 		vim.api.nvim_create_autocmd({ "FileType" }, {
 			pattern = { 'alpha', },
 			callback = function()
