@@ -4,6 +4,7 @@ return {
 		'nvim-treesitter/nvim-treesitter-context',
 		'nvim-treesitter/nvim-treesitter-refactor',
 		'nvim-treesitter/nvim-treesitter-textobjects',
+		'JoosepAlviste/nvim-ts-context-commentstring',
 	},
 	event = "VeryLazy",
 	build = function()
@@ -17,6 +18,9 @@ return {
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
+			},
+			context_commentstring = {
+				enable = true,
 			},
 			indent = {
 				enable = true,
