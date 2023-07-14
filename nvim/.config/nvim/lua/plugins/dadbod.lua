@@ -8,10 +8,12 @@ return {
 		'hrsh7th/nvim-cmp',
 	},
 	cmd = {
-		"DBUIToggle",
+		"DBUIAddConnection",
+		"DBUIClose",
 		"DBUIFindBuffer",
-		"DBUIRenameBuffer",
 		"DBUILastQueryInfo",
+		"DBUIRenameBuffer",
+		"DBUIToggle",
 	},
 	keys = {
 		-- TODO: use this and find more keys needed
