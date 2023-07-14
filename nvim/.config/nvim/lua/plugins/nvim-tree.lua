@@ -25,57 +25,56 @@ return {
 			desc = "File tree",
 		},
 	},
-	config = function()
-		require('nvim-tree').setup({
-			sort_by = "case_sensitive",
-			sync_root_with_cwd = true,
-			disable_netrw = true,
-			update_focused_file = {
+	opts = {
+		sort_by = "case_sensitive",
+		sync_root_with_cwd = true,
+		disable_netrw = true,
+		update_focused_file = {
+			enable = true,
+		},
+		view = {
+			adaptive_size = true,
+			side = "right",
+			signcolumn = "no",
+			number = true,
+			relativenumber = true,
+		},
+		renderer = {
+			add_trailing = true,
+			highlight_git = true,
+			highlight_modified = 'all',
+			icons = {
+				git_placement = 'after',
+				modified_placement = 'after',
+				show = {
+					folder_arrow = false,
+				},
+			},
+			indent_markers = {
 				enable = true,
-			},
-			view = {
-				adaptive_size = true,
-				side = "right",
-				signcolumn = "no",
-				number = true,
-				relativenumber = true,
-			},
-			renderer = {
-				add_trailing = true,
-				highlight_git = true,
-				highlight_modified = 'all',
 				icons = {
-					git_placement = 'after',
-					modified_placement = 'after',
-					show = {
-						folder_arrow = false,
-					},
-				},
-				indent_markers = {
-					enable = true,
-					icons = {
-						corner = "└",
-						edge = "│",
-						item = "├",
-						bottom = "─",
-						none = " "
-					},
+					corner = "└",
+					edge = "│",
+					item = "├",
+					bottom = "─",
+					none = " "
 				},
 			},
-			diagnostics = {
-				enable = true,
-				show_on_dirs = true,
+		},
+		diagnostics = {
+			enable = true,
+			show_on_dirs = true,
+		},
+		git = {
+			ignore = false,
+		},
+		actions = {
+			change_dir = {
+				enable = false,
 			},
-			git = {
-				ignore = false,
-			},
-			actions = {
-				change_dir = {
-					enable = false,
-				},
-			},
-		})
-
+		},
+	},
+	init = function()
 		local palette = require('gruvbox.palette')
 		vim.cmd("highlight NvimTreeNormal guibg=" .. palette.colors.dark0_hard)
 		vim.cmd("highlight NvimTreeWinSeparator guibg=" ..
