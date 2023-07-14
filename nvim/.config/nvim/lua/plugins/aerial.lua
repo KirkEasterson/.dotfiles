@@ -1,11 +1,11 @@
 return {
-	'stevearc/aerial.nvim',
+	"stevearc/aerial.nvim",
 	enabled = false,
 	keys = {
 		{
-			'<leader><leader>o',
-			'<Cmd>AerialToggle!<CR>',
-			desc = "Toggle Aerial"
+			"<leader><leader>o",
+			"<Cmd>AerialToggle!<CR>",
+			desc = "Toggle Aerial",
 		},
 	},
 	opts = {
@@ -17,7 +17,7 @@ return {
 		},
 		layout = {
 			min_width = 20,
-			max_width = { 40, 0.3 },
+			max_width = { 40, 0.3, },
 			default_direction = "right",
 		},
 		keymaps = {
