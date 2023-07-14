@@ -10,7 +10,9 @@ return {
 	keys = {
 		{
 			"<leader>lg",
-			function() require('lazygit').lazygit() end,
+			function()
+				require('lazygit').lazygit()
+			end,
 			desc = "Lazygit",
 		},
 	},
