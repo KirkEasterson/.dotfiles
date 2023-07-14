@@ -23,7 +23,7 @@ return {
 			desc = "Toggle database UI",
 		},
 	},
-	config = function(_, opts)
+	init = function()
 		vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
 
 		vim.api.nvim_create_autocmd({ "FileType" }, {
