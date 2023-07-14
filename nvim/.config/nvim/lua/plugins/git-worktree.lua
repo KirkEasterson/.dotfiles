@@ -16,15 +16,12 @@ return {
 			desc = "Create git worktree",
 		},
 	},
-	config = function()
-		local worktree = require("git-worktree")
-
-		worktree.setup({
-			clear_jumps_on_change = false, -- this is handled by auto-session
-			update_on_change = false,
-			-- update_on_new_worktree = update_on_new_worktree,
-		})
-
+	opts = {
+		clear_jumps_on_change = false, -- this is handled by auto-session
+		update_on_change = false,
+		-- update_on_new_worktree = update_on_new_worktree,
+	},
+	init = function()
 		local update_on_new_worktree = function(op, metadata)
 			vim.api.nvim_command("RestoreSession")
 			-- TODO: add handling for when a session can't be restored
