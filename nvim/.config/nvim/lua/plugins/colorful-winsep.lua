@@ -5,23 +5,23 @@ return {
 		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
 		'luisiacc/gruvbox-baby',
 	},
-	config = function()
-		local palette = require('gruvbox.palette')
-		require('colorful-winsep').setup({
-			highlight = {
-				bg = palette.colors.dark0,
-				fg = palette.colors.neutral_orange,
-			},
-			interval = 30,
-			no_exec_files = {
-				"packer",
-				"TelescopePrompt",
-				"mason",
-				"CompetiTest",
-				"NvimTree",
-			},
-		})
-		vim.cmd("highlight WinSeparator guibg=None guifg=" .. palette.colors.gray)
+	opts = {
+		highlight = {
+			bg = require('gruvbox.palette').colors.dark0,
+			fg = require('gruvbox.palette').colors.neutral_orange,
+		},
+		interval = 30,
+		no_exec_files = {
+			"packer",
+			"TelescopePrompt",
+			"mason",
+			"CompetiTest",
+			"NvimTree",
+		},
+	},
+	init = function()
+		-- TODO: figure out if this is needed
+		vim.cmd("highlight WinSeparator guibg=None guifg=" .. require('gruvbox.palette').colors.gray)
 	end
 
 }
