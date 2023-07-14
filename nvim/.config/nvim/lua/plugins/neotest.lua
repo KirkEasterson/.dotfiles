@@ -16,19 +16,22 @@ return {
 			end,
 			desc = "Run test",
 		},
-		{ "<leader>Ts",
+		{
+			"<leader>Ts",
 			function()
 				require("neotest").run.stop()
 			end,
 			desc = "Stop test",
 		},
-		{ "<leader>Ta",
+		{
+			"<leader>Ta",
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
 			desc = "Run test",
 		},
-		{ "<leader>Td",
+		{
+			"<leader>Td",
 			function()
 				require("neotest").run.run({ strategy = "dap" })
 			end,
