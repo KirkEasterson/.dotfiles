@@ -70,10 +70,7 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		require('neorg').setup(opts)
-
-		-- set conceal only for norg files
+	init = function()
 		vim.api.nvim_create_autocmd({ "FileType" }, {
 			pattern = { 'norg' },
 			callback = function()
@@ -87,6 +84,7 @@ return {
 				vim.opt_local.expandtab = false
 				vim.cmd [[filetype indent off]]
 			end,
+			desc = "Set conceal only for norg files",
 		})
 	end
 }
