@@ -42,8 +42,7 @@ return {
 		},
 	},
 	opts = {},
-	config = function(_, opts)
-		require('harpoon').setup(opts)
+	init = function()
 		require("telescope").load_extension("harpoon")
 	end
 }
