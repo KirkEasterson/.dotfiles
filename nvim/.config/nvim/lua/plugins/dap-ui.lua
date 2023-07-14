@@ -64,9 +64,7 @@ return {
 		},
 	},
 	opts = {},
-	config = function(_, opts)
-		require('dapui').setup(opts)
-
+	init = function()
 		vim.cmd [[highlight	DapBreakpoint guifg=red]]
 		vim.cmd [[highlight	DapBreakpointRejected guifg=red]]
 		vim.cmd [[highlight	DapBreakpointCondition guifg=red]]
