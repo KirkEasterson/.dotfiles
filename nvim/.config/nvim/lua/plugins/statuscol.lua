@@ -111,73 +111,70 @@ return {
 		-- 'kevinhwang91/nvim-ufo',
 	},
 	event = 'VeryLazy',
-	config = function()
-		local builtin = require("statuscol.builtin")
-		require("statuscol").setup({
-			setopt = true,
-			relculright = true,
-			ft_ignore = {
-				"help",
-				"startify",
-				"dashboard",
-				"packer",
-				"neogitstatus",
-				"Trouble",
-				"Alpha",
-			},
-			segments = {
-				{
-					-- diagnostics
-					text = {
-						function()
-							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
-						end
-					},
-					condition = { function()
-						local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
-							group = "*",
-						})
-						local filtered_table = filter_table(cur_sign_tbl[1].signs, function(v)
-							return string.find(v.name, "Diagnostic", 0, true)
-						end)
-						return next(filtered_table) ~= nil
+	opts = {
+		setopt = true,
+		relculright = true,
+		ft_ignore = {
+			"help",
+			"startify",
+			"dashboard",
+			"packer",
+			"neogitstatus",
+			"Trouble",
+			"Alpha",
+		},
+		segments = {
+			{
+				-- diagnostics
+				text = {
+					function()
+						return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
 					end
-					},
 				},
-				{
-					-- dap
-					text = { function()
-						return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
-					end },
-					condition = { function()
-						local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
-							group = "dap_breakpoints",
-						})
-						return next(cur_sign_tbl[1].signs) ~= nil
-					end },
-					-- click = "v:lua.ScLa",
+				condition = { function()
+					local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
+						group = "*",
+					})
+					local filtered_table = filter_table(cur_sign_tbl[1].signs, function(v)
+						return string.find(v.name, "Diagnostic", 0, true)
+					end)
+					return next(filtered_table) ~= nil
+				end
 				},
-				{
-					-- line numbers
-					text = { builtin.lnumfunc },
-					condition = { true },
-					click = "v:lua.ScLa",
-				},
-				{
-					-- git signs
-					text = {
-						function()
-							return get_statuscol_gitsign(vim.fn.bufnr(), vim.v.lnum)
-						end
-					},
-					condition = { true },
-				},
-				-- { -- fold
-				-- 	text = { builtin.foldfunc },
-				-- 	condition = { true },
-				-- 	click = "v:lua.ScFa",
-				-- },
 			},
-		})
-	end
+			{
+				-- dap
+				text = { function()
+					return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
+				end },
+				condition = { function()
+					local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
+						group = "dap_breakpoints",
+					})
+					return next(cur_sign_tbl[1].signs) ~= nil
+				end },
+				-- click = "v:lua.ScLa",
+			},
+			{
+				-- line numbers
+				text = { require("statuscol.builtin").lnumfunc },
+				condition = { true },
+				click = "v:lua.ScLa",
+			},
+			{
+				-- git signs
+				text = {
+					function()
+						return get_statuscol_gitsign(vim.fn.bufnr(), vim.v.lnum)
+					end
+				},
+				condition = { true },
+			},
+			-- { -- fold
+			-- 	text = { require("statuscol.builtin").foldfunc },
+			-- 	condition = { true },
+			-- 	click = "v:lua.ScFa",
+			-- },
+		},
+	},
 }
