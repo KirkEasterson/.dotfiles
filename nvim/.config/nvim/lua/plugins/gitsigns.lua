@@ -5,13 +5,13 @@ return {
 		"Gitsigns",
 	},
 	keys = {
-		{
-			'<leader>gb',
-			function()
-				require('gitsigns').toggle_current_line_blame()
-			end,
-			desc = "Toggle line blame",
-		},
+		-- {
+		-- 	"<leader>bt",
+		-- 	function ()
+		-- 		require("gitsigns").toggle_current_line_blame()
+		-- 	end,
+		-- 	desc = "Toggle git line blame",
+		-- },
 	},
 	opts = {
 		signs = {
