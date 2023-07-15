@@ -1,16 +1,16 @@
 return {
-	'TimUntersberger/neogit',
+	"NeogitOrg/neogit",
 	enabled = false,
 	dependencies = {
-		'nvim-lua/plenary.nvim',
-		'sindrets/diffview.nvim',
+		"nvim-lua/plenary.nvim",
+		"sindrets/diffview.nvim",
 	},
-	cmd = 'Neogit',
+	cmd = "Neogit",
 	keys = {
 		{
-			'<leader>gg',
-			function()
-				require('neogit').open()
+			"<leader>gg",
+			function ()
+				require("neogit").open()
 			end,
 			desc = "Open neogit",
 		},
@@ -22,12 +22,12 @@ return {
 		disable_insert_on_commit = false,
 		auto_refresh = true,
 		use_per_project_settings = false,
-		kind = 'split',
+		kind = "split",
 		signs = {
 			-- { CLOSED, OPENED }
-			section = { ">", "v" },
-			item = { ">", "v" },
-			hunk = { "", "" },
+			section = { "", "", },
+			item = { "", "", },
+			hunk = { "", "", },
 		},
 		integrations = {
 			diffview = true,
