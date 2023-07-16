@@ -1,8 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = ' '      -- prefix key
-g.maplocalleader = ' ' -- secondary prefix key
+g.mapleader = " "      -- prefix key
+g.maplocalleader = " " -- secondary prefix key
 
 -- disable builtin plugins
 local builtin_plugins = {
@@ -33,7 +33,7 @@ local builtin_plugins = {
 	"zipPlugin",
 }
 for _, v in pairs(builtin_plugins) do
-	g['loaded_' .. v] = 1
+	g["loaded_" .. v] = 1
 end
 
 -- neovide
@@ -57,7 +57,7 @@ opt.wildignore:append({
 opt.title = true
 
 opt.spell = false
-opt.spelllang = { 'en_us' }
+opt.spelllang = { "en_us", }
 
 opt.number = true         -- show line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -79,41 +79,41 @@ opt.lazyredraw = true  -- Faster scrolling
 opt.synmaxcol = 240    -- Max column for syntax highlight
 opt.updatetime = 250   -- ms to wait for trigger an event
 
-opt.syntax = 'enable'  -- show syntax highlighting
+opt.syntax = "enable"  -- show syntax highlighting
 opt.showmatch = true   -- highlight matching brackets
 opt.scrolloff = 4      -- scroll when y away from vertical edge
 -- opt.smoothscroll = true
 opt.sidescrolloff = 8  -- scroll when x away from horizontal edge
-opt.signcolumn = 'yes' -- column for linting
-opt.colorcolumn = '80' -- show line for 80char soft-limit
+opt.signcolumn = "yes" -- column for linting
+opt.colorcolumn = "80" -- show line for 80char soft-limit
 
 opt.tabstop = 4        -- number of visual spaces per tab
 opt.softtabstop = 4    -- number of spaces in tab when editing
 opt.shiftwidth = 4     -- number of spaces when indenting with <>
 
-opt.mouse = 'a'        -- enable mouse for scrolling and resizing
-opt.mousemodel = 'extend'
+opt.mouse = "a"        -- enable mouse for scrolling and resizing
+opt.mousemodel = "extend"
 opt.mousehide = true
 opt.mousemoveevent = true
-opt.mousescroll = 'ver:1,hor:1'
+opt.mousescroll = "ver:1,hor:1"
 
 opt.wildmenu = true -- visual autocompletion for command menu
-opt.wildmode = { 'longest', 'list', 'full' }
+opt.wildmode = { "longest", "list", "full", }
 
 opt.list = true
 opt.listchars:append({
-	lead = ' ',
-	tab = '  ',
-	trail = '▒',
-	extends = '',
-	precedes = '',
+	lead = " ",
+	tab = "  ",
+	trail = "▒",
+	extends = "",
+	precedes = "",
 })
 opt.fillchars:append({
 	eob = " ",
 	fold = " ",
 	foldopen = "󰅀",
 	foldsep = " ",
-	foldclose = "󰅂"
+	foldclose = "󰅂",
 })
 
 opt.swapfile = false  -- don't create swap files
@@ -128,9 +128,11 @@ opt.confirm = true    -- show confirm dialog when closing unsaved files
 
 opt.laststatus = 3    -- aesthetic win separators
 
-opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.completeopt = { "menu", "menuone", "noselect", }
 
-if vim.env.TERM == 'xterm-kitty' then
-	vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
-	vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
+if vim.env.TERM == "xterm-kitty" then
+	vim.cmd(
+		[[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
+	vim.cmd(
+		[[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
 end
