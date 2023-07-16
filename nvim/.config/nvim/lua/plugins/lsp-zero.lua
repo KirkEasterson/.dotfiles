@@ -200,7 +200,7 @@ return {
 		-- })
 
 		local null_ls = require('null-ls')
-		local null_opts = lsp_zero.build_options('null-ls', {})
+		local null_opts = lsp_zero.build_options('null-ls', {}) -- TODO: use this
 		null_ls.setup({
 			on_attach = on_attach,
 			sources = {
