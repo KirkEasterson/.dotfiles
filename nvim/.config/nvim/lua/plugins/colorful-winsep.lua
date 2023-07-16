@@ -19,8 +19,8 @@ return {
 			"NvimTree",
 		},
 	},
-	init = function()
-		-- TODO: figure out if this is needed
+	config = function(_, opts)
+		require('colorful-winsep').setup(opts)
 		vim.cmd("highlight WinSeparator guibg=None guifg=" .. require('gruvbox.palette').colors.gray)
 	end
 
