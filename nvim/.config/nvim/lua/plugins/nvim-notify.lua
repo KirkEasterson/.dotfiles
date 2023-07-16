@@ -29,8 +29,10 @@ return {
 		render = "compact",
 		stages = "slide",
 	},
-	init = function()
-		vim.notify = require('notify')
+	config = function(_, opts)
+		local notify = require('notify')
+		notify.setup(opts)
+		vim.notify = notify
 		require("telescope").load_extension("notify")
 	end,
 }
