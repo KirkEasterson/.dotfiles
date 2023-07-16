@@ -4,9 +4,12 @@ return {
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},
-	opts = {
-		server = {
-			on_attach = require('lsp.on_attach').on_attach,
-		}
-	},
+	config = function()
+		require('lsp.on_attach')
+		require('rust-tools').setup({
+			server = {
+				on_attach = on_attach,
+			}
+		})
+	end,
 }
