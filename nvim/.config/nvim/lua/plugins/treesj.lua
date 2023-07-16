@@ -11,7 +11,9 @@ return {
 	keys = {
 		{
 			'<leader>J',
-			function() require('treesj').toggle() end,
+			function()
+				require('treesj').toggle()
+			end,
 			desc = "Split/join line",
 		},
 	},
