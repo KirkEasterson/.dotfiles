@@ -29,9 +29,9 @@ map('n', '<X1Mouse>', '<C-o>')
 map('n', '<X2Mouse>', '<C-i>')
 
 -- faster save and quits
-map('n', '<leader>w', function() vim.cmd('w') end)
-map('n', '<leader>q', function() vim.cmd('q') end)
-map('n', '<leader>z', function() vim.cmd('qa') end)
+map('n', '<leader>w', function() vim.cmd('w') end, { desc = "Save file" })
+map('n', '<leader>q', function() vim.cmd('q') end, { desc = "Close buffer" })
+map('n', '<leader>Z', function() vim.cmd('qa') end, { desc = "Quit" })
 
 -- easier jumps to line endings
 map('n', 'H', '^')
@@ -46,7 +46,7 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 
-map('n', 'U', '<C-r>')
+map('n', 'U', '<C-r>', { desc = "Redo" })
 
 -- easier yanking/pasting
 map('v', 'y', 'ygv<ESC>')     -- keep cursor in same spot when yanking
