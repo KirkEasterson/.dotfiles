@@ -288,7 +288,7 @@ return {
 	},
 	lazy = false,
 	priority = 999, -- 1 less than gruvbox
-	config = function (_, opts)
+	config = function(_, opts)
 		local dashboard = require("alpha.themes.dashboard")
 		dashboard.section.header.val = month_arts[os.date("*t").month]
 		dashboard.section.buttons.val = {
