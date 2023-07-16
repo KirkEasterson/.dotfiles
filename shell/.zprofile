@@ -12,9 +12,6 @@ if [[ "$(tty)" = "/dev/tty1" ]]; then
 	pgrep i3 || startx
 fi
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-
 export DOTFILES=$HOME/.dotfiles
 export BROWSER=firefox
 export BROWSER_SECONDARY=chromium
