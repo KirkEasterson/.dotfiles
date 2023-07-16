@@ -7,11 +7,11 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	event = "VeryLazy",
-	build = function ()
+	build = function()
 		require("nvim-treesitter.install").prefer_git = true
 		require("nvim-treesitter.install").update({ with_sync = true, })
 	end,
-	config = function ()
+	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = "all",
 			sync_install = false,
@@ -101,7 +101,7 @@ return {
 
 		vim.api.nvim_create_autocmd("BufEnter", {
 			pattern = { "*", },
-			callback = function ()
+			callback = function()
 				local ft = vim.bo.filetype
 				if not ft then
 					return
