@@ -64,7 +64,7 @@ return {
 		},
 	},
 	opts = {},
-	init = function()
+	config = function()
 		vim.cmd [[highlight	DapBreakpoint guifg=red]]
 		vim.cmd [[highlight	DapBreakpointRejected guifg=red]]
 		vim.cmd [[highlight	DapBreakpointCondition guifg=red]]
