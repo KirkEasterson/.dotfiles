@@ -1,5 +1,5 @@
 return {
-	'tpope/vim-fugitive',
+	"tpope/vim-fugitive",
 	-- enabled = false,
 	cmd = {
 		"G",
@@ -24,7 +24,6 @@ return {
 			"<leader>gg",
 			"<Cmd>Git<CR>",
 			desc = "Show git-fugitive UI",
-		}
+		},
 	},
-	config = false,
 }
