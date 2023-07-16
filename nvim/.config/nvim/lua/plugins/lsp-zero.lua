@@ -103,13 +103,6 @@ return {
 		-- },
 	},
 	config = function()
-		vim.diagnostic.config({
-			virtual_text = false,
-			float = {
-				border = "rounded",
-			}
-		})
-
 		local lsp_zero = require('lsp-zero').preset({
 			name = 'minimal',
 			set_lsp_keymaps = true,
@@ -289,4 +282,12 @@ return {
 		)
 		require('lspconfig.ui.windows').default_options.border = 'rounded'
 	end,
+	init = function()
+		vim.diagnostic.config({
+			virtual_text = false,
+			float = {
+				border = "rounded",
+			}
+		})
+	end
 }
