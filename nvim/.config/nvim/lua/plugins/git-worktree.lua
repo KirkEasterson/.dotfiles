@@ -21,7 +21,8 @@ return {
 		update_on_change = false,
 		-- update_on_new_worktree = update_on_new_worktree,
 	},
-	init = function()
+	config = function(_,opts)
+		require('git-worktree').setup(opts)
 		local update_on_new_worktree = function(op, metadata)
 			vim.api.nvim_command("SessionRestore")
 			-- TODO: add handling for when a session can't be restored
