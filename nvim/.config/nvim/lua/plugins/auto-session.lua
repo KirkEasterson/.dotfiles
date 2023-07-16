@@ -34,7 +34,7 @@ return {
 		-- 	previewer = false,
 		-- },
 	},
-	init = function ()
+	init = function()
 		local session_opts = {
 			"blank",
 			"buffers",
