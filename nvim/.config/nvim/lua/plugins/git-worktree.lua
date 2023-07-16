@@ -23,7 +23,7 @@ return {
 	},
 	init = function()
 		local update_on_new_worktree = function(op, metadata)
-			vim.api.nvim_command("RestoreSession")
+			vim.api.nvim_command("SessionRestore")
 			-- TODO: add handling for when a session can't be restored
 		end
 
