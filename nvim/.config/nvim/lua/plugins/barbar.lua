@@ -12,7 +12,8 @@ return {
 		maximum_padding = 1,
 		minimum_padding = 1,
 	},
-	init = function()
+	config = function(_, opts)
+		require('barbar').setup(opts)
 		local palette = require('gruvbox.palette')
 		vim.cmd("highlight BufferCurrent guibg=" .. palette.colors.dark0_hard)
 		vim.cmd("highlight BufferCurrentSign guibg=" .. palette.colors.dark0_hard)
