@@ -74,7 +74,8 @@ return {
 			},
 		},
 	},
-	init = function()
+	config = function(_, opts)
+		require('nvim-tree').setup(opts)
 		local palette = require('gruvbox.palette')
 		vim.cmd("highlight NvimTreeNormal guibg=" .. palette.colors.dark0_hard)
 		vim.cmd("highlight NvimTreeWinSeparator guibg=" ..
