@@ -2,7 +2,7 @@ return {
 	'luisiacc/gruvbox-baby',
 	lazy = false,
 	priority = 1000,
-	init = function()
+	config = function(_, _)
 		vim.cmd [[colorscheme gruvbox-baby]]
 	end,
 }
