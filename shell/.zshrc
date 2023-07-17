@@ -13,12 +13,6 @@ HISTFILE=~/.cache/zsh/history
 setopt INC_APPEND_HISTORY_TIME
 export KEYTIMEOUT=1
 
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
-
-# opam configuration
-[[ ! -r /home/kirk/.opam/opam-init/init.zsh ]] || source /home/kirk/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
 # Basic auto/tab complete
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
@@ -28,8 +22,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
-
-if [ -f '/usr/bin/terraform ' ]; then . complete -o nospace -C /usr/bin/terraform terraform; fi
 
 # bootstrap antidote
 [[ ! -d ${XDG_CONFIG_HOME:-~}/zsh/antidote ]] &&
@@ -45,6 +37,12 @@ function zvm_after_init() {
   # Like my nvim binding
   zvm_bindkey viins '^Y' autosuggest-accept
 }
+
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+
+# opam configuration
+[[ ! -r /home/kirk/.opam/opam-init/init.zsh ]] || source /home/kirk/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # init zoxide
 eval "$(zoxide init zsh)"
