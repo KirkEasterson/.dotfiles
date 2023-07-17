@@ -73,5 +73,6 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export GTK_THEME=Pop-dark
 fi
 
-# source local exports, which don't need to be in version control
-source ~/.config/shell/local_exports 2> /dev/null
+if [ -d "$XDG_CONFIG_HOME/shell/local/exports" ]; then
+	source "$XDG_CONFIG_HOME/shell/local/exports"
+fi

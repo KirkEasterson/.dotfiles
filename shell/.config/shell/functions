@@ -44,3 +44,7 @@ up () {
     echo "Couldn't go up $limit dirs.";
   fi
 }
+
+if [ -d "$XDG_CONFIG_HOME/shell/local/functions" ]; then
+	source "$XDG_CONFIG_HOME/shell/local/functions"
+fi
