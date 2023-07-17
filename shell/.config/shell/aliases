@@ -100,6 +100,6 @@ alias mkdir="mkdir -pv"
 # less characters to type 'terraform'
 alias tf="terraform"
 
-if [ -d "$XDG_CONFIG_HOME/shell/local/aliases" ]; then
+if [ -f "$XDG_CONFIG_HOME/shell/local/aliases" ]; then
 	source "$XDG_CONFIG_HOME/shell/local/aliases"
 fi
