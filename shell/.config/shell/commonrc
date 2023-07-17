@@ -1,8 +1,8 @@
 # A common rc file for various POSIX compliant shells
 
-source ~/.config/shell/exports
-source ~/.config/shell/aliases
-source ~/.config/shell/functions
+source "$XDG_CONFIG_HOME/shell/exports"
+source "$XDG_CONFIG_HOME/shell/aliases"
+source "$XDG_CONFIG_HOME/shell/functions"
 
 if [ -d "$XDG_DATA_HOME/cargo/env" ]; then
   . "$XDG_DATA_HOME/cargo/env"
