@@ -242,7 +242,7 @@ return {
 		-- 	desc = "Search registers",
 		-- },
 		{
-			"<leader>tu",
+			"<leader>fu",
 			function()
 				require("telescope").extensions.undo.undo()
 			end,
