@@ -17,6 +17,9 @@ bind -m vi-insert 'Control-l: clear-screen'
 # Ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
+# opam configuration
+[[ ! -r /home/kirk/.opam/opam-init/init.sh ]] || source /home/kirk/.opam/opam-init/init.sh  > /dev/null 2> /dev/null
+
 complete -C /usr/bin/terraform terraform
 
 # init zoxide
