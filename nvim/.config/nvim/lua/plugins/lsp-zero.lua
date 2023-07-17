@@ -191,13 +191,18 @@ return {
 			},
 		})
 
-		-- lsp_zero.configure('luals', {
-		-- 	settings = {
-		-- 		yaml = {
-		-- 			keyOrdering = false,
-		-- 		},
-		-- 	},
-		-- })
+		lsp_zero.configure('lua_ls', {
+			settings = {
+				Lua = {
+					format = {
+						enable = false,
+					},
+					workspace = {
+						checkThirdParty = false,
+					},
+				},
+			},
+		})
 
 		local null_ls = require('null-ls')
 		local null_opts = lsp_zero.build_options('null-ls', {}) -- TODO: use this
