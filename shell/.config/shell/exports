@@ -19,22 +19,22 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/bin"
 
-export PATH="$PATH:$HOME/.config/emacs/bin"
+export PATH="$PATH:$XDG_CONFIG_HOME/emacs/bin"
 
 export PATH="/var/lib/flatpak/exports/share:$PATH"
-export PATH="$HOME/.local/share/flatpak/exports/share:$PATH"
+export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-export SPACESHIP_CONFIG_FILE="$HOME/.config/spaceship/spaceship.zsh"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export SPACESHIP_CONFIG_FILE="$XDG_CONFIG_HOME/spaceship/spaceship.zsh"
 
 # various binary files for smart session management
-export PATH="$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
+export PATH="$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
 
 # local bin; it should be ~/.local/bin, but I don't know stow enough to do that
-export PATH="$HOME/.config/bin:$PATH"
+export PATH="$XDG_CONFIG_HOME/bin:$PATH"
 
 # load NVM
 #export NVM_DIR="$HOME/.nvm"

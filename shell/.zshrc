@@ -2,9 +2,9 @@
 source ~/.config/shell/commonrc
 
 # ensure history file exists
-if [[ ! -a "$HOME/.cache/zsh/history" ]]; then
-	mkdir -p "$HOME/.cache/zsh" >/dev/null 2>&1
-	touch "$HOME/.cache/zsh/history"
+if [[ ! -a "$XDG_CACHE_HOME/zsh/history" ]]; then
+	mkdir -p "$XDG_CACHE_HOME/zsh" >/dev/null 2>&1
+	touch "$XDG_CACHE_HOME/zsh/history"
 fi
 
 HISTSIZE=100000
@@ -42,7 +42,7 @@ if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # opam configuration
-[[ ! -r /home/kirk/.opam/opam-init/init.zsh ]] || source /home/kirk/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
 
 # init zoxide
 eval "$(zoxide init zsh)"
