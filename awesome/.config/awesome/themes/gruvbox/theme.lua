@@ -11,10 +11,10 @@ theme.awesome_icon = theme.wd .. "awesome.png"
 
 -- fonts
 theme.base_font                = "Ubuntu Mono Nerd Font"
-theme.font                     = theme.base_font .. " 8"
-theme.hotkeys_font             = theme.base_font .. " 10"
-theme.taglist_font             = theme.base_font .. " 10"
-theme.icon_font                = theme.base_font .. " 13"
+theme.font                     = theme.base_font .. " 10"
+theme.hotkeys_font             = theme.base_font .. " 12"
+theme.taglist_font             = theme.base_font .. " 12"
+theme.icon_font                = theme.base_font .. " 12"
 theme.hotkeys_description_font = theme.font
 
 -- colors
