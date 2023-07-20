@@ -9,7 +9,8 @@ return {
 	keys = {
 		{
 			"<leader>gg",
-			function ()
+			function()
+				-- TODO: make this toggle neogit
 				require("neogit").open()
 			end,
 			desc = "Open neogit",
