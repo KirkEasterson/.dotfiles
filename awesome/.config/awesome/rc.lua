@@ -45,7 +45,7 @@ local separator = wibox.widget {
 	widget = wibox.widget.separator,
 	orientation = "vertical",
 	forced_width = 13,
-	color = "#353535",
+	color = "#504945",
 }
 
 -- scratchpad terminal
