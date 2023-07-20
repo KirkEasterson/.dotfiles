@@ -20,7 +20,7 @@ theme.hotkeys_description_font                       = theme.font
 
 -- colors
 theme.bg_normal                                      = "#1d2021"
-theme.bg_focus                                       = "#3c3836"
+theme.bg_focus                                       = "#504945"
 theme.fg_normal                                      = "#ebdbb2"
 theme.fg_urgent                                      = "#cc241d"
 theme.border_normal                                  = "#32302f"
