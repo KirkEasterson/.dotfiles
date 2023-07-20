@@ -38,7 +38,7 @@ theme.hotkeys_modifiers_fg                           = theme.fg_urgent
 
 -- borders and gaps
 theme.useless_gap                                    = 4
-theme.border_width                                   = 2
+theme.border_width                                   = 1
 
 -- taglist
 theme.taglist_squares_sel                            = theme.wd ..
