@@ -768,7 +768,7 @@ client.connect_signal("request::titlebars", function (c)
 
 	local margin_layout = wibox.container.margin(layout, 5, 5, 5, 5)
 	local titlebar_height = math.max(
-		math.floor(screen.primary.workarea.height * 0.016), 23)
+		math.floor(screen.primary.workarea.height * 0.022), 24)
 
 	awful.titlebar(c, { size = titlebar_height, }):set_widget(margin_layout)
 end)
