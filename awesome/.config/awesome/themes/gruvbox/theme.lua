@@ -11,7 +11,7 @@ theme.wallpaper                                      = theme.wd ..
 theme.awesome_icon                                   = theme.wd .. "awesome.png"
 
 -- fonts
-theme.base_font                                      = "JetBrains Mono Nerd Font"
+theme.base_font                                      = "Ubuntu Nerd Font"
 theme.font                                           = theme.base_font .. " 10"
 theme.taglist_font                                   = theme.base_font .. " 11"
 theme.icon_font                                      = theme.base_font .. " 12"
