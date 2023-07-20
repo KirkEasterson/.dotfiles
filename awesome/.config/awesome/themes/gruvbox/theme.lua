@@ -23,8 +23,8 @@ theme.bg_normal                                      = "#282828"
 theme.bg_focus                                       = "#3c3836"
 theme.fg_normal                                      = "#ebdbb2"
 theme.fg_urgent                                      = "#cc241d"
-theme.border_normal                                  = "#0c0c0c"
-theme.border_focus                                   = "#0c0c0c"
+theme.border_normal                                  = "#32302f"
+theme.border_focus                                   = "#32302f"
 theme.bg_urgent                                      = theme.bg_normal
 theme.bg_minimize                                    = theme.bg_focus
 theme.bg_systray                                     = theme.bg_normal
@@ -38,7 +38,7 @@ theme.hotkeys_modifiers_fg                           = theme.fg_urgent
 
 -- borders and gaps
 theme.useless_gap                                    = 4
-theme.border_width                                   = 1
+theme.border_width                                   = 2
 
 -- taglist
 theme.taglist_squares_sel                            = theme.wd ..
