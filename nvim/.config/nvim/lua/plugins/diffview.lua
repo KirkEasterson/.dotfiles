@@ -1,6 +1,6 @@
 return {
 	'sindrets/diffview.nvim',
-	enabled = false,
+	-- enabled = false,
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},
