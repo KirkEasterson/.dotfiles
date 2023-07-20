@@ -3,7 +3,6 @@ return {
 	enabled = false,
 	dependencies = {
 		'ellisonleao/gruvbox.nvim',
-		'luisiacc/gruvbox-baby',
 		'nvim-tree/nvim-web-devicons',
 	},
 	event = "VeryLazy",

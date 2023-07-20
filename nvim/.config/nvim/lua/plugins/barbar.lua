@@ -3,7 +3,7 @@ return {
 	enabled = false,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
-		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
+		'ellisonleao/gruvbox.nvim',
 	},
 	opts = {
 		animation = false,

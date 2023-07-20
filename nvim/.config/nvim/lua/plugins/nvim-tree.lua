@@ -2,7 +2,7 @@ return {
 	'nvim-tree/nvim-tree.lua',
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
-		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
+		'ellisonleao/gruvbox.nvim',
 	},
 	cmd = {
 		'NvimTreeClipboard',

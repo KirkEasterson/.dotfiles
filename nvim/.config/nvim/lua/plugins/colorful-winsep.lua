@@ -2,8 +2,7 @@ return {
 	"nvim-zh/colorful-winsep.nvim",
 	event = "VeryLazy",
 	dependencies = {
-		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
-		'luisiacc/gruvbox-baby',
+		'ellisonleao/gruvbox.nvim',
 	},
 	opts = {
 		highlight = {

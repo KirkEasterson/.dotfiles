@@ -6,8 +6,7 @@ return {
 		-- "neovim/nvim-lspconfig",
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons",
-		'ellisonleao/gruvbox.nvim', -- OG nvim gruvbox
-		'luisiacc/gruvbox-baby',
+		'ellisonleao/gruvbox.nvim',
 	},
 	event = "VeryLazy",
 	cmd = "Barbecue",

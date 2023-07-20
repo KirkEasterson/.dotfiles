@@ -4,7 +4,6 @@ return {
 		-- 'neovim/nvim-lspconfig',
 		'nvim-tree/nvim-web-devicons',
 		'ellisonleao/gruvbox.nvim',
-		'luisiacc/gruvbox-baby',
 	},
 	event = 'VimEnter',
 	version = "v4.*",
