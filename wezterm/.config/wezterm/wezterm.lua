@@ -31,6 +31,8 @@ return {
 		'Ubuntu Mono Nerd Font',
 	}),
 	font_size = 12,
+	underline_position = -1,
+	strikethrough_position = 8,
 	adjust_window_size_when_changing_font_size = false,
 	harfbuzz_features = {
 		"calt=0",
