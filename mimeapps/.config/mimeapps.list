@@ -1,26 +1,28 @@
 [Default Applications]
+application/json=nvim.desktop;
 application/pdf=mupdf.desktop
-inode/directory=pcmanfm.desktop
-text/plain=nvim.desktop
-video/x-matroska=mpv.desktop;
-video/mp4=mpv.desktop;
+application/x-extension-ics=userapp-Thunderbird-ICAR41.desktop
 image/gif=mpvgif.desktop
-image/png=feh.desktop;
 image/jpeg=feh.desktop;
+image/png=feh.desktop;
+inode/directory=pcmanfm.desktop
+message/rfc822=userapp-Thunderbird-W14R41.desktop
+text/calendar=userapp-Thunderbird-ICAR41.desktop
 text/html=firefox.desktop;
-text/xml=firefox.desktop;
+text/plain=nvim.desktop
+text/plain=nvim.desktop;
+text/xml=nvim.desktop;
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+x-scheme-handler/ftp=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/ftp=firefox.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-W14R41.desktop
-message/rfc822=userapp-Thunderbird-W14R41.desktop
 x-scheme-handler/mid=userapp-Thunderbird-W14R41.desktop
-x-scheme-handler/webcal=userapp-Thunderbird-ICAR41.desktop
-text/calendar=userapp-Thunderbird-ICAR41.desktop
-application/x-extension-ics=userapp-Thunderbird-ICAR41.desktop
-x-scheme-handler/webcals=userapp-Thunderbird-ICAR41.desktop
-x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-ICAR41.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-ICAR41.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-W14R41.desktop;
