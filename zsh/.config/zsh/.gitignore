@@ -1,4 +1,4 @@
-.zcompdump
-antidote/
 .antidote/
+.zcompdump
 .zsh_plugins.zsh
+antidote/
