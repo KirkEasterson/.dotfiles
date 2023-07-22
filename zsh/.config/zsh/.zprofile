@@ -11,12 +11,3 @@ fi
 if [[ "$(tty)" = "/dev/tty1" ]]; then
 	pgrep i3 || startx
 fi
-
-export DOTFILES=$HOME/.dotfiles
-export BROWSER=firefox
-export BROWSER_SECONDARY=chromium
-export TERMINAL=wezterm
-export TERMINAL_SECONDARY=alacritty
-export FILEMANAGER=pcmanfm
-export EDITOR=nvim
-export VISUAL=nvim
