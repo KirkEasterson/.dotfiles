@@ -11,6 +11,20 @@ export XDG_STATE_DIRS="/usr/local/share/:/usr/share/"
 export XDG_CACHE_HOME="$HOME/.cache"
 # export XDG_RUNTIME_DIR=""
 
+export LANG="en_US.UTF-8"
+export LC_CTYPE="nb_NO.UTF-8"
+export LC_NUMERIC="nb_NO.UTF-8"
+export LC_TIME="nb_NO.UTF-8"
+export LC_COLLATE="nb_NO.UTF-8"
+export LC_MONETARY="nb_NO.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_PAPER="nb_NO.UTF-8"
+export LC_NAME="nb_NO.UTF-8"
+export LC_ADDRESS="nb_NO.UTF-8"
+export LC_TELEPHONE="nb_NO.UTF-8"
+export LC_MEASUREMENT="nb_NO.UTF-8"
+export LC_IDENTIFICATION="nb_NO.UTF-8"
+
 export DOTFILES=$HOME/.dotfiles
 export BROWSER=firefox
 export BROWSER_SECONDARY=chromium
