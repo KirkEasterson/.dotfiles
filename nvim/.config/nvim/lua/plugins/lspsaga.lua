@@ -13,7 +13,7 @@ return {
 		-- 	desc = "Code outline",
 		-- },
 		-- {
-		-- 	"ga",
+		-- 	"<leader>ga",
 		-- 	"<cmd>Lspsaga code_action<CR>",
 		-- 	desc = "Code action",
 		-- },
