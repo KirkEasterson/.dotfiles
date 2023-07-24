@@ -66,11 +66,11 @@ return {
 			function() vim.lsp.buf.type_definition() end,
 			desc = "Type definition",
 		},
-		-- {
-		-- 	"ga",
-		-- 	function() vim.lsp.buf.code_action() end,
-		-- 	desc = "Code actions",
-		-- },
+		{
+			"ga",
+			function() vim.lsp.buf.code_action() end,
+			desc = "Code actions",
+		},
 		-- {
 		-- 	"<leader>e",
 		-- 	function() vim.lsp.buf.diagnostic() end,
