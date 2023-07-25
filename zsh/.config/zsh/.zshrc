@@ -39,18 +39,14 @@ function zvm_after_init() {
   zvm_bindkey viins '^Y' autosuggest-accept
 }
 
+# gcloud configuration
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # opam configuration
 [[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
 
-# init direnv
 eval "$(direnv hook zsh)"
-
-# init zoxide
 eval "$(zoxide init zsh)"
-
-# znap eval starship 'starship init zsh --print-full-init'
 eval "$(starship init zsh)"
 # zprof # uncomment for profiling
