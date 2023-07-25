@@ -27,7 +27,12 @@ autocmd({ "FileType" }, {
 -- remove trailing whitespace on save
 autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
-	command = [[%s/\s\+$//e]],
+	callback = function ()
+		if vim.bo.filetype == "markdown" then
+			return
+		end
+		vim.cmd([[%s/\s\+$//e]])
+	end,
 })
 
 -- highlight yanked text
