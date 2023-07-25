@@ -4,7 +4,8 @@ source "$XDG_CONFIG_HOME/shell/exports"
 source "$XDG_CONFIG_HOME/shell/aliases"
 source "$XDG_CONFIG_HOME/shell/functions"
 
-if [ -d "$XDG_DATA_HOME/cargo/env" ]; then
+# load cargo
+if [ -s "$XDG_DATA_HOME/cargo/env" ]; then
   . "$XDG_DATA_HOME/cargo/env"
 fi
 
