@@ -13,10 +13,11 @@ fi
 if [ -s "$NVM_DIR/nvm.sh" ]; then
     . "$NVM_DIR/nvm.sh"
 fi
+
+# load nvm completion
 if [ -s "$NVM_DIR/bash_completion" ]; then
 	. "$NVM_DIR/bash_completion"
-fi
-if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+elif [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
 	. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 fi
 
