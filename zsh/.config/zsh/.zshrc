@@ -25,10 +25,10 @@ zmodload zsh/complist
 _comp_options+=(globdots)
 
 # bootstrap antidote
-if [[ ! -d ${XDG_CONFIG_HOME:-~}/zsh/antidote ]]; then
-	git clone --depth=1 https://github.com/mattmc3/antidote.git ${XDG_CONFIG_HOME:-~}/zsh/antidote
+if [[ ! -d ${ZDOTDIR}/antidote ]]; then
+	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR}/antidote
 fi
-source ${XDG_CONFIG_HOME:-~}/zsh/antidote/antidote.zsh
+source ${ZDOTDIR}/antidote/antidote.zsh
 antidote load
 
 # configuration for plugins
