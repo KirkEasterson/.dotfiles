@@ -25,8 +25,9 @@ zmodload zsh/complist
 _comp_options+=(globdots)
 
 # bootstrap antidote
-[[ ! -d ${XDG_CONFIG_HOME:-~}/zsh/antidote ]] &&
+if [[ ! -d ${XDG_CONFIG_HOME:-~}/zsh/antidote ]]; then
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${XDG_CONFIG_HOME:-~}/zsh/antidote
+fi
 source ${XDG_CONFIG_HOME:-~}/zsh/antidote/antidote.zsh
 antidote load
 
