@@ -1,4 +1,4 @@
-source ~/.config/shell/commonrc
+source "$XDG_CONFIG_HOME/shell/commonrc"
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then

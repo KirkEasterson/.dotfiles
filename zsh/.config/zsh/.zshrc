@@ -1,5 +1,5 @@
 # zmodload zsh/zprof # uncomment for profiling
-source ~/.config/shell/commonrc
+source "$XDG_CONFIG_HOME/shell/commonrc"
 
 HISTSIZE=100000
 SAVEHIST=100000
