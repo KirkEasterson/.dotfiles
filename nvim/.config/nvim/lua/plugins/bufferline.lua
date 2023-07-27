@@ -78,6 +78,11 @@ return {
 			function() require('bufferline').move(1) end,
 			desc = "Move buffer to the right",
 		},
+		{
+			'<A-w>',
+			function() require('bufferline').close_others() end,
+			desc = "Move buffer to the right",
+		},
 	},
 	opts = {
 		options = {
