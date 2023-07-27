@@ -6,9 +6,9 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- -- convenient buffer switching
--- map('n', '<Tab>', ':bnext')
--- map('n', '<S-Tab>', ':bprev')
+-- -- convenient buffer switching -- disable when using bufferline
+-- map('n', '<Tab>', '<Cmd>bnext<CR>')
+-- map('n', '<S-Tab>', '<Cmd>bprev<CR>')
 
 -- QOL mapping to type commands without needing shift
 map('n', ';', ':')
