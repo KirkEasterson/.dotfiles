@@ -56,21 +56,26 @@ return {
 		{ "adelarsq/neofsharp.vim" },
 	},
 	keys = {
+		-- {
+		-- 	"gd",
+		-- 	function() vim.lsp.buf.definition() end,
+		-- 	desc = "Definition",
+		-- },
+		-- {
+		-- 	"gt",
+		-- 	function() vim.lsp.buf.type_definition() end,
+		-- 	desc = "Type definition",
+		-- },
 		{
-			"gd",
-			function() vim.lsp.buf.definition() end,
-			desc = "Definition",
+			"<leader>gr",
+			function() vim.lsp.buf.references() end,
+			desc = "References",
 		},
-		{
-			"gt",
-			function() vim.lsp.buf.type_definition() end,
-			desc = "Type definition",
-		},
-		{
-			"<leader>ga",
-			function() vim.lsp.buf.code_action() end,
-			desc = "Code actions",
-		},
+		-- {
+		-- 	"<leader>ga",
+		-- 	function() vim.lsp.buf.code_action() end,
+		-- 	desc = "Code actions",
+		-- },
 		-- {
 		-- 	"<leader>e",
 		-- 	function() vim.lsp.buf.diagnostic() end,
@@ -129,7 +134,7 @@ return {
 			"eslint",
 			"fennel_language_server",
 			"fsautocomplete",
-			-- "golangci_lint_ls", -- TODO: figure out why this doesnt work
+			"golangci_lint_ls", -- TODO: figure out why this doesnt work
 			"gopls",
 			"gradle_ls",
 			"hls",
@@ -139,7 +144,6 @@ return {
 			"kotlin_language_server",
 			"lemminx",
 			"lua_ls",
-			"marksman",
 			"ocamllsp",
 			"omnisharp",
 			"pyright",
@@ -249,6 +253,7 @@ return {
 
 				-- golang
 				-- null_ls.builtins.formatting.gofumpt,
+				null_ls.builtins.diagnostics.golangci_lint,
 			}
 		})
 

@@ -12,18 +12,18 @@ return {
 		-- 	"<cmd>Lspsaga outline<CR>",
 		-- 	desc = "Code outline",
 		-- },
-		-- {
-		-- 	"<leader>ga",
-		-- 	"<cmd>Lspsaga code_action<CR>",
-		-- 	desc = "Code action",
-		-- },
+		{
+			"<leader>ga",
+			"<cmd>Lspsaga code_action<CR>",
+			desc = "Code action",
+		},
 		{
 			"<leader>e",
 			"<cmd>Lspsaga show_line_diagnostics<CR>",
 			desc = "Line diagnostics",
 		},
 		{
-			"<leader>gh",
+			"<leader>gu",
 			"<cmd>Lspsaga finder<CR>",
 			desc = "LSP finder",
 		},
@@ -52,25 +52,15 @@ return {
 			"<cmd>Lspsaga show_buf_diagnostics<CR>",
 			desc = "Buffer diagnostics",
 		},
-		-- {
-		-- 	"gd",
-		-- 	"<cmd>Lspsaga goto_definition<CR>",
-		-- 	desc = "Definition",
-		-- },
-		-- {
-		-- 	"gt",
-		-- 	"<cmd>Lspsaga goto_type_definition<CR>",
-		-- 	desc = "Type definition",
-		-- },
 		{
-			"<leader>gd",
-			"<cmd>Lspsaga peek_goto_definition<CR>",
-			desc = "Peek definition",
+			"gd",
+			"<cmd>Lspsaga goto_definition<CR>",
+			desc = "Definition",
 		},
 		{
-			"<leader>gt",
-			"<cmd>Lspsaga peek_goto_type_definition<CR>",
-			desc = "Peek type definition",
+			"gt",
+			"<cmd>Lspsaga goto_type_definition<CR>",
+			desc = "Type definition",
 		},
 	},
 	opts = {
