@@ -4,6 +4,7 @@ return {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-dap",
 	},
+	version = "v2.1.*",
 	event = "VeryLazy",
 	cmd = {
 		"DapInstall",
