@@ -3,7 +3,7 @@ return {
 	enabled = false,
 	version = "*",
 	dependencies = {
-		-- "neovim/nvim-lspconfig",
+		"neovim/nvim-lspconfig",
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons",
 		'ellisonleao/gruvbox.nvim',
@@ -17,7 +17,7 @@ return {
 			},
 		},
 		symbols = {
-			separator = "",
+			separator = "  ",
 		},
 		show_navic = false,
 		attach_navic = false,
