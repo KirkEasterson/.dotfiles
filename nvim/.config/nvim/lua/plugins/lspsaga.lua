@@ -27,11 +27,11 @@ return {
 			"<cmd>Lspsaga lsp_finder<CR>",
 			desc = "LSP finder",
 		},
-		-- {
-		-- 	"<leader>rn",
-		-- 	"<cmd>Lspsaga rename<CR>",
-		-- 	desc = "Rename",
-		-- },
+		{
+			"<leader>rn",
+			"<cmd>Lspsaga rename<CR>",
+			desc = "Rename",
+		},
 		{
 			"K",
 			"<cmd>Lspsaga hover_doc<CR>",

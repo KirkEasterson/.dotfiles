@@ -1,5 +1,6 @@
 return {
 	"smjonas/inc-rename.nvim",
+	enabled = false, -- replaced by lspsaga
 	cmd = "IncRename",
 	keys = {
 		{
