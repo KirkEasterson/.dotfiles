@@ -5,7 +5,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"nvim-treesitter/nvim-treesitter",
 	},
-	cmd = "LspSaga",
+	cmd = "Lspsaga",
 	keys = {
 		-- {
 		-- 	"<leader><leader>o",
