@@ -6,6 +6,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		"jay-babu/mason-nvim-dap.nvim",
 	},
+	version = "v3.8.*",
 	keys = {
 		{
 			"<leader>do",
@@ -64,7 +65,7 @@ return {
 		},
 	},
 	opts = {},
-	config = function()
+	init = function()
 		vim.cmd [[highlight	DapBreakpoint guifg=red]]
 		vim.cmd [[highlight	DapBreakpointRejected guifg=red]]
 		vim.cmd [[highlight	DapBreakpointCondition guifg=red]]
