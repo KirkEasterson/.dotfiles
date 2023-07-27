@@ -1,5 +1,6 @@
 return {
 	"glepnir/lspsaga.nvim",
+	"nvimdev/lspsaga.nvim",
 	dependencies = {
 		'VonHeikemen/lsp-zero.nvim',
 		"nvim-tree/nvim-web-devicons",
