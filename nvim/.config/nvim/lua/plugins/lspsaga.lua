@@ -81,10 +81,11 @@ return {
 			virtual_text = false,
 		},
 		symbol_in_winbar = {
-			enable = false,
+			enable = false, -- TODO: figure out why this doesn't work
 			separator = "  ",
 			folder_level = 8,
 			respect_root = true,
+			delay = 10,
 		},
 	},
 }
