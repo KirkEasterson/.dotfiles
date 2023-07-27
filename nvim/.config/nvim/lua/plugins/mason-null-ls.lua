@@ -25,6 +25,7 @@ return {
 			"stylelint",
 			"stylua",
 			"terraform_validate",
+			"tfsec",
 		},
 	},
 }

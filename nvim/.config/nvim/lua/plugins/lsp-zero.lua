@@ -239,6 +239,7 @@ return {
 
 				-- terraform
 				null_ls.builtins.diagnostics.terraform_validate,
+				null_ls.builtins.diagnostics.tfsec,
 
 				-- general utility
 				null_ls.builtins.code_actions.refactoring,
