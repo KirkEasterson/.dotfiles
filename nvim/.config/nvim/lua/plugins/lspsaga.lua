@@ -74,6 +74,9 @@ return {
 		},
 	},
 	opts = {
+		ui = {
+			border = "rounded",
+		},
 		lightbulb = {
 			virtual_text = false,
 		},
