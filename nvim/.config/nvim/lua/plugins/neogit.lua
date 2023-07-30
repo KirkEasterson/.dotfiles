@@ -13,7 +13,7 @@ return {
 				-- TODO: make this toggle neogit
 				require("neogit").open()
 			end,
-			desc = "Open neogit",
+			desc = "Neogit",
 		},
 	},
 	opts = {
