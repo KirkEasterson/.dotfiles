@@ -71,7 +71,7 @@ return {
 			virtual_text = false,
 		},
 		symbol_in_winbar = {
-			enable = false, -- TODO: figure out why this doesn't work
+			enable = false, -- disabled to avoid having this plugin load at startup
 			separator = "  ",
 			folder_level = 8,
 			respect_root = true,
