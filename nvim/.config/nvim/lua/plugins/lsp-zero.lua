@@ -284,6 +284,7 @@ return {
 					{ name = 'spell' },
 					{ name = 'emoji' },
 					{ name = 'buffer' },
+					{ name = 'copilot' },
 				},
 				experimental = {
 					native_menu = false,
