@@ -55,6 +55,20 @@ return {
 		{ 'Hoffs/omnisharp-extended-lsp.nvim' },
 		{ "adelarsq/neofsharp.vim" },
 	},
+	cmd = {
+		"LspInfo",
+		"LspInstall",
+		"LspLog",
+		"LspRestart",
+		"LspStart",
+		"LspStop",
+		"LspUninstall",
+		"LspZeroFormat",
+		"LspZeroSetupServers",
+		"LspZeroWorkspaceAdd",
+		"LspZeroWorkspaceList",
+		"LspZeroWorkspaceRemove",
+	},
 	keys = {
 		-- {
 		-- 	"gd",
