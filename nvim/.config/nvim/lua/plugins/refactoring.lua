@@ -70,7 +70,7 @@ return {
 		{
 			'<leader>rc',
 			function() require('refactoring').debug.cleanup() end,
-			mode = { 'v' },
+			mode = { 'n', 'v' },
 			desc = "Cleanup debug prints",
 		},
 	},
