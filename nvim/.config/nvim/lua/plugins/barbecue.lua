@@ -1,6 +1,6 @@
 return {
 	"utilyre/barbecue.nvim",
-	enabled = false,
+	-- enabled = false,
 	version = "*",
 	dependencies = {
 		"neovim/nvim-lspconfig",
@@ -13,11 +13,11 @@ return {
 	opts = {
 		theme = {
 			normal = {
-				bg = require('gruvbox.palette').colors.dark0_hard,
+				bg = require('gruvbox.palette').colors.dark0_soft,
 			},
 		},
 		symbols = {
-			separator = "  ",
+			separator = "",
 		},
 		show_navic = false,
 		attach_navic = false,
