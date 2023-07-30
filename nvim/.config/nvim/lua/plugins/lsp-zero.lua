@@ -250,6 +250,7 @@ return {
 				null_ls.builtins.code_actions.proselint,
 				null_ls.builtins.diagnostics.commitlint,
 				null_ls.builtins.diagnostics.todo_comments,
+				null_ls.builtins.diagnostics.commitlint,
 
 				-- golang
 				-- null_ls.builtins.formatting.gofumpt,
@@ -276,8 +277,8 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 				sources = {
-					{ name = 'luasnip' },
 					{ name = 'nvim_lsp' },
+					{ name = 'luasnip' },
 					{ name = 'npm' },
 					{ name = 'path' },
 					{ name = 'calc' },
