@@ -6,7 +6,7 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- -- convenient buffer switching -- disable when using bufferline
+-- -- convenient buffer switching
 -- map('n', '<Tab>', '<Cmd>bnext<CR>')
 -- map('n', '<S-Tab>', '<Cmd>bprev<CR>')
 
@@ -31,7 +31,7 @@ map('n', '<X2Mouse>', '<C-i>')
 -- faster save and quits
 map('n', '<leader>w', function() vim.cmd('w') end, { desc = "Save file" })
 map('n', '<leader>q', function() vim.cmd('q') end, { desc = "Close buffer" })
-map('n', '<leader>Z', function() vim.cmd('qa') end, { desc = "Quit" })
+map('n', '<leader>z', function() vim.cmd('qa') end, { desc = "Quit" })
 
 -- easier jumps to line endings
 map('n', 'H', '^')
