@@ -6,7 +6,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
-	event = "VeryLazy",
+	event = "VimEnter",
 	build = function()
 		require("nvim-treesitter.install").prefer_git = true
 		require("nvim-treesitter.install").update({ with_sync = true, })
