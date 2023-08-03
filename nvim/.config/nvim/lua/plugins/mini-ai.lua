@@ -3,4 +3,5 @@ return {
 	enabled = false,
 	event = "BufEnter",
 	version = '*',
+	opts = {},
 }
