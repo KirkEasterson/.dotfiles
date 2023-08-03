@@ -49,8 +49,8 @@ return {
 		{ "f3fora/cmp-spell" },
 
 		-- Snippets
-		{ 'L3MON4D3/LuaSnip' },
 		{ 'rafamadriz/friendly-snippets' },
+		{ 'L3MON4D3/LuaSnip' },
 
 		{ 'nvim-lua/plenary.nvim' },
 		{ 'Hoffs/omnisharp-extended-lsp.nvim' },
