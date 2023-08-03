@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- "folke/trouble.nvim",
-		-- "nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim",
 	},
 	event = "VeryLazy",
 	cmd = {
@@ -13,11 +13,11 @@ return {
 		"TodoTrouble",
 	},
 	keys = {
-		-- {
-		-- 	'<leader>dt',
-		-- 	':TodoTelescope<CR>',
-		-- 	desc = "View TODOs",
-		-- },
+		{
+			'<leader>dt',
+			'<Cmd>TodoTelescope<CR>',
+			desc = "View TODOs",
+		},
 	},
 	opts = {},
 }
