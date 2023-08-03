@@ -1,5 +1,6 @@
 return {
 	'famiu/bufdelete.nvim',
+	enabled = false, -- TODO: replace with a simple binding
 	cmd = {
 		"Bdelete",
 		"Bwipeout",
