@@ -21,7 +21,9 @@ return {
 			}
 		},
 		sections = {
-			lualine_c = {},
+			lualine_c = {
+				-- nvim_lsp.util.root_pattern('.git'),
+			},
 		},
 	},
 }
