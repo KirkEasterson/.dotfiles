@@ -73,6 +73,9 @@ return {
 				enable = false,
 			},
 		},
+		notify = {
+			threshold = vim.log.levels.WARN,
+		}
 	},
 	config = function(_, opts)
 		require('nvim-tree').setup(opts)
@@ -80,5 +83,10 @@ return {
 		vim.cmd("highlight NvimTreeNormal guibg=" .. palette.colors.dark0_hard)
 		vim.cmd("highlight NvimTreeWinSeparator guibg=" ..
 			palette.colors.dark0_hard .. " guifg=" .. palette.colors.dark0_hard)
+	end,
+	init = function()
+		vim.g.loaded_netrw = 1
+		vim.g.loaded_netrwPlugin = 1
+		vim.opt.termguicolors = true
 	end
 }
