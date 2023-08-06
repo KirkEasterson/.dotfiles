@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	cond = not vim.g.started_by_firenvim,
 	event = "VeryLazy",
 	cmd = {
 		"Gitsigns",

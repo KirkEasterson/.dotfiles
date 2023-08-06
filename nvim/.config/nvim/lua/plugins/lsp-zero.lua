@@ -25,6 +25,7 @@ end
 
 return {
 	'VonHeikemen/lsp-zero.nvim',
+	cond = not vim.g.started_by_firenvim,
 	branch = 'v2.x',
 	event = "VeryLazy",
 	dependencies = {

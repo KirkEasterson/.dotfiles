@@ -110,6 +110,7 @@ return {
 		"folke/todo-comments.nvim",
 		-- 'kevinhwang91/nvim-ufo',
 	},
+	cond = not vim.g.started_by_firenvim,
 	event = 'VeryLazy',
 	config = function()
 		local builtin = require("statuscol.builtin")

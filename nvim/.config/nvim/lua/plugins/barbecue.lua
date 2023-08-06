@@ -1,6 +1,7 @@
 return {
 	"utilyre/barbecue.nvim",
 	-- enabled = false,
+	cond = not vim.g.started_by_firenvim,
 	version = "*",
 	dependencies = {
 		"neovim/nvim-lspconfig",
