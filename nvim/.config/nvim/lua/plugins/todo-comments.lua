@@ -14,7 +14,7 @@ return {
 	},
 	keys = {
 		{
-			'<leader>dt',
+			'<leader>DT',
 			'<Cmd>TodoTelescope<CR>',
 			desc = "View TODOs",
 		},
