@@ -10,5 +10,11 @@ return {
 	config = function(_, _)
 		vim.o.laststatus = 0
 		vim.opt.confirm = false
+
+		-- sync changes to the page
+		vim.api.nvim_create_autocmd({ 'TextChanged', 'TextChangedI' }, {
+			nested = true,
+			command = "silent! write",
+		})
 	end,
 }
