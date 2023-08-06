@@ -745,10 +745,18 @@ client.connect_signal("request::titlebars", function (c)
 	}
 
 	-- The title goes in the middle
+	local middle_container = wibox.container.place(
+		wibox.widget({
+			layout = wibox.layout.fixed.horizontal,
+			spacing = 4,
+			mode = "center",
+			awful.titlebar.widget.iconwidget(c),
+			awful.titlebar.widget.titlewidget(c),
+		})
+	)
+
 	local middle_layout = wibox.layout.flex.horizontal()
-	local title = awful.titlebar.widget.titlewidget(c)
-	title:set_align("center")
-	middle_layout:add(title)
+	middle_layout:add(middle_container)
 	middle_layout:buttons(buttons)
 
 	-- Widgets that are aligned to the right
