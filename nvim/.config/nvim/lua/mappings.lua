@@ -29,7 +29,7 @@ map('n', '<X1Mouse>', '<C-o>')
 map('n', '<X2Mouse>', '<C-i>')
 
 -- faster save and quits
-map('n', '<leader>w', function() vim.cmd('w') end, { desc = "Save file" })
+map('n', '<leader>w', function() vim.cmd('silent! w') end, { desc = "Save file" })
 map('n', '<leader>q', function() vim.cmd('q') end, { desc = "Close buffer" })
 map('n', '<leader>z', function() vim.cmd('qa') end, { desc = "Quit" })
 
