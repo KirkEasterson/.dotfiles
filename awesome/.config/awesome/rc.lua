@@ -718,8 +718,17 @@ end
 
 -- Create titlebar
 client.connect_signal("request::titlebars", function(c)
+	-- Widgets that are aligned to the left
+	local left_layout = wibox.widget {
+		layout = wibox.layout.fixed.horizontal,
+		spacing = 7,
+		awful.titlebar.widget.closebutton(c),
+		awful.titlebar.widget.minimizebutton(c),
+		awful.titlebar.widget.maximizedbutton(c),
+	}
+
 	-- buttons for the titlebar
-	local buttons = awful.util.table.join(
+	local middle_buttons = awful.util.table.join(
 		awful.button({}, 1, function()
 			if is_double_click() then
 				c.maximized = not c.maximized
@@ -738,15 +747,6 @@ client.connect_signal("request::titlebars", function(c)
 		end)
 	)
 
-	-- Widgets that are aligned to the left
-	local left_layout = wibox.widget {
-		layout = wibox.layout.fixed.horizontal,
-		spacing = 5,
-		awful.titlebar.widget.closebutton(c),
-		awful.titlebar.widget.minimizebutton(c),
-		awful.titlebar.widget.maximizedbutton(c),
-	}
-
 	-- The title goes in the middle
 	local middle_container = wibox.container.place(
 		wibox.widget({
@@ -760,12 +760,12 @@ client.connect_signal("request::titlebars", function(c)
 
 	local middle_layout = wibox.layout.flex.horizontal()
 	middle_layout:add(middle_container)
-	middle_layout:buttons(buttons)
+	middle_layout:buttons(middle_buttons)
 
 	-- Widgets that are aligned to the right
 	local right_layout = wibox.widget {
 		layout = wibox.layout.fixed.horizontal,
-		spacing = 5,
+		spacing = 7,
 		awful.titlebar.widget.floatingbutton(c),
 		awful.titlebar.widget.stickybutton(c),
 		awful.titlebar.widget.ontopbutton(c),
