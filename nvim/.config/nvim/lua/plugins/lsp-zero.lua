@@ -270,6 +270,7 @@ return {
 				-- golang
 				-- null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.diagnostics.golangci_lint,
+				null_ls.builtins.formatting.goimports,
 			}
 		})
 
