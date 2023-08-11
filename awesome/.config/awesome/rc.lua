@@ -691,7 +691,7 @@ client.connect_signal("manage", function(c)
 
 	-- rounded corners for all windows
 	c.shape = function(cr, w, h)
-		gears.shape.rounded_rect(cr, w, h, 8)
+		gears.shape.rounded_rect(cr, w, h, 9)
 	end
 end)
 
