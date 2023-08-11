@@ -16,6 +16,7 @@ return {
 			"eslint_d",
 			"flake8",
 			"gofumpt",
+			"goimports",
 			"hadolint",
 			"markdownlint",
 			"prettier",
