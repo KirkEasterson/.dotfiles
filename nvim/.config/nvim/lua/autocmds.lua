@@ -31,6 +31,9 @@ autocmd({ "BufWritePre" }, {
 		if vim.bo.filetype == "markdown" then
 			return
 		end
+		if not not vim.g.started_by_firenvim then
+			return
+		end
 		vim.cmd([[%s/\s\+$//e]])
 	end,
 })
