@@ -27,6 +27,13 @@ draw_bold_text_with_bright_colors: true
 # window:
 #   opacity: 0.97
 
+bell:
+  animation: Ease
+  duration: 300
+  color: '#cc241d'
+  command:
+    program: "xkbbell"
+
 window:
   dynamic_padding: true
   dynamic_title: true
