@@ -1,6 +1,6 @@
 return {
 	"jackMort/ChatGPT.nvim",
-	enabled = function()
+	cond = function()
 		return vim.fn.executable('op') == 1
 	end,
 	dependencies = {
