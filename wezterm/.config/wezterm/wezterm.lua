@@ -40,6 +40,7 @@ return {
 		"liga=0",
 	},
 	color_scheme = "Gruvbox dark, medium (base16)",
+	front_end = "OpenGL",
 	hide_tab_bar_if_only_one_tab = true,
 	window_padding = {
 		left = 0,
@@ -51,7 +52,7 @@ return {
 	cursor_blink_rate = 0,
 	pane_focus_follows_mouse = true,
 	enable_wayland = false,
-	max_fps = 120,
+	max_fps = 144,
 	window_close_confirmation = 'NeverPrompt',
 	audible_bell = 'SystemBeep',
 	visual_bell = {
@@ -63,7 +64,7 @@ return {
 	colors = {
 		visual_bell = "#cc241d",
 	},
-	animation_fps = 120,
+	animation_fps = 144,
 	check_for_updates = false,
 	disable_default_key_bindings = true,
 	keys = {
