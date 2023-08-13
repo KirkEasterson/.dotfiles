@@ -38,9 +38,11 @@ end
 
 -- neovide
 if g.neovide then
-	vim.o.guifont = "ComicCodeLigatures Nerd Font"
-	g.neovide_refresh_rate = 120
+	vim.o.guifont = "ComicCodeLigatures Nerd Font, Ubuntu Mono Nerd Font:h7"
+	g.neovide_refresh_rate = 60
 	g.neovide_refresh_rate_idle = 5
+	g.neovide_input_macos_alt_is_meta = true
+	g.neovide_remember_window_size = false
 	g.neovide_input_macos_alt_is_meta = true
 end
 
