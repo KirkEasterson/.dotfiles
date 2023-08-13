@@ -27,7 +27,7 @@ return {
 	'VonHeikemen/lsp-zero.nvim',
 	cond = not vim.g.started_by_firenvim,
 	branch = 'v2.x',
-	event = "VeryLazy",
+	lazy = false,
 	dependencies = {
 		-- LSP Support
 		{ 'neovim/nvim-lspconfig' },
