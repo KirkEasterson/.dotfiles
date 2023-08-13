@@ -1,3 +1,9 @@
 [submodule "awesome/.config/awesome/awesome-wm-widgets"]
 	path = awesome/.config/awesome/awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets
+[submodule "ranger/.config/ranger/plugins/ranger-fzf-filter"]
+	path = ranger/.config/ranger/plugins/ranger-fzf-filter
+	url = git@github.com:MuXiu1997/ranger-fzf-filter.git
+[submodule "ranger/.config/ranger/plugins/ranger_devicons"]
+	path = ranger/.config/ranger/plugins/ranger_devicons
+	url = git@github.com:alexanderjeurissen/ranger_devicons.git
