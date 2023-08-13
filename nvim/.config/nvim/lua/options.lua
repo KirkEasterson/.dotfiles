@@ -125,7 +125,7 @@ opt.splitbelow = true --  splits open below
 
 opt.cmdheight = 0     -- hide the command line
 
-opt.undofile = true -- persistent undos
+opt.undofile = true   -- persistent undos
 opt.confirm = true    -- show confirm dialog when closing unsaved files
 
 opt.laststatus = 3    -- aesthetic win separators
