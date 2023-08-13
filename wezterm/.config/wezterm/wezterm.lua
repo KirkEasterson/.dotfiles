@@ -53,7 +53,16 @@ return {
 	enable_wayland = false,
 	max_fps = 120,
 	window_close_confirmation = 'NeverPrompt',
-	audible_bell = 'Disabled',
+	audible_bell = 'SystemBeep',
+	visual_bell = {
+		fade_in_function = "EaseIn",
+		fade_out_function = "EaseOut",
+		fade_in_duration_ms = 150,
+		fade_out_duration_ms = 150,
+	},
+	colors = {
+		visual_bell = "#cc241d",
+	},
 	animation_fps = 120,
 	check_for_updates = false,
 	disable_default_key_bindings = true,
