@@ -2,7 +2,7 @@ return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
 	cond = not vim.g.started_by_firenvim,
-	event = 'VimEnter',
+	event = 'BufAdd',
 	opts = {
 		disabled_filetypes = {
 			statusline = {

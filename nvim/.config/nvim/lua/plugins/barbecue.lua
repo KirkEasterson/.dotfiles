@@ -9,7 +9,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		'ellisonleao/gruvbox.nvim',
 	},
-	event = "VeryLazy",
+	event = 'BufAdd',
 	cmd = "Barbecue",
 	opts = {
 		theme = {

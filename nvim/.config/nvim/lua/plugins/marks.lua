@@ -1,7 +1,8 @@
 return {
 	"chentoast/marks.nvim",
-	lazy = false,
 	cond = not vim.g.started_by_firenvim,
+	-- event = "VimEnter",
+	event = "BufEnter",
 	cmd = {
 		"BookmarksList",
 		"BookmarksListAll",

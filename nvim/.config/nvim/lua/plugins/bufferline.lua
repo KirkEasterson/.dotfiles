@@ -6,7 +6,7 @@ return {
 		'nvim-tree/nvim-web-devicons',
 		'ellisonleao/gruvbox.nvim',
 	},
-	event = 'VimEnter',
+	event = 'BufAdd',
 	version = "v4.*",
 	keys = {
 		{

@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"lewis6991/gitsigns.nvim",
 	},
-	event = "VeryLazy",
+	event = "VimEnter",
 	opts = {
 		hide_if_all_visible = true,
 		handlers = {
