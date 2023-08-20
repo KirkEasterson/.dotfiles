@@ -1,5 +1,6 @@
 return {
 	'rcarriga/nvim-notify',
+	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	event = 'VeryLazy',
 	dependencies = {

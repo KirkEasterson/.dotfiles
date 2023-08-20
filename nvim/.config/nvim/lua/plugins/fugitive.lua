@@ -1,5 +1,6 @@
 return {
 	"tpope/vim-fugitive",
+	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	cmd = {
 		"G",

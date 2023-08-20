@@ -1,5 +1,6 @@
 return {
 	"windwp/nvim-autopairs",
+	cond = not vim.g.started_by_firenvim,
 	event = "InsertEnter",
 	opts = {
 		check_ts = true,

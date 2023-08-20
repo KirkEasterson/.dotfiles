@@ -1,5 +1,6 @@
 return {
 	"rmagatti/auto-session",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		-- "nvim-telescope/telescope.nvim",
 	},

@@ -1,5 +1,6 @@
 return {
 	"nvim-zh/colorful-winsep.nvim",
+	cond = not vim.g.started_by_firenvim,
 	event = "VeryLazy",
 	dependencies = {
 		'ellisonleao/gruvbox.nvim',

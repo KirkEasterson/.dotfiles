@@ -1,5 +1,6 @@
 return {
 	"smjonas/inc-rename.nvim",
+	cond = not vim.g.started_by_firenvim,
 	enabled = false, -- replaced by lspsaga
 	cmd = "IncRename",
 	keys = {

@@ -1,5 +1,6 @@
 return {
 	"nvim-neotest/neotest",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",

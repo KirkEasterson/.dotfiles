@@ -1,12 +1,13 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-context",
 		"nvim-treesitter/nvim-treesitter-refactor",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
-	event = "VimEnter",
+	event = "VeryLazy",
 	build = function()
 		require("nvim-treesitter.install").prefer_git = true
 		require("nvim-treesitter.install").update({ with_sync = true, })

@@ -1,5 +1,6 @@
 return {
 	'lukas-reineke/indent-blankline.nvim',
+	cond = not vim.g.started_by_firenvim,
 	event = "VeryLazy",
 	opts = {
 		char = "▏",

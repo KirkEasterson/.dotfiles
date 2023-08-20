@@ -1,5 +1,6 @@
 return {
 	"rcarriga/nvim-dap-ui",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"folke/neodev.nvim",

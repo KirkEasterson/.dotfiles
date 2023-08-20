@@ -2,6 +2,7 @@ local conn_file = vim.fn.stdpath("cache") .. "/dbee/persistence.json"
 
 return {
 	"kristijanhusak/vim-dadbod-ui",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"tpope/vim-dadbod",
 		"kristijanhusak/vim-dadbod-completion",

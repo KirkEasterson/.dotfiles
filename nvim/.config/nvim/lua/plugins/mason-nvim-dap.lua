@@ -1,5 +1,6 @@
 return {
 	"jay-babu/mason-nvim-dap.nvim",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-dap",

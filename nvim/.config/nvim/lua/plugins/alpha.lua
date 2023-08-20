@@ -286,6 +286,7 @@ return {
 		'nvim-tree/nvim-web-devicons',
 		'BlakeJC94/alpha-nvim-fortune',
 	},
+	cond = not vim.g.started_by_firenvim,
 	lazy = false,
 	priority = 999, -- 1 less than gruvbox
 	config = function(_, opts)

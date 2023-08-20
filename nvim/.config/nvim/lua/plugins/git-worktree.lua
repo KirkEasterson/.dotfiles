@@ -1,5 +1,6 @@
 return {
 	'ThePrimeagen/git-worktree.nvim',
+	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	dependencies = {
 		'nvim-telescope/telescope.nvim',

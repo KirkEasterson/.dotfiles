@@ -1,5 +1,6 @@
 return {
 	"giusgad/pets.nvim",
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"giusgad/hologram.nvim",
 		"MunifTanjim/nui.nvim",

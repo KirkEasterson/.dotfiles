@@ -1,5 +1,6 @@
 return {
 	'kevinhwang91/nvim-ufo',
+	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	dependencies = {
 		'kevinhwang91/promise-async',

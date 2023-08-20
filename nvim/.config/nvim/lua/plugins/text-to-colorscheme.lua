@@ -1,5 +1,6 @@
 return {
 	"svermeulen/text-to-colorscheme",
+	cond = not vim.g.started_by_firenvim,
 	enabled = function()
 		local openapikey = os.getenv("OPENAI_API_KEY")
 		return openapikey ~= nil and openapikey ~= ""

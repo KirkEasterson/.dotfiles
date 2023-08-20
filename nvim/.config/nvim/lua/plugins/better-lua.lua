@@ -1,5 +1,6 @@
 return {
 	'euclidianAce/BetterLua.vim',
+	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	ft = 'lua',
 	opts = {

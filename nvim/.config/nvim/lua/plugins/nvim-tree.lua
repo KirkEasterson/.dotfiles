@@ -1,5 +1,6 @@
 return {
 	'nvim-tree/nvim-tree.lua',
+	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
 		'ellisonleao/gruvbox.nvim',
