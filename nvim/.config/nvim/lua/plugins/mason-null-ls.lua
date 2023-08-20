@@ -6,6 +6,10 @@ return {
 		"jose-elias-alvarez/null-ls.nvim",
 	},
 	event = "VeryLazy",
+	cmd = {
+		"NullLsInstall",
+		"NullLsUninstall",
+	},
 	opts = {
 		automatic_installation = true,
 		automatic_setup = true,
@@ -20,6 +24,7 @@ return {
 			"goimports",
 			"hadolint",
 			"markdownlint",
+			-- "ocamlformat",
 			"prettier",
 			"proselint",
 			"protoc_gen_lint",

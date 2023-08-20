@@ -131,51 +131,6 @@ return {
 			suggest_lsp_servers = true,
 		})
 
-		lsp_zero.ensure_installed({
-			"angularls",
-			"ansiblels",
-			"asm_lsp",
-			"azure_pipelines_ls",
-			"bashls",
-			"clangd",
-			"clojure_lsp",
-			"cmake",
-			"csharp_ls",
-			"cssls",
-			"cssmodules_ls",
-			"denols",
-			"diagnosticls",
-			"docker_compose_language_service",
-			"dockerls",
-			"eslint",
-			"fennel_language_server",
-			"fsautocomplete",
-			"golangci_lint_ls", -- TODO: figure out why this doesnt work
-			"gopls",
-			"gradle_ls",
-			"hls",
-			"html",
-			"jdtls",
-			"jsonls",
-			"kotlin_language_server",
-			"lemminx",
-			"lua_ls",
-			"ocamllsp",
-			"omnisharp",
-			"pyright",
-			"rust_analyzer",
-			"sqlls",
-			"taplo",
-			"terraformls",
-			"texlab",
-			"tflint",
-			"tsserver",
-			"vimls",
-			"yamlls",
-			"zls",
-			-- "rnix",
-		})
-
 		lsp_zero.on_attach(on_attach)
 
 		-- TODO: see if this can be simplified
@@ -224,55 +179,6 @@ return {
 			},
 		})
 
-		local null_ls = require('null-ls')
-		local null_opts = lsp_zero.build_options('null-ls', {}) -- TODO: use this
-		null_ls.setup({
-			on_attach = on_attach,
-			sources = {
-				-- python
-				-- null_ls.builtins.code_actions.pyright, -- TODO: find code_actions for python
-				null_ls.builtins.diagnostics.pylint, -- TODO: experiment with ruff
-				null_ls.builtins.formatting.black,
-
-				-- -- lua
-				-- null_ls.builtins.formatting.stylua,
-
-				-- js/ts
-				null_ls.builtins.diagnostics.eslint,
-				null_ls.builtins.code_actions.eslint,
-				null_ls.builtins.formatting.prettier,
-				null_ls.builtins.code_actions.eslint,
-
-				-- styling
-				null_ls.builtins.diagnostics.stylelint,
-
-				-- proto buffs
-				null_ls.builtins.diagnostics.protoc_gen_lint,
-				null_ls.builtins.formatting.buf,
-
-				-- docker
-				null_ls.builtins.diagnostics.hadolint,
-
-				-- markdown
-				null_ls.builtins.diagnostics.markdownlint,
-				null_ls.builtins.formatting.markdownlint,
-
-				-- terraform
-				null_ls.builtins.diagnostics.terraform_validate,
-				null_ls.builtins.diagnostics.tfsec,
-
-				-- general utility
-				null_ls.builtins.code_actions.refactoring,
-				null_ls.builtins.code_actions.proselint,
-				null_ls.builtins.diagnostics.commitlint,
-				null_ls.builtins.diagnostics.todo_comments,
-
-				-- golang
-				-- null_ls.builtins.formatting.gofumpt,
-				null_ls.builtins.diagnostics.golangci_lint,
-				null_ls.builtins.formatting.goimports,
-			}
-		})
 
 		lsp_zero.nvim_workspace()
 
@@ -285,38 +191,12 @@ return {
 
 		lsp_zero.setup()
 
-		local cmp = require('cmp')
-		cmp.setup(
-			lsp_zero.defaults.cmp_config({
-				window = {
-					completion    = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				sources = {
-					{ name = 'nvim_lsp' },
-					{ name = 'luasnip' },
-					{ name = 'npm' },
-					{ name = 'path' },
-					{ name = 'calc' },
-					{ name = 'spell' },
-					{ name = 'emoji' },
-					{ name = 'buffer' },
-					{ name = 'copilot' },
-				},
-				experimental = {
-					native_menu = false,
-					ghost_text = true,
-				},
-			})
-		)
 		require('lspconfig.ui.windows').default_options.border = 'rounded'
-	end,
-	init = function()
 		vim.diagnostic.config({
 			virtual_text = false,
 			float = {
 				border = "rounded",
 			}
 		})
-	end
+	end,
 }
