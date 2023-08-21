@@ -4,6 +4,7 @@ return {
 	-- enabled = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
 		"sindrets/diffview.nvim",
 	},
 	cmd = "Neogit",
@@ -27,11 +28,12 @@ return {
 		kind = "split",
 		signs = {
 			-- { CLOSED, OPENED }
-			section = { "", "", },
-			item = { "", "", },
 			hunk = { "", "", },
+			item = { "", "", },
+			section = { "", "", },
 		},
 		integrations = {
+			telescope = true,
 			diffview = true,
 		},
 		mappings = {
