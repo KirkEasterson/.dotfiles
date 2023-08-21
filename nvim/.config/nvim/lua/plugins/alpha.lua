@@ -319,6 +319,10 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "AlphaReady",
 			callback = function()
+				local prev_cmdheight = vim.opt.cmdheight
+				local prev_showtabline = vim.opt.showtabline
+				local prev_laststatus = vim.opt.laststatus
+
 				vim.opt.cmdheight = 0
 				vim.opt.showtabline = 0
 				vim.opt.laststatus = 0
@@ -328,9 +332,9 @@ return {
 					{
 						pattern = "<buffer>",
 						callback = function()
-							vim.opt.cmdheight = 1
-							vim.opt.showtabline = 2
-							vim.opt.laststatus = 3
+							vim.opt.cmdheight = prev_cmdheight
+							vim.opt.showtabline = prev_showtabline
+							vim.opt.laststatus = prev_laststatus
 						end,
 					}
 				)
