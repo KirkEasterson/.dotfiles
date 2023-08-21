@@ -1,6 +1,7 @@
 return {
 	"folke/which-key.nvim",
 	cond = not vim.g.started_by_firenvim,
+	version = "v1.5.*",
 	event = "VeryLazy",
 	init = function()
 		vim.o.timeout = true

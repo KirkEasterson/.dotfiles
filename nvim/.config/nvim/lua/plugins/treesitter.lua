@@ -7,6 +7,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
+	version = "v4.3.*",
 	event = "VeryLazy",
 	build = function()
 		require("nvim-treesitter.install").prefer_git = true
