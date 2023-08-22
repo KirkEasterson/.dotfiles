@@ -86,7 +86,6 @@ end
 local get_statuscol_marks = function (bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "MarkSigns")
 
-	print(vim.inspect(cur_sign_nm))
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "Marks") then
 		return mk_hl(cur_sign_nm, string.gsub(cur_sign_nm, "Marks_", ""))
 	else
