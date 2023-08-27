@@ -52,7 +52,7 @@ return {
 	cursor_blink_rate = 0,
 	pane_focus_follows_mouse = true,
 	enable_wayland = false,
-	max_fps = 60,
+	max_fps = 120,
 	window_close_confirmation = 'NeverPrompt',
 	audible_bell = 'SystemBeep',
 	visual_bell = {
@@ -64,7 +64,7 @@ return {
 	colors = {
 		visual_bell = "#cc241d",
 	},
-	animation_fps = 60,
+	animation_fps = 120,
 	check_for_updates = false,
 	disable_default_key_bindings = true,
 	keys = {
