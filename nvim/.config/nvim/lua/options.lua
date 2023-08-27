@@ -95,7 +95,7 @@ opt.shiftwidth = 4     -- number of spaces when indenting with <>
 
 opt.mouse = "a"        -- enable mouse for scrolling and resizing
 opt.mousemodel = "extend"
-opt.mousehide = true
+--opt.mousehide = true
 opt.mousemoveevent = true
 opt.mousescroll = "ver:1,hor:1"
 
