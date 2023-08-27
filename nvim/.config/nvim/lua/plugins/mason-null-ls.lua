@@ -15,7 +15,7 @@ return {
 		automatic_setup = true,
 		ensure_installed = {
 			"autopep8",
-			"black",
+			-- "black",
 			"buf",
 			"commitlint",
 			"eslint_d",

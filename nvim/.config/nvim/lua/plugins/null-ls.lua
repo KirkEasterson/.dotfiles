@@ -16,7 +16,8 @@ return {
 				-- python
 				-- null_ls.builtins.code_actions.pyright, -- TODO: find code_actions for python
 				null_ls.builtins.diagnostics.pylint, -- TODO: experiment with ruff
-				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.autopep8,
+				-- null_ls.builtins.formatting.black,
 
 				-- -- lua
 				-- null_ls.builtins.formatting.stylua,
