@@ -98,7 +98,8 @@ return {
 		-- 	desc = "Buffer diagnostics",
 		-- },
 	},
-	config = function()
+	opts = {},
+	config = function(_, opts)
 		local lsp_zero = require('lsp-zero').preset({
 			name = 'minimal',
 			set_lsp_keymaps = true,
@@ -190,7 +191,7 @@ return {
 			warn = "",
 		})
 
-		lsp_zero.setup()
+		lsp_zero.setup(opts)
 
 		require('lspconfig.ui.windows').default_options.border = 'rounded'
 		vim.diagnostic.config({
