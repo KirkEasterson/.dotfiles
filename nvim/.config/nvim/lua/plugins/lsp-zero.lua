@@ -1,28 +1,3 @@
-local on_attach = function(client, bufnr)
-	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-	if client.server_capabilities == nil then
-		client.server_capabilities = vim.lsp.protocol.make_client_capabilities()
-	end
-
-	if client.supports_method('textDocument/formatting') then
-		-- buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
-		-- TODO: add binding for formatting block
-		buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
-	end
-
-	-- -- for ufo folding
-	-- client.server_capabilities.textDocument = {
-	-- 	foldingRange = {
-	-- 		dynamicRegistration = false,
-	-- 		lineFoldingOnly = true,
-	-- 	},
-	-- }
-end
-
 return {
 	'VonHeikemen/lsp-zero.nvim',
 	cond = not vim.g.started_by_firenvim,
@@ -130,6 +105,32 @@ return {
 			manage_nvim_cmp = true,
 			suggest_lsp_servers = true,
 		})
+
+		local on_attach = function(client, bufnr)
+			local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+			local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+			buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+			if client.server_capabilities == nil then
+				client.server_capabilities = vim.lsp.protocol.make_client_capabilities()
+			end
+
+			if client.supports_method('textDocument/formatting') then
+				-- buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
+				-- TODO: add binding for formatting block
+				buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+				buf_set_keymap("v", "<leader>fc", "<cmd>lua vim.lsp.buf.range_format()<CR>",
+					{ noremap = true, silent = true })
+			end
+
+			-- -- for ufo folding
+			-- client.server_capabilities.textDocument = {
+			-- 	foldingRange = {
+			-- 		dynamicRegistration = false,
+			-- 		lineFoldingOnly = true,
+			-- 	},
+			-- }
+		end
 
 		lsp_zero.on_attach(on_attach)
 
