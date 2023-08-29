@@ -9,6 +9,7 @@ return {
 		{ 'hrsh7th/cmp-buffer' },
 		{ 'hrsh7th/cmp-path' },
 		{ 'hrsh7th/cmp-cmdline' },
+		{ 'FelipeLema/cmp-async-path' },
 
 		{ "hrsh7th/cmp-emoji" },
 		{ "hrsh7th/cmp-calc" },
@@ -20,16 +21,20 @@ return {
 		{ "f3fora/cmp-spell" },
 
 		-- Snippets
-		{ 'rafamadriz/friendly-snippets' },
 		{ 'L3MON4D3/LuaSnip' },
+		{ 'saadparwaiz1/cmp_luasnip' },
 		{ 'nvim-lua/plenary.nvim' },
+		{ 'uga-rosa/cmp-dictionary' },
+
+		-- Git
+		{ 'davidsierradz/cmp-conventionalcommits' },
 	},
 	config = function(_, opts)
 		local cmp = require('cmp')
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+					require('luasnip').lsp_expand(args.body)
 				end,
 			},
 			window = {
@@ -46,12 +51,13 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' },
-				{ name = 'npm',     ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', } },
-				{ name = 'path' },
+				{ name = 'npm',       ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', } },
+				{ name = 'async_path' },
 				{ name = 'calc' },
-				{ name = 'spell',   ft = { 'text', 'markdown' } },
-				{ name = 'emoji',   ft = { 'text', 'markdown' } },
+				{ name = 'spell',     ft = { 'text', 'markdown' } },
+				{ name = 'emoji',     ft = { 'text', 'markdown' } },
 				{ name = 'copilot' },
+				{ name = 'dictionary' },
 			}, {
 				{ name = 'buffer' },
 			}),
@@ -64,6 +70,7 @@ return {
 		cmp.setup.filetype('gitcommit', {
 			sources = cmp.config.sources({
 				{ name = 'git' },
+				{ name = 'conventionalcommits' },
 				{ name = 'path' },
 				{ name = 'calc' },
 				{ name = 'spell' },
