@@ -2,7 +2,7 @@ return {
 	"rmagatti/auto-session",
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
-		-- "nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim",
 	},
 	cmd = {
 		"Autosession",
@@ -12,14 +12,13 @@ return {
 		"SessionSave",
 	},
 	keys = {
-		-- telescope file helpers
-		-- {
-		-- 	"<leader>sl",
-		-- 	function ()
-		-- 		require("auto-session.session-lens").search_session()
-		-- 	end,
-		-- 	desc = "Find files",
-		-- },
+		{
+			"<leader>sl",
+			function ()
+				require("auto-session.session-lens").search_session()
+			end,
+			desc = "Find files",
+		},
 	},
 	opts = {
 		log_level = "error",
@@ -29,11 +28,11 @@ return {
 		pre_save_cmds = {
 			"NvimTreeClose",
 		},
-		-- session_lens = {
-		-- 	load_on_setup = true,
-		-- 	theme_conf = { border = true, },
-		-- 	previewer = false,
-		-- },
+		session_lens = {
+			load_on_setup = true,
+			theme_conf = { border = true, },
+			previewer = false,
+		},
 	},
 	init = function()
 		local session_opts = {
