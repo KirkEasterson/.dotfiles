@@ -2,7 +2,7 @@ return {
 	"utilyre/barbecue.nvim",
 	-- enabled = false,
 	cond = not vim.g.started_by_firenvim,
-	version = "*",
+	version = "v1.*",
 	dependencies = {
 		"neovim/nvim-lspconfig",
 		"SmiteshP/nvim-navic",
@@ -12,6 +12,8 @@ return {
 	event = 'BufAdd',
 	cmd = "Barbecue",
 	opts = {
+		attach_navic = false,
+		show_navic = false,
 		theme = {
 			normal = {
 				bg = require('gruvbox.palette').colors.dark0_soft,
@@ -20,7 +22,18 @@ return {
 		symbols = {
 			separator = "",
 		},
-		show_navic = false,
-		attach_navic = false,
+		exclude_filetypes = {
+			"DiffviewFiles",
+			"NvimTree",
+			"Trouble",
+			"alpha",
+			"dashboard",
+			"help",
+			"neogitstatus",
+			"netrw",
+			"packer",
+			"startify",
+			"toggleterm",
+		},
 	},
 }
