@@ -2,7 +2,7 @@ configuration {
 	display-drun: "Applications";
 	display-window: "Windows";
 	drun-display-format: "{icon} {name}";
-	font: "Ubuntu Mono Regular 12";
+	font: "Ubuntu Nerd Font 28";
 	modi: "window,run,drun";
 	show-icons: true;
 	icon-theme: "Papirus";
@@ -17,5 +17,5 @@ configuration {
 	border: 1px;
 	border-radius: 6px;
 	border-color:	#0c0c0c;
-	width: 20%;
+	width: 40%;
 }
