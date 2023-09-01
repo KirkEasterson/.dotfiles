@@ -7,6 +7,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-cmp",
 	},
+	version = "v5.*",
 	cmd = {
 		"Neorg",
 	},

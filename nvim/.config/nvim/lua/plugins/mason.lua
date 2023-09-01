@@ -1,6 +1,7 @@
 return {
 	'williamboman/mason.nvim',
 	cond = not vim.g.started_by_firenvim,
+	version = "v1.*",
 	cmd = {
 		"Mason",
 		"MasonInstall",

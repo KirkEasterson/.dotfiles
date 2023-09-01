@@ -1,5 +1,6 @@
 return {
 	'numToStr/Comment.nvim',
+	version = "v0.*",
 	cond = not vim.g.started_by_firenvim,
 	keys = {
 		{
