@@ -6,18 +6,18 @@ scrolling:
   history: 100000
 
 font:
-  size: 12.0
+  size: 13.0
   normal:
-    family: ComicCodeLigatures Nerd Font
+    family: JetBrains Mono Nerd Font
     style: Regular
   bold:
-    family: ComicCodeLigatures Nerd Font
+    family: JetBrains Mono Nerd Font
     style: Bold
   italic:
-    family: ComicCodeLigatures Nerd Font
+    family: JetBrains Mono Nerd Font
     style: Italic
   bold_italic:
-    family: ComicCodeLigatures Nerd Font
+    family: JetBrains Mono Nerd Font
     style: Bold Italic
 draw_bold_text_with_bright_colors: true
 
