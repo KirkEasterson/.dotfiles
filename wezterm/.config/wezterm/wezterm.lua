@@ -27,12 +27,14 @@ end)
 
 return {
 	font = wezterm.font_with_fallback({
+		'JetBrains Mono Nerd Font',
 		'ComicCodeLigatures Nerd Font',
-		'Ubuntu Mono Nerd Font',
 	}),
-	font_size = 12,
+	font_size = 14,
+	-- line_height = 1.2,
+	freetype_load_target = "Normal",
 	warn_about_missing_glyphs = false, -- TODO: find which glyphs are missing
-	underline_position = -1,
+	underline_position = -3,
 	strikethrough_position = 8,
 	adjust_window_size_when_changing_font_size = false,
 	harfbuzz_features = {
