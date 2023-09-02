@@ -446,6 +446,7 @@ clientkeys = gears.table.join(
 	awful.key({ modkey, }, "f",
 		function(c)
 			c.fullscreen = not c.fullscreen
+			c:raise()
 
 			if not c.fullscreen then
 				-- add rounded corners
@@ -458,7 +459,6 @@ clientkeys = gears.table.join(
 					gears.shape.rectangle(cr, w, h)
 				end
 			end
-			c:raise()
 		end,
 		{ description = "toggle fullscreen", group = "client", }),
 	awful.key({ modkey, }, "q", function(c) c:kill() end,
