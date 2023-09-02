@@ -13,6 +13,18 @@ return {
 		'DiffviewRefresh',
 		'DiffviewToggleFiles',
 	},
+	keys = {
+		{
+			"<leader>dvo",
+			function() require('diffview').open('master') end,
+			desc = "Open diff main",
+		},
+		{
+			"<leader>dvc",
+			function() require('diffview').close() end,
+			desc = "Close diff",
+		},
+	},
 	config = function()
 		require('diffview').setup({
 			enhanced_diff_hl = true,
