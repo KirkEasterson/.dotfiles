@@ -17,12 +17,12 @@ return {
 	},
 	opts = {
 		signs = {
-			add = { text = "▌", },
-			change = { text = "▌", },
-			topdelete = { text = "▔", },
-			delete = { text = "▁", },
-			changedelete = { text = "▁", },
-			untracked = { text = "▌", },
+			add = { text = "│" },
+			change = { text = "│" },
+			topdelete = { text = "▔" },
+			delete = { text = "▁" },
+			changedelete = { text = "│" },
+			untracked = { text = "" },
 		},
 		current_line_blame_opts = {
 			delay = 10,
