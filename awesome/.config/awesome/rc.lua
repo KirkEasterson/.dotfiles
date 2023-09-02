@@ -446,6 +446,18 @@ clientkeys = gears.table.join(
 	awful.key({ modkey, }, "f",
 		function(c)
 			c.fullscreen = not c.fullscreen
+
+			if not c.fullscreen then
+				-- add rounded corners
+				c.shape = function(cr, w, h)
+					gears.shape.rounded_rect(cr, w, h, 9)
+				end
+			else
+				-- remove rounded corners
+				c.shape = function(cr, w, h)
+					gears.shape.rectangle(cr, w, h)
+				end
+			end
 			c:raise()
 		end,
 		{ description = "toggle fullscreen", group = "client", }),
@@ -687,7 +699,6 @@ client.connect_signal("manage", function(c)
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
 	end
-
 
 	-- rounded corners for all windows
 	c.shape = function(cr, w, h)
