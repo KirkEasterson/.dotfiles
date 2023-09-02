@@ -8,7 +8,7 @@ return {
 			statusline = {
 				'Scratch',
 				'NVimTree',
-				'Alpha',
+				'alpha',
 			},
 		},
 		options = {

@@ -18,7 +18,7 @@ return {
 			"neogitstatus",
 			"NvimTree",
 			"Trouble",
-			"Alpha",
+			"alpha",
 		},
 	},
 }

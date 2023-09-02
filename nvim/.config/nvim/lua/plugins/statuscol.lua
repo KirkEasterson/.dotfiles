@@ -134,7 +134,7 @@ return {
 				"packer",
 				"neogitstatus",
 				"Trouble",
-				"Alpha",
+				"alpha",
 			},
 			segments = {
 				{
