@@ -17,8 +17,14 @@ return {
 		require('diffview').setup({
 			enhanced_diff_hl = true,
 			view = {
+				default = {
+					winbar_info = true,
+				},
 				merge_tool = {
-					winbar_info = false,
+					winbar_info = true,
+				},
+				file_history = {
+					winbar_info = true,
 				},
 			},
 			keymaps = {
