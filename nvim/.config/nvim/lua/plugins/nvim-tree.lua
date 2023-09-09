@@ -34,11 +34,11 @@ return {
 			enable = true,
 		},
 		view = {
-			adaptive_size = true,
+			adaptive_size = false,
 			side = "right",
-			signcolumn = "no",
-			number = true,
-			relativenumber = true,
+			signcolumn = "yes",
+			number = false,
+			relativenumber = false,
 		},
 		renderer = {
 			add_trailing = true,
