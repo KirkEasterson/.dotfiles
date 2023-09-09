@@ -15,14 +15,14 @@ return {
 	},
 	config = function(_, opts)
 		require('barbar').setup(opts)
-		local palette = require('gruvbox.palette')
-		vim.cmd("highlight BufferCurrent guibg=" .. palette.colors.dark0_hard)
-		vim.cmd("highlight BufferCurrentSign guibg=" .. palette.colors.dark0_hard)
+		local palette = require('gruvbox.palette').get_base_colors()
+		vim.cmd("highlight BufferCurrent guibg=" .. palette.bg0)
+		vim.cmd("highlight BufferCurrentSign guibg=" .. palette.bg0)
 		vim.cmd("highlight BufferVisible guibg=" ..
-			palette.colors.dark0_soft .. " guifg=" .. palette.colors.neutral_yellow)
+			palette.bg1 .. " guifg=" .. palette.neutral_yellow)
 		vim.cmd("highlight BufferVisibleSign guibg=" ..
-			palette.colors.dark0_soft .. " guifg=" .. palette.colors.neutral_yellow)
-		vim.cmd("highlight BufferInactive guibg=" .. palette.colors.dark0_soft .. " guifg=" .. palette.colors.gray)
-		vim.cmd("highlight BufferInactiveSign guibg=" .. palette.colors.dark0_soft .. " guifg=" .. palette.colors.gray)
+			palette.bg1 .. " guifg=" .. palette.neutral_yellow)
+		vim.cmd("highlight BufferInactive guibg=" .. palette.bg1 .. " guifg=" .. palette.gray)
+		vim.cmd("highlight BufferInactiveSign guibg=" .. palette.bg1 .. " guifg=" .. palette.gray)
 	end
 }

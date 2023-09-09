@@ -10,8 +10,8 @@ return {
 	opts = {
 		highlight = {
 			groups = {
-				InclineNormal = { guibg = require('gruvbox.palette').colors.dark2 },
-				InclineNormalNC = { guibg = require('gruvbox.palette').colors.dark1 },
+				InclineNormal = { guibg = require('gruvbox.palette').get_base_colors().bg2 },
+				InclineNormalNC = { guibg = require('gruvbox.palette').get_base_colors().bg1 },
 			},
 		},
 		window = { margin = { vertical = 0, horizontal = 1 } },

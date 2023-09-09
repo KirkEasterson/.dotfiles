@@ -14,11 +14,6 @@ return {
 	opts = {
 		attach_navic = false,
 		show_navic = false,
-		theme = {
-			normal = {
-				bg = require('gruvbox.palette').colors.dark0_soft,
-			},
-		},
 		symbols = {
 			separator = "",
 		},
