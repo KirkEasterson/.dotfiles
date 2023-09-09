@@ -33,12 +33,7 @@ return {
 		{ "adelarsq/neofsharp.vim" },
 	},
 	cmd = {
-		"LspInfo",
 		"LspInstall",
-		"LspLog",
-		"LspRestart",
-		"LspStart",
-		"LspStop",
 		"LspUninstall",
 		"LspZeroFormat",
 		"LspZeroSetupServers",
