@@ -14,8 +14,9 @@ return {
 			"packer",
 			"TelescopePrompt",
 			"mason",
+			"Lazy",
 			"CompetiTest",
-			"NvimTree",
+			-- "NvimTree",
 		},
 	},
 }
