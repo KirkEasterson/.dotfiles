@@ -16,12 +16,12 @@ return {
 	},
 	keys = {
 		{
-			"<leader>nd",
+			"<leader>no",
 			"<Cmd>Neorg workspace notes<CR>",
 			desc = "Open notes",
 		},
 		{ -- TODO: move this to only be in *.norg buffers
-			"<leader>nr",
+			"<leader>nc",
 			"<Cmd>Neorg return<CR>",
 			desc = "Close notes",
 		},
@@ -87,6 +87,17 @@ return {
 				vim.cmd [[filetype indent off]]
 			end,
 			desc = "Set conceal only for norg files",
+		})
+
+		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+			callback = function()
+				if vim.bo.filetype ~= "norg" then
+					return
+				end
+
+				vim.cmd([[Neorg export]])
+			end,
+			desc = "Export neorg to markdown on save"
 		})
 	end
 }
