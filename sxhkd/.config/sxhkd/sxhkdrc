@@ -18,6 +18,12 @@ super + ctrl + q
 super + space
 	rofi -show drun
 
+# notes
+super + n
+	$TERMINAL -e ~/scripts/notes.sh
+super + shift + n
+	~/scripts/most_recent_note.sh
+
 # media keys
 XF86Audio{Raise,Lower}Volume
 	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
