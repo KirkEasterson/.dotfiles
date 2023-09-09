@@ -1,5 +1,6 @@
 return {
 	"zbirenbaum/copilot-cmp",
+	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	event = {
 		"InsertEnter",
