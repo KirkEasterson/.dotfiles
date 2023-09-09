@@ -2,7 +2,6 @@ return {
 	"NeogitOrg/neogit",
 	cond = not vim.g.started_by_firenvim,
 	-- enabled = false,
-	version = "v0.*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",
