@@ -17,7 +17,7 @@ return {
 	keys = {
 		{
 			"<leader>dvo",
-			function () require("diffview").open("master") end,
+			function () require("diffview").open("main") end,
 			desc = "Open diff main",
 		},
 		{
