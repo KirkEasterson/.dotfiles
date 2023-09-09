@@ -2,32 +2,32 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, buffer = true }
+	local options = { noremap = true, buffer = true, }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- enable wrapping in specific files
-autocmd({ "FileType" }, {
-	pattern = { "markdown", "tex", "text" },
+autocmd({ "FileType", }, {
+	desc = "Enable wrapping and easy-undo for text, markdown, and tex files",
+	pattern = { "markdown", "tex", "text", },
 	callback = function()
 		vim.opt_local.wrap = true
 
 		-- easier undos
-		map('i', ',', ',<c-g>u')
-		map('i', '.', '.<c-g>u')
-		map('i', '[', '[<c-g>u')
-		map('i', '!', '!<c-g>u')
-		map('i', '?', '?<c-g>u')
+		map("i", ",", ",<c-g>u")
+		map("i", ".", ".<c-g>u")
+		map("i", "[", "[<c-g>u")
+		map("i", "!", "!<c-g>u")
+		map("i", "?", "?<c-g>u")
 	end,
 })
 
--- remove trailing whitespace on save
-autocmd({ "BufWritePre" }, {
-	pattern = { "*" },
-	callback = function ()
+autocmd({ "BufWritePre", }, {
+	desc = "Remove trailing whitespace",
+	pattern = { "*", },
+	callback = function()
 		if vim.bo.filetype == "markdown" then
 			return
 		end
@@ -38,9 +38,9 @@ autocmd({ "BufWritePre" }, {
 	end,
 })
 
--- highlight yanked text
 autocmd("TextYankPost", {
-	group = augroup("highlight_yank", { clear = true }),
+	desc = "Highlight yanked text",
+	group = augroup("highlight_yank", { clear = true, }),
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
@@ -50,23 +50,22 @@ autocmd("TextYankPost", {
 	end,
 })
 
--- build notes files
-autocmd(
-	'BufwritePost',
-	{
-		pattern = '*note-*.md',
-		callback = 'silent! ~/scripts/build_notes.sh %:p',
-	}
-)
+autocmd("BufwritePost", {
+	desc = "Build notes",
+	pattern = "*note-*.md",
+	callback = function()
+		os.execute("~/scripts/build_notes.sh " .. vim.fn.expand("%%"))
+	end,
+})
 
--- change indenting for js/ts files
-autocmd({ "FileType" }, {
+autocmd("FileType", {
+	desc = "Set indenting to js/ts files",
 	pattern = {
-		'javascript',
-		'javascriptreact',
-		'typescript',
-		'typescriptreact',
-		'markdown',
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"markdown",
 	},
 	callback = function()
 		vim.opt_local.expandtab = true
@@ -86,35 +85,33 @@ autocmd({ "FileType" }, {
 -- )
 
 autocmd("TermOpen", {
+	desc = "Start terminal in insert mode",
 	callback = function()
 		vim.opt_local.relativenumber = false
 		vim.opt_local.number = false
 		vim.cmd "startinsert!"
 	end,
-	desc = "start terminal in insert mode",
 })
 
-autocmd(
-	'FileType',
-	{
-		pattern = { 'gitcommit', 'gitrebase', },
-		command = 'startinsert | 1',
-		desc    = "start git messages in insert mode",
-	}
-)
-
-autocmd("VimResized", {
-	callback = function()
-		vim.cmd "wincmd ="
-	end,
-	desc = "Equalize Splits",
+autocmd("FileType", {
+	desc    = "Start git messages in insert mode",
+	pattern = { "gitcommit", "gitrebase", },
+	command = "startinsert | 1",
 })
+
+-- autocmd("VimResized", {
+-- 	desc = "Equalize Splits",
+-- 	callback = function()
+-- 		vim.cmd "wincmd ="
+-- 	end,
+-- })
 
 -- sync neovim with system clipboard
-autocmd({ "BufReadPost", "BufNewFile" }, {
+autocmd({ "BufReadPost", "BufNewFile", }, {
+	desc = "Lazy load clipboard",
 	once = true,
 	callback = function()
-		require('kirk.utils.uname')
+		require("kirk.utils.uname")
 		if IS_LINUX or IS_WSL then
 			if vim.fn.executable("xclip") == 1 then
 				vim.g.clipboard = {
@@ -165,5 +162,4 @@ autocmd({ "BufReadPost", "BufNewFile" }, {
 
 		vim.opt.clipboard = "unnamedplus"
 	end,
-	desc = "Lazy load clipboard",
 })
