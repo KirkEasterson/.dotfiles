@@ -3,6 +3,7 @@ return {
 	version = "v0.*",
 	cond = not vim.g.started_by_firenvim,
 	keys = {
+		{ "gc" },
 		{
 			"gcc",
 			desc = "Toggle line comment",
