@@ -56,7 +56,7 @@ return {
 				{ name = 'calc' },
 				{ name = 'spell',     ft = { 'text', 'markdown' } },
 				{ name = 'emoji',     ft = { 'text', 'markdown' } },
-				{ name = 'copilot' },
+				-- { name = 'copilot' },
 				{ name = 'dictionary' },
 			}, {
 				{ name = 'buffer' },
