@@ -28,11 +28,12 @@ return {
 				grep_previewer = previewers.vim_buffer_vimgrep.new,
 				prompt_prefix = "   ",
 				qflist_previewer = previewers.vim_buffer_qflist.new,
-				selection_caret = "  ",
+				selection_caret = " ",
 				sorting_strategy = "ascending",
+				layout_strategy = 'vertical',
 				layout_config = {
 					prompt_position = "top",
-					preview_width = 0.6,
+					mirror= true,
 				},
 				file_ignore_patterns = {
 					"%.a",
