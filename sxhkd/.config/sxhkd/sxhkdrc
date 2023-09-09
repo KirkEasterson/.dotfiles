@@ -8,7 +8,7 @@ super + {_,shift +} w
 
 # file managers
 super + {_,shift +} e
-	{$FILEMANAGER,$TERMINAL -e ranger}
+	{$FILEMANAGER,$TERMINAL -e ranger ~}
 
 # screen locker
 super + ctrl + q
