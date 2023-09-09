@@ -42,6 +42,7 @@ if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
 
+volumeicon &
 blueman-applet &
 cbatticon &
 flameshot &
@@ -49,8 +50,8 @@ nm-applet &
 # package-update-indicator & # uncomment for debian distros
 picom &
 sxhkd &
-unclutter &
-volumeicon &
+udiskie -a &
+# unclutter & # this got annoying
 xcape -e "Shift_L=parenleft;Shift_R=parenright" &
 light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint &
 # eval $(dbus-launch --sh-syntax)
