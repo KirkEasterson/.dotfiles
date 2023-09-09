@@ -1,7 +1,7 @@
 return {
 	'hrsh7th/nvim-cmp',
 	cond = not vim.g.started_by_firenvim,
-	event = "VeryLazy",
+	event = 'VimEnter',
 	dependencies = {
 		-- LSP Support
 		{ 'neovim/nvim-lspconfig' },

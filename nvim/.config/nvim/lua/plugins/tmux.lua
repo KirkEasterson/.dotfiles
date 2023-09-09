@@ -2,7 +2,7 @@ return {
 	'aserowy/tmux.nvim',
 	cond = not vim.g.started_by_firenvim,
 	-- enabled = false,
-	event = 'VeryLazy',
+	event = 'VimEnter',
 	opts = {
 		copy_sync = {
 			enable = true,
