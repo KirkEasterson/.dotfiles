@@ -25,12 +25,39 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
+-- wezterm.on("window-config-reloaded", function(window, pane)
+-- 	local overrides = window:get_config_overrides() or {}
+-- 	local scheme = scheme_for_appearance(get_appearance())
+-- 	if overrides.color_scheme ~= scheme then
+-- 		overrides.color_scheme = scheme
+-- 		window:set_config_overrides(overrides)
+-- 	end
+-- end)
+
+function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return 'dark'
+end
+
+function scheme_for_appearance(appearance)
+	local mode = "dark"
+	os.execute("notify-send " ..appearance:lower())
+	if appearance:lower():find('dark') then
+		mode = "dark"
+	else
+		mode = "light"
+	end
+	return "Gruvbox " .. mode .. ", medium (base16)"
+end
+
 return {
 	font = wezterm.font_with_fallback({
 		'JetBrains Mono Nerd Font',
 		'ComicCodeLigatures Nerd Font',
 	}),
-	font_size = 14,
+	font_size = 13,
 	-- line_height = 1.2,
 	freetype_load_target = "Normal",
 	warn_about_missing_glyphs = false, -- TODO: find which glyphs are missing
@@ -42,6 +69,7 @@ return {
 		"clig=0",
 		"liga=0",
 	},
+	-- color_scheme = scheme_for_appearance(get_appearance()),
 	color_scheme = "Gruvbox dark, medium (base16)",
 	front_end = "OpenGL",
 	hide_tab_bar_if_only_one_tab = true,
