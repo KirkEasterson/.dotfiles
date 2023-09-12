@@ -5,6 +5,7 @@ return {
 	-- config = function(_, opts)
 	-- 	require('gruvbox').setup(opts)
 	-- 	vim.cmd [[colorscheme gruvbox]]
+	-- 	vim.cmd("highlight WinSeparator guibg=None guifg=" .. require('gruvbox.palette').get_base_colors().gray)
 	-- end,
 	opts = {
 		underline = true,

@@ -1,10 +1,14 @@
 return {
 	'sainnhe/gruvbox-material',
+	dependencies = {
+		'ellisonleao/gruvbox.nvim',
+	},
 	enabled = false,
 	lazy = false,
 	priority = 1000,
 	config = function(_, _)
 		vim.cmd [[colorscheme gruvbox-material]]
+		vim.cmd("highlight WinSeparator guibg=None guifg=" .. require('gruvbox.palette').get_base_colors().gray)
 	end,
 	init = function()
 		vim.g.gruvbox_material_background = "medium"
