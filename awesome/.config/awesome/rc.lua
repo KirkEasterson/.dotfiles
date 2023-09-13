@@ -35,8 +35,8 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 -- Bootstrap library
 require("bootstrap.bootstrap")
 
-local sounds = require("sounds.winxp")
-require("sounds").init(sounds)
+-- local sounds = require("sounds.winxp")
+-- require("sounds").init(sounds)
 
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
