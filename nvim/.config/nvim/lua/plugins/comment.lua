@@ -4,6 +4,7 @@ return {
 	cond = not vim.g.started_by_firenvim,
 	keys = {
 		{ "gc" },
+		{ "gb" },
 		{
 			"gcc",
 			desc = "Toggle line comment",
