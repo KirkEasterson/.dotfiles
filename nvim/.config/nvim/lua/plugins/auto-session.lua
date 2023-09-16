@@ -33,13 +33,6 @@ return {
 			theme_conf = { border = true, },
 			previewer = false,
 		},
-
-		-- save session on all writes
-		vim.api.nvim_create_autocmd({ "BufWritePost", "ExitPre" }, {
-			callback = function()
-				vim.cmd([[SessionSave]])
-			end,
-		})
 	},
 	init = function()
 		local session_opts = {
