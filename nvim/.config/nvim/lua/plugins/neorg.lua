@@ -95,7 +95,15 @@ return {
 					return
 				end
 
-				vim.cmd([[Neorg export]])
+				local md_file = string.gsub(vim.fn.expand("%"), ".norg", ".md")
+				vim.cmd({
+					cmd = 'Neorg',
+					args = {
+						"export",
+						"to-file",
+						md_file,
+					},
+				})
 			end,
 			desc = "Export neorg to markdown on save"
 		})
