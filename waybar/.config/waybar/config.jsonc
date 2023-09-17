@@ -223,6 +223,11 @@
 		"format-icons": {
 			"spotify": "",
 			"firefox": "󰈹",
+			"slack": "󰒱",
+			"discord": "󰙯",
+			"chromium": "",
+			"chrome": "",
+			"edge": "",
 			"default": ""
 		},
 		"escape": true,
