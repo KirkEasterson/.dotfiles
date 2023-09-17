@@ -119,14 +119,14 @@ window#waybar {
   margin: 0 2px;
 }
 
-#custom-media {
-  background: #66cc99;
-  color: #ebdbb2;
-}
+/* #custom-media { */
+/*   background: #66cc99; */
+/*   color: #ebdbb2; */
+/* } */
 
-.custom-spotify {
-  background: #66cc99;
-}
+/* .custom-spotify { */
+/*   background: #66cc99; */
+/* } */
 
 .custom-vlc {
   background: #ffa000;
