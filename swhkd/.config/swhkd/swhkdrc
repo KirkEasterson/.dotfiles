@@ -8,7 +8,7 @@ super + {_,shift +} w
 
 # file managers
 super + {_,shift +} e
-	{$FILEMANAGER,$TERMINAL -e lf}
+	{$FILEMANAGER,$TERMINAL -e ranger ~}
 
 # screen locker
 super + ctrl + q
@@ -32,9 +32,13 @@ XF86Audio{Play,Stop,Prev,Next}
 XF86MonBrightness{Down,Up}
 	brightnessctl -q set 5%{-,+}
 
+# search
+XF86Search
+	wofi
+
 # screenshot
 {_,shift +} Print
-	flameshot {gui,full}
+	grimblast --notify {save area,screen}
 
 # keyboard layouts
 super + shift + a
