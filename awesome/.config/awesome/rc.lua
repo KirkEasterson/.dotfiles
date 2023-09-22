@@ -819,7 +819,6 @@ beautiful.systray_icon_spacing = 13
 -- AUTO-EXEC
 awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
-awful.spawn.with_shell("setxkbmap -option caps:escape")
 
 -- Autorun programs
 local autorun = true
