@@ -78,20 +78,14 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export MOZ_ENABLE_WAYLAND=1
 fi
 
-if [ -s ~/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
-fi
-
 volumeicon &
 blueman-applet &
 cbatticon &
 flameshot &
 nm-applet &
-# package-update-indicator & # uncomment for debian distros
 picom &
 sxhkd &
 udiskie -a &
-# unclutter & # this got annoying
-xcape -e "Shift_L=parenleft;Shift_R=parenright" &
+xremap .config/xremap/config.yml &
 light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint &
 eval $(dbus-launch --auto-syntax)
