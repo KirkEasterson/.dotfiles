@@ -10,3 +10,6 @@
 [submodule "hypr/.config/hypr/plugins/split-monitor-workspaces"]
 	path = hypr/.config/hypr/plugins/split-monitor-workspaces
 	url = git@github.com:Duckonaut/split-monitor-workspaces.git
+[submodule "hypr/.config/hypr/plugins/hyprland-plugins"]
+	path = hypr/.config/hypr/plugins/hyprland-plugins
+	url = git@github.com:hyprwm/hyprland-plugins.git
