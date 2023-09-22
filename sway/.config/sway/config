@@ -241,8 +241,17 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
 exec_always ~/.config/waybar/waybar.sh
 # exec_always swhks
 # exec_always pkexec swhkd
+exec_always = waybar
+exec_always = hyprpaper
+exec_always = nm-applet --indicator
+exec_always = xremap ~/.config/xremap/config.yml
+exec_always = swayidle -w
+exec_always = dunst
+exec_always = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 
 include @sysconfdir@/sway/config.d/*
