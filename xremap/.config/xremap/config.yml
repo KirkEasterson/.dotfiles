@@ -1,7 +1,10 @@
 modmap:
   - name: Global
     remap:
-      CapsLock: Esc
+      # Print: Super_R
+      CapsLock:
+        alone: Esc
+        held: LeftCtrl
       LeftShift:
         alone: KPLeftParen
         held: LeftShift
