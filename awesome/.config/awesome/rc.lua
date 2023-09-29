@@ -443,39 +443,23 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-	awful.key({ modkey, }, "f",
-		function(c)
-			c.fullscreen = not c.fullscreen
-			c:raise()
-
-			if not c.fullscreen then
-				-- add rounded corners
-				c.shape = function(cr, w, h)
-					gears.shape.rounded_rect(cr, w, h, 9)
-				end
-			else
-				-- remove rounded corners
-				c.shape = function(cr, w, h)
-					gears.shape.rectangle(cr, w, h)
-				end
-			end
-		end,
+	awful.key({ modkey, }, "f", function(c) c.fullscreen = not c.fullscreen end,
 		{ description = "toggle fullscreen", group = "client", }),
 	awful.key({ modkey, }, "q", function(c) c:kill() end,
 		{ description = "close", group = "client", }),
-	awful.key({ modkey, "Control", }, "space", awful.client.floating.toggle,
+	awful.key({ modkey, "Control", }, "space", function(c) c.floating = not c.floating end,
 		{ description = "toggle floating", group = "client", }),
+	awful.key({ modkey, altkey, }, "space", function(c) c.sticky = not c.sticky end,
+		{ description = "toggle sticky", group = "client", }),
 	awful.key({ modkey, "Control", }, "Return",
 		function(c) c:swap(awful.client.getmaster()) end,
 		{ description = "move to master", group = "client", }),
-	awful.key({ modkey, }, "s", function(c) c.sticky = not c.sticky end,
-		{ description = "toggle keep on top", group = "client", }),
 	awful.key({ modkey, }, "m",
 		function(c)
 			c.maximized = not c.maximized
 			c:raise()
 		end,
-		{ description = "(un)maximize", group = "client", })
+		{ description = "toggle maximize", group = "client", })
 )
 
 -- Bind all key numbers to tags.
@@ -644,7 +628,7 @@ awful.rules.rules = {
 	{
 		rule_any = { type = { "normal", "dialog", },
 		},
-		properties = { titlebars_enabled = true, },
+		properties = { titlebars_enabled = false, },
 	},
 
 	{
@@ -698,11 +682,6 @@ client.connect_signal("manage", function(c)
 		and not c.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
-	end
-
-	-- rounded corners for all windows
-	c.shape = function(cr, w, h)
-		gears.shape.rounded_rect(cr, w, h, 9)
 	end
 end)
 
