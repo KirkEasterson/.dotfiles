@@ -1,3 +1,4 @@
- .env
- .envrc
- .autoenv.zsh
+.env
+.env.*
+.envrc
+.autoenv.zsh
