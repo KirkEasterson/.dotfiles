@@ -628,7 +628,7 @@ awful.rules.rules = {
 	{
 		rule_any = { type = { "normal", "dialog", },
 		},
-		properties = { titlebars_enabled = false, },
+		properties = { titlebars_enabled = true, },
 	},
 
 	{
@@ -767,9 +767,9 @@ client.connect_signal("request::titlebars", function(c)
 	layout:set_middle(middle_layout)
 	layout:set_right(right_layout)
 
-	local margin_layout = wibox.container.margin(layout, 5, 5, 5, 5)
-	local max_titlebar_height = 30
-	local min_titlebar_height = 20
+	local margin_layout = wibox.container.margin(layout, 1, 1, 1, 1)
+	local max_titlebar_height = 20
+	local min_titlebar_height = 10
 	local titlebar_height = math.floor(screen.primary.workarea.height * 0.024)
 	if titlebar_height > max_titlebar_height then
 		titlebar_height = max_titlebar_height
