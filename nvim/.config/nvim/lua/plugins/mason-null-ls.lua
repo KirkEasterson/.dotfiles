@@ -18,6 +18,7 @@ return {
 			-- "black",
 			"buf",
 			"commitlint",
+			"editorconfig-checker",
 			"eslint_d",
 			"flake8",
 			"gofumpt",
