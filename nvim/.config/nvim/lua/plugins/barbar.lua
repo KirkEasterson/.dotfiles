@@ -15,7 +15,7 @@ return {
 	},
 	config = function(_, opts)
 		require('barbar').setup(opts)
-		local palette = require('gruvbox.palette').get_base_colors()
+		local palette = require('gruvbox.palette').get_base_colors({})
 		vim.cmd("highlight BufferCurrent guibg=" .. palette.bg0)
 		vim.cmd("highlight BufferCurrentSign guibg=" .. palette.bg0)
 		vim.cmd("highlight BufferVisible guibg=" ..

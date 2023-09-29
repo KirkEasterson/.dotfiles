@@ -7,7 +7,7 @@ return {
 	},
 	opts = {
 		highlight = {
-			fg = require('gruvbox.palette').get_base_colors().bright_orange,
+			fg = require('gruvbox.palette').get_base_colors({}).bright_orange,
 		},
 		interval = 30,
 		no_exec_files = {
