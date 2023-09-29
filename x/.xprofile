@@ -74,8 +74,8 @@ export HOMEBREW_NO_EMOJI=1
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-	export MOZ_ENABLE_WAYLAND=1
+if [ -s ~/.Xmodmap ]; then
+	xmodmap ~/.Xmodmap
 fi
 
 volumeicon &
@@ -83,9 +83,10 @@ blueman-applet &
 cbatticon &
 flameshot &
 nm-applet &
-picom &
+# picom &
 sxhkd &
 udiskie -a &
-xremap .config/xremap/config.yml &
+# xremap .config/xremap/config.yml &
+xcape -e "Shift_L=parenleft;Shift_R=parenright" &
 light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint &
 eval $(dbus-launch --auto-syntax)
