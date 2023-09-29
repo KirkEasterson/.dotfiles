@@ -83,7 +83,7 @@ blueman-applet &
 cbatticon &
 flameshot &
 nm-applet &
-# picom &
+picom &
 sxhkd &
 udiskie -a &
 # xremap .config/xremap/config.yml &
