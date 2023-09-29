@@ -114,14 +114,14 @@ bindsym $mod+Return exec $TERMINAL
 
 # start dmenu (a program launcher)
 # TODO: Remove this binding once keyboard is flashed for new layout
-bindsym $alt+space exec dmenu_run
+# bindsym $alt+space exec dmenu_run
 
 # toggle tiling / floating
 # bindsym $mod+Shift+space floating toggle
 
 # dropdown terminal; launch dmenu
-bindsym $mod+space [title="^scratchpad_dropdown$"] scratchpad show, move position center
-bindsym $mod+Shift+space exec dmenu_run
+# bindsym $mod+space [title="^scratchpad_dropdown$"] scratchpad show, move position center
+bindsym $mod+Shift+space exec rofi -show drun
 
 # launch flameshot; screenshot entire screen
 bindsym --release Print exec flameshot gui
