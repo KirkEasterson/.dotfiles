@@ -711,7 +711,7 @@ client.connect_signal("request::titlebars", function(c)
 	-- Widgets that are aligned to the left
 	local left_layout = wibox.widget {
 		layout = wibox.layout.fixed.horizontal,
-		spacing = 7,
+		spacing = 5,
 		awful.titlebar.widget.closebutton(c),
 		awful.titlebar.widget.minimizebutton(c),
 		awful.titlebar.widget.maximizedbutton(c),
@@ -741,7 +741,7 @@ client.connect_signal("request::titlebars", function(c)
 	local middle_container = wibox.container.place(
 		wibox.widget({
 			layout = wibox.layout.fixed.horizontal,
-			spacing = 4,
+			spacing = 8,
 			mode = "center",
 			awful.titlebar.widget.iconwidget(c),
 			awful.titlebar.widget.titlewidget(c),
@@ -755,7 +755,7 @@ client.connect_signal("request::titlebars", function(c)
 	-- Widgets that are aligned to the right
 	local right_layout = wibox.widget {
 		layout = wibox.layout.fixed.horizontal,
-		spacing = 7,
+		spacing = 5,
 		awful.titlebar.widget.floatingbutton(c),
 		awful.titlebar.widget.stickybutton(c),
 		awful.titlebar.widget.ontopbutton(c),
@@ -767,8 +767,8 @@ client.connect_signal("request::titlebars", function(c)
 	layout:set_middle(middle_layout)
 	layout:set_right(right_layout)
 
-	local margin_layout = wibox.container.margin(layout, 1, 1, 1, 1)
-	local max_titlebar_height = 20
+	local margin_layout = wibox.container.margin(layout, 2, 2, 1, 1)
+	local max_titlebar_height = 19
 	local min_titlebar_height = 10
 	local titlebar_height = math.floor(screen.primary.workarea.height * 0.024)
 	if titlebar_height > max_titlebar_height then

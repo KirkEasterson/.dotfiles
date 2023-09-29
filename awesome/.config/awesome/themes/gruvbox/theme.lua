@@ -12,7 +12,7 @@ theme.awesome_icon                                   = theme.wd .. "awesome.png"
 
 -- fonts
 theme.base_font                                      = "Dejavu Nerd Font"
-theme.font                                           = theme.base_font .. " 10"
+theme.font                                           = theme.base_font .. " 9"
 theme.taglist_font                                   = theme.base_font .. " 11"
 theme.icon_font                                      = theme.base_font .. " 12"
 theme.hotkeys_font                                   = theme.base_font .. " 12"
