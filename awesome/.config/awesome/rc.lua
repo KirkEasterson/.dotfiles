@@ -444,23 +444,39 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-	awful.key({ modkey, }, "f", function(c) c.fullscreen = not c.fullscreen end,
-		{ description = "toggle fullscreen", group = "client", }),
-	awful.key({ modkey, }, "q", function(c) c:kill() end,
+	awful.key({ modkey, "Shift", }, "q",
+		function(c)
+			c:kill()
+		end,
 		{ description = "close", group = "client", }),
-	awful.key({ modkey, "Control", }, "space", function(c) c.floating = not c.floating end,
-		{ description = "toggle floating", group = "client", }),
-	awful.key({ modkey, altkey, }, "space", function(c) c.sticky = not c.sticky end,
-		{ description = "toggle sticky", group = "client", }),
 	awful.key({ modkey, "Control", }, "Return",
-		function(c) c:swap(awful.client.getmaster()) end,
+		function(c)
+			c:swap(awful.client.getmaster())
+		end,
 		{ description = "move to master", group = "client", }),
+	awful.key({ modkey, "Shift", }, "f",
+		function(c)
+			c.fullscreen = not c.fullscreen
+			c:raise()
+		end,
+		{ description = "toggle fullscreen", group = "client", }),
+	awful.key({ modkey, }, "f",
+		function(c)
+			c.floating = not c.floating
+			c:raise()
+		end,
+		{ description = "toggle floating", group = "client", }),
 	awful.key({ modkey, }, "m",
 		function(c)
 			c.maximized = not c.maximized
 			c:raise()
 		end,
-		{ description = "toggle maximize", group = "client", })
+		{ description = "toggle maximize", group = "client", }),
+	awful.key({ modkey, }, "s",
+		function(c)
+			c.sticky = not c.sticky
+		end,
+		{ description = "toggle sticky", group = "client", })
 )
 
 -- Bind all key numbers to tags.
