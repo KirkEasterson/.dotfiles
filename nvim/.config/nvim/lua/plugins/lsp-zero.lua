@@ -177,6 +177,17 @@ return {
 		})
 
 
+		lsp_zero.configure('gopls', {
+			settings = {
+				gopls = {
+					env = {
+						GOFLAGS = "-tags=windows,linux,unittest,e2e"
+					}
+				}
+			},
+		})
+
+
 		lsp_zero.nvim_workspace()
 
 		lsp_zero.set_sign_icons({
