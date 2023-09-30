@@ -43,7 +43,7 @@ end
 
 function scheme_for_appearance(appearance)
 	local mode = "dark"
-	os.execute("notify-send " ..appearance:lower())
+	os.execute("notify-send " .. appearance:lower())
 	if appearance:lower():find('dark') then
 		mode = "dark"
 	else
