@@ -252,8 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
 		filter  = awful.widget.taglist.filter.noempty,
 		buttons = taglist_buttons,
 		style   = {
-			-- shape = gears.shape.rectangle,
-			-- spacing = 0,
+			spacing = 2,
 		},
 		layout  = {
 			layout = wibox.layout.fixed.horizontal,
