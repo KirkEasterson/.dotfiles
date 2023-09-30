@@ -44,6 +44,7 @@ mouse:
 mouse_bindings:
   - { action: None, mouse: Middle }
 
+# https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
 key_bindings:
   - { key: H, mods: Control|Shift, chars: "\e[27;6;72~" }
   - { key: J, mods: Control|Shift, chars: "\e[27;6;74~" }
