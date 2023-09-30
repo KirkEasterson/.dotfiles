@@ -122,5 +122,9 @@ return {
 		{ key = 'V',        mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
 		{ key = 'PageUp',   mods = 'SHIFT',      action = act.ScrollByPage(-1) },
 		{ key = 'PageDown', mods = 'SHIFT',      action = act.ScrollByPage(1) },
+		{ key = 'h',        mods = 'SHIFT|CTRL', action = act.SendString("\x1b[27;6;72~") },
+		{ key = 'j',        mods = 'SHIFT|CTRL', action = act.SendString("\x1b[27;6;74~") },
+		{ key = 'k',        mods = 'SHIFT|CTRL', action = act.SendString("\x1b[27;6;75~") },
+		{ key = 'l',        mods = 'SHIFT|CTRL', action = act.SendString("\x1b[27;6;76~") },
 	},
 }
