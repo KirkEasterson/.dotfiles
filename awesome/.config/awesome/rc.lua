@@ -280,6 +280,8 @@ awful.screen.connect_for_each_screen(function(s)
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s, height = 24, })
+	local systray = wibox.widget.systray(true)
+	-- systray:set_base_size(10)
 
 	-- Add widgets to the wibox
 	s.mywibox:setup {
@@ -297,7 +299,7 @@ awful.screen.connect_for_each_screen(function(s)
 		{
 			-- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			wibox.widget.systray(true),
+			systray,
 			separator,
 			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t"]], 60), -- weather
 			separator,
