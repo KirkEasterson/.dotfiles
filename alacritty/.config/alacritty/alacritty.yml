@@ -46,14 +46,40 @@ mouse_bindings:
 
 # https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
 key_bindings:
-  - { key: H, mods: Control|Shift, chars: "\e[27;6;72~" }
-  - { key: J, mods: Control|Shift, chars: "\e[27;6;74~" }
-  - { key: K, mods: Control|Shift, chars: "\e[27;6;75~" }
-  - { key: L, mods: Control|Shift, chars: "\e[27;6;76~" }
   - { key: Tab, mods: Alt, chars: "\e[27;3;9~" }
   - { key: Tab, mods: Alt|Shift, chars: "\e[27;4;9~" }
   - { key: Tab, mods: Control, chars: "\e[27;5;9~" }
   - { key: Tab, mods: Control|Shift, chars: "\e[27;6;9~" }
+
+  # for pane control in tmux/nvim
+  - { key: H, mods: Control|Shift, chars: "\e[27;6;72~" }
+  - { key: J, mods: Control|Shift, chars: "\e[27;6;74~" }
+  - { key: K, mods: Control|Shift, chars: "\e[27;6;75~" }
+  - { key: L, mods: Control|Shift, chars: "\e[27;6;76~" }
+
+  # for tab selection in nvim
+  - { key: Key1, mods: Control, chars: "\e[27;5;49~" }
+  - { key: Key2, mods: Control, chars: "\e[27;5;50~" }
+  - { key: Key3, mods: Control, chars: "\e[27;5;51~" }
+  - { key: Key4, mods: Control, chars: "\e[27;5;52~" }
+  - { key: Key5, mods: Control, chars: "\e[27;5;53~" }
+  - { key: Key6, mods: Control, chars: "\e[27;5;54~" }
+  - { key: Key7, mods: Control, chars: "\e[27;5;55~" }
+  - { key: Key8, mods: Control, chars: "\e[27;5;56~" }
+  - { key: Key9, mods: Control, chars: "\e[27;5;57~" }
+  - { key: Key0, mods: Control, chars: "\e[27;5;58~" }
+
+  # # for pane moving in tmux
+  # - { key: Key1, mods: Alt|Shift, chars: "\e[27;4;49~" }
+  # - { key: Key2, mods: Alt|Shift, chars: "\e[27;4;50~" }
+  # - { key: Key3, mods: Alt|Shift, chars: "\e[27;4;51~" }
+  # - { key: Key4, mods: Alt|Shift, chars: "\e[27;4;52~" }
+  # - { key: Key5, mods: Alt|Shift, chars: "\e[27;4;53~" }
+  # - { key: Key6, mods: Alt|Shift, chars: "\e[27;4;54~" }
+  # - { key: Key7, mods: Alt|Shift, chars: "\e[27;4;55~" }
+  # - { key: Key8, mods: Alt|Shift, chars: "\e[27;4;56~" }
+  # - { key: Key9, mods: Alt|Shift, chars: "\e[27;4;57~" }
+  # - { key: Key0, mods: Alt|Shift, chars: "\e[27;4;48~" }
 
 colors:
   bright:
