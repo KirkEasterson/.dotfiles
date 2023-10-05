@@ -11,6 +11,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
+			modules = {},
 			ensure_installed = {
 				"bash",
 				"bibtex",
