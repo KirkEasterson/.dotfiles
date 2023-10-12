@@ -59,7 +59,7 @@ return {
 				null_ls.builtins.formatting.goimports,
 
 				-- ocaml
-				-- null_ls.builtins.formatting.ocamlformat,
+				null_ls.builtins.formatting.ocamlformat,
 			},
 		})
 	end
