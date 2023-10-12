@@ -104,7 +104,7 @@ awful.layout.layouts = {
 	-- awful.layout.suit.tile.left,
 	-- awful.layout.suit.tile.bottom,
 	-- awful.layout.suit.tile.top,
-	-- awful.layout.suit.fair,
+	awful.layout.suit.fair,
 	-- awful.layout.suit.fair.horizontal,
 	-- awful.layout.suit.spiral,
 	-- awful.layout.suit.spiral.dwindle,
@@ -137,7 +137,6 @@ mypoweroptsmenu = {
 	{ "reboot",   function() awful.spawn.with_shell("reboot") end, },
 	{ "suspend",  function() awful.spawn.with_shell("systemctl suspend") end, },
 	{ "poweroff", function() awful.spawn.with_shell("shutdown now") end, },
-
 }
 
 -- Load Debian menu entries
