@@ -28,10 +28,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local has_debian, debian = pcall(require, "debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
-
 -- Bootstrap library
 require("bootstrap.bootstrap")
 
@@ -144,9 +140,16 @@ mypoweroptsmenu = {
 
 }
 
+-- Load Debian menu entries
+local has_debian, debian = pcall(require, "debian.menu")
+local has_fdo, freedesktop = pcall(require, "freedesktop")
+
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon, }
-local menu_terminal = { "open terminal", terminal, }
+local menu_terminal = { "open terminal", terminal,
+	"/usr/share/icons/Papirus-Dark/symbolic/apps/utilities-terminal-symbolic.svg" }
+-- local menu_terminal = { "open terminal", terminal, freedesktop.utils.lookup_icon({ icon = "applications-other.png" }) }
 local menu_poweropts = { "leave", mypoweroptsmenu, }
+
 
 if has_fdo then
 	mymainmenu = freedesktop.menu.build({
