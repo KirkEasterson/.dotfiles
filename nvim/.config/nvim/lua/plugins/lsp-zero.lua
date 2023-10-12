@@ -176,7 +176,6 @@ return {
 			},
 		})
 
-
 		lsp_zero.configure('gopls', {
 			settings = {
 				gopls = {
