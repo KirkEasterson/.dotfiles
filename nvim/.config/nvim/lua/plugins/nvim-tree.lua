@@ -3,7 +3,6 @@ return {
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
-		'ellisonleao/gruvbox.nvim',
 	},
 	cmd = {
 		'NvimTreeClipboard',
@@ -78,13 +77,6 @@ return {
 			threshold = vim.log.levels.WARN,
 		}
 	},
-	config = function(_, opts)
-		require('nvim-tree').setup(opts)
-		local palette = require('gruvbox.palette').get_base_colors({})
-		vim.cmd("highlight NvimTreeNormal guibg=" .. palette.bg1)
-		vim.cmd("highlight NvimTreeWinSeparator guibg=" ..
-			palette.bg1 .. " guifg=" .. palette.bg1)
-	end,
 	init = function()
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
