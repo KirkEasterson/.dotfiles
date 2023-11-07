@@ -2,7 +2,10 @@ return {
 	'VonHeikemen/lsp-zero.nvim',
 	cond = not vim.g.started_by_firenvim,
 	branch = 'v2.x',
-	event = 'VimEnter',
+	event = {
+		'BufNewFile',
+		'BufReadPre',
+	},
 	dependencies = {
 		-- LSP Support
 		{ 'neovim/nvim-lspconfig' },
