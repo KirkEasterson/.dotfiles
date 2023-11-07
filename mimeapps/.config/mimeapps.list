@@ -1,10 +1,10 @@
 [Default Applications]
 application/json=nvim.desktop;
-application/pdf=mupdf.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 application/x-extension-ics=userapp-Thunderbird-ICAR41.desktop
 image/gif=mpvgif.desktop
-image/jpeg=feh.desktop;
-image/png=feh.desktop;
+image/jpeg=nsxiv.desktop;
+image/png=nsxiv.desktop;
 inode/directory=pcmanfm.desktop
 message/rfc822=userapp-Thunderbird-W14R41.desktop
 text/calendar=userapp-Thunderbird-ICAR41.desktop
