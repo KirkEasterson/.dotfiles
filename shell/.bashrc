@@ -1,4 +1,5 @@
 source "$XDG_CONFIG_HOME/shell/commonrc"
+export HISTFILE=/home/$USER/.cache/bash/history
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
