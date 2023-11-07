@@ -5,7 +5,7 @@ return {
 	version = "v1.*",
 	dependencies = {
 		"neovim/nvim-lspconfig",
-		"SmiteshP/nvim-navic",
+		"SmiteshP/nvim-navic", -- I don't use it, but barbecue won't load without it
 		"nvim-tree/nvim-web-devicons",
 	},
 	event = 'BufAdd',
