@@ -11,48 +11,42 @@ return {
 	},
 	opts = {
 		ensure_installed = {
-			"angularls",
 			"ansiblels",
-			"asm_lsp",
-			"azure_pipelines_ls",
+			"asm_lsp", -- assembly
 			"bashls",
 			"clangd",
-			"clojure_lsp",
 			"cmake",
 			"csharp_ls",
 			"cssls",
 			"cssmodules_ls",
-			"denols",
 			"diagnosticls",
 			"docker_compose_language_service",
 			"dockerls",
 			"eslint",
-			"fennel_language_server",
 			"fsautocomplete",
 			"golangci_lint_ls", -- TODO: figure out why this doesnt work
 			"gopls",
-			"gradle_ls",
-			"hls",
+			"hls", -- haskell
 			"html",
-			"jdtls",
+			"jdtls", -- java
 			"jsonls",
 			"kotlin_language_server",
-			"lemminx",
+			"lemminx", -- xml
 			"lua_ls",
 			"ocamllsp",
 			"omnisharp",
 			"pyright",
 			"rust_analyzer",
 			"sqlls",
-			"taplo",
+			"taplo", -- toml
 			"terraformls",
 			"texlab",
 			"tflint",
 			"tsserver",
 			"vimls",
 			"yamlls",
-			"zls",
-			-- "rnix",
+			"zls", -- zig
+			"rnix", -- nix
 		},
 	},
 }
