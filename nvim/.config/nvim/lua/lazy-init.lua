@@ -21,6 +21,7 @@ end
 lazy.setup('plugins', {
 	defaults = {
 		lazy = true,
+		version = "*",
 	},
 	ui = {
 		border = "rounded",
