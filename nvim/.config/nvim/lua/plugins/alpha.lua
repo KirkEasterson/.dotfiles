@@ -287,7 +287,8 @@ return {
 		'BlakeJC94/alpha-nvim-fortune',
 	},
 	cond = not vim.g.started_by_firenvim,
-	event = "VimEnter",
+	-- event = "VimEnter",
+	lazy = false,
 	priority = 999, -- 1 less than gruvbox
 	config = function(_, opts)
 		local dashboard = require("alpha.themes.dashboard")
