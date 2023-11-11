@@ -200,13 +200,5 @@ return {
 		})
 
 		lsp_zero.setup(opts)
-
-		require('lspconfig.ui.windows').default_options.border = 'rounded'
-		vim.diagnostic.config({
-			virtual_text = false,
-			float = {
-				border = "rounded",
-			}
-		})
 	end,
 }
