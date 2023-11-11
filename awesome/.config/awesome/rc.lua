@@ -299,6 +299,9 @@ awful.screen.connect_for_each_screen(function(s)
 			-- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			systray,
+			-- separator,
+			-- media_widget({}),
+			-- require("player"),
 			separator,
 			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t"]], 60), -- weather
 			separator,
