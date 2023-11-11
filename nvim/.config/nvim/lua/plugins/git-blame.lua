@@ -21,9 +21,9 @@ return {
 	opts = {
 		enabled = false,
 		delay = 1,
-		message_template = " 󰊢 <author>  <date>  <summary>",
+		message_template = "  <author>  <date>  <summary>",
 		date_format = "%d %b %Y",
-		message_when_not_committed = " 󰊢 Not Committed Yet",
+		message_when_not_committed = "  Not Committed Yet",
 		set_extmark_options = {
 			hl_mode = "combine",
 		},
