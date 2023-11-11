@@ -133,15 +133,11 @@ return {
 
 		lsp_zero.on_attach(on_attach)
 
-		-- TODO: see if this can be simplified
-		local ts_capabilities = vim.lsp.protocol.make_client_capabilities()
-		ts_capabilities.textDocument.completion.completionItem.snippetSupport = true
 		lsp_zero.configure('tsserver', {
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.document_range_formatting = false
 			end,
-			capabilities = ts_capabilities,
 		})
 
 		local csharp_on_attach = function(client, bufnr)
