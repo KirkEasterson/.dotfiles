@@ -21,7 +21,7 @@ end
 lazy.setup('plugins', {
 	defaults = {
 		lazy = true,
-		version = "*",
+		-- version = "*", -- enable this to try installing the latest stable versions of plugins
 	},
 	ui = {
 		border = "rounded",
