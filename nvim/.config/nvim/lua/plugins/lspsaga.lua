@@ -68,6 +68,9 @@ return {
 		ui = {
 			border = "rounded",
 		},
+		rename = {
+			auto_save = true,
+		},
 		lightbulb = {
 			virtual_text = false,
 		},
