@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		-- LSP Support
 		{ 'neovim/nvim-lspconfig' },
+		{ 'nvim-lua/plenary.nvim' },
 		{ 'hrsh7th/cmp-nvim-lsp' },
 		{ 'hrsh7th/cmp-buffer' },
 		{ 'hrsh7th/cmp-path' },
@@ -15,6 +16,7 @@ return {
 		{ "hrsh7th/cmp-calc" },
 		{ "petertriho/cmp-git" },
 		{ "Dynge/gitmoji.nvim" },
+		{ "chrisgrieser/cmp-nerdfont" },
 
 		{ 'hrsh7th/cmp-nvim-lua' },
 		{ "onsails/lspkind.nvim" },
@@ -24,13 +26,15 @@ return {
 		-- Snippets
 		{ 'L3MON4D3/LuaSnip' },
 		{ 'saadparwaiz1/cmp_luasnip' },
-		{ 'nvim-lua/plenary.nvim' },
 		{ 'uga-rosa/cmp-dictionary' },
 
 		-- Git
 		{ 'davidsierradz/cmp-conventionalcommits' },
 	},
 	config = function(_, opts)
+		require("cmp_git").setup({})
+		require("gitmoji").setup({})
+
 		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 		local cmp = require('cmp')
 		cmp.setup({
@@ -48,7 +52,7 @@ return {
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
 				['<C-Space>'] = cmp.mapping.complete(),
 				['<C-e>'] = cmp.mapping.abort(),
-				['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+				['<CR>'] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp',   keyword_length = 0 },
@@ -58,6 +62,7 @@ return {
 				{ name = 'async_path', keyword_length = 2 },
 				{ name = 'spell',      keyword_length = 3, ft = { 'text', 'markdown' } },
 				{ name = 'emoji',      keyword_length = 2 },
+				{ name = 'nerdfont',   keyword_length = 2 },
 				{ name = 'dictionary', keyword_length = 2 },
 				-- { name = 'copilot', keyword_length = 2 },
 			}, {
@@ -69,7 +74,7 @@ return {
 			},
 		})
 
-		cmp.setup.filetype('gitcommit', {
+		cmp.setup.filetype({ 'gitcommit', 'NeogitCommitMessage' }, {
 			sources = cmp.config.sources({
 				{ name = 'git' },
 				{ name = 'conventionalcommits' },
