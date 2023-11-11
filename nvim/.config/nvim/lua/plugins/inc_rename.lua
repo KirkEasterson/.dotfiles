@@ -1,5 +1,8 @@
 return {
 	"smjonas/inc-rename.nvim",
+	dependencies = {
+		'stevearc/dressing.nvim'
+	},
 	cond = not vim.g.started_by_firenvim,
 	enabled = false, -- replaced by lspsaga
 	cmd = "IncRename",
@@ -13,5 +16,7 @@ return {
 			desc = "Rename"
 		},
 	},
-	opts = {},
+	opts = {
+		input_buffer_type = "dressing",
+	},
 }
