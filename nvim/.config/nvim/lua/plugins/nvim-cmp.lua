@@ -14,6 +14,7 @@ return {
 		{ "hrsh7th/cmp-emoji" },
 		{ "hrsh7th/cmp-calc" },
 		{ "petertriho/cmp-git" },
+		{ "Dynge/gitmoji.nvim" },
 
 		{ 'hrsh7th/cmp-nvim-lua' },
 		{ "onsails/lspkind.nvim" },
@@ -74,7 +75,7 @@ return {
 				{ name = 'path' },
 				{ name = 'calc' },
 				{ name = 'spell' },
-				{ name = 'emoji' },
+				{ name = 'gitmoji' },
 			}, {
 				{ name = 'buffer' },
 			})
