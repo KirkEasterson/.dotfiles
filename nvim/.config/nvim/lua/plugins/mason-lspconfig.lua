@@ -10,6 +10,7 @@ return {
 		"LspUninstall",
 	},
 	opts = {
+		automatic_installation = true,
 		ensure_installed = {
 			"ansiblels",
 			"asm_lsp", -- assembly
