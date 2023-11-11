@@ -1,7 +1,7 @@
 return {
 	'VonHeikemen/lsp-zero.nvim',
 	cond = not vim.g.started_by_firenvim,
-	branch = 'v2.x',
+	branch = 'v3.x',
 	event = {
 		'BufNewFile',
 		'BufReadPre',
