@@ -31,9 +31,6 @@ require("awful.hotkeys_popup.keys")
 -- Bootstrap library
 require("bootstrap.bootstrap")
 
--- local sounds = require("sounds.winxp")
--- require("sounds").init(sounds)
-
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
