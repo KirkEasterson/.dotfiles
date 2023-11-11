@@ -1,2 +1,7 @@
 .luarc.json
 __pycache__/
+
+monitors.conf
+
+elpa/
+transient/
