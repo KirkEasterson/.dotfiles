@@ -117,8 +117,9 @@ return {
 			if client.supports_method('textDocument/formatting') then
 				-- buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
 				-- TODO: add binding for formatting block
-				buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
-				buf_set_keymap("v", "<leader>fc", "<cmd>lua vim.lsp.buf.range_format()<CR>",
+				buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR>",
+					{ noremap = true, silent = true })
+				buf_set_keymap("v", "<leader>fc", "<cmd>lua vim.lsp.buf.range_format({ timeout_ms = 5000 })<CR>",
 					{ noremap = true, silent = true })
 			end
 
