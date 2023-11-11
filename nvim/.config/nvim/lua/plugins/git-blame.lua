@@ -18,8 +18,8 @@ return {
 			desc = "Toggle git line blame",
 		},
 	},
-	init = function ()
-		vim.api.nvim_set_var("gitblame_enabled", 0)
-		vim.api.nvim_set_var("gitblame_delay", 10)
-	end,
+	opts = {
+		enabled = false,
+		delay = 1,
+	},
 }
