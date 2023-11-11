@@ -41,6 +41,7 @@ return {
 				-- markdown
 				null_ls.builtins.diagnostics.markdownlint,
 				null_ls.builtins.formatting.markdownlint,
+				null_ls.builtins.code_actions.proselint,
 
 				-- terraform
 				null_ls.builtins.diagnostics.terraform_validate,
@@ -48,18 +49,27 @@ return {
 
 				-- general utility
 				null_ls.builtins.code_actions.refactoring,
-				null_ls.builtins.code_actions.proselint,
-				null_ls.builtins.diagnostics.commitlint,
 				null_ls.builtins.diagnostics.todo_comments,
 				null_ls.builtins.diagnostics.editorconfig_checker,
+				null_ls.builtins.diagnostics.trail_space,
+				null_ls.builtins.diagnostics.dotenv_linter,
 
 				-- golang
 				-- null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.diagnostics.golangci_lint,
 				null_ls.builtins.formatting.goimports,
+				null_ls.builtins.code_actions.gomodifytags,
+				null_ls.builtins.diagnostics.staticcheck,
 
 				-- ocaml
 				null_ls.builtins.formatting.ocamlformat,
+
+				-- git
+				null_ls.builtins.diagnostics.actionlint,
+
+				-- ansible
+				null_ls.builtins.diagnostics.ansiblelint,
+				null_ls.builtins.diagnostics.commitlint,
 			},
 		})
 	end
