@@ -45,56 +45,20 @@ return {
 		"LspZeroWorkspaceRemove",
 	},
 	keys = {
-		-- {
-		-- 	"gd",
-		-- 	function() vim.lsp.buf.definition() end,
-		-- 	desc = "Definition",
-		-- },
-		-- {
-		-- 	"gt",
-		-- 	function() vim.lsp.buf.type_definition() end,
-		-- 	desc = "Type definition",
-		-- },
-		{
-			"<leader>gr",
-			function() vim.lsp.buf.references() end,
-			desc = "References",
-		},
-		-- {
-		-- 	"<leader>ga",
-		-- 	function() vim.lsp.buf.code_action() end,
-		-- 	desc = "Code actions",
-		-- },
-		-- {
-		-- 	"<leader>e",
-		-- 	function() vim.lsp.buf.diagnostic() end,
-		-- 	desc = "LSP diagnostics",
-		-- },
-		-- {
-		-- 	"[d",
-		-- 	"<cmd>Lspsaga diagnostic_jump_prev<CR>",
-		-- 	desc = "Previous diagnostic",
-		-- },
-		-- {
-		-- 	"]d",
-		-- 	"<cmd>Lspsaga diagnostic_jump_next<CR>",
-		-- 	desc = "Next diagnostic",
-		-- },
-		-- {
-		-- 	"<leader>gh",
-		-- 	"<cmd>Lspsaga lsp_finder<CR>",
-		-- 	desc = "LSP finder",
-		-- },
-		-- {
-		-- 	"K",
-		-- 	function() vim.lsp.buf.hover() end,
-		-- 	desc = "Hover docs",
-		-- },
-		-- {
-		-- 	"gb",
-		-- 	"<cmd>Lspsaga show_buf_diagnostics<CR>",
-		-- 	desc = "Buffer diagnostics",
-		-- },
+		-- https://github.com/VonHeikemen/lsp-zero.nvim#keybindings
+		{ "K",    desc = "Hover info" },
+		{ "gd",   desc = "Goto definition" },
+		{ "gD",   desc = "Goto decleration" },
+		{ "gi",   desc = "List implementations" },
+		{ "go",   desc = "Goto type definition" },
+		{ "gr",   desc = "List references" },
+		{ "gs",   desc = "Display signature" },
+		{ "<F2>", desc = "Rename" },
+		{ "<F3>", desc = "Format" },
+		{ "<F4>", desc = "Code actions" },
+		{ "gl",   desc = "Show diagnostics" },
+		{ "[d",   desc = "Previous diagnostic" },
+		{ "]d",   desc = "Next diagnostic" },
 	},
 	opts = {},
 	config = function(_, opts)

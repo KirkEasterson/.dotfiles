@@ -31,6 +31,7 @@ return {
 		{ 'davidsierradz/cmp-conventionalcommits' },
 	},
 	config = function(_, opts)
+		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 		local cmp = require('cmp')
 		cmp.setup({
 			snippet = {
@@ -50,15 +51,15 @@ return {
 				['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
 			sources = cmp.config.sources({
-				{ name = 'nvim_lsp' },
-				{ name = 'luasnip' },
-				{ name = 'npm',       ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', } },
-				{ name = 'async_path' },
-				{ name = 'calc' },
-				{ name = 'spell',     ft = { 'text', 'markdown' } },
-				{ name = 'emoji',     ft = { 'text', 'markdown' } },
-				-- { name = 'copilot' },
-				{ name = 'dictionary' },
+				{ name = 'nvim_lsp',   keyword_length = 0 },
+				{ name = 'luasnip',    keyword_length = 2 },
+				{ name = 'calc',       keyword_length = 3 },
+				{ name = 'npm',        keyword_length = 4, ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', } },
+				{ name = 'async_path', keyword_length = 2 },
+				{ name = 'spell',      keyword_length = 3, ft = { 'text', 'markdown' } },
+				{ name = 'emoji',      keyword_length = 2 },
+				{ name = 'dictionary', keyword_length = 2 },
+				-- { name = 'copilot', keyword_length = 2 },
 			}, {
 				{ name = 'buffer' },
 			}),
@@ -80,5 +81,10 @@ return {
 				{ name = 'buffer' },
 			})
 		})
+
+		cmp.event:on(
+			'confirm_done',
+			cmp_autopairs.on_confirm_done()
+		)
 	end,
 }
