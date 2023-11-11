@@ -30,9 +30,3 @@ return {
 		},
 	},
 }
-
-
-
-		-- message_template = " 󰊢 <author>  <date>  <summary>",
-		-- date_format = "%d %b %Y",
-		-- message_when_not_committed = " 󰊢 Not Committed Yet",
