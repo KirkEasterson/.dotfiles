@@ -34,8 +34,6 @@ require("bootstrap.bootstrap")
 -- widgets
 -- https://github.com/streetturtle/awesome-wm-widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local pacman_widget = require("awesome-wm-widgets.pacman-widget.pacman")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local separator = wibox.widget {
 	widget = wibox.widget.separator,
