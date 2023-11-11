@@ -19,13 +19,12 @@ return {
 			"cmake",
 			"csharp_ls",
 			"cssls",
-			"cssmodules_ls",
 			"diagnosticls",
 			"docker_compose_language_service",
 			"dockerls",
 			"eslint",
 			"fsautocomplete",
-			"golangci_lint_ls", -- TODO: figure out why this doesnt work
+			"golangci_lint_ls",
 			"gopls",
 			"hls", -- haskell
 			"html",
@@ -37,6 +36,7 @@ return {
 			"ocamllsp",
 			"omnisharp",
 			"pyright",
+			"rnix", -- nix
 			"rust_analyzer",
 			"sqlls",
 			"taplo", -- toml
@@ -47,7 +47,6 @@ return {
 			"vimls",
 			"yamlls",
 			"zls", -- zig
-			"rnix", -- nix
 		},
 	},
 }
