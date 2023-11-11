@@ -166,18 +166,24 @@ return {
 			},
 		})
 
-		lsp_zero.configure('lua_ls', {
+		lsp_zero.configure('lua_ls', lsp_zero.nvim_lua_ls({
 			settings = {
 				Lua = {
+					runtime = {
+						version = 'LuaJIT',
+					},
 					format = {
-						enable = false,
+						enable = true,
 					},
 					workspace = {
 						checkThirdParty = false,
 					},
+					telemetry = {
+						enable = false,
+					},
 				},
 			},
-		})
+		}))
 
 		lsp_zero.configure('gopls', {
 			settings = {
