@@ -70,20 +70,19 @@ return {
 		})
 
 		local on_attach = function(client, bufnr)
-			local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-			local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+			lsp_zero.default_keymaps({ buffer = bufnr })
 
-			buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+			vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 			if client.server_capabilities == nil then
 				client.server_capabilities = vim.lsp.protocol.make_client_capabilities()
 			end
 
 			if client.supports_method('textDocument/formatting') then
-				-- buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { noremap = true, silent = true })
-				-- TODO: add binding for formatting block
-				buf_set_keymap("n", "<leader>fc", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR>",
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>fc",
+					"<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000, async = true })<CR>",
 					{ noremap = true, silent = true })
-				buf_set_keymap("v", "<leader>fc", "<cmd>lua vim.lsp.buf.range_format({ timeout_ms = 5000 })<CR>",
+				vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>fc",
+					"<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000, async = true })<CR>",
 					{ noremap = true, silent = true })
 			end
 
@@ -102,18 +101,18 @@ return {
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.document_range_formatting = false
+				on_attach(client, bufnr)
 			end,
 		})
 
-		local csharp_on_attach = function(client, bufnr)
-			client.server_capabilities.semanticTokensProvider = nil
-			on_attach(client, bufnr)
-		end
 		lsp_zero.configure('omnisharp', {
 			handlers = {
 				["textDocument/definition"] = require('omnisharp_extended').handler,
 			},
-			on_attach = csharp_on_attach,
+			on_attach = function(client, bufnr)
+				client.server_capabilities.semanticTokensProvider = nil
+				on_attach(client, bufnr)
+			end,
 			cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
 			enable_import_completion = true,
 			organize_imports_on_format = true,
