@@ -1,0 +1,90 @@
+prSections:
+  - title: My Pull Requests
+    filters: is:open author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+  - title: Involved
+    filters: is:open involves:@me -author:@me
+
+issuesSections:
+  - title: My Issues
+    filters: is:open author:@me
+  - title: Assigned
+    filters: is:open assignee:@me
+  - title: Involved
+    filters: is:open involves:@me -author:@me
+
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
+        width: 10
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+
+keybindings:
+  issues: []
+  prs: []
+  # prs: # open in neovim
+  #   - key: c
+  #     command: >
+  #       tmux new-window -c {{.RepoPath}} '
+  #         gh pr checkout {{.PrNumber}} &&
+  #         nvim -c ":DiffviewOpen master...{{.HeadRefName}}"
+  #       '
+  #   - key: v
+  #     command: >
+  #       cd {{.RepoPath}} &&
+  #       code . &&
+  #       gh pr checkout {{.PrNumber}}
+
+repoPaths: {}
+
+theme:
+  ui:
+    table:
+      showSeparator: true
+  colors: # these render differently in tmux
+    text:
+      primary: "#EBDBB2" # fg
+      secondary: "#A89984" # fg4
+      inverted: "#32303F" # bg0_s
+      faint: "#A89984" # fg4
+      warning: "#FB4934" # red
+      success: "#B8BB26" # green
+    background:
+      selected: "#1D2021" # bg0_h
+    border:
+      primary: "#458588" # blue
+      secondary: "#3C3836" # bg1
+      faint: "#928374" # gray
+
+pager:
+  diff: ""
