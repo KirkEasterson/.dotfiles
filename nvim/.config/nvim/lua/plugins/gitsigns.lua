@@ -18,6 +18,20 @@ return {
 		-- 	end,
 		-- 	desc = "Toggle git line blame",
 		-- },
+		{
+			"[c",
+			function()
+				require("gitsigns").prev_hunk()
+			end,
+			desc = "Prev hunk",
+		},
+		{
+			"]c",
+			function()
+				require("gitsigns").next_hunk()
+			end,
+			desc = "Next hunk",
+		},
 	},
 	opts = {
 		current_line_blame_formatter = ' 󰊢 <author>  <author_time:%d %b %Y>  <summary>',
