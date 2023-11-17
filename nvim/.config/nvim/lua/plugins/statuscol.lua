@@ -220,6 +220,11 @@ return {
 					condition = { true, },
 					click = "v:lua.ScLa",
 				},
+				{ -- fold
+					text = { " ", builtin.foldfunc, },
+					condition = { builtin.not_empty, },
+					click = "v:lua.ScFa",
+				},
 				{
 					-- git signs
 					text = {
@@ -230,11 +235,6 @@ return {
 					},
 					condition = { true, },
 				},
-				-- { -- fold
-				-- 	text = { builtin.foldfunc },
-				-- 	condition = { true },
-				-- 	click = "v:lua.ScFa",
-				-- },
 			},
 		})
 	end,

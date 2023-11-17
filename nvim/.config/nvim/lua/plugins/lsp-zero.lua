@@ -86,13 +86,13 @@ return {
 					{ noremap = true, silent = true })
 			end
 
-			-- -- for ufo folding
-			-- client.server_capabilities.textDocument = {
-			-- 	foldingRange = {
-			-- 		dynamicRegistration = false,
-			-- 		lineFoldingOnly = true,
-			-- 	},
-			-- }
+			-- for ufo folding
+			client.server_capabilities.textDocument = {
+				foldingRange = {
+					dynamicRegistration = false,
+					lineFoldingOnly = true,
+				},
+			}
 		end
 
 		lsp_zero.on_attach(on_attach)
