@@ -18,6 +18,12 @@ return {
 	},
 	keys = {
 		{
+			'z', -- prefix for fold functionality
+			-- 'zo': open fold under cursor
+			-- 'zc': close fold under cursor
+			-- 'za': toggle fold under cursor
+		},
+		{
 			'zR',
 			function() require('ufo').openAllFolds() end,
 			desc = "Open all folds",
