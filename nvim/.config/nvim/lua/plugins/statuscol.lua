@@ -71,7 +71,7 @@ local function get_name_from_group(bufnum, lnum, group)
 	return get_sign_name(cur_sign_tbl)
 end
 
-local get_statuscol_gitsign = function (bufnr, lnum)
+local get_statuscol_gitsign = function(bufnr, lnum)
 	local cur_sign_nm = get_name_from_group(bufnr, lnum, "gitsigns_vimfn_signs_")
 
 	if cur_sign_nm ~= nil then
@@ -81,7 +81,7 @@ local get_statuscol_gitsign = function (bufnr, lnum)
 	end
 end
 
-local get_statuscol_diag = function (bufnum, lnum)
+local get_statuscol_diag = function(bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "*")
 
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "DiagnosticSign") then
@@ -91,7 +91,7 @@ local get_statuscol_diag = function (bufnum, lnum)
 	end
 end
 
-local get_statuscol_marks = function (bufnum, lnum)
+local get_statuscol_marks = function(bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "MarkSigns")
 
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "Marks") then
@@ -101,7 +101,7 @@ local get_statuscol_marks = function (bufnum, lnum)
 	end
 end
 
-local get_statuscol_debug = function (bufnum, lnum)
+local get_statuscol_debug = function(bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "dap_breakpoints")
 
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "Dap") then
@@ -111,7 +111,7 @@ local get_statuscol_debug = function (bufnum, lnum)
 	end
 end
 
-local get_statuscol_test = function (bufnum, lnum)
+local get_statuscol_test = function(bufnum, lnum)
 	local cur_sign_nm = get_name_from_group(bufnum, lnum, "neotest-status")
 
 	if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "neotest_") then
@@ -121,9 +121,9 @@ local get_statuscol_test = function (bufnum, lnum)
 	end
 end
 
-local filter_table = function (t, filterIter)
+local filter_table = function(t, filterIter)
 	local out = {}
-	for k, v in pairs(t) do
+	for _, v in pairs(t) do
 		if filterIter(v) then
 			table.insert(out, v)
 		end
@@ -140,7 +140,7 @@ return {
 	},
 	cond = not vim.g.started_by_firenvim,
 	event = "VimEnter",
-	config = function ()
+	config = function()
 		local builtin = require("statuscol.builtin")
 		require("statuscol").setup({
 			setopt = true,
@@ -157,34 +157,14 @@ return {
 			},
 			segments = {
 				{
-					-- diagnostics
-					text = {
-						function ()
-							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
-						end,
-					},
-					condition = { function ()
-						local cur_sign_tbl = vim.fn.sign_getplaced(
-							vim.fn.bufnr(), {
-								group = "*",
-							})
-						local filtered_table = filter_table(
-							cur_sign_tbl[1].signs, function (v)
-								return string.find(v.name, "Diagnostic", 0, true)
-							end)
-						return next(filtered_table) ~= nil
-					end,
-					},
-				},
-				{
 					-- marks
 					text = {
-						function ()
+						function()
 							return get_statuscol_marks(vim.fn.bufnr(), vim.v.lnum)
 						end,
 					},
-					-- condition = { true, },
-					condition = { function ()
+					-- condition = { builtin.not_empty, },
+					condition = { function()
 						local cur_sign_tbl = vim.fn.sign_getplaced(
 							vim.fn.bufnr(), {
 								group = "MarkSigns",
@@ -193,11 +173,31 @@ return {
 					end, },
 				},
 				{
+					-- diagnostics
+					text = {
+						function()
+							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
+						end,
+					},
+					condition = { function()
+						local cur_sign_tbl = vim.fn.sign_getplaced(
+							vim.fn.bufnr(), {
+								group = "*",
+							})
+						local filtered_table = filter_table(
+							cur_sign_tbl[1].signs, function(v)
+								return string.find(v.name, "Diagnostic", 0, true)
+							end)
+						return next(filtered_table) ~= nil
+					end,
+					},
+				},
+				{
 					-- test
-					text = { function ()
+					text = { function()
 						return get_statuscol_test(vim.fn.bufnr(), vim.v.lnum)
-					end, },
-					condition = { function ()
+					end, " ", },
+					condition = { function()
 						local cur_sign_tbl = vim.fn.sign_getplaced(
 							vim.fn.bufnr(), {
 								group = "neotest-status",
@@ -208,11 +208,16 @@ return {
 				},
 				{
 					-- dap
-					text = { function ()
+					text = { function()
 						return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
 					end, },
-					condition = { true, },
-					-- click = "v:lua.ScLa",
+					condition = { function()
+						local cur_sign_tbl = vim.fn.sign_getplaced(
+							vim.fn.bufnr(), {
+								group = "dap_breakpoints",
+							})
+						return next(cur_sign_tbl[1].signs) ~= nil
+					end, },
 				},
 				{
 					-- line numbers
@@ -228,7 +233,7 @@ return {
 				{
 					-- git signs
 					text = {
-						function ()
+						function()
 							return get_statuscol_gitsign(vim.fn.bufnr(),
 								vim.v.lnum)
 						end,
