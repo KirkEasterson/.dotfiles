@@ -94,7 +94,7 @@ return {
 				require("neotest-python"),
 			},
 			status = {
-				virtual_text = true, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
+				virtual_text = false, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
 			},
 		}
 		require('neotest').setup(opts)
