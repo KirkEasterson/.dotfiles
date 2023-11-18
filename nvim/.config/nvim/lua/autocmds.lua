@@ -25,11 +25,11 @@ autocmd({ "FileType", }, {
 })
 
 autocmd({ "BufWritePre", }, {
-	desc = "Remove trailing whitespace",
+	desc = "Remove trailing-space",
 	pattern = { "*", },
 	callback = function()
 		if vim.bo.filetype == "markdown" then
-			return
+			return -- trailing space in md is a newline
 		end
 		if not not vim.g.started_by_firenvim then
 			return
@@ -50,6 +50,7 @@ autocmd("TextYankPost", {
 	end,
 })
 
+-- TODO: make this less hacky
 autocmd("BufwritePost", {
 	desc = "Build notes",
 	pattern = "*note-*.md",
@@ -98,13 +99,6 @@ autocmd("FileType", {
 	pattern = { "gitcommit", "gitrebase", },
 	command = "startinsert | 1",
 })
-
--- autocmd("VimResized", {
--- 	desc = "Equalize Splits",
--- 	callback = function()
--- 		vim.cmd "wincmd ="
--- 	end,
--- })
 
 -- sync neovim with system clipboard
 autocmd({ "BufReadPost", "BufNewFile", }, {
