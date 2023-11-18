@@ -1,9 +1,6 @@
 return {
 	"jackMort/ChatGPT.nvim",
-	cond = not vim.g.started_by_firenvim,
-	cond = function()
-		return vim.fn.executable('op') == 1
-	end,
+	cond = vim.g.started_by_firenvim,
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",
