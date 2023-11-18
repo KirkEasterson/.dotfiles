@@ -42,9 +42,21 @@ map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 
 -- easier yanking/pasting
-map('v', 'y', 'ygv<ESC>')     -- keep cursor in same spot when yanking
-map('n', 'Y', 'y$')           -- Y to behave like other capitals
-map('n', 'p', 'p=`]')         -- paste with formatting
-map('n', 'P', 'P=`]')         -- paste with formatting
-map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
-map('x', '<leader>P', '"_dp') -- TODO: combine this and above in one mapping. above doesn't work on last word in line
+map('v', 'y', 'ygv<ESC>')        -- keep cursor in same spot when yanking
+map('n', 'Y', 'y$')              -- Y to behave like other capitals
+map('n', 'p', 'p=`]')            -- paste with formatting
+map('n', 'P', 'P=`]')            -- paste with formatting
+map('x', '<leader>p', function() -- paste without rewriting register
+	-- get current column number
+	local col_num = vim.fn.col(".")
+
+	-- get end column of the visual selection
+	local end_col = vim.fn.visualmode() == 'V' and vim.fn.col("'>") or col_num
+
+	-- check if last character in the line is selected
+	local act_last_col = vim.fn.col('$') - 1
+	local is_last_char_selected = end_col == act_last_col
+
+	local paste_cmd = is_last_char_selected and "\"_dp" or "\"_dP"
+	vim.cmd("normal " .. paste_cmd)
+end)
