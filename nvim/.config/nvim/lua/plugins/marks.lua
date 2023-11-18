@@ -25,7 +25,7 @@ return {
 			desc = "Toggle next available mark",
 		},
 		{
-			'm', -- And then a character
+			'm', -- Then and  a character. Visit mark by 'x or `x
 			desc = "Add mark",
 		},
 		{
