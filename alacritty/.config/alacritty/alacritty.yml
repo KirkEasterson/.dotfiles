@@ -7,6 +7,9 @@ scrolling:
 
 font:
   size: 13.0
+  offset:
+    x: -1
+    y: 0
   normal:
     family: ComicCodeLigatures Nerd Font
     style: Regular
