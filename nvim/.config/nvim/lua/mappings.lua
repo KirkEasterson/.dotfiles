@@ -47,4 +47,4 @@ map('n', 'Y', 'y$')           -- Y to behave like other capitals
 map('n', 'p', 'p=`]')         -- paste with formatting
 map('n', 'P', 'P=`]')         -- paste with formatting
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
-map('x', '<leader>P', '"_dp') -- TODO: combine this and above in one mapping
+map('x', '<leader>P', '"_dp') -- TODO: combine this and above in one mapping. above doesn't work on last word in line
