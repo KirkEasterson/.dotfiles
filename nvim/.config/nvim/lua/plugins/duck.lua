@@ -3,7 +3,7 @@ return {
 	keys = {
 		{
 			'<leader>dh',
-			function() require("duck").hatch("🕷") end,
+			function() require("duck").hatch("🪳") end,
 			desc = "Create bug",
 		},
 		{
