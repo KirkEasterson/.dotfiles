@@ -6,10 +6,6 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- -- convenient buffer switching
--- map('n', '<Tab>', '<Cmd>bnext<CR>')
--- map('n', '<S-Tab>', '<Cmd>bprev<CR>')
-
 -- QOL mapping to type commands without needing shift
 map('n', ';', ':')
 map('n', ':', ';')
@@ -28,14 +24,13 @@ map('n', 'N', 'Nzz')
 map('n', '<X1Mouse>', '<C-o>')
 map('n', '<X2Mouse>', '<C-i>')
 
+-- unmap middle-click paste
+map('n', '<MiddleMouse>', function() end)
+
 -- faster save and quits
 map('n', '<leader>w', function() vim.cmd('silent! w') end, { desc = "Save file" })
 map('n', '<leader>q', function() vim.cmd('q') end, { desc = "Close buffer" })
 map('n', '<leader>z', function() vim.cmd('qa') end, { desc = "Quit" })
-
--- easier jumps to line endings
-map('n', 'H', '^')
-map('n', 'L', '$')
 
 -- reselect text after indenting
 map('v', '<', '<gv')
@@ -46,13 +41,10 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z')
 
-map('n', 'U', '<C-r>', { desc = "Redo" })
-
 -- easier yanking/pasting
 map('v', 'y', 'ygv<ESC>')     -- keep cursor in same spot when yanking
 map('n', 'Y', 'y$')           -- Y to behave like other capitals
 map('n', 'p', 'p=`]')         -- paste with formatting
 map('n', 'P', 'P=`]')         -- paste with formatting
 map('x', '<leader>p', '"_dP') -- pasting without overwriting contents of the register
-
--- TODO: look into mappings for function and shift+function keys
+map('x', '<leader>P', '"_dp') -- TODO: combine this and above in one mapping
