@@ -72,63 +72,68 @@ opt.wrap = false          -- don't wrap lines
 opt.linebreak = true      -- if wrapping, wrap on complete words
 opt.breakindent = true    -- preserve indenting on wrapped lines
 
-opt.visualbell = false
-opt.belloff = "all"
+opt.visualbell = true
+opt.errorbells = true
+opt.belloff = "esc"
 
-opt.hidden = true      -- Enable background buffers
-opt.history = 100      -- Remember N lines in history
-opt.lazyredraw = true  -- Faster scrolling
-opt.synmaxcol = 240    -- Max column for syntax highlight
-opt.updatetime = 250   -- ms to wait for trigger an event
+opt.hidden = true         -- Enable background buffers
+opt.history = 100         -- Remember N lines in history
+opt.lazyredraw = true     -- Faster scrolling
+opt.synmaxcol = 240       -- Max column for syntax highlight
+opt.updatetime = 250      -- ms to wait for trigger an event
 
-opt.syntax = "enable"  -- show syntax highlighting
-opt.showmatch = true   -- highlight matching brackets
-opt.scrolloff = 4      -- scroll when y away from vertical edge
+opt.syntax = "enable"     -- show syntax highlighting
+opt.showmatch = true      -- highlight matching brackets
+opt.scrolloff = 4         -- scroll when y away from vertical edge
 -- opt.smoothscroll = true
-opt.sidescrolloff = 8  -- scroll when x away from horizontal edge
-opt.signcolumn = "yes" -- column for linting
-opt.colorcolumn = "80" -- show line for 80char soft-limit
+opt.sidescrolloff = 8     -- scroll when x away from horizontal edge
+opt.signcolumn = "yes"    -- column for linting
+opt.colorcolumn = "80"    -- show line for 80char soft-limit
 
-opt.tabstop = 4        -- number of visual spaces per tab
-opt.softtabstop = 4    -- number of spaces in tab when editing
-opt.shiftwidth = 4     -- number of spaces when indenting with <>
+opt.tabstop = 4           -- number of visual spaces per tab
+opt.softtabstop = 4       -- number of spaces in tab when editing
+opt.shiftwidth = 4        -- number of spaces when indenting with <>
 
-opt.mouse = "a"        -- enable mouse for scrolling and resizing
-opt.mousemodel = "extend"
---opt.mousehide = true
+opt.mouse = "a"           -- enable mouse for scrolling and resizing
+opt.mousehide = true
+opt.mousemodel = "extend" -- don't show right click menu
 opt.mousemoveevent = true
 opt.mousescroll = "ver:1,hor:1"
+-- opt.mousesshape = "vs:lrsizing"
+
+opt.nrformats = "alpha,octal,hex,bin"
 
 opt.wildmenu = true -- visual autocompletion for command menu
 opt.wildmode = { "longest", "list", "full", }
 
 opt.list = true
 opt.listchars:append({
-	lead = " ",
-	tab = "  ",
-	trail = "▒",
-	extends = "",
-	precedes = "",
+	extends  = "…",
+	lead     = " ",
+	precedes = "…",
+	tab      = "  ", -- this must be two characters
+	trail    = "▒",
 })
 opt.fillchars:append({
-	eob = " ",
-	fold = " ",
-	foldopen = "󰅀",
-	foldsep = " ",
+	eob       = " ",
+	fold      = " ",
 	foldclose = "󰅂",
+	foldopen  = "󰅀",
+	foldsep   = " ",
 })
 
-opt.swapfile = false  -- don't create swap files
+opt.swapfile    = false     -- don't create swap files
 
-opt.splitright = true --  splits open to the right
-opt.splitbelow = true --  splits open below
+opt.splitright  = true      --  splits open to the right
+opt.splitbelow  = true      --  splits open below
+opt.splitkeep   = "topline" -- keep topline on split resizing
 
-opt.cmdheight = 0     -- hide the command line
+opt.cmdheight   = 0         -- hide the command line
 
-opt.undofile = true   -- persistent undos
-opt.confirm = true    -- show confirm dialog when closing unsaved files
+opt.undofile    = true      -- persistent undos
+opt.confirm     = true      -- show confirm dialog when closing unsaved files
 
-opt.laststatus = 3    -- aesthetic win separators
+opt.laststatus  = 3         -- aesthetic win separators
 
 opt.completeopt = { "menu", "menuone", "noselect", }
 
