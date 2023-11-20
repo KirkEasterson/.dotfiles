@@ -23,8 +23,8 @@ alias tn='tmux new -As $(basename $PWD | tr . -)'
 # Colorize commands
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias egrep='grep -E --color=auto' # extended regex
+alias fgrep='grep -F --color=auto' # fixed strings
 
 # Search command line history
 alias hg="history | grep "
@@ -39,7 +39,7 @@ alias fg="find . | grep "
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
 # Alias's to show disk space and space used in a folder
-alias diskspace="du -S | sort -n -r |more"
+alias diskspace="du -S | sort -n -r | more"
 alias folders='du -h --max-depth=1'
 alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias tree='tree -CAhF --dirsfirst'
@@ -86,13 +86,20 @@ alias grmc="git rm -r --cached"
 
 # lazygit
 alias lg="lazygit"
+alias ghd="gh dash"
 
 # updating ubuntu
 alias uupg="sudo nala upgrade -y && flatpak upgrade -y"
 alias aupg="sudo apt update -y && sudo apt upgrade -y"
 alias nupg="sudo nala upgrade -y"
+
+# update flatpak
 alias fupg="flatpak upgrade -y"
+
+# update brew
 alias bupg="brew update && brew upgrade"
+
+# update arch
 alias pupg="sudo pacman -Syyu"
 
 # mkdir create parent directories
