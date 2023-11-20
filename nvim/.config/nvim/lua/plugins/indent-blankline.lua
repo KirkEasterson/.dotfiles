@@ -2,8 +2,18 @@ return {
 	'lukas-reineke/indent-blankline.nvim',
 	cond = not vim.g.started_by_firenvim,
 	version = "v2.*",
+	-- version = "Version 3.*", -- uncomment for v3
 	-- main = "ibl", -- uncomment for v3
 	event = "VimEnter",
+	cmd = {
+		-- v3 commands
+		"IBLEnable",
+		"IBLDisable",
+		"IBLToggle",
+		"IBLEnableScope",
+		"IBLDisableScope",
+		"IBLToggleScope",
+	},
 	opts = {
 
 		-- v3 config
