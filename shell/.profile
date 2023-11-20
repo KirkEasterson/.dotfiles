@@ -83,9 +83,10 @@ blueman-applet &
 cbatticon &
 flameshot &
 nm-applet &
-# picom &
+picom &
 sxhkd &
 udiskie -a &
+
 # xremap .config/xremap/config.yml &
 xcape -e "Shift_L=parenleft;Shift_R=parenright" &
 light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint &
