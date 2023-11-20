@@ -106,13 +106,18 @@ opt.nrformats = "alpha,octal,hex,bin"
 opt.wildmenu = true -- visual autocompletion for command menu
 opt.wildmode = { "longest", "list", "full", }
 
-opt.list = true
+opt.list = true -- enable rendering of listchars
 opt.listchars:append({
 	extends  = "…",
 	lead     = " ",
 	precedes = "…",
 	tab      = "  ", -- this must be two characters
 	trail    = "▒",
+
+	-- use the below line to simulate indent-blankline
+	-- leadmultispace = "│ ",
+	-- multispace     = "│ ",
+	-- tab            = "│ ", -- this must be two characters
 })
 opt.fillchars:append({
 	eob       = " ",
