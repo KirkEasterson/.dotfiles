@@ -16,7 +16,7 @@ return {
 	config = function(_, opts)
 		local gen = require('gen')
 
-		-- gen.model = 'codellama' -- default 'mistral:instruct'
+		gen.model = 'orca-mini' -- default 'mistral:instruct'
 		-- gen.container = 'ollama' -- if running in docker container
 		-- gen.command = 'docker exec -it ollama ollama run $model $prompt'
 	end,
