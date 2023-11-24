@@ -47,4 +47,8 @@ lazy.setup('plugins', {
 			},
 		},
 	},
+	dev = {
+		path = "~/dev/",
+		fallback = true,
+	},
 })
