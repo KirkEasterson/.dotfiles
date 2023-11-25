@@ -28,7 +28,7 @@ return {
 			"gomodifytags",
 			"hadolint",
 			"markdownlint",
-			"ocamlformat",
+			-- "ocamlformat",
 			"prettier",
 			"proselint",
 			"protoc_gen_lint",
