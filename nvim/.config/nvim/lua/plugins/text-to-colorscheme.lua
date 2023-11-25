@@ -1,33 +1,29 @@
 return {
 	"svermeulen/text-to-colorscheme",
+	enabled = false,
 	cond = not vim.g.started_by_firenvim,
-	enabled = function()
-		local openapikey = os.getenv("OPENAI_API_KEY")
-		return openapikey ~= nil and openapikey ~= ""
-	end,
 	cmd = {
 		"T2CAddContrast",
 		"T2CAddSaturation",
+		"T2CGenerate",
 		"T2CResetChanges",
-		"T2CSGenerate",
-		"T2CSSave",
-		"T2CShuffleAccents",
+		"T2CSave",
+		"T2CSelect",
+		"T2ChuffleAccents",
 	},
-	keys = {
-		{
-			"<leader>bb",
-			"<Cmd>Block<CR>",
-			desc = "Toggle blocks",
-		},
-	},
-	opts = {
-		ai = {
-			openai_api_key = os.getenv("OPENAI_API_KEY"),
-			gpt_model = "gpt-3.5-turbo-0613",
-		},
-	},
-	config = function(_, opts)
-		require("test-to-colorscheme").setup(opts)
+	config = function(_, _)
+		local handle = io.popen("op read op://personal/OpenAI/password --no-newline")
+		local openai_api_key = handle:read("*a")
+		handle:close()
+
+		local opts = {
+			ai = {
+				openai_api_key = openai_api_key,
+				gpt_model = "gpt-3.5-turbo-0613",
+			},
+		}
+
+		require("text-to-colorscheme").setup(opts)
 		vim.cmd([[colorscheme text-to-colorscheme]])
 	end
 }
