@@ -39,13 +39,15 @@ return {
 			desc = "Toggle block comment",
 		},
 	},
-	opts = {
-		-- mappings = {
-		-- 	basic = false,
-		-- 	extra = false,
-		-- },
-		pre_hook = function()
-			return vim.bo.commentstring
-		end,
-	},
+	config = function(_, _)
+		local opts = {
+			-- mappings = {
+			-- 	basic = false,
+			-- 	extra = false,
+			-- },
+			pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+		}
+
+		require('Comment').setup(opts)
+	end
 }
