@@ -2,6 +2,9 @@ return {
 	'numToStr/Comment.nvim',
 	version = "v0.*",
 	cond = not vim.g.started_by_firenvim,
+	dependencies = {
+		'JoosepAlviste/nvim-ts-context-commentstring',
+	},
 	keys = {
 		{ "gc" },
 		{ "gb" },
@@ -41,5 +44,8 @@ return {
 		-- 	basic = false,
 		-- 	extra = false,
 		-- },
+		pre_hook = function()
+			return vim.bo.commentstring
+		end,
 	},
 }
