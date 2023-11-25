@@ -51,7 +51,7 @@ return {
 				null_ls.builtins.code_actions.refactoring,
 				null_ls.builtins.diagnostics.todo_comments,
 				-- null_ls.builtins.diagnostics.editorconfig_checker, -- this got annoying from long line errors
-				null_ls.builtins.diagnostics.trail_space,
+				-- null_ls.builtins.diagnostics.trail_space, -- redundant with autocommand
 				null_ls.builtins.diagnostics.dotenv_linter,
 
 				-- golang
