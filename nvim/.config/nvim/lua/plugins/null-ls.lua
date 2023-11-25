@@ -61,7 +61,7 @@ return {
 				null_ls.builtins.code_actions.gomodifytags,
 
 				-- ocaml
-				null_ls.builtins.formatting.ocamlformat,
+				-- null_ls.builtins.formatting.ocamlformat, -- TODO: figure out why this doesn't install
 
 				-- git
 				null_ls.builtins.diagnostics.actionlint,
