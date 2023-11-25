@@ -226,7 +226,7 @@ return {
 					click = "v:lua.ScLa",
 				},
 				{ -- fold
-					text = { builtin.foldfunc, },
+					text = { " ", builtin.foldfunc, },
 					condition = { builtin.not_empty, },
 					click = "v:lua.ScFa",
 				},
