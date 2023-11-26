@@ -1,17 +1,18 @@
 return {
 	"jose-elias-alvarez/null-ls.nvim",
-	dependencies = {
-		{ 'nvim-lua/plenary.nvim' },
-	},
 	cond = not vim.g.started_by_firenvim,
+	dependencies = {
+		'nvim-lua/plenary.nvim',
+	},
+	event = "VimEnter",
 	cmd = {
 		"NullLsInfo",
 		"NullLsLog",
 	},
-	event = "VeryLazy",
 	config = function()
 		null_ls = require('null-ls')
 		null_ls.setup({
+			border = "rounded",
 			sources = {
 				-- python
 				-- null_ls.builtins.code_actions.pyright, -- TODO: find code_actions for python
@@ -71,7 +72,5 @@ return {
 				null_ls.builtins.diagnostics.commitlint,
 			},
 		})
-	end
-
-	,
+	end,
 }
