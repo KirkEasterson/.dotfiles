@@ -35,12 +35,12 @@ require("bootstrap.bootstrap")
 -- https://github.com/streetturtle/awesome-wm-widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local separator = wibox.widget {
+local separator = wibox.widget({
 	widget = wibox.widget.separator,
 	orientation = "vertical",
 	forced_width = 13,
 	color = "#504945",
-}
+})
 
 -- scratchpad terminal
 -- TODO: convert this to just a hidden window running tmux so it is much faster
@@ -83,10 +83,6 @@ beautiful.icon_theme = "Papirus-Dark"
 -- DEFAULT EDITOR
 local terminal = "wezterm"
 local terminal_secondary = "alacritty"
-local browser = "firefox"
-local file_manager = "pcmanfm"
-local editor = os.getenv("EDITOR") or "nvim"
-local editor_cmd = terminal .. " -e " .. editor
 
 -- MOD KEY
 modkey = "Mod4"
@@ -116,41 +112,37 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-	{ "hotkeys",
+	{ "Hotkeys",
 		function()
 			hotkeys_popup.show_help(nil,
 				awful.screen.focused())
 		end, },
-	{ "manual",      terminal .. " -e man awesome", },
-	{ "edit config", editor_cmd .. " " .. awesome.conffile, },
-	{ "restart",     awesome.restart, },
+	{ "Manual",  terminal .. " -e man awesome", },
+	{ "Restart", awesome.restart, },
 }
 
 mypoweroptsmenu = {
-	{ "log out",  function() awesome.quit() end, },
-	{ "lock",     function() awful.spawn.with_shell("light-locker-command -l") end, },
-	{ "reboot",   function() awful.spawn.with_shell("reboot") end, },
-	{ "suspend",  function() awful.spawn.with_shell("systemctl suspend") end, },
-	{ "poweroff", function() awful.spawn.with_shell("shutdown now") end, },
+	{ "Logout",   function() awesome.quit() end, },
+	{ "Lock",     function() awful.spawn.with_shell("light-locker-command -l") end, },
+	{ "Reboot",   function() awful.spawn.with_shell("reboot") end, },
+	{ "Suspend",  function() awful.spawn.with_shell("systemctl suspend") end, },
+	{ "Shutdown", function() awful.spawn.with_shell("shutdown now") end, },
 }
 
 -- Load Debian menu entries
 local has_debian, debian = pcall(require, "debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon, }
-local menu_terminal = { "open terminal", terminal,
-	"/usr/share/icons/Papirus-Dark/symbolic/apps/utilities-terminal-symbolic.svg" }
--- local menu_terminal = { "open terminal", terminal, freedesktop.utils.lookup_icon({ icon = "applications-other.png" }) }
-local menu_poweropts = { "leave", mypoweroptsmenu, }
+local menu_awesome = { "Awesome", myawesomemenu, beautiful.awesome_icon, }
+local menu_poweropts = { "Leave", mypoweroptsmenu, } -- TODO: get some icon
 
 
 if has_fdo then
 	mymainmenu = freedesktop.menu.build({
-		before = { menu_awesome, },
+		before = {},
 		after = {
+			menu_awesome,
 			menu_poweropts,
-			menu_terminal,
 		},
 	})
 else
@@ -158,7 +150,6 @@ else
 		items = {
 			menu_awesome,
 			-- { "programs", debian.menu.Debian_menu.Debian },
-			menu_terminal,
 			menu_poweropts,
 		},
 	})
@@ -173,9 +164,6 @@ mylauncher = awful.widget.launcher({
 menubar.utils.terminal =
 	terminal -- Set the terminal for applications that require it
 -- }}}
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -262,23 +250,21 @@ awful.screen.connect_for_each_screen(function(s)
 		filter  = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 		style   = {
-			shape = gears.shape.rounded_bar,
+			-- TODO: change color of task items
+			shape = gears.shape.rectangle,
 			shape_border_width = 1,
 			shape_border_color = beautiful.border_normal,
 			shape_border_width_focus = 1,
-			shape_border_color_focus = beautiful.border_focus,
+			shape_border_color_focus = beautiful.border_normal,
 		},
 		layout  = {
 			spacing = 0,
-			max_widget_size = awful.screen.focused().workarea.width * 0.12,
 			layout = wibox.layout.flex.horizontal,
 		},
 	}
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s, height = 24, })
-	local systray = wibox.widget.systray(true)
-	-- systray:set_base_size(10)
 
 	-- Add widgets to the wibox
 	s.mywibox:setup {
@@ -296,36 +282,41 @@ awful.screen.connect_for_each_screen(function(s)
 		{
 			-- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			systray,
+			wibox.widget.systray(true),
 			-- separator,
 			-- media_widget({}),
 			-- require("player"),
+			-- separator,
+			-- awful.widget.watch("ifstat -t 1", 1, function(widget, stdout)
+			-- 	awful.spawn.easy_async("ifstat -t 1", function(stdout)
+			-- 		local upload, download = stdout:match("([^%s]+)%s+([^%s]+)")
+			--
+			-- 		widget.text = "  " .. upload .. ",    " .. download
+			-- 	end)
+			-- end, network_widget),
 			separator,
-			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t"]], 60), -- weather
-			separator,
-			wibox.widget.textbox("󰌓 "),
-			mykeyboardlayout,
+			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t++%m+%28day+%M+%29&m"]], 60), -- weather
 			separator,
 			wibox.widget.textbox(" "),
-			awful.widget.watch(
-				[[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]],
-				1), -- CPU temp
+			awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1), -- CPU temp
 			separator,
 			wibox.widget.textbox("  "),
-			awful.widget.watch(
-				[[bash -c "echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%""]],
-				1), -- CPU usage
+			awful.widget.watch([[bash -c "echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%""]], 1), -- CPU usage
 			separator,
 			wibox.widget.textbox("󰍛 "),
-			awful.widget.watch(
-				[[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]],
-				1), -- RAM usage
+			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
 			-- separator,
 			-- volume_widget({
 			-- 	device = "default",
 			-- 	widget_type = "icon_and_text",
 			-- 	icon_dir = "/usr/share/icons/Papirus-Dark/symbolic/status/",
 			-- }),
+			separator,
+			wibox.widget.textbox("󰍛 "),
+			awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
+			separator,
+			wibox.widget.textbox("󰌓 "),
+			awful.widget.keyboardlayout(),
 			separator,
 			battery_widget({
 				path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
@@ -335,7 +326,7 @@ awful.screen.connect_for_each_screen(function(s)
 				warning_msg_position = "top_right",
 			}),
 			separator,
-			-- wibox.widget.textbox('  '),
+			wibox.widget.textbox('  '),
 			mytextclock,
 			separator,
 			s.mylayoutbox,
@@ -414,7 +405,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift", }, "Tab", function() awful.tag.viewprev() end,
 		{ description = "focus previous tag", group = "tags", }),
 
-
 	-- restart awesome
 	awful.key({ modkey, "Control", }, "r", awesome.restart,
 		{ description = "reload awesome", group = "awesome", }),
@@ -434,8 +424,15 @@ globalkeys = gears.table.join(
 				" --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator"
 				, { instance = "scratch-py", }, true)
 		end,
-		{ description = "open calculator", group = "kirk", })
+		{ description = "open calculator", group = "kirk", }),
 
+	awful.key({ modkey, altkey, }, "Tab",
+		function() awful.client.focus.byidx(1) end,
+		{ description = "next window", group = "client", }),
+
+	awful.key({ modkey, altkey, "Shift", }, "Tab",
+		function() awful.client.focus.byidx(-1) end,
+		{ description = "previous window", group = "client", })
 )
 
 clientkeys = gears.table.join(
@@ -635,8 +632,6 @@ awful.rules.rules = {
 		end,
 	},
 
-	-- TODO: remove titlebar from scratch windows
-	-- Add titlebars to normal clients and dialogs
 	{
 		rule_any = { type = { "normal", "dialog", },
 		},
@@ -686,14 +681,37 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
-	-- Set the windows at the slave,
-	-- i.e. put it at the end of others instead of setting it master.
-	if not awesome.startup then awful.client.setslave(c) end
+	-- Add new window to bottom of stack
+	if not awesome.startup then
+		awful.client.setslave(c)
+	end
+
 	if awesome.startup
 		and not c.size_hints.user_position
 		and not c.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
+	end
+end)
+
+-- Function to set rounded corners
+local function set_rounded_corners(c)
+	c.shape = function(cr, width, height)
+		gears.shape.rounded_rect(cr, width, height, 9)
+	end
+end
+
+-- Function to reset shape when not floating
+local function reset_shape(c)
+	c.shape = nil
+end
+
+-- Signal handler for property::floating
+client.connect_signal("property::floating", function(c)
+	if c.floating then
+		set_rounded_corners(c)
+	else
+		reset_shape(c)
 	end
 end)
 
