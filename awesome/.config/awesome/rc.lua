@@ -803,6 +803,26 @@ client.connect_signal("unfocus",
 	function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+screen.connect_signal("arrange", function(s)
+	local layout = s.selected_tag.layout.name
+	local is_single_client = #s.clients == 1
+	for _, c in pairs(s.clients) do
+		-- hide border
+		if layout == 'max' or is_single_client or c.maximized then
+			c.border_width = 0
+		else
+			c.border_width = beautiful.border_width
+		end
+
+		-- shadows only on floating windows
+		if layout == 'floating' or c.floating and not c.maximized then
+			awful.spawn("xprop -id " .. c.window .. " -f _COMPTON_SHADOW 32c -set _COMPTON_SHADOW 1", false)
+		else
+			awful.spawn("xprop -id " .. c.window .. " -f _COMPTON_SHADOW 32c -set _COMPTON_SHADOW 0", false)
+		end
+	end
+end)
+
 -- GAPS
 beautiful.systray_icon_spacing = 13
 
