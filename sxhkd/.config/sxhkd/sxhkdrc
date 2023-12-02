@@ -40,6 +40,10 @@ XF86Audio{Play,Pause,Stop,Prev,Next}
 XF86Audio{Rewind,Forward}
 	playerctl position 5{-,+}
 
+# mail # TODO: use default client instead of hard-coding this
+XF86Mail
+	thunderbird
+
 # brightness keys
 XF86MonBrightness{Down,Up}
 	brightnessctl -q set 5%{-,+}
