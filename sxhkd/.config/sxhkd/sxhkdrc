@@ -3,6 +3,8 @@ super + {_,shift +} Return
 	{$TERMINAL,$TERMINAL_SECONDARY}
 
 # browsers
+XF86WWW
+	$BROWSER
 super + {_,shift +} w
 	{$BROWSER,$BROWSER_SECONDARY}
 
@@ -15,6 +17,8 @@ super + ctrl + q
 	light-locker-command -l
 
 # program launcher
+XF86Search
+	rofi -show drun
 super + space
 	rofi -show drun
 
@@ -31,8 +35,10 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
-XF86Audio{Play,Stop,Prev,Next}
-	playerctl {play-pause,stop,prev,next}
+XF86Audio{Play,Pause,Stop,Prev,Next}
+	playerctl {play-pause,play-pause,stop,prev,next}
+XF86Audio{Rewind,Forward}
+	playerctl position 5{-,+}
 
 # brightness keys
 XF86MonBrightness{Down,Up}
