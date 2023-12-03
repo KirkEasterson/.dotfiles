@@ -36,7 +36,7 @@ XF86AudioMute
 XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 XF86Audio{Play,Pause,Stop,Prev,Next}
-	playerctl {play-pause,play-pause,stop,prev,next}
+	playerctl {play-pause,play-pause,stop,previous,next}
 XF86Audio{Rewind,Forward}
 	playerctl position 5{-,+}
 
