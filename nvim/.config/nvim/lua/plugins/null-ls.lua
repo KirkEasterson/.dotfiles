@@ -21,7 +21,7 @@ return {
 				-- null_ls.builtins.formatting.black,
 
 				-- -- lua
-				-- null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.stylua,
 
 				-- js/ts
 				null_ls.builtins.diagnostics.eslint,
