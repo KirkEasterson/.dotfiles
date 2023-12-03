@@ -13,15 +13,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Use a protected call so we don't error out on first use
-local status_ok, lazy = pcall(require, 'lazy')
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
 	return
 end
 
-lazy.setup('plugins', {
+lazy.setup("plugins", {
 	defaults = {
 		lazy = true,
-		-- version = "*", -- enable this to try installing the latest stable versions of plugins
+		-- version = "*", -- use latest stable versions for plugin
 	},
 	ui = {
 		border = "rounded",
@@ -30,7 +30,7 @@ lazy.setup('plugins', {
 		notify = false,
 	},
 	install = {
-		colorscheme = { 'gruvbox' },
+		colorscheme = { "gruvbox", },
 	},
 	performance = {
 		rtp = {

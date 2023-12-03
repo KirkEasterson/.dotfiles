@@ -1,5 +1,5 @@
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true, }
+	local options = { noremap = true, silent = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
@@ -28,10 +28,9 @@ map("n", "<X2Mouse>", "<C-i>")
 map("n", "<MiddleMouse>", function() end)
 
 -- faster save and quits
-map("n", "<leader>w", function() vim.cmd("silent! w") end,
-	{ desc = "Save file", })
-map("n", "<leader>q", function() vim.cmd("q") end, { desc = "Close buffer", })
-map("n", "<leader>z", function() vim.cmd("qa") end, { desc = "Quit", })
+map("n", "<leader>w", "<Cmd>w<CR>", { desc = "Save file" })
+map("n", "<leader>q", "<Cmd>q<CR>", { desc = "Close buffer" })
+map("n", "<leader>z", "<Cmd>qa<CR>", { desc = "Quit" })
 
 -- reselect text after indenting
 map("v", "<", "<gv")
@@ -41,6 +40,10 @@ map("v", ">", ">gv")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("n", "J", "mzJ`z")
+
+-- quickfix list navigation
+map("n", "[q", "<cmd>cprev<CR>", { desc = "Quickfix - prev" })
+map("n", "]q", "<cmd>cnext<CR>", { desc = "Quickfix - next" })
 
 -- easier yanking/pasting
 map("v", "y", "ygv<ESC>")        -- keep cursor in same spot when yanking

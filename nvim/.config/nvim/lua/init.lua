@@ -1,4 +1,4 @@
-require('options')
-require('mappings')
-require('autocmds')
-require('lazy-init')
+require("options")
+require("mappings")
+require("autocmds")
+require("lazy-init")
