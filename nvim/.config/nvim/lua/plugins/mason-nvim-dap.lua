@@ -5,8 +5,7 @@ return {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-dap",
 	},
-	version = "v2.1.*",
-	event = "VeryLazy",
+	version = "v2.*",
 	cmd = {
 		"DapInstall",
 		"DapUninstall",
@@ -26,22 +25,9 @@ return {
 		},
 		handlers = {
 			function(config)
-				require('mason-nvim-dap').default_setup(config)
+				require("mason-nvim-dap").default_setup(config)
 			end,
-			python = function(config)
-				config.adapters = {
-					type = "executable",
-					command = "/usr/bin/python3",
-					args = {
-						"-m",
-						"debugpy.adapter",
-					},
-				}
-				require('mason-nvim-dap').default_setup(config) -- don't forget this!
-			end,
-
-			-- TODO: adapt this model for some other adapters
-			-- node2 = function(config)
+			-- delve = function(config)
 			-- 	config.adapters = {
 			-- 		type = "executable",
 			-- 		command = "/usr/bin/python3",
@@ -50,7 +36,6 @@ return {
 			-- 			"debugpy.adapter",
 			-- 		},
 			-- 	}
-			-- 	require('mason-nvim-dap').default_setup(config) -- don't forget this!
 			-- end,
 		},
 	},
