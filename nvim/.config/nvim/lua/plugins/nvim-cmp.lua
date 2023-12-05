@@ -41,7 +41,6 @@ return {
 		require("cmp_git").setup({})
 		require("gitmoji").setup({})
 
-		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 		local cmp = require('cmp')
 		cmp.setup({
 			snippet = {
@@ -95,7 +94,7 @@ return {
 
 		cmp.event:on(
 			'confirm_done',
-			cmp_autopairs.on_confirm_done()
+			require('nvim-autopairs.completion.cmp').on_confirm_done()
 		)
 	end,
 }
