@@ -1,18 +1,19 @@
 return {
 	"nvimdev/lspsaga.nvim",
+	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
-		'VonHeikemen/lsp-zero.nvim',
+		"VonHeikemen/lsp-zero.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"nvim-treesitter/nvim-treesitter",
 	},
 	cmd = "Lspsaga",
 	keys = {
-		-- {
-		-- 	"<leader><leader>o",
-		-- 	"<cmd>Lspsaga outline<CR>",
-		-- 	desc = "Code outline",
-		-- },
+		{
+			"<leader><leader>o",
+			"<cmd>Lspsaga outline<CR>",
+			desc = "Code outline",
+		},
 		{
 			"<leader>ga",
 			"<cmd>Lspsaga code_action<CR>",
