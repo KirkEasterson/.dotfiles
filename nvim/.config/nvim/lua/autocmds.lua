@@ -2,17 +2,17 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, buffer = true, }
+	local options = { noremap = true, buffer = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
-autocmd({ "FileType", }, {
+autocmd({ "FileType" }, {
 	desc = "Enable wrapping and easy-undo for text, markdown, and tex files",
-	pattern = { "markdown", "tex", "text", },
-	callback = function ()
+	pattern = { "markdown", "tex", "text" },
+	callback = function()
 		vim.opt_local.wrap = true
 
 		-- easier undos
@@ -24,10 +24,10 @@ autocmd({ "FileType", }, {
 	end,
 })
 
-autocmd({ "BufWritePre", }, {
+autocmd({ "BufWritePre" }, {
 	desc = "Remove trailing-space",
-	pattern = { "*", },
-	callback = function ()
+	pattern = { "*" },
+	callback = function()
 		if vim.bo.filetype == "markdown" then
 			return -- trailing space in md is a newline
 		end
@@ -40,9 +40,9 @@ autocmd({ "BufWritePre", }, {
 
 autocmd("TextYankPost", {
 	desc = "Highlight yanked text",
-	group = augroup("highlight_yank", { clear = true, }),
+	group = augroup("highlight_yank", { clear = true }),
 	pattern = "*",
-	callback = function ()
+	callback = function()
 		vim.highlight.on_yank({
 			higroup = "IncSearch",
 			timeout = 700,
@@ -54,7 +54,7 @@ autocmd("TextYankPost", {
 autocmd("BufwritePost", {
 	desc = "Build notes",
 	pattern = "*note-*.md",
-	callback = function ()
+	callback = function()
 		os.execute("~/scripts/build_notes.sh " .. vim.fn.expand("%%"))
 	end,
 })
@@ -68,7 +68,7 @@ autocmd("FileType", {
 		"typescriptreact",
 		"markdown",
 	},
-	callback = function ()
+	callback = function()
 		vim.opt_local.expandtab = true
 		vim.opt_local.shiftwidth = 2
 		vim.opt_local.softtabstop = 2
@@ -78,7 +78,22 @@ autocmd("FileType", {
 
 autocmd("TermOpen", {
 	desc = "Start terminal in insert mode",
-	callback = function ()
+	callback = function()
+		local wininfo = vim.api.nvim_buf_get_name(0)
+		if wininfo == nil or wininfo == "" then
+			return
+		end
+
+		-- ignore putput panels
+		local ignore = {
+			"Neotest Output Panel",
+		}
+		for _, v in pairs(ignore) do
+			if string.find(wininfo, v) then
+				return
+			end
+		end
+
 		vim.opt_local.number = false
 		vim.opt_local.relativenumber = false
 		vim.cmd("startinsert!")
@@ -87,15 +102,15 @@ autocmd("TermOpen", {
 
 autocmd("FileType", {
 	desc = "Start git commits in insert mode",
-	pattern = { "gitcommit", "gitrebase", },
+	pattern = { "gitcommit", "gitrebase" },
 	command = "startinsert | 1",
 })
 
 -- sync neovim with system clipboard
-autocmd({ "BufReadPost", "BufNewFile", }, {
+autocmd({ "BufReadPost", "BufNewFile" }, {
 	desc = "Sync system clipboard with neovim",
 	once = true,
-	callback = function ()
+	callback = function()
 		require("kirk.utils.uname")
 		if IS_LINUX or IS_WSL then
 			if vim.fn.executable("xclip") == 1 then
