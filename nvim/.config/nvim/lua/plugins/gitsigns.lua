@@ -5,8 +5,8 @@ return {
 		local in_git_repo = true -- TODO: determine if in a git repo
 		return not_firenvim and in_git_repo
 	end,
-	version = "v0.*",
-	event = 'VimEnter',
+	version = "v0.6", -- TODO: find out 0.7 didn't work
+	event = "VimEnter",
 	cmd = {
 		"Gitsigns",
 	},
@@ -35,7 +35,7 @@ return {
 	},
 	opts = {
 		current_line_blame = false,
-		current_line_blame_formatter = ' 󰊢 <author>  <author_time:%d %b %Y>  <summary>',
+		current_line_blame_formatter = " 󰊢 <author>  <author_time:%d %b %Y>  <summary>",
 		attach_to_untracked = false,
 		-- linehl = true,
 		-- word_diff = true,
