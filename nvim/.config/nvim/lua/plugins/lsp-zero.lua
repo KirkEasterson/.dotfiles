@@ -87,17 +87,73 @@ return {
 
 		lsp_zero.on_attach(on_attach)
 
-		lsp_zero.configure('tsserver', {
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.document_range_formatting = false
-				on_attach(client, bufnr)
-			end,
+		require("mason-lspconfig").setup({
+			automatic_installation = true,
+			ensure_installed = {
+				"ansiblels",
+				"asm_lsp", -- assembly
+				"bashls",
+				"clangd",
+				"cmake",
+				"csharp_ls",
+				"cssls",
+				-- "diagnosticls",
+				"docker_compose_language_service",
+				"dockerls",
+				"eslint",
+				"fsautocomplete",
+				"golangci_lint_ls",
+				"gopls",
+				"hls", -- haskell
+				"html",
+				"jdtls", -- java
+				"jsonls",
+				"kotlin_language_server",
+				"lemminx", -- xml
+				"lua_ls",
+				"ocamllsp",
+				"omnisharp",
+				"pyright",
+				"rnix", -- nix
+				"rust_analyzer",
+				"sqlls",
+				"taplo", -- toml
+				"terraformls",
+				"texlab",
+				"tflint",
+				"tsserver",
+				"vimls",
+				"yamlls",
+				"zls", -- zig
+			},
+			handlers = {
+				lsp_zero.default_setup,
+				lua_ls = function()
+					require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls({
+						settings = {
+							Lua = {
+								runtime = {
+									version = "LuaJIT",
+								},
+								format = {
+									enable = false,
+								},
+								workspace = {
+									checkThirdParty = false,
+								},
+								telemetry = {
+									enable = false,
+								},
+							},
+						},
+					}))
+				end,
+			},
 		})
 
-		lsp_zero.configure('omnisharp', {
+		lsp_zero.configure("omnisharp", {
 			handlers = {
-				["textDocument/definition"] = require('omnisharp_extended').handler,
+				["textDocument/definition"] = require("omnisharp_extended").handler,
 			},
 			on_attach = function(client, bufnr)
 				client.server_capabilities.semanticTokensProvider = nil
@@ -108,7 +164,7 @@ return {
 			organize_imports_on_format = true,
 		})
 
-		lsp_zero.configure('yamlls', {
+		lsp_zero.configure("yamlls", {
 			settings = {
 				yaml = {
 					keyOrdering = false,
@@ -116,35 +172,15 @@ return {
 			},
 		})
 
-		lsp_zero.configure('lua_ls', lsp_zero.nvim_lua_ls({
-			settings = {
-				Lua = {
-					runtime = {
-						version = 'LuaJIT',
-					},
-					format = {
-						enable = true,
-					},
-					workspace = {
-						checkThirdParty = false,
-					},
-					telemetry = {
-						enable = false,
-					},
-				},
-			},
-		}))
-
-		lsp_zero.configure('gopls', {
+		lsp_zero.configure("gopls", {
 			settings = {
 				gopls = {
 					env = {
-						GOFLAGS = "-tags=windows,linux,unittest,e2e"
-					}
-				}
+						GOFLAGS = "-tags=windows,linux,unittest,e2e",
+					},
+				},
 			},
 		})
-
 
 		lsp_zero.set_sign_icons({
 			error = "󰅘",
