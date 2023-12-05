@@ -42,6 +42,8 @@ return {
 		require("gitmoji").setup({})
 
 		local cmp = require('cmp')
+		local lspkind = require('lspkind')
+
 		cmp.setup({
 			snippet = {
 				expand = function(args)
@@ -51,6 +53,32 @@ return {
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
+			},
+			formatting = {
+				format = function(entry, vim_item)
+					local kind = lspkind.cmp_format({
+						mode = 'symbol_text',
+						maxwidth = 50,
+						ellipsis_char = '…',
+						menu = ({
+							async_path = "[Path]",
+							buffer = "[Buffer]",
+							calc = "[Calc]",
+							dictionary = "[Dictionary]",
+							emoji = "[Emoji]",
+							latex_symbols = "[Latex]",
+							luasnip = "[LuaSnip]",
+							nerdfont = "[Nerdfont]",
+							npm = "[npm]",
+							nvim_lsp = "[LSP]",
+							nvim_lua = "[Lua]",
+							path = "[Path]",
+							spell = "[Spell]",
+						}),
+					})(entry, vim_item)
+
+					return kind
+				end,
 			},
 			mapping = cmp.mapping.preset.insert({
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -63,13 +91,13 @@ return {
 				{ name = 'nvim_lsp',   keyword_length = 1 },
 				{ name = 'luasnip',    keyword_length = 1 },
 				{ name = 'calc',       keyword_length = 3 },
-				{ name = 'npm',        keyword_length = 4, ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', } },
 				{ name = 'async_path', keyword_length = 1 },
-				{ name = 'spell',      keyword_length = 3, ft = { 'text', 'markdown' } },
 				{ name = 'emoji',      keyword_length = 1 },
-				{ name = 'nerdfont',   keyword_length = 2 },
-				{ name = 'dictionary', keyword_length = 2 },
-				-- { name = 'copilot', keyword_length = 2 },
+				{ name = 'nerdfont',   keyword_length = 1 },
+				{ name = 'npm',        keyword_length = 4, ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', } },
+				{ name = 'dictionary', keyword_length = 3, ft = { 'text', 'markdown' } },
+				{ name = 'spell',      keyword_length = 3, ft = { 'text', 'markdown' } },
+				-- { name = 'copilot', keyword_length = 3 },
 			}, {
 				{ name = 'buffer' },
 			}),
@@ -84,9 +112,9 @@ return {
 				{ name = 'git' },
 				{ name = 'conventionalcommits' },
 				{ name = 'path' },
+				{ name = 'gitmoji' },
 				{ name = 'calc' },
 				{ name = 'spell' },
-				{ name = 'gitmoji' },
 			}, {
 				{ name = 'buffer' },
 			})
