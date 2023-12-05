@@ -60,7 +60,7 @@ return {
 	}),
 	font_size = 16,
 	line_height = 0.89,
-	cell_width = 0.9,
+	cell_width = 0.95,
 	freetype_load_target = "Normal",
 	-- warn_about_missing_glyphs = false, -- TODO: find which glyphs are missing
 	underline_position = -3,
@@ -111,7 +111,7 @@ return {
 		{ key = "-", mods = "SUPER", action = act.DecreaseFontSize },
 		{ key = "_", mods = "CTRL", action = act.DecreaseFontSize },
 		{ key = "_", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
-		{ key = "0", mods = "CTRL", action = act.ResetFontSize }, -- this isn't working 🤔
+		{ key = "0", mods = "CTRL", action = act.ResetFontSize },
 		{ key = "0", mods = "ALT", action = act.ResetFontSize },
 		{ key = "0", mods = "SUPER", action = act.ResetFontSize },
 		{ key = "Copy", mods = "NONE", action = act.CopyTo("Clipboard") },
@@ -141,6 +141,7 @@ return {
 		{ key = "7", mods = "CTRL", action = act.SendString("\x1b[27;5;55~") },
 		{ key = "8", mods = "CTRL", action = act.SendString("\x1b[27;5;56~") },
 		{ key = "9", mods = "CTRL", action = act.SendString("\x1b[27;5;57~") },
+		-- uncomment below to use for some terminal program
 		-- { key = "0", mods = "CTRL", action = act.SendString("\x1b[27;5;48~") },
 
 		-- -- for pane moving in tmux
