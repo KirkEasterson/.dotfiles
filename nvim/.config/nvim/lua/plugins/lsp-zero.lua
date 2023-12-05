@@ -70,13 +70,19 @@ return {
 				preserve_mappings = false,
 			})
 
-			-- -- for ufo folding
-			-- client.server_capabilities.textDocument = {
-			-- 	foldingRange = {
-			-- 		dynamicRegistration = false,
-			-- 		lineFoldingOnly = true,
-			-- 	},
-			-- }
+			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+			vim.keymap.set({ "n", "v" }, "<leader>fc", function()
+				vim.lsp.buf.format({ timeout_ms = 5000, async = true })
+			end, { noremap = true, silent = true, buffer = bufnr })
+
+			-- for ufo folding
+			client.server_capabilities.textDocument = {
+				foldingRange = {
+					dynamicRegistration = false,
+					lineFoldingOnly = true,
+				},
+			}
 		end
 
 		lsp_zero.on_attach(on_attach)
