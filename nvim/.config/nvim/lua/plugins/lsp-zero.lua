@@ -1,39 +1,24 @@
 return {
-	'VonHeikemen/lsp-zero.nvim',
+	"VonHeikemen/lsp-zero.nvim",
 	cond = not vim.g.started_by_firenvim,
-	branch = 'v3.x',
+	branch = "v3.x",
 	event = {
-		'BufNewFile',
-		'BufReadPre',
+		"BufNewFile",
+		"BufReadPre",
 	},
 	dependencies = {
 		-- LSP Support
-		{ 'neovim/nvim-lspconfig' },
-		{ 'williamboman/mason.nvim' },
-		{ 'williamboman/mason-lspconfig.nvim' },
-		{ 'jose-elias-alvarez/null-ls.nvim' },
-		{ "jay-babu/mason-null-ls.nvim" },
+		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"jose-elias-alvarez/null-ls.nvim",
+		"jay-babu/mason-null-ls.nvim",
 
-		-- Autocompletion
-		{ 'hrsh7th/nvim-cmp' },
-		{ 'hrsh7th/cmp-nvim-lsp' },
-		{ 'hrsh7th/cmp-buffer' },
-		{ 'hrsh7th/cmp-path' },
-		{ 'saadparwaiz1/cmp_luasnip' },
-		{ 'hrsh7th/cmp-nvim-lua' },
-		{ "onsails/lspkind.nvim" },
-		{ "hrsh7th/cmp-emoji" },
-		{ "hrsh7th/cmp-calc" },
-		{ "David-Kunz/cmp-npm" },
-		{ "f3fora/cmp-spell" },
+		"hrsh7th/nvim-cmp",
 
-		-- Snippets
-		{ 'rafamadriz/friendly-snippets' },
-		{ 'L3MON4D3/LuaSnip' },
-
-		{ 'nvim-lua/plenary.nvim' },
-		{ 'Hoffs/omnisharp-extended-lsp.nvim' },
-		{ "adelarsq/neofsharp.vim" },
+		"nvim-lua/plenary.nvim",
+		"Hoffs/omnisharp-extended-lsp.nvim",
+		"adelarsq/neofsharp.vim",
 	},
 	cmd = {
 		"LspInstall",
@@ -45,27 +30,27 @@ return {
 		"LspZeroWorkspaceRemove",
 	},
 	keys = {
-		-- https://github.com/VonHeikemen/lsp-zero.nvim#keybindings
-		{ "K",    desc = "Hover info" },
-		{ "gd",   desc = "Goto definition" },
-		{ "gD",   desc = "Goto decleration" },
-		{ "gi",   desc = "List implementations" },
-		{ "go",   desc = "Goto type definition" },
-		{ "gr",   desc = "List references" },
-		{ "gs",   desc = "Display signature" },
-		{ "<F2>", desc = "Rename" },
-		{ "<F3>", desc = "Format" },
-		{ "<F4>", desc = "Code actions" },
-		{ "gl",   desc = "Show diagnostics" },
-		{ "[d",   desc = "Previous diagnostic" },
-		{ "]d",   desc = "Next diagnostic" },
+		-- -- https://github.com/VonHeikemen/lsp-zero.nvim#keybindings
+		-- { "K",    desc = "Hover info" },
+		-- { "gd",   desc = "Definition" },
+		-- { "gD",   desc = "Decleration" },
+		-- { "gi",   desc = "List implementations" },
+		-- { "go",   desc = "Type definition" },
+		-- { "gr",   desc = "List references" },
+		-- { "gs",   desc = "Display signature" },
+		-- { "<F2>", desc = "Rename" },
+		-- { "<F3>", desc = "Format" },
+		-- { "<F4>", desc = "Code actions" },
+		-- { "gl",   desc = "Show diagnostics" },
+		-- { "[d",   desc = "Previous diagnostic" },
+		-- { "]d",   desc = "Next diagnostic" },
 	},
 	opts = {},
 	config = function(_, opts)
-		local lsp_zero = require('lsp-zero').preset({
-			name = 'minimal',
+		local lsp_zero = require("lsp-zero").preset({
+			name = "minimal",
 			set_lsp_keymaps = true,
-			manage_nvim_cmp = true,
+			manage_nvim_cmp = false,
 			suggest_lsp_servers = true,
 		})
 
