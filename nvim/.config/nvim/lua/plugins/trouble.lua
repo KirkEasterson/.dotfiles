@@ -16,21 +16,21 @@ return {
 			"<cmd>TroubleToggle<CR>",
 			desc = "Trouble",
 		},
-		{
-			"gr",
-			"<cmd>TroubleToggle lsp_references<CR>",
-			desc = "References",
-		},
-		{
-			"gd",
-			"<cmd>TroubleToggle lsp_definitions<CR>",
-			desc = "Definition",
-		},
-		{
-			"gt",
-			"<cmd>TroubleToggle lsp_type_definitions<CR>",
-			desc = "Type definition",
-		},
+		-- {
+		-- 	"gr",
+		-- 	"<cmd>TroubleToggle lsp_references<CR>",
+		-- 	desc = "List references",
+		-- },
+		-- {
+		-- 	"gd",
+		-- 	"<cmd>TroubleToggle lsp_definitions<CR>",
+		-- 	desc = "Definition",
+		-- },
+		-- {
+		-- 	"gt",
+		-- 	"<cmd>TroubleToggle lsp_type_definitions<CR>",
+		-- 	desc = "Type definition",
+		-- },
 	},
 	opts = {
 		use_diagnostic_signs = true,
