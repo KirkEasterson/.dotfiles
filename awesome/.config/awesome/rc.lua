@@ -333,7 +333,7 @@ awful.screen.connect_for_each_screen(function(s)
 			-- 	end)
 			-- end, network_widget),
 			separator,
-			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t++%m+%28day+%M+%29&m"]], 60), -- weather
+			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t+%m+%28day+%M%29&m"]], 60), -- weather
 			separator,
 			wibox.widget.textbox(" "),
 			awful.widget.watch(

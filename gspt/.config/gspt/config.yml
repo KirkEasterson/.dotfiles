@@ -1,0 +1,80 @@
+# Parameter followed by default values
+# For the default configuration used by gspt please see:
+# https://github.com/aditya-K2/gspt/blob/master/extras/CONFIG.md
+
+# Path to where the cached images should be stored.
+cache_dir: $XDG_CACHE_HOME
+
+# The amount of milliseconds after which the cover art should be redrawn if there is a event.
+redraw_interval: 500
+
+# Do not display the cover art image.
+hide_image: false
+
+# Enable Rounded Corners
+rounded_corners: true
+
+# Image Drawing related parameters. See next section for an in-detail explanation.
+additional_padding_x : 0
+additional_padding_y : 0
+image_width_extra_x  : 0
+image_width_extra_y  : 0
+
+# # Color configuration has the following api
+# colors:
+#     entity:
+#         fg: # foreground (Can be Hex value or a color name)
+#         bg: # background (Can be Hex value or a color name)
+#         bold: # true/false (boolean)
+#         italic: # true/false (boolean)
+
+# for e.g
+colors:
+    artist:
+        fg: "#ff0000"
+        bg: black # Background will be ignored in most cases. (Terminals default background color is used)
+        bold: false
+        italic: true
+
+# For the default colors used for the "entities" please see:
+# https://github.com/aditya-K2/gspt/blob/master/extras/CONFIG.md
+# Available color names (i.e. pink, green, etc.) can be seen here:
+# https://github.com/gdamore/tcell/blob/main/color.go#L845
+
+# # Key mappings has the following API
+# mappings:
+#     view:
+#         mode: # normal/visual
+#             function: key_mapping
+
+# # for e.g
+# mappings:
+#     recently_played_view:
+#         normal:
+#             play_entry: "ctrl-p"
+#         visual:
+#             add_to_playlist: "a"
+
+# "global" mappings are special mappings that are not view specific
+# ( "toggle_playback", "next", "previous", etc.)
+# These mappings can be changed for different views.
+# for e.g
+
+mappings:
+    global:
+        normal:
+            previous: "N"
+    recently_played_view:
+        normal:
+            previous: "P"
+
+# As you can assume, here "N" will be globally mapped to the "previous" function,
+# and then "P" will too be mapped to "previous" in the recently_played_view (keep
+# in mind that "N" will still be mapped to the "previous" function i.e "N" and
+# "P" will both be mapped to the same function in recently_played_view)
+
+# Visual Mode is similar to vim. Only some views support it.
+# (viz. playlist_view, recently_played_view, liked_songs_view, album_view)
+
+# For the default mappings for each view please see:
+# https://github.com/aditya-K2/gspt/blob/master/extras/CONFIG.md

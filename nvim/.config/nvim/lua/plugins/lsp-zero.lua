@@ -8,32 +8,32 @@ return {
 	},
 	dependencies = {
 		-- LSP Support
-		"neovim/nvim-lspconfig",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"jose-elias-alvarez/null-ls.nvim",
-		"jay-babu/mason-null-ls.nvim",
+		{ 'neovim/nvim-lspconfig' },
+		{ 'williamboman/mason.nvim' },
+		{ 'williamboman/mason-lspconfig.nvim' },
+		{ 'jose-elias-alvarez/null-ls.nvim' },
+		{ "jay-babu/mason-null-ls.nvim" },
 
 		-- Autocompletion
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"saadparwaiz1/cmp_luasnip",
-		"hrsh7th/cmp-nvim-lua",
-		"onsails/lspkind.nvim",
-		"hrsh7th/cmp-emoji",
-		"hrsh7th/cmp-calc",
-		"David-Kunz/cmp-npm",
-		"f3fora/cmp-spell",
+		{ 'hrsh7th/nvim-cmp' },
+		{ 'hrsh7th/cmp-nvim-lsp' },
+		{ 'hrsh7th/cmp-buffer' },
+		{ 'hrsh7th/cmp-path' },
+		{ 'saadparwaiz1/cmp_luasnip' },
+		{ 'hrsh7th/cmp-nvim-lua' },
+		{ "onsails/lspkind.nvim" },
+		{ "hrsh7th/cmp-emoji" },
+		{ "hrsh7th/cmp-calc" },
+		{ "David-Kunz/cmp-npm" },
+		{ "f3fora/cmp-spell" },
 
 		-- Snippets
-		"rafamadriz/friendly-snippets",
-		"L3MON4D3/LuaSnip",
+		{ 'rafamadriz/friendly-snippets' },
+		{ 'L3MON4D3/LuaSnip' },
 
-		"nvim-lua/plenary.nvim",
-		"Hoffs/omnisharp-extended-lsp.nvim",
-		"adelarsq/neofsharp.vim",
+		{ 'nvim-lua/plenary.nvim' },
+		{ 'Hoffs/omnisharp-extended-lsp.nvim' },
+		{ "adelarsq/neofsharp.vim" },
 	},
 	cmd = {
 		"LspInstall",
@@ -86,64 +86,19 @@ return {
 					{ noremap = true, silent = true })
 			end
 
-			-- for ufo folding
-			client.server_capabilities.textDocument = {
-				foldingRange = {
-					dynamicRegistration = false,
-					lineFoldingOnly = true,
-				},
-			}
+			-- -- for ufo folding
+			-- client.server_capabilities.textDocument = {
+			-- 	foldingRange = {
+			-- 		dynamicRegistration = false,
+			-- 		lineFoldingOnly = true,
+			-- 	},
+			-- }
 		end
 
 		lsp_zero.on_attach(on_attach)
 
-		require("mason-lspconfig").setup({
-			automatic_installation = true,
-			handlers = {
-				require('lsp-zero').default_setup,
-			},
-			ensure_installed = {
-				"ansiblels",
-				"asm_lsp", -- assembly
-				"bashls",
-				"clangd",
-				"cmake",
-				"csharp_ls",
-				"cssls",
-				-- "diagnosticls",
-				"docker_compose_language_service",
-				"dockerls",
-				"eslint",
-				"fsautocomplete",
-				"golangci_lint_ls",
-				"gopls",
-				"hls", -- haskell
-				"html",
-				"jdtls", -- java
-				"jsonls",
-				"kotlin_language_server",
-				"lemminx", -- xml
-				"lua_ls",
-				"ocamllsp",
-				"omnisharp",
-				"pyright",
-				"rnix", -- nix
-				"rust_analyzer",
-				"sqlls",
-				"taplo", -- toml
-				"terraformls",
-				"texlab",
-				"tflint",
-				"tsserver",
-				"vimls",
-				"yamlls",
-				"zls", -- zig
-			},
-		})
-
 		lsp_zero.configure('tsserver', {
 			on_attach = function(client, bufnr)
-				-- use eslint instead
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.document_range_formatting = false
 				on_attach(client, bufnr)
@@ -199,6 +154,7 @@ return {
 				}
 			},
 		})
+
 
 		lsp_zero.set_sign_icons({
 			error = "󰅘",
