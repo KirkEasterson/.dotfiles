@@ -3,33 +3,39 @@ return {
 	cond = not vim.g.started_by_firenvim,
 	event = 'VimEnter',
 	dependencies = {
-		-- LSP Support
-		{ 'neovim/nvim-lspconfig' },
-		{ 'nvim-lua/plenary.nvim' },
-		{ 'hrsh7th/cmp-nvim-lsp' },
-		{ 'hrsh7th/cmp-buffer' },
-		{ 'hrsh7th/cmp-path' },
-		{ 'hrsh7th/cmp-cmdline' },
-		{ 'FelipeLema/cmp-async-path' },
+		"onsails/lspkind.nvim",
+		'nvim-lua/plenary.nvim',
 
-		{ "hrsh7th/cmp-emoji" },
-		{ "hrsh7th/cmp-calc" },
-		{ "petertriho/cmp-git" },
-		{ "Dynge/gitmoji.nvim" },
-		{ "chrisgrieser/cmp-nerdfont" },
+		-- lsp
+		'neovim/nvim-lspconfig',
+		'hrsh7th/cmp-nvim-lsp',
 
-		{ 'hrsh7th/cmp-nvim-lua' },
-		{ "onsails/lspkind.nvim" },
-		{ "David-Kunz/cmp-npm" },
-		{ "f3fora/cmp-spell" },
+		-- system
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-cmdline',
+		'hrsh7th/cmp-path',
+		'FelipeLema/cmp-async-path',
+
+		-- misc
+		"hrsh7th/cmp-emoji",
+		"hrsh7th/cmp-calc",
+		"chrisgrieser/cmp-nerdfont",
+		'uga-rosa/cmp-dictionary',
+		"f3fora/cmp-spell",
+
+		-- lang specific
+		'hrsh7th/cmp-nvim-lua',
+		"David-Kunz/cmp-npm",
 
 		-- Snippets
-		{ 'L3MON4D3/LuaSnip' },
-		{ 'saadparwaiz1/cmp_luasnip' },
-		{ 'uga-rosa/cmp-dictionary' },
+		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip',
+		"rafamadriz/friendly-snippets",
 
 		-- Git
-		{ 'davidsierradz/cmp-conventionalcommits' },
+		"petertriho/cmp-git",
+		"Dynge/gitmoji.nvim",
+		'davidsierradz/cmp-conventionalcommits',
 	},
 	config = function(_, opts)
 		require("cmp_git").setup({})
