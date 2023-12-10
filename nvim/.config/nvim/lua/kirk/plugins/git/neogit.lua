@@ -25,9 +25,9 @@ return {
 		kind = "split",
 		signs = {
 			-- { CLOSED, OPENED }
-			hunk = { "", "", },
-			item = { "", "", },
-			section = { "", "", },
+			hunk = { "", "" },
+			item = { "", "" },
+			section = { "", "" },
 		},
 		integrations = {
 			telescope = true,
