@@ -1,14 +1,15 @@
 return {
 	"folke/trouble.nvim",
+	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
 	cmd = {
-		'Trouble',
-		'TroubleClose',
-		'TroubleRefresh',
-		'TroubleToggle',
+		"Trouble",
+		"TroubleClose",
+		"TroubleRefresh",
+		"TroubleToggle",
 	},
 	keys = {
 		{
