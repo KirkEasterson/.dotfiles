@@ -13,7 +13,7 @@ return {
 			"mason",
 			"Lazy",
 			"CompetiTest",
-			"NvimTree",
+			-- "NvimTree",
 		},
 		highlight = {
 			bg = nil,
