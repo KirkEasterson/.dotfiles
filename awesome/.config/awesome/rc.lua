@@ -193,7 +193,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("%a %d %b %Y (wk %V)  %T", 1)
+mytextclock = wibox.widget.textclock("%a %d %b %Y (wk %V) %T", 1)
 local cw = calendar_widget({
 	placement = "top_right",
 })
@@ -333,7 +333,7 @@ awful.screen.connect_for_each_screen(function(s)
 			-- 	end)
 			-- end, network_widget),
 			separator,
-			awful.widget.watch([[curl -s "https://wttr.in/?format=%c+%t+%m+%28day+%M%29&m"]], 60), -- weather
+			awful.widget.watch([[curl -s "https://wttr.in/?format=%c%t+%m%28day+%M%29&m"]], 60), -- weather
 			separator,
 			wibox.widget.textbox(" "),
 			awful.widget.watch(
