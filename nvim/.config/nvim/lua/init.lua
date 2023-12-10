@@ -1,4 +1,2 @@
-require("options")
-require("mappings")
-require("autocmds")
-require("lazy-init")
+require("kirk.core")
+require("lazy")

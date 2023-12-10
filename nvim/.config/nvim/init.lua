@@ -1,1 +1,2 @@
-require("init")
+require("kirk.core")
+require("kirk.lazy")
