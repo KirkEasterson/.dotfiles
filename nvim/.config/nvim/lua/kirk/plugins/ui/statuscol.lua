@@ -1,57 +1,57 @@
 local gitsigns_bar = "│"
 
 local gitsigns_hl_pool = {
-	GitSignsAdd          = "DiagnosticOk",
-	GitSignsChange       = "DiagnosticWarn",
+	GitSignsAdd = "DiagnosticOk",
+	GitSignsChange = "DiagnosticWarn",
 	GitSignsChangedelete = "DiagnosticWarn",
-	GitSignsDelete       = "DiagnosticError",
-	GitSignsTopdelete    = "DiagnosticError",
-	GitSignsUntracked    = "NonText",
+	GitSignsDelete = "DiagnosticError",
+	GitSignsTopdelete = "DiagnosticError",
+	GitSignsUntracked = "NonText",
 }
 
 local diag_signs_icons = {
 	DiagnosticSignError = "󰅘",
-	DiagnosticSignWarn  = "",
-	DiagnosticSignInfo  = "󰋽",
-	DiagnosticSignHint  = "󰌶",
-	DiagnosticSignOk    = "󰄬",
+	DiagnosticSignWarn = "",
+	DiagnosticSignInfo = "󰋽",
+	DiagnosticSignHint = "󰌶",
+	DiagnosticSignOk = "󰄬",
 }
 
 local debug_signs_icons = {
-	DapBreakpoint          = "",
+	DapBreakpoint = "",
 	DapBreakpointCondition = "󰋗",
-	DapBreakpointRejected  = "󰅙",
-	DapLogPoint            = "󰛿",
+	DapBreakpointRejected = "󰅙",
+	DapLogPoint = "󰛿",
 }
 
 local test_signs_icons = {
-	neotest_failed  = "",
-	neotest_passed  = "",
+	neotest_failed = "",
+	neotest_passed = "",
 	neotest_running = "",
 	neotest_skipped = "",
 	neotest_unknown = "",
 }
 
 local function get_sign_name(cur_sign)
-	if (cur_sign == nil) then
+	if cur_sign == nil then
 		return nil
 	end
 
 	cur_sign = cur_sign[1]
 
-	if (cur_sign == nil) then
+	if cur_sign == nil then
 		return nil
 	end
 
 	cur_sign = cur_sign.signs
 
-	if (cur_sign == nil) then
+	if cur_sign == nil then
 		return nil
 	end
 
 	cur_sign = cur_sign[1]
 
-	if (cur_sign == nil) then
+	if cur_sign == nil then
 		return nil
 	end
 
@@ -59,7 +59,7 @@ local function get_sign_name(cur_sign)
 end
 
 local function mk_hl(group, sym)
-	return table.concat({ "%#", group, "#", sym, "%*", })
+	return table.concat({ "%#", group, "#", sym, "%*" })
 end
 
 local function get_name_from_group(bufnum, lnum, group)
@@ -136,7 +136,7 @@ return {
 	dependencies = {
 		"lewis6991/gitsigns.nvim",
 		"folke/todo-comments.nvim",
-		-- 'kevinhwang91/nvim-ufo',
+		"kevinhwang91/nvim-ufo",
 	},
 	cond = not vim.g.started_by_firenvim,
 	event = "VimEnter",
@@ -146,14 +146,20 @@ return {
 			setopt = true,
 			relculright = true,
 			ft_ignore = {
-				"NvimTree",
-				"Trouble",
 				"alpha",
 				"dashboard",
 				"help",
-				"neogitstatus",
+				"lazy",
+				"mason",
+				"NeogitStatus",
+				"null-ls-info",
+				"nvimtree",
 				"packer",
 				"startify",
+				"terminal",
+				"toggleterm",
+				"trouble",
+				"scratch",
 			},
 			segments = {
 				{
@@ -164,13 +170,14 @@ return {
 						end,
 					},
 					-- condition = { builtin.not_empty, },
-					condition = { function()
-						local cur_sign_tbl = vim.fn.sign_getplaced(
-							vim.fn.bufnr(), {
+					condition = {
+						function()
+							local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
 								group = "MarkSigns",
 							})
-						return next(cur_sign_tbl[1].signs) ~= nil
-					end, },
+							return next(cur_sign_tbl[1].signs) ~= nil
+						end,
+					},
 				},
 				{
 					-- diagnostics
@@ -179,66 +186,71 @@ return {
 							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
 						end,
 					},
-					condition = { function()
-						local cur_sign_tbl = vim.fn.sign_getplaced(
-							vim.fn.bufnr(), {
+					condition = {
+						function()
+							local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
 								group = "*",
 							})
-						local filtered_table = filter_table(
-							cur_sign_tbl[1].signs, function(v)
+							local filtered_table = filter_table(cur_sign_tbl[1].signs, function(v)
 								return string.find(v.name, "Diagnostic", 0, true)
 							end)
-						return next(filtered_table) ~= nil
-					end,
+							return next(filtered_table) ~= nil
+						end,
 					},
 				},
 				{
 					-- test
-					text = { function()
-						return get_statuscol_test(vim.fn.bufnr(), vim.v.lnum)
-					end, " ", },
-					condition = { function()
-						local cur_sign_tbl = vim.fn.sign_getplaced(
-							vim.fn.bufnr(), {
+					text = {
+						function()
+							return get_statuscol_test(vim.fn.bufnr(), vim.v.lnum)
+						end,
+						" ",
+					},
+					condition = {
+						function()
+							local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
 								group = "neotest-status",
 							})
-						return next(cur_sign_tbl[1].signs) ~= nil
-					end, },
+							return next(cur_sign_tbl[1].signs) ~= nil
+						end,
+					},
 					-- click = "v:lua.ScLa",
 				},
 				{
 					-- dap
-					text = { function()
-						return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
-					end, },
-					condition = { function()
-						local cur_sign_tbl = vim.fn.sign_getplaced(
-							vim.fn.bufnr(), {
+					text = {
+						function()
+							return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
+						end,
+					},
+					condition = {
+						function()
+							local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
 								group = "dap_breakpoints",
 							})
-						return next(cur_sign_tbl[1].signs) ~= nil
-					end, },
+							return next(cur_sign_tbl[1].signs) ~= nil
+						end,
+					},
 				},
 				{
 					-- line numbers
-					text = { builtin.lnumfunc, },
-					condition = { true, },
+					text = { builtin.lnumfunc },
+					condition = { true },
 					click = "v:lua.ScLa",
 				},
 				{ -- fold
-					text = { " ", builtin.foldfunc, },
-					condition = { builtin.not_empty, },
+					text = { " ", builtin.foldfunc },
+					condition = { builtin.not_empty },
 					click = "v:lua.ScFa",
 				},
 				{
 					-- git signs
 					text = {
 						function()
-							return get_statuscol_gitsign(vim.fn.bufnr(),
-								vim.v.lnum)
+							return get_statuscol_gitsign(vim.fn.bufnr(), vim.v.lnum)
 						end,
 					},
-					condition = { true, },
+					condition = { true },
 				},
 			},
 		})
