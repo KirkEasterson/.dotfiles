@@ -9,6 +9,17 @@ return {
 			desc = "Toggle Aerial",
 		},
 	},
+	cmd = {
+		"AerialClose",
+		"AerialCloseAll",
+		"AerialInfo",
+		"AerialNavClose",
+		"AerialNavOpen",
+		"AerialNavToggle",
+		"AerialOpen",
+		"AerialOpenAll",
+		"AerialToggle",
+	},
 	opts = {
 		backends = {
 			"lsp",
