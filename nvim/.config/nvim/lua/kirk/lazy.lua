@@ -42,9 +42,9 @@ lazy.setup({
 	change_detection = {
 		notify = false,
 	},
-	checker = {
-		enabled = true,
-	},
+	-- checker = {
+	-- 	enabled = true,
+	-- },
 	install = {
 		colorscheme = { "gruvbox" },
 	},
