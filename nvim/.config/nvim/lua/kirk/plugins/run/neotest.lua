@@ -88,7 +88,7 @@ return {
 			adapters = {
 				-- the below lines are the reason opts must be defined in config
 				require("neotest-go")({
-					args = { "-race", "-cover", "-timeout=60s" }
+					args = { "-race", "-cover", "-timeout=60s" },
 				}),
 				require("neotest-dotnet"),
 				require("neotest-python"),
@@ -97,6 +97,6 @@ return {
 				virtual_text = false, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
 			},
 		}
-		require('neotest').setup(opts)
+		require("neotest").setup(opts)
 	end,
 }
