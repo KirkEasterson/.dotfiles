@@ -6,9 +6,20 @@ return {
 	opts = {
 		disabled_filetypes = {
 			statusline = {
-				"Scratch",
-				"NVimTree",
 				"alpha",
+				"dashboard",
+				"help",
+				"lazy",
+				"mason",
+				"neogitstatus",
+				"null-ls-info",
+				"nvimtree",
+				"packer",
+				"scratch",
+				"startify",
+				"terminal",
+				"toggleterm",
+				"trouble",
 			},
 		},
 		options = {
