@@ -1,5 +1,5 @@
 return {
-	'williamboman/mason.nvim',
+	"williamboman/mason.nvim",
 	cond = not vim.g.started_by_firenvim,
 	version = "v1.*",
 	cmd = {
@@ -16,7 +16,7 @@ return {
 			icons = {
 				package_installed = "✓",
 				package_pending = "➜",
-				package_uninstalled = "✗"
+				package_uninstalled = "✗",
 			},
 		},
 	},
