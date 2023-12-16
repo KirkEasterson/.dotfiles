@@ -168,6 +168,7 @@ return {
 				"%.pdf",
 				"%.zip",
 				"./node%_modules/*",
+				"mocks/*",
 				"packer_compiled.lua",
 			},
 			vimgrep_arguments = {
