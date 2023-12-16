@@ -1,6 +1,8 @@
 return {
 	"stevearc/conform.nvim",
-	enabled = false,
+	cmd = {
+		"ConformInfo",
+	},
 	keys = {
 		{
 			"<leader>fc",
@@ -12,23 +14,30 @@ return {
 				})
 			end,
 			desc = "Format",
-			mode = { "n", "v" },
+			mode = { "n", "x", "v" }, -- TODO: get range formatting to work
 		},
 	},
 	opts = {
 		formatters_by_ft = {
-			-- python = { "isort", "black" },
+			c = { "clang_format" },
+			cpp = { "clang_format" },
 			css = { "prettier" },
+			go = { { "gofmt", "gofumpt" }, "golines", "goimports" },
 			html = { "prettier" },
-			javascript = { { "prettierd", "prettier" } },
-			javascriptreact = { { "prettierd", "prettier" } },
+			javascript = { { "prettierd", "prettier" }, "eslint_d" },
+			javascriptreact = { { "prettierd", "prettier" }, "eslint_d" },
 			json = { "prettier" },
 			lua = { "stylua" },
-			markdown = { "prettier" },
+			markdown = { { "markdownlint", "prettier" } },
+			ocaml = { "ocamlformat" },
+			python = { "black" },
+			rust = { "rustfmt" },
 			svelte = { "prettier" },
-			typescript = { { "prettierd", "prettier" } },
-			typescriptreact = { { "prettierd", "prettier" } },
-			yaml = { "prettier" },
+			terraform = { "tflint" },
+			typescript = { { "prettierd", "prettier" }, "eslint_d" },
+			typescriptreact = { { "prettierd", "prettier" }, "eslint_d" },
+			yaml = { { "yamlfmt", "prettier" } },
+			zig = { "zigfmt" },
 		},
 	},
 }
