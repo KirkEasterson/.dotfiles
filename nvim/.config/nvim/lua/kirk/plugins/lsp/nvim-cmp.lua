@@ -1,7 +1,7 @@
 return {
 	"hrsh7th/nvim-cmp",
 	cond = not vim.g.started_by_firenvim,
-	event = "VimEnter",
+	event = "InsertEnter",
 	dependencies = {
 		"onsails/lspkind.nvim",
 		"nvim-lua/plenary.nvim",
