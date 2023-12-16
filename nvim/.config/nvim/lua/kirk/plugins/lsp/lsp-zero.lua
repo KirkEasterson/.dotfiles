@@ -55,31 +55,12 @@ return {
 		})
 
 		local on_attach = function(client, bufnr)
-			local disabled_formatting = {
-				"tsserver",
-				"volar",
-				"lua_ls",
-			}
-			if disabled_formatting[client.name] ~= nil then
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentFormattingRangeProvider = false
-			end
-
 			lsp_zero.default_keymaps({
 				buffer = bufnr,
 				preserve_mappings = false,
 			})
 
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-			require("util").map({ "n", "v" }, "<leader>fc", function()
-				vim.lsp.buf.format({ timeout_ms = 5000, async = true })
-			end, {
-				noremap = true,
-				silent = true,
-				buffer = bufnr,
-				desc = "Format file",
-			})
 
 			-- for ufo folding
 			client.server_capabilities.textDocument = {
@@ -139,9 +120,6 @@ return {
 							Lua = {
 								runtime = {
 									version = "LuaJIT",
-								},
-								format = {
-									enable = false,
 								},
 								workspace = {
 									checkThirdParty = false,
