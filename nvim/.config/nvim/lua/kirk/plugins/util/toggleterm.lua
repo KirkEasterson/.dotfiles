@@ -1,6 +1,6 @@
 return {
 	"akinsho/toggleterm.nvim",
-	tag = "*",
+	version = "*",
 	cmd = {
 		"TermSelect",
 		"ToggleTerm",
