@@ -57,9 +57,10 @@ autocmd("FileType", {
 	pattern = {
 		"javascript",
 		"javascriptreact",
+		"markdown",
 		"typescript",
 		"typescriptreact",
-		"markdown",
+		"yaml",
 	},
 	callback = function()
 		vim.opt_local.expandtab = true
@@ -94,8 +95,8 @@ autocmd("TermOpen", {
 })
 
 autocmd("FileType", {
-	desc = "Start git commits in insert mode",
 	pattern = { "gitcommit", "gitrebase" },
+	desc = "Start git commits in insert mode",
 	command = "startinsert | 1",
 })
 
