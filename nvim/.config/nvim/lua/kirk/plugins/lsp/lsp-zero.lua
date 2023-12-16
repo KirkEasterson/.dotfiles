@@ -11,14 +11,12 @@ return {
 		"neovim/nvim-lspconfig",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"jose-elias-alvarez/null-ls.nvim",
-		"jay-babu/mason-null-ls.nvim",
-
-		"hrsh7th/nvim-cmp",
+		-- "jose-elias-alvarez/null-ls.nvim",
+		-- "jay-babu/mason-null-ls.nvim",
 
 		"nvim-lua/plenary.nvim",
-		"Hoffs/omnisharp-extended-lsp.nvim",
-		"adelarsq/neofsharp.vim",
+		-- "Hoffs/omnisharp-extended-lsp.nvim",
+		-- "adelarsq/neofsharp.vim",
 	},
 	cmd = {
 		"LspInstall",
