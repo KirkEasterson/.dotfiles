@@ -14,6 +14,7 @@ return {
 		{
 			"<leader>Tr",
 			function()
+				require("neotest").summary.open()
 				require("neotest").output_panel.clear()
 				require("neotest").run.run()
 				require("neotest").output_panel.open()
@@ -23,6 +24,7 @@ return {
 		{
 			"<leader>Ts",
 			function()
+				require("neotest").summary.open()
 				require("neotest").output_panel.clear()
 				require("neotest").run.stop()
 				require("neotest").output_panel.open()
@@ -32,6 +34,7 @@ return {
 		{
 			"<leader>Tf",
 			function()
+				require("neotest").summary.open()
 				require("neotest").output_panel.clear()
 				require("neotest").run.run(vim.fn.expand("%"))
 				require("neotest").output_panel.open()
@@ -41,6 +44,7 @@ return {
 		{
 			"<leader>Tu",
 			function()
+				require("neotest").summary.open()
 				require("neotest").output_panel.clear()
 				require("neotest").run.run(vim.fn.getcwd())
 				require("neotest").output_panel.open()
@@ -50,6 +54,7 @@ return {
 		{
 			"<leader>Td",
 			function()
+				require("neotest").summary.open()
 				require("neotest").run.run({ strategy = "dap" })
 			end,
 			desc = "Debug test",
@@ -57,6 +62,7 @@ return {
 		{
 			"<leader>TT",
 			function()
+				require("neotest").summary.toggle()
 				require("neotest").output_panel.toggle()
 			end,
 			desc = "Toggle test panel",
