@@ -1,9 +1,6 @@
 return {
 	"iamcco/markdown-preview.nvim",
 	cond = not vim.g.started_by_firenvim,
-	ft = {
-		"markdown",
-	},
 	cmd = {
 		"MarkdownPreview",
 		"MarkdownPreviewStop",
