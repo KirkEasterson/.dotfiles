@@ -4,6 +4,7 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason.nvim",
+		"neovim/nvim-lspconfig",
 	},
 	cmd = {
 		"LspInstall",
