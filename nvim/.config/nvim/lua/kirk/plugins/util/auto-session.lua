@@ -2,24 +2,12 @@ return {
 	"rmagatti/auto-session",
 	tag = "v2.0.1",
 	cond = not vim.g.started_by_firenvim,
-	dependencies = {
-		"nvim-telescope/telescope.nvim",
-	},
 	cmd = {
 		"Autosession",
 		"SessionDelete",
 		"SessionRestore",
 		"SessionRestoreFromFile",
 		"SessionSave",
-	},
-	keys = {
-		{
-			"<leader>sl",
-			function()
-				require("auto-session.session-lens").search_session()
-			end,
-			desc = "Session lens",
-		},
 	},
 	opts = {
 		-- log_level = vim.log.levels.ERROR,
@@ -33,9 +21,7 @@ return {
 			"NvimTreeClose",
 		},
 		session_lens = {
-			load_on_setup = true,
-			theme_conf = { border = true },
-			previewer = false,
+			load_on_setup = false,
 		},
 	},
 	init = function()
@@ -52,7 +38,5 @@ return {
 			"winsize",
 		}
 		vim.o.sessionoptions = table.concat(session_opts, ",")
-		-- vim.opt.sessionoptions:append("globals") -- TODO: use append, but see
-		-- if it "overwrites" multiple entries
 	end,
 }
