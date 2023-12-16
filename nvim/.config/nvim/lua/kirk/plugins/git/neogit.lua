@@ -1,10 +1,13 @@
 return {
 	"NeogitOrg/neogit",
 	cond = not vim.g.started_by_firenvim,
+	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
 		"sindrets/diffview.nvim",
+
+		-- only one of these is needed, not both
+		-- "nvim-telescope/telescope.nvim",
 		-- 'ibhagwan/fzf-lua',
 	},
 	cmd = "Neogit",
