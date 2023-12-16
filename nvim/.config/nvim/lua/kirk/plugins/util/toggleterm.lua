@@ -1,6 +1,6 @@
 return {
 	"akinsho/toggleterm.nvim",
-	version = "*",
+	tag = "*",
 	cmd = {
 		"TermSelect",
 		"ToggleTerm",
@@ -16,11 +16,12 @@ return {
 			desc = "Terminal",
 		},
 		{
-			"<leader>tt",
+			"<F12>",
 			function()
 				require("toggleterm").toggle()
 			end,
 			desc = "Terminal - toggle",
+			mode = { "n", "t" },
 		},
 		{
 			"<leader>ts",
@@ -50,5 +51,7 @@ return {
 			desc = "Terminal - send visual selection",
 		},
 	},
-	opts = {},
+	opts = {
+		shade_terminals = false,
+	},
 }
