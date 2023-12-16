@@ -4,14 +4,13 @@ return {
 	cond = not vim.g.started_by_firenvim,
 	version = "*",
 	dependencies = {
-		"neovim/nvim-lspconfig",
 		"nvim-tree/nvim-web-devicons",
 		"ellisonleao/gruvbox.nvim",
 
 		-- I don't use it, but barbecue won't load without it
 		"SmiteshP/nvim-navic",
 	},
-	event = "BufAdd",
+	event = "VimEnter",
 	cmd = "Barbecue",
 	opts = {
 		attach_navic = false,
