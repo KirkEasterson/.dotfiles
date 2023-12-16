@@ -1,5 +1,6 @@
 return {
 	"b0o/incline.nvim",
+	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
@@ -15,6 +16,10 @@ return {
 				vertical = 0,
 				horizontal = 1,
 			},
+		},
+		hide = {
+			cursorline = true,
+			only_win = true,
 		},
 		render = function(props)
 			local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
