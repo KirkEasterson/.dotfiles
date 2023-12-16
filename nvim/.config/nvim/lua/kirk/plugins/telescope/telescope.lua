@@ -4,9 +4,8 @@ return {
 	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		-- 'nvim-telescope/telescope-fzy-native.nvim',
+		-- "nvim-telescope/telescope-fzy-native.nvim",
 		"nvim-telescope/telescope-fzf-native.nvim",
-		"debugloop/telescope-undo.nvim",
 	},
 	cmd = {
 		"Telescope",
@@ -136,13 +135,6 @@ return {
 			end,
 			desc = "Search registers",
 		},
-		{
-			"<leader>fu",
-			function()
-				require("telescope").extensions.undo.undo()
-			end,
-			desc = "Telescope undo",
-		},
 	},
 	opts = {
 		defaults = {
@@ -182,26 +174,11 @@ return {
 			},
 		},
 		extensions = {
-			fzy_native = {
-				override_generic_sorter = false,
-				override_file_sorter = true,
-			},
 			fzf = {
 				fuzzy = true,
 				override_generic_sorter = true,
 				override_file_sorter = true,
 				case_mode = "smart_case",
-			},
-			frecency = {
-				show_scores = false,
-				show_unindexed = true,
-				ignore_patterns = {
-					"*.git/*",
-					"*/tmp/*",
-				},
-			},
-			undo = {
-				-- telescope-undo.nvim config, see below
 			},
 		},
 		pickers = {
@@ -217,15 +194,14 @@ return {
 		local telescope = require("telescope")
 		telescope.setup(opts)
 		telescope.load_extension("fzf")
-		telescope.load_extension("undo")
 		-- telescope.load_extension("fzy_native")
 
 		vim.api.nvim_create_autocmd({ "User" }, {
-			desc = "Enable line numbers in telescope reuslts",
 			pattern = "TelescopePreviewerLoaded",
 			callback = function()
 				vim.opt_local.number = true
 			end,
+			desc = "Enable line numbers in telescope results",
 		})
 	end,
 }
