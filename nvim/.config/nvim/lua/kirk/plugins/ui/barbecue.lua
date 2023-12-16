@@ -1,12 +1,15 @@
 return {
 	"utilyre/barbecue.nvim",
-	enabled = false,
+	-- enabled = false,
 	cond = not vim.g.started_by_firenvim,
-	version = "v1.*",
+	version = "*",
 	dependencies = {
 		"neovim/nvim-lspconfig",
-		"SmiteshP/nvim-navic", -- I don't use it, but barbecue won't load without it
 		"nvim-tree/nvim-web-devicons",
+		"ellisonleao/gruvbox.nvim",
+
+		-- I don't use it, but barbecue won't load without it
+		"SmiteshP/nvim-navic",
 	},
 	event = "BufAdd",
 	cmd = "Barbecue",
@@ -28,6 +31,13 @@ return {
 			"packer",
 			"startify",
 			"toggleterm",
+			"terminal",
+		},
+		theme = {
+			normal = {
+				fg = nil,
+				bg = require("gruvbox").palette.dark0_soft,
+			},
 		},
 	},
 }
