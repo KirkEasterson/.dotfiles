@@ -17,14 +17,12 @@ return {
 		},
 	},
 	opts = {},
-	init = function()
-		vim.cmd([[highlight	DapBreakpoint guifg=red]])
-		vim.cmd([[highlight	DapBreakpointRejected guifg=red]])
-		vim.cmd([[highlight	DapBreakpointCondition guifg=red]])
-		vim.cmd([[highlight	DapLogPoint guifg=red]])
+	config = function(_, opts)
+		local dap, dapui = require("dap"), require("dapui")
+
+		dapui.setup(opts)
 
 		-- automatically open and close dap-ui
-		local dap, dapui = require("dap"), require("dapui")
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open()
 		end
