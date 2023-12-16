@@ -1,8 +1,9 @@
 return {
 	"jose-elias-alvarez/null-ls.nvim",
+	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
-		'nvim-lua/plenary.nvim',
+		"nvim-lua/plenary.nvim",
 	},
 	event = "VimEnter",
 	cmd = {
@@ -10,7 +11,7 @@ return {
 		"NullLsLog",
 	},
 	config = function()
-		null_ls = require('null-ls')
+		null_ls = require("null-ls")
 		null_ls.setup({
 			border = "rounded",
 			sources = {
