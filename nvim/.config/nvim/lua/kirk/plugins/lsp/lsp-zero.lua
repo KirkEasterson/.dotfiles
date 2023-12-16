@@ -133,9 +133,9 @@ return {
 		})
 
 		lsp_zero.configure("omnisharp", {
-			handlers = {
-				["textDocument/definition"] = require("omnisharp_extended").handler,
-			},
+			-- handlers = {
+			-- 	["textDocument/definition"] = require("omnisharp_extended").handler,
+			-- },
 			on_attach = function(client, bufnr)
 				client.server_capabilities.semanticTokensProvider = nil
 				on_attach(client, bufnr)
