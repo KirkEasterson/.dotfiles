@@ -22,8 +22,8 @@ return {
 	},
 	opts = {
 		backends = {
-			"lsp",
 			"treesitter",
+			"lsp",
 			"markdown",
 			"man",
 		},
