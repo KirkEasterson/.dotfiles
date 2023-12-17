@@ -1,5 +1,9 @@
 return {
-	'JoosepAlviste/nvim-ts-context-commentstring',
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+	},
+	event = "VimEnter",
 	opts = {
 		enable_autocmd = false,
 	},

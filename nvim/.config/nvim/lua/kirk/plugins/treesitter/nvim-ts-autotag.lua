@@ -1,6 +1,10 @@
 return {
 	"windwp/nvim-ts-autotag",
 	cond = not vim.g.started_by_firenvim,
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+	},
+	main = "nvim-treesitter.configs",
 	ft = {
 		"astro",
 		"glimmer",
@@ -10,7 +14,7 @@ return {
 		"javascript",
 		"javascriptreact",
 		"jsx",
-		-- "markdown",
+		"markdown",
 		"php",
 		"rescript",
 		"svelte",
@@ -21,5 +25,9 @@ return {
 		"vue",
 		"xml",
 	},
-	opts = {},
+	opts = {
+		autotag = {
+			enable = true,
+		},
+	},
 }
