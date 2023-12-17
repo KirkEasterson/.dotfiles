@@ -135,8 +135,8 @@ return {
 	"luukvbaal/statuscol.nvim",
 	dependencies = {
 		"lewis6991/gitsigns.nvim",
-		"kevinhwang91/nvim-ufo",
-		"mfussenegger/nvim-dap",
+		-- "kevinhwang91/nvim-ufo",
+		-- "mfussenegger/nvim-dap",
 	},
 	cond = not vim.g.started_by_firenvim,
 	event = "VimEnter",
