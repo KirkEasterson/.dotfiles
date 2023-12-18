@@ -52,24 +52,6 @@ autocmd("BufwritePost", {
 	end,
 })
 
-autocmd("FileType", {
-	desc = "Set indenting to js/ts files",
-	pattern = {
-		"javascript",
-		"javascriptreact",
-		"markdown",
-		"typescript",
-		"typescriptreact",
-		"yaml",
-	},
-	callback = function()
-		vim.opt_local.expandtab = true
-		vim.opt_local.shiftwidth = 2
-		vim.opt_local.softtabstop = 2
-		vim.opt_local.tabstop = 2
-	end,
-})
-
 autocmd("TermOpen", {
 	desc = "Start terminal in insert mode",
 	callback = function()
@@ -95,12 +77,11 @@ autocmd("TermOpen", {
 })
 
 autocmd("FileType", {
+	desc = "Start git entries in insert mode",
 	pattern = { "gitcommit", "gitrebase" },
-	desc = "Start git commits in insert mode",
 	command = "startinsert | 1",
 })
 
--- sync neovim with system clipboard
 autocmd({ "BufReadPost", "BufNewFile" }, {
 	desc = "Sync system clipboard with neovim",
 	once = true,
