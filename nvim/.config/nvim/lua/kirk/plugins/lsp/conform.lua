@@ -22,7 +22,7 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			css = { "prettier" },
-			go = { { "gofmt", "gofumpt" }, "golines", "goimports" },
+			go = { { "gofmt", "gofumpt" }, "goimports" }, -- TODO: add "golines"
 			html = { "prettier" },
 			javascript = { { "prettierd", "prettier" }, "eslint_d" },
 			javascriptreact = { { "prettierd", "prettier" }, "eslint_d" },
