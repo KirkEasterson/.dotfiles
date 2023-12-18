@@ -1,111 +1,144 @@
 return {
-	'ibhagwan/fzf-lua',
+	"ibhagwan/fzf-lua",
 	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	dependencies = {
-		'nvim-tree/nvim-web-devicons',
+		"nvim-tree/nvim-web-devicons",
 	},
 	cmd = "FzfLua",
 	keys = {
 		-- fzf file helpers
 		{
 			"<leader>ff",
-			function() require('fzf-lua').files() end,
+			function()
+				require("fzf-lua").files()
+			end,
 			desc = "Find files",
 		},
 		{
 			"<leader>fo",
-			function() require('fzf-lua').oldfiles() end,
+			function()
+				require("fzf-lua").oldfiles()
+			end,
 			desc = "Recent files",
 		},
 		{
 			"<leader>FF",
-			function() require('fzf-lua').lgrep_curbuf() end,
+			function()
+				require("fzf-lua").lgrep_curbuf()
+			end,
 			desc = "",
 		},
 		{
 			"<leader>fg",
-			function() require('fzf-lua').live_grep_resume() end,
+			function()
+				require("fzf-lua").live_grep_resume()
+			end,
 			desc = "Live grep",
 		},
 		{
 			"<leader>fG",
-			function() require('fzf-lua').grep_cword() end,
+			function()
+				require("fzf-lua").grep_cword()
+			end,
 			mode = { "n" },
 			desc = "Grep string",
 		},
 		{
 			"<leader>fG",
-			function() require('fzf-lua').grep_visual() end,
+			function()
+				require("fzf-lua").grep_visual()
+			end,
 			mode = { "v" },
 			desc = "Grep selection",
 		},
 		{
 			"<leader>fb",
-			function() require('fzf-lua').buffers() end,
+			function()
+				require("fzf-lua").buffers()
+			end,
 			desc = "Search buffers",
 		},
 
 		-- fzf lsp/treesitter helpers
 		{
 			"<leader>fr",
-			function() require('fzf-lua').lsp_references() end,
+			function()
+				require("fzf-lua").lsp_references()
+			end,
 			desc = "LSP references",
 		},
 		{
 			"<leader>fs",
-			function() require('fzf-lua').lsp_document_symbols() end,
+			function()
+				require("fzf-lua").lsp_document_symbols()
+			end,
 			desc = "LSP document symbols",
 		},
 		{
 			"<leader>dd",
-			function() require('fzf-lua').diagnostics_document() end,
+			function()
+				require("fzf-lua").diagnostics_document()
+			end,
 			desc = "Document diagnostics",
 		},
 		{
 			"<leader>dD",
-			function() require('fzf-lua').diagnostics_workspace() end,
+			function()
+				require("fzf-lua").diagnostics_workspace()
+			end,
 			desc = "Workspace diagnostics",
 		},
 
 		-- fzf git helpers
 		{
 			"<leader>gf",
-			function() require('fzf-lua').git_files() end,
+			function()
+				require("fzf-lua").git_files()
+			end,
 			desc = "Git files",
 		},
 		{
 			"<leader>gb",
-			function() require('fzf-lua').git_branches() end,
+			function()
+				require("fzf-lua").git_branches()
+			end,
 			desc = "Git branches",
 		},
 		{
 			"<leader>gc",
-			function() require('fzf-lua').git_commits() end,
+			function()
+				require("fzf-lua").git_commits()
+			end,
 			desc = "Git commits",
 		},
 		{
 			"<leader>bc",
-			function() require('fzf-lua').git_bcommits() end,
+			function()
+				require("fzf-lua").git_bcommits()
+			end,
 			desc = "Git branch commits",
 		},
 
 		-- fzf util helpers
 		{
 			"<leader>fk",
-			function() require('fzf-lua').keymaps() end,
+			function()
+				require("fzf-lua").keymaps()
+			end,
 			desc = "Keymaps",
 		},
 		{
 			"<leader>fS",
-			function() require('fzf-lua').spell_suggest() end,
+			function()
+				require("fzf-lua").spell_suggest()
+			end,
 			desc = "Spell suggest",
 		},
 	},
 	opts = {
 		grep = {
-			rg_opts =
-			"--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --max-depth=99 --hidden",
+			rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --max-depth=99 --hidden",
 		},
 		oldfiles = {
 			cwd_only = true,
