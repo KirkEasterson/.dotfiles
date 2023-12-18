@@ -120,7 +120,7 @@ myawesomemenu = {
 			hotkeys_popup.show_help(nil, awful.screen.focused())
 		end,
 	},
-	{ "Manual",  terminal .. " -e man awesome" },
+	{ "Manual", terminal .. " -e man awesome" },
 	{ "Restart", awesome.restart },
 }
 
@@ -385,7 +385,7 @@ end)))
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
--- focus window
+	-- focus window
 	awful.key({ modkey }, "h", function()
 		awful.client.focus.global_bydirection("left")
 	end, { description = "focus window to the left", group = "client" }),
@@ -464,7 +464,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "c", function()
 		scratch.toggle(
 			terminal_secondary
-			.. " --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator",
+				.. " --class scratch-py -t scratch-py -e tmux a -t scratchpad; select-window -t calculator",
 			{ instance = "scratch-py" },
 			true
 		)
@@ -714,24 +714,15 @@ client.connect_signal("manage", function(c)
 	end
 end)
 
--- Function to set rounded corners
-local function set_rounded_corners(c)
-	c.shape = function(cr, width, height)
-		gears.shape.rounded_rect(cr, width, height, 9)
-	end
-end
-
--- Function to reset shape when not floating
-local function reset_shape(c)
-	c.shape = nil
-end
-
 -- Signal handler for property::floating
 client.connect_signal("property::floating", function(c)
-	if c.floating then
-		set_rounded_corners(c)
+	if c.floating and not c.fullscreen and not c.maximized then
+		c.shape = function(cr, width, height)
+			local corner_radius = 9
+			gears.shape.rounded_rect(cr, width, height, corner_radius)
+		end
 	else
-		reset_shape(c)
+		c.shape = nil
 	end
 end)
 
@@ -845,24 +836,27 @@ screen.connect_signal("arrange", function(s)
 	local layout = s.selected_tag.layout.name
 	local is_single_client = #s.clients == 1
 	for _, c in pairs(s.clients) do
-		-- hide border
-		if layout == "max" or is_single_client or c.maximized then
-			c.border_width = 0
-		else
-			c.border_width = beautiful.border_width
+		-- hide border in certain cases
+		local border_width = beautiful.border_width
+		if layout == "max" or is_single_client or c.fullscreen or c.maximized then
+			border_width = 0
 		end
+		c.border_width = border_width
 
 		-- shadows only on floating windows
-		if layout == "floating" or c.floating and not c.maximized then
-			awful.spawn("xprop -id " .. c.window .. " -f _COMPTON_SHADOW 32c -set _COMPTON_SHADOW 1", false)
-		else
-			awful.spawn("xprop -id " .. c.window .. " -f _COMPTON_SHADOW 32c -set _COMPTON_SHADOW 0", false)
+		local has_shadow = 0
+		if layout == "floating" or c.floating and not c.fullscreen and not c.maximized then
+			has_shadow = 1
 		end
+		awful.spawn("xprop -id " .. c.window .. " -f _COMPTON_SHADOW 32c -set _COMPTON_SHADOW " .. has_shadow, false)
 	end
 end)
 
 -- GAPS
 beautiful.systray_icon_spacing = 13
+--
+-- set focus to primary screen
+awful.screen.focus(screen.primary)
 
 -- AUTO-EXEC
 awful.spawn.with_shell("~/.fehbg")
@@ -883,10 +877,6 @@ if autorun then
 	end
 end
 awful.util.spawn("killall cbatticon")
--- awful.util.spawn("killall volumeicon")
-
--- set focus to primary screen
-awful.screen.focus(screen.primary)
 
 -- make the garbage collector collect more often
 collectgarbage("setpause", 160)
