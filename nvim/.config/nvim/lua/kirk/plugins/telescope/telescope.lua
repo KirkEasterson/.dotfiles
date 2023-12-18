@@ -138,26 +138,32 @@ return {
 	},
 	opts = {
 		defaults = {
-			color_devicons = true,
-			entry_prefix = "  ",
 			prompt_prefix = " ",
 			selection_caret = " ",
 			sorting_strategy = "ascending",
 			layout_strategy = "vertical",
+			path_display = { "truncate" },
 			layout_config = {
 				prompt_position = "top",
 				mirror = true,
 			},
+			cache_picker = {
+				num_pickers = 3,
+			},
 			file_ignore_patterns = {
 				"%.a",
+				"%.aac",
 				"%.cache",
 				"%.class",
+				-- "%.gif",
 				"%.git/",
 				"%.mkv",
+				"%.mp3",
 				"%.mp4",
 				"%.o",
 				"%.out",
 				"%.pdf",
+				"%.wav",
 				"%.zip",
 				"./node%_modules/*",
 				"mocks/*",
@@ -165,20 +171,46 @@ return {
 			},
 			vimgrep_arguments = {
 				"rg",
+
+				-- color codes not yet interpreted
+				"--color=never",
+
+				-- the following are required for telescope
 				"--no-heading",
 				"--with-filename",
 				"--line-number",
 				"--column",
-				"--hidden",
-				"--max-depth=99",
+
+				"--hidden", -- include hidden files
+				"--max-depth=99", -- max num dirs to descend
 			},
-		},
-		extensions = {
-			fzf = {
-				fuzzy = true,
-				override_generic_sorter = true,
-				override_file_sorter = true,
-				case_mode = "smart_case",
+			preview = {
+				mime_hook = function(filepath, bufnr, opts)
+					local is_image = function(filepath)
+						local image_extensions = { "png", "jpg" } -- Supported image formats
+						local split_path = vim.split(filepath:lower(), ".", { plain = true })
+						local extension = split_path[#split_path]
+						return vim.tbl_contains(image_extensions, extension)
+					end
+					if is_image(filepath) then
+						local term = vim.api.nvim_open_term(bufnr, {})
+						local function send_output(_, data, _)
+							for _, d in ipairs(data) do
+								vim.api.nvim_chan_send(term, d .. "\r\n")
+							end
+						end
+						vim.fn.jobstart({
+							"catimg",
+							filepath, -- Terminal image viewer command
+						}, { on_stdout = send_output, stdout_buffered = true, pty = true })
+					else
+						require("telescope.previewers.utils").set_preview_message(
+							bufnr,
+							opts.winid,
+							"Binary cannot be previewed"
+						)
+					end
+				end,
 			},
 		},
 		pickers = {
@@ -187,6 +219,14 @@ return {
 			},
 			oldfiles = {
 				cwd_only = true,
+			},
+		},
+		extensions = {
+			fzf = {
+				fuzzy = true,
+				override_generic_sorter = true,
+				override_file_sorter = true,
+				case_mode = "smart_case",
 			},
 		},
 	},
