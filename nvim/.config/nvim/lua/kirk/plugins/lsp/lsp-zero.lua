@@ -15,8 +15,6 @@ return {
 		-- "jay-babu/mason-null-ls.nvim",
 
 		"nvim-lua/plenary.nvim",
-		-- "Hoffs/omnisharp-extended-lsp.nvim",
-		-- "adelarsq/neofsharp.vim",
 	},
 	cmd = {
 		"LspInstall",
