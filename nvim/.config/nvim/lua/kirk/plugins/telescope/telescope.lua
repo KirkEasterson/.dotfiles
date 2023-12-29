@@ -183,6 +183,7 @@ return {
 
 				"--hidden", -- include hidden files
 				"--max-depth=99", -- max num dirs to descend
+				"--smart-case", -- use smart case
 			},
 			preview = {
 				mime_hook = function(filepath, bufnr, opts)
