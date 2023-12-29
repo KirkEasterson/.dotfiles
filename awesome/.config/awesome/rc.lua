@@ -408,7 +408,6 @@ awful.screen.connect_for_each_screen(function(s)
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 		style = {
-			-- TODO: change color of task items
 			shape = gears.shape.rectangle,
 			shape_border_width = 1,
 			shape_border_color = beautiful.border_normal,
@@ -416,7 +415,6 @@ awful.screen.connect_for_each_screen(function(s)
 			shape_border_color_focus = beautiful.border_normal,
 		},
 		layout = {
-			spacing = 0,
 			layout = wibox.layout.flex.horizontal,
 		},
 	})
@@ -909,9 +907,12 @@ client.connect_signal("mouse::enter", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
+-- set focus border
 client.connect_signal("focus", function(c)
 	c.border_color = beautiful.border_focus
 end)
+
+-- set normal border
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
