@@ -6,7 +6,10 @@ return {
 		return not_firenvim and in_git_repo
 	end,
 	version = "v0.6", -- TODO: find out 0.7 didn't work
-	event = "VimEnter",
+	event = {
+		"BufNewFile",
+		"BufReadPre",
+	},
 	cmd = {
 		"Gitsigns",
 	},
