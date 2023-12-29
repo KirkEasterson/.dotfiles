@@ -158,14 +158,6 @@ return {
 			organize_imports_on_format = true,
 		})
 
-		lsp_zero.configure("yamlls", {
-			settings = {
-				yaml = {
-					keyOrdering = false,
-				},
-			},
-		})
-
 		lsp_zero.configure("gopls", {
 			settings = {
 				gopls = {
