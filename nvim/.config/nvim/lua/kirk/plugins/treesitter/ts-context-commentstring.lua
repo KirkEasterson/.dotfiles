@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},
-	event = "VimEnter",
+	event = "UIEnter",
 	opts = {
 		enable_autocmd = false,
 	},

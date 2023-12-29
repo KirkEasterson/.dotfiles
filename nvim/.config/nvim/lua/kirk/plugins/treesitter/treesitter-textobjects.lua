@@ -5,7 +5,10 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	main = "nvim-treesitter.configs",
-	event = "VimEnter",
+	event = {
+		"BufNewFile",
+		"BufReadPre",
+	},
 	opts = {
 		textobjects = {
 			lsp_interop = {

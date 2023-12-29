@@ -4,7 +4,10 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},
-	event = "VimEnter",
+	event = {
+		"BufNewFile",
+		"BufReadPre",
+	},
 	opts = {
 		mode = "topline",
 	},
