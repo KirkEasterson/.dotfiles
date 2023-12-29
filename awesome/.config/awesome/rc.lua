@@ -163,6 +163,117 @@ mypoweroptsmenu = {
 	},
 }
 
+local minimized_entry = function(c)
+	text = "Minimize"
+	if c.minimized then
+		text = "Un-minimize"
+		icon = beautiful.titlebar_close_button_focus_press
+	end
+	return {
+		text,
+		function()
+			c.minimized = not c.minimized
+		end,
+		beautiful.titlebar_minimize_button_focus_press,
+	}
+end
+
+local maximized_entry = function(c)
+	text = "Maximize"
+	icon = beautiful.titlebar_maximized_button_focus_inactive_hover
+	if c.maximized then
+		text = "Un-maximize"
+		icon = beautiful.titlebar_maximized_button_focus_active_hover
+	end
+	return {
+		text,
+		function()
+			c.maximized = not c.maximized
+			c:raise()
+		end,
+		icon,
+	}
+end
+
+local floating_entry = function(c)
+	icon = beautiful.titlebar_floating_button_focus_inactive_hover
+	if c.floating then
+		icon = beautiful.titlebar_floating_button_focus_active_hover
+	end
+	return {
+		"Floating",
+		function()
+			c.floating = not c.floating
+			c:raise()
+		end,
+		icon,
+	}
+end
+
+local sticky_entry = function(c)
+	icon = beautiful.titlebar_sticky_button_focus_inactive_hover
+	if c.sticky then
+		icon = beautiful.titlebar_sticky_button_focus_active_hover
+	end
+	return {
+		"Sticky",
+		function()
+			c.sticky = not c.sticky
+			c:raise()
+		end,
+		icon,
+	}
+end
+
+local ontop_entry = function(c)
+	icon = beautiful.titlebar_ontop_button_focus_inactive_hover
+	if c.ontop then
+		icon = beautiful.titlebar_ontop_button_focus_active_hover
+	end
+	return {
+		"Ontop",
+		function()
+			c.ontop = not c.ontop
+			c:raise()
+		end,
+		icon,
+	}
+end
+
+local myclientmenu = function(c)
+	local menu = awful.menu({
+		items = {
+			{
+				"Close",
+				function()
+					c:kill()
+				end,
+				beautiful.titlebar_close_button_focus_press,
+			},
+			minimized_entry(c),
+			maximized_entry(c),
+			{
+				"Fullscreen",
+				function()
+					c.fullscreen = not c.fullscreen
+					c:raise()
+				end,
+			},
+			floating_entry(c),
+			sticky_entry(c),
+			ontop_entry(c),
+		},
+	})
+
+	-- TODO: get this to work
+	menu:connect_signal("mouse::leave", function()
+		naughty.destroy(menu)
+		menu = nil
+	end)
+
+	return menu
+end
+
 -- Load Debian menu entries
 local has_debian, debian = pcall(require, "debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
@@ -198,7 +309,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibar
--- Create a textclock widget
 mytextclock = wibox.widget.textclock("%a %d %b %Y (wk %V) %T", 1)
 local cw = calendar_widget({
 	placement = "top_right",
@@ -241,8 +351,12 @@ local tasklist_buttons = gears.table.join(
 			c:emit_signal("request::activate", "tasklist", { raise = true })
 		end
 	end),
-	awful.button({}, 3, function()
-		awful.menu.client_list({ theme = { width = 250 } })
+	awful.button({}, 2, function(c)
+		c:kill()
+	end),
+	awful.button({}, 3, function(c)
+		clientmenu = myclientmenu(c)
+		awful.menu.toggle(clientmenu)
 	end),
 	awful.button({}, 4, function()
 		awful.client.focus.byidx(1)
