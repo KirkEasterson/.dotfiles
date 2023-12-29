@@ -33,8 +33,8 @@ return {
 			section = { "", "" },
 		},
 		integrations = {
-			telescope = true,
 			diffview = true,
+			-- telescope = true,
 			-- fzf_lua = true,
 		},
 		mappings = {
