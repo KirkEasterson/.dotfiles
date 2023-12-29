@@ -693,27 +693,47 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = {
 
-	-- All clients will match this rule.
-	{
+local global_props = {
+	border_color = beautiful.border_normal,
+	border_width = beautiful.border_width,
+	buttons = clientbuttons,
+	focus = awful.client.focus.filter,
+	keys = clientkeys,
+	placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+	raise = true,
+	screen = awful.screen.preferred,
+	titlebars_enabled = true,
+}
+
+local float_rules = {
+	table.unpack(global_props),
+	floating = true,
+	placement = awful.placement.centered,
+}
+
+awful.rules.rules = {
+	{ -- all clients will match this rule
 		rule = {},
+		properties = global_props,
+	},
+	{ -- floating without titlebar
+		rule_any = {
+			name = {
+				"Lock Screen — 1Password",
+				"Sign in to Steam",
+				"splash",
+			},
+		},
 		properties = {
-			border_width = beautiful.border_width,
-			border_color = beautiful.border_normal,
-			focus = awful.client.focus.filter,
-			raise = true,
-			keys = clientkeys,
-			buttons = clientbuttons,
-			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			table.unpack(float_rules),
+			titlebars_enabled = false,
 		},
 	},
-	-- Floating clients.
-	{
+	{ -- floating with titlebar
 		rule_any = {
+			type = { "dialog" },
 			instance = {
-				"DTA", -- Firefox addon DownThemAll.
 				"copyq", -- Includes session name in class.
 				"pinentry",
 				"scratch-main",
@@ -727,8 +747,6 @@ awful.rules.rules = {
 			-- Note that the name property shown in xprop might be set slightly after creation of the client
 			-- and the name shown there might not match defined rules here.
 			name = {
-				"Event Tester", -- xev.
-				"Lock Screen — 1Password",
 				"zoom",
 				"Zoom Cloud Meetings",
 			},
@@ -738,19 +756,9 @@ awful.rules.rules = {
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
-		properties = {
-			floating = true,
-			placement = awful.placement.centered,
-			border_width = beautiful.border_width,
-			border_color = beautiful.border_normal,
-			focus = awful.client.focus.filter,
-			raise = true,
-			keys = clientkeys,
-			buttons = clientbuttons,
-			screen = awful.screen.preferred,
-		},
+		properties = float_rules,
 	},
-	{
+	{ -- scratch terminal
 		rule_any = {
 			instance = { "scratch-main" },
 			class = { "scratch-main" },
@@ -774,49 +782,6 @@ awful.rules.rules = {
 			end)
 		end,
 	},
-
-	{
-		rule_any = { type = { "normal", "dialog" } },
-		properties = { titlebars_enabled = true },
-	},
-
-	{
-		rule = {},
-		except = { instance = "cairo-dock" },
-		properties = {
-			border_width = beautiful.border_width,
-			border_color = beautiful.border_normal,
-			focus = awful.client.focus.filter,
-			keys = clientkeys,
-			buttons = clientbuttons,
-		},
-	},
-	{
-		rule = { class = "MPlayer" },
-		properties = { floating = true },
-	},
-	{
-		rule = { instance = "cairo-dock" },
-		--      type = "dock",
-		properties = {
-			floating = true,
-			ontop = true,
-			focus = false,
-		},
-	},
-
-	{
-		rule = { name = "cairo-dock" },
-		properties = { border_width = 0 },
-	},
-	{
-		rule = { name = "cairo-dock-sub" },
-		properties = { border_width = 0 },
-	},
-
-	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
