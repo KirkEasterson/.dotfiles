@@ -1,3 +1,40 @@
+local get_ensure_installed = function()
+	-- TODO: maybe use ENV variables
+	local base_linters = {
+		"actionlint",
+		"codespell",
+		-- "commitlint",
+		"editorconfig-checker",
+		"eslint_d",
+		"gitlint",
+		-- "golangci-lint",
+		"jsonlint",
+		"markdownlint",
+		"prettier",
+		"pylint",
+		"shellcheck",
+		-- "stylelint", -- css
+		-- "stylua",
+		"yamllint",
+	}
+
+	if require("util").indocker() then
+		return base_linters
+	end
+
+	return {
+		unpack(base_linters),
+		unpack({
+			-- "ansible-lint",
+			"cmakelint",
+			"cpplint",
+			"luacheck",
+		}),
+	}
+end
+
+local ensure_installed = get_ensure_installed()
+
 return {
 	"rshkarin/mason-nvim-lint",
 	version = "*",
@@ -7,26 +44,6 @@ return {
 		"mfussenegger/nvim-lint",
 	},
 	opts = {
-		ensure_installed = {
-			"actionlint",
-			-- "ansible-lint",
-			"cmakelint",
-			"codespell",
-			-- "commitlint",
-			"cpplint",
-			"editorconfig-checker",
-			"eslint_d",
-			"gitlint",
-			-- "golangci-lint",
-			"jsonlint",
-			"luacheck",
-			"markdownlint",
-			"prettier",
-			"pylint",
-			"shellcheck",
-			-- "stylelint", -- css
-			-- "stylua",
-			"yamllint",
-		},
+		ensure_installed = ensure_installed,
 	},
 }
