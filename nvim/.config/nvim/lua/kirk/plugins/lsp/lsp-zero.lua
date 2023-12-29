@@ -1,3 +1,57 @@
+local get_ensure_installed = function()
+	-- TODO: maybe use ENV variables
+	local base_lsps = {
+		"bashls",
+		"clangd",
+		"cssls",
+		-- "diagnosticls",
+		"docker_compose_language_service",
+		"dockerls",
+		"eslint",
+		"golangci_lint_ls",
+		"gopls",
+		"html",
+		"jsonls",
+		"lemminx", -- xml
+		"pyright",
+		"sqlls",
+		"taplo", -- toml
+		"terraformls",
+		"tflint",
+		"tsserver",
+		"yamlls",
+	}
+
+	if require("util").indocker() then
+		return base_lsps
+	end
+
+	return {
+		unpack(base_lsps),
+		unpack({
+			"ansiblels",
+			"asm_lsp", -- assembly
+			"cmake",
+			-- "csharp_ls",
+			-- "diagnosticls",
+			-- "fsautocomplete",
+			-- "hls", -- haskell
+			-- "jdtls", -- java
+			-- "kotlin_language_server",
+			"lua_ls",
+			"ocamllsp",
+			-- "omnisharp",
+			-- "rnix", -- nix
+			"rust_analyzer",
+			-- "texlab",
+			"vimls",
+			-- "zls", -- zig
+		}),
+	}
+end
+
+local ensure_installed = get_ensure_installed()
+
 return {
 	"VonHeikemen/lsp-zero.nvim",
 	cond = not vim.g.started_by_firenvim,
@@ -71,43 +125,7 @@ return {
 
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
-			ensure_installed = {
-				"ansiblels",
-				"asm_lsp", -- assembly
-				"bashls",
-				"clangd",
-				"cmake",
-				"csharp_ls",
-				"cssls",
-				-- "diagnosticls",
-				"docker_compose_language_service",
-				"dockerls",
-				"eslint",
-				"fsautocomplete",
-				"golangci_lint_ls",
-				"gopls",
-				"hls", -- haskell
-				"html",
-				"jdtls", -- java
-				"jsonls",
-				"kotlin_language_server",
-				"lemminx", -- xml
-				"lua_ls",
-				"ocamllsp",
-				"omnisharp",
-				"pyright",
-				"rnix", -- nix
-				"rust_analyzer",
-				"sqlls",
-				"taplo", -- toml
-				"terraformls",
-				"texlab",
-				"tflint",
-				"tsserver",
-				"vimls",
-				"yamlls",
-				"zls", -- zig
-			},
+			ensure_installed = ensure_installed,
 			handlers = {
 				lsp_zero.default_setup,
 				lua_ls = function()
