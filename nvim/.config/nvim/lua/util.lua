@@ -43,4 +43,15 @@ function M.tprint(tbl, indent)
 	return toprint
 end
 
+function M.startswith(text, prefix)
+	return text:find(prefix, 1, true) == 1
+end
+
+function M.indocker()
+	local handle = io.popen("head -n 1 /proc/1/sched")
+	local result = handle:read("*a")
+	handle:close()
+	return M.startswith(result, "bash") or M.startswith(result, "sh")
+end
+
 return M
