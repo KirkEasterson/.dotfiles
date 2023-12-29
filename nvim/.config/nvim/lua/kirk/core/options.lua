@@ -141,7 +141,7 @@ opt.fillchars:append({
 	fold = " ",
 	foldclose = "󰅂",
 	foldopen = "󰅀",
-	foldsep = " ",
+	foldsep = "",
 })
 
 opt.swapfile = false -- don't create swap files
