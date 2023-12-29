@@ -4,6 +4,7 @@ return {
 	enabled = false,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
+		{ "junegunn/fzf", build = "./install --bin" },
 	},
 	cmd = "FzfLua",
 	keys = {
@@ -11,43 +12,43 @@ return {
 		{
 			"<leader>ff",
 			function()
-				require("fzf-lua").files()
+				require("fzf-lua").files({ resume = true })
 			end,
 			desc = "Find files",
 		},
 		{
-			"<leader>fo",
-			function()
-				require("fzf-lua").oldfiles()
-			end,
-			desc = "Recent files",
-		},
-		{
-			"<leader>FF",
-			function()
-				require("fzf-lua").lgrep_curbuf()
-			end,
-			desc = "",
-		},
-		{
 			"<leader>fg",
 			function()
-				require("fzf-lua").live_grep_resume()
+				require("fzf-lua").live_grep({ resume = true })
 			end,
 			desc = "Live grep",
 		},
 		{
 			"<leader>fG",
 			function()
-				require("fzf-lua").grep_cword()
+				require("fzf-lua").grep_cword({ resume = true })
 			end,
 			mode = { "n" },
 			desc = "Grep string",
 		},
 		{
+			"<leader>fo",
+			function()
+				require("fzf-lua").oldfiles({ resume = true })
+			end,
+			desc = "Recent files",
+		},
+		{
+			"<leader>fF",
+			function()
+				require("fzf-lua").lgrep_curbuf({ resume = true })
+			end,
+			desc = "",
+		},
+		{
 			"<leader>fG",
 			function()
-				require("fzf-lua").grep_visual()
+				require("fzf-lua").grep_visual({ resume = true })
 			end,
 			mode = { "v" },
 			desc = "Grep selection",
@@ -55,7 +56,7 @@ return {
 		{
 			"<leader>fb",
 			function()
-				require("fzf-lua").buffers()
+				require("fzf-lua").buffers({ resume = true })
 			end,
 			desc = "Search buffers",
 		},
@@ -64,28 +65,28 @@ return {
 		{
 			"<leader>fr",
 			function()
-				require("fzf-lua").lsp_references()
+				require("fzf-lua").lsp_references({ resume = true })
 			end,
 			desc = "LSP references",
 		},
 		{
 			"<leader>fs",
 			function()
-				require("fzf-lua").lsp_document_symbols()
+				require("fzf-lua").lsp_document_symbols({ resume = true })
 			end,
 			desc = "LSP document symbols",
 		},
 		{
-			"<leader>dd",
+			"<leader>fd",
 			function()
-				require("fzf-lua").diagnostics_document()
+				require("fzf-lua").diagnostics_document({ resume = true })
 			end,
 			desc = "Document diagnostics",
 		},
 		{
-			"<leader>dD",
+			"<leader>fD",
 			function()
-				require("fzf-lua").diagnostics_workspace()
+				require("fzf-lua").diagnostics_workspace({ resume = true })
 			end,
 			desc = "Workspace diagnostics",
 		},
@@ -94,61 +95,96 @@ return {
 		{
 			"<leader>gf",
 			function()
-				require("fzf-lua").git_files()
+				require("fzf-lua").git_files({ resume = true })
 			end,
 			desc = "Git files",
 		},
 		{
 			"<leader>gb",
 			function()
-				require("fzf-lua").git_branches()
+				require("fzf-lua").git_branches({ resume = true })
 			end,
 			desc = "Git branches",
 		},
 		{
 			"<leader>gc",
 			function()
-				require("fzf-lua").git_commits()
+				require("fzf-lua").git_commits({ resume = true })
 			end,
 			desc = "Git commits",
 		},
 		{
-			"<leader>bc",
+			"<leader>gr",
 			function()
-				require("fzf-lua").git_bcommits()
+				require("fzf-lua").git_bcommits({ resume = true })
 			end,
 			desc = "Git branch commits",
 		},
 
 		-- fzf util helpers
 		{
-			"<leader>fk",
+			"<leader>fh",
 			function()
-				require("fzf-lua").keymaps()
+				require("fzf-lua").help_tags({ resume = true })
 			end,
 			desc = "Keymaps",
 		},
 		{
-			"<leader>fS",
+			"<leader>fk",
 			function()
-				require("fzf-lua").spell_suggest()
+				require("fzf-lua").keymaps({ resume = true })
+			end,
+			desc = "Keymaps",
+		},
+		{
+			"<leader>fp",
+			function()
+				require("fzf-lua").spell_suggest({ resume = true })
+			end,
+			desc = "Spell suggest",
+		},
+		{
+			"<leader>fe",
+			function()
+				require("fzf-lua").registers({ resume = true })
 			end,
 			desc = "Spell suggest",
 		},
 	},
 	opts = {
 		grep = {
-			rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --max-depth=99 --hidden",
+			rg_opts = {
+				-- color codes not yet interpreted
+				"--color=never",
+
+				-- the following are required for telescope
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+
+				"--hidden", -- include hidden files
+				"--max-depth=99", -- max num dirs to descend
+				"--smart-case", -- use smart case
+			},
 		},
 		oldfiles = {
 			cwd_only = true,
 			include_current_session = true,
 		},
-		lsp = {
+		default = {
 			git_icons = true,
 		},
-		diagnostics = {
-			git_icons = true,
-		},
+		-- TODO: get these bindings to work
+		-- keymap = {
+		-- 	builtin = {
+		-- 		-- ["ctrl-d"] = "preview-page-down",
+		-- 		-- ["ctrl-u"] = "preview-page-up",
+		-- 	},
+		-- 	fzf = {
+		-- 		-- ["ctrl-d"] = "preview-page-down",
+		-- 		-- ["ctrl-u"] = "preview-page-up",
+		-- 	},
+		-- },
 	},
 }
