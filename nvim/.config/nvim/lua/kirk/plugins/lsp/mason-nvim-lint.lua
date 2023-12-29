@@ -1,7 +1,7 @@
 return {
 	"rshkarin/mason-nvim-lint",
 	version = "*",
-	event = "VimEnter",
+	event = "UIEnter",
 	dependencies = {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-lint",

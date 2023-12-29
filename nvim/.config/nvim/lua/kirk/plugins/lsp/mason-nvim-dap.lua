@@ -5,6 +5,7 @@ return {
 		"williamboman/mason.nvim",
 		"mfussenegger/nvim-dap",
 	},
+	event = "UIEnter",
 	version = "v2.*",
 	cmd = {
 		"DapInstall",

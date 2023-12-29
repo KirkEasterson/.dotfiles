@@ -6,7 +6,7 @@ return {
 		"williamboman/mason.nvim",
 		"jose-elias-alvarez/null-ls.nvim",
 	},
-	event = "VeryLazy",
+	event = "UIEnter",
 	cmd = {
 		"NullLsInstall",
 		"NullLsUninstall",
