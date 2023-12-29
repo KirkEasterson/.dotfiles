@@ -14,7 +14,9 @@ local builtin_plugins = {
 	"getscriptPlugin",
 	"gzip",
 	"logipat",
-	"matchit",
+	-- "matchbracket",
+	-- "matchit",
+	-- "matchparen",
 	"netrw",
 	"netrwFileHandlers",
 	"netrwPlugin",
@@ -33,7 +35,16 @@ local builtin_plugins = {
 	"zipPlugin",
 }
 for _, v in pairs(builtin_plugins) do
-	g["loaded_" .. v] = 1
+	g["loaded_" .. v] = true
+end
+
+-- enable builtin plugins
+local builtin_plugins = {
+	"matchparen",
+	"matchbracket",
+}
+for _, v in pairs(builtin_plugins) do
+	g["loaded_" .. v] = false
 end
 
 -- neovide
