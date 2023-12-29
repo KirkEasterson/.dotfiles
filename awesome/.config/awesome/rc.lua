@@ -121,6 +121,12 @@ myawesomemenu = {
 		end,
 	},
 	{ "Manual", terminal .. " -e man awesome" },
+	{
+		"Adjust screens",
+		function()
+			awful.spawn.with_shell("autorandr --change")
+		end,
+	},
 	{ "Restart", awesome.restart },
 }
 
