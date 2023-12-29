@@ -139,37 +139,39 @@ return {
 		-- "mfussenegger/nvim-dap",
 	},
 	cond = not vim.g.started_by_firenvim,
-	event = "VimEnter",
+	event = {
+		"BufNewFile",
+		"BufReadPre",
+	},
 	config = function()
 		local builtin = require("statuscol.builtin")
 		require("statuscol").setup({
 			setopt = true,
 			relculright = true,
 			ft_ignore = {
+				"NeogitStatus",
 				"alpha",
 				"dashboard",
 				"help",
 				"lazy",
 				"mason",
-				"NeogitStatus",
 				"null-ls-info",
-				"nvimtree",
+				"NvimTree",
 				"packer",
+				"scratch",
 				"startify",
+				"term",
 				"terminal",
 				"toggleterm",
 				"trouble",
-				"scratch",
 			},
 			segments = {
-				{
-					-- marks
+				{ -- marks
 					text = {
 						function()
 							return get_statuscol_marks(vim.fn.bufnr(), vim.v.lnum)
 						end,
 					},
-					-- condition = { builtin.not_empty, },
 					condition = {
 						function()
 							local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
@@ -179,27 +181,14 @@ return {
 						end,
 					},
 				},
-				{
-					-- diagnostics
+				{ -- diagnostics
 					text = {
 						function()
 							return get_statuscol_diag(vim.fn.bufnr(), vim.v.lnum)
 						end,
 					},
-					condition = {
-						function()
-							local cur_sign_tbl = vim.fn.sign_getplaced(vim.fn.bufnr(), {
-								group = "*",
-							})
-							local filtered_table = filter_table(cur_sign_tbl[1].signs, function(v)
-								return string.find(v.name, "Diagnostic", 0, true)
-							end)
-							return next(filtered_table) ~= nil
-						end,
-					},
 				},
-				{
-					-- test
+				{ -- testing
 					text = {
 						function()
 							return get_statuscol_test(vim.fn.bufnr(), vim.v.lnum)
@@ -216,8 +205,7 @@ return {
 					},
 					-- click = "v:lua.ScLa",
 				},
-				{
-					-- dap
+				{ -- dap
 					text = {
 						function()
 							return get_statuscol_debug(vim.fn.bufnr(), vim.v.lnum)
@@ -232,19 +220,15 @@ return {
 						end,
 					},
 				},
-				{
-					-- line numbers
+				{ -- line numbers
 					text = { builtin.lnumfunc },
-					condition = { true },
 					click = "v:lua.ScLa",
 				},
 				{ -- fold
 					text = { " ", builtin.foldfunc },
-					condition = { builtin.not_empty },
 					click = "v:lua.ScFa",
 				},
-				{
-					-- git signs
+				{ -- git signs
 					text = {
 						function()
 							return get_statuscol_gitsign(vim.fn.bufnr(), vim.v.lnum)
