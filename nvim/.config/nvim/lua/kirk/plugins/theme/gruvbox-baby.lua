@@ -1,13 +1,13 @@
 return {
 	"luisiacc/gruvbox-baby",
 	dependencies = {
-		'ellisonleao/gruvbox.nvim',
+		"ellisonleao/gruvbox.nvim",
 	},
 	-- enabled = false,
 	lazy = false,
 	priority = 1000,
 	config = function(_, _)
-		local palette = require('gruvbox').palette
+		local palette = require("gruvbox").palette
 
 		vim.g.gruvbox_baby_telescope_theme = 0
 		vim.g.gruvbox_baby_highlights = {
