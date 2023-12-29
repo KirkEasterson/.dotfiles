@@ -11,13 +11,13 @@ return {
 			operators = true,
 		},
 	},
-	config = function(_, opts)
-		require("gruvbox").setup(opts)
-		-- vim.cmd({
-		-- 	cmd = "colorscheme",
-		-- 	args = {
-		-- 		"gruvbox",
-		-- 	},
-		-- })
-	end,
+	-- config = function(_, opts)
+	-- 	require("gruvbox").setup(opts)
+	-- 	vim.cmd({
+	-- 		cmd = "colorscheme",
+	-- 		args = {
+	-- 			"gruvbox",
+	-- 		},
+	-- 	})
+	-- end,
 }
