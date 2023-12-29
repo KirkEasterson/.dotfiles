@@ -14,7 +14,9 @@ return {
 		},
 	},
 	opts = {
-		extensions = {},
+		extensions = {
+			luasnip = {},
+		},
 	},
 	config = function(_, opts)
 		require("telescope").setup(opts)
