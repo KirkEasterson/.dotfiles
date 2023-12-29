@@ -58,7 +58,7 @@ return {
 		"ComicCodeLigatures Nerd Font",
 		"JetBrains Mono Nerd Font",
 	}),
-	font_size = 13,
+	font_size = 11,
 	line_height = 0.89,
 	cell_width = 0.95,
 	freetype_load_target = "Normal",
