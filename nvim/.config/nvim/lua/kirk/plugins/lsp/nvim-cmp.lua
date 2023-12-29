@@ -22,6 +22,7 @@ return {
 		"chrisgrieser/cmp-nerdfont",
 		"uga-rosa/cmp-dictionary",
 		"f3fora/cmp-spell",
+		"tzachar/cmp-ai",
 
 		-- lang specific
 		"hrsh7th/cmp-nvim-lua",
@@ -99,6 +100,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp", keyword_length = 1 },
 				{ name = "luasnip", keyword_length = 1 },
+				{ name = "cmp_ai", keyword_length = 1 },
 				{ name = "calc", keyword_length = 3 },
 				{ name = "async_path", keyword_length = 1 },
 				{ name = "emoji", keyword_length = 1 },
