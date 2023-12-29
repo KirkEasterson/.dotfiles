@@ -107,6 +107,7 @@ return {
 				preserve_mappings = false,
 			})
 
+			-- for nvim < v0.8.1
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 			-- for ufo folding
