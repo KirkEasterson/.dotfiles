@@ -1,7 +1,9 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	cond = not vim.g.started_by_firenvim,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	event = "VimEnter",
 	opts = {
 		disabled_filetypes = {
@@ -33,9 +35,7 @@ return {
 			},
 		},
 		sections = {
-			lualine_c = {
-				-- nvim_lsp.util.root_pattern('.git'),
-			},
+			lualine_c = {},
 		},
 	},
 }
