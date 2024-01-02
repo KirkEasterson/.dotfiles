@@ -9,23 +9,43 @@ return {
 	priority = 999, -- 1 less than gruvbox
 	config = function(_, opts)
 		local art = require("art")
+		local util = require("util")
+
 		local month_arts = {
-			[1] = art.new_years,
-			[2] = art.valentines,
-			[3] = art.st_paddys,
-			[4] = art.easter,
-			[5] = art.flowers,
-			[6] = art.summer,
-			[7] = art.moon,
-			[8] = art.summer,
-			[9] = art.fall,
-			[10] = art.halloween,
-			[11] = art.thanksgiving,
-			[12] = art.christmas,
+			[1] = art.new_years3,
+			[2] = art.valentines2,
+			[3] = art.st_paddys2,
+			[4] = art.easter2,
+			[5] = art.flowers2,
+			[6] = art.summer2,
+			[7] = art.moon2,
+			[8] = art.summer2,
+			[9] = art.fall2,
+			[10] = art.halloween2,
+			[11] = art.thanksgiving2,
+			[12] = art.christmas2,
 		}
 
 		local dashboard = require("alpha.themes.dashboard")
-		dashboard.section.header.val = month_arts[os.date("*t").month]
+
+		-- local neovimlogo = art.neovim[math.random(#art.neovim)]
+		local neovimlogo = art.neovim[1]
+
+		local asciiart = month_arts[os.date("*t").month]
+
+		-- something sus
+		math.randomseed(os.time(os.date("!*t")))
+		if math.random() < 0.1 then
+			asciiart = art.amogus
+		end
+
+		-- TODO: get number of characters for neovimlogo
+		-- asciiart = util.tbl_cpad(asciiart, #neovimlogo[1])
+		asciiart = util.tbl_cpad(asciiart, 120)
+
+		local completesign = util.table_concat(neovimlogo, { "" }, asciiart)
+		dashboard.section.header.val = completesign
+
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),

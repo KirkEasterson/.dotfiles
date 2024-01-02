@@ -49,9 +49,75 @@ end
 
 function M.indocker()
 	local handle = io.popen("head -n 1 /proc/1/sched")
+	if handle == nil then
+		return false
+	end
+
 	local result = handle:read("*a")
+	if result == nil then
+		return false
+	end
+
 	handle:close()
 	return M.startswith(result, "bash") or M.startswith(result, "sh")
+end
+
+-- function M.table_concat(t1, t2)
+-- 	for i = 1, #t2 do
+-- 		t1[#t1 + 1] = t2[i]
+-- 	end
+-- 	return t1
+-- end
+
+function M.table_concat(...)
+	local arg = { ... }
+	local result = {}
+	for i = 1, #arg do
+		for j = 1, #arg[i] do
+			result[#result + 1] = arg[i][j]
+		end
+	end
+
+	return result
+end
+
+function M.lpad(str, len, char)
+	if char == nil then
+		char = " "
+	end
+	return str .. string.rep(char, len - #str)
+end
+
+function M.rpad(str, len, char)
+	if char == nil then
+		char = " "
+	end
+	return string.rep(char, len - #str) .. str
+end
+
+function M.cpad(str, len, char)
+	local str_len = string.len(str)
+	if str_len >= len then
+		return str
+	end
+
+	if char == nil then
+		char = " "
+	end
+
+	while string.len(str) < len do
+		str = char .. str .. char
+	end
+
+	return str
+end
+
+function M.tbl_cpad(tbl, len, char)
+	for i = 1, #tbl do
+		tbl[i] = M.cpad(tbl[i], len, char)
+	end
+
+	return tbl
 end
 
 return M
