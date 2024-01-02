@@ -89,7 +89,7 @@ function M.rpad(str, len, char)
 end
 
 function M.cpad(str, len, char)
-	local str_len = string.len(str)
+	local str_len = vim.fn.strdisplaywidth(str)
 	if str_len >= len then
 		return str
 	end
@@ -98,7 +98,7 @@ function M.cpad(str, len, char)
 		char = " "
 	end
 
-	while string.len(str) < len do
+	while vim.fn.strdisplaywidth(str) < len do
 		str = char .. str .. char
 	end
 

@@ -32,16 +32,12 @@ return {
 		local neovimlogo = art.neovim[1]
 
 		local asciiart = month_arts[os.date("*t").month]
-
-		-- something sus
 		math.randomseed(os.time(os.date("!*t")))
 		if math.random() < 0.1 then
+			-- something sus
 			asciiart = art.amogus
 		end
-
-		-- TODO: get number of characters for neovimlogo
-		-- asciiart = util.tbl_cpad(asciiart, #neovimlogo[1])
-		asciiart = util.tbl_cpad(asciiart, 120)
+		asciiart = util.tbl_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
 
 		local completesign = util.table_concat(neovimlogo, { "" }, asciiart)
 		dashboard.section.header.val = completesign
