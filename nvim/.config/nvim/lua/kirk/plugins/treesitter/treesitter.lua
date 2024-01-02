@@ -1,4 +1,6 @@
 local get_ensure_installed = function()
+	local util = require("util")
+
 	-- TODO: maybe use ENV variables
 	local base_parsers = {
 		"bash",
@@ -38,36 +40,33 @@ local get_ensure_installed = function()
 		"yaml",
 	}
 
-	if require("util").indocker() then
+	if util.indocker() then
 		return base_parsers
 	end
 
-	return {
-		unpack(base_parsers),
-		unpack({
-			"c",
-			"cpp",
-			"lua",
-			"cmake",
-			"luadoc",
-			"luap",
-			"luau",
-			"norg",
-			"ocaml",
-			"ocaml_interface",
-			"odin",
-			"rust",
-			"sxhkdrc",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"zig",
-			-- "bibtex",
-			-- "c_sharp",
-			-- "java",
-			-- "latex",
-		}),
-	}
+	return util.table_concat(base_parsers, {
+		"c",
+		"cpp",
+		"lua",
+		"cmake",
+		"luadoc",
+		"luap",
+		"luau",
+		"norg",
+		"ocaml",
+		"ocaml_interface",
+		"odin",
+		"rust",
+		"sxhkdrc",
+		"typescript",
+		"vim",
+		"vimdoc",
+		"zig",
+		-- "bibtex",
+		-- "c_sharp",
+		-- "java",
+		-- "latex",
+	})
 end
 
 local ensure_installed = get_ensure_installed()

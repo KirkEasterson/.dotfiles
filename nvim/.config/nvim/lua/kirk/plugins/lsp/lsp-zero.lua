@@ -1,4 +1,6 @@
 local get_ensure_installed = function()
+	local util = require("util")
+
 	-- TODO: maybe use ENV variables
 	local base_lsps = {
 		"bashls",
@@ -22,32 +24,29 @@ local get_ensure_installed = function()
 		"yamlls",
 	}
 
-	if require("util").indocker() then
+	if util.indocker() then
 		return base_lsps
 	end
 
-	return {
-		unpack(base_lsps),
-		unpack({
-			"ansiblels",
-			"asm_lsp", -- assembly
-			"cmake",
-			-- "csharp_ls",
-			-- "diagnosticls",
-			-- "fsautocomplete",
-			-- "hls", -- haskell
-			-- "jdtls", -- java
-			-- "kotlin_language_server",
-			"lua_ls",
-			"ocamllsp",
-			-- "omnisharp",
-			-- "rnix", -- nix
-			"rust_analyzer",
-			-- "texlab",
-			"vimls",
-			-- "zls", -- zig
-		}),
-	}
+	return util.table_concat(base_lsps, {
+		"ansiblels",
+		"asm_lsp", -- assembly
+		"cmake",
+		-- "csharp_ls",
+		-- "diagnosticls",
+		-- "fsautocomplete",
+		-- "hls", -- haskell
+		-- "jdtls", -- java
+		-- "kotlin_language_server",
+		"lua_ls",
+		"ocamllsp",
+		-- "omnisharp",
+		-- "rnix", -- nix
+		"rust_analyzer",
+		-- "texlab",
+		"vimls",
+		-- "zls", -- zig
+	})
 end
 
 local ensure_installed = get_ensure_installed()

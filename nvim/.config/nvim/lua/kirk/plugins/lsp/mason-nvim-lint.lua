@@ -1,4 +1,6 @@
 local get_ensure_installed = function()
+	local util = require("util")
+
 	-- TODO: maybe use ENV variables
 	local base_linters = {
 		"actionlint",
@@ -18,19 +20,16 @@ local get_ensure_installed = function()
 		"yamllint",
 	}
 
-	if require("util").indocker() then
+	if util.indocker() then
 		return base_linters
 	end
 
-	return {
-		unpack(base_linters),
-		unpack({
-			-- "ansible-lint",
-			"cmakelint",
-			"cpplint",
-			"luacheck",
-		}),
-	}
+	return util.table_concat(base_linters, {
+		-- "ansible-lint",
+		"cmakelint",
+		"cpplint",
+		"luacheck",
+	})
 end
 
 local ensure_installed = get_ensure_installed()

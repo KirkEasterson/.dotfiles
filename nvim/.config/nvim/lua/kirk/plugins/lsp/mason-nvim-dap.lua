@@ -1,4 +1,6 @@
 local get_ensure_installed = function()
+	local util = require("util")
+
 	-- TODO: maybe use ENV variables
 	local base_daps = {
 		"bash",
@@ -8,18 +10,15 @@ local get_ensure_installed = function()
 		"python",
 	}
 
-	if require("util").indocker() then
+	if util.indocker() then
 		return base_daps
 	end
 
-	return {
-		unpack(base_daps),
-		unpack({
-			"haskell",
-			"javadbg",
-			"kotlin",
-		}),
-	}
+	return util.table_concat(base_daps, {
+		"haskell",
+		"javadbg",
+		"kotlin",
+	})
 end
 
 local ensure_installed = get_ensure_installed()
