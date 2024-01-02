@@ -1,0 +1,2 @@
+" this can't include variables
+source ~/.config/vim/vimrc
