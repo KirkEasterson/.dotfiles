@@ -28,8 +28,11 @@ return {
 			},
 			neovim_state = {
 				enabled = true,
-				options = {},
 			},
 		},
+		terminal_handler = function(command)
+			print("---------------")
+			print(command)
+		end,
 	},
 }
