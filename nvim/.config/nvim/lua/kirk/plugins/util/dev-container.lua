@@ -23,6 +23,9 @@ return {
 				enabled = true,
 				-- options = { "readonly" },
 			},
+			neovim_data = {
+				enabled = true,
+			},
 			neovim_state = {
 				enabled = true,
 				options = {},
