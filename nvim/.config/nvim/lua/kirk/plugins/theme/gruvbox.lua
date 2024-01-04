@@ -2,11 +2,8 @@ return {
 	"ellisonleao/gruvbox.nvim",
 	version = "*",
 	lazy = false,
-	priority = 1000,
+	priority = 999,
 	opts = {
-		underline = true,
-		undercurl = true,
-		bold = true,
 		italic = {
 			operators = true,
 		},
