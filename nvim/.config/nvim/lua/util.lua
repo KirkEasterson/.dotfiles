@@ -8,6 +8,11 @@ _G.IS_WSL = IS_LINUX and uname.release:find("Microsoft") and true or false
 
 local M = {}
 
+--- helper function for vim.keymap.set
+---@param mode string|table vim mode
+---@param lhs string binding
+---@param rhs string|function action
+---@param opts table|nil options
 function M.map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
 	if opts then
@@ -16,6 +21,10 @@ function M.map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
+--- build string for printing entire contents of a table
+---@param tbl table
+---@param indent integer?
+---@return string
 function M.tprint(tbl, indent)
 	if not indent then
 		indent = 0
@@ -43,10 +52,16 @@ function M.tprint(tbl, indent)
 	return toprint
 end
 
+--- returns true if str has the prefix
+---@param text string
+---@param prefix string
+---@return boolean
 function M.startswith(text, prefix)
 	return text:find(prefix, 1, true) == 1
 end
 
+--- returns true if neovim is running in a docker container
+---@return boolean
 function M.indocker()
 	local handle = io.popen("head -n 1 /proc/1/sched")
 	if handle == nil then
@@ -62,6 +77,9 @@ function M.indocker()
 	return M.startswith(result, "bash") or M.startswith(result, "sh")
 end
 
+--- joins a variable number of tables into one table
+---@vararg table
+---@return table
 function M.table_concat(...)
 	local arg = { ... }
 	local result = {}
@@ -74,6 +92,11 @@ function M.table_concat(...)
 	return result
 end
 
+--- left-pads a string with a specified character
+---@param str string
+---@param len integer
+---@param char string?
+---@return string
 function M.lpad(str, len, char)
 	if char == nil then
 		char = " "
@@ -81,6 +104,11 @@ function M.lpad(str, len, char)
 	return str .. string.rep(char, len - #str)
 end
 
+--- right-pads a string with a specified character
+---@param str string
+---@param len integer
+---@param char string?
+---@return string
 function M.rpad(str, len, char)
 	if char == nil then
 		char = " "
@@ -88,6 +116,13 @@ function M.rpad(str, len, char)
 	return string.rep(char, len - #str) .. str
 end
 
+--- center-pads a string with a specified character. the resulting length will
+--- be either len or len+1 depending on whether str has an even number of
+--- display characters. if str is longer than len, then str will be returned
+---@param str string
+---@param len integer
+---@param char string?
+---@return string
 function M.cpad(str, len, char)
 	local str_len = vim.fn.strdisplaywidth(str)
 	if str_len >= len then
@@ -105,11 +140,17 @@ function M.cpad(str, len, char)
 	return str
 end
 
+--- center pads a table of strings with a specified character. all entries in
+--- the returned table will be the same length, except for string whose length
+--- is longer than len
+---@param tbl table<string>
+---@param len integer
+---@param char string?
+---@return table<string>
 function M.tbl_cpad(tbl, len, char)
 	for i = 1, #tbl do
 		tbl[i] = M.cpad(tbl[i], len, char)
 	end
-
 	return tbl
 end
 
