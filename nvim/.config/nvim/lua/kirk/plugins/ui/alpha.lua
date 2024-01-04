@@ -6,7 +6,7 @@ return {
 	},
 	cond = not vim.g.started_by_firenvim,
 	lazy = false,
-	priority = 999, -- 1 less than gruvbox
+	priority = 998, -- 1 less than gruvbox
 	config = function(_, opts)
 		local art = require("art")
 		local util = require("util")
@@ -33,7 +33,7 @@ return {
 
 		local asciiart = month_arts[os.date("*t").month]
 		math.randomseed(os.time(os.date("!*t")))
-		if math.random() < 0.1 then
+		if math.random() > 0.69 then
 			-- something sus
 			asciiart = art.amogus
 		end
