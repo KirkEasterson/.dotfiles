@@ -55,10 +55,6 @@ style = "Italic"
 family = "ComicCodeLigatures Nerd Font"
 style = "Regular"
 
-[font.offset]
-x = -1
-y = 0
-
 [[keyboard.bindings]]
 chars = "\u001B[27;3;9~"
 key = "Tab"
