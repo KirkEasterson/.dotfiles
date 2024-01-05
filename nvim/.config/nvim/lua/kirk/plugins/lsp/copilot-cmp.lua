@@ -4,11 +4,11 @@ return {
 	cond = not vim.g.started_by_firenvim,
 	event = {
 		"InsertEnter",
-		"LspAttach"
+		"LspAttach",
 	},
 	dependencies = {
 		"zbirenbaum/copilot.lua",
-		'hrsh7th/nvim-cmp',
+		"hrsh7th/nvim-cmp",
 	},
 	opts = {},
 }

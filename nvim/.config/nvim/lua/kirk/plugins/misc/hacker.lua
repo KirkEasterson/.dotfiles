@@ -8,6 +8,6 @@ return {
 		speed = {
 			min = 1,
 			max = 1,
-		}
+		},
 	},
 }

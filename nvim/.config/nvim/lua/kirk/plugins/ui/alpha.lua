@@ -37,16 +37,29 @@ return {
 			-- something sus
 			asciiart = art.amogus
 		end
-		asciiart = util.tbl_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
+		asciiart =
+			util.tbl_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
 
 		local completesign = util.table_concat(neovimlogo, { "" }, asciiart)
 		dashboard.section.header.val = completesign
 
 		dashboard.section.buttons.val = {
-			dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
+			dashboard.button(
+				"e",
+				"  > New file",
+				":ene <BAR> startinsert <CR>"
+			),
+			dashboard.button(
+				"f",
+				"󰈞  > Find file",
+				":Telescope find_files<CR>"
+			),
 			dashboard.button("o", "  > Recent", ":Telescope oldfiles<CR>"),
-			dashboard.button("r", "󰦛  > Restore session", ":SessionRestore<CR>"),
+			dashboard.button(
+				"r",
+				"󰦛  > Restore session",
+				":SessionRestore<CR>"
+			),
 			dashboard.button("t", "  > File tree", ":NvimTreeOpen<CR>"),
 			dashboard.button("q", "󰅚  > Quit NVIM", ":qa<CR>"),
 		}

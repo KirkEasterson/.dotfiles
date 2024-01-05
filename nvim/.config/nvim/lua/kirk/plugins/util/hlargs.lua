@@ -1,9 +1,9 @@
 return {
-	'm-demare/hlargs.nvim',
+	"m-demare/hlargs.nvim",
 	cond = vim.version().api_level < 10 and not vim.g.started_by_firenvim,
-	event = 'BufEnter',
+	event = "BufEnter",
 	dependencies = {
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 	},
 	opts = {},
 }

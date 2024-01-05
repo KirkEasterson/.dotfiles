@@ -1,5 +1,5 @@
 return {
-	'lukas-reineke/indent-blankline.nvim',
+	"lukas-reineke/indent-blankline.nvim",
 	cond = not vim.g.started_by_firenvim,
 	version = "v2.*",
 	-- version = "Version 3.*", -- uncomment for v3

@@ -1,5 +1,5 @@
 return {
-	'kdheepak/lazygit.nvim',
+	"kdheepak/lazygit.nvim",
 	cond = not vim.g.started_by_firenvim,
 	cmd = {
 		"LazyGit",
@@ -12,7 +12,7 @@ return {
 		{
 			"<leader>lg",
 			function()
-				require('lazygit').lazygit()
+				require("lazygit").lazygit()
 			end,
 			desc = "Lazygit",
 		},

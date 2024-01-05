@@ -1,5 +1,5 @@
 return {
-	'petertriho/nvim-scrollbar',
+	"petertriho/nvim-scrollbar",
 	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	dependencies = {
@@ -10,6 +10,6 @@ return {
 		hide_if_all_visible = true,
 		handlers = {
 			gitsigns = true,
-		}
+		},
 	},
 }

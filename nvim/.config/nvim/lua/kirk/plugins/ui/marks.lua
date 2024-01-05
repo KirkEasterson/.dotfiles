@@ -16,27 +16,27 @@ return {
 	},
 	keys = {
 		{
-			'm,',
+			"m,",
 			desc = "Set next available mark",
 		},
 		{
-			'm;',
+			"m;",
 			desc = "Toggle next available mark",
 		},
 		{
-			'm', -- Then and  a character. Visit mark by 'x or `x
+			"m", -- Then and  a character. Visit mark by 'x or `x
 			desc = "Add mark",
 		},
 		{
-			'dm', -- And then a character
+			"dm", -- And then a character
 			desc = "Delete mark",
 		},
 		{
-			'dm-',
+			"dm-",
 			desc = "Delete all marks in current line",
 		},
 		{
-			'dm<Space>',
+			"dm<Space>",
 			desc = "Delete all marks in current buffer",
 		},
 	},

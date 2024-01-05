@@ -1,11 +1,11 @@
 return {
-	'antosha417/nvim-lsp-file-operations',
+	"antosha417/nvim-lsp-file-operations",
 	cond = not vim.g.started_by_firenvim,
 	enabled = false,
-	event = 'VeryLazy',
+	event = "VeryLazy",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ 'nvim-tree/nvim-tree.lua' },
+		{ "nvim-tree/nvim-tree.lua" },
 	},
 	opts = {},
 }

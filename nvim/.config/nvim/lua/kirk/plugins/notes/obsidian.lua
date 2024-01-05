@@ -6,7 +6,9 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 	event = {
-		"BufReadPre " .. vim.fn.expand("~") .. "/Documents/obsidian/vaults/*/**.md",
+		"BufReadPre "
+			.. vim.fn.expand("~")
+			.. "/Documents/obsidian/vaults/*/**.md",
 	},
 	cmd = {
 		"ObsidianBacklinks", -- location list of refs to current buffer

@@ -8,29 +8,42 @@ return {
 	keys = {
 		{
 			"g?p",
-			function() require('debugprint').debugprint() end,
+			function()
+				require("debugprint").debugprint()
+			end,
 			desc = "Debug print line below",
 		},
 		{
 			"g?P",
-			function() require('debugprint').debugprint({ above = true }) end,
+			function()
+				require("debugprint").debugprint({ above = true })
+			end,
 			desc = "Debug print line above",
 		},
 		{
 			"g?v",
-			function() require('debugprint').debugprint({ variable = true }) end,
+			function()
+				require("debugprint").debugprint({ variable = true })
+			end,
 			mode = { "n", "v" },
 			desc = "Debug print variable below",
 		},
 		{
 			"g?V",
-			function() require('debugprint').debugprint({ variable = true, above = true }) end,
+			function()
+				require("debugprint").debugprint({
+					variable = true,
+					above = true,
+				})
+			end,
 			mode = { "n", "v" },
 			desc = "Debug print variable above",
 		},
 		{
 			"g?d",
-			function() require('debugprint').deleteprints() end,
+			function()
+				require("debugprint").deleteprints()
+			end,
 			desc = "Clear debug prints",
 		},
 	},

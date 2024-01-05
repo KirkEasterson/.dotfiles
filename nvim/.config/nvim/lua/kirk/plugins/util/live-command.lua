@@ -7,7 +7,7 @@ return {
 	opts = {
 		commands = {
 			Norm = {
-				cmd = "norm"
+				cmd = "norm",
 			},
 		},
 	},

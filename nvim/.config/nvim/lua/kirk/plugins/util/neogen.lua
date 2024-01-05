@@ -7,7 +7,9 @@ return {
 	keys = {
 		{
 			"<leader>ng",
-			function() require('neogen').generate() end,
+			function()
+				require("neogen").generate()
+			end,
 			desc = "Generate docs",
 		},
 	},

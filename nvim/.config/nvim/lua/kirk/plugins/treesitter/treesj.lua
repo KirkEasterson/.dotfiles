@@ -1,8 +1,8 @@
 return {
-	'Wansmer/treesj',
+	"Wansmer/treesj",
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
-		'nvim-treesitter/nvim-treesitter'
+		"nvim-treesitter/nvim-treesitter",
 	},
 	cmd = {
 		"TSJToggle",
@@ -11,9 +11,9 @@ return {
 	},
 	keys = {
 		{
-			'<leader>J',
+			"<leader>J",
 			function()
-				require('treesj').toggle()
+				require("treesj").toggle()
 			end,
 			desc = "Split/join line",
 		},

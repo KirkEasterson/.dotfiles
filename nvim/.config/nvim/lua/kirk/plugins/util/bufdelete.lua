@@ -1,5 +1,5 @@
 return {
-	'famiu/bufdelete.nvim',
+	"famiu/bufdelete.nvim",
 	cond = not vim.g.started_by_firenvim,
 	enabled = false, -- TODO: replace with a simple binding
 	cmd = {
@@ -8,9 +8,11 @@ return {
 	},
 	keys = {
 		{
-			'<C-w>',
-			function() require('bufdelete').bufdelete(0, false) end,
+			"<C-w>",
+			function()
+				require("bufdelete").bufdelete(0, false)
+			end,
 			desc = "Delete current buffer",
-		}
+		},
 	},
 }

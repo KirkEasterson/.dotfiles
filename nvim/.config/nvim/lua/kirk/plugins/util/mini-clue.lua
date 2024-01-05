@@ -1,5 +1,5 @@
 return {
-	'echasnovski/mini.clue',
+	"echasnovski/mini.clue",
 	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	event = "VimEnter",

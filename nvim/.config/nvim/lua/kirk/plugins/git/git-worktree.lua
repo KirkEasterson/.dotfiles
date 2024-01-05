@@ -1,19 +1,23 @@
 return {
-	'ThePrimeagen/git-worktree.nvim',
+	"ThePrimeagen/git-worktree.nvim",
 	cond = not vim.g.started_by_firenvim,
 	enabled = false,
 	dependencies = {
-		'nvim-telescope/telescope.nvim',
+		"nvim-telescope/telescope.nvim",
 	},
 	keys = {
 		{
 			"<leader>gw",
-			function() require('telescope').extensions.git_worktree.git_worktrees() end,
+			function()
+				require("telescope").extensions.git_worktree.git_worktrees()
+			end,
 			desc = "Git worktrees",
 		},
 		{
 			"<leader>gW",
-			function() require('telescope').extensions.git_worktree.create_git_worktree() end,
+			function()
+				require("telescope").extensions.git_worktree.create_git_worktree()
+			end,
 			desc = "Create git worktree",
 		},
 	},
@@ -22,8 +26,8 @@ return {
 		update_on_change = false,
 		-- update_on_new_worktree = update_on_new_worktree,
 	},
-	config = function(_,opts)
-		require('git-worktree').setup(opts)
+	config = function(_, opts)
+		require("git-worktree").setup(opts)
 		local update_on_new_worktree = function(op, metadata)
 			vim.api.nvim_command("SessionRestore")
 			-- TODO: add handling for when a session can't be restored

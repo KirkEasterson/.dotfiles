@@ -4,5 +4,5 @@ return {
 	event = "VeryLazy",
 	opts = {
 		-- stop_invisible = true,
-	}
+	},
 }

@@ -1,7 +1,7 @@
 return {
-	'echasnovski/mini.ai',
+	"echasnovski/mini.ai",
 	enabled = false,
 	event = "BufEnter",
-	version = '*',
+	version = "*",
 	opts = {},
 }

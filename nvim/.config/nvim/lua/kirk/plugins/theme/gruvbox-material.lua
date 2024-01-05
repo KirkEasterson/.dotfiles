@@ -1,7 +1,7 @@
 return {
-	'sainnhe/gruvbox-material',
+	"sainnhe/gruvbox-material",
 	dependencies = {
-		'ellisonleao/gruvbox.nvim',
+		"ellisonleao/gruvbox.nvim",
 	},
 	enabled = false,
 	lazy = false,

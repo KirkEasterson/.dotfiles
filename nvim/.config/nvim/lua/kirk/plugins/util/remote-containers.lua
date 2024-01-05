@@ -1,5 +1,5 @@
 return {
-	'jamestthompson3/nvim-remote-containers',
+	"jamestthompson3/nvim-remote-containers",
 	cond = not vim.g.started_by_firenvim,
 	cmd = {
 		"AttachToContainer",

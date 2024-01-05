@@ -107,7 +107,11 @@ return {
 			})
 
 			-- for nvim < v0.8.1
-			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+			vim.api.nvim_buf_set_option(
+				bufnr,
+				"omnifunc",
+				"v:lua.vim.lsp.omnifunc"
+			)
 
 			-- for ufo folding
 			client.server_capabilities.textDocument = {
@@ -153,7 +157,12 @@ return {
 				client.server_capabilities.semanticTokensProvider = nil
 				on_attach(client, bufnr)
 			end,
-			cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+			cmd = {
+				"omnisharp",
+				"--languageserver",
+				"--hostPID",
+				tostring(vim.fn.getpid()),
+			},
 			enable_import_completion = true,
 			organize_imports_on_format = true,
 		})
@@ -164,6 +173,7 @@ return {
 					env = {
 						GOFLAGS = "-tags=windows,linux,unittest,e2e",
 					},
+					-- buildFlags = { "-tags=windows,linux,unittest,e2e" },
 				},
 			},
 		})

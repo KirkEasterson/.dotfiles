@@ -108,10 +108,24 @@ return {
 				{
 					name = "npm",
 					keyword_length = 4,
-					ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" },
+					ft = {
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+						"json",
+					},
 				},
-				{ name = "dictionary", keyword_length = 3, ft = { "text", "markdown" } },
-				{ name = "spell", keyword_length = 3, ft = { "text", "markdown" } },
+				{
+					name = "dictionary",
+					keyword_length = 3,
+					ft = { "text", "markdown" },
+				},
+				{
+					name = "spell",
+					keyword_length = 3,
+					ft = { "text", "markdown" },
+				},
 				-- { name = 'copilot', keyword_length = 3 },
 			}, {
 				{ name = "buffer" },
@@ -135,6 +149,9 @@ return {
 			}),
 		})
 
-		cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+		cmp.event:on(
+			"confirm_done",
+			require("nvim-autopairs.completion.cmp").on_confirm_done()
+		)
 	end,
 }

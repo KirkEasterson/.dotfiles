@@ -1,5 +1,5 @@
 return {
-	'folke/zen-mode.nvim',
+	"folke/zen-mode.nvim",
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
 		"folke/twilight.nvim",
@@ -9,7 +9,7 @@ return {
 		{
 			"<leader>ZM",
 			function()
-				require('zen-mode').toggle()
+				require("zen-mode").toggle()
 			end,
 			desc = "Toggle zen mode",
 		},
@@ -27,7 +27,7 @@ return {
 				ruler = true,
 			},
 			tmux = {
-				enabled = true
+				enabled = true,
 			},
 			wezterm = {
 				enabled = true,

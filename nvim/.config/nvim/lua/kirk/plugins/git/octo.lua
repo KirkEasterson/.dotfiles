@@ -15,27 +15,27 @@ return {
 		},
 		{
 			"<leader>opl",
-			'<Cmd>Octo pr list<CR>',
+			"<Cmd>Octo pr list<CR>",
 			desc = "Octo - PR - list",
 		},
 		{
 			"<leader>ops",
-			'<Cmd>Octo pr search<CR>',
+			"<Cmd>Octo pr search<CR>",
 			desc = "Octo - PR - search",
 		},
 		{
 			"<leader>opc",
-			'<Cmd>Octo pr create<CR>',
+			"<Cmd>Octo pr create<CR>",
 			desc = "Octo - PR - create",
 		},
 		{
 			"<leader>opo",
-			'<Cmd>Octo pr checkout<CR>',
+			"<Cmd>Octo pr checkout<CR>",
 			desc = "Octo - PR - checkout",
 		},
 		{
 			"<leader>opd",
-			'<Cmd>Octo pr diff<CR>',
+			"<Cmd>Octo pr diff<CR>",
 			desc = "Octo - PR - diff",
 		},
 
@@ -46,12 +46,12 @@ return {
 		},
 		{
 			"<leader>oca",
-			'<Cmd>Octo comment add<CR>',
+			"<Cmd>Octo comment add<CR>",
 			desc = "Octo - comment - add",
 		},
 		{
 			"<leader>ocd",
-			'<Cmd>Octo comment delete<CR>',
+			"<Cmd>Octo comment delete<CR>",
 			desc = "Octo - comment - delete",
 		},
 
@@ -62,12 +62,12 @@ return {
 		},
 		{
 			"<leader>otr",
-			'<Cmd>Octo thread resolve<CR>',
+			"<Cmd>Octo thread resolve<CR>",
 			desc = "Octo - thread - resolve",
 		},
 		{
 			"<leader>otu",
-			'<Cmd>Octo thread unresolve<CR>',
+			"<Cmd>Octo thread unresolve<CR>",
 			desc = "Octo - thread - unresolve",
 		},
 
@@ -78,17 +78,17 @@ return {
 		},
 		{
 			"<leader>ors",
-			'<Cmd>Octo review start<CR>',
+			"<Cmd>Octo review start<CR>",
 			desc = "Octo - review - start",
 		},
 		{
 			"<leader>oru",
-			'<Cmd>Octo review submit<CR>',
+			"<Cmd>Octo review submit<CR>",
 			desc = "Octo - review - submit",
 		},
 		{
 			"<leader>orc",
-			'<Cmd>Octo review close<CR>',
+			"<Cmd>Octo review close<CR>",
 			desc = "Octo - review - close",
 		},
 
@@ -99,54 +99,54 @@ return {
 		},
 		{
 			"<leader>oeu",
-			'<Cmd>Octo reaction thumbs_up<CR>',
+			"<Cmd>Octo reaction thumbs_up<CR>",
 			desc = "Octo - reaction - 👍",
 		},
 		{
 			"<leader>oed",
-			'<Cmd>Octo reaction thumbs_down<CR>',
+			"<Cmd>Octo reaction thumbs_down<CR>",
 			desc = "Octo - reaction - 👎",
 		},
 		{
 			"<leader>oee",
-			'<Cmd>Octo reaction eyes<CR>',
+			"<Cmd>Octo reaction eyes<CR>",
 			desc = "Octo - reaction - 👀",
 		},
 		{
 			"<leader>oel",
-			'<Cmd>Octo reaction laugh<CR>',
+			"<Cmd>Octo reaction laugh<CR>",
 			desc = "Octo - reaction - 😄",
 		},
 		{
 			"<leader>oec",
-			'<Cmd>Octo reaction confused<CR>',
+			"<Cmd>Octo reaction confused<CR>",
 			desc = "Octo - reaction - 😕",
 		},
 		{
 			"<leader>oer",
-			'<Cmd>Octo reaction rocket<CR>',
+			"<Cmd>Octo reaction rocket<CR>",
 			desc = "Octo - reaction - 🚀",
 		},
 		{
 			"<leader>oeh",
-			'<Cmd>Octo reaction heart<CR>',
+			"<Cmd>Octo reaction heart<CR>",
 			desc = "Octo - reaction - ❤️",
 		},
 		{
 			"<leader>oet",
-			'<Cmd>Octo reaction tada<CR>',
+			"<Cmd>Octo reaction tada<CR>",
 			desc = "Octo - reaction - 🎉",
 		},
 
 		-- misc
 		{
 			"<leader>oa",
-			'<Cmd>Octo actions<CR>',
+			"<Cmd>Octo actions<CR>",
 			desc = "Octo - actions",
 		},
 		{
 			"<leader>os",
-			'<Cmd>Octo search<CR>',
+			"<Cmd>Octo search<CR>",
 			desc = "Octo - search",
 		},
 	},

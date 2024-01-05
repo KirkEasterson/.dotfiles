@@ -65,7 +65,7 @@ util.map("x", "<leader>p", function() -- paste without rewriting register
 	local act_last_col = vim.fn.col("$") - 1
 	local is_last_char_selected = end_col == act_last_col
 
-	local paste_cmd = is_last_char_selected and "\"_dp" or "\"_dP"
+	local paste_cmd = is_last_char_selected and '"_dp' or '"_dP'
 	vim.cmd({
 		cmd = "normal",
 		args = {

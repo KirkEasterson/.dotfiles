@@ -1,30 +1,34 @@
 return {
-	'toppair/peek.nvim',
+	"toppair/peek.nvim",
 	cond = not vim.g.started_by_firenvim,
 	enabled = false,
-	build = 'deno task --quiet build:fast',
+	build = "deno task --quiet build:fast",
 	keys = {
 		{
 			"<leader>mdp",
-			function() require('peek').open() end,
+			function()
+				require("peek").open()
+			end,
 			desc = "Open markdown preview",
 		},
 		{
 			"<leader>mds",
-			function() require('peek').close() end,
+			function()
+				require("peek").close()
+			end,
 			desc = "Close markdown preview",
 		},
 		{
 			"<leader>mdt",
 			function()
-				local peek = require('peek')
+				local peek = require("peek")
 				if peek.is_open() then
 					peek.close()
 				else
 					peek.open()
 				end
 			end,
-			desc = "Toggle markdown preview"
+			desc = "Toggle markdown preview",
 		},
 	},
 	opts = {},

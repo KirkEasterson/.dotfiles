@@ -12,7 +12,8 @@ return {
 		"T2ChuffleAccents",
 	},
 	config = function(_, _)
-		local handle = io.popen("op read op://personal/OpenAI/password --no-newline")
+		local handle =
+			io.popen("op read op://personal/OpenAI/password --no-newline")
 		local openai_api_key = handle:read("*a")
 		handle:close()
 
@@ -30,5 +31,5 @@ return {
 				"text-to-colorscheme",
 			},
 		})
-	end
+	end,
 }

@@ -1,12 +1,12 @@
 return {
-	'ruifm/gitlinker.nvim',
+	"ruifm/gitlinker.nvim",
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
-		'nvim-lua/plenary.nvim',
+		"nvim-lua/plenary.nvim",
 	},
 	keys = {
 		{
-			'<leader>gy',
+			"<leader>gy",
 			mode = { "n", "v" },
 			desc = "Copy git URL",
 		},

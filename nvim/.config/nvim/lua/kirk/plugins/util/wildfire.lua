@@ -3,7 +3,7 @@ return {
 	enabled = false,
 	cond = not vim.g.started_by_firenvim,
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter"
+		"nvim-treesitter/nvim-treesitter",
 	},
 	opts = {},
 }

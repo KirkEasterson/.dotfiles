@@ -1,5 +1,5 @@
 return {
-	'kamykn/spelunker.vim',
+	"kamykn/spelunker.vim",
 	ft = {
 		"markdown",
 		"text",
@@ -12,8 +12,15 @@ return {
 		vim.api.nvim_set_var("spelunker_check_type", 2)
 		vim.api.nvim_set_var("spelunker_highlight_type", 1)
 		vim.api.nvim_set_var("spelunker_spell_bad_group", "SpelunkerSpellBad")
-		vim.api.nvim_set_var("spelunker_complex_or_compound_word_group", "SpelunkerComplexOrCompoundWord")
-		vim.cmd([[highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=undercurl guifg=NONE]])
-		vim.cmd([[highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=undercurl guifg=NONE]])
+		vim.api.nvim_set_var(
+			"spelunker_complex_or_compound_word_group",
+			"SpelunkerComplexOrCompoundWord"
+		)
+		vim.cmd(
+			[[highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=undercurl guifg=NONE]]
+		)
+		vim.cmd(
+			[[highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=undercurl guifg=NONE]]
+		)
 	end,
 }

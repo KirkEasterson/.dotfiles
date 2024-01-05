@@ -5,7 +5,7 @@ return {
 	keys = {
 		{
 			"<leader>ht",
-			function ()
+			function()
 				require("hardtime").toggle()
 			end,
 			desc = "Toggle hardtime",
