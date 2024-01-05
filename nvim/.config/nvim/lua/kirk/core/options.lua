@@ -40,8 +40,10 @@ end
 
 -- enable builtin plugins
 local builtin_plugins = {
-	"matchparen",
 	"matchbracket",
+	"matchparen",
+	"node_provider",
+	"perl_provider",
 }
 for _, v in pairs(builtin_plugins) do
 	g["loaded_" .. v] = false
