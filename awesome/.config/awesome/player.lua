@@ -6,17 +6,17 @@ local player = Playerctl.Player({})
 local playerctl_widget = wibox.widget.textbox()
 
 update_metadata = function()
-	if player:get_title() then
-		playerctl_widget:set_text(player:get_artist() .. " – " .. player:get_title())
-	else
-		playerctl_widget:set_text("-")
-	end
+  if player:get_title() then
+    playerctl_widget:set_text(player:get_artist() .. " – " .. player:get_title())
+  else
+    playerctl_widget:set_text("-")
+  end
 end
 
 player.on_metadata = update_metadata
 
 playerctl_widget:connect_signal("button::press", function()
-	player:play_pause()
+  player:play_pause()
 end)
 
 update_metadata()
