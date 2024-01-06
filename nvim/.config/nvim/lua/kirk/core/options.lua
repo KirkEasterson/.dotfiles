@@ -6,83 +6,83 @@ g.maplocalleader = " " -- secondary prefix key
 
 -- disable builtin plugins
 local builtin_plugins = {
-	"2html_plugin",
-	"bugreport",
-	"compiler",
-	"ftplugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	-- "matchbracket",
-	-- "matchit",
-	-- "matchparen",
-	"netrw",
-	"netrwFileHandlers",
-	"netrwPlugin",
-	"netrwSettings",
-	"optwin",
-	"rplugin",
-	"rrhelper",
-	"spellfile_plugin",
-	"synmenu",
-	"tar",
-	"tarPlugin",
-	"tutor",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
+  "2html_plugin",
+  "bugreport",
+  "compiler",
+  "ftplugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  -- "matchbracket",
+  -- "matchit",
+  -- "matchparen",
+  "netrw",
+  "netrwFileHandlers",
+  "netrwPlugin",
+  "netrwSettings",
+  "optwin",
+  "rplugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "synmenu",
+  "tar",
+  "tarPlugin",
+  "tutor",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
 }
 for _, v in pairs(builtin_plugins) do
-	g["loaded_" .. v] = true
+  g["loaded_" .. v] = true
 end
 
 -- enable builtin plugins
 local builtin_plugins = {
-	"matchbracket",
-	"matchparen",
-	"node_provider",
-	"perl_provider",
+  "matchbracket",
+  "matchparen",
+  "node_provider",
+  "perl_provider",
 }
 for _, v in pairs(builtin_plugins) do
-	g["loaded_" .. v] = false
+  g["loaded_" .. v] = false
 end
 
 -- neovide
 if g.neovide then
-	vim.o.guifont = "ComicCodeLigatures Nerd Font, Ubuntu Mono Nerd Font:h7"
-	g.neovide_input_macos_alt_is_meta = true
-	g.neovide_input_macos_alt_is_meta = true
-	g.neovide_refresh_rate = 60
-	g.neovide_refresh_rate_idle = 5
-	g.neovide_remember_window_size = false
+  vim.o.guifont = "ComicCodeLigatures Nerd Font, Ubuntu Mono Nerd Font:h7"
+  g.neovide_input_macos_alt_is_meta = true
+  g.neovide_input_macos_alt_is_meta = true
+  g.neovide_refresh_rate = 60
+  g.neovide_refresh_rate_idle = 5
+  g.neovide_remember_window_size = false
 end
 
 opt.wildignore:append({
-	"*.aux",
-	"*.bbl",
-	"*.blg",
-	"*.cls",
-	"*.fdb",
-	"*.fdb_latexmk",
-	"*.fls",
-	"*.glo",
-	"*.ist",
-	"*.log",
-	"*.o",
-	"*.out",
-	"*.pyc",
-	"*.toc",
-	"*pycache*",
-	"*~",
-	"Cargo.Bazel.lock",
-	"Cargo.lock",
-	"__pycache__",
-	"__site",
-	"node_modules",
-	"target",
-	"venv",
+  "*.aux",
+  "*.bbl",
+  "*.blg",
+  "*.cls",
+  "*.fdb",
+  "*.fdb_latexmk",
+  "*.fls",
+  "*.glo",
+  "*.ist",
+  "*.log",
+  "*.o",
+  "*.out",
+  "*.pyc",
+  "*.toc",
+  "*pycache*",
+  "*~",
+  "Cargo.Bazel.lock",
+  "Cargo.lock",
+  "__pycache__",
+  "__site",
+  "node_modules",
+  "target",
+  "venv",
 })
 
 opt.title = true
@@ -137,24 +137,24 @@ opt.wildmode = { "full", "list", "longest" }
 
 opt.list = true -- enable rendering of listchars
 opt.listchars:append({
-	extends = "…",
-	lead = " ",
-	precedes = "…",
-	tab = "  ", -- this must be two characters
-	trail = "▒",
+  extends = "…",
+  lead = " ",
+  precedes = "…",
+  tab = "  ", -- this must be two characters
+  trail = "▒",
 
-	-- use the below line to simulate indent-blankline
-	--	it won't be visible on empty-lines though
-	-- leadmultispace = "│ ",
-	-- multispace     = "│ ",
-	-- tab            = "│ ", -- this must be two characters
+  -- use the below line to simulate indent-blankline
+  --	it won't be visible on empty-lines though
+  -- leadmultispace = "│ ",
+  -- multispace     = "│ ",
+  -- tab            = "│ ", -- this must be two characters
 })
 opt.fillchars:append({
-	eob = " ",
-	fold = " ",
-	foldclose = "󰅂",
-	foldopen = "󰅀",
-	foldsep = "",
+  eob = " ",
+  fold = " ",
+  foldclose = "󰅂",
+  foldopen = "󰅀",
+  foldsep = "",
 })
 
 opt.swapfile = false -- don't create swap files
@@ -174,10 +174,6 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- TODO: is this even necessary
 if vim.env.TERM == "xterm-kitty" then
-	vim.cmd(
-		[[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]]
-	)
-	vim.cmd(
-		[[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]]
-	)
+  vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
+  vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
 end

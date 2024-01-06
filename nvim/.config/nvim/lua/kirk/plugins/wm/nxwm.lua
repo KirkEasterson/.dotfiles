@@ -1,5 +1,5 @@
 return {
-	"altermo/nxwm",
-	enabled = false,
-	opts = {},
+  "altermo/nxwm",
+  enabled = false,
+  opts = {},
 }

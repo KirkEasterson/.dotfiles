@@ -39,14 +39,14 @@ util.map("n", "J", "mzJ`z")
 util.map("n", "[q", vim.cmd.cprev, { desc = "Quickfix - prev" })
 util.map("n", "]q", vim.cmd.cnext, { desc = "Quickfix - next" })
 util.map("n", "<leader>ct", function()
-	local windows = vim.fn.getwininfo()
-	for _, win in pairs(windows) do
-		if win["quickfix"] == 1 then
-			vim.cmd.cclose()
-			return
-		end
-	end
-	vim.cmd.copen()
+  local windows = vim.fn.getwininfo()
+  for _, win in pairs(windows) do
+    if win["quickfix"] == 1 then
+      vim.cmd.cclose()
+      return
+    end
+  end
+  vim.cmd.copen()
 end, { desc = "Quickfix - toggle" })
 
 -- easier yanking/pasting
@@ -55,25 +55,25 @@ util.map("n", "Y", "y$") -- Y to behave like other capitals
 util.map("n", "p", "p=`]") -- paste with formatting
 util.map("n", "P", "P=`]") -- paste with formatting
 util.map("x", "<leader>p", function() -- paste without rewriting register
-	-- get current column number
-	local col_num = vim.fn.col(".")
+  -- get current column number
+  local col_num = vim.fn.col(".")
 
-	-- get end column of the visual selection
-	local end_col = vim.fn.visualmode() == "V" and vim.fn.col("'>") or col_num
+  -- get end column of the visual selection
+  local end_col = vim.fn.visualmode() == "V" and vim.fn.col("'>") or col_num
 
-	-- check if last character in the line is selected
-	local act_last_col = vim.fn.col("$") - 1
-	local is_last_char_selected = end_col == act_last_col
+  -- check if last character in the line is selected
+  local act_last_col = vim.fn.col("$") - 1
+  local is_last_char_selected = end_col == act_last_col
 
-	local paste_cmd = is_last_char_selected and '"_dp' or '"_dP'
-	vim.cmd({
-		cmd = "normal",
-		args = {
-			paste_cmd,
-		},
-	})
+  local paste_cmd = is_last_char_selected and "\"_dp" or "\"_dP"
+  vim.cmd({
+    cmd = "normal",
+    args = {
+      paste_cmd,
+    },
+  })
 end, { desc = "Intuitive paste" })
 
 util.map("n", "tl", function() -- toggle relative line numbers
-	vim.wo.relativenumber = not vim.wo.relativenumber
+  vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = "Toggle relative linenumbers" })

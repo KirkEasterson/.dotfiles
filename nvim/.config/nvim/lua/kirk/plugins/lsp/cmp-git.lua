@@ -1,7 +1,7 @@
 return {
-	"petertriho/cmp-git",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	opts = {},
+  "petertriho/cmp-git",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+  opts = {},
 }
