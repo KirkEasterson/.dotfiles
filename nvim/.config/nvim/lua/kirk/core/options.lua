@@ -121,7 +121,7 @@ opt.colorcolumn = "80" -- show line for 80char soft-limit
 
 opt.tabstop = 4 -- number of visual spaces per tab
 opt.softtabstop = 4 -- number of spaces in tab when editing
-opt.shiftwidth = 4 -- number of spaces when indenting with <>
+opt.shiftwidth = 4 -- number of spaces when indenting with <> keys
 
 opt.mouse = "a" -- enable mouse for scrolling and resizing
 opt.mousehide = true
