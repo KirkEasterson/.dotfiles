@@ -1,5 +1,6 @@
 return {
   "monaqa/dial.nvim",
+  enabled = false,
   cmd = {
     "DialIncrement",
     "DialDecrement",
