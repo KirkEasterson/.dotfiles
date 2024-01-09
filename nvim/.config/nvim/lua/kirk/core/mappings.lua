@@ -18,7 +18,7 @@ util.map("n", "N", "Nzz")
 util.map("n", "<X1Mouse>", "<C-o>")
 util.map("n", "<X2Mouse>", "<C-i>")
 
--- unutil.map middle-click paste
+-- unmap middle-click paste
 util.map("n", "<MiddleMouse>", function() end)
 
 -- faster save and quits
@@ -74,6 +74,7 @@ util.map("x", "<leader>p", function() -- paste without rewriting register
   })
 end, { desc = "Intuitive paste" })
 
-util.map("n", "tl", function() -- toggle relative line numbers
+-- toggle relative line numbers
+util.map("n", "tl", function()
   vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = "Toggle relative linenumbers" })
