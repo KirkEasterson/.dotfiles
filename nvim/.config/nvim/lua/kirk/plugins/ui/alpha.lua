@@ -33,7 +33,7 @@ return {
 
     local asciiart = month_arts[os.date("*t").month]
     math.randomseed(os.time(os.date("!*t")))
-    if math.random() > 0.69 then
+    if math.random() < 0.05 then
       -- something sus
       asciiart = art.amogus
     end
