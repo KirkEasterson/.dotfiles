@@ -1,6 +1,6 @@
 local util = require("util")
 
--- QOL util.mapping to type commands without needing shift
+-- QOL util.mapping to type commands without needing shift (US-like keyboards only)
 util.map("n", ";", ":")
 util.map("n", ":", ";")
 util.map("v", ";", ":")
