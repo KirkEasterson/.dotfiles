@@ -157,6 +157,9 @@ opt.fillchars:append({
   foldsep = "",
 })
 
+-- short messages
+vim.opt.shortmess:append("IWsA")
+
 opt.swapfile = false -- don't create swap files
 
 opt.splitright = true --  splits open to the right
