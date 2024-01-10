@@ -6,6 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     -- "nvim-telescope/telescope-fzy-native.nvim",
     "nvim-telescope/telescope-fzf-native.nvim",
+    "folke/trouble.nvim",
   },
   cmd = {
     "Telescope",
@@ -232,6 +233,12 @@ return {
     },
   },
   config = function(_, opts)
+    local trouble = require("trouble.providers.telescope")
+    opts.defaults.mappings = {
+      i = { ["<c-t>"] = trouble.open_with_trouble },
+      n = { ["<c-t>"] = trouble.open_with_trouble },
+    }
+
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("fzf")

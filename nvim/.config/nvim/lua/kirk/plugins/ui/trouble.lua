@@ -1,6 +1,5 @@
 return {
   "folke/trouble.nvim",
-  enabled = false,
   cond = not vim.g.started_by_firenvim,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
@@ -13,24 +12,60 @@ return {
   },
   keys = {
     {
-      "<leader><leader>o",
-      vim.cmd.TroubleToggle,
-      desc = "Trouble",
+      "<leader>ct",
+      function()
+        require("trouble").toggle()
+      end,
+      desc = "Trouble - toggle",
+    },
+    {
+      "[q",
+      function()
+        require("trouble").previous({ skip_groups = true, jump = true })
+      end,
+      desc = "Trouble - prev",
+    },
+    {
+      "]q",
+      function()
+        require("trouble").next({ skip_groups = true, jump = true })
+      end,
+      desc = "Trouble - next",
+    },
+    {
+      "[Q",
+      function()
+        require("trouble").first({ skip_groups = true, jump = true })
+      end,
+      desc = "Trouble - first",
+    },
+    {
+      "]Q",
+      function()
+        require("trouble").last({ skip_groups = true, jump = true })
+      end,
+      desc = "Trouble - last",
     },
     -- {
-    -- 	"gr",
-    -- 	"<cmd>TroubleToggle lsp_references<CR>",
-    -- 	desc = "List references",
+    --   "gr",
+    --   function()
+    --     require("trouble").toggle("lsp_references")
+    --   end,
+    --   desc = "List references",
     -- },
     -- {
-    -- 	"gd",
-    -- 	"<cmd>TroubleToggle lsp_definitions<CR>",
-    -- 	desc = "Definition",
+    --   "gd",
+    --   function()
+    --     require("trouble").toggle("lsp_definitions")
+    --   end,
+    --   desc = "Definition",
     -- },
     -- {
-    -- 	"gt",
-    -- 	"<cmd>TroubleToggle lsp_type_definitions<CR>",
-    -- 	desc = "Type definition",
+    --   "gt",
+    --   function()
+    --     require("trouble").toggle("lsp_type_definitions")
+    --   end,
+    --   desc = "Type definition",
     -- },
   },
   opts = {
