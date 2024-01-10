@@ -40,4 +40,7 @@ return {
   opts = {
     lessNotifications = false,
   },
+  init = function()
+    vim.opt.shortmess:append("q")
+  end,
 }
