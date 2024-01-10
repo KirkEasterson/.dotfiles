@@ -25,6 +25,7 @@ local get_ensure_installed = function()
     "json",
     "json5",
     "jsonc",
+    "lua",
     "make",
     "markdown",
     "markdown_inline",
@@ -36,6 +37,7 @@ local get_ensure_installed = function()
     "toml",
     "tsv",
     "typescript",
+    "vim",
     "xml",
     "yaml",
   }
@@ -47,7 +49,6 @@ local get_ensure_installed = function()
   return util.table_concat(base_parsers, {
     "c",
     "cpp",
-    "lua",
     "cmake",
     "luadoc",
     "luap",
@@ -59,7 +60,6 @@ local get_ensure_installed = function()
     "rust",
     "sxhkdrc",
     "typescript",
-    "vim",
     "vimdoc",
     "zig",
     -- "bibtex",
