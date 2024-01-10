@@ -2,17 +2,25 @@
 return {
   "tzachar/cmp-ai",
   enabled = false,
-  main = "cmp_ai.config",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  main = "cmp_ai.config",
   opts = {
     max_lines = 100,
     provider = "Ollama",
     provider_options = {
       model = "codellama:7b-code",
     },
-    notify = false,
     run_on_every_keystroke = true,
+    notify = true,
+    notify_callback = function(msg)
+      vim.notify(msg)
+    end,
   },
+  -- config = function(_, opts)
+  --   vim.fn.setenv("HF_API_KEY", "")
+  --   require("cmp_ai.config"):setup(opts)
+  --   -- t
+  -- end,
 }
