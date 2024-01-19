@@ -151,7 +151,6 @@ return {
       path_display = { "truncate" },
       layout_config = {
         prompt_position = "top",
-        mirror = true,
       },
       cache_picker = {
         num_pickers = 3,
