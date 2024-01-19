@@ -473,9 +473,6 @@ awful.screen.connect_for_each_screen(function(s)
       -- 	icon_dir = "/usr/share/icons/Papirus-Dark/symbolic/status/",
       -- }),
       separator,
-      wibox.widget.textbox("󰍛 "),
-      awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
-      separator,
       wibox.widget.textbox("󰌓 "),
       awful.widget.keyboardlayout(),
       separator,
