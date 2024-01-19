@@ -23,6 +23,7 @@ return {
     "uga-rosa/cmp-dictionary",
     "f3fora/cmp-spell",
     "tzachar/cmp-ai",
+    "SergioRibera/cmp-dotenv",
 
     -- lang specific
     "hrsh7th/cmp-nvim-lua",
@@ -103,6 +104,7 @@ return {
         { name = "cmp_ai", keyword_length = 1 },
         { name = "calc", keyword_length = 3 },
         { name = "async_path", keyword_length = 1 },
+        { name = "dotenv", keyword_length = 3 },
         { name = "emoji", keyword_length = 1 },
         { name = "nerdfont", keyword_length = 1 },
         {
