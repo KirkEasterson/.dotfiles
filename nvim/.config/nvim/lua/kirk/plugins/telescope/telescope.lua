@@ -4,8 +4,13 @@ return {
   version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
+
     -- "nvim-telescope/telescope-fzy-native.nvim",
     "nvim-telescope/telescope-fzf-native.nvim",
+
+    "kkharji/sqlite.lua",
+    "nvim-telescope/telescope-smart-history.nvim",
+
     "folke/trouble.nvim",
   },
   cmd = {
@@ -151,6 +156,10 @@ return {
       cache_picker = {
         num_pickers = 3,
       },
+      history = {
+        path = vim.fn.stdpath("data") .. "/databases/telescope_history.sqlite3", -- TODO: rewrite this with vimdata
+        limit = 100,
+      },
       file_ignore_patterns = {
         "%.a",
         "%.aac",
@@ -233,15 +242,23 @@ return {
     },
   },
   config = function(_, opts)
-    local trouble = require("trouble.providers.telescope")
     opts.defaults.mappings = {
-      i = { ["<c-t>"] = trouble.open_with_trouble },
-      n = { ["<c-t>"] = trouble.open_with_trouble },
+      i = {
+        ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+        ["<C-j>"] = require("telescope.actions").cycle_history_next,
+        ["<C-k>"] = require("telescope.actions").cycle_history_prev,
+      },
+      n = {
+        ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+        ["<C-j>"] = require("telescope.actions").cycle_history_next,
+        ["<C-k>"] = require("telescope.actions").cycle_history_prev,
+      },
     }
 
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("fzf")
+    telescope.load_extension("smart_history")
     -- telescope.load_extension("fzy_native")
 
     vim.api.nvim_create_autocmd({ "User" }, {
