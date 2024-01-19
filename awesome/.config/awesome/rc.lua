@@ -722,6 +722,7 @@ awful.rules.rules = {
         "Lock Screen — 1Password",
         "Sign in to Steam",
         "splash",
+        "XiaoMiTool V2",
       },
     },
     properties = {
