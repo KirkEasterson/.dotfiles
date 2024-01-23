@@ -2,10 +2,10 @@ configuration {
 	display-drun: "Applications";
 	display-window: "Windows";
 	drun-display-format: "{icon} {name}";
-	font: "Ubuntu Nerd Font 28";
+	font: "JetBrains Mono Nerd Font 20";
 	modi: "window,run,drun";
 	show-icons: true;
-	icon-theme: "Papirus";
+	icon-theme: "Papirus-Dark";
 	matching: "fuzzy";
 	sorting-method: "fzf";
 	sort: true;
@@ -17,5 +17,9 @@ configuration {
 	border: 1px;
 	border-radius: 6px;
 	border-color:	#0c0c0c;
-	width: 40%;
+	width: 25%;
+}
+
+element-icon {
+	size: 2.9ch;
 }
