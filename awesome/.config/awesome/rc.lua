@@ -438,6 +438,7 @@ awful.screen.connect_for_each_screen(function(s)
     {
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
+      separator,
       wibox.widget.systray(true),
       -- separator,
       -- media_widget({}),
@@ -739,6 +740,7 @@ awful.rules.rules = {
       class = {
         "Arandr",
         "Blueman-manager",
+        "Dragon-drop",
       },
 
       -- Note that the name property shown in xprop might be set slightly after creation of the client
