@@ -60,8 +60,8 @@ return {
     },
   },
   config = function(_, opts)
-    os.execute("mkdir -p ~/Documents/obsidian/vaults/personal/templates")
-    os.execute("mkdir -p ~/Documents/obsidian/vaults/work/templates")
+    os.execute("mkdir -p ~/Documents/obsidian/vaults/personal/templates 2>&1 /dev/null")
+    os.execute("mkdir -p ~/Documents/obsidian/vaults/work/templates 2>&1 /dev/null")
     require("obsidian").setup(opts)
   end,
 }
