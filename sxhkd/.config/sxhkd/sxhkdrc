@@ -30,11 +30,11 @@ super + shift + n
 
 # media keys
 XF86Audio{Raise,Lower}Volume
-	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+	wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%{+,-}
 XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 XF86AudioMicMute
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 XF86Audio{Play,Pause,Stop,Prev,Next}
 	playerctl {play-pause,play-pause,stop,previous,next}
 XF86Audio{Rewind,Forward}
