@@ -78,14 +78,15 @@ if [ -s ~/.Xmodmap ]; then
 	xmodmap ~/.Xmodmap
 fi
 
-volumeicon &
-blueman-applet &
-cbatticon &
 flameshot &
 nm-applet &
 picom &
 sxhkd &
 udiskie -a &
+volumeicon &
+cbatticon &
+blueman-applet &
+pcmanfm --daemon-mode &
 
 # xremap .config/xremap/config.yml &
 # xcape -e "Shift_L=parenleft;Shift_R=parenright" &
