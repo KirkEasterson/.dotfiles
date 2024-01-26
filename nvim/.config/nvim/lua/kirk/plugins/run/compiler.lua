@@ -1,5 +1,6 @@
 return {
   "Zeioth/compiler.nvim",
+  version = "*",
   cond = not vim.g.started_by_firenvim,
   dependencies = {
     "stevearc/overseer.nvim",
