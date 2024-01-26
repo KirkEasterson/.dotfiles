@@ -19,6 +19,7 @@ if not status_ok then
 end
 
 lazy.setup({
+  { import = "kirk.plugins.dap" },
   { import = "kirk.plugins.dev" },
   { import = "kirk.plugins.git" },
   { import = "kirk.plugins.lsp" },
