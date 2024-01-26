@@ -1,4 +1,18 @@
 from ranger.api.commands import *
+from threading import Thread
+
+
+class dragon(Command):
+    def execute(self):
+        th = Thread(target=self.dragondaemon, daemon=True)
+        th.start()
+        th.join()
+
+    def dragondaemon(self):
+        arguments = "$TERMINAL --class dragon-term -e dragon-daemon {}".format(
+            " ".join(self.args[1:])
+        )
+        self.fm.execute_command(arguments)
 
 
 # https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration
