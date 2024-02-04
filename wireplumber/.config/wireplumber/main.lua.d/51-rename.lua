@@ -131,6 +131,36 @@ rules = {
       ["device.nick"] = "Webcam Microphone",
     },
   },
+  {
+    matches = {
+      {
+        {
+          "node.name",
+          "equals",
+          "bluez_output.10_E4_C2_3C_7C_8A.1",
+        },
+      },
+    },
+    apply_properties = {
+      ["node.description"] = "Bluetooth Headset",
+      ["node.nick"] = "Bluetooth Headset",
+    },
+  },
+  {
+    matches = {
+      {
+        {
+          "device.name",
+          "equals",
+          "bluez_card.10_E4_C2_3C_7C_8A",
+        },
+      },
+    },
+    apply_properties = {
+      ["device.description"] = "Bluetooth Headset",
+      ["device.nick"] = "Bluetooth Headset",
+    },
+  },
 }
 
 for _, rule in pairs(rules) do
