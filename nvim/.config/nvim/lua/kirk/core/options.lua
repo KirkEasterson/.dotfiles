@@ -51,7 +51,7 @@ end
 
 -- neovide
 if g.neovide then
-  vim.o.guifont = "ComicCodeLigatures Nerd Font, Ubuntu Mono Nerd Font:h7"
+  vim.o.guifont = "ComicCodeLigatures Nerd Font:h12"
   g.neovide_input_macos_alt_is_meta = true
   g.neovide_input_macos_alt_is_meta = true
   g.neovide_refresh_rate = 60
@@ -180,3 +180,5 @@ if vim.env.TERM == "xterm-kitty" then
   vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
   vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
 end
+
+-- vim.cmd([[highlight FoldColumn guibg=darkgrey guifg=white]])
