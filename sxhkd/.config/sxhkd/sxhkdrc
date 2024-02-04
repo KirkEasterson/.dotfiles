@@ -40,6 +40,12 @@ XF86Audio{Play,Pause,Stop,Prev,Next}
 XF86Audio{Rewind,Forward}
 	playerctl position 5{-,+}
 
+# requires tlp
+XF86WLAN
+	wifi toggle
+XF86Bluetooth
+	bluetooth toggle
+
 # mail # TODO: use default client instead of hard-coding this
 XF86Mail
 	thunderbird
