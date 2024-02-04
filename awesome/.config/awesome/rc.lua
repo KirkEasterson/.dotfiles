@@ -368,7 +368,7 @@ local tasklist_buttons = gears.table.join(
 
 awful.screen.connect_for_each_screen(function(s)
   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }, s, awful.layout.layouts[1])
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -389,16 +389,16 @@ awful.screen.connect_for_each_screen(function(s)
       awful.layout.inc(-1)
     end)
   ))
+
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist({
     screen = s,
     filter = awful.widget.taglist.filter.noempty,
     buttons = taglist_buttons,
-    style = {
-      spacing = 2,
-    },
     layout = {
       layout = wibox.layout.fixed.horizontal,
+      spacing_widget = separator,
+      spacing = 1,
     },
   })
 
@@ -703,16 +703,37 @@ local global_props = {
   titlebars_enabled = true,
 }
 
-local float_rules = {
-  table.unpack(global_props),
-  floating = true,
-  placement = awful.placement.centered,
-}
-
 awful.rules.rules = {
   { -- all clients will match this rule
     rule = {},
     properties = global_props,
+  },
+  { -- webcam rules
+    rule_any = {
+      name = {
+        "Webcam",
+      },
+    },
+    properties = {
+      buttons = clientbuttons,
+      keys = clientkeys,
+      screen = awful.screen.preferred, -- maybe on primary
+      width = awful.screen.focused().workarea.width * 0.2,
+      height = awful.screen.focused().workarea.height * 0.2,
+      focus = awful.client.focus.filter, -- what is this?
+      raise = true,
+      ontop = true,
+      floating = true,
+      titlebars_enabled = false,
+      border_width = 0,
+      border_color = "#000000",
+      placement = awful.placement.bottom_right,
+
+      -- border_color = beautiful.border_normal,
+      -- border_width = beautiful.border_width,
+      -- placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+      -- titlebars_enabled = true,
+    },
   },
   { -- floating without titlebar
     rule_any = {
@@ -724,8 +745,12 @@ awful.rules.rules = {
       },
     },
     properties = {
-      table.unpack(float_rules),
+      table.unpack(global_props),
+      floating = true,
+      placement = awful.placement.centered,
       titlebars_enabled = false,
+      border_width = 0,
+      ontop = true,
     },
   },
   { -- floating with titlebar
@@ -757,7 +782,11 @@ awful.rules.rules = {
         "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
       },
     },
-    properties = float_rules,
+    properties = {
+      table.unpack(global_props),
+      floating = true,
+      placement = awful.placement.centered,
+    },
   },
   { -- scratch terminal
     rule_any = {
@@ -793,6 +822,11 @@ client.connect_signal("manage", function(c)
   if not awesome.startup then
     awful.client.setslave(c)
   end
+
+  -- -- round corners
+  -- c.shape = function(cr, w, h)
+  --   gears.shape.rounded_rect(cr, w, h, 9)
+  -- end
 
   -- Prevent clients from being unreachable after screen count changes.
   if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
@@ -925,7 +959,10 @@ screen.connect_signal("arrange", function(s)
   local layout = s.selected_tag.layout.name
   local is_single_client = #s.clients == 1
   for _, c in pairs(s.clients) do
-    -- hide border in certain cases
+    -- hide border if:
+    --   - single_client
+    --   - fullscreen
+    --   - maximized
     local border_width = beautiful.border_width
     if layout == "max" or is_single_client or c.fullscreen or c.maximized then
       border_width = 0
@@ -942,7 +979,7 @@ screen.connect_signal("arrange", function(s)
 end)
 
 -- GAPS
-beautiful.systray_icon_spacing = 13
+beautiful.systray_icon_spacing = 5
 --
 -- set focus to primary screen
 awful.screen.focus(screen.primary)
