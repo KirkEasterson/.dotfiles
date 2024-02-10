@@ -87,6 +87,7 @@ volumeicon &
 cbatticon &
 blueman-applet &
 pcmanfm --daemon-mode &
+1password --silent &
 
 # xremap .config/xremap/config.yml &
 # xcape -e "Shift_L=parenleft;Shift_R=parenright" &
