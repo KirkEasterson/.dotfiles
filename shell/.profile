@@ -91,5 +91,6 @@ pcmanfm --daemon-mode &
 
 # xremap .config/xremap/config.yml &
 # xcape -e "Shift_L=parenleft;Shift_R=parenright" &
-light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid --idle-hint &
+xautolock -time 10 -killtime 30 -killer 'systemctl suspend' -detectsleep -locker 'lock.sh' &
+xss-lock --transfer-sleep-lock -- xautolock -locknow &
 eval $(dbus-launch --auto-syntax)
