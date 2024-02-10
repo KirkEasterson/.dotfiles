@@ -94,7 +94,13 @@ export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export MOZ_ENABLE_WAYLAND=1
-    export GTK_THEME=Pop-dark
+	export SDL_VIDEODRIVER=wayland
+	export _JAVA_AWT_WM_NONREPARENTING=1
+	export QT_QPA_PLATFORM=wayland
+
+	# TODO: make this dynamic
+	export XDG_CURRENT_DESKTOP=sway
+	export XDG_SESSION_DESKTOP=sway
 fi
 
 if [ -f "$XDG_CONFIG_HOME/shell/local/exports" ]; then
