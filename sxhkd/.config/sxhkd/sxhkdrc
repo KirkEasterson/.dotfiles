@@ -14,7 +14,7 @@ super + {_,shift +} e
 
 # screen locker
 super + ctrl + q
-	light-locker-command -l
+	xautolock -locknow
 
 # program launcher
 XF86Search
