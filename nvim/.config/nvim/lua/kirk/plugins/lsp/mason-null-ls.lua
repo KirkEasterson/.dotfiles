@@ -28,7 +28,7 @@ return {
       "goimports",
       "gomodifytags",
       "hadolint",
-      "markdownlint",
+      -- "markdownlint",
       -- "ocamlformat",
       "prettier",
       "proselint",

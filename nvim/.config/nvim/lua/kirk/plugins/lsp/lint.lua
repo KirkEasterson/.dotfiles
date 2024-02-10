@@ -20,7 +20,7 @@ return {
       javascriptreact = { "eslint_d" },
       json = { "jsonlint" },
       -- lua = { "stylua", "luacheck" },
-      markdown = { "markdownlint" },
+      -- markdown = { "markdownlint" },
       python = { "pylint" },
       svelte = { "eslint_d" },
       typescript = { "eslint_d" },

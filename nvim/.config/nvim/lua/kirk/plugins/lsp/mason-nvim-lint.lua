@@ -11,7 +11,7 @@ local get_ensure_installed = function()
     "gitlint",
     -- "golangci-lint",
     "jsonlint",
-    "markdownlint",
+    -- "markdownlint",
     "prettier",
     "pylint",
     "shellcheck",

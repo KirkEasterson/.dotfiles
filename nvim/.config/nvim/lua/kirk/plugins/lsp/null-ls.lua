@@ -41,8 +41,8 @@ return {
         null_ls.builtins.diagnostics.hadolint,
 
         -- markdown
-        null_ls.builtins.diagnostics.markdownlint,
-        null_ls.builtins.formatting.markdownlint,
+        -- null_ls.builtins.diagnostics.markdownlint,
+        -- null_ls.builtins.formatting.markdownlint,
         null_ls.builtins.code_actions.proselint,
 
         -- terraform
