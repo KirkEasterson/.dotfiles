@@ -1,6 +1,23 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+--- returns true if current session is wayland
+---@return boolean
+local function is_wayland()
+  local handle = io.popen("echo $WAYLAND_DISPLAY")
+  if handle == nil then
+    return false
+  end
+
+  local result = handle:read("*a")
+  if result == nil then
+    return false
+  end
+
+  handle:close()
+  return result:find("wayland", 1, true) == 1
+end
+
 -- for nvim zen mode
 wezterm.on("user-var-changed", function(window, pane, name, value)
   local overrides = window:get_config_overrides() or {}
@@ -35,14 +52,14 @@ end)
 -- 	end
 -- end)
 
-function get_appearance()
+local function get_appearance()
   if wezterm.gui then
     return wezterm.gui.get_appearance()
   end
   return "dark"
 end
 
-function scheme_for_appearance(appearance)
+local function scheme_for_appearance(appearance)
   os.execute("notify-send " .. appearance:lower()) -- debugging
   local mode = ""
   if appearance:lower():find("dark") then
@@ -84,7 +101,7 @@ return {
   scrollback_lines = 100000,
   cursor_blink_rate = 0,
   pane_focus_follows_mouse = true,
-  enable_wayland = false,
+  enable_wayland = is_wayland(),
   max_fps = 120,
   window_close_confirmation = "NeverPrompt",
   audible_bell = "SystemBeep",
