@@ -10,10 +10,10 @@
 		// "custom/separator",
 		"custom/search",
 		"wlr/workspaces",
-		"hyprland/workspaces",
+		// "hyprland/workspaces",
 		"sway/workspaces",
 		"custom/separator",
-		"hyprland/window",
+		// "hyprland/window",
 		"sway/window"
 		// "wlr/taskbar"
 		// "custom/media"
@@ -52,16 +52,16 @@
 		"format": "{name}",
 		"on-click": "activate"
 	},
-	"hyprland/workspaces": {
-		"format": "{name}"
-	},
+	// "hyprland/workspaces": {
+	// 	"format": "{name}"
+	// },
 	"sway/workspaces": {
 		"format": "{name}",
 		"disable-scroll": true
 	},
-	"hyprland/window": {
-		"separate-outputs": true
-	},
+	// "hyprland/window": {
+	// 	"separate-outputs": true
+	// },
 	"sway/window": {
 		"icon": false
 	},
@@ -101,9 +101,9 @@
 		// "icon-size": 21,
 		"spacing": 10
 	},
-	"hyprland/language": {
-		"format": "󰌓 {short}"
-	},
+	// "hyprland/language": {
+	// 	"format": "󰌓 {short}"
+	// },
 	"sway/language": {
 		"format": "󰌓 {short}"
 	},

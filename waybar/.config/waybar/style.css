@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Ubuntu Nerd Font";
+  font-family: "JetBrains Mono Nerd Font";
   font-size: 14px;
   /*font-weight: bold;*/
   min-height: 0;
@@ -17,7 +17,7 @@ window#waybar {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
-  margin: 0 1px;
+  padding: 0 5px;
   /* background: transparent; */
   color: #ebdbb2;
   border-top: 1px solid #7c6f64;
