@@ -3,22 +3,22 @@ configuration {
 	display-window: "Windows";
 	drun-display-format: "{icon} {name}";
 	font: "JetBrains Mono Nerd Font 20";
-	modi: "window,run,drun";
-	show-icons: true;
 	icon-theme: "Papirus-Dark";
 	matching: "fuzzy";
-	sorting-method: "fzf";
+	modi: "window,run,drun";
+	show-icons: true;
 	sort: true;
+	sorting-method: "fzf";
 }
 
 @theme "gruvbox-dark-soft"
 
 #window {
-	border: 1px;
-	border-radius: 6px;
 	border-color:	#0c0c0c;
-	width: 35%;
+	border-radius: 6px;
+	border: 1px;
 	height: 35%;
+	width: 35%;
 }
 
 element-icon {
