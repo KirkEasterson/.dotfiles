@@ -21,7 +21,6 @@ return {
     "tsx",
     "typescript",
     "typescriptreact",
-    "tsx",
     "vue",
     "xml",
   },
