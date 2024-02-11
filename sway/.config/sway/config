@@ -64,27 +64,42 @@ client.placeholder          #98971a #2f343f #d8dee8 #2f343f   #2f343f
 
 # all trackpads
 input "type:touchpad" {
-  tap enabled
-  natural_scroll enabled
+  accel_profile flat
+  click_method clickfinger
+  drag disabled
+  dwt enabled
   middle_emulation enabled
-  accel_profile "flat"
+  natural_scroll enabled
   pointer_accel 0
+  tap enabled
 }
 
 # all mice (mouses)
 input "type:pointer" {
-  natural_scroll enabled
+  accel_profile flat
   middle_emulation enabled
-  accel_profile "flat"
+  natural_scroll enabled
   pointer_accel 0
 }
 
-# all keybaords
+# all keyboards
 input "type:keyboard" {
   xkb_layout no,se,us
   xkb_variant ,nodeadkeys
   xkb_options caps:escape
   # xkb_file ~/.config/xkb/custom # TODO: make this file
+}
+
+input "1149:32891:Kensington_Orbit_Fusion_Wireless_Trackball" {
+  scroll_button BTN_MIDDLE
+  scroll_factor 0.4
+  scroll_method on_button_down
+}
+
+input "1390:284:Getech_HUGE_TrackBall" {
+  scroll_button BTN_TASK
+  scroll_factor 0.4
+  scroll_method on_button_down
 }
 
 ### Key bindings
