@@ -8,6 +8,10 @@ set $right l
 
 set $term wezterm
 set $search wofi
+set $browser firefox
+set $browser_alt chromium
+set $filemanager pcmanfm
+set $filemanager_alt exec $term -e ranger
 
 set $background ~/.config/wall.png
 
@@ -22,7 +26,7 @@ bindswitch --reload --locked lid:off output $laptop enable
 exec_always ./clamshell.sh
 
 # borders
-default_border pixel 5
+default_border pixel 1
 default_floating_border normal
 
 # gaps
@@ -43,6 +47,17 @@ for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 # TODO: uncomment this and find out what breaks
 # xwayland disable
+
+#
+# Gruvbox theme:
+#
+
+# Property Name             Border  BG      Text    Indicator Child-border
+client.focused              #fabd2f #2f343f #4477ff #4477ff   #fabd2f
+client.focused_inactive     #d79921 #2f343f #d8dee8 #2f343f   #2f343f
+client.unfocused            #1d2021 #2f343f #d8dee8 #2f343f   #2f343f
+client.urgent               #cc241d #2f343f #d8dee8 #2f343f   #2f343f
+client.placeholder          #98971a #2f343f #d8dee8 #2f343f   #2f343f
 
 # use the following command to get inputs:
 #  `swaymsg -t get_inputs`
@@ -81,13 +96,17 @@ input "type:keyboard" {
 bindsym $mod+Return exec $term
 
 # File manager
-bindsym $mod+e exec pcmanfm
+bindsym $mod+e exec $filemanager
+bindsym $mod+Shift+e exec $filemanager_alt
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 
 # Start your launcher
 bindsym $mod+space exec $search
+
+# Browser
+bindsym $mod+w exec $browser
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -104,7 +123,7 @@ bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+q exec swaylock
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # brightness keys
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
