@@ -71,6 +71,7 @@ input "type:touchpad" {
   middle_emulation enabled
   natural_scroll enabled
   pointer_accel 0
+  scroll_factor 0.1
   tap enabled
 }
 
@@ -238,7 +239,6 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+a exec swaymsg input type:keyboard xkb_layout "us"
 bindsym $mod+Shift+s exec swaymsg input type:keyboard xkb_layout "se"
 bindsym $mod+Shift+g exec swaymsg input type:keyboard xkb_layout "no"
-
 
 #
 # Layout stuff:
