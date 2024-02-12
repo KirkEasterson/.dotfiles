@@ -15,15 +15,15 @@ set $filemanager_alt exec $term -e ranger
 
 set $background ~/.config/wall.png
 
+set $laptop eDP-1
 output * bg $background fill
 
 font pango:JetBrains Mono Nerd Font 12
 
 # clamshell mode
-set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
-exec_always ./clamshell.sh
+exec_always ~/.config/sway/clamshell.sh
 
 # borders
 default_border pixel 1
