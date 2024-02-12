@@ -206,16 +206,16 @@ bindsym $mod+$alt+Right resize grow width 10px
 # Workspaces:
 #
 # Switch to workspace
-bindsym $mod+1 [workspace="1"] move workspace to output current; workspace number 1
-bindsym $mod+2 [workspace="2"] move workspace to output current; workspace number 2
-bindsym $mod+3 [workspace="3"] move workspace to output current; workspace number 3
-bindsym $mod+4 [workspace="4"] move workspace to output current; workspace number 4
-bindsym $mod+5 [workspace="5"] move workspace to output current; workspace number 5
-bindsym $mod+6 [workspace="6"] move workspace to output current; workspace number 6
-bindsym $mod+7 [workspace="7"] move workspace to output current; workspace number 7
-bindsym $mod+8 [workspace="8"] move workspace to output current; workspace number 8
-bindsym $mod+9 [workspace="9"] move workspace to output current; workspace number 9
-bindsym $mod+0 [workspace="10"] move workspace to output current; workspace number 10
+bindsym $mod+1 exec ~/.config/sway/change-workspace.sh 1
+bindsym $mod+2 exec ~/.config/sway/change-workspace.sh 2
+bindsym $mod+3 exec ~/.config/sway/change-workspace.sh 3
+bindsym $mod+4 exec ~/.config/sway/change-workspace.sh 4
+bindsym $mod+5 exec ~/.config/sway/change-workspace.sh 5
+bindsym $mod+6 exec ~/.config/sway/change-workspace.sh 6
+bindsym $mod+7 exec ~/.config/sway/change-workspace.sh 7
+bindsym $mod+8 exec ~/.config/sway/change-workspace.sh 8
+bindsym $mod+9 exec ~/.config/sway/change-workspace.sh 9
+bindsym $mod+0 exec ~/.config/sway/change-workspace.sh 10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
