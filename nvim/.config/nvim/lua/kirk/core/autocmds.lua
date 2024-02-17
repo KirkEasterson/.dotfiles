@@ -88,28 +88,43 @@ autocmd({ "BufReadPost", "BufNewFile" }, {
   callback = function()
     require("util")
     if IS_LINUX or IS_WSL then
-      if vim.fn.executable("xclip") == 1 then
-        vim.g.clipboard = {
-          copy = {
-            ["+"] = "xclip -selection clipboard",
-            ["*"] = "xclip -selection clipboard",
-          },
-          paste = {
-            ["+"] = "xclip -selection clipboard -o",
-            ["*"] = "xclip -selection clipboard -o",
-          },
-        }
-      elseif vim.fn.executable("xsel") == 1 then
-        vim.g.clipboard = {
-          copy = {
-            ["+"] = "xsel --clipboard --input",
-            ["*"] = "xsel --clipboard --input",
-          },
-          paste = {
-            ["+"] = "xsel --clipboard --output",
-            ["*"] = "xsel --clipboard --output",
-          },
-        }
+      if IS_WAYLAND then
+        if vim.fn.executable("wl-clipboard") == 1 then
+          vim.g.clipboard = {
+            copy = {
+              ["+"] = "wl-copy",
+              ["*"] = "wl-copy",
+            },
+            paste = {
+              ["+"] = "wl-paste",
+              ["*"] = "wl-paste",
+            },
+          }
+        end
+      else
+        if vim.fn.executable("xclip") == 1 then
+          vim.g.clipboard = {
+            copy = {
+              ["+"] = "xclip -selection clipboard",
+              ["*"] = "xclip -selection clipboard",
+            },
+            paste = {
+              ["+"] = "xclip -selection clipboard -o",
+              ["*"] = "xclip -selection clipboard -o",
+            },
+          }
+        elseif vim.fn.executable("xsel") == 1 then
+          vim.g.clipboard = {
+            copy = {
+              ["+"] = "xsel --clipboard --input",
+              ["*"] = "xsel --clipboard --input",
+            },
+            paste = {
+              ["+"] = "xsel --clipboard --output",
+              ["*"] = "xsel --clipboard --output",
+            },
+          }
+        end
       end
     elseif IS_MAC then
       vim.g.clipboard = {
