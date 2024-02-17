@@ -74,23 +74,30 @@ export HOMEBREW_NO_EMOJI=1
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
-if [ -s ~/.Xmodmap ]; then
-	xmodmap ~/.Xmodmap
-fi
-
 flameshot &
 nm-applet &
-picom &
-sxhkd &
-udiskie -a &
-volumeicon &
-cbatticon &
 blueman-applet &
+udiskie -a &
 pcmanfm --daemon-mode &
 1password --silent &
 
-# xremap .config/xremap/config.yml &
-# xcape -e "Shift_L=parenleft;Shift_R=parenright" &
-xautolock -time 10 -killtime 30 -killer 'systemctl suspend' -detectsleep -locker 'lock.sh' &
-xss-lock --transfer-sleep-lock -- xautolock -locknow &
+if [ "$XDG_SESSION_TYPE" = "wayland" ]
+then
+	kanshi &
+else
+	if [ -s ~/.Xmodmap ]; then
+		xmodmap ~/.Xmodmap
+	fi
+
+	picom &
+	sxhkd &
+	volumeicon &
+	# cbatticon &
+
+	# xremap .config/xremap/config.yml &
+	# xcape -e "Shift_L=parenleft;Shift_R=parenright" &
+	xautolock -time 10 -killtime 30 -killer 'systemctl suspend' -detectsleep -locker 'lock.sh' &
+	xss-lock --transfer-sleep-lock -- xautolock -locknow &
+fi
+
 eval $(dbus-launch --auto-syntax)
