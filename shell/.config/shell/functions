@@ -50,17 +50,23 @@ if [ -f "$XDG_CONFIG_HOME/shell/local/functions" ]; then
 fi
 
 # lazy loading NVM
-lnvm() {
+lnvm () {
 
-	# load nvm
-	if [ -s "$NVM_DIR/nvm.sh" ]; then
-		. "$NVM_DIR/nvm.sh"
-	fi
+  # load nvm
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    . "$NVM_DIR/nvm.sh"
+  fi
 
-	# load nvm completion
-	if [ -s "$NVM_DIR/bash_completion" ]; then
-		. "$NVM_DIR/bash_completion"
-	elif [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
-		. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-	fi
+  # load nvm completion
+  if [ -s "$NVM_DIR/bash_completion" ]; then
+    . "$NVM_DIR/bash_completion"
+  elif [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+    . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  fi
 }
+
+# is_wayland () {
+#   if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
+#     false
+#   fi
+# }
