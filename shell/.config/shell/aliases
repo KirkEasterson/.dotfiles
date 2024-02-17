@@ -14,14 +14,14 @@ alias eddot='cd ~/.dotfiles/ && nvim && cd - > /dev/null'
 alias da='date "+%A %d %B %Y %T %Z"'
 
 # Changing "ls" to "eza"
-alias ll='eza -l --color=always --group-directories-first --icons'
-alias lla='eza -la --color=always --group-directories-first --icons'
+alias ls='eza -l --color=always --group-directories-first --icons'
+alias lsa='eza -la --color=always --group-directories-first --icons'
 
 # Quickly create new tmux sessions
 alias tn='tmux new -As $(basename $PWD | tr . -)'
 
 # Colorize commands
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='grep -E --color=auto' # extended regex
 alias fgrep='grep -F --color=auto' # fixed strings
