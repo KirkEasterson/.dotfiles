@@ -1,8 +1,4 @@
-# # init keyring
-# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-# # export keyring
-# export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
-
+# XDG dirs
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS="/etc/xdg "
@@ -11,6 +7,10 @@ export XDG_STATE_DIRS="/usr/local/share/:/usr/share/"
 export XDG_CACHE_HOME="$HOME/.cache"
 # export XDG_RUNTIME_DIR=""
 
+# local bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# locale info
 export LANG="en_US.UTF-8"
 export LC_CTYPE="nb_NO.UTF-8"
 export LC_NUMERIC="nb_NO.UTF-8"
@@ -24,16 +24,6 @@ export LC_ADDRESS="nb_NO.UTF-8"
 export LC_TELEPHONE="nb_NO.UTF-8"
 export LC_MEASUREMENT="nb_NO.UTF-8"
 export LC_IDENTIFICATION="nb_NO.UTF-8"
-
-export DOTFILES="$HOME/.dotfiles"
-export SCRIPTS="$HOME/scripts"
-export BROWSER="firefox"
-export BROWSER_SECONDARY="chromium"
-export TERMINAL="wezterm"
-export TERMINAL_SECONDARY="alacritty"
-export FILEMANAGER="pcmanfm"
-export EDITOR="nvim"
-export VISUAL="nvim"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
@@ -63,7 +53,7 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 
-export DOTNET_CLI_TELEMETRY_OPTOUT=true
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
@@ -74,30 +64,24 @@ export HOMEBREW_NO_EMOJI=1
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
-flameshot &
-nm-applet &
-blueman-applet &
-udiskie -a &
-pcmanfm --daemon-mode &
-1password --silent &
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+	export MOZ_ENABLE_WAYLAND=1
+	export SDL_VIDEODRIVER="wayland"
+	export _JAVA_AWT_WM_NONREPARENTING=1
+	export QT_QPA_PLATFORM="wayland"
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]
-then
-	kanshi &
-else
-	if [ -s ~/.Xmodmap ]; then
-		xmodmap ~/.Xmodmap
-	fi
-
-	picom &
-	sxhkd &
-	volumeicon &
-	# cbatticon &
-
-	# xremap .config/xremap/config.yml &
-	# xcape -e "Shift_L=parenleft;Shift_R=parenright" &
-	xautolock -time 10 -killtime 30 -killer 'systemctl suspend' -detectsleep -locker 'lock.sh' &
-	xss-lock --transfer-sleep-lock -- xautolock -locknow &
+	# TODO: make this dynamic
+	export XDG_CURRENT_DESKTOP="sway"
+	export XDG_SESSION_DESKTOP="sway"
 fi
 
-eval $(dbus-launch --auto-syntax)
+# user defaults
+export DOTFILES="$HOME/.dotfiles"
+export SCRIPTS="$HOME/scripts"
+export BROWSER="firefox"
+export BROWSER_SECONDARY="chromium"
+export TERMINAL="wezterm"
+export TERMINAL_SECONDARY="alacritty"
+export FILEMANAGER="pcmanfm"
+export EDITOR="nvim"
+export VISUAL="nvim"

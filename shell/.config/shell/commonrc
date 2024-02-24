@@ -9,15 +9,6 @@ if [ -s "$XDG_DATA_HOME/cargo/env" ]; then
   . "$XDG_DATA_HOME/cargo/env"
 fi
 
-# PATH
-if [ -d "$HOME/.bin" ]; then
-  PATH="$HOME/.bin:$PATH"
-fi
-
-if [ -d "$HOME/.local/bin" ]; then
-  PATH="$HOME/.local/bin:$PATH"
-fi
-
 # linux
 if [ -f  '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
