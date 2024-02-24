@@ -1,10 +1,30 @@
+[mouse]
+hide_when_typing = false
+bindings = [{ action = "None", mouse = "Middle" }]
+
+[scrolling]
+history = 100000
+
+[window]
+dynamic_padding = true
+dynamic_title = true
+
 [bell]
 animation = "Ease"
 color = "#cc241d"
 duration = 300
+command = { program = "xkbbell" }
 
-[bell.command]
-program = "xkbbell"
+[font]
+size = 13.0
+bold = { family = "ComicCodeLigatures Nerd Font", style = "Bold" }
+bold_italic = { family = "ComicCodeLigatures Nerd Font", style = "Bold Italic" }
+italic = { family = "ComicCodeLigatures Nerd Font", style = "Italic" }
+normal = { family = "ComicCodeLigatures Nerd Font", style = "Regular" }
+
+[env]
+# https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+TERM = "xterm-256color"
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -33,128 +53,24 @@ yellow = "#d79921"
 background = "#282828"
 foreground = "#ebdbb2"
 
-[env]
-TERM = "xterm-256color"
-
-[font]
-size = 13.0
-
-[font.bold]
-family = "ComicCodeLigatures Nerd Font"
-style = "Bold"
-
-[font.bold_italic]
-family = "ComicCodeLigatures Nerd Font"
-style = "Bold Italic"
-
-[font.italic]
-family = "ComicCodeLigatures Nerd Font"
-style = "Italic"
-
-[font.normal]
-family = "ComicCodeLigatures Nerd Font"
-style = "Regular"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;3;9~"
-key = "Tab"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;4;9~"
-key = "Tab"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;9~"
-key = "Tab"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;9~"
-key = "Tab"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;72~"
-key = "H"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;74~"
-key = "J"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;75~"
-key = "K"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;6;76~"
-key = "L"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;49~"
-key = "Key1"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;50~"
-key = "Key2"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;51~"
-key = "Key3"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;52~"
-key = "Key4"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;53~"
-key = "Key5"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;54~"
-key = "Key6"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;55~"
-key = "Key7"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;56~"
-key = "Key8"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;57~"
-key = "Key9"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B[27;5;58~"
-key = "Key0"
-mods = "Control"
-
-[mouse]
-hide_when_typing = false
-
-[[mouse.bindings]]
-action = "None"
-mouse = "Middle"
-
-[scrolling]
-history = 100000
-
-[window]
-dynamic_padding = true
-dynamic_title = true
+[keyboard]
+bindings = [
+	{ chars = "\u001B[27;3;9~", key = "Tab", mods = "Alt" },
+	{ chars = "\u001B[27;4;9~", key = "Tab", mods = "Alt|Shift" },
+	{ chars = "\u001B[27;5;9~", key = "Tab", mods = "Control" },
+	{ chars = "\u001B[27;6;9~", key = "Tab", mods = "Control|Shift" },
+	{ chars = "\u001B[27;6;72~", key = "H", mods = "Control|Shift" },
+	{ chars = "\u001B[27;6;74~", key = "J", mods = "Control|Shift" },
+	{ chars = "\u001B[27;6;75~", key = "K", mods = "Control|Shift" },
+	{ chars = "\u001B[27;6;76~", key = "L", mods = "Control|Shift" },
+	{ chars = "\u001B[27;5;49~", key = "Key1", mods = "Control" },
+	{ chars = "\u001B[27;5;50~", key = "Key2", mods = "Control" },
+	{ chars = "\u001B[27;5;51~", key = "Key3", mods = "Control" },
+	{ chars = "\u001B[27;5;52~", key = "Key4", mods = "Control" },
+	{ chars = "\u001B[27;5;53~", key = "Key5", mods = "Control" },
+	{ chars = "\u001B[27;5;54~", key = "Key6", mods = "Control" },
+	{ chars = "\u001B[27;5;55~", key = "Key7", mods = "Control" },
+	{ chars = "\u001B[27;5;56~", key = "Key8", mods = "Control" },
+	{ chars = "\u001B[27;5;57~", key = "Key9", mods = "Control" },
+	{ chars = "\u001B[27;5;58~", key = "Key0", mods = "Control" },
+]
