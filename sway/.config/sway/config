@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 set $term wezterm
-set $search wofi
+set $search fuzzel
 set $browser firefox
 set $browser_alt chromium
 set $filemanager pcmanfm
@@ -15,7 +15,11 @@ set $filemanager_alt exec $term -e ranger
 
 set $background ~/.config/wall.png
 
+# set $lock_script $HOME/.config/paul/lock.sh swaylock
+# set $sleep $lock_script && sleep 3 && systemctl suspend
+# set $notify dunstify --timeout 1500
 set $laptop eDP-1
+
 output * bg $background fill
 
 font pango:JetBrains Mono Nerd Font 12
@@ -24,6 +28,14 @@ font pango:JetBrains Mono Nerd Font 12
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/clamshell.sh
+
+# display config
+include ~/.config/sway/outputs
+
+# workspace config
+# this file is output from `nwg-displays`, and allows for persistent display
+# configs when restarting sway
+include ~/.config/sway/workspaces
 
 # borders
 default_border pixel 1
@@ -34,10 +46,15 @@ default_floating_border normal
 gaps inner 0
 gaps outer 0
 
+# lock after 5 minutes
+# turn off display after 10 minutes
 exec swayidle -w \
    timeout 300 'swaylock' \
    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
    before-sleep 'swaylock'
+
+# automatically switch to urgent window
+for_window [urgent="latest"] focus
 
 # for flameshot
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
@@ -282,10 +299,7 @@ bindsym $mod+minus scratchpad show
 #
 exec_always ~/.config/waybar/waybar.sh
 exec_always import-gsettings.sh
-# exec_always = waybar
 exec_always nm-applet --indicator
-# exec_always = xremap ~/.config/xremap/config.yml
-# exec_always = swayidle -w
 exec_always dunst
 exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
