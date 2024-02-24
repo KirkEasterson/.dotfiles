@@ -71,6 +71,11 @@ local function scheme_for_appearance(appearance)
 end
 
 return {
+
+  -- TODO: generalize this per shell
+  -- don't launch login shell every time
+  default_prog = { "/usr/bin/zsh" },
+
   font = wezterm.font_with_fallback({
     "ComicCodeLigatures Nerd Font",
     "JetBrains Mono Nerd Font",
