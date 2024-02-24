@@ -18,15 +18,19 @@ window#waybar {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
   padding: 0 5px;
-  /* background: transparent; */
   color: #ebdbb2;
   border-top: 1px solid #7c6f64;
 }
 
-#workspaces button.active {
+#workspaces button.visible {
   background: #3c3836;
-  /* color: #282828; */
-  border-top: 2px solid #a89984;
+  border-top: 2px solid #9d0006;
+}
+
+/* this _must_ come after button.visible */
+#workspaces button.focused {
+  background: #504945;
+  border-top: 2px solid #fabd2f;
 }
 
 #workspaces button.urgent {
@@ -36,6 +40,10 @@ window#waybar {
 #mode {
   background: #64727d;
   border-bottom: 3px solid #ffffff;
+}
+
+#language {
+  min-width: 35px;
 }
 
 /* #clock, */
@@ -114,7 +122,7 @@ window#waybar {
   /*background: #000000;*/
 }
 
-#custom-separator {
+#custom-line-separator {
   color: #3c3836;
   margin: 0 2px;
 }
