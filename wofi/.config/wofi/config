@@ -6,3 +6,4 @@ insensitive=true
 allow_markdown=true
 allow_images=true
 image_size=20
+key_expand=End
