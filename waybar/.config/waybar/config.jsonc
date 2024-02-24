@@ -7,12 +7,12 @@
 	// Choose the order of the modules
 	"modules-left": [
 		// "custom/linux",
-		// "custom/separator",
-		"custom/search",
+		// "custom/line-separator",
+		// "custom/search",
 		"wlr/workspaces",
-		// "hyprland/workspaces",
+		"hyprland/workspaces",
 		"sway/workspaces",
-		"custom/separator",
+		"custom/line-separator",
 		// "hyprland/window",
 		"sway/window"
 		// "wlr/taskbar"
@@ -20,32 +20,35 @@
 	],
 	"modules-right": [
 		"tray",
-		// "custom/separator",
+		// "custom/line-separator",
 		// "mpd",
-		"custom/separator",
+		"custom/line-separator",
 		"custom/media",
-		"custom/separator",
+		"custom/line-separator",
 		// "bluetooth",
-		// "custom/separator",
+		// "custom/line-separator",
 		"custom/weather",
-		"custom/separator",
+		"custom/line-separator",
 		"backlight",
-		"custom/separator",
-		"hyprland/language",
+		"custom/line-separator",
+		// "language",
+		// "hyprland/language",
 		"sway/language",
-		"keyboard-state",
-		"custom/separator",
+		// "keyboard-state",
+		"custom/line-separator",
 		"temperature",
-		"custom/separator",
+		"custom/line-separator",
 		"cpu",
-		"custom/separator",
+		"custom/line-separator",
 		"memory",
-		"custom/separator",
-		"pulseaudio",
-		"custom/separator",
+		"custom/line-separator",
+		"custom/line-separator",
+		"wireplumber",
+		"custom/line-separator",
 		"battery",
-		"custom/separator",
-		"clock"
+		"custom/line-separator",
+		"clock",
+		"custom/separator"
 	],
 	// Modules configuration
 	"wlr/workspaces": {
@@ -56,14 +59,16 @@
 		"format": "{name}"
 	},
 	"sway/workspaces": {
-		"format": "{name}",
-		"disable-scroll": true
+		"all-outputs": true,
+		"disable-scroll": true,
+		"format": "{name}"
 	},
 	"hyprland/window": {
 		"separate-outputs": true
 	},
 	"sway/window": {
-		"icon": false
+		"icon": true,
+		"tooltip": false
 	},
 	"wlr/taskbar": {
 		"format": "{icon}{title}",
@@ -98,19 +103,34 @@
 		"tooltip-format-disconnected": "MPD (disconnected)"
 	},
 	"tray": {
-		// "icon-size": 21,
+		"icon-size": 20,
 		"spacing": 10
 	},
-	"hyprland/language": {
+	"language": {
 		"format": "󰌓 {short}"
 	},
+	// "hyprland/language": {
+	// 	"format": "󰌓 {short}"
+	// },
 	"sway/language": {
 		"format": "󰌓 {short}"
+	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+		"format": {
+			"numlock": "N {icon}",
+			"capslock": "C {icon}"
+		},
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
 	},
 	"clock": {
 		"tooltip-format": "<tt>{calendar}</tt>",
 		"interval": 1,
-		"format": "{:%a %d %b %Y  %H:%M:%S}",
+		"format": "{:%a %d %b %Y (wk %V)  %H:%M:%S}",
 		"timezone": "Europe/Oslo",
 		"calendar": {
 			"weeks-pos": "right",
@@ -134,11 +154,11 @@
 		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
 	},
 	"cpu": {
-		"format": " {usage}%",
-		"tooltip": false
+		"format": " {usage}%"
 	},
 	"memory": {
-		"format": " {}%"
+		"format": " {}%",
+		"tooltip-format": "{used:0.1f}GiB RAM used"
 	},
 	"temperature": {
 		// "thermal-zone": 2,
@@ -147,9 +167,13 @@
 		// "format-critical": "{temperatureC}°C {icon}",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": [
-			"󰉬",
+			"",
+			"",
+			"",
 			"",
-			"󰉪"
+			"",
+			"",
+			""
 		]
 	},
 	"backlight": {
@@ -191,7 +215,10 @@
 			"󰂂"
 		]
 	},
-	"pulseaudio": {
+	"network": {
+		"format": "{ipaddr}"
+	},
+	"wireplumber": {
 		// "scroll-step": 1, // %, can be a float
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}%",
@@ -226,13 +253,18 @@
 		"interval": "once",
 		"on-click": "wofi"
 	},
-	"custom/separator": {
+	"custom/line-separator": {
 		"format": "│",
 		"interval": "once",
 		"tooltip": false
 	},
+	"custom/separator": {
+		"format": " ",
+		"interval": "once",
+		"tooltip": false
+	},
 	"custom/weather": {
-		"exec": "curl -s 'https://wttr.in/?format=%c+%t'",
+		"exec": "curl -s 'https://wttr.in/?format=%c%t+%m+%28day+%M%29&m'",
 		"interval": "60" // 60 seconds
 	},
 	"custom/media": {
@@ -240,6 +272,7 @@
 		"format": "{icon} {}",
 		"return-type": "json",
 		"max-length": 30,
+		"min-length": 15,
 		"format-icons": {
 			"spotify": "",
 			"firefox": "󰈹",
