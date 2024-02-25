@@ -65,7 +65,11 @@ export PATH="/var/lib/flatpak/exports/share:$PATH"
 export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+
+	# https://github.com/swaywm/sway/wiki#i-cant-open-links-in-external-applications-in-firefox
+	export MOZ_DBUS_REMOTE=1
 	export MOZ_ENABLE_WAYLAND=1
+
 	export SDL_VIDEODRIVER="wayland"
 	export _JAVA_AWT_WM_NONREPARENTING=1
 	export QT_QPA_PLATFORM="wayland"
@@ -73,6 +77,9 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	# TODO: make this dynamic
 	export XDG_CURRENT_DESKTOP="sway"
 	export XDG_SESSION_DESKTOP="sway"
+
+	# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+	export GTK_USE_PORTAL=0
 fi
 
 # user defaults
