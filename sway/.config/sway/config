@@ -224,16 +224,28 @@ bindsym $mod+$alt+Right resize grow width 10px
 # Workspaces:
 #
 # Switch to workspace
-bindsym $mod+1 exec ~/.config/sway/change-workspace.sh 1
-bindsym $mod+2 exec ~/.config/sway/change-workspace.sh 2
-bindsym $mod+3 exec ~/.config/sway/change-workspace.sh 3
-bindsym $mod+4 exec ~/.config/sway/change-workspace.sh 4
-bindsym $mod+5 exec ~/.config/sway/change-workspace.sh 5
-bindsym $mod+6 exec ~/.config/sway/change-workspace.sh 6
-bindsym $mod+7 exec ~/.config/sway/change-workspace.sh 7
-bindsym $mod+8 exec ~/.config/sway/change-workspace.sh 8
-bindsym $mod+9 exec ~/.config/sway/change-workspace.sh 9
-bindsym $mod+0 exec ~/.config/sway/change-workspace.sh 10
+bindsym $mod+1 exec ~/.config/sway/goto-workspace.sh 1
+bindsym $mod+2 exec ~/.config/sway/goto-workspace.sh 2
+bindsym $mod+3 exec ~/.config/sway/goto-workspace.sh 3
+bindsym $mod+4 exec ~/.config/sway/goto-workspace.sh 4
+bindsym $mod+5 exec ~/.config/sway/goto-workspace.sh 5
+bindsym $mod+6 exec ~/.config/sway/goto-workspace.sh 6
+bindsym $mod+7 exec ~/.config/sway/goto-workspace.sh 7
+bindsym $mod+8 exec ~/.config/sway/goto-workspace.sh 8
+bindsym $mod+9 exec ~/.config/sway/goto-workspace.sh 9
+bindsym $mod+0 exec ~/.config/sway/goto-workspace.sh 10
+bindsym $mod+F1 exec ~/.config/sway/goto-workspace.sh 11
+bindsym $mod+F2 exec ~/.config/sway/goto-workspace.sh 12
+bindsym $mod+F3 exec ~/.config/sway/goto-workspace.sh 13
+bindsym $mod+F4 exec ~/.config/sway/goto-workspace.sh 14
+bindsym $mod+F5 exec ~/.config/sway/goto-workspace.sh 15
+bindsym $mod+F6 exec ~/.config/sway/goto-workspace.sh 16
+bindsym $mod+F7 exec ~/.config/sway/goto-workspace.sh 17
+bindsym $mod+F8 exec ~/.config/sway/goto-workspace.sh 18
+bindsym $mod+F9 exec ~/.config/sway/goto-workspace.sh 19
+bindsym $mod+F10 exec ~/.config/sway/goto-workspace.sh 20
+bindsym $mod+F11 exec ~/.config/sway/goto-workspace.sh 21
+bindsym $mod+F12 exec ~/.config/sway/goto-workspace.sh 22
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -246,9 +258,23 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+F1 move container to workspace number 11
+bindsym $mod+Shift+F2 move container to workspace number 12
+bindsym $mod+Shift+F3 move container to workspace number 13
+bindsym $mod+Shift+F4 move container to workspace number 14
+bindsym $mod+Shift+F5 move container to workspace number 15
+bindsym $mod+Shift+F6 move container to workspace number 16
+bindsym $mod+Shift+F7 move container to workspace number 17
+bindsym $mod+Shift+F8 move container to workspace number 18
+bindsym $mod+Shift+F9 move container to workspace number 19
+bindsym $mod+Shift+F10 move container to workspace number 20
+bindsym $mod+Shift+F11 move container to workspace number 21
+bindsym $mod+Shift+F12 move container to workspace number 22
 
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Tab workspace next
+# bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab exec ~/.config/sway/goto-workspace.sh next
+bindsym $mod+Shift+Tab exec ~/.config/sway/goto-workspace.sh prev
 
 #
 # Keyboard layout:

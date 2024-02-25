@@ -1,28 +1,18 @@
 #!/bin/sh
 
-# dest_workspace=${1}
-
 curr_workspace=$(swaymsg -p -t get_workspaces \
   | grep focused \
   | awk '{print $2}')
 
-other_display=$(swaymsg -p -t get_workspaces \
-  | sed -n "/^Workspace ${dest_workspace}$/{n; p;}" \
-  | awk '{print $2}')
+# https://stackoverflow.com/a/3803412
+dest_workspace=$(
+  case ${1} in
+    ("prev")
+      echo $((((curr_workspace + 8) % 10) + 1)) ;;
+    ("next")
+      echo $(((curr_workspace % 10) + 1)) ;;
+    (*)
+      exit 0 ;;
+  esac)
 
-curr_display=$(swaymsg -p -t get_workspaces \
-  | sed -n '/Workspace [0-9]* (focused)/{n; p;}' \
-  | awk '{print $2}')
-
-if [ ! "$other_display" ]; then
-  swaymsg "[workspace=\"${dest_workspace}\"]" move workspace to output ${curr_display}
-  swaymsg workspace ${dest_workspace}
-  exit 0
-fi
-
-# move curr workspace to other display
-swaymsg "[workspace=\"${curr_workspace}\"]" move workspace to output ${other_display}
-
-# move dest workspace to current display
-swaymsg "[workspace=\"${dest_workspace}\"]" move workspace to output ${curr_display}
-swaymsg workspace ${dest_workspace}
+~/.config/sway/goto-workspace.sh "${dest_workspace}"
