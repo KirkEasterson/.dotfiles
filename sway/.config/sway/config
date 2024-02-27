@@ -23,6 +23,7 @@ for_window [title="Webcam"] floating enable; border pixel 0
 font pango:JetBrains Mono Nerd Font 12
 
 # clamshell mode
+# https://github.com/swaywm/sway/wiki#clamshell-mode
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/clamshell.sh
