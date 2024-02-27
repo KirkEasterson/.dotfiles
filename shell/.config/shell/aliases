@@ -8,7 +8,7 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 # edit dotfiles
-alias eddot='cd ~/.dotfiles/ && nvim && cd - > /dev/null'
+alias eddot='cd $DOTFILES && $EDITOR && cd - > /dev/null'
 
 # Alias to show the date
 alias da='date "+%A %d %B %Y %T %Z"'
