@@ -700,7 +700,7 @@ local global_props = {
   placement = awful.placement.no_overlap + awful.placement.no_offscreen,
   raise = true,
   screen = awful.screen.preferred,
-  titlebars_enabled = true,
+  titlebars_enabled = false,
 }
 
 awful.rules.rules = {
