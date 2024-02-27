@@ -18,6 +18,8 @@ set $laptop eDP-1
 
 output * bg $background fill
 
+for_window [title="Webcam"] floating enable; border pixel 0
+
 font pango:JetBrains Mono Nerd Font 12
 
 # clamshell mode
