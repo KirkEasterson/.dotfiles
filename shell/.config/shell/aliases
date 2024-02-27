@@ -1,6 +1,6 @@
 # Edit this .bashrc file
-alias ebrc='edit ~/.bashrc'
-alias ezrc='edit ~/.zshrc'
+alias ebrc='$EDITOR ~/.bashrc'
+alias ezrc='$EDITOR $ZDOTDIR/.zshrc'
 
 # switch between shells
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
@@ -34,6 +34,12 @@ alias pg="ps aux | grep "
 
 # Search files in the current folder
 # alias fg="find . | grep "
+#
+# mkdir create parent directories
+alias mkdir="mkdir -pv"
+
+# less characters to type 'terraform'
+alias tf="terraform"
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
@@ -101,12 +107,6 @@ alias bupg="brew update && brew upgrade"
 
 # update arch
 alias pupg="sudo pacman -Syyu"
-
-# mkdir create parent directories
-alias mkdir="mkdir -pv"
-
-# less characters to type 'terraform'
-alias tf="terraform"
 
 if [ -f "$XDG_CONFIG_HOME/shell/local/aliases" ]; then
 	source "$XDG_CONFIG_HOME/shell/local/aliases"
