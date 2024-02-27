@@ -6,12 +6,8 @@ set $down j
 set $up k
 set $right l
 
-set $term wezterm
 set $search fuzzel
-set $browser firefox
-set $browser_alt chromium
-set $filemanager pcmanfm
-set $filemanager_alt exec $term -e ranger
+set $filemanager_alt exec $TERMINAL -e ranger
 
 set $background ~/.config/wall.png
 
@@ -126,10 +122,11 @@ input "1390:284:Getech_HUGE_TrackBall" {
 #
 
 # Start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Shift+Return exec $TERMINAL_SECONDARY
 
 # File manager
-bindsym $mod+e exec $filemanager
+bindsym $mod+e exec $FILEMANAGER
 bindsym $mod+Shift+e exec $filemanager_alt
 
 # Kill focused window
@@ -139,7 +136,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+space exec $search
 
 # Browser
-bindsym $mod+w exec $browser
+bindsym $mod+w exec $BROWSER
+bindsym $mod+Shift+w exec $BROWSER_SECONDARY
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
