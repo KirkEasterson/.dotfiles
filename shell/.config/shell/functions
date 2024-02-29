@@ -65,6 +65,10 @@ lnvm () {
   fi
 }
 
+search_hist () {
+  print -z $(cat ${HISTFILE} | sed -re 's/ *[0-9]* *//' | uniq | fzf --tac --no-sort)
+}
+
 # is_wayland () {
 #   if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
 #     false
