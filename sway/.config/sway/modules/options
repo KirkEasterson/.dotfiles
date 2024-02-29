@@ -1,0 +1,11 @@
+floating_modifier $mod normal
+
+# borders
+default_border pixel 1
+default_floating_border normal
+
+# gaps
+# smart_gaps off
+gaps inner 0
+gaps outer 0
+

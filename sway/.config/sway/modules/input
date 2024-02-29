@@ -1,0 +1,43 @@
+# use the following command to get inputs:
+#  `swaymsg -t get_inputs`
+
+# all trackpads
+input "type:touchpad" {
+	accel_profile flat
+	click_method clickfinger
+	drag disabled
+	dwt enabled
+	middle_emulation enabled
+	natural_scroll enabled
+	pointer_accel 0
+	scroll_factor 0.1
+	tap enabled
+}
+
+# all mice (mouses)
+input "type:pointer" {
+	accel_profile flat
+	middle_emulation enabled
+	natural_scroll enabled
+	pointer_accel 0
+}
+
+# all keyboards
+input "type:keyboard" {
+	xkb_layout no,se,us
+	xkb_variant ,nodeadkeys
+	xkb_options caps:escape
+# xkb_file ~/.config/xkb/custom # TODO: make this file
+}
+
+input "1149:32891:Kensington_Orbit_Fusion_Wireless_Trackball" {
+	scroll_button BTN_MIDDLE
+	scroll_factor 0.4
+	scroll_method on_button_down
+}
+
+input "1390:284:Getech_HUGE_TrackBall" {
+	scroll_button BTN_TASK
+	scroll_factor 0.4
+	scroll_method on_button_down
+}

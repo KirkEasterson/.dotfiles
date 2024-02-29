@@ -1,0 +1,6 @@
+exec {
+	1password --silent
+	blueman-applet
+	nm-applet --indicator
+	pcmanfm --daemon-mode
+}

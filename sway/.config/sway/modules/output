@@ -1,0 +1,31 @@
+set {
+
+	# $lock_script $HOME/.config/paul/lock.sh swaylock
+	# $sleep $lock_script && sleep 3 && systemctl susp
+	$laptop eDP-1
+
+	$background ~/.config/wall.png
+
+}
+
+output * bg $background fill
+
+# clamshell mode
+# https://github.com/swaywm/sway/wiki#clamshell-mode
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/.config/sway/clamshell.sh
+
+# allows for persistent display arrangements
+include ~/.config/sway/outputs
+
+# allows for persistent workspaces on displays
+include ~/.config/sway/workspaces
+
+# lock after 5 minutes
+# turn off display after 10 minutes
+exec swayidle -w \
+	timeout 300 'swaylock' \
+	timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+	before-sleep 'swaylock'
+

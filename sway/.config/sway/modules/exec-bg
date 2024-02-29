@@ -1,0 +1,13 @@
+exec {
+	systemctl --user \
+		import-environment \
+		SWAYSOCK \
+		WAYLAND_DISPLAY
+
+	hash dbus-update-activation-environment 2>/dev/null
+	dbus-update-activation-environment --systemd SWAYSOCK \
+		WAYLAND_DISPLAY 2>/dev/null
+
+	dunst
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+}
