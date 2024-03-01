@@ -16,7 +16,7 @@ sound () {
       return ;;
   esac)
 
-    pw-play "/usr/share/sounds/freedesktop/stereo/${file}"
+  pw-play "/usr/share/sounds/freedesktop/stereo/${file}"
 }
 
 # check frequency (default 0.25 seconds)
