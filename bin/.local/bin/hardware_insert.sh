@@ -26,8 +26,6 @@ DEVCOUNT=$(lsusb | wc -l | awk '{ print $1 }')
 OLDDEVCOUNT=$DEVCOUNT;
 
 while(true) do
-  sleep $CHECKFREQ;
-
   DEVCOUNT=$(lsusb | wc -l | awk '{ print $1 }')
   if [ "${DEVCOUNT}" -gt "${OLDDEVCOUNT}" ]; then
     sound "insert"
@@ -36,4 +34,6 @@ while(true) do
   fi
 
   OLDDEVCOUNT=$DEVCOUNT;
+
+  sleep $CHECKFREQ;
 done
