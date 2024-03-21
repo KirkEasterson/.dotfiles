@@ -2,7 +2,8 @@
 
 gui () {
 	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		grim -g "$(slurp -b 00000090 -s cc000000 -w 0)" "${output_file}"
+		# grim -g "$(slurp -b 00000090 -s cc000000 -w 0)" "${output_file}"
+		flameshot gui
 	else
 		flameshot gui
 	fi
@@ -10,8 +11,8 @@ gui () {
 
 window () {
 	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		# TODO: this line without jq
-		grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" "${output_file}"
+		# grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" "${output_file}"
+		flameshot full
 	else
 		flameshot full
 	fi
@@ -19,8 +20,8 @@ window () {
 
 fullscreen () {
 	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		# TODO: this line without jq
-		grim "${output_file}"
+		# grim "${output_file}"
+		flameshot full
 	else
 		flameshot full
 	fi
@@ -31,7 +32,7 @@ sound () {
 }
 
 screenshots_dir="$(xdg-user-dir PICTURES)/screenshots"
-output_file="${screenshots_dir}/$(date '+%F_%H:%M:%S').png"
+# output_file="${screenshots_dir}/$(date '+%F_%H-%M-%S').png"
 mkdir -p "${screenshots_dir}"
 
 case "${1}" in
