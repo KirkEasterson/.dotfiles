@@ -1,4 +1,4 @@
-rules = {
+local rules = {
   {
     matches = {
       {
