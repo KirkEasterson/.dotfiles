@@ -2,12 +2,14 @@ return {
   "nvim-neotest/neotest",
   cond = not vim.g.started_by_firenvim,
   dependencies = {
+    "nvim-neotest/nvim-nio",
+    "antoinemadec/FixCursorHold.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "antoinemadec/FixCursorHold.nvim",
+
+    "Issafalcon/neotest-dotnet",
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-python",
-    "Issafalcon/neotest-dotnet",
     "rouge8/neotest-rust",
   },
   keys = {
