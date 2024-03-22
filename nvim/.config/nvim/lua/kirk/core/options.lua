@@ -127,7 +127,7 @@ opt.mouse = "a" -- enable mouse for scrolling and resizing
 opt.mousehide = true
 opt.mousemodel = "extend" -- don't show right click menu
 opt.mousemoveevent = true
-opt.mousescroll = "ver:1,hor:1"
+opt.mousescroll = "ver:3,hor:3"
 -- opt.mousesshape = "vs:lrsizing"
 
 opt.nrformats = "alpha,octal,hex,bin"
