@@ -1,15 +1,21 @@
 exec {
 	systemctl --user \
 		import-environment \
-		SWAYSOCK \
-		WAYLAND_DISPLAY
+			DISPLAY \
+			SWAYSOCK \
+			WAYLAND_DISPLAY \
+			XDG_CURRENT_DESKTOP
 
-	hash dbus-update-activation-environment 2>/dev/null
-	dbus-update-activation-environment --systemd SWAYSOCK \
-		WAYLAND_DISPLAY 2>/dev/null
+	hash dbus-update-activation-environment 2>/dev/null && \
+		dbus-update-activation-environment --systemd \
+			DISPLAY \
+			SWAYSOCK \
+			WAYLAND_DISPLAY \
+			XDG_CURRENT_DESKTOP=sway
 
-	dunst
+	mako
 	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 	hardware_insert.sh
+	$XDG_CONFIG_HOME/waybar/waybar.sh
 }
