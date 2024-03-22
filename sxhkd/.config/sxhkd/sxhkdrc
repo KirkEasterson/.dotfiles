@@ -29,10 +29,10 @@ super + shift + n
 	~/scripts/most_recent_note.sh
 
 # media keys
-XF86Audio{Raise,Lower}Volume
-	wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%{+,-}
+XF86Audio{Lower,Raise}Volume
+	change_vol.sh {lower,raise}
 XF86AudioMute
-	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+	change_vol.sh toggle-mute
 XF86AudioMicMute
 	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 XF86Audio{Play,Pause,Stop,Prev,Next}
@@ -52,7 +52,7 @@ XF86Mail
 
 # brightness keys
 XF86MonBrightness{Down,Up}
-	brightnessctl -q set 5%{-,+}
+	change_brightness.sh {lower,raise}
 
 # screenshot
 {_,shift +} Print
