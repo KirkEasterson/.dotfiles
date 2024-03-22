@@ -12,6 +12,7 @@ setopt INC_APPEND_HISTORY_TIME
 export KEYTIMEOUT=1
 
 # Basic auto/tab complete
+setopt completealiases
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 	compinit
