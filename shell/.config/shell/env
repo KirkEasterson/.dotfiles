@@ -75,8 +75,8 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export QT_QPA_PLATFORM="wayland"
 
 	# TODO: make this dynamic
-	export XDG_CURRENT_DESKTOP="sway"
-	export XDG_SESSION_DESKTOP="sway"
+	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
+	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-sway}"
 
 	# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 	export GTK_USE_PORTAL=0
