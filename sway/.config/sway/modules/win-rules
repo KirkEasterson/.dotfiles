@@ -1,20 +1,33 @@
+focus_on_window_activation focus
+
 for_window {
+	[title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
+	[title="Save File"] floating enable
 
 	# identify xwayland windows
 	[shell="xwayland"] title_format "[XWayland] %title"
 
 	# general window rules
 	[urgent="latest"] focus
-	[window_role="pop-up"] floating enable
 	[window_role="bubble"] floating enable
 	[window_role="dialog"] floating enable
+	[window_role="pop-up"] floating enable
+	[window_role="task_dialog"] floating enable
 	[window_type="dialog"] floating enable
+	[window_type="menu"] floating enable
 
 	# specific window rules
-	[app_id="firefox"]        inhibit_idle fullscreen
-	[app_id="mpv"]            inhibit_idle focus
-	[app_id="screenshot"]     move to scratchpad
-	[app_id="zoom"]        floating enable, inhibit_idle focus
-	[app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
-	[title="Webcam"] floating enable; border pixel 0
+	[app_id="firefox"] inhibit_idle fullscreen
+	[app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable
+	[app_id="thunderbird" title=".*Reminder"] floating enable
+
+	[app_id="dragon-drop"] floating enable, sticky enable
+	[app_id="mpv"] inhibit_idle focus
+	[app_id="screenshot"] move to scratchpad
+	[app_id="zoom"] floating enable, inhibit_idle focus
+	[app_id="flameshot"] border pixel 0, floating enable, fullscreen enable global
+	[title="Webcam"] floating enable; sticky enable; border pixel 0
 }
+
+# don't allow app to inhibit shortcuts (i.e., grab total control of the keyboard)
+seat * shortcuts_inhibitor disable
