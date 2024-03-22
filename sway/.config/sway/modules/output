@@ -1,14 +1,8 @@
 set {
-
 	# $lock_script $HOME/.config/paul/lock.sh swaylock
 	# $sleep $lock_script && sleep 3 && systemctl susp
 	$laptop eDP-1
-
-	$background ~/.config/wall.png
-
 }
-
-output * bg $background fill
 
 # clamshell mode
 # https://github.com/swaywm/sway/wiki#clamshell-mode
