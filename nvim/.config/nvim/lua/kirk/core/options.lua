@@ -87,8 +87,12 @@ opt.wildignore:append({
 
 opt.title = true
 
-opt.spell = false
+opt.spell = true
 opt.spelllang = { "en_us" }
+vim.cmd([[highlight SpellBad cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
+vim.cmd([[highlight SpellCap cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
+vim.cmd([[highlight SpellRare cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
+vim.cmd([[highlight SpellLocal cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
 
 opt.number = true -- show line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -114,7 +118,7 @@ opt.updatetime = 250 -- ms to wait for trigger an event
 opt.syntax = "enable" -- show syntax highlighting
 opt.showmatch = true -- highlight matching brackets
 opt.scrolloff = 4 -- scroll when y away from vertical edge
--- opt.smoothscroll = true
+-- opt.smoothscroll = true -- doesn't work for some reason
 opt.sidescrolloff = 8 -- scroll when x away from horizontal edge
 opt.signcolumn = "yes" -- column for linting
 opt.colorcolumn = "80" -- show line for 80char soft-limit
