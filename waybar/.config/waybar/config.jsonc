@@ -1,12 +1,11 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 20, // min height
+	"height": 24, // min height
 	"margin": 0,
 	"padding": 0,
 	"spacing": 0,
 	"modules-left": [
-		// "custom/search",
 		// "wlr/workspaces",
 		// "hyprland/workspaces",
 		"sway/workspaces",
@@ -14,15 +13,12 @@
 		// "hyprland/window",
 		"sway/window"
 		// "wlr/taskbar"
-		// "custom/media"
 	],
 	"modules-right": [
 		"custom/media",
 		"custom/line-separator",
 		"tray",
-		// "custom/line-separator",
 		"custom/line-separator",
-		// "custom/line-separator",
 		"backlight",
 		"custom/line-separator",
 		"custom/idle-inhibitor",
@@ -46,41 +42,41 @@
 		"custom/line-separator",
 		"clock"
 	],
-	// "wlr/workspaces": {
-	// 	"format": "{name}",
-	// 	"on-click": "activate"
-	// },
-	// "hyprland/workspaces": {
-	// 	"format": "{name}"
-	// },
+	"wlr/workspaces": {
+		"format": "{name}",
+		"on-click": "activate"
+	},
+	"hyprland/workspaces": {
+		"format": "{name}"
+	},
 	"sway/workspaces": {
 		"all-outputs": true,
 		"disable-scroll": true,
 		"format": "{name}"
 	},
-	// "hyprland/window": {
-	// 	"separate-outputs": true
-	// },
+	"hyprland/window": {
+		"separate-outputs": true
+	},
 	"sway/window": {
 		"icon": true,
 		"tooltip": false
 	},
-	// "wlr/taskbar": {
-	// 	"format": "{icon}{title}",
-	// 	"tooltip-format": "{title}",
-	// 	"on-click": "activate",
-	// 	"on-click-middle": "close"
-	// },
+	"wlr/taskbar": {
+		"format": "{icon}{title}",
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-middle": "close"
+	},
 	"tray": {
 		"icon-size": 20,
 		"spacing": 10
 	},
-	// "language": {
-	// 	"format": " {short}"
-	// },
-	// "hyprland/language": {
-	// 	"format": " {short}"
-	// },
+	"language": {
+		"format": " {short}"
+	},
+	"hyprland/language": {
+		"format": " {short}"
+	},
 	"sway/language": {
 		"format": " {short}"
 	},
@@ -187,12 +183,6 @@
 		},
 		"on-click": "pavucontrol"
 	},
-	// "custom/search": {
-	// 	"format": " ",
-	// 	"tooltip": false,
-	// 	"interval": "once",
-	// 	"on-click": "fuzzel"
-	// },
 	"custom/line-separator": {
 		"format": "|",
 		"interval": "once",
@@ -226,17 +216,17 @@
 		"escape": true,
 		"on-click": "playerctl play-pause"
 	},
-	// "idle_inhibitor": {
-	// 	"format": "{icon} ",
-	// 	"format-icons": {
-	// 		"activated": "󰒳",
-	// 		"deactivated": "󰒲"
-	// 	},
-	// 	"on-click": "inhibit-idle.sh on",
-	// 	"on-click-middle": "inhibit-idle.sh off",
-	// 	"on-click-right": "inhibit-idle.sh interactive",
-	// 	"signal": 15
-	// },
+	"idle_inhibitor": {
+		"format": "{icon} ",
+		"format-icons": {
+			"activated": "󰒳",
+			"deactivated": "󰒲"
+		},
+		"on-click": "inhibit-idle.sh on",
+		"on-click-middle": "inhibit-idle.sh off",
+		"on-click-right": "inhibit-idle.sh interactive",
+		"signal": 15
+	},
 	"custom/idle-inhibitor": {
 		"interval": 60,
 		"return-type": "json",
