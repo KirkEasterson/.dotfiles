@@ -1,4 +1,5 @@
-# zmodload zsh/zprof # uncomment for profiling
+[ -z "$ZPROF" ] || zmodload zsh/zprof
+
 source "$HOME/.config/shell/commonrc"
 
 HISTSIZE=100000
@@ -11,15 +12,18 @@ HISTFILE="$XDG_CACHE_HOME/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
 export KEYTIMEOUT=1
 
-# Basic auto/tab complete
 setopt completealiases
-autoload -Uz compinit
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit
-	touch ${ZDOTDIR}/.zcompdump
-else
-	compinit -C
-fi;
+
+# # TODO: if this changes anything, then uncomment it
+# # Basic auto/tab complete
+# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+# 	autoload -Uz compinit
+# 	compinit
+# 	touch ${ZDOTDIR}/.zcompdump
+# else
+# 	compinit -C
+# fi;
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -48,7 +52,8 @@ if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-clou
 # opam configuration
 [[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
 
-eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
+# eval "$(direnv hook zsh)"
+# eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-# zprof # uncomment for profiling
+
+[ -z "$ZPROF" ] || zprof
