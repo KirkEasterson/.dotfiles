@@ -1,49 +1,35 @@
 * {
-  border: none;
-  border-radius: 0;
   font-family: "JetBrains Mono Nerd Font";
-  font-size: 14px;
-  /*font-weight: bold;*/
+  font-size: 16;
   min-height: 0;
-  padding: 0;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 window#waybar {
-  color: #ebdbb2;
-  background: #282828;
-  /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+  border-bottom: 1px solid #665c54;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
-  padding: 0 5px;
-  color: #ebdbb2;
+  padding: 0px 4px;
   border-top: 1px solid #7c6f64;
 }
 
 #workspaces button.visible {
   background: #3c3836;
-  border-top: 2px solid #9d0006;
+  border-top: 1px solid #9d0006;
 }
 
 /* this _must_ come after button.visible */
 #workspaces button.focused {
-  background: #504945;
+  background-color: #504945;
   border-top: 2px solid #fabd2f;
 }
 
 #workspaces button.urgent {
   background-color: #bf616a;
-}
-
-#mode {
-  background: #64727d;
-  border-bottom: 3px solid #ffffff;
-}
-
-#language {
-  min-width: 35px;
+  border-top: 2px solid #cc241d;
 }
 
 /* #clock, */
@@ -58,23 +44,14 @@ window#waybar {
 /* #tray, */
 /* #mode, */
 /* #idle_inhibitor { */
-/*   padding: 0 4px; */
-/*   margin: 0 4px; */
+/*   padding: 0 0px; */
+/*   margin: 0 0px; */
 /* } */
 
-/* #clock { */
-/*   background-color: #64727D; */
-/*   font-weight: bold; */
-/* } */
-
-#battery {
-  /*background-color: #000000;*/
-  color: #ebdbb2;
-}
-
-#battery.charging {
-  /*background-color: #000000;*/
-  color: #ebdbb2;
+#clock {
+  background-color: #504945;
+  font-weight: bold;
+  padding: 0 5px;
 }
 
 @keyframes blink {
@@ -86,7 +63,6 @@ window#waybar {
 
 #battery.critical:not(.charging) {
   background: #f53c3c;
-  color: #ebdbb2;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -94,70 +70,14 @@ window#waybar {
   animation-direction: alternate;
 }
 
-#cpu {
-  /*background: #2ecc71;*/
-}
-
-#memory {
-  /*background: #9b59b6;*/
-}
-
-#backlight {
-  /*background: #90b1b1;*/
-}
-
-#network {
-  /*background: #2980b9;*/
-}
-
-#network.disconnected {
-  /*background: #f53c3c;*/
-}
-
-#pulseaudio {
-  /*background: #000000;*/
-}
-
-#pulseaudio.muted {
-  /*background: #000000;*/
-}
-
 #custom-line-separator {
   color: #3c3836;
-  margin: 0 2px;
 }
-
-/* #custom-media { */
-/*   background: #66cc99; */
-/*   color: #ebdbb2; */
-/* } */
-
-/* .custom-spotify { */
-/*   background: #66cc99; */
-/* } */
 
 .custom-vlc {
   background: #ffa000;
 }
 
-/* #temperature { */
-/*   background: #f0932b; */
-/* } */
-
 #temperature.critical {
   background: #eb4d4b;
-}
-
-#tray {
-  /*background-color: #2980b9;*/
-  color: #ebdbb2;
-}
-
-#idle_inhibitor {
-  background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #ebdbb2;
 }
