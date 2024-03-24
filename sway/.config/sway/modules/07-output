@@ -1,9 +1,3 @@
-set {
-	# $lock_script $HOME/.config/paul/lock.sh swaylock
-	# $sleep $lock_script && sleep 3 && systemctl susp
-	$laptop eDP-1
-}
-
 # clamshell mode
 # https://github.com/swaywm/sway/wiki#clamshell-mode
 bindswitch --reload --locked lid:on output $laptop disable

@@ -1,0 +1,23 @@
+set {
+	# basic modifiers
+	$alt Mod1
+		$mod Mod4
+
+	# vim directions
+	$left h
+	$down j
+	$up k
+	$right l
+
+	# programs
+	$search fuzzel
+	$filemanager_alt exec $TERMINAL -e ranger
+	$brightness change_brightness.sh
+
+	# $lock_script $HOME/.config/paul/lock.sh swaylock
+	# $sleep $lock_script && sleep 3 && systemctl susp
+	$laptop eDP-1
+
+	$background ~/.config/wall.png
+}
+

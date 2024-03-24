@@ -1,26 +1,9 @@
-set {
-	# basic modifiers
-	$alt Mod1
-	$mod Mod4
-
-	# vim directions
-	$left h
-	$down j
-	$up k
-	$right l
-
-	# programs
-	$search fuzzel
-	$filemanager_alt exec $TERMINAL -e ranger
-	$brightness change_brightness.sh
-}
-
 ################################
 # Sway control
 ################################
 
 # Reload the configuration file
-bindsym --no-repeat $mod+Ctrl+r reload
+bindsym --no-repeat $mod+Ctrl+r exec swaymsg reload; exec notify-send "Reloaded sway" -i "system-reboot"
 bindsym --no-repeat $mod+Ctrl+q exec swaylock
 
 # Exit sway (logs you out of your Wayland session)

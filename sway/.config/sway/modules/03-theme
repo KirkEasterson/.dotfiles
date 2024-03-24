@@ -2,13 +2,9 @@ exec {
 	import-gsettings.sh
 }
 
-set {
-	$background ~/.config/wall.png
-}
-
 output * bg $background fill
 
-font pango:JetBrains Mono Nerd Font 12
+font $font 12
 
 # TODO: uncomment this and find out what breaks
 # xwayland disable
