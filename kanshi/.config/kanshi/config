@@ -1,9 +1,13 @@
 profile laptop {
-  output 'BOE 0x094C Unknown' mode 1920x1200@60 position 0,0
+	output 'BOE 0x094C Unknown' mode 1920x1200@60 position 0,0
 }
 
 profile home {
-	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200@59.950 position 1879,250
-	output 'Samsung Electric Company C27HG7x HTHM300685' mode 2560x1440@144 position 3799,250
 	output 'BOE 0x094C Unknown' mode 1920x1200@60 position 6260,490
+	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200@59.950 position 1879,250
+}
+
+profile home_clamshell {
+	output 'BOE 0x094C Unknown' disable
+	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200@59.950 position 1879,250
 }
