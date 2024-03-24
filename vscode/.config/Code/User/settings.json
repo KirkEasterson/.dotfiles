@@ -1,0 +1,15 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.iconTheme": "material-icon-theme",
+    "telemetry.telemetryLevel": "off",
+    "code-runner.enableAppInsights": false,
+    "editor.fontFamily": "ComicCodeLigatures Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": false,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "keyboard.dispatch": "keyCode",
+    "editor.lineNumbers": "relative",
+    "update.showReleaseNotes": false
+}

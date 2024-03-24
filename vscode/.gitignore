@@ -1,0 +1,6 @@
+# ignore everything
+*
+
+# except settings.json
+!.config/Code/User/settings.json
+!.config/Code - OSS/User/settings.json
