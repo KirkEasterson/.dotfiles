@@ -1,6 +1,5 @@
-native-messaging-hosts
-firefox/Crash\ Reports
-firefox/installs.ini
-firefox/profiles.ini
-firefox/firefox-mpris/
-firefox/*.default*/
+# ignore everything
+*
+
+# except userChrome.css
+!./*/userChrome.css
