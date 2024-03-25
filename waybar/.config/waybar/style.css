@@ -17,7 +17,6 @@ window#waybar {
   border-bottom: 1px solid #665c54;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
   padding: 0px 4px;
   border-top: 1px solid #7c6f64;
@@ -37,6 +36,26 @@ window#waybar {
 #workspaces button.urgent {
   background-color: #bf616a;
   border-top: 2px solid #cc241d;
+}
+
+#backlight {
+  color: #d79921;
+}
+
+#wireplumber.muted {
+  color: #7c6f64;
+}
+
+#cpu {
+  color: #b8bb26;
+}
+
+#memory {
+  color: #d3869b;
+}
+
+#temperature {
+  color: #458588;
 }
 
 #temperature.critical {
