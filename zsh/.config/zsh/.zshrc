@@ -14,15 +14,15 @@ export KEYTIMEOUT=1
 
 setopt completealiases
 
-# # TODO: if this changes anything, then uncomment it
-# # Basic auto/tab complete
-# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-# 	autoload -Uz compinit
-# 	compinit
-# 	touch ${ZDOTDIR}/.zcompdump
-# else
-# 	compinit -C
-# fi;
+# case insensitive tab-completion
+# ex: `cd down` --> `cd Downloads/`
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	autoload -Uz compinit
+	compinit
+	touch ${ZDOTDIR}/.zcompdump
+else
+	compinit -C
+fi;
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
