@@ -1,18 +1,18 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 24, // min height
+	"height": 24,
 	"margin": 0,
 	"padding": 0,
 	"spacing": 0,
 	"modules-left": [
-		// "wlr/workspaces",
-		// "hyprland/workspaces",
+		"wlr/workspaces",
+		"hyprland/workspaces",
 		"sway/workspaces",
 		"custom/line-separator",
-		// "hyprland/window",
+		// "wlr/taskbar",
+		"hyprland/window",
 		"sway/window"
-		// "wlr/taskbar"
 	],
 	"modules-right": [
 		"custom/media",
@@ -59,10 +59,11 @@
 	},
 	"sway/window": {
 		"icon": true,
-		"tooltip": false
+		"max-length": 22
 	},
 	"wlr/taskbar": {
-		"format": "{icon}{title}",
+		"format": "{icon}{name}",
+		"markup": true,
 		"tooltip-format": "{title}",
 		"on-click": "activate",
 		"on-click-middle": "close"
@@ -106,7 +107,7 @@
 	"temperature": {
 		// "thermal-zone": 2,
 		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-		"critical-threshold": 90,
+		"critical-threshold": 80,
 		// "format-critical": "{temperatureC}°C {icon}",
 		"format": "{icon}{temperatureC}°C",
 		"format-icons": [
@@ -135,17 +136,17 @@
 		]
 	},
 	"battery": {
-		"interval": 30,
+		"interval": 60,
 		"states": {
 			// "good": 95,
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{icon} {capacity}%",
-		"format-charging": "{icon}󱐋 {capacity}%",
-		"format-plugged": "{icon}󱐋 {capacity}%",
+		"format": "{icon}{capacity}%",
+		"format-charging": "{icon}󱐋{capacity}%",
+		"format-plugged": "{icon}󱐋{capacity}%",
 		// "format-good": "", // An empty format will hide the module
-		"format-full": "󰁹 {capacity}%",
+		"format-full": "󰁹{capacity}%",
 		"format-icons": [
 			"󰂎",
 			"󰁺",
@@ -161,12 +162,12 @@
 	},
 	"wireplumber": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
-		"format-bluetooth-muted": "󰖁 {volume}%",
-		"format-muted": "󰖁 {volume}%",
-		"format-source": " {volume}%",
-		"format-source-muted": " {volume}%",
+		"format": "{icon}{volume}%",
+		"format-bluetooth": "{icon}{volume}%",
+		"format-bluetooth-muted": "󰖁{volume}%",
+		"format-muted": "󰖁{volume}%",
+		"format-source": "{volume}%",
+		"format-source-muted": "{volume}%",
 		"tooltip-format": "{volume}%",
 		"format-icons": {
 			"headphone": "",
