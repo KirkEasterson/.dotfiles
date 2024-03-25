@@ -19,18 +19,18 @@
 		"custom/line-separator",
 		"tray",
 		"custom/line-separator",
-		"backlight",
+		"custom/weather",
 		"custom/line-separator",
 		"custom/idle-inhibitor",
 		// "idle_inhibitor",
+		"custom/line-separator",
+		"backlight",
 		"custom/line-separator",
 		"temperature",
 		"custom/line-separator",
 		"cpu",
 		"custom/line-separator",
 		"memory",
-		"custom/line-separator",
-		"custom/weather",
 		"custom/line-separator",
 		// "language",
 		// "hyprland/language",
@@ -88,19 +88,19 @@
 		"calendar": {
 			"weeks-pos": "right",
 			"format": {
-				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"days": "<span color='#ecc6d9'><b>{}</b></span>",
-				"weeks": "<span color='#99ffdd'><b>w{}</b></span>",
-				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+				"months": "<span color='#fbf1c7'><b>{}</b></span>",
+				"today": "<span color='#fbf1c7'><b><u>{}</u></b></span>",
+				"days": "<span color='#d5c4a1'>{}</span>",
+				"weeks": "<span color='#a89984'>│<i>w{}</i></span>",
+				"weekdays": "<span color='#fabd2f'><u><i>{}</i></u></span>"
 			}
 		}
 	},
 	"cpu": {
-		"format": " "
+		"format": " {usage}%"
 	},
 	"memory": {
-		"format": " ",
+		"format": " {percentage}%",
 		"tooltip-format": "{used:0.1f}GiB RAM used"
 	},
 	"temperature": {
@@ -108,7 +108,7 @@
 		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
 		"critical-threshold": 90,
 		// "format-critical": "{temperatureC}°C {icon}",
-		"format": "{icon}",
+		"format": "{icon}{temperatureC}°C",
 		"format-icons": [
 			"",
 			"",
@@ -121,7 +121,7 @@
 	},
 	"backlight": {
 		// "device": "acpi_video1",
-		"format": "{icon} ",
+		"format": "{icon} {percent}%",
 		"format-icons": [
 			"",
 			"",
@@ -184,7 +184,7 @@
 		"on-click": "pavucontrol"
 	},
 	"custom/line-separator": {
-		"format": "|",
+		"format": "│",
 		"interval": "once",
 		"tooltip": false
 	},
