@@ -1,16 +1,9 @@
 * {
   font-family: "JetBrains Mono Nerd Font";
-  font-size: 16;
-  min-height: 0;
+  font-size: 14px;
+  min-height: 0px;
   margin: 0px;
   padding: 0px;
-}
-
-@keyframes blink {
-  to {
-    background-color: inherit;
-    color: inherit;
-  }
 }
 
 window#waybar {
@@ -38,24 +31,30 @@ window#waybar {
   border-top: 2px solid #cc241d;
 }
 
-#backlight {
-  color: #d79921;
-}
-
 #wireplumber.muted {
   color: #7c6f64;
 }
 
 #cpu {
-  color: #b8bb26;
+  text-decoration-line: underline;
+  text-decoration-color: #cc241d;
 }
 
 #memory {
-  color: #d3869b;
+  text-decoration-line: underline;
+  text-decoration-color: #b8bb26;
 }
 
 #temperature {
-  color: #458588;
+  text-decoration-line: underline;
+  text-decoration-color: #458588;
+}
+
+@keyframes blink {
+  to {
+    background-color: inherit;
+    color: inherit;
+  }
 }
 
 #temperature.critical {
@@ -91,7 +90,7 @@ window#waybar {
 #clock {
   background-color: #504945;
   font-weight: bold;
-  padding: 0 5px;
+  padding: 0px 5px;
 }
 
 #custom-line-separator {

@@ -6,12 +6,14 @@
 	"padding": 0,
 	"spacing": 0,
 	"modules-left": [
-		"wlr/workspaces",
-		"hyprland/workspaces",
+		"group/group-power",
+		"custom/line-separator",
+		// "wlr/workspaces",
+		// "hyprland/workspaces",
 		"sway/workspaces",
 		"custom/line-separator",
 		// "wlr/taskbar",
-		"hyprland/window",
+		// "hyprland/window",
 		"sway/window"
 	],
 	"modules-right": [
@@ -42,6 +44,40 @@
 		"custom/line-separator",
 		"clock"
 	],
+	"group/group-power": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false,
+		},
+		"modules": [
+			"custom/power",
+			"custom/quit",
+			"custom/lock",
+			"custom/reboot"
+		]
+	},
+	"custom/quit": {
+		"format": "󰗼",
+		"tooltip": false,
+		"on-click": "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'"
+	},
+	"custom/lock": {
+		"format": "󰍁",
+		"tooltip": false,
+		"on-click": "swaylock"
+	},
+	"custom/reboot": {
+		"format": "󰜉",
+		"tooltip": false,
+		"on-click": "reboot"
+	},
+	"custom/power": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "shutdown now"
+	},
 	"wlr/workspaces": {
 		"format": "{name}",
 		"on-click": "activate"
