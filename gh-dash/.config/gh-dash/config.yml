@@ -1,18 +1,19 @@
+---
 prSections:
-  - title: My Pull Requests
+  - title: Created
     filters: is:open author:@me
-  - title: Needs My Review
+  - title: Needs review
     filters: is:open review-requested:@me
   - title: Involved
     filters: is:open involves:@me -author:@me
 
 issuesSections:
-  - title: My Issues
+  - title: Created
     filters: is:open author:@me
   - title: Assigned
     filters: is:open assignee:@me
   - title: Involved
-    filters: is:open involves:@me -author:@me
+    filters: is:open -author:@me
 
 defaults:
   preview:
@@ -49,23 +50,20 @@ defaults:
         hidden: true
   refetchIntervalMinutes: 30
 
+repoPaths:
+  :owner/:repo: ~/dev/pulls/:owner/:repo
+  reMarkable/*: ~/dev/remarkable/*
+
+  # TODO: add bindings for using git-worktree
 keybindings:
   issues: []
-  prs: []
-  # prs: # open in neovim
-  #   - key: c
-  #     command: >
-  #       tmux new-window -c {{.RepoPath}} '
-  #         gh pr checkout {{.PrNumber}} &&
-  #         nvim -c ":DiffviewOpen master...{{.HeadRefName}}"
-  #       '
-  #   - key: v
-  #     command: >
-  #       cd {{.RepoPath}} &&
-  #       code . &&
-  #       gh pr checkout {{.PrNumber}}
-
-repoPaths: {}
+  prs:
+    - key: i
+      command: |
+        tmux new-window -c {{.RepoPath}} '
+          gh pr checkout {{.PrNumber}} &&
+          nvim -c ":DiffviewOpen main...{{.HeadRefName}}"
+        '
 
 theme:
   ui:
@@ -85,6 +83,3 @@ theme:
       primary: "#458588" # blue
       secondary: "#3C3836" # bg1
       faint: "#928374" # gray
-
-pager:
-  diff: ""
