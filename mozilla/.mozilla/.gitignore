@@ -2,5 +2,5 @@
 *
 
 # except these
-!./*/userChrome.css
-!./.gitignore
+!*/userChrome.css
+!*/.gitignore
