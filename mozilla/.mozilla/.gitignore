@@ -1,5 +1,6 @@
 # ignore everything
 *
 
-# except userChrome.css
+# except these
 !./*/userChrome.css
+!./.gitignore
