@@ -53,46 +53,46 @@ alias treed='tree -CAFd'
 alias treex='exa -l --color=always --group-directories-first --icons --tree --level=4'
 alias mountedinfo='df -hT'
 
-# Git alias commands
+# # Git alias commands
 alias g="git status"
-alias ga="git add"
-alias gaa="git add ."
-alias gau="git add -u"
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gca="git commit -am"
-alias gb="git branch"
-alias gbd="git branch -d"
-alias gco="git checkout"
+# alias ga="git add"
+# alias gaa="git add ."
+# alias gau="git add -u"
+# alias gc="git commit"
+# alias gcm="git commit -m"
+# alias gca="git commit -am"
+# alias gb="git branch"
+# alias gbd="git branch -d"
+# alias gco="git checkout"
 alias gcob="git checkout -b"
-alias gt="git stash"
-alias gta="git stash apply"
-alias gm="git merge"
-alias gr="git rebase"
-alias gl="git log --oneline --decorate --graph"
-alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-alias glga="git log --graph --oneline --all --decorate"
-alias gb="git branch"
-alias gs="git show"
-alias gd="diff --color --color-words --abbrev"
-alias gdc="git diff --cached"
-alias gbl="git blame"
+# alias gt="git stash"
+# alias gta="git stash apply"
+# alias gm="git merge"
+# alias gr="git rebase"
+# alias gl="git log --oneline --decorate --graph"
+# alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+# alias glga="git log --graph --oneline --all --decorate"
+# alias gb="git branch"
+# alias gs="git show"
+# alias gd="diff --color --color-words --abbrev"
+# alias gdc="git diff --cached"
+# alias gbl="git blame"
 alias gps="git push"
 alias gpl="git pull"
-alias gb="git branch"
-alias gd="git diff"
-alias gk="gitk --all&"
-alias gx="gitx --all"
+# alias gb="git branch"
+# alias gd="git diff"
+# alias gk="gitk --all&"
+# alias gx="gitx --all"
 
-# show ignored files by git
-alias gx="ign = ls-files -o -i --exclude-standard"
+# # show ignored files by git
+# alias gx="ign = ls-files -o -i --exclude-standard"
 
-# Untrack Files without deleting them
-alias grmc="git rm -r --cached"
+# # Untrack Files without deleting them
+# alias grmc="git rm -r --cached"
 
-# lazygit
-alias lg="lazygit"
-alias ghd="gh dash"
+# # lazygit
+# alias lg="lazygit"
+# alias ghd="gh dash"
 
 # updating ubuntu
 alias uupg="sudo nala upgrade -y && flatpak upgrade -y"

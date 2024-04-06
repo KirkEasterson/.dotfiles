@@ -45,6 +45,13 @@ function zvm_after_init() {
   zvm_bindkey viins '^Y' autosuggest-accept
 }
 
+if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
+	# is wayland
+	export FORGIT_COPY_CMD="wl-copy"
+else
+	export FORGIT_COPY_CMD="xclip -selection clipboard"
+fi
+
 # gcloud configuration
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
