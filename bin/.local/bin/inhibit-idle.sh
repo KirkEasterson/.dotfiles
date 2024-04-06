@@ -29,7 +29,7 @@ case $1'' in
       ;;
   'on')
       uninhibit
-      inhibit
+      inhibit 1800 # 30 minutes
       send_signal
       ;;
   'off')
