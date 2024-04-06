@@ -1,14 +1,11 @@
 return {
   "NeogitOrg/neogit",
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
 
-    -- only one of these is needed, not both
-    -- "nvim-telescope/telescope.nvim",
-    -- 'ibhagwan/fzf-lua',
+    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
   },
   cmd = "Neogit",
   keys = {
@@ -23,9 +20,13 @@ return {
   },
   opts = {
     disable_commit_confirmation = true,
-    disable_insert_on_commit = false,
+    disable_insert_on_commit = false, -- start commits in insert mode
     use_per_project_settings = false,
     kind = "split",
+    graph_style = "unicode",
+    telescope_sorter = function()
+      return require("telescope").extensions.fzf.native_fzf_sorter()
+    end,
     signs = {
       -- { CLOSED, OPENED }
       hunk = { "", "" },
@@ -34,7 +35,7 @@ return {
     },
     integrations = {
       diffview = true,
-      -- telescope = true,
+      telescope = true,
       -- fzf_lua = true,
     },
     mappings = {

@@ -1,7 +1,6 @@
 return {
   "tpope/vim-fugitive",
-  cond = not vim.g.started_by_firenvim,
-  enabled = false,
+  -- enabled = false,
   cmd = {
     "G",
     "GBrowse",
@@ -20,11 +19,11 @@ return {
     "Gvdiffsplit",
     "Gwrite",
   },
-  keys = {
-    {
-      "<leader>gg",
-      vim.cmd.Git,
-      desc = "Show git-fugitive UI",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>gg",
+  --     vim.cmd.Git,
+  --     desc = "Show git-fugitive UI",
+  --   },
+  -- },
 }

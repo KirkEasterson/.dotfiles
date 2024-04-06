@@ -1,6 +1,5 @@
 return {
   "ibhagwan/fzf-lua",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",

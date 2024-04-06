@@ -1,11 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  cond = function()
-    local not_firenvim = not vim.g.started_by_firenvim
-    local in_git_repo = true -- TODO: determine if in a git repo
-    return not_firenvim and in_git_repo
-  end,
-  version = "v0.6", -- TODO: find out 0.7 didn't work
+  version = "v0.6", -- TODO: find out why 0.7 didn't work
   event = {
     "BufNewFile",
     "BufReadPre",

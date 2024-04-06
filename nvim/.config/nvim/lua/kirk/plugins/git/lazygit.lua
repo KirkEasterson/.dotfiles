@@ -1,6 +1,5 @@
 return {
   "kdheepak/lazygit.nvim",
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "LazyGit",
     "LazyGitCurrentFile",

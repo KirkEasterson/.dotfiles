@@ -1,6 +1,5 @@
 return {
   "f-person/git-blame.nvim",
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "GitBlameCopyCommitURL",
     "GitBlameCopyFileURL",
