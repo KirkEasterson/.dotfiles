@@ -6,17 +6,16 @@
 	"padding": 0,
 	"spacing": 0,
 	"modules-left": [
-		"group/group-power",
-		"custom/line-separator",
+		"group/group-win"
+		// "wlr/taskbar",
+		// "hyprland/window",
+		// "sway/window"
+	],
+	"modules-right": [
 		// "wlr/workspaces",
 		// "hyprland/workspaces",
 		"sway/workspaces",
 		"custom/line-separator",
-		// "wlr/taskbar",
-		// "hyprland/window",
-		"sway/window"
-	],
-	"modules-right": [
 		"custom/media",
 		"custom/line-separator",
 		"tray",
@@ -42,14 +41,15 @@
 		"custom/line-separator",
 		"battery",
 		"custom/line-separator",
-		"clock"
+		"clock",
+		"group/group-power"
 	],
 	"group/group-power": {
 		"orientation": "inherit",
 		"drawer": {
 			"transition-duration": 500,
 			"children-class": "not-power",
-			"transition-left-to-right": false,
+			"transition-left-to-right": false
 		},
 		"modules": [
 			"custom/power",
@@ -57,6 +57,11 @@
 			"custom/lock",
 			"custom/reboot"
 		]
+	},
+	"custom/power": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "shutdown now"
 	},
 	"custom/quit": {
 		"format": "󰗼",
@@ -73,10 +78,40 @@
 		"tooltip": false,
 		"on-click": "reboot"
 	},
-	"custom/power": {
-		"format": "",
+	"group/group-win": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "not-win",
+			"transition-left-to-right": false
+		},
+		"modules": [
+			// "custom/title",
+			"sway/window",
+			"custom/close",
+			"custom/maximize",
+			"custom/minimize"
+		]
+	},
+	"custom/title": {
+		"format": "title test",
 		"tooltip": false,
-		"on-click": "shutdown now"
+		"on-click": ""
+	},
+	"custom/close": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "swaymsg kill"
+	},
+	"custom/maximize": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "swaymsg fullscreen"
+	},
+	"custom/minimize": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "notify-send minimize"
 	},
 	"wlr/workspaces": {
 		"format": "{name}",
@@ -94,6 +129,7 @@
 		"separate-outputs": true
 	},
 	"sway/window": {
+		"format": "{app_id}",
 		"icon": true,
 		"max-length": 22
 	},
@@ -178,11 +214,11 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{icon}{capacity}%",
-		"format-charging": "{icon}󱐋{capacity}%",
-		"format-plugged": "{icon}󱐋{capacity}%",
+		"format": "{icon} {capacity}%",
+		"format-charging": "{icon}󱐋 {capacity}%",
+		"format-plugged": "{icon}󱐋 {capacity}%",
 		// "format-good": "", // An empty format will hide the module
-		"format-full": "󰁹{capacity}%",
+		"format-full": "󰁹 {capacity}%",
 		"format-icons": [
 			"󰂎",
 			"󰁺",
@@ -222,12 +258,10 @@
 	},
 	"custom/line-separator": {
 		"format": "│",
-		"interval": "once",
 		"tooltip": false
 	},
 	"custom/separator": {
 		"format": " ",
-		"interval": "once",
 		"tooltip": false
 	},
 	"custom/weather": {

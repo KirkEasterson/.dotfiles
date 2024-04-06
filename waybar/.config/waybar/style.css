@@ -1,3 +1,37 @@
+/* https://github.com/morhetz/gruvbox */
+@define-color bg #282828;
+@define-color bg0 #282828;
+@define-color bg0h #1d2021;
+@define-color bg0s #32302f;
+@define-color bg1 #3c3836;
+@define-color bg2 #504945;
+@define-color bg3 #665c54;
+@define-color bg4 #7c6f64;
+
+@define-color fg #ebdbb2;
+@define-color fg0 #fbf1c7;
+@define-color fg1 #ebdbb2;
+@define-color fg2 #d5c4a1;
+@define-color fg3 #bdae93;
+@define-color fg4 #a89984;
+
+@define-color aqua1 #689d6a;
+@define-color aqua2 #8ec07c;
+@define-color blue1 #458588;
+@define-color blue2 #83a598;
+@define-color gray1 #a89984;
+@define-color gray2 #928374;
+@define-color green1 #98971a;
+@define-color green2 #b8bb26;
+@define-color orange1 #d65d0e;
+@define-color orange2 #fe8019;
+@define-color purple1 #b16286;
+@define-color purple2 #d3869b;
+@define-color red1 #cc241d;
+@define-color red2 #fb4934;
+@define-color yellow1 #fabd2f;
+@define-color yellow2 #d79921;
+
 * {
   font-family: "JetBrains Mono Nerd Font";
   font-size: 14px;
@@ -7,47 +41,70 @@
 }
 
 window#waybar {
-  border-bottom: 1px solid #665c54;
+  border-bottom: 1px solid @bg3;
+}
+
+#group-win {
+  margin-right: 5px;
+}
+
+/* #group-win * { */
+/*   margin-right: 20px; */
+/*   border-radius: 20px 4px 4px 20px; */
+/*   background: @bg1; */
+/* } */
+
+#custom-close,
+#custom-maximize,
+#custom-minimize {
+  margin: 0px 3px;
+  padding: 0px 10px 0px 4px;
+  border-radius: 50%;
+  background: @bg1;
+}
+
+#group-power * {
+  padding: 0px 5px;
 }
 
 #workspaces button {
   padding: 0px 4px;
-  border-top: 1px solid #7c6f64;
+  border-top: 1px solid @bg4;
 }
 
 #workspaces button.visible {
-  background: #3c3836;
-  border-top: 1px solid #9d0006;
+  background: @bg1;
+  border-top: 1px solid @red2;
 }
 
 /* this _must_ come after button.visible */
 #workspaces button.focused {
-  background-color: #504945;
-  border-top: 2px solid #fabd2f;
+  background-color: @bg2;
+  border-top: 2px solid @yellow1;
 }
 
 #workspaces button.urgent {
-  background-color: #bf616a;
-  border-top: 2px solid #cc241d;
+  background-color: @red1;
+  border-top: 2px solid @red1;
 }
 
 #wireplumber.muted {
-  color: #7c6f64;
+  color: @bg4;
 }
 
 #cpu {
   text-decoration-line: underline;
-  text-decoration-color: #cc241d;
+  text-decoration-color: @red1;
 }
 
 #memory {
   text-decoration-line: underline;
-  text-decoration-color: #b8bb26;
+  text-decoration-color: @green2;
 }
 
 #temperature {
   text-decoration-line: underline;
-  text-decoration-color: #458588;
+  text-decoration-color: @blue1;
 }
 
 @keyframes blink {
@@ -58,8 +115,8 @@ window#waybar {
 }
 
 #temperature.critical {
-  background: #fb4934;
-  color: #1d2021;
+  background: @red2;
+  color: @bg0h;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -68,8 +125,8 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
-  background: #fabd2f;
-  color: #1d2021;
+  background: @yellow1;
+  color: @bg0h;
   animation-name: blink;
   animation-duration: 2s;
   animation-timing-function: linear;
@@ -78,8 +135,8 @@ window#waybar {
 }
 
 #battery.critical:not(.charging) {
-  background: #fb4934;
-  color: #1d2021;
+  background: @red2;
+  color: @bg0h;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -88,11 +145,11 @@ window#waybar {
 }
 
 #clock {
-  background-color: #504945;
+  background-color: @bg2;
   font-weight: bold;
   padding: 0px 5px;
 }
 
 #custom-line-separator {
-  color: #3c3836;
+  color: @bg1;
 }
