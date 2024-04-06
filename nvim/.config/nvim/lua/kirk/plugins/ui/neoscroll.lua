@@ -1,6 +1,5 @@
 return {
   "karb94/neoscroll.nvim",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   keys = {
     "<C-b>",

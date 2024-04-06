@@ -1,6 +1,5 @@
 return {
   "williamboman/mason-lspconfig.nvim",
-  cond = not vim.g.started_by_firenvim,
   event = "UIEnter",
   dependencies = {
     "williamboman/mason.nvim",

@@ -3,7 +3,6 @@ return {
   dependencies = {
     "javiorfo/nvim-nyctophilia",
   },
-  version = "v0.1.*",
   ft = "plantuml",
   cmd = {
     "Soil",

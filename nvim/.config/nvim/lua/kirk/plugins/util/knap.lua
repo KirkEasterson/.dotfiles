@@ -1,6 +1,5 @@
 return {
   "frabjous/knap",
-  cond = not vim.g.started_by_firenvim,
   ft = {
     "tex",
   },

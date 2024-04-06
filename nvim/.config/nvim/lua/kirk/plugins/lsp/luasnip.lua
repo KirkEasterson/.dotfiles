@@ -3,7 +3,6 @@ return {
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
-  version = "2.*", -- the missing 'v' isn't a typo
   build = "make install_jsregexp",
   event = "InsertEnter",
   config = function(_, opts)

@@ -2,7 +2,6 @@ local conn_file = vim.fn.stdpath("cache") .. "/dbee/persistence.json"
 
 return {
   "kndndrj/nvim-dbee",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   dependencies = {
     "MunifTanjim/nui.nvim",

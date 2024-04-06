@@ -1,6 +1,5 @@
 return {
   "andrewferrier/debugprint.nvim",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",

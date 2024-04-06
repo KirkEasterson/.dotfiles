@@ -1,13 +1,12 @@
 return {
   "nvim-neorg/neorg",
-  cond = not vim.g.started_by_firenvim,
+  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-cmp",
   },
-  version = "v5.*",
   cmd = {
     "Neorg",
   },

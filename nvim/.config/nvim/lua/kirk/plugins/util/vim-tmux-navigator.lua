@@ -1,6 +1,5 @@
 return {
   "christoomey/vim-tmux-navigator",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   event = "VeryLazy",
   cmd = {

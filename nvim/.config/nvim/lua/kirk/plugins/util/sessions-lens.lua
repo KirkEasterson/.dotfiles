@@ -1,7 +1,5 @@
 return {
   "rmagatti/session-lens",
-  version = "*",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "rmagatti/auto-session",
     "nvim-telescope/telescope.nvim",

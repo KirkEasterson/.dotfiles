@@ -1,7 +1,5 @@
 return {
   "rmagatti/auto-session",
-  tag = "v2.0.1",
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "Autosession",
     "SessionDelete",

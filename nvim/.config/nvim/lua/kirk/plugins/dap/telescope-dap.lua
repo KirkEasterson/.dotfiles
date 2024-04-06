@@ -1,7 +1,5 @@
 return {
   "nvim-telescope/telescope-dap.nvim",
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "mfussenegger/nvim-dap",

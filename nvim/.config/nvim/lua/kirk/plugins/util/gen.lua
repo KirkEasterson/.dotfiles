@@ -1,6 +1,5 @@
 return {
   "David-Kunz/gen.nvim",
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "Gen",
   },

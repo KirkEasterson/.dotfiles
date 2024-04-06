@@ -15,9 +15,9 @@ local get_ensure_installed = function()
   end
 
   return util.table_concat(base_daps, {
-    "haskell",
-    "javadbg",
-    "kotlin",
+    -- "haskell",
+    -- "javadbg",
+    -- "kotlin",
   })
 end
 
@@ -25,13 +25,11 @@ local ensure_installed = get_ensure_installed()
 
 return {
   "jay-babu/mason-nvim-dap.nvim",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "williamboman/mason.nvim",
     "mfussenegger/nvim-dap",
   },
   event = "UIEnter",
-  version = "v2.*",
   cmd = {
     "DapInstall",
     "DapUninstall",

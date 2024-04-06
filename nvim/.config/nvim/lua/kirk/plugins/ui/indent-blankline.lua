@@ -1,12 +1,8 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  cond = not vim.g.started_by_firenvim,
-  version = "v2.*",
-  -- version = "Version 3.*", -- uncomment for v3
-  -- main = "ibl", -- uncomment for v3
+  main = "ibl",
   event = "VimEnter",
   cmd = {
-    -- v3 commands
     "IBLEnable",
     "IBLDisable",
     "IBLToggle",
@@ -15,51 +11,36 @@ return {
     "IBLToggleScope",
   },
   opts = {
-
-    -- v3 config
-    enabled = true,
     indent = {
       char = "▏",
       smart_indent_cap = true,
+      repeat_linebreak = true, -- requires > nvim 0.10
     },
     whitespace = {
       remove_blankline_trail = false,
     },
     scope = {
       enabled = false,
-      char = "▏",
+      char = "▏", -- thinnest line possible
       show_start = false,
       show_end = false,
     },
     exclude = {
       filetypes = {
-        "help",
-        "startify",
-        "dashboard",
-        "packer",
-        "neogitstatus",
         "NvimTree",
+        "TelescopePrompt",
+        "TelescopeResults",
         "Trouble",
         "alpha",
+        "checkhealth",
+        "dashboard",
+        "gitcommit",
+        "help",
+        "man",
+        "neogitstatus",
+        "packer",
+        "startify",
       },
-    },
-
-    -- v2 config
-    char = "▏",
-    context_char = "▏",
-    use_treesitter = false,
-    show_current_context = false,
-    max_indent_increase = 1,
-    show_trailing_blankline_indent = false,
-    filetype_exclude = {
-      "help",
-      "startify",
-      "dashboard",
-      "packer",
-      "neogitstatus",
-      "NvimTree",
-      "Trouble",
-      "alpha",
     },
   },
 }

@@ -1,6 +1,5 @@
 return {
   "famiu/bufdelete.nvim",
-  cond = not vim.g.started_by_firenvim,
   enabled = false, -- TODO: replace with a simple binding
   cmd = {
     "Bdelete",

@@ -1,7 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
 

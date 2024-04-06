@@ -73,14 +73,12 @@ local ensure_installed = get_ensure_installed()
 
 return {
   "nvim-treesitter/nvim-treesitter",
-  cond = not vim.g.started_by_firenvim,
   event = {
     "BufNewFile",
     "BufReadPre",
   },
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
-  version = "*",
   cmd = {
     "TSBufDisable",
     "TSBufEnable",

@@ -1,7 +1,6 @@
 return {
   "jay-babu/mason-null-ls.nvim",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "williamboman/mason.nvim",
     "jose-elias-alvarez/null-ls.nvim",

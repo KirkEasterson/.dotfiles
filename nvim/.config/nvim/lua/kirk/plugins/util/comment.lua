@@ -1,7 +1,5 @@
 return {
   "numToStr/Comment.nvim",
-  version = "v0.*",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
@@ -10,7 +8,7 @@ return {
     { "gb" },
     {
       "gcc",
-      desc = "Toggle line comment",
+      desc = "Toggle line comment", --
     },
     {
       "gbc",

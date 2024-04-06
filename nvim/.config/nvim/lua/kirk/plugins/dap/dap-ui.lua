@@ -1,12 +1,10 @@
 return {
   "rcarriga/nvim-dap-ui",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
     "theHamsta/nvim-dap-virtual-text",
   },
-  version = "v3.*",
   keys = {
     {
       "<leader>do",

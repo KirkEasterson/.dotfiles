@@ -1,7 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

@@ -1,7 +1,6 @@
 return {
   "svermeulen/text-to-colorscheme",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "T2CAddContrast",
     "T2CAddSaturation",

@@ -30,7 +30,7 @@ local get_ensure_installed = function()
 
   return util.table_concat(base_lsps, {
     "ansiblels",
-    "asm_lsp", -- assembly
+    -- "asm_lsp", -- assembly
     "cmake",
     -- "csharp_ls",
     -- "diagnosticls",
@@ -39,7 +39,7 @@ local get_ensure_installed = function()
     -- "jdtls", -- java
     -- "kotlin_language_server",
     "lua_ls",
-    "ocamllsp",
+    -- "ocamllsp",
     -- "omnisharp",
     -- "rnix", -- nix
     "rust_analyzer",
@@ -53,8 +53,7 @@ local ensure_installed = get_ensure_installed()
 
 return {
   "VonHeikemen/lsp-zero.nvim",
-  cond = not vim.g.started_by_firenvim,
-  branch = "v3.x",
+  -- branch = "v3.x",
   event = "UIEnter",
   dependencies = {
     -- LSP Support

@@ -1,6 +1,5 @@
 return {
   "stevearc/aerial.nvim",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   keys = {
     {

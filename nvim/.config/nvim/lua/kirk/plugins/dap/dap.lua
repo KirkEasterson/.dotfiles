@@ -1,11 +1,9 @@
 return {
   "mfussenegger/nvim-dap",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "leoluz/nvim-dap-go",
     "Joakker/lua-json5",
   },
-  version = "*",
   config = function()
     require("dap.ext.vscode").json_decode = require("json5").parse
     require("dap.ext.vscode").load_launchjs(nil, {

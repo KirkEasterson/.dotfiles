@@ -1,6 +1,5 @@
 return {
   "chentoast/marks.nvim",
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "BookmarksList",
     "BookmarksListAll",

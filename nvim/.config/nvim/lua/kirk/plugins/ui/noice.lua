@@ -1,8 +1,6 @@
 return {
   "folke/noice.nvim",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",

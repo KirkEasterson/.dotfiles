@@ -1,6 +1,5 @@
 return {
   "sindrets/winshift.nvim",
-  cond = not vim.g.started_by_firenvim,
   cmd = {
     "WinShift",
   },

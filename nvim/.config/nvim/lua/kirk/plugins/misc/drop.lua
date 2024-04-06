@@ -15,7 +15,6 @@ local month_themes = {
 
 return {
   "folke/drop.nvim",
-  cond = not vim.g.started_by_firenvim,
   lazy = false,
   opts = {
     theme = month_themes[os.date("*t").month],

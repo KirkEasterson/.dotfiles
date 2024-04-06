@@ -1,6 +1,5 @@
 return {
   "aserowy/tmux.nvim",
-  cond = not vim.g.started_by_firenvim,
   keys = {
     { "<C-h>" },
     { "<C-j>" },

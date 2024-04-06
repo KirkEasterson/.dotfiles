@@ -1,7 +1,5 @@
 return {
   "stevearc/overseer.nvim",
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   opts = {
     task_list = {
       direction = "bottom",

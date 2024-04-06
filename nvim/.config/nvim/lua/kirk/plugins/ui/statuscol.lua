@@ -138,7 +138,6 @@ return {
     -- "kevinhwang91/nvim-ufo",
     -- "mfussenegger/nvim-dap",
   },
-  cond = not vim.g.started_by_firenvim,
   event = {
     "BufNewFile",
     "BufReadPre",
@@ -224,10 +223,10 @@ return {
           text = { builtin.lnumfunc },
           click = "v:lua.ScLa",
         },
-        { -- fold
-          text = { " ", builtin.foldfunc },
-          click = "v:lua.ScFa",
-        },
+        -- { -- fold
+        --   text = { " ", builtin.foldfunc },
+        --   click = "v:lua.ScFa",
+        -- },
         { -- git signs
           text = {
             function()

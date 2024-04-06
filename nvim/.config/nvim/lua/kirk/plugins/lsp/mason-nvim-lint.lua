@@ -36,7 +36,6 @@ local ensure_installed = get_ensure_installed()
 
 return {
   "rshkarin/mason-nvim-lint",
-  version = "*",
   event = "UIEnter",
   dependencies = {
     "williamboman/mason.nvim",

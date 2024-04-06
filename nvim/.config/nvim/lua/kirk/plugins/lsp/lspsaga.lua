@@ -1,7 +1,6 @@
 return {
   "nvimdev/lspsaga.nvim",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "VonHeikemen/lsp-zero.nvim",
     "nvim-tree/nvim-web-devicons",

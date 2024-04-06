@@ -1,7 +1,6 @@
 return {
   "b0o/incline.nvim",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "ellisonleao/gruvbox.nvim",

@@ -1,6 +1,5 @@
 return {
   "ThePrimeagen/harpoon",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",

@@ -1,9 +1,7 @@
 return {
   "echasnovski/mini.animate",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   event = "BufEnter",
-  version = "*",
   opts = {
     cursor = {
       enable = false,

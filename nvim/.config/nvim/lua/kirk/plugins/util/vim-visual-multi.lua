@@ -1,7 +1,6 @@
 return {
   "mg979/vim-visual-multi",
   enabled = false,
-  cond = not vim.g.started_by_firenvim,
   lazy = false,
   keys = {
     -- https://github.com/mg979/vim-visual-multi/wiki/Mappings#permanent-mappings

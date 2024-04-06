@@ -1,6 +1,5 @@
 return {
   "folke/todo-comments.nvim",
-  version = "v1.1.*",
   dependencies = {
     "nvim-lua/plenary.nvim",
     -- "nvim-telescope/telescope.nvim",

@@ -1,12 +1,10 @@
 return {
   "akinsho/bufferline.nvim",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     -- 'neovim/nvim-lspconfig',
     "nvim-tree/nvim-web-devicons",
   },
   event = "VimEnter",
-  version = "v4.*",
   keys = {
     {
       "<C-S-Tab>",

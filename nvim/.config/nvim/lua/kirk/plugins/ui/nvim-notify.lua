@@ -1,6 +1,5 @@
 return {
   "rcarriga/nvim-notify",
-  cond = not vim.g.started_by_firenvim,
   event = "VimEnter",
   dependencies = {
     "nvim-lua/plenary.nvim",

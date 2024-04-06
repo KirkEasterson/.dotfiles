@@ -1,6 +1,5 @@
 return {
   "ellisonleao/gruvbox.nvim",
-  version = "*",
   lazy = false,
   priority = 999,
   opts = {

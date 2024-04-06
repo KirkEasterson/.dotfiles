@@ -1,7 +1,5 @@
 return {
   "mfussenegger/nvim-dap",
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   keys = {
     {
       "<leader>dt",

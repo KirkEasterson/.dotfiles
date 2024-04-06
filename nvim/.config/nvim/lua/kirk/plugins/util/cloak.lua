@@ -1,7 +1,5 @@
 return {
   "laytan/cloak.nvim",
-  version = "*",
-  cond = not vim.g.started_by_firenvim,
   ft = {
     "dotenv",
     "vault",

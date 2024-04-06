@@ -1,6 +1,5 @@
 return {
   "toppair/peek.nvim",
-  cond = not vim.g.started_by_firenvim,
   enabled = false,
   build = "deno task --quiet build:fast",
   keys = {

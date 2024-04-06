@@ -1,6 +1,5 @@
 return {
   "folke/zen-mode.nvim",
-  cond = not vim.g.started_by_firenvim,
   dependencies = {
     "folke/twilight.nvim",
   },

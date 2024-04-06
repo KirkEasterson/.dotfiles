@@ -1,8 +1,6 @@
 return {
   "utilyre/barbecue.nvim",
   -- enabled = false,
-  cond = not vim.g.started_by_firenvim,
-  version = "*",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "ellisonleao/gruvbox.nvim",
