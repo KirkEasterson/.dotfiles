@@ -155,10 +155,22 @@ opt.listchars:append({
 })
 opt.fillchars:append({
   eob = " ",
+  diff = "╱",
+
+  -- folds
   fold = " ",
   foldclose = "󰅂",
   foldopen = "󰅀",
   foldsep = "",
+
+  -- win separator
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
 })
 
 -- short messages
