@@ -1,7 +1,5 @@
 return {
   "sindrets/diffview.nvim",
-  cond = not vim.g.started_by_firenvim,
-  -- enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -18,21 +16,25 @@ return {
     {
       "<leader>dvo",
       function()
-        require("diffview").open("main")
+        require("diffview").open("--untracked-files=no")
       end,
-      desc = "Open diff main",
+      desc = "Open diff view",
+    },
+    {
+      "<leader>dvO",
+      function()
+        require("diffview").open()
+      end,
+      desc = "Open diff view with untracked files",
     },
     {
       "<leader>dvc",
       function()
         require("diffview").close()
       end,
-      desc = "Close diff",
+      desc = "Close diff view",
     },
   },
-  init = function()
-    vim.opt.fillchars:append({ diff = "╱" })
-  end,
   config = function()
     require("diffview").setup({
       enhanced_diff_hl = true,
@@ -45,6 +47,18 @@ return {
         },
         file_history = {
           winbar_info = true,
+        },
+      },
+      file_panel = {
+        win_config = {
+          position = "bottom",
+          height = 10,
+        },
+      },
+      file_history_panel = {
+        win_config = {
+          position = "bottom",
+          height = 10,
         },
       },
       keymaps = {
