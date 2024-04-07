@@ -1,0 +1,20 @@
+---
+name: smoke-test
+
+on: [push]
+
+jobs:
+
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run install script
+        run: ./install.sh
