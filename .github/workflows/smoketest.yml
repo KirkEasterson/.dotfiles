@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: Homebrew/actions/setup-homebrew@master
-      - run: brew stow
+      - run: brew install stow
 
       - name: Run install script
         run: ./install.sh
