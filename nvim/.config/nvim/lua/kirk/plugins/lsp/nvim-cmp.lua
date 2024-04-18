@@ -55,6 +55,11 @@ return {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
+      view = {
+        entries = {
+          follow_cursor = true,
+        },
+      },
       formatting = {
         format = function(entry, vim_item)
           local kind = lspkind.cmp_format({
