@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
+  version = false,
   dependencies = {
     "onsails/lspkind.nvim",
     "nvim-lua/plenary.nvim",
