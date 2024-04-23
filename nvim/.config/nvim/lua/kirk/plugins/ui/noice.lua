@@ -4,7 +4,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",
-    -- "rcarriga/nvim-notify",
+    "rcarriga/nvim-notify",
   },
   cmd = {
     "Noice",
