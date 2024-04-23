@@ -121,6 +121,18 @@ return {
   },
   animation_fps = 120,
   check_for_updates = false,
+  mouse_bindings = {
+    {
+      event = {
+        Down = {
+          streak = 1,
+          button = "Middle",
+        },
+      },
+      mods = "NONE",
+      action = wezterm.action.Nop, -- disable middle click paste
+    },
+  },
   disable_default_key_bindings = true,
   keys = {
     -- tab management
