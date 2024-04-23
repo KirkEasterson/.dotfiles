@@ -9,7 +9,7 @@ return {
     "kkharji/sqlite.lua",
     "nvim-telescope/telescope-smart-history.nvim",
 
-    "folke/trouble.nvim",
+    -- "folke/trouble.nvim",
   },
   cmd = {
     "Telescope",
@@ -241,12 +241,12 @@ return {
   config = function(_, opts)
     opts.defaults.mappings = {
       i = {
-        ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+        -- ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
         ["<C-j>"] = require("telescope.actions").cycle_history_next,
         ["<C-k>"] = require("telescope.actions").cycle_history_prev,
       },
       n = {
-        ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+        -- ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
         ["<C-j>"] = require("telescope.actions").cycle_history_next,
         ["<C-k>"] = require("telescope.actions").cycle_history_prev,
       },
