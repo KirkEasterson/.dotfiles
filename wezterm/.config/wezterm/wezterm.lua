@@ -135,7 +135,7 @@ return {
   },
   disable_default_key_bindings = true,
   keys = {
-    -- tab management
+    -- basic tab management
     { key = "t", mods = "SHIFT|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
     { key = "w", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 
@@ -144,23 +144,18 @@ return {
     { key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
     { key = "=", mods = "CTRL", action = act.IncreaseFontSize },
     { key = "=", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
-    { key = "=", mods = "SUPER", action = act.IncreaseFontSize },
     { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
     { key = "-", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
-    { key = "-", mods = "SUPER", action = act.DecreaseFontSize },
     { key = "_", mods = "CTRL", action = act.DecreaseFontSize },
     { key = "_", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
     { key = "0", mods = "CTRL", action = act.ResetFontSize },
     { key = "0", mods = "ALT", action = act.ResetFontSize },
-    { key = "0", mods = "SUPER", action = act.ResetFontSize },
 
     -- copy/paste
     { key = "Copy", mods = "NONE", action = act.CopyTo("Clipboard") },
-    { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
     { key = "C", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
     { key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
     { key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
-    { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
     { key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
     { key = "V", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
 
