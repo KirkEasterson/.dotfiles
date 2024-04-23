@@ -104,6 +104,7 @@ opt.autoindent = true -- new lines inherit indenting
 opt.wrap = false -- don't wrap lines
 opt.linebreak = true -- if wrapping, wrap on complete words
 opt.breakindent = true -- preserve indenting on wrapped lines
+opt.lazyredraw = true -- redraw only when needed
 
 opt.visualbell = false
 opt.errorbells = true
