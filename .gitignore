@@ -5,3 +5,5 @@ monitors.conf
 
 elpa/
 transient/
+
+*.local
