@@ -183,7 +183,9 @@ opt.splitright = true --  splits open to the right
 opt.splitbelow = true --  splits open below
 opt.splitkeep = "topline" -- keep topline on split resizing
 
-opt.cmdheight = 0 -- hide the command line
+-- NOTE: this isn't backwards compatible. it still requires the user to press
+-- enter for empty messages. don't restore this comment until that issue is fixed
+-- opt.cmdheight = 0 -- hide the command line
 
 opt.undofile = true -- persistent undos
 opt.confirm = true -- show confirm dialog when closing unsaved files
