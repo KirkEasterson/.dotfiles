@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "folke/trouble.nvim",
+    -- "folke/trouble.nvim",
   },
   cmd = "GhReviewComments",
   opts = {},
