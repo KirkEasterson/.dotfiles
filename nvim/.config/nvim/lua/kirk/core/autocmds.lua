@@ -60,7 +60,7 @@ autocmd("TermOpen", {
       return
     end
 
-    -- ignore putput panels
+    -- ignore output panels
     local ignore = {
       "Neotest Output Panel",
     }
