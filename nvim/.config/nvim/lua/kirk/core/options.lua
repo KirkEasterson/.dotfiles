@@ -80,7 +80,7 @@ opt.wildignore:append({
   "Cargo.lock",
   "__pycache__",
   "__site",
-  "node_modules",
+  "**/node_modules/**",
   "target",
   "venv",
 })
