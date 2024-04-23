@@ -145,13 +145,16 @@
 		"spacing": 10
 	},
 	"language": {
-		"format": " {short}"
+		"format": " {short}",
+		"min-length": 4
 	},
 	"hyprland/language": {
-		"format": " {short}"
+		"format": " {short}",
+		"min-length": 4
 	},
 	"sway/language": {
-		"format": " {short}"
+		"format": " {short}",
+		"min-length": 4
 	},
 	"clock": {
 		"tooltip-format": "<tt>{calendar}</tt>",
