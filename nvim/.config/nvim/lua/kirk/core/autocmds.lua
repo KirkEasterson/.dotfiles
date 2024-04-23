@@ -82,6 +82,69 @@ autocmd("FileType", {
   command = "startinsert | 1",
 })
 
+local reload_file_group = augroup("ReloadFile", {})
+autocmd({ "FocusGained", "BufEnter" }, {
+  desc = "Auto load file changes when focus or buffer is entered",
+  group = reload_file_group,
+  pattern = "*",
+  command = "if &buftype == \"nofile\" | checktime | endif",
+})
+
+autocmd("FileChangedShellPost", {
+  desc = "Actions when the file is changed outside of Neovim",
+  group = reload_file_group,
+  callback = function()
+    vim.notify("File changed, reloading the buffer", vim.log.levels.WARN)
+  end,
+})
+
+autocmd("QuickFixCmdPost", {
+  desc = "Automatically open quickfix list",
+  group = augroup("AutoOpenQuickfix", { clear = true }),
+  pattern = { "[^l]*" },
+  command = "cwindow",
+})
+
+autocmd({ "QuickFixCmdPost" }, {
+  desc = "Automatically open location list",
+  group = augroup("LocationList", {}),
+  pattern = "l*",
+  command = "lopen",
+})
+
+autocmd("BufReadPost", {
+  desc = "Goto last location in newly opened buffer",
+  group = augroup("BufferSettings", { clear = true }),
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, "\"")
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+
+autocmd("BufWritePost", {
+  group = augroup("CustomSettings", {}),
+  desc = "make sh file executable if a shebang is deteced",
+  pattern = "*",
+  callback = function(args)
+    local shebang = vim.api.nvim_buf_get_lines(0, 0, 1, true)[1]
+    if not shebang or not shebang:match("^#!.+") then
+      return
+    end
+    local filename = vim.api.nvim_buf_get_name(args.buf)
+    local fileinfo = vim.uv.fs_stat(filename)
+    if not fileinfo or bit.band(fileinfo.mode - 32768, 0x40) ~= 0 then
+      return
+    end
+
+    vim.notify("File made executable")
+    vim.uv.fs_chmod(filename, bit.bor(fileinfo.mode, 493))
+  end,
+  once = false,
+})
+
 autocmd({ "BufReadPost", "BufNewFile" }, {
   desc = "Sync system clipboard with neovim",
   once = true,
@@ -149,7 +212,5 @@ autocmd({ "BufReadPost", "BufNewFile" }, {
         },
       }
     end
-
-    vim.opt.clipboard = "unnamedplus"
   end,
 })
