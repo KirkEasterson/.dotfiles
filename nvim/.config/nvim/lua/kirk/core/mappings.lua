@@ -11,8 +11,6 @@ util.map("n", "<C-i>", "<C-i>zz")
 util.map("n", "<C-o>", "<C-o>zz")
 util.map("n", "<C-u>", "<C-u>zz")
 util.map("n", "<C-d>", "<C-d>zz")
-util.map("n", "n", "nzz")
-util.map("n", "N", "Nzz")
 
 -- mouse navigation -- TODO: make this work in terminals
 util.map("n", "<X1Mouse>", "<C-o>")
@@ -35,10 +33,12 @@ util.map("n", "n", "nzzzv")
 util.map("n", "N", "Nzzzv")
 util.map("n", "J", "mzJ`z")
 
--- quickfix list navigation
--- disabled in favor of trouble
+-- -- removed in favor of trouble
+-- -- quickfix list navigation
 -- util.map("n", "[q", vim.cmd.cprev, { desc = "Quickfix - prev" })
 -- util.map("n", "]q", vim.cmd.cnext, { desc = "Quickfix - next" })
+-- util.map("n", "[Q", vim.cmd.cfirst, { desc = "Quickfix - first" })
+-- util.map("n", "]Q", vim.cmd.clast, { desc = "Quickfix - last" })
 -- util.map("n", "<leader>ct", function()
 --   local windows = vim.fn.getwininfo()
 --   for _, win in pairs(windows) do
@@ -52,10 +52,13 @@ util.map("n", "J", "mzJ`z")
 
 -- easier yanking/pasting
 util.map("v", "y", "ygv<ESC>") -- keep cursor in same spot when yanking
-util.map("n", "Y", "y$") -- Y to behave like other capitals
-util.map("n", "p", "p=`]") -- paste with formatting
-util.map("n", "P", "P=`]") -- paste with formatting
-util.map("x", "<leader>p", function() -- paste without rewriting register
+util.map({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
+util.map({ "n", "v" }, "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
+util.map({ "n", "v" }, "<leader>P", "\"+P", { desc = "Paste from system clipboard" })
+
+util.map("x", "<leader>qp", function()
+  -- TODO: take last line of file into account
+
   -- get current column number
   local col_num = vim.fn.col(".")
 
@@ -73,7 +76,7 @@ util.map("x", "<leader>p", function() -- paste without rewriting register
       paste_cmd,
     },
   })
-end, { desc = "Intuitive paste" })
+end, { desc = "Paste over selection without erasing unnamed register" })
 
 -- toggle relative line numbers
 util.map("n", "tl", function()
