@@ -1,5 +1,6 @@
 return {
   "javiorfo/nvim-soil",
+  enabled = false,
   dependencies = {
     "javiorfo/nvim-nyctophilia",
   },
