@@ -1,3 +1,7 @@
+"""""""""" OPTIONS
+let mapleader=" " " leader is space
+let g:mapleader = "\<Space>"
+
 set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_DATA_HOME/vim
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
@@ -15,58 +19,56 @@ set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p')
 
 if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 
-let mapleader=" "					" leader is space
-set updatetime=50					" fast update times
+set updatetime=50 " fast update times
 
-set number relativenumber				" turn hybrid line numbers on
-set cursorline							" highlight current line
+set completeopt=menu,menuone,noselect
+set number relativenumber " turn hybrid line numbers on
+set cursorline " highlight current line
 set termguicolors
+set confirm
 
-set incsearch						" highlight matches as you type
-set hlsearch						" highlight matches once a search is complete
-set nohlsearch						" turn off search highlight
+set incsearch " highlight matches as you type
+set hlsearch " highlight matches once a search is complete
+set nohlsearch " turn off search highlight
 
-set autoindent						" new lines inherit the indentation of previous lines.
-set nowrap							" don't wrap lines
-set linebreak						" avoid wrapping a line in the middle of a word
+set autoindent " new lines inherit the indentation of previous lines.
+set nowrap " don't wrap lines
+set linebreak " avoid wrapping a line in the middle of a word
 
-syntax enable						" enable syntax highlighting
-set showmatch						" highlight matching [{()}]
+syntax enable " enable syntax highlighting
+set showmatch " highlight matching [{()}]
 
-set scrolloff=88888888 					" scroll when x away from edge
-set signcolumn=yes					" column for linting
-set colorcolumn=80					" 80col limit
+set scrolloff=88888888 " scroll when x away from edge
+set signcolumn=yes " column for linting
+set colorcolumn=80 " 80col limit
 
-set tabstop=4						" number of visual spaces per TAB
-set softtabstop=4					" number of spaces in tab when editing
-set shiftwidth=4					" number of spaces when indenting with <>
-filetype indent on					" load filetype-specific indent files
+set tabstop=4 " number of visual spaces per TAB
+set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4 " number of spaces when indenting with <>
+filetype indent on " load filetype-specific indent files
+filetype plugin indent on " TODO: is this line redundant?
 
-set mouse=a						" enable mouse for scrolling and resizing
+let g:highlightedyank_highlight_duration = 200
 
-set wildmenu						" visual autocomplete for command menu
+set mouse=a " enable mouse for scrolling and resizing
+set wildmenu " visual autocomplete for command menu
+set lazyredraw " redraw only when we need to.
+set exrc " use local vimrc, if it exists
 
-set clipboard+=unnamedplus			" making copying easier
+"""""""""" MAPPINGS
+" navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-augroup WrapLineInLatexFile
-	autocmd!
-	autocmd FileType tex setlocal wrap
-augroup END
+" easier commands (US layout)
+nnoremap ; :
+vnoremap ; :
+nnoremap : ;
+vnoremap : ;
 
-augroup WrapLineInMarkdownFile
-	autocmd!
-	autocmd FileType markdown setlocal wrap
-augroup END
-
-set lazyredraw						" redraw only when we need to.
-
-set exrc							" use local vimrc, if it exists
-
-" ThePrimeagen remappings
-" 'Y' to behave like other capitals
-nnoremap Y $y
-
-" easier navigation
+" center results
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
@@ -78,29 +80,14 @@ inoremap [ [<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
-" move text
-vnoremap <A-j>  :m '>+1<CR>gv=gv
-vnoremap <A-k>  :m '<-2<CR>gv=gv
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k>  :m .-2<CR>==
+" easy saving/quitting
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>z :qa<cr>
 
-" re-select the selection after indenting
+" rehighlight indentation
 vnoremap < <gv
 vnoremap > >gv
-
-" Build if a note file
-autocmd BufwritePost *note-*.md silent !~/scripts/build_notes.sh %:p
-
-" remove trailing whitespace on each save
-autocmd BufWritePre * :%s/\s\+$//e
-
-" transparent background
-au ColorScheme * hi Normal ctermbg=none guibg=none
-
-""" Leader shortcuts
-
-" Primeagen pasting
-xnoremap <leader>p "_dP
 
 " easy window navigation shortcuts
 nnoremap <silent> <leader>h :wincmd h<CR>
@@ -108,4 +95,41 @@ nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 
-set completeopt=menu,menuone,noselect
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+"""""""""" AUTOCMDS
+augroup WrapLineInLatexFile
+	autocmd!
+	autocmd FileType tex setlocal wrap
+augroup END
+
+augroup WrapLineInMarkdownFile
+	autocmd!
+	autocmd FileType markdown setlocal wrap
+augroup END
+
+" remove trailing whitespace on each save
+autocmd BufWritePre * :%s/\s\+$//e
+
+"""""""""" PLUGINS
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'liuchengxu/vim-which-key'
+
+call plug#end()
+
+let g:NERDTreeWinPos = 'right'
+
+set background=dark
+autocmd vimenter * ++nested colorscheme gruvbox
