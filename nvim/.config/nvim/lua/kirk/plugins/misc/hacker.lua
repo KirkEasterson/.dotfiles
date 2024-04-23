@@ -1,5 +1,6 @@
 return {
   "letieu/hacker.nvim",
+  enabled = false,
   cmd = {
     "Hack",
     "HackFollow",

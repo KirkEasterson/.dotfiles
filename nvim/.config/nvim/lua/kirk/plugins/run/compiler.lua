@@ -1,5 +1,6 @@
 return {
   "Zeioth/compiler.nvim",
+  enabled = false,
   dependencies = {
     "stevearc/overseer.nvim",
   },

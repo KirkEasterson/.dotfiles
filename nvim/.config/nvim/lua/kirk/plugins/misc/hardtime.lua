@@ -1,5 +1,6 @@
 return {
   "m4xshen/hardtime.nvim",
+  enabled = false,
   cmd = "Hardtime",
   keys = {
     {

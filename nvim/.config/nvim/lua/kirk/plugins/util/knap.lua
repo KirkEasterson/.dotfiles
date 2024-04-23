@@ -1,5 +1,6 @@
 return {
   "frabjous/knap",
+  enabled = false,
   ft = {
     "tex",
   },
