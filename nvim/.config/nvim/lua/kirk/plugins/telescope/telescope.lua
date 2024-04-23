@@ -79,66 +79,6 @@ return {
       end,
       desc = "Diagnostics",
     },
-
-    -- git helpers
-    {
-      "<leader>gf",
-      function()
-        require("telescope.builtin").git_files()
-      end,
-      desc = "Search git files",
-    },
-    {
-      "<leader>gb",
-      function()
-        require("telescope.builtin").git_branches()
-      end,
-      desc = "Search git branches",
-    },
-    {
-      "<leader>gc",
-      function()
-        require("telescope.builtin").git_commits()
-      end,
-      desc = "Search git commits",
-    },
-    {
-      "<leader>gr",
-      function()
-        require("telescope.builtin").git_bcommits()
-      end,
-      desc = "Search git file commits",
-    },
-
-    -- util helpers
-    {
-      "<leader>fh",
-      function()
-        require("telescope.builtin").help_tags()
-      end,
-      desc = "Search help tags",
-    },
-    {
-      "<leader>fk",
-      function()
-        require("telescope.builtin").keymaps()
-      end,
-      desc = "Search keymaps",
-    },
-    {
-      "<leader>fp",
-      function()
-        require("telescope.builtin").spell_suggest()
-      end,
-      desc = "Spell suggest",
-    },
-    {
-      "<leader>fe",
-      function()
-        require("telescope.builtin").registers()
-      end,
-      desc = "Search registers",
-    },
   },
   opts = {
     defaults = {
