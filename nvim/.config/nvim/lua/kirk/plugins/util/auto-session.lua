@@ -1,5 +1,6 @@
 return {
   "rmagatti/auto-session",
+  version = false,
   cmd = {
     "Autosession",
     "SessionDelete",
