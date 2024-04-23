@@ -6,6 +6,8 @@ return {
 
     "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-fzf-native.nvim",
+
+    "rmagatti/auto-session",
   },
   cmd = "Neogit",
   keys = {
@@ -36,12 +38,23 @@ return {
     integrations = {
       diffview = true,
       telescope = true,
-      -- fzf_lua = true,
-    },
-    mappings = {
-      status = {
-        ["="] = "Toggle",
-      },
+      fzf_lua = false,
     },
   },
+  config = function(_, opts)
+    require("neogit").setup(opts)
+
+    local neogit_group = vim.api.nvim_create_augroup("UserNeogitEvents", { clear = true })
+    vim.api.nvim_create_autocmd({ "User" }, {
+      desc = "Load session for checked out branch",
+      pattern = "NeogitBranchCheckout",
+      group = neogit_group,
+      callback = function()
+        require("neogit").close()
+        vim.cmd([[%bd!]])
+        vim.cmd([[SessionRestore]])
+        require("neogit").open()
+      end,
+    })
+  end,
 }
