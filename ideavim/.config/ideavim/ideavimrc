@@ -1,2 +1,29 @@
 " this can't include variables
 source ~/.config/vim/vimrc
+
+" editor actions
+map <C-Tab> <Action>(NextTab)
+map <C-S-Tab> <Action>(PreviousTab)
+
+map <C-w> <Action>(CloseEditor)
+
+" finders
+map <leader>ff <Action>(GotoFile)
+map <leader>FF <Action>(Find)
+map <leader>fg <Action>(FindInPath)
+map <leader>fr <Action>(FindUsages)
+
+" LSP type actions
+map <leader>fc <Action>(ReformatCode)
+map <leader>rn <Action>(RenameElement)
+map gl <Action>(ShowErrorDescription)
+
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
+
+" git
+map [c <Action>(VcsShowPrevChangeMarker)
+map ]c <Action>(VcsShowNextChangeMarker)
+
+" test
+map <leader>Tr <Action>(RunClass)
