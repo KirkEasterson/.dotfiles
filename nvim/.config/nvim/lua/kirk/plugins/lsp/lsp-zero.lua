@@ -40,7 +40,7 @@ local get_ensure_installed = function()
     -- "kotlin_language_server",
     "lua_ls",
     -- "ocamllsp",
-    -- "omnisharp",
+    "omnisharp",
     -- "rnix", -- nix
     "rust_analyzer",
     -- "texlab",
