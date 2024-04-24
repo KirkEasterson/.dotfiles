@@ -5,7 +5,9 @@ return {
     "MatchParenDisable",
     "MatchParenEnable",
   },
-  opts = {},
+  opts = {
+    debounce_time = 10,
+  },
   init = function()
     vim.g.loaded_matchparen = 1
   end,
