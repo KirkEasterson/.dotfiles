@@ -12,7 +12,7 @@ HISTFILE="$XDG_CACHE_HOME/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
 export KEYTIMEOUT=1
 
-setopt completealiases
+setopt complete_aliases
 
 # case insensitive tab-completion
 # ex: `cd down` --> `cd Downloads/`
