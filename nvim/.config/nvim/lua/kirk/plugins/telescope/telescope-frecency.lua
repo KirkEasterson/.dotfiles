@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope-frecency.nvim",
+  enabled = false,
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "nvim-tree/nvim-web-devicons",

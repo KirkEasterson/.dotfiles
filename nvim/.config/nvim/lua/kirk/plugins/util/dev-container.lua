@@ -1,5 +1,6 @@
 return {
   "esensar/nvim-dev-container",
+  enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
