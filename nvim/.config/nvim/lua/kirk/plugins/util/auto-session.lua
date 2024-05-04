@@ -4,6 +4,7 @@ return {
   cmd = {
     "Autosession",
     "SessionDelete",
+    "SessionPurgeOrphaned",
     "SessionRestore",
     "SessionRestoreFromFile",
     "SessionSave",
