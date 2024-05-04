@@ -1,56 +1,3 @@
-local get_ensure_installed = function()
-  local util = require("util")
-
-  -- TODO: maybe use ENV variables
-  local base_lsps = {
-    "bashls",
-    "clangd",
-    "cssls",
-    -- "diagnosticls",
-    "docker_compose_language_service",
-    "dockerls",
-    "eslint",
-    "golangci_lint_ls",
-    "gopls",
-    "html",
-    "jsonls",
-    "lemminx", -- xml
-    "pyright",
-    "sqlls",
-    "taplo", -- toml
-    "terraformls",
-    "tflint",
-    "tsserver",
-    "yamlls",
-  }
-
-  if util.indocker() then
-    return base_lsps
-  end
-
-  return util.table_concat(base_lsps, {
-    "ansiblels",
-    -- "asm_lsp", -- assembly
-    "cmake",
-    -- "csharp_ls",
-    -- "diagnosticls",
-    -- "fsautocomplete",
-    -- "hls", -- haskell
-    -- "jdtls", -- java
-    -- "kotlin_language_server",
-    "lua_ls",
-    -- "ocamllsp",
-    "omnisharp",
-    -- "rnix", -- nix
-    "rust_analyzer",
-    -- "texlab",
-    "vimls",
-    -- "zls", -- zig
-  })
-end
-
-local ensure_installed = get_ensure_installed()
-
 return {
   "VonHeikemen/lsp-zero.nvim",
   -- branch = "v3.x",
@@ -121,7 +68,44 @@ return {
 
     require("mason-lspconfig").setup({
       automatic_installation = true,
-      ensure_installed = ensure_installed,
+      ensure_installed = {
+        "ansiblels",
+        "bashls",
+        "clangd",
+        "cmake",
+        "cssls",
+        "docker_compose_language_service",
+        "dockerls",
+        "eslint",
+        "golangci_lint_ls",
+        "gopls",
+        "html",
+        "jsonls",
+        "lemminx", -- xml
+        "lua_ls",
+        "omnisharp",
+        "pyright",
+        "rust_analyzer",
+        "sqlls",
+        "taplo", -- toml
+        "terraformls",
+        "tflint",
+        "tsserver",
+        "vimls",
+        "yamlls",
+        -- "asm_lsp", -- assembly
+        -- "csharp_ls",
+        -- "diagnosticls",
+        -- "diagnosticls",
+        -- "fsautocomplete",
+        -- "hls", -- haskell
+        -- "jdtls", -- java
+        -- "kotlin_language_server",
+        -- "ocamllsp",
+        -- "rnix", -- nix
+        -- "texlab",
+        -- "zls", -- zig
+      },
       handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
