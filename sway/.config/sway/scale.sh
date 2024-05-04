@@ -15,7 +15,7 @@ next_scale=$(current_scale)
 
 scale() {
 	[ -x "$(command -v way-displays)" ] && \
-		way-displays -s SCALE "$current_screen" $next_scale && \
+		way-displays -s SCALE "${current_screen}" "${next_scale}" && \
 		way-displays -w || \
 		swaymsg output "\"$name\"" scale "$next_scale"
 }
