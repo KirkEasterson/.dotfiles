@@ -44,6 +44,7 @@ end
 
 lazy.setup({
   { import = "kirk.plugins.dap" },
+  { import = "kirk.plugins.db" },
   { import = "kirk.plugins.dev" },
   { import = "kirk.plugins.git" },
   { import = "kirk.plugins.lsp" },
