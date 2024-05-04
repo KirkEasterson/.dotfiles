@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
+  enabled = false,
   dependencies = {
     "leoluz/nvim-dap-go",
     "Joakker/lua-json5",

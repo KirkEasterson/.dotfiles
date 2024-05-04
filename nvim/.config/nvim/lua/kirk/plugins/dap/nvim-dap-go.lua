@@ -1,5 +1,6 @@
 return {
   "leoluz/nvim-dap-go",
+  enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
