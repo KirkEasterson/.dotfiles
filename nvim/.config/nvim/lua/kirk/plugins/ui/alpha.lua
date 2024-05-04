@@ -32,7 +32,7 @@ return {
 
     local asciiart = month_arts[os.date("*t").month]
     math.randomseed(os.time(os.date("!*t")))
-    if math.random() < 0.05 then
+    if math.random() < 0.01 then
       -- something sus
       asciiart = art.amogus
     end
@@ -42,11 +42,11 @@ return {
     dashboard.section.header.val = completesign
 
     dashboard.section.buttons.val = {
-      dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
       dashboard.button("o", "  > Recent", ":Telescope oldfiles<CR>"),
       dashboard.button("r", "󰦛  > Restore session", ":SessionRestore<CR>"),
-      dashboard.button("t", "  > File tree", ":NvimTreeOpen<CR>"),
+      dashboard.button("e", "  > File tree", ":NvimTreeOpen<CR>"),
       dashboard.button("q", "󰅚  > Quit NVIM", ":qa<CR>"),
     }
 
