@@ -1,0 +1,49 @@
+### https:/github.com/morhetz/gruvbox
+# bg      235  #282828
+# bg0h    234  #1d2021
+# bg0     235  #282828
+# bg0s    236  #32302f
+# bg1     237  #3c3836
+# bg2     239  #504945
+# bg3     241  #665c54
+# bg4     243  #7c6f64
+#
+# fg      229  #ebdbb2
+# fg0     229  #fbf1c7
+# fg1     223  #ebdbb2
+# fg2     250  #d5c4a1
+# fg3     248  #bdae93
+# fg4     246  #a89984
+#
+# aqua1   072  #689d6a
+# aqua2   108  #8ec07c
+# blue1   066  #458588
+# blue2   109  #83a598
+# gray1   245  #928374
+# gray2   246  #a89984
+# green1  106  #98971a
+# green2  142  #b8bb26
+# orange1 166  #d65d0e
+# orange2 208  #fe8019
+# purple1 132  #b16286
+# purple2 175  #d3869b
+# red1    124  #cc241d
+# red2    167  #fb4934
+# yellow1 172  #d79921
+# yellow2 214  #fabd2f
+
+color background          color223   default
+color listnormal          color72    default
+color listnormal_unread   color214   default   bold
+color listfocus           color72    color237
+color listfocus_unread    color214   color237  bold
+color info                color8     default
+color article             color229   default
+color end-of-text-marker  color0     color0
+
+# highlights
+highlight article "^(Feed|Title|Author|Date|Link):" color208 default bold underline
+highlight article "https?://[^ ]+" color109 default underline
+highlight article "\\[[0-9]+\\]" color208 default bold
+highlight article "\\[image\\ [0-9]+\\]" color208 default bold
+highlight feedlist "^─.*$" color6 color6 bold
