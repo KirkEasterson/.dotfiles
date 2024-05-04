@@ -1,5 +1,6 @@
 return {
   "iamcco/markdown-preview.nvim",
+  ft = { "markdown" },
   cmd = {
     "MarkdownPreview",
     "MarkdownPreviewStop",
@@ -26,8 +27,6 @@ return {
     vim.fn["mkdp#util#install"]()
   end,
   init = function()
-    -- vim.api.nvim_set_var("mkdp_auto_start", 1)
-    -- vim.api.nvim_set_var("mkdp_echo_preview_url", 1)
-    vim.api.nvim_set_var("mkdp_auto_close", 0)
+    vim.g.mkdp_auto_close = 1
   end,
 }
