@@ -5,6 +5,11 @@ source ~/.config/vim/vimrc
 map <C-Tab> <Action>(NextTab)
 map <C-S-Tab> <Action>(PreviousTab)
 
+map <C-p> <Action>(PopupMenu-selectPrev)
+map <C-n> <Action>(PopupMenu-selectNext)
+map <C-p> <Action>(PopupMenu-selectPrev)
+map <C-n> <Action>(PopupMenu-selectNext)
+
 map <C-w> <Action>(CloseEditor)
 
 " finders
@@ -21,7 +26,12 @@ map gl <Action>(ShowErrorDescription)
 map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 
+map [f <Action>(MethodUp)
+map ]f <Action>(MethodDown)
+
 " git
+map <leader>gg <Action>(ActivateVersionControlToolWindow)
+
 map [c <Action>(VcsShowPrevChangeMarker)
 map ]c <Action>(VcsShowNextChangeMarker)
 
