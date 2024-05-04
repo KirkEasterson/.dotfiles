@@ -1,5 +1,6 @@
 return {
   "eandrju/cellular-automaton.nvim",
+  enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },

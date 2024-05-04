@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.operators",
-  -- enabled = false,
+  enabled = false,
   keys = {
     { "g=", mode = { "v" } }, -- evaluate
     { "gm", mode = { "v" } }, -- multiply

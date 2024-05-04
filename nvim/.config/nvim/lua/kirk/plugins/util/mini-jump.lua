@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.jump",
-  -- enabled = false,
+  enabled = false,
   event = "BufEnter",
   opts = {
     mappings = {

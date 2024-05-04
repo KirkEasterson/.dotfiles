@@ -40,7 +40,6 @@ return {
       "FocusGained",
       "InsertLeave",
       "TextChanged",
-      "TextChanged",
     }, {
       group = vim.api.nvim_create_augroup("lint", {
         clear = true,
