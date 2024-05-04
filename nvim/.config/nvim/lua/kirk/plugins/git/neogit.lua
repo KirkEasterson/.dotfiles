@@ -50,10 +50,16 @@ return {
       pattern = "NeogitBranchCheckout",
       group = neogit_group,
       callback = function()
-        require("neogit").close()
+        local autosession = require("auto-session")
+        if not autosession.session_exists_for_cwd() then
+          return
+        end
+
+        local neogit = require("neogit")
+        neogit.close()
         vim.cmd([[%bd!]])
-        vim.cmd([[SessionRestore]])
-        require("neogit").open()
+        autosession.RestoreSession()
+        neogit.open()
       end,
     })
   end,
