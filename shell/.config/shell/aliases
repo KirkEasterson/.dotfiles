@@ -39,6 +39,7 @@ alias pg="ps aux | grep "
 alias mkdir="mkdir -pv"
 
 # less characters to type 'terraform'
+alias otf="tofu"
 alias tf="terraform"
 
 # Count all files (recursively) in the current folder
