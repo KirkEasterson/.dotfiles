@@ -168,6 +168,9 @@ return {
       oldfiles = {
         cwd_only = true,
       },
+      lsp_references = {
+        show_line = false,
+      },
     },
     extensions = {
       fzf = {
