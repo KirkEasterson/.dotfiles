@@ -1,0 +1,9 @@
+---
+session_name: kale
+start_directory: ~/kale
+
+windows:
+  - window_name: nvim
+    panes:
+      - "nvim"
+
