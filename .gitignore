@@ -6,4 +6,7 @@ monitors.conf
 elpa/
 transient/
 
-*.local
+bin/.local/bin/*
+git/.config/git/gitconfig.local
+
+*remarkable*
