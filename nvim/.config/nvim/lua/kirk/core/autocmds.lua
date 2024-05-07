@@ -152,7 +152,7 @@ autocmd({ "BufReadPost", "BufNewFile" }, {
     require("util")
     if IS_LINUX or IS_WSL then
       if IS_WAYLAND then
-        if vim.fn.executable("wl-clipboard") == 1 then
+        if vim.fn.executable("wl-copy") == 1 then
           vim.g.clipboard = {
             copy = {
               ["+"] = "wl-copy",
