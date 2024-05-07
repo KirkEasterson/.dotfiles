@@ -269,11 +269,12 @@
 	},
 	"custom/weather": {
 		"exec": "weather.sh",
-		"interval": "60"
+		"interval": "60",
+		"tooltip": false
 	},
 	"custom/media": {
 		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
-		"format": "{icon} {}",
+		"format": "{icon}  {}",
 		"return-type": "json",
 		"max-length": 30,
 		"min-length": 15,
@@ -285,10 +286,13 @@
 			"edge": "",
 			"firefox": "󰈹",
 			"slack": "󰒱",
-			"spotify": ""
+			"spotify": "",
+			"teams": "󰊻",
+			"vlc": "󰕼"
 		},
 		"escape": true,
-		"on-click": "playerctl play-pause"
+		"on-click": "playerctl play-pause",
+		"tooltip": false
 	},
 	"idle_inhibitor": {
 		"format": "{icon} ",
