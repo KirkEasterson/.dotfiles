@@ -156,4 +156,11 @@ function M.tbl_cpad(tbl, len, char)
   return tbl
 end
 
+--- retruns true if the program is executable on the host system
+---@param program string
+---@return boolean
+function M.is_executable(program)
+  return vim.fn.executable(program) == 1
+end
+
 return M
