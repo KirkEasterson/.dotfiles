@@ -14,6 +14,30 @@ KEYTIMEOUT=1
 
 setopt complete_aliases
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+	 [[ $1 = 'block' ]]; then
+	echo -ne '\e[1 q'
+
+  elif [[ ${KEYMAP} == main ]] ||
+	   [[ ${KEYMAP} == viins ]] ||
+	   [[ ${KEYMAP} = '' ]] ||
+	   [[ $1 = 'beam' ]]; then
+	echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
+# Use beam shape cursor on startup.
+echo -ne '\e[5 q'
+
+# Use beam shape cursor for each new prompt.
+preexec() {
+   echo -ne '\e[5 q'
+}
+
+bindkey -M viins '^Y' autosuggest-accept
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
@@ -30,21 +54,6 @@ antidote load
 # configuration for plugins
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
-
-ZVM_KEYTIMEOUT=0.05
-ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
-
-function zvm_after_init() {
-  # Like my nvim binding
-  zvm_bindkey viins '^Y' autosuggest-accept
-}
-
-if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-	# is wayland
-	export FORGIT_COPY_CMD="wl-copy"
-else
-	export FORGIT_COPY_CMD="xclip -selection clipboard"
-fi
 
 # gcloud configuration
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
