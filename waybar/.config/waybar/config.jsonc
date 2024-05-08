@@ -39,6 +39,7 @@
 		"custom/line-separator",
 		"wireplumber",
 		"custom/line-separator",
+		"power-profiles-daemon",
 		"battery",
 		"custom/line-separator",
 		"clock",
@@ -209,6 +210,18 @@
 			"",
 			""
 		]
+	},
+	"power-profiles-daemon": {
+		"min-length": 3,
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": " ",
+			"power-saver": " "
+		}
 	},
 	"battery": {
 		"interval": 60,
