@@ -64,6 +64,7 @@ if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-clou
 
 # eval "$(direnv hook zsh)"
 # eval "$(zoxide init zsh)"
+eval $(keychain --eval id_ed25519_github -q)
 eval "$(starship init zsh)"
 
 [ -z "$ZPROF" ] || zprof
