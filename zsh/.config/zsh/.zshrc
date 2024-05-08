@@ -10,7 +10,7 @@ if [[ ! -a "$XDG_CACHE_HOME/zsh/history" ]]; then
 fi
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
-export KEYTIMEOUT=1
+KEYTIMEOUT=1
 
 setopt complete_aliases
 
