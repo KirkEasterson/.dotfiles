@@ -40,6 +40,9 @@ antidote load
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
+ZVM_KEYTIMEOUT=0.05
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+
 function zvm_after_init() {
   # Like my nvim binding
   zvm_bindkey viins '^Y' autosuggest-accept
