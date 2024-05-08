@@ -14,15 +14,6 @@ KEYTIMEOUT=1
 
 setopt complete_aliases
 
-# case insensitive tab-completion
-# ex: `cd down` --> `cd Downloads/`
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	autoload -Uz compinit
-	compinit
-	touch ${ZDOTDIR}/.zcompdump
-else
-	compinit -C
-fi;
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
