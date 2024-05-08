@@ -10,7 +10,7 @@ g.timeoutlen = 100
 g.ttimeoutlen = 100
 
 -- disable builtin plugins
-local builtin_plugins = {
+local disabled_plugins = {
   "2html_plugin",
   "bugreport",
   "compiler",
@@ -39,18 +39,18 @@ local builtin_plugins = {
   "zip",
   "zipPlugin",
 }
-for _, v in pairs(builtin_plugins) do
+for _, v in pairs(disabled_plugins) do
   g["loaded_" .. v] = true
 end
 
 -- enable builtin plugins
-local builtin_plugins = {
+local enabled_plugins = {
   "matchbracket",
   "matchparen",
   "node_provider",
   "perl_provider",
 }
-for _, v in pairs(builtin_plugins) do
+for _, v in pairs(enabled_plugins) do
   g["loaded_" .. v] = false
 end
 
