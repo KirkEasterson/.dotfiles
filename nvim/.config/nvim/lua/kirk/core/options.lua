@@ -4,6 +4,11 @@ local g = vim.g
 g.mapleader = " " -- prefix key
 g.maplocalleader = " " -- secondary prefix key
 
+g.timeout = true
+g.ttimeout = true
+g.timeoutlen = 100
+g.ttimeoutlen = 100
+
 -- disable builtin plugins
 local builtin_plugins = {
   "2html_plugin",
