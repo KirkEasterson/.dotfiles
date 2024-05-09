@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: this script requires the executable `bc`
+
 vol_diff="10"
 
 raise_vol () {
