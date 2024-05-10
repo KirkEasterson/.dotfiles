@@ -81,8 +81,8 @@ return {
     "JetBrains Mono Nerd Font",
   }),
   font_size = 12,
-  -- line_height = 0.89,
-  -- cell_width = 0.95,
+  line_height = 1.1,
+  cell_width = 1.1,
   freetype_load_target = "Normal",
   -- warn_about_missing_glyphs = false, -- TODO: find which glyphs are missing
   underline_position = -3,
