@@ -1,6 +1,9 @@
 return {
   "rshkarin/mason-nvim-lint",
-  event = "UIEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   dependencies = {
     "williamboman/mason.nvim",
     "mfussenegger/nvim-lint",

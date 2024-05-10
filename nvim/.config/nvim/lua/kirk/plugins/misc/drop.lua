@@ -15,7 +15,6 @@ local month_themes = {
 
 return {
   "folke/drop.nvim",
-  lazy = false,
   opts = {
     theme = month_themes[os.date("*t").month],
     max = 25,

@@ -5,7 +5,7 @@ return {
   },
   event = {
     "BufNewFile",
-    "BufReadPre",
+    "BufReadPost",
   },
   opts = {
     mode = "topline",

@@ -1,6 +1,9 @@
 return {
   "williamboman/mason-lspconfig.nvim",
-  event = "UIEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   dependencies = {
     "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",

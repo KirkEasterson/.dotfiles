@@ -4,8 +4,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   event = {
-    "InsertEnter",
-    "CmdlineEnter",
+    "BufNewFile",
+    "BufReadPost",
   },
   opts = {
     enable_check_bracket_line = true,

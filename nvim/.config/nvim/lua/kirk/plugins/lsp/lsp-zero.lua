@@ -1,7 +1,10 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
   -- branch = "v3.x",
-  event = "UIEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   dependencies = {
     -- LSP Support
     "neovim/nvim-lspconfig",

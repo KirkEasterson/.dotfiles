@@ -3,7 +3,10 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  event = "VimEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   opts = {
     disabled_filetypes = {
       statusline = {

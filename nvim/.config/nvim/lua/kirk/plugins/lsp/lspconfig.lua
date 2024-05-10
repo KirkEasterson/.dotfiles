@@ -1,6 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
-  event = "VimEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   cmd = {
     "LspInfo",
     "LspLog",

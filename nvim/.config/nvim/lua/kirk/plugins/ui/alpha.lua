@@ -3,6 +3,7 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "BlakeJC94/alpha-nvim-fortune",
+    "folke/drop.nvim",
   },
   lazy = false,
   priority = 998, -- 1 less than gruvbox

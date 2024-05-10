@@ -8,7 +8,10 @@ return {
     -- I don't use it, but barbecue won't load without it
     "SmiteshP/nvim-navic",
   },
-  event = "VimEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   cmd = "Barbecue",
   opts = {
     attach_navic = false,

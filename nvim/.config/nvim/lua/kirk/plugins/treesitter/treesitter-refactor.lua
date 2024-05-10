@@ -6,7 +6,7 @@ return {
   main = "nvim-treesitter.configs",
   event = {
     "BufNewFile",
-    "BufReadPre",
+    "BufReadPost",
   },
   opts = {
     refactor = {

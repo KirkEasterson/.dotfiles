@@ -1,7 +1,10 @@
 return {
   "stevearc/dressing.nvim",
   -- enabled = false,
-  event = "VeryLazy",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   opts = {
     input = {
       insert_only = false,

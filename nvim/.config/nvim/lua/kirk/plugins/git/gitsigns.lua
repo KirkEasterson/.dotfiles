@@ -3,7 +3,7 @@ return {
   version = "v0.6", -- TODO: find out why 0.7 didn't work
   event = {
     "BufNewFile",
-    "BufReadPre",
+    "BufReadPost",
   },
   cmd = {
     "Gitsigns",

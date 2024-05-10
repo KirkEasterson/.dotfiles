@@ -3,7 +3,10 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
-  event = "UIEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   opts = {
     enable_autocmd = false,
   },

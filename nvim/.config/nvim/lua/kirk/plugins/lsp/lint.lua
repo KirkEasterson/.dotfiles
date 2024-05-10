@@ -1,13 +1,8 @@
 return {
   "mfussenegger/nvim-lint",
   event = {
-    "BufEnter",
+    "BufNewFile",
     "BufReadPost",
-    "BufWritePost",
-    "FocusGained",
-    "InsertLeave",
-    "TextChanged",
-    "TextChanged",
   },
   config = function()
     require("lint").linters_by_ft = {

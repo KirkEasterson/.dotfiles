@@ -4,7 +4,10 @@ return {
     -- 'neovim/nvim-lspconfig',
     "nvim-tree/nvim-web-devicons",
   },
-  event = "VimEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   keys = {
     {
       "<C-S-Tab>",
