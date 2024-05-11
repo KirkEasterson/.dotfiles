@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    contrast = "hard,
+    contrast = "hard",
   },
   config = function (_, opts)
     require("gruvbox").setup(opts)
