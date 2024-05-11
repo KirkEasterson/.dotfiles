@@ -1,10 +1,7 @@
 ---
 name: nvim
 
-on:
-  push:
-    paths:
-      - "nvim/**.yml"
+on: [push]
 
 jobs:
   test-linux:
