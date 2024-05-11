@@ -4,7 +4,7 @@ name: nvim
 on: [push]
 
 jobs:
-  test-linux:
+  stylua:
     runs-on: ubuntu-latest
 
     steps:
