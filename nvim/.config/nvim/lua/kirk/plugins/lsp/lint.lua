@@ -6,7 +6,6 @@ return {
   },
   config = function()
     require("lint").linters_by_ft = {
-      -- ansible = { "ansible-lint" },
       cpp = { "cpplint" },
       -- css = { "stylellint" },
       -- gitcommit = { "commitlint" },
@@ -21,11 +20,7 @@ return {
       typescript = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       yaml = { "yamllint" },
-    }
-
-    local global_linters = {
-      "actionlint",
-      "codespell",
+      -- ["yaml.ansible"] = { "ansible-lint" },
     }
 
     vim.api.nvim_create_autocmd({
@@ -41,11 +36,6 @@ return {
       }),
       callback = function()
         require("lint").try_lint()
-
-        -- run global linters
-        for ft, _ in pairs(global_linters) do
-          -- pcall(require("lint").try_lint, global_linters[ft])
-        end
       end,
     })
 
