@@ -30,4 +30,4 @@ jobs:
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: stable
-      - run: nvim --headless -u nvim/.config/nvim/init.lua
+      - run: NVIM_APPNAME=nvim/.config/nvim nvim --headless
