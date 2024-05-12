@@ -4,24 +4,23 @@ name: smoke-test
 on: [push]
 
 jobs:
-
-  test-linux:
-    runs-on: ubuntu-latest
-
+  install:
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+
       - run: sudo apt-get install -y stow
+        if: ${{ matrix.os == 'ubuntu-latest' }}
 
-      - name: Run install script
-        run: ./install.sh
-
-  test-mac:
-    runs-on: macos-latest
-
-    steps:
-      - uses: actions/checkout@v4
       - uses: Homebrew/actions/setup-homebrew@master
+        if: ${{ matrix.os == 'macos-latest' }}
       - run: brew install stow
+        if: ${{ matrix.os == 'macos-latest' }}
 
       - name: Run install script
         run: ./install.sh
