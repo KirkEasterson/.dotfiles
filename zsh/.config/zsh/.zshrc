@@ -1,3 +1,4 @@
+s
 [ -z "$ZPROF" ] || zmodload zsh/zprof
 
 source "$HOME/.config/shell/commonrc"
