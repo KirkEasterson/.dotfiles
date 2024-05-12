@@ -14,12 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: sudo apt-get install -y stow
+      - name: Install stow (linux)
+        run: sudo apt-get install -y stow
         if: ${{ matrix.os == 'ubuntu-latest' }}
 
       - uses: Homebrew/actions/setup-homebrew@master
         if: ${{ matrix.os == 'macos-latest' }}
-      - run: brew install stow
+      - name: Install stow(macos)
+        run: brew install stow
         if: ${{ matrix.os == 'macos-latest' }}
 
       - name: Run install script
