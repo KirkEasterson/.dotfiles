@@ -13,4 +13,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v0.20.0
-          args: --allow-hidden --check .
+          args: --allow-hidden --check ./nvim/.config/nvim
