@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: "apt install stow"
+      - run: "sudo apt install stow"
       - run: "stow nvim"
 
   stylua:
