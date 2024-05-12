@@ -26,9 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: "sudo apt install stow"
-      - run: "stow nvim"
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: stable
-      - run: nvim --headless +qa
+      - run: NVIM_APPNAME=nvim/.config/nvim nvim --headless +qa
