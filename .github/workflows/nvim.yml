@@ -24,10 +24,10 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    env:
-      NVIM_APPNAME: "nvim/.config/nvim"
     steps:
       - uses: actions/checkout@v4
+      - run: "sudo apt install stow"
+      - run: "stow nvim"
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: nightly
