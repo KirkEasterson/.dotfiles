@@ -28,4 +28,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: MunifTanjim/setup-neovim-action@v1
-      - run: nvim -u nvim/.config/nvim/init.lua
+      - run: nvim --headless -u nvim/.config/nvim/init.lua
