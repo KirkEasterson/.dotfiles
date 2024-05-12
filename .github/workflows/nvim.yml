@@ -4,7 +4,7 @@ name: "nvim"
 on: ["push"]
 
 env:
-  BASE_DIR: "nvim/.config/nvim"
+  NVIM_BASE_DIR: "nvim/.config/nvim"
 
 jobs:
   stylua:
@@ -19,5 +19,5 @@ jobs:
           args: >-
             --allow-hidden
             --check
-            -f nvim/.config/nvim/stylua
-            nvim/.config/nvim
+            -f $NVIM_BASE_DIR/stylua.toml
+            $NVIM_BASE_DIR
