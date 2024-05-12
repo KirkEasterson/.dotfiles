@@ -5,7 +5,7 @@ return {
   opts = {
     contrast = "hard",
   },
-  config = function (_, opts)
+  config = function(_, opts)
     require("gruvbox").setup(opts)
     vim.cmd({
       cmd = "colorscheme",

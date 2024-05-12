@@ -3,6 +3,9 @@ name: nvim
 
 on: [push]
 
+env:
+  NVIM_BASE_DIR: nvim/.config/nvim
+
 jobs:
   stylua:
     runs-on: ubuntu-latest
@@ -13,4 +16,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v0.20.0
-          args: --allow-hidden --check ./nvim/.config/nvim
+          args: >-
+            --allow-hidden
+            --check
+            -f ${NVIM_NASE_DIR}/stylua
+            ${NVIM_NASE_DIR}
