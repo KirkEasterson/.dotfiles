@@ -19,5 +19,5 @@ jobs:
           args: >-
             --allow-hidden
             --check
-            -f ${NVIM_NASE_DIR}/stylua
-            ${NVIM_NASE_DIR}
+            -f ${NVIM_BASE_DIR}/stylua
+            ${NVIM_BASE_DIR}
