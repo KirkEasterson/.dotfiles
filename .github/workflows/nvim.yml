@@ -19,8 +19,8 @@ jobs:
           args: >-
             --allow-hidden
             --check
-            -f $NVIM_BASE_DIR/stylua.toml
-            $NVIM_BASE_DIR
+            -f ${{ env.NVIM_BASE_DIR }}/stylua.toml
+            ${{ env.NVIM_BASE_DIR }}
 
   test:
     runs-on: ubuntu-latest
