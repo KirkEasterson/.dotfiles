@@ -36,4 +36,4 @@ jobs:
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: stable
-      - run: nvim --headless
+      - run: nvim --headless +qa
