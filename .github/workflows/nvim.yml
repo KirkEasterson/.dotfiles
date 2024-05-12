@@ -8,9 +8,9 @@ env:
   NVIM_BASE_DIR: "nvim/.config/nvim"
 
 jobs:
+
   stylua:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: JohnnyMorganz/stylua-action@v4
@@ -22,3 +22,10 @@ jobs:
             --check
             -f nvim/.config/nvim/stylua.toml
             nvim/.config/nvim
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: MunifTanjim/setup-neovim-action@v1
+      - run: nvim -u nvim/.config/nvim/init.lua
