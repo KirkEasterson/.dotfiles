@@ -26,6 +26,7 @@ return {
       "pylint",
       "shellcheck",
       "stylelint", -- css
+      "stylua",
       "yamllint",
       -- "markdownlint",
       -- "stylua",
