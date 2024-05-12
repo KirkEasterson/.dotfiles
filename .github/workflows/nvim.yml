@@ -8,13 +8,6 @@ env:
   NVIM_BASE_DIR: "nvim/.config/nvim"
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: "sudo apt install stow"
-      - run: "stow nvim"
-
   stylua:
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: "sudo apt install stow"
+      - run: "stow nvim"
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: stable
