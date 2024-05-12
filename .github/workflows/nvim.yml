@@ -19,5 +19,5 @@ jobs:
           args: >-
             --allow-hidden
             --check
-            -f $BASE_DIR/stylua
-            $BASE_DIR
+            -f nvim/.config/nvim/stylua
+            nvim/.config/nvim
