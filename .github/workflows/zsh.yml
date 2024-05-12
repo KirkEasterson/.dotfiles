@@ -1,5 +1,5 @@
 ---
-name: "Config test"
+name: "zsh"
 on: ["push"]
 
 jobs:
@@ -17,9 +17,9 @@ jobs:
       image: "ghcr.io/zsh-users/zsh:${{ matrix.version }}"
     steps:
       - uses: "actions/checkout@v4"
-
-      - run: "sudo apt-get install -y stow"
+      - run: "install_packages stow"
       - run: "stow shell"
       - run: "stow zsh"
 
-      - run: "zsh --version"
+      - name: "Check zsh"
+        run: "zsh --version"
