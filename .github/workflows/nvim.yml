@@ -24,9 +24,11 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      NVIM_APPNAME: "nvim/.config/nvim"
     steps:
       - uses: actions/checkout@v4
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: stable
-      - run: NVIM_APPNAME=nvim/.config/vim nvim --headless +qa
+      - run: nvim --headless +qa
