@@ -20,7 +20,7 @@ jobs:
 
       - uses: Homebrew/actions/setup-homebrew@master
         if: ${{ matrix.os == 'macos-latest' }}
-      - name: Install stow(macos)
+      - name: Install stow (macos)
         run: brew install stow
         if: ${{ matrix.os == 'macos-latest' }}
 
