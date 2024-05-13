@@ -2,12 +2,12 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/kirk/.gtkrc-2.0.mine"
-gtk-theme-name="Pop-dark"
+gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="JetBrainsMono Nerd Font Light 11"
 gtk-cursor-theme-name="capitaine-cursors"
 gtk-cursor-theme-size=0
-gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
 gtk-button-images=1
 gtk-menu-images=1
