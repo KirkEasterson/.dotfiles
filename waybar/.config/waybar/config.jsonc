@@ -43,7 +43,7 @@
 		"battery",
 		"custom/line-separator",
 		"clock",
-		"group/group-power"
+		"custom/search"
 	],
 	"group/group-power": {
 		"orientation": "inherit",
@@ -113,6 +113,11 @@
 		"format": "",
 		"tooltip": false,
 		"on-click": "notify-send minimize"
+	},
+	"custom/search": {
+		"format": "",
+		"tooltip": "Search",
+		"on-click": "search.sh"
 	},
 	"wlr/workspaces": {
 		"format": "{name}",
