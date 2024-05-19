@@ -6,6 +6,7 @@ on: [push]
 jobs:
   install:
     strategy:
+      fail-fast: false
       matrix:
         os:
           - macos-latest
