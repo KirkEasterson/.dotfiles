@@ -8,6 +8,7 @@ return {
     "BufNewFile",
     "BufReadPost",
   },
+  branch = "main", -- TODO: remove this when new version is released
   keys = {
     {
       "<C-S-Tab>",
