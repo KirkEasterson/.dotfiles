@@ -1,9 +1,11 @@
 return {
   "luisiacc/gruvbox-baby",
-  enabled = false,
+  -- enabled = false,
   lazy = false,
   priority = 1000,
   config = function(_, opts)
+    vim.g.gruvbox_baby_background_color = "dark"
+
     vim.cmd({
       cmd = "colorscheme",
       args = {
