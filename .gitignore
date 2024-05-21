@@ -11,4 +11,8 @@ bin/.local/share/*
 bin/.local/state/*
 git/.config/git/gitconfig.local
 
+firefox/*
+!firefox/chrome/userChrome.css
+!firefox/addons.json
+
 *remarkable*
