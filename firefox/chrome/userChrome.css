@@ -66,9 +66,6 @@ i/*===KeyFox by AlfarexGuy2019===*/
 /* Forward Hide */
 #forward-button[disabled="true"] { display: none !important }
 
-/* Site information button */
-#identity-box { display: none !important }
-
 /* "Shield" icon */
 #tracking-protection-icon-container { display: none !important }
 
@@ -145,35 +142,12 @@ tab[selected="true"] .tab-content {
 }
 
 tab[selected="true"] .tab-background {
-  background: rgba(var(--accent-color), 1) !important;
-}
-.tabbrowser-tab>.tab-stack>.tab-background:not([selected="true"]) {
-  transition: all 0.3s ease !important;
-}
-
-.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]) {
-  background-color: rgba(var(--transparent-bgcolor), 0.7) !important;
-}
-
-.tab-line {
-  height: 0px !important;
-}
-
-.tabbrowser-tab {
-  margin-right: 5px !important;
+  background: black !important;
 }
 
 .tabbrowser-tab:not([visuallyselected="true"]),
 .tabbrowser-tab:-moz-lwtheme {
   color: rgba(var(--second-tab-text-color), 1) !important;
-}
-
-tab[selected="true"] .tab-content {
-  color: rgba(var(--tab-text-color), 1) !important;
-}
-
-tab[selected="true"] .tab-background {
-  background: rgba(var(--accent-color), 1) !important;
 }
 
 .tabbrowser-tab::after,
@@ -183,7 +157,6 @@ tab[selected="true"] .tab-background {
 }
 
 .tab-close-button {
-  transition: all 0.3s ease !important;
   border-radius: 4px !important;
 }
 
