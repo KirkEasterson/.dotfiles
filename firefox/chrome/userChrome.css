@@ -26,7 +26,7 @@ i/*===KeyFox by AlfarexGuy2019===*/
 
 
 :root {
-  --navbarWidth     : 40vw; /* Set width of navbar. Use px for a fixed width
+  --navbarWidth     : 30vw; /* Set width of navbar. Use px for a fixed width
                                 or vw for a percentage of your window. */
   --animationSpeed  : 0.5s;
 }
