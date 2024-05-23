@@ -84,3 +84,8 @@ end, { desc = "Paste over selection without erasing unnamed register" })
 util.map("n", "tl", function()
   vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = "Toggle relative linenumbers" })
+
+-- disable default bindings
+vim.keymap.del("i", "<C-W>")
+vim.keymap.del("n", "<C-W>d")
+vim.keymap.del("n", "<C-W><C-D>")
