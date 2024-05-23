@@ -13,11 +13,11 @@
 	],
 	"modules-right": [
 		"custom/media",
-		"custom/line-separator",
+		"custom/separator",
 		// "wlr/workspaces",
 		// "hyprland/workspaces",
 		"sway/workspaces",
-		"custom/line-separator",
+		"custom/separator",
 		"tray",
 		"custom/line-separator",
 		"custom/weather",
@@ -41,7 +41,7 @@
 		"custom/line-separator",
 		"power-profiles-daemon",
 		"battery",
-		"custom/line-separator",
+		"custom/separator",
 		"clock",
 		"custom/search"
 	],
