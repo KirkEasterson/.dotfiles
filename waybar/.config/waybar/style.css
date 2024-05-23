@@ -48,12 +48,6 @@ window#waybar {
   margin-right: 5px;
 }
 
-/* #group-win * { */
-/*   margin-right: 20px; */
-/*   border-radius: 20px 4px 4px 20px; */
-/*   background: @bg1; */
-/* } */
-
 #custom-close,
 #custom-maximize,
 #custom-minimize {
@@ -68,8 +62,11 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 0px 4px;
   border-top: 1px solid @bg4;
+  min-width: 22px;
+  border-radius: 0%;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 #workspaces button.visible {
