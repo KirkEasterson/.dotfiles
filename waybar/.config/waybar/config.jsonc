@@ -39,7 +39,7 @@
 		"custom/line-separator",
 		"wireplumber",
 		"custom/line-separator",
-		"power-profiles-daemon",
+		// "power-profiles-daemon",
 		"battery",
 		"custom/separator",
 		"clock",
