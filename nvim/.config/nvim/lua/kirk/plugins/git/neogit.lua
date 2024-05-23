@@ -1,5 +1,6 @@
 return {
   "NeogitOrg/neogit",
+  version = false, -- TODO: not this
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
@@ -21,11 +22,13 @@ return {
     },
   },
   opts = {
+    auto_show_console = false,
+    console_timeout = 5000,
     disable_commit_confirmation = true,
+    disable_hint = true,
     disable_insert_on_commit = false, -- start commits in insert mode
-    use_per_project_settings = false,
-    kind = "split",
     graph_style = "unicode",
+    use_per_project_settings = false,
     telescope_sorter = function()
       return require("telescope").extensions.fzf.native_fzf_sorter()
     end,
