@@ -19,6 +19,9 @@ return {
       float = {
         border = "rounded",
       },
+      inlay_hints = {
+        enabled = false,
+      },
     })
   end,
 }
