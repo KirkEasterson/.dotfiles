@@ -14,9 +14,9 @@
 	"modules-right": [
 		// "wlr/workspaces",
 		// "hyprland/workspaces",
-		"sway/workspaces",
-		"custom/line-separator",
 		"custom/media",
+		"custom/line-separator",
+		"sway/workspaces",
 		"custom/line-separator",
 		"tray",
 		"custom/line-separator",
