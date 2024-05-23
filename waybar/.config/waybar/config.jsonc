@@ -12,10 +12,10 @@
 		// "sway/window"
 	],
 	"modules-right": [
-		// "wlr/workspaces",
-		// "hyprland/workspaces",
 		"custom/media",
 		"custom/line-separator",
+		// "wlr/workspaces",
+		// "hyprland/workspaces",
 		"sway/workspaces",
 		"custom/line-separator",
 		"tray",
@@ -294,8 +294,8 @@
 		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
 		"format": "{icon}  {}",
 		"return-type": "json",
-		"max-length": 15,
-		"min-length": 10,
+		"max-length": 20,
+		"min-length": 15,
 		"format-icons": {
 			"chrome": "",
 			"chromium": "",
