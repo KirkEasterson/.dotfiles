@@ -3,7 +3,7 @@ return {
   -- enabled = false, -- TODO: replace with a simple binding
   keys = {
     {
-      "<C-w>",
+      "<C-w>", -- this is causing a delay from window choosing binding
       function()
         require("mini.bufremove").delete()
       end,
