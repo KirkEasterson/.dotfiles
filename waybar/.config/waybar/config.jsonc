@@ -309,8 +309,7 @@
 			"vlc": "󰕼"
 		},
 		"escape": true,
-		"on-click": "playerctl play-pause",
-		"tooltip": false
+		"on-click": "playerctl play-pause"
 	},
 	"idle_inhibitor": {
 		"format": "{icon} ",
