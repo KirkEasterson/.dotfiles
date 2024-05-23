@@ -294,8 +294,8 @@
 		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
 		"format": "{icon}  {}",
 		"return-type": "json",
-		"max-length": 30,
-		"min-length": 15,
+		"max-length": 15,
+		"min-length": 10,
 		"format-icons": {
 			"chrome": "",
 			"chromium": "",
