@@ -7,7 +7,7 @@ return {
       function()
         require("mini.bufremove").delete()
       end,
-      desc = "Generate docs",
+      desc = "Delete buffer",
     },
   },
   opts = {},
