@@ -116,10 +116,11 @@ return {
   },
   opts = {
     options = {
+      themable = true,
       right_mouse_command = "",
       middle_mouse_command = "bdelete! %d",
       separator_style = "thin",
-      diagnostics = "nvim_lsp",
+      diagnostics = false,
       offsets = {
         {
           filetype = "NvimTree",
