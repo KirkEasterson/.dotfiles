@@ -14,7 +14,7 @@ cd "${SCRIPT_DIR}" || exit
 stow -S */ --adopt
 
 # firefox files need specific installation
-if [ -x "firefox" ]; then
+if [ ! type -P "firefox" ]; then
 	mkdir -p "${HOME}/.mozilla/firefox"
 
 	# create firefox dir if it doesn't exists
