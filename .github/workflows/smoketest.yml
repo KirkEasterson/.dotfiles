@@ -12,12 +12,12 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-        # firefox:
-        #   - "latest-beta"
-        #   - "latest-devedition"
-        #   - "latest-nightly"
-        #   - "latest-esr"
-        #   - "latest"
+        firefox:
+          - "latest-beta"
+          - "latest-devedition"
+          - "latest-nightly"
+          - "latest-esr"
+          - "latest"
     steps:
       - uses: actions/checkout@v4
 
@@ -31,10 +31,10 @@ jobs:
         run: brew install stow
         if: ${{ matrix.os == 'macos-latest' }}
 
-      # - name: Setup firefox (${{ matrix.firefox }})
-      #   uses: browser-actions/setup-firefox@v1
-      #   with:
-      #     firefox-version: ${{ matrix.firefox }}
+      - name: Setup firefox (${{ matrix.firefox }})
+        uses: browser-actions/setup-firefox@v1
+        with:
+          firefox-version: ${{ matrix.firefox }}
 
       - name: Run install script
         run: ./install.sh
