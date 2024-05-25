@@ -7,7 +7,7 @@ cd "${SCRIPT_DIR}" || exit
 stow -S */ --adopt
 
 # firefox files need specific installation
-if [ -x "firefox"]; then
+if [ -x "firefox" ]; then
 	echo "Installing firefox config"
 
 	# create firefox dir if it doesn't exists
