@@ -11,6 +11,7 @@ if [ -x "firefox" ]; then
 
 	# create firefox dir if it doesn't exists
 	if [ ! -d "${HOME}/.mozilla/firefox" ]; then
+		echo "Fireefox directory doesn't exist. Creating..."
 		firefox -headless 2>/dev/null & disown
 		sleep 5
 		killall firefox
