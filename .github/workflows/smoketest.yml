@@ -12,7 +12,7 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-        # firefox:
+          # firefox: # TODO: get github actions to work without x server
         #   - "latest-beta"
         #   - "latest-devedition"
         #   - "latest-nightly"
@@ -21,13 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install stow and firefox (linux)
+      - name: Install stow (linux)
         run: sudo apt-get install -y stow firefox
         if: ${{ matrix.os == 'ubuntu-latest' }}
 
       - uses: Homebrew/actions/setup-homebrew@master
         if: ${{ matrix.os == 'macos-latest' }}
-      - name: Install stow and firefox (macos)
+      - name: Install stow (macos)
         run: brew install stow firefox
         if: ${{ matrix.os == 'macos-latest' }}
 
