@@ -11,7 +11,7 @@ if [ -x "firefox" ]; then
 
 	# create firefox dir if it doesn't exists
 	if [ ! -d "${HOME}/.mozilla/firefox" ]; then
-		firefox -headless 2>/dev/null & disown
+		firefox 2>/dev/null & disown
 		sleep 5
 		killall firefox
 	fi
