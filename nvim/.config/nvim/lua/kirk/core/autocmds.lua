@@ -126,7 +126,7 @@ autocmd("BufReadPost", {
 
 autocmd("BufWritePost", {
   group = augroup("CustomSettings", {}),
-  desc = "make sh file executable if a shebang is deteced",
+  desc = "Make sh file executable if a shebang is deteced",
   pattern = "*",
   callback = function(args)
     local shebang = vim.api.nvim_buf_get_lines(0, 0, 1, true)[1]
