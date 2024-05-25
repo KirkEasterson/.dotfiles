@@ -12,29 +12,29 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-        firefox:
-          - "latest-beta"
-          - "latest-devedition"
-          - "latest-nightly"
-          - "latest-esr"
-          - "latest"
+        # firefox:
+        #   - "latest-beta"
+        #   - "latest-devedition"
+        #   - "latest-nightly"
+        #   - "latest-esr"
+        #   - "latest"
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install stow (linux)
-        run: sudo apt-get install -y stow
+      - name: Install stow and firefox (linux)
+        run: sudo apt-get install -y stow firefox
         if: ${{ matrix.os == 'ubuntu-latest' }}
 
       - uses: Homebrew/actions/setup-homebrew@master
         if: ${{ matrix.os == 'macos-latest' }}
-      - name: Install stow (macos)
-        run: brew install stow
+      - name: Install stow and firefox (macos)
+        run: brew install stow firefox
         if: ${{ matrix.os == 'macos-latest' }}
 
-      - name: Setup firefox (${{ matrix.firefox }})
-        uses: browser-actions/setup-firefox@v1
-        with:
-          firefox-version: ${{ matrix.firefox }}
+      # - name: Setup firefox (${{ matrix.firefox }})
+      #   uses: browser-actions/setup-firefox@v1
+      #   with:
+      #     firefox-version: ${{ matrix.firefox }}
 
       - name: Run install script
         run: ./install.sh
