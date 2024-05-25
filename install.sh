@@ -15,6 +15,8 @@ if [ -x "firefox" ]; then
 		firefox -headless 2>/dev/null & disown
 		sleep 5
 		killall firefox
+	else
+		ls "${HOME}/.mozilla/firefox"
 	fi
 
 	FIREFOX_DIR=$(find ${HOME}/.mozilla/firefox/ -type d -regex ".*default-release$")
