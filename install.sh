@@ -6,7 +6,7 @@ cd "${SCRIPT_DIR}" || exit
 stow -S */ --adopt
 
 if [ ! -d "${HOME}/.mozilla/firefox" ]; then
-	firefox -headless & disown
+	firefox -headless 2>/dev/null & disown
 	sleep 1
 	killall firefox
 fi
