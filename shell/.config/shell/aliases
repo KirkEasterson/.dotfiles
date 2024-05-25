@@ -56,32 +56,36 @@ alias mountedinfo='df -hT'
 
 # # Git alias commands
 alias g="git status"
-# alias ga="git add"
-# alias gaa="git add ."
-# alias gau="git add -u"
-# alias gc="git commit"
-# alias gcm="git commit -m"
-# alias gca="git commit -am"
-# alias gb="git branch"
-# alias gbd="git branch -d"
-# alias gco="git checkout"
+
+alias ga="git add"
+alias gaa="git add ."
+alias gau="git add -u"
+
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gca="git commit -am"
+
+alias gb="git branch"
+alias gbd="git branch -d"
+
+alias gco="git checkout"
 alias gcob="git checkout -b"
+
 alias gt="git stash"
 alias gta="git stash apply"
-# alias gm="git merge"
-# alias gr="git rebase"
+
+alias gm="git merge"
+alias gr="git rebase"
+
 alias gl="git log --oneline --decorate --graph"
-# alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-# alias glga="git log --graph --oneline --all --decorate"
-# alias gb="git branch"
+alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+alias glga="git log --graph --oneline --all --decorate"
 # alias gs="git show"
-# alias gd="diff --color --color-words --abbrev"
-# alias gdc="git diff --cached"
+alias gd="diff --color --color-words --abbrev"
+alias gdc="git diff --cached"
 # alias gbl="git blame"
 alias gps="git push"
 alias gpl="git pull"
-# alias gb="git branch"
-# alias gd="git diff"
 # alias gk="gitk --all&"
 # alias gx="gitx --all"
 
