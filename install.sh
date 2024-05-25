@@ -8,7 +8,6 @@ stow -S */ --adopt
 
 # firefox files need specific installation
 if [ -x "firefox" ]; then
-	echo "Installing firefox config"
 
 	# create firefox dir if it doesn't exists
 	if [ ! -d "${HOME}/.mozilla/firefox" ]; then
@@ -18,6 +17,8 @@ if [ -x "firefox" ]; then
 	fi
 
 	FIREFOX_DIR=$(find ${HOME}/.mozilla/firefox/ -type d -regex ".*default-release$")
+
+	echo "Installing firefox config to ${FIREFOX_DIR}"
 	stow -S firefox --target="${FIREFOX_DIR}"
 fi
 
