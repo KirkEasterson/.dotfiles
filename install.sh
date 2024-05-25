@@ -18,9 +18,6 @@ if [ -x "firefox" ]; then
 	mkdir -p "${HOME}/.mozilla/firefox"
 
 	# create firefox dir if it doesn't exists
-	if [ ! -d "${HOME}/.mozilla/firefox" ]; then
-	fi
-
 	if has_dirs "${HOME}/.mozilla/firefox/*.default-release"; then
 		echo "Firefox profile directory doesn't exist. Creating..."
 		firefox -headless 2>/dev/null & disown
