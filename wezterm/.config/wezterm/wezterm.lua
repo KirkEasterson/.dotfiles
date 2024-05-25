@@ -120,7 +120,7 @@ return {
   colors = {
     visual_bell = "#cc241d",
   },
-  animation_fps = 120,
+  animation_fps = 1,
   check_for_updates = false,
   mouse_bindings = {
     {
