@@ -1,6 +1,7 @@
 return {
   "luisiacc/gruvbox-baby",
   -- enabled = false,
+  version = false,
   lazy = false,
   priority = 1000,
   config = function(_, opts)
