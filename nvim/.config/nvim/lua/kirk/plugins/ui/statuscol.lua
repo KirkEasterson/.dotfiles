@@ -35,24 +35,29 @@ return {
         { -- marks
           sign = {
             namespace = { "MarkSigns" },
+            maxwidth = 2,
             auto = true,
           },
         },
         { -- diagnostics
           sign = {
             namespace = { "diagnostic" },
+            maxwidth = 2,
             auto = true,
           },
+          click = "v:lua.ScSa",
         },
         { -- testing
           sign = {
             namespace = { "neotest" },
+            maxwidth = 1,
             auto = true,
           },
         },
         { -- debugging
           sign = {
             namespace = { "dap" },
+            maxwidth = 1,
             auto = true,
           },
         },
@@ -65,6 +70,7 @@ return {
         --   click = "v:lua.ScFa",
         -- },
         { -- git signs
+          hl = "GitSigns",
           sign = {
             auto = false,
             maxwidth = 1,
