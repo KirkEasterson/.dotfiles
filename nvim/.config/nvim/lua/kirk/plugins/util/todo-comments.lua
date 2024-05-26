@@ -21,5 +21,7 @@ return {
   -- 		desc = "View TODOs",
   -- 	},
   -- },
-  opts = {},
+  opts = {
+    signs = false,
+  },
 }
