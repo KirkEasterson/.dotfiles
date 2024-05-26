@@ -40,10 +40,10 @@ return {
     signs = {
       add = { text = "│" },
       change = { text = "│" },
-      topdelete = { text = "▔" },
-      delete = { text = "▁" },
       changedelete = { text = "│" },
-      untracked = { text = "" },
+      delete = { text = "│" },
+      topdelete = { text = "│" },
+      untracked = { text = "│" },
     },
     current_line_blame_opts = {
       delay = 10,
