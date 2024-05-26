@@ -17,20 +17,17 @@ i/*===KeyFox by AlfarexGuy2019===*/
   --caption-close-color: 177, 98, 134;
 }
 
-
 /* MIN MAX CLOSE Remove */
 #TabsToolbar > .titlebar-buttonbox-container {
   visibility: collapse !important;}
 
 /*Basic Settings*/
 
-
 :root {
   --navbarWidth     : 30vw; /* Set width of navbar. Use px for a fixed width
                                 or vw for a percentage of your window. */
   --animationSpeed  : 0.5s;
 }
-
 
 #TabsToolbar {
   margin-left : var(--navbarWidth) !important;
@@ -40,8 +37,13 @@ i/*===KeyFox by AlfarexGuy2019===*/
   margin-right: calc(100vw - var(--navbarWidth)) !important;
 }
 
+#search-container {
+  min-width   : 300px !important;
+}
+
 #urlbar-container {
-  min-width   : 0px !important;
+  min-width   : 85vw !important;
+  max-width   : 85vw !important;
 }
 
 :root[uidensity="compact"] #nav-bar {
