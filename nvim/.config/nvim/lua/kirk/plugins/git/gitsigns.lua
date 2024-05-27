@@ -38,12 +38,12 @@ return {
     -- linehl = true,
     -- word_diff = true,
     signs = {
-      add = { text = "│" },
-      change = { text = "│" },
-      changedelete = { text = "│" },
-      delete = { text = "│" },
-      topdelete = { text = "│" },
-      untracked = { text = "│" },
+      add = { text = "┃" },
+      change = { text = "┃" },
+      changedelete = { text = "┃" },
+      delete = { text = "┃" },
+      topdelete = { text = "┃" },
+      untracked = { text = "┃" },
     },
     current_line_blame_opts = {
       delay = 10,
