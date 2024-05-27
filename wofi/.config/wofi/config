@@ -6,4 +6,9 @@ insensitive=true
 allow_markdown=true
 allow_images=true
 image_size=20
-key_expand=End
+
+key_up=Ctrl-p
+key_down=Ctrl-n
+key_submit=Ctrl-y
+
+key_expand=Ctrl-o
