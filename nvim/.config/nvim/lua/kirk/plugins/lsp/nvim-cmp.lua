@@ -106,33 +106,15 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "luasnip", keyword_length = 1 },
-        { name = "cmp_ai", keyword_length = 1 },
-        { name = "calc", keyword_length = 3 },
+        -- { name = "cmp_ai", keyword_length = 1 },
         { name = "async_path", keyword_length = 1 },
         { name = "dotenv", keyword_length = 3 },
+        { name = "calc", keyword_length = 3 },
         { name = "emoji", keyword_length = 1 },
         { name = "nerdfont", keyword_length = 1 },
-        {
-          name = "npm",
-          keyword_length = 4,
-          ft = {
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-            "json",
-          },
-        },
-        {
-          name = "dictionary",
-          keyword_length = 3,
-          ft = { "text", "markdown" },
-        },
-        {
-          name = "spell",
-          keyword_length = 3,
-          ft = { "text", "markdown" },
-        },
+        { name = "npm", keyword_length = 4 },
+        { name = "dictionary", keyword_length = 3 },
+        { name = "spell", keyword_length = 3 },
         -- { name = 'copilot', keyword_length = 3 },
       }, {
         { name = "buffer" },
