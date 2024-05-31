@@ -42,8 +42,8 @@ return {
         { -- diagnostics
           sign = {
             namespace = { "diagnostic" },
-            maxwidth = 2,
-            auto = true,
+            maxwidth = 1,
+            auto = false,
           },
           click = "v:lua.ScSa",
         },
