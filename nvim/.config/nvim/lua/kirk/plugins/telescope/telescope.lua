@@ -85,10 +85,16 @@ return {
       prompt_prefix = " ",
       selection_caret = " ",
       sorting_strategy = "ascending",
-      layout_strategy = "dynamic",
       path_display = { "truncate" },
+      -- border = false, -- TODO: remove border chars completely
+      borderchars = { "─", "", "", "", "", "", "", "" },
+      layout_strategy = "vertical",
       layout_config = {
+        -- ivy style
+        height = vim.o.lines,
+        width = vim.o.columns,
         prompt_position = "top",
+        preview_height = 0.7,
       },
       cache_picker = {
         num_pickers = 3,
