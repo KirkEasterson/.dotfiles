@@ -17,6 +17,14 @@ autocmd({ "FileType" }, {
   end,
 })
 
+autocmd({ "FileType" }, {
+  desc = "Disable spell for certain filetypes",
+  pattern = { "dotenv" },
+  callback = function()
+    vim.opt.spell = false
+  end,
+})
+
 autocmd({ "BufWritePre" }, {
   desc = "Remove trailing-space",
   pattern = { "*" },
