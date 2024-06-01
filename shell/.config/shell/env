@@ -84,6 +84,7 @@ fi
 
 # user defaults
 export DOTFILES="$HOME/.dotfiles"
+export NOTES="$HOME/Documents/notes"
 export SCRIPTS="$HOME/scripts"
 export BROWSER="firefox"
 export BROWSER_SECONDARY="chromium"

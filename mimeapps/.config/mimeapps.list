@@ -1,6 +1,6 @@
 [Default Applications]
 application/json=nvim.desktop;
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+application/pdf=org.pwmt.zathura.desktop
 application/x-extension-ics=userapp-Thunderbird-ICAR41.desktop
 image/gif=mpvgif.desktop
 image/jpeg=nsxiv.desktop;

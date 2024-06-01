@@ -51,12 +51,14 @@ autocmd("TextYankPost", {
   end,
 })
 
--- TODO: make this less hacky
 autocmd("BufwritePost", {
   desc = "Build notes",
   pattern = "*note-*.md",
   callback = function()
-    os.execute("~/scripts/build_notes.sh " .. vim.fn.expand("%%"))
+    if not vim.fn.executable("notes.sh") then
+      return
+    end
+    vim.fn.jobstart("notes.sh build " .. vim.fn.expand("%%"))
   end,
 })
 
