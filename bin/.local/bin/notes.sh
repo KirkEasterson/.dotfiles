@@ -2,16 +2,19 @@
 
 # edit toay's note
 edit_today () {
+	today=$(date +%Y-%m-%d)
+	today_note_file="${src_dir}/note-${today}.md"
+
 	# check if file exists
 	if [ ! -f "${today_note_file}" ]; then
 		printf "# Notes for %s" "${today}" > "${today_note_file}"
 	fi
 
 	# insert subheading for this insert
-	printf "\n\n## %s\n\n" "$(date +%H:%M:%S)" >> "${today_note_file}"
+	printf "\n## %s\n\n\n" "$(date +%H:%M:%S)" >> "${today_note_file}"
 
 	# edit the note
-	$TERMINAL -e nvim + -c "startinsert" "${today_note_file}"
+	$TERMINAL -e nvim + -c "startinsert" "${today_note_file}" & disown
 }
 
 # build a specified note
@@ -27,15 +30,13 @@ build () {
 # view the latest note
 view_latest () {
 	latest=$(find "${pdf_dir}" \( -name "*.pdf" \) -print0 -quit)
-	xdg-open "$latest"
+	xdg-open "$latest" & disown
 }
 
 # initialize variables
 notes_dir="${NOTES:=${HOME}/Documents/notes}"
 src_dir="${notes_dir}/src"
 pdf_dir="${notes_dir}/pdf"
-today=$(date +%Y-%m-%d)
-today_note_file="${src_dir}/note-${today}.md"
 
 # ensure notes directory exists
 mkdir -p "${src_dir}"
