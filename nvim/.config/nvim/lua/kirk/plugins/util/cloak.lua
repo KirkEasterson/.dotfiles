@@ -1,4 +1,3 @@
--- TODO: remove spell check for env files too, since it reveals length below the conceal
 return {
   "laytan/cloak.nvim",
   ft = {
