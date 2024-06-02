@@ -22,14 +22,14 @@ toggle_mic_mute () {
 
 get_volume () {
   # TODO: optimize this. it shouldn't be hard to convert a decimal to a percent
-  vol_float=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}')
+  vol_float=$(echo "${post_change_info}" | awk '{print $2}')
   vol_percent=$(echo "$vol_float*100" | bc)
   vol_int=${vol_percent%.*}
   echo "${vol_int}"
 }
 
 is_muted () {
-  return "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ |  grep -v -c "MUTED")"
+  return "$(echo "${post_change_info}" | grep -v -c "MUTED")"
 }
 
 get_icon () {
@@ -77,4 +77,5 @@ case "${1}" in
     exit 0
 esac
 
+post_change_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
 notify_user
