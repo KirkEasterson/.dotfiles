@@ -13,7 +13,7 @@ edit_today () {
 	# TODO: make this less hacky
 	$TERMINAL -e \
 		nvim -c "norm Go" \
-		-c "norm Go## $(date +%H:%M:%S)" \
+		-c "norm Go### $(date +%H:%M:%S)" \
 		-c "norm G2o" \
 		-c "startinsert" "${today_note_file}" & disown
 }
