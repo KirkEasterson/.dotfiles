@@ -40,9 +40,13 @@ notes_dir="${NOTES:=${HOME}/Documents/notes}"
 src_dir="${notes_dir}/src"
 pdf_dir="${notes_dir}/pdf"
 
-# ensure notes directory exists
-mkdir -p "${src_dir}"
-mkdir -p "${pdf_dir}"
+# ensure notes directories exist
+if [ ! -d "${src_dir}" ]; then
+	mkdir -p "${src_dir}"
+fi
+if [ ! -d "${pdf_dir}" ]; then
+	mkdir -p "${pdf_dir}"
+fi
 
 # process args
 case "${1}" in
