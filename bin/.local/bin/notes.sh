@@ -29,8 +29,10 @@ build () {
 
 # view the latest note
 view_latest () {
-	latest=$(find "${pdf_dir}" \( -name "*.pdf" \) -print0 -quit)
-	xdg-open "$latest" & disown
+	find "${pdf_dir}" \( -name "*.pdf" \) -print \
+		| sort -r \
+		| head -n 1 \
+		| xargs xdg-open & disown
 }
 
 # initialize variables
