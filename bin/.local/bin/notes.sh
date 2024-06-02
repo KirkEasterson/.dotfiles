@@ -14,7 +14,8 @@ edit_today () {
 	printf "\n## %s\n\n\n" "$(date +%H:%M:%S)" >> "${today_note_file}"
 
 	# edit the note
-	$TERMINAL -e nvim + -c "startinsert" "${today_note_file}" & disown
+	$TERMINAL -e \
+		nvim + -c "startinsert" "${today_note_file}" & disown
 }
 
 # build a specified note
