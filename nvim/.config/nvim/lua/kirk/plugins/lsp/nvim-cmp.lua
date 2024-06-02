@@ -28,6 +28,7 @@ return {
     -- lang specific
     "hrsh7th/cmp-nvim-lua",
     "David-Kunz/cmp-npm",
+    "folke/lazydev.nvim",
 
     -- Snippets
     "L3MON4D3/LuaSnip",
@@ -105,6 +106,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp", keyword_length = 1 },
+        { name = "lazydev", keyword_length = 1, group_index = 0 },
         { name = "luasnip", keyword_length = 1 },
         -- { name = "cmp_ai", keyword_length = 1 },
         { name = "async_path", keyword_length = 1 },
