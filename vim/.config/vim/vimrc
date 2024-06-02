@@ -112,6 +112,9 @@ augroup END
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" build notes
+autocmd BufWritePost *note-*.md silent !notes.sh build %:p
+
 """""""""" PLUGINS
 " Bootstrap vim-plug
 if empty(glob('~/.config/vim/autoload/plug.vim'))
