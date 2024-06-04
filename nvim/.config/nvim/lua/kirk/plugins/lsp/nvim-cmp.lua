@@ -55,10 +55,13 @@ return {
       },
       view = {
         entries = {
+          name = "native", -- to fix linting error
           follow_cursor = true,
         },
       },
       formatting = {
+        expandable_indicator = true, -- to fix linting error
+        fields = {}, -- to fix linting error
         format = function(entry, vim_item)
           local kind = lspkind.cmp_format({
             mode = "symbol_text",
