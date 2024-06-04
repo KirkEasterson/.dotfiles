@@ -1,3 +1,9 @@
 #!/bin/sh
 
-mpv /dev/video0 --profile=low-latency --untimed --no-osc --title=Webcam
+# TODO: add option to toggle window
+
+mpv /dev/video0 \
+	--profile=low-latency \
+	--untimed \
+	--no-osc \
+	--title=webcam-on-screen
