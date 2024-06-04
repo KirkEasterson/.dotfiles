@@ -17,9 +17,7 @@ return {
     "FelipeLema/cmp-async-path",
 
     -- misc
-    "hrsh7th/cmp-emoji",
     "hrsh7th/cmp-calc",
-    "chrisgrieser/cmp-nerdfont",
     "uga-rosa/cmp-dictionary",
     "f3fora/cmp-spell",
     "tzachar/cmp-ai",
@@ -37,12 +35,10 @@ return {
 
     -- Git
     "petertriho/cmp-git",
-    "Dynge/gitmoji.nvim",
     "davidsierradz/cmp-conventionalcommits",
   },
   config = function(_, opts)
     require("cmp_git").setup({})
-    require("gitmoji").setup({})
 
     local cmp = require("cmp")
     local lspkind = require("lspkind")
@@ -73,10 +69,8 @@ return {
               buffer = "[Buffer]",
               calc = "[Calc]",
               dictionary = "[Dictionary]",
-              emoji = "[Emoji]",
               latex_symbols = "[Latex]",
               luasnip = "[LuaSnip]",
-              nerdfont = "[Nerdfont]",
               npm = "[npm]",
               nvim_lsp = "[LSP]",
               nvim_lua = "[Lua]",
@@ -112,8 +106,6 @@ return {
         { name = "async_path", keyword_length = 1 },
         { name = "dotenv", keyword_length = 3 },
         { name = "calc", keyword_length = 3 },
-        { name = "emoji", keyword_length = 1 },
-        { name = "nerdfont", keyword_length = 1 },
         { name = "npm", keyword_length = 4 },
         { name = "dictionary", keyword_length = 3 },
         { name = "spell", keyword_length = 3 },
@@ -132,7 +124,6 @@ return {
         { name = "git" },
         { name = "conventionalcommits" },
         { name = "path" },
-        { name = "gitmoji" },
         { name = "calc" },
         { name = "spell" },
       }, {
