@@ -22,7 +22,7 @@ send_signal() {
 
 case $1'' in
   'interactive')
-      MINUTES=$(echo -e "1\n10\n15\n20\n30\n45\n60\n90\n120" | rofi -dmenu -p "Select how many minutes to inhibit idle:")
+      MINUTES=$(echo -e "1\n10\n15\n20\n30\n45\n60\n90\n120" | ${SEARCH} -d -p "Select how many minutes to inhibit idle:")
       uninhibit
       inhibit $((MINUTES * 60))
       send_signal
