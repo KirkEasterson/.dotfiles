@@ -6,7 +6,6 @@ monitors.conf
 elpa/
 transient/
 
-bin/.local/bin/*
 bin/.local/share/*
 bin/.local/state/*
 git/.config/git/gitconfig.local
