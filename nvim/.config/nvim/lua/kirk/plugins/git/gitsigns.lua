@@ -1,6 +1,5 @@
 return {
   "lewis6991/gitsigns.nvim",
-  version = "v0.6", -- TODO: find out why 0.7 didn't work
   event = {
     "BufNewFile",
     "BufReadPost",
