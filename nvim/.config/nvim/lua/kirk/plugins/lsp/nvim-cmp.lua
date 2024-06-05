@@ -41,6 +41,7 @@ return {
     require("cmp_git").setup({})
 
     local cmp = require("cmp")
+    local cmp_types = require("cmp.types.cmp")
     local lspkind = require("lspkind")
 
     cmp.setup({
@@ -55,13 +56,17 @@ return {
       },
       view = {
         entries = {
-          name = "native", -- to fix linting error
+          name = "custom",
           follow_cursor = true,
         },
       },
       formatting = {
-        expandable_indicator = true, -- to fix linting error
-        fields = {}, -- to fix linting error
+        expandable_indicator = true,
+        fields = {
+          cmp_types.ItemField.Abbr,
+          cmp_types.ItemField.Kind,
+          cmp_types.ItemField.Menu,
+        },
         format = function(entry, vim_item)
           local kind = lspkind.cmp_format({
             mode = "symbol_text",
