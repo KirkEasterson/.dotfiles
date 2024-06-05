@@ -1,51 +1,53 @@
 #!/bin/sh
 
-getdim() {
-	xrandr \
-		| grep -oP '(?<=current ).*(?=,)' \
-		| tr -d ' '
+send_signal() {
+  bar-signal.sh "recorder"
 }
 
-updateicon() { \
+update_icon() { \
 	echo "$1" > /tmp/recordingicon
 	# pkill -RTMIN+9 "${STATUSBAR:-dwmblocks}"
 }
 
-killrecording() {
+kill_recording() {
 	recpid="$(cat /tmp/recordingpid)"
 	kill -15 "$recpid"
 	rm -f /tmp/recordingpid
-	updateicon ""
-	# pkill -RTMIN+9 "${STATUSBAR:-dwmblocks}"
+
+	# update_icon ""
+	class="off"
+	text="Not recording"
 }
 
 screen() { \
 	file="${screencasts_dir}/$(date '+%y-%m-%d_%H-%M-%S').mkv"
 	wf-recorder --file="${file}" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️🎙️"
+
+	# update_icon "⏺️🎙️"
+	class="screen"
+	text="Recording screen"
 }
 
 screen_and_audio() { \
 	file="${screencasts_dir}/$(date '+%y-%m-%d_%H-%M-%S').mkv"
 	wf-recorder --audio --file="${file}" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️🎙️"
+
+	# update_icon "⏺️🎙️"
+	class="screen_and_audio"
+	text="Recording screen with audio"
 }
 
 screen_selection() { \
 	file="${screencasts_dir}/$(date '+%y-%m-%d_%H-%M-%S').mkv"
 	wf-recorder -g "$(slurp)" --file="${file}" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️🎙️"
-}
 
-# video() {
-# 	file="${screencasts_dir}/$(date '+%y-%m-%d_%H-%M-%S')"
-# 	wf-recorder --file="${file}" &
-# 	echo $! > /tmp/recordingpid
-# 	updateicon "⏺️"
-# }
+	# update_icon "⏺️🎙️"
+	class="screen_selection"
+	text="Recording screen selection"
+}
 
 webcam() {
 	file="${screencasts_dir}/$(date '+%y-%m-%d_%H-%M-%S')"
@@ -61,17 +63,19 @@ webcam() {
 		"${file}.mkv" &
 
 	echo $! > /tmp/recordingpid
-	updateicon "🎥"
+
+	# update_icon "🎥"
+	class="webcam"
+	text="Recording from webcam"
 }
 
-
-asktoend() { \
+prompt_end() { \
 	response=$(printf "No\\nYes" \
 		| $SEARCH -d -i -p "Recording still active. End recording?") &&
-	[ "$response" = "Yes" ] && killrecording
+	[ "$response" = "Yes" ] && kill_recording
 }
 
-askrecording() { \
+prompt_recording() { \
 	choice=$(printf "screen\\nscreen_and_audio\\nscreen_selection\\nwebcam" \
 		| $SEARCH -d -i -p "Select recording style:")
 
@@ -81,7 +85,8 @@ askrecording() { \
 		screen_selection) screen_selection;;
 		# audio) audio;;
 		webcam) webcam;;
-		*) exit 0
+		*) class="off"
+			text="Not recording";;
 	esac
 }
 
@@ -97,6 +102,9 @@ case "$1" in
 	screen_selection) screen_selection;;
 	# audio) audio;;
 	webcam) webcam;;
-	kill) killrecording;;
-	*) ([ -f /tmp/recordingpid ] && asktoend && exit) || askrecording;;
+	kill) kill_recording;;
+	*) ([ -f /tmp/recordingpid ] && prompt_end) || prompt_recording;;
 esac
+
+printf '{"alt":"%s","tooltip":"%s"}\n' "$class" "$text"
+send_signal

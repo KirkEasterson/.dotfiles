@@ -33,6 +33,8 @@
 		"custom/line-separator",
 		"memory",
 		"custom/line-separator",
+		"custom/recorder",
+		"custom/line-separator",
 		// "language",
 		// "hyprland/language",
 		"sway/language",
@@ -335,5 +337,19 @@
 		"on-click-middle": "inhibit-idle.sh off",
 		"on-click-right": "inhibit-idle.sh interactive",
 		"signal": 15
+	},
+	"custom/recorder": {
+		"return-type": "json",
+		"format": "{icon} ",
+		"format-icons": {
+			"off": "󰕨 ",
+			"screen": " ",
+			"screen_and_audio": " ",
+			"screen_selection": " 󰒅",
+			"webcam": "󰖠"
+		},
+		// "exec": "record.sh status",
+		"on-click": "record.sh",
+		"signal": 8
 	}
 }
