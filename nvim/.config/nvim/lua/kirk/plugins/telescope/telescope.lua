@@ -85,7 +85,7 @@ return {
       prompt_prefix = " ",
       selection_caret = " ",
       sorting_strategy = "ascending",
-      layout_strategy = "dynamic",
+      layout_strategy = "vertical",
       path_display = { "truncate" },
       layout_config = {
         prompt_position = "top",
@@ -194,15 +194,6 @@ return {
         ["<C-k>"] = require("telescope.actions").cycle_history_prev,
       },
     }
-
-    local layout_strategies = require("telescope.pickers.layout_strategies")
-    layout_strategies.dynamic = function(self, max_columns, max_lines, layout_config)
-      if vim.o.columns > 140 then
-        return layout_strategies.horizontal(self, max_columns, max_lines, layout_config)
-      else
-        return layout_strategies.vertical(self, max_columns, max_lines, layout_config)
-      end
-    end
 
     local telescope = require("telescope")
     telescope.setup(opts)
