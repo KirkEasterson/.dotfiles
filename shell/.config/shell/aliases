@@ -34,7 +34,7 @@ alias pg="ps aux | grep "
 
 # Search files in the current folder
 # alias fg="find . | grep "
-#
+
 # mkdir create parent directories
 alias mkdir="mkdir -pv"
 
