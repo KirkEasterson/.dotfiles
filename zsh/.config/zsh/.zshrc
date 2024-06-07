@@ -46,6 +46,10 @@ bindkey -M viins '^Y' autosuggest-accept
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 
+# override default search command
+zle -N search_hist{,} # create a widget with the same name
+bindkey -M vicmd "/" search_hist
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
