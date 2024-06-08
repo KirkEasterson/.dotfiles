@@ -42,32 +42,7 @@ return {
   },
   opts = {},
   config = function(_, opts)
-    local lsp_zero = require("lsp-zero").preset({
-      name = "minimal",
-      set_lsp_keymaps = true,
-      manage_nvim_cmp = false,
-      suggest_lsp_servers = true,
-    })
-
-    local on_attach = function(client, bufnr)
-      lsp_zero.default_keymaps({
-        buffer = bufnr,
-        preserve_mappings = false,
-      })
-
-      -- -- for nvim < v0.8.1
-      -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-      -- -- for ufo folding
-      -- client.server_capabilities.textDocument = {
-      --   foldingRange = {
-      --     dynamicRegistration = false,
-      --     lineFoldingOnly = true,
-      --   },
-      -- }
-    end
-
-    lsp_zero.on_attach(on_attach)
+    local lsp_zero = require("lsp-zero")
 
     require("mason-lspconfig").setup({
       automatic_installation = true,
@@ -99,7 +74,6 @@ return {
         -- "asm_lsp", -- assembly
         -- "csharp_ls",
         -- "diagnosticls",
-        -- "diagnosticls",
         -- "fsautocomplete",
         -- "hls", -- haskell
         -- "jdtls", -- java
@@ -130,6 +104,23 @@ return {
         end,
       },
     })
+
+    local on_attach = function(client, bufnr)
+      lsp_zero.default_keymaps({
+        buffer = bufnr,
+        preserve_mappings = false,
+      })
+
+      -- -- for ufo folding
+      -- client.server_capabilities.textDocument = {
+      --   foldingRange = {
+      --     dynamicRegistration = false,
+      --     lineFoldingOnly = true,
+      --   },
+      -- }
+    end
+
+    lsp_zero.on_attach(on_attach)
 
     lsp_zero.configure("omnisharp", {
       -- handlers = {
@@ -170,6 +161,6 @@ return {
     -- semantic tokens should be less than treesitter
     vim.highlight.priorities.semantic_tokens = 95
 
-    lsp_zero.setup(opts)
+    lsp_zero.setup()
   end,
 }
