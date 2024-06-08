@@ -167,6 +167,9 @@ return {
       warn = "",
     })
 
+    -- semantic tokens should be less than treesitter
+    vim.highlight.priorities.semantic_tokens = 95
+
     lsp_zero.setup(opts)
   end,
 }
