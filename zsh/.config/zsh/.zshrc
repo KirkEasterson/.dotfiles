@@ -1,14 +1,14 @@
-[ -z "$ZPROF" ] || zmodload zsh/zprof
+[ -z "${ZPROF}" ] || zmodload zsh/zprof
 
-source "$HOME/.config/shell/commonrc"
+source "${HOME}/.config/shell/commonrc"
 
 HISTSIZE=100000
 SAVEHIST=100000
-if [[ ! -a "$XDG_CACHE_HOME/zsh/history" ]]; then
-	mkdir -p "$XDG_CACHE_HOME/zsh" >/dev/null 2>&1
-	touch "$XDG_CACHE_HOME/zsh/history"
+if [[ ! -a "${XDG_CACHE_HOME}/zsh/history" ]]; then
+	mkdir -p "${XDG_CACHE_HOME}/zsh" >/dev/null 2>&1
+	touch "${XDG_CACHE_HOME}/zsh/history"
 fi
-HISTFILE="$XDG_CACHE_HOME/zsh/history"
+HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
 KEYTIMEOUT=1
 
@@ -47,7 +47,7 @@ bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 
 # override default search command
-zle -N search_hist{,} # create a widget with the same name
+zle -N search_hist{,} # he widget must
 bindkey -M vicmd "/" search_hist
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
@@ -67,15 +67,15 @@ ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 # gcloud configuration
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
 
 # opam configuration
-[[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
+[[ ! -r '${HOME}/.opam/opam-init/init.zsh' ]] || source '${HOME}/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
 
 # eval "$(direnv hook zsh)"
 # eval "$(zoxide init zsh)"
 eval $(keychain --eval id_ed25519_github -q)
 eval "$(starship init zsh)"
 
-[ -z "$ZPROF" ] || zprof
+[ -z "${ZPROF}" ] || zprof
