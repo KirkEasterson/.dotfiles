@@ -102,6 +102,7 @@ vim.cmd([[highlight SpellLocal cterm=undercurl ctermfg=247 gui=undercurl guifg=N
 opt.number = true -- show line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.cursorline = true -- highlight the current line
+opt.cursorlineopt = "number" -- don't highlight the _entire_ current line
 opt.termguicolors = true -- allow custom highlighting
 opt.incsearch = true -- highlight matches as you type
 opt.hlsearch = false -- unhighlight matches after searching
