@@ -58,6 +58,12 @@ util.map({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yank to system clipboard" 
 util.map({ "n", "v" }, "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
 util.map({ "n", "v" }, "<leader>P", "\"+P", { desc = "Paste from system clipboard" })
 
+-- don't add '{' or '}' to the jumplist
+util.map({ "n" }, "{", ":keepjumps normal! {<cr>", { desc = "Don't add '{' to the jumplist" })
+util.map({ "n" }, "}", ":keepjumps normal! }<cr>", { desc = "Don't add '}' to the jumplist" })
+util.map({ "x" }, "{", ":<C-u>keepjumps normal! gv{<cr>", { desc = "Don't add '{' to the jumplist" })
+util.map({ "x" }, "}", ":<C-u>keepjumps normal! gv}<cr>", { desc = "Don't add '}' to the jumplist" })
+
 util.map("x", "<leader>qp", function()
   -- TODO: take last line of file into account
 
