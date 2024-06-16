@@ -1,8 +1,11 @@
+[font]
+  normal = ["ComicCodeLigatures Nerd Font"]
+  size = 12.0
+
+fork = true
 wsl = false
 multigrid = true
 vsync = true
 maximized = false
-srgb = true
 idle = true
-# neovim_bin = "/usr/bin/nvim"
 frame = "full"
