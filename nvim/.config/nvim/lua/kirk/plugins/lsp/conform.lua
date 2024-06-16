@@ -32,7 +32,7 @@ return {
       json = { "prettier" },
       lua = { "stylua" },
       -- markdown = { { "markdownlint", "prettier" } },
-      ocaml = { "ocamlformat" },
+      -- ocaml = { "ocamlformat" },
       python = { "black" },
       rust = { "rustfmt" },
       svelte = { "prettier" },
