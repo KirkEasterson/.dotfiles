@@ -188,7 +188,7 @@ opt.fillchars:append({
   fold = " ",
   foldclose = "󰅂",
   foldopen = "󰅀",
-  foldsep = "",
+  foldsep = "│",
 
   -- win separator
   horiz = "━",

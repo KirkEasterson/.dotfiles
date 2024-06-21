@@ -1,11 +1,13 @@
 return {
   "kevinhwang91/nvim-ufo",
-  enabled = false,
   dependencies = {
     "kevinhwang91/promise-async",
     "nvim-treesitter/nvim-treesitter",
   },
-  event = "VimEnter",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   cmd = {
     "UfoEnable",
     "UfoDisable",
