@@ -60,8 +60,8 @@ XF86MonBrightness{Down,Up}
 
 # keyboard layouts
 super + shift + a
-	setxkbmap us
+	set_keymap.sh us(intl)
 super + shift + s
-	setxkbmap se
+	set_keymap.sh se
 super + shift + g
-	setxkbmap no
+	set_keymap.sh no
