@@ -65,23 +65,35 @@ util.map({ "x" }, "{", ":<C-u>keepjumps normal! gv{<cr>", { desc = "Don't add '{
 util.map({ "x" }, "}", ":<C-u>keepjumps normal! gv}<cr>", { desc = "Don't add '}' to the jumplist" })
 
 util.map("x", "<leader>qp", function()
-  -- TODO: take last line of file into account
+  -- this is still flaky, but it's an improvement from the first iteration
+  local paste_cmd = "P" -- paste _before_
+  local visual_mode = vim.fn.mode()
 
-  -- get current column number
-  local col_num = vim.fn.col(".")
+  if visual_mode == "^V" then -- visual-block mode
+    -- do nothing
+    -- NOTE: the above value isn't the correct value to check for
+    return
+  elseif visual_mode == "v" then -- visual mode
+    local last_col = vim.fn.col("$") - 1
+    local selection_end = vim.fn.col("'>")
 
-  -- get end column of the visual selection
-  local end_col = vim.fn.visualmode() == "V" and vim.fn.col("'>") or col_num
+    local is_last_col_selected = (selection_end == last_col)
+    if is_last_col_selected then
+      paste_cmd = "p" -- paste _after_
+    end
+  elseif visual_mode == "V" then -- visual-line mode
+    local curr_line = vim.fn.line(".")
+    local last_line = vim.fn.line("$")
+    local is_last_line_selected = (curr_line == last_line)
+    if is_last_line_selected then
+      paste_cmd = "p" -- paste _after_
+    end
+  end
 
-  -- check if last character in the line is selected
-  local act_last_col = vim.fn.col("$") - 1
-  local is_last_char_selected = end_col == act_last_col
-
-  local paste_cmd = is_last_char_selected and "\"_dp" or "\"_dP"
   vim.cmd({
     cmd = "normal",
     args = {
-      paste_cmd,
+      "\"_d" .. paste_cmd,
     },
   })
 end, { desc = "Paste over selection without erasing unnamed register" })
