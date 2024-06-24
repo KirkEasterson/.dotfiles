@@ -44,6 +44,23 @@ return {
       return { "treesitter", "indent" }
     end,
   },
+  config = function(_, opts)
+    require("ufo").setup(opts)
+
+    -- disable UFO for certain filetypes
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "NeogitStatus",
+        "git",
+        "markdown",
+      },
+      callback = function()
+        require("ufo").detach()
+        vim.opt_local.foldenable = false
+        vim.opt_local.foldcolumn = "0"
+      end,
+    })
+  end,
   init = function()
     vim.o.foldcolumn = "1" -- '0' is not bad
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
