@@ -7,7 +7,7 @@
   "alpha-nvim-fortune": { "branch": "main", "commit": "6b78cecae736dcf69d2f41403c3f6b48e3df326e" },
   "auto-session": { "branch": "main", "commit": "e5ffe230235c7d35c2f33078b7cd927a4fb579c4" },
   "barbecue.nvim": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
-  "bufferline.nvim": { "branch": "main", "commit": "6ac7e4f1eead72507cfdbc94dcd0c26b98b2f86e" },
+  "bufferline.nvim": { "branch": "main", "commit": "46192e794b73f92136326c10ecdbdbf15e35705f" },
   "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
   "cmp-async-path": { "branch": "main", "commit": "9d581eec5acf812316913565c135b0d1ee2c9a71" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
