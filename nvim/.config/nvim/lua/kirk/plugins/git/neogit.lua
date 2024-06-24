@@ -43,6 +43,9 @@ return {
       telescope = true,
       fzf_lua = false,
     },
+
+    -- https://github.com/NeogitOrg/neogit/issues/1377#issuecomment-2174427660
+    filewatcher = { enabled = true },
   },
   config = function(_, opts)
     require("neogit").setup(opts)
