@@ -3,7 +3,7 @@ return {
   dependencies = {
     "lewis6991/gitsigns.nvim",
     -- "mfussenegger/nvim-dap",
-    "kevinhwang91/nvim-ufo",
+    -- "kevinhwang91/nvim-ufo",
   },
   event = {
     "BufNewFile",
@@ -32,11 +32,11 @@ return {
         "trouble",
       },
       segments = {
-        { -- fold
-          text = { builtin.foldfunc },
-          click = "v:lua.ScFa",
-          sign = { foldclosed = true },
-        },
+        -- { -- fold
+        --   text = { builtin.foldfunc },
+        --   click = "v:lua.ScFa",
+        --   sign = { foldclosed = true },
+        -- },
         { -- marks
           sign = {
             namespace = { "MarkSigns" },
