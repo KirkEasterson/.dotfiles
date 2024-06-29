@@ -10,6 +10,7 @@ return {
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-python",
     "rouge8/neotest-rust",
+    "nvim-neotest/neotest-jest",
   },
   keys = {
     {
