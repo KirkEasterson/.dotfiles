@@ -58,6 +58,7 @@ return {
       callback = function()
         local autosession = require("auto-session")
         if not autosession.session_exists_for_cwd() then
+          autosession.SaveSession()
           return
         end
 
