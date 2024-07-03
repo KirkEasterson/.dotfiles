@@ -28,6 +28,20 @@ return {
       desc = "Open diff view with untracked files",
     },
     {
+      "<leader>dvh",
+      function()
+        vim.cmd.DiffviewFileHistory("%")
+      end,
+      desc = "Open diff view with file history",
+    },
+    {
+      "<leader>dvH",
+      function()
+        require("diffview").file_history()
+      end,
+      desc = "Open diff view with branch history",
+    },
+    {
       "<leader>dvc",
       function()
         require("diffview").close()
