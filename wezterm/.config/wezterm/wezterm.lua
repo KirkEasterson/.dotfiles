@@ -95,7 +95,7 @@ return {
   },
   -- color_scheme = scheme_for_appearance(get_appearance()),
   color_scheme = "Gruvbox dark, medium (base16)",
-  front_end = "WebGpu",
+  front_end = "OpenGL",
   webgpu_power_preference = "HighPerformance",
   hide_tab_bar_if_only_one_tab = true,
   window_padding = {
