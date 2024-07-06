@@ -39,7 +39,7 @@ theme.hotkeys_modifiers_fg = theme.fg_urgent
 
 -- borders and gaps
 theme.useless_gap = 0
-theme.border_width = 1
+theme.border_width = 3
 
 -- taglist
 theme.taglist_squares_sel = theme.wd .. "tags/focus.png"
