@@ -60,8 +60,10 @@ XF86MonBrightness{Down,Up}
 
 # keyboard layouts
 super + shift + a
-	set_keymap.sh us(intl)
+	set_keymap.sh "us(altgr-intl)"
 super + shift + s
-	set_keymap.sh se
+	set_keymap.sh "se"
 super + shift + g
-	set_keymap.sh no
+	set_keymap.sh "no"
+super + shift + d
+	set_keymap.sh "prog-qwerty"
