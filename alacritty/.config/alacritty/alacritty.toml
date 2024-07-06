@@ -16,7 +16,7 @@ duration = 300
 command = { program = "xkbbell" }
 
 [font]
-size = 13.0
+size = 12.0
 bold = { family = "ComicCodeLigatures Nerd Font", style = "Bold" }
 bold_italic = { family = "ComicCodeLigatures Nerd Font", style = "Bold Italic" }
 italic = { family = "ComicCodeLigatures Nerd Font", style = "Italic" }
