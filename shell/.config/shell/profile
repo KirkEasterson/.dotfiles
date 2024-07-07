@@ -9,8 +9,6 @@ blueman-applet &
 udiskie -a &
 pcmanfm --daemon-mode &
 1password --silent &
-# volumeicon &
-# cbatticon &
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	kanshi &
@@ -22,6 +20,8 @@ else
 	picom &
 	sxhkd &
 	dunst &
+	volumeicon &
+	cbatticon &
 	# xremap .config/xremap/config.yml &
 	# xcape -e "Shift_L=parenleft;Shift_R=parenright" &
 
