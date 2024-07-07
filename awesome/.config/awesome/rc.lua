@@ -309,8 +309,9 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibar
-mytextclock = wibox.widget.textclock("%a %d %b %Y (wk %V) %T", 1)
+mytextclock = wibox.widget.textclock("%a %d %b %Y %T", 1)
 local cw = calendar_widget({
+  -- TODO: look into setting week numbers here
   placement = "top_right",
 })
 mytextclock:connect_signal("button::press", function(_, _, _, button)
@@ -452,10 +453,10 @@ awful.screen.connect_for_each_screen(function(s)
       -- 	end)
       -- end, network_widget),
       separator,
-      awful.widget.watch([[curl -s "https://wttr.in/?format=%c%t+%m+%28day+%M%29&m"]], 60), -- weather
+      awful.widget.watch([[weather.sh]], 60), -- weather
       separator,
       wibox.widget.textbox(" "),
-      awful.widget.watch([[bash -c "cat /sys/class/thermal/thermal_zone0/temp | awk '{print $1/1000 \"°C\"}'"]], 1), -- CPU temp
+      awful.widget.watch([[cpu_temp.sh]], 1), -- CPU temp
       -- require("widgets.weather").weatherwidget,
       -- wibox.widget({
       -- 	widget = wibox.widget.textbox,
@@ -463,10 +464,10 @@ awful.screen.connect_for_each_screen(function(s)
       -- }),
       separator,
       wibox.widget.textbox("  "),
-      awful.widget.watch([[bash -c "echo ""$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%""]], 1), -- CPU usage
+      awful.widget.watch([[cpu_usage.sh]], 1), -- CPU usage
       separator,
       wibox.widget.textbox("󰍛 "),
-      awful.widget.watch([[bash -c "free -t | awk 'NR == 2 {printf(\"%.1f%\"), $3/$2*100}'"]], 1), -- RAM usage
+      awful.widget.watch([[memory_usage.sh]], 1), -- RAM usage
       -- separator,
       -- volume_widget({
       -- 	device = "default",
@@ -477,14 +478,14 @@ awful.screen.connect_for_each_screen(function(s)
       wibox.widget.textbox("󰌓 "),
       awful.widget.keyboardlayout(),
       separator,
-      battery_widget({
-        path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
-        display_notification = true,
-        warning_msg_title = "Low battery",
-        warning_msg_text = "Please charge battery",
-        warning_msg_position = "top_right",
-      }),
-      separator,
+      -- battery_widget({
+      --   path_to_icons = "/usr/share/icons/Papirus-Dark/symbolic/status/",
+      --   display_notification = true,
+      --   warning_msg_title = "Low battery",
+      --   warning_msg_text = "Please charge battery",
+      --   warning_msg_position = "top_right",
+      -- }),
+      -- separator,
       wibox.widget.textbox("  "),
       mytextclock,
       separator,
