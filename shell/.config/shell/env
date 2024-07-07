@@ -99,3 +99,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export SSH_ASKPASS="ksshaskpass"
 export SSH_ASKPASS_REQUIRE="prefer"
+
+export WLR_RENDERER="vulkan"
+export WLR_NO_HARDWARE_CURSORS=1
+export XWAYLAND_NO_GLAMOR=1
