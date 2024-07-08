@@ -52,6 +52,7 @@ return {
   config = function()
     require("diffview").setup({
       enhanced_diff_hl = true,
+      show_help_hints = false,
       view = {
         default = {
           winbar_info = true,
