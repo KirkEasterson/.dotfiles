@@ -103,6 +103,7 @@ return {
       },
       status = {
         virtual_text = false, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
+        signs = true,
       },
     }
     require("neotest").setup(opts)
