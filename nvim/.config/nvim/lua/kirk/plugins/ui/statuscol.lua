@@ -2,6 +2,7 @@ return {
   "luukvbaal/statuscol.nvim",
   dependencies = {
     "lewis6991/gitsigns.nvim",
+    "chentoast/marks.nvim",
     -- "mfussenegger/nvim-dap",
     -- "kevinhwang91/nvim-ufo",
   },
@@ -40,6 +41,7 @@ return {
         { -- marks
           sign = {
             namespace = { "MarkSigns" },
+            name = { ".*" },
             maxwidth = 2,
             auto = true,
           },
@@ -55,6 +57,7 @@ return {
         { -- testing
           sign = {
             namespace = { "neotest" },
+            name = { ".*" },
             maxwidth = 1,
             auto = true,
           },
