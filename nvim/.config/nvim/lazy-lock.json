@@ -5,7 +5,7 @@
   "advanced-git-search.nvim": { "branch": "main", "commit": "5637d80861e253a8621450eb58621009e1307deb" },
   "alpha-nvim": { "branch": "main", "commit": "41283fb402713fc8b327e60907f74e46166f4cfd" },
   "alpha-nvim-fortune": { "branch": "main", "commit": "6b78cecae736dcf69d2f41403c3f6b48e3df326e" },
-  "auto-session": { "branch": "main", "commit": "15586c4b997f4fc031432f958a942ba3b201d6aa" },
+  "auto-session": { "branch": "main", "commit": "df99506c3a68890c80ed60be4c63ed96131e0c0c" },
   "barbecue.nvim": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
   "bufferline.nvim": { "branch": "main", "commit": "81820cac7c85e51e4cf179f8a66d13dbf7b032d9" },
   "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
