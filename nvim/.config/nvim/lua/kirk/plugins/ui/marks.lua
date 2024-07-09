@@ -43,5 +43,6 @@ return {
     -- default_mappings = false,
     signs = true,
     -- builtin_marks = { "'", "<", ">", ".", }, -- TODO: change these
+    cyclic = true,
   },
 }
