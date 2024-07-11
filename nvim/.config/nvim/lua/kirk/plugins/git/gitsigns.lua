@@ -31,11 +31,12 @@ return {
     },
   },
   opts = {
-    current_line_blame = false,
-    current_line_blame_formatter = " 󰊢 <author>  <author_time:%d %b %Y>  <summary>",
-    attach_to_untracked = false,
-    -- linehl = true,
+    trouble = false,
+    attach_to_untracked = true,
+    linehl = true,
+    numhl = true,
     -- word_diff = true,
+
     signs = {
       add = { text = "┃" },
       change = { text = "┃" },
@@ -44,6 +45,17 @@ return {
       topdelete = { text = "┃" },
       untracked = { text = "┃" },
     },
+    signs_staged = {
+      add = { text = "┃" },
+      change = { text = "┃" },
+      changedelete = { text = "┃" },
+      delete = { text = "┃" },
+      topdelete = { text = "┃" },
+      untracked = { text = "┃" },
+    },
+
+    current_line_blame = false,
+    current_line_blame_formatter = " 󰊢 <author>  <author_time:%d %b %Y>  <summary>",
     current_line_blame_opts = {
       delay = 10,
     },
