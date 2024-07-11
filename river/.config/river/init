@@ -1,23 +1,10 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
-# documentation.
+riverctl map normal Super+Shift Return spawn "$TERMINAL"
+riverctl map normal Super+Space Return spawn search.sh
 
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
-
-# Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super+Shift Return spawn foot
-
-# Super+Q to close the focused view
 riverctl map normal Super Q close
-
-# Super+Shift+E to exit river
-riverctl map normal Super+Shift E exit
+riverctl map normal Super+Shift X exit
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -79,16 +66,16 @@ do
     tags=$((1 << ($i - 1)))
 
     # Super+[1-9] to focus tag [0-8]
-    riverctl map normal Super $i set-focused-tags $tags
+    riverctl map normal Super "$i" set-focused-tags "$tags"
 
     # Super+Shift+[1-9] to tag focused view with tag [0-8]
-    riverctl map normal Super+Shift $i set-view-tags $tags
+    riverctl map normal Super+Shift "$i" set-view-tags "$tags"
 
     # Super+Control+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal Super+Control $i toggle-focused-tags $tags
+    riverctl map normal Super+Control "$i" toggle-focused-tags "$tags"
 
     # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
-    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+    riverctl map normal Super+Shift+Control "$i" toggle-view-tags "$tags"
 done
 
 # Super+0 to focus all tags
@@ -98,7 +85,7 @@ riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 # Super+Space to toggle float
-riverctl map normal Super Space toggle-float
+# riverctl map normal Super Space toggle-float
 
 # Super+F to toggle fullscreen
 riverctl map normal Super F toggle-fullscreen
