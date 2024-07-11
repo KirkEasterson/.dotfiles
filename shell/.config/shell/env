@@ -74,7 +74,6 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export _JAVA_AWT_WM_NONREPARENTING=1
 	export QT_QPA_PLATFORM="wayland"
 
-	# TODO: make this dynamic
 	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
 	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-sway}"
 
@@ -82,6 +81,10 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export GTK_USE_PORTAL=0
 
 	export SEARCH="fuzzel"
+
+	# export WLR_RENDERER="vulkan"
+	export WLR_NO_HARDWARE_CURSORS=1
+	export XWAYLAND_NO_GLAMOR=1
 else
 	export SEARCH="rofi"
 fi
@@ -99,7 +102,3 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export SSH_ASKPASS="ksshaskpass"
 export SSH_ASKPASS_REQUIRE="prefer"
-
-export WLR_RENDERER="vulkan"
-export WLR_NO_HARDWARE_CURSORS=1
-export XWAYLAND_NO_GLAMOR=1
