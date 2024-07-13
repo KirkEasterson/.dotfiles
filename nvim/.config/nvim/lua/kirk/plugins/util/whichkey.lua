@@ -3,8 +3,9 @@ return {
   event = "VeryLazy",
   cmd = "WhichKey",
   opts = {
-    window = {
-      border = "rounded",
-    },
+    preset = "modern",
+    delay = 1000,
+    notify = false,
+    show_help = false,
   },
 }
