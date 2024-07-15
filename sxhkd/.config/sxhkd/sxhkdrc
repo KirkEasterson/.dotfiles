@@ -18,9 +18,11 @@ super + ctrl + q
 
 # program launcher
 XF86Search
-	rofi -show drun
+	search.sh
 super + space
-	rofi -show drun
+	search.sh
+super + ctrl + space
+	emoji_picker.sh
 
 # notes
 super + n
