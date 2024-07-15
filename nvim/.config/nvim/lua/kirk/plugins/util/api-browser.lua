@@ -7,5 +7,5 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   cmd = "ApiBrowser",
-  config = {},
+  opts = {},
 }
