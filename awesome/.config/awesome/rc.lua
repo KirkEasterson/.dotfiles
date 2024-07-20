@@ -2,11 +2,7 @@
 --	- in general: CLEAN THIS UP
 --		- THIS IS EMBARASSING
 --	- deconstruct this rc into multiple files
---	- eventually build a widget with options for choosing kb layout
---	- automate trackpad config outside of configs
---		- put the file in /etc/X11/something in ansible
---	- debug flameshot
---	- change height of windows in a keybinding
+--	- build a widget with options for choosing kb layout
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
