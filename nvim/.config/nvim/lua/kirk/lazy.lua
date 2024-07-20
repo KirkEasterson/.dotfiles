@@ -109,7 +109,7 @@ lazy.setup({
     },
   },
   dev = {
-    path = "~/dev/",
+    path = "~/dev/nvim_plugins/",
     fallback = true,
   },
 })
