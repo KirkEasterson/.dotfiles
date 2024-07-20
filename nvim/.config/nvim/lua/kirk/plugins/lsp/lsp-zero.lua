@@ -60,6 +60,7 @@ return {
         "html",
         "jsonls",
         "lemminx", -- xml
+        "diagnosticls",
         "lua_ls",
         "omnisharp",
         "pyright",
@@ -71,9 +72,9 @@ return {
         "tsserver",
         "vimls",
         "yamlls",
+        "zls", -- zig
         -- "asm_lsp", -- assembly
         -- "csharp_ls",
-        -- "diagnosticls",
         -- "fsautocomplete",
         -- "hls", -- haskell
         -- "jdtls", -- java
@@ -81,7 +82,6 @@ return {
         -- "ocamllsp",
         -- "rnix", -- nix
         -- "texlab",
-        -- "zls", -- zig
       },
       handlers = {
         lsp_zero.default_setup,
