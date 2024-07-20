@@ -33,23 +33,6 @@ util.map("n", "n", "nzzzv")
 util.map("n", "N", "Nzzzv")
 util.map("n", "J", "mzJ`z")
 
--- -- removed in favor of trouble
--- -- quickfix list navigation
--- util.map("n", "[q", vim.cmd.cprev, { desc = "Quickfix - prev" })
--- util.map("n", "]q", vim.cmd.cnext, { desc = "Quickfix - next" })
--- util.map("n", "[Q", vim.cmd.cfirst, { desc = "Quickfix - first" })
--- util.map("n", "]Q", vim.cmd.clast, { desc = "Quickfix - last" })
--- util.map("n", "<leader>ct", function()
---   local windows = vim.fn.getwininfo()
---   for _, win in pairs(windows) do
---     if win["quickfix"] == 1 then
---       vim.cmd.cclose()
---       return
---     end
---   end
---   vim.cmd.copen()
--- end, { desc = "Quickfix - toggle" })
-
 -- easier yanking/pasting
 util.map("v", "y", "ygv<ESC>") -- keep cursor in same spot when yanking
 util.map({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
