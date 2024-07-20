@@ -10,6 +10,7 @@ return {
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-python",
     "rouge8/neotest-rust",
+    "lawrence-laz/neotest-zig",
     "nvim-neotest/neotest-jest",
   },
   keys = {
@@ -100,6 +101,10 @@ return {
         }),
         require("neotest-dotnet"),
         require("neotest-python"),
+        require("neotest-rust"),
+        require("neotest-zig")({
+          dap = { adapter = "lldb" },
+        }),
       },
       status = {
         virtual_text = false, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
