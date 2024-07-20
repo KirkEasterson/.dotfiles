@@ -56,7 +56,6 @@
   "matchparen.nvim": { "branch": "main", "commit": "190861577d83167021dcb3339dd3aa594279f2f3" },
   "mini.bufremove": { "branch": "main", "commit": "e6044aa28e61d4dd9ec86194d6f81743eced0c1c" },
   "neofsharp.vim": { "branch": "master", "commit": "b8f7532bc7311a8e896ffd5d83790887163fac05" },
-  "neogen": { "branch": "main", "commit": "0daffcec249bf42275e322361fe55b89a05ff278" },
   "neogit": { "branch": "master", "commit": "e33089bb430201a16e5d64e8adc37b99c37e1469" },
   "neotest": { "branch": "master", "commit": "32ff2ac21135a372a42b38ae131e531e64833bd3" },
   "neotest-dotnet": { "branch": "main", "commit": "caeb52b602fa8a5855c5839c338fb65b50a40ab3" },
@@ -64,6 +63,7 @@
   "neotest-jest": { "branch": "main", "commit": "514fd4eae7da15fd409133086bb8e029b65ac43f" },
   "neotest-python": { "branch": "master", "commit": "2e83d2bc00acbcc1fd529dbf0a0e677cabfe6b50" },
   "neotest-rust": { "branch": "main", "commit": "0418811e1e3499b2501593f2e131d02f5e6823d4" },
+  "neotest-zig": { "branch": "main", "commit": "f546293bdb85ae1ff872d617a54eefa65479fd8f" },
   "nui.nvim": { "branch": "main", "commit": "a0fd35fcbb4cb479366f1dc5f20145fd718a3733" },
   "nvim-autopairs": { "branch": "master", "commit": "78a4507bb9ffc9b00f11ae0ac48243d00cb9194d" },
   "nvim-bqf": { "branch": "main", "commit": "654c904d5ad9dc4846445056086168e25bd8ba2d" },
@@ -101,6 +101,7 @@
   "vim-dadbod-ui": { "branch": "master", "commit": "f74a31e8c6c5a9dccc63450a09d5cd64a9294330" },
   "vim-fugitive": { "branch": "master", "commit": "96c1009fcf8ce60161cc938d149dd5a66d570756" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
+  "vim-unimpaired": { "branch": "master", "commit": "efdc6475f7ea789346716dabf9900ac04ee8604a" },
   "which-key.nvim": { "branch": "main", "commit": "4d5b8959fd2a4df065ff76ccb39019aaa70cb0dc" },
   "winshift.nvim": { "branch": "main", "commit": "37468ed6f385dfb50402368669766504c0e15583" }
 }
