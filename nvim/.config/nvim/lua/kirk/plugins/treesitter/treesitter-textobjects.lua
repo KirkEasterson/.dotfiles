@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
+  enabled = false,
   commit = "73e44f43c70289c70195b5e7bc6a077ceffddda4", -- this cause issues with rust and typescript https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/513
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
