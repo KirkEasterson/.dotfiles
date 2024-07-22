@@ -7,16 +7,15 @@
 	"spacing": 0,
 	"modules-left": [
 		"group/group-win"
-		// "wlr/taskbar",
-		// "hyprland/window",
-		// "sway/window"
 	],
 	"modules-right": [
 		"custom/media",
 		"custom/separator",
-		// "wlr/workspaces",
-		// "hyprland/workspaces",
+		"wlr/workspaces",
+		"hyprland/workspaces",
 		"sway/workspaces",
+		"river/tags",
+		// "river/layout", // TODO: maybe something else
 		"custom/separator",
 		"tray",
 		"custom/line-separator",
@@ -35,8 +34,8 @@
 		"custom/line-separator",
 		"custom/recorder",
 		"custom/line-separator",
-		// "language",
-		// "hyprland/language",
+		"language",
+		"hyprland/language",
 		"sway/language",
 		"custom/line-separator",
 		"wireplumber",
@@ -90,7 +89,10 @@
 		},
 		"modules": [
 			// "custom/title",
+			// "wlr/taskbar",
+			"hyprland/window",
 			"sway/window",
+			"river/window",
 			"custom/close",
 			"custom/maximize",
 			"custom/minimize"

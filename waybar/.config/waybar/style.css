@@ -69,7 +69,20 @@ window#waybar {
   margin-right: 1px;
 }
 
+#tags button {
+  border-top: 1px solid @bg4;
+  min-width: 22px;
+  border-radius: 0%;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
 #workspaces button.visible {
+  background: @bg1;
+  border-top: 1px solid @red2;
+}
+
+#tags button.occupied {
   background: @bg1;
   border-top: 1px solid @red2;
 }
@@ -80,7 +93,17 @@ window#waybar {
   border-top: 2px solid @yellow1;
 }
 
+#tags button.focused {
+  background-color: @bg2;
+  border-top: 2px solid @yellow1;
+}
+
 #workspaces button.urgent {
+  background-color: @red1;
+  border-top: 2px solid @red1;
+}
+
+#tags button.urgent {
   background-color: @red1;
   border-top: 2px solid @red1;
 }
