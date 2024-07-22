@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 if grep -q open /proc/acpi/button/lid/LID/state; then
-	swaymsg output eDP-1 enable
+	wlr-randr --output DP-1 --on
 else
-	swaymsg output eDP-1 disable
+	wlr-randr --output DP-1 --off
 fi
