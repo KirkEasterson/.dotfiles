@@ -210,17 +210,13 @@ do
 done
 
 
-#
-# Gruvbox theme:
-#
-# riverctl background-color 0x002b36
+# gruvbox theme:
 riverctl border-color-focused 0xfabd2f
 riverctl border-color-unfocused 0x1d2021
 riverctl border-width 4
 
 # events
 riverctl map-switch normal lid close spawn "lock.sh"
-
 
 # various floating window rules
 riverctl rule-add -title "(?:Open|Save) (?:File|Folder|As)" float
