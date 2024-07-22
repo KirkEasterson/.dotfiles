@@ -1,7 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
   dependencies = {
-    -- 'neovim/nvim-lspconfig',
     "nvim-tree/nvim-web-devicons",
   },
   lazy = false,
