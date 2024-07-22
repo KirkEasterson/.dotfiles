@@ -227,6 +227,7 @@ riverctl rule-add -title "(?:Open|Save) (?:File|Folder|As)" float
 riverctl rule-add -title "Save File" float
 
 riverctl rule-add -app-id "dragon-drop" float
+riverctl rule-add -app-id "com-atlauncher-App" float
 riverctl rule-add -title "webcam-on-screen" float
 
 riverctl rule-add -app-id "firefox" -title "^Library$" float
