@@ -77,6 +77,18 @@ window#waybar {
   margin-right: 1px;
 }
 
+#tags button:not(.occupied):not(.focused) {
+  font-size: 0;
+  min-width: 0;
+  min-height: 0;
+  margin: -17px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
 #workspaces button.visible {
   background: @bg1;
   border-top: 1px solid @red2;
