@@ -9,8 +9,8 @@
 		"group/group-win"
 	],
 	"modules-right": [
+		"network",
 		"custom/media",
-		"custom/separator",
 		"wlr/workspaces",
 		"hyprland/workspaces",
 		"sway/workspaces",
@@ -173,6 +173,11 @@
 				"tooltip-icon-size": 24
 			}
 		]
+	},
+	"network": {
+		"format": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"format-disconnected": "",
+		"interval": 1
 	},
 	"language": {
 		"format": " {flag}{short}",
