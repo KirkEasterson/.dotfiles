@@ -18,6 +18,7 @@
 		// "river/layout", // TODO: maybe something else
 		"custom/separator",
 		"tray",
+		"privacy",
 		"custom/line-separator",
 		"custom/weather",
 		"custom/line-separator",
@@ -153,6 +154,25 @@
 	"tray": {
 		"icon-size": 20,
 		"spacing": 10
+	},
+	"privacy": {
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
 	},
 	"language": {
 		"format": " {flag}{short}",
