@@ -155,7 +155,7 @@
 		"spacing": 10
 	},
 	"language": {
-		"format": " {short}",
+		"format": " {flag}{short}",
 		"min-length": 4
 	},
 	"hyprland/language": {
