@@ -20,16 +20,17 @@ local disabled_plugins = {
   "getscriptPlugin",
   "gzip",
   "logipat",
-  -- "matchbracket",
-  -- "matchit",
-  -- "matchparen",
   "netrw",
   "netrwFileHandlers",
   "netrwPlugin",
   "netrwSettings",
+  -- "node_provider", -- this might be necessary for mason
   "optwin",
+  "perl_provider",
+  "python3_provider",
   "rplugin",
   "rrhelper",
+  "ruby_provider",
   "spellfile_plugin",
   "synmenu",
   "tar",
@@ -39,6 +40,9 @@ local disabled_plugins = {
   "vimballPlugin",
   "zip",
   "zipPlugin",
+  -- "matchbracket",
+  -- "matchit",
+  -- "matchparen",
 }
 for _, v in pairs(disabled_plugins) do
   g["loaded_" .. v] = true
