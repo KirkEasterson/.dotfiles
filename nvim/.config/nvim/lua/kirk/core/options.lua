@@ -205,7 +205,7 @@ opt.fillchars:append({
 })
 
 -- short messages
-vim.opt.shortmess:append("IWsA")
+opt.shortmess:append("IWsA")
 
 opt.swapfile = false -- don't create swap files
 
@@ -225,8 +225,8 @@ opt.laststatus = 3 -- aesthetic win separators
 opt.completeopt = { "menu", "menuone", "noselect" }
 
 if vim.fn.executable("rg") == 1 then
-  vim.opt.grepprg = "rg --vimgrep"
-  vim.opt.grepformat = "%f:%l:%c:%m"
+  opt.grepprg = "rg --vimgrep"
+  opt.grepformat = "%f:%l:%c:%m"
 end
 
 -- TODO: is this even necessary
