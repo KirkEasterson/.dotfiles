@@ -10,6 +10,7 @@
 	],
 	"modules-right": [
 		"network",
+		"custom/separator",
 		"custom/media",
 		"wlr/workspaces",
 		"hyprland/workspaces",
@@ -175,9 +176,13 @@
 		]
 	},
 	"network": {
+		"interval": 1,
 		"format": " {bandwidthUpBits}  {bandwidthDownBits}",
 		"format-disconnected": "",
-		"interval": 1
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+		"tooltip-format-ethernet": "{ifname}  ",
+		"tooltip-format-disconnected": ""
 	},
 	"language": {
 		"format": " {flag}{short}",
