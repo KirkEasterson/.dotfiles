@@ -758,6 +758,7 @@ awful.rules.rules = {
         "pinentry",
         "scratch-main",
         "scratch-py",
+        "com-atlauncher-App",
       },
       class = {
         "Arandr",
