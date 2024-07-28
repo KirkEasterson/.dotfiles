@@ -170,7 +170,7 @@ autocmd("User", {
       "commit",
       lockfile,
       "-m",
-      "'chore(nvim): update lazy-lock'",
+      "chore(nvim): update lazy-lock",
     }
 
     local success, process = pcall(function()
