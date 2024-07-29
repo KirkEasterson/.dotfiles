@@ -31,7 +31,7 @@ return {
       javascriptreact = { { "prettierd", "prettier" }, "eslint_d" },
       json = { "prettier" },
       lua = { "stylua" },
-      -- markdown = { { "markdownlint", "prettier" } },
+      markdown = { "prettier" },
       -- ocaml = { "ocamlformat" },
       python = { "black" },
       rust = { "rustfmt" },
