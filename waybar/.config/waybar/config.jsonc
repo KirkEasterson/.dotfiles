@@ -206,7 +206,7 @@
 	"clock": {
 		"tooltip-format": "<tt>{calendar}</tt>",
 		"interval": 1,
-		"format": "{:%d %b %Y %H:%M:%S}",
+		"format": "{:%a %d %b %Y %H:%M:%S}",
 		"timezone": "Europe/Oslo",
 		"calendar": {
 			"weeks-pos": "right",
