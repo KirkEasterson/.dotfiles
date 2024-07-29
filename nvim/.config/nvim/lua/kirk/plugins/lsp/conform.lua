@@ -35,6 +35,7 @@ return {
       -- ocaml = { "ocamlformat" },
       python = { "black" },
       rust = { "rustfmt" },
+      sh = { "shfmt" },
       svelte = { "prettier" },
       terraform = { "tflint" },
       typescript = { { "prettierd", "prettier" }, "eslint_d" },
