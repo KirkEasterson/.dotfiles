@@ -180,14 +180,9 @@ autocmd("User", {
     if process and process.code == 0 then
       vim.notify("Committed lazy-lock.json")
       vim.notify(process.stdout)
-    else
-      if not success then
-        vim.notify("Failed to run command '" .. table.concat(cmd, " ") .. "':", vim.log.levels.WARN, {})
-        vim.notify(tostring(process), vim.log.levels.WARN, {})
-      else
-        vim.notify("git ran but failed to commit:")
-        vim.notify(process.stdout, vim.log.levels.WARN, {})
-      end
+    elseif not success then
+      vim.notify("Failed to run command '" .. table.concat(cmd, " ") .. "':", vim.log.levels.WARN, {})
+      vim.notify(tostring(process), vim.log.levels.WARN, {})
     end
   end,
   once = false,
