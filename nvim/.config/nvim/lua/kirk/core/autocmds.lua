@@ -55,10 +55,11 @@ autocmd("BufwritePost", {
   desc = "Build notes",
   pattern = "*note-*.md",
   callback = function()
-    if not vim.fn.executable("notes.sh") then
+    local fn = vim.fn
+    if not fn.executable("notes.sh") then
       return
     end
-    vim.fn.jobstart("notes.sh build " .. vim.fn.expand("%%"))
+    fn.jobstart("notes.sh build " .. fn.expand("%%"))
   end,
 })
 
@@ -139,18 +140,21 @@ autocmd("BufWritePost", {
   desc = "Make sh file executable if a shebang is deteced",
   pattern = "*",
   callback = function(args)
-    local shebang = vim.api.nvim_buf_get_lines(0, 0, 1, true)[1]
+    local uv = vim.uv
+    local api = vim.api
+
+    local shebang = api.nvim_buf_get_lines(0, 0, 1, true)[1]
     if not shebang or not shebang:match("^#!.+") then
       return
     end
-    local filename = vim.api.nvim_buf_get_name(args.buf)
-    local fileinfo = vim.uv.fs_stat(filename)
+    local filename = api.nvim_buf_get_name(args.buf)
+    local fileinfo = uv.fs_stat(filename)
     if not fileinfo or bit.band(fileinfo.mode - 32768, 0x40) ~= 0 then
       return
     end
 
     vim.notify("File made executable")
-    vim.uv.fs_chmod(filename, bit.bor(fileinfo.mode, 493))
+    uv.fs_chmod(filename, bit.bor(fileinfo.mode, 493))
   end,
   once = false,
 })
