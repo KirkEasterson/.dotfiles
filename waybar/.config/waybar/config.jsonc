@@ -9,8 +9,6 @@
 		"group/group-win"
 	],
 	"modules-right": [
-		"network",
-		"custom/separator",
 		"custom/media",
 		"wlr/workspaces",
 		"hyprland/workspaces",
@@ -39,6 +37,8 @@
 		"language",
 		"hyprland/language",
 		"sway/language",
+		"custom/line-separator",
+		"network",
 		"custom/line-separator",
 		"wireplumber",
 		"custom/line-separator",
@@ -145,6 +145,10 @@
 		"icon": true,
 		"max-length": 22
 	},
+	"river/window": {
+		"tooltip": false,
+		"max-length": 22
+	},
 	"wlr/taskbar": {
 		"format": "{icon}{name}",
 		"markup": true,
@@ -177,11 +181,12 @@
 	},
 	"network": {
 		"interval": 1,
-		"format": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"format": "",
+		"format-wifi": " ",
+		"format-ethernet": " ",
 		"format-disconnected": "",
-		"tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-		"tooltip-format-ethernet": "{ifname}  ",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) \n {bandwidthUpBits}  {bandwidthDownBits}",
+		"tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} \n {bandwidthUpBits}  {bandwidthDownBits}",
 		"tooltip-format-disconnected": ""
 	},
 	"language": {
