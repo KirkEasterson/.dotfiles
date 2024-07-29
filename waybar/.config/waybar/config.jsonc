@@ -181,11 +181,13 @@
 	},
 	"network": {
 		"interval": 1,
-		"format": "",
-		"format-wifi": " ",
-		"format-ethernet": " ",
-		"format-disconnected": "",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%) \n {bandwidthUpBits}  {bandwidthDownBits}",
+		"format-icons": {
+			"disconnected": "",
+			"ethernet": " ",
+			"wifi": " "
+		},
+		"format": "{icon}",
+		"tooltip-format-wifi": "{ifname} {ipaddr}/{cidr}\n{essid} ({signalStrength}%) \n {bandwidthUpBits}  {bandwidthDownBits}",
 		"tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} \n {bandwidthUpBits}  {bandwidthDownBits}",
 		"tooltip-format-disconnected": ""
 	},
