@@ -108,17 +108,17 @@
 	"custom/close": {
 		"format": "",
 		"tooltip": false,
-		"on-click": "swaymsg kill"
+		"on-click": "riverctl close"
 	},
 	"custom/maximize": {
 		"format": "",
 		"tooltip": false,
-		"on-click": "swaymsg fullscreen"
+		"on-click": "riverctl toggle-fullscreen"
 	},
 	"custom/minimize": {
 		"format": "",
 		"tooltip": false,
-		"on-click": "notify-send minimize"
+		"on-click": "notify-send minimize" // TODO: find an alternative to minimize
 	},
 	"custom/search": {
 		"format": "",
