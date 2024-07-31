@@ -64,7 +64,7 @@ riverctl map normal Super+Shift Comma send-to-output previous
 
 # TODO: re/implement this
 # bump the focused view to the top of the layout stack
-# riverctl map normal Super Return zoom
+riverctl map normal Super Z zoom
 
 # decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
