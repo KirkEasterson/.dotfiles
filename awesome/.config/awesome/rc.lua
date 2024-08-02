@@ -565,7 +565,15 @@ globalkeys = gears.table.join(
   end, { description = "focus previous tag", group = "tags" }),
 
   -- restart awesome
-  awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
+  awful.key({ modkey, "Control" }, "r", function()
+    awesome.restart()
+    os.cmd("notify-send 'Reloaded awesome' -i 'system-reboot'")
+  end, { description = "reload awesome", group = "awesome" }),
+
+  -- exit awesome
+  awful.key({ modkey, "Shift" }, "x", function()
+    awesome.quit()
+  end, { description = "reload awesome", group = "awesome" }),
 
   -- scratchpads
   -- TODO: find out how to make tmux script work
