@@ -95,8 +95,9 @@ return {
   },
   -- color_scheme = scheme_for_appearance(get_appearance()),
   color_scheme = "Gruvbox dark, medium (base16)",
-  front_end = "OpenGL",
+  front_end = "WebGpu",
   webgpu_power_preference = "HighPerformance",
+  webgpu_preferred_adapter = wezterm.gui.enumerate_gpus()[1],
   hide_tab_bar_if_only_one_tab = true,
   window_padding = {
     left = 0,
