@@ -71,7 +71,7 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export MOZ_ENABLE_WAYLAND=1
 
 	# enabling this prevents some games from launching
-	# export SDL_VIDEODRIVER="wayland"
+	export SDL_VIDEODRIVER="wayland"
 
 	export _JAVA_AWT_WM_NONREPARENTING=1
 	export QT_QPA_PLATFORM="wayland"
@@ -84,11 +84,11 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 
 	export SEARCH="fuzzel"
 
-	# export WLR_RENDERER="vulkan"
+	export WLR_RENDERER="vulkan"
 	export WLR_NO_HARDWARE_CURSORS=1
 
 	# this impacts game performance
-	# export XWAYLAND_NO_GLAMOR=1
+	export XWAYLAND_NO_GLAMOR=1
 else
 	export SEARCH="rofi"
 fi
