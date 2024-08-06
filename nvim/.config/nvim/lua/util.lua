@@ -103,7 +103,7 @@ function M.lpad(str, len, char)
   if char == nil then
     char = " "
   end
-  return str .. string.rep(char, len - #str)
+  return string.rep(char, len) .. str
 end
 
 --- right-pads a string with a specified character
@@ -115,7 +115,7 @@ function M.rpad(str, len, char)
   if char == nil then
     char = " "
   end
-  return string.rep(char, len - #str) .. str
+  return str .. string.rep(char, len)
 end
 
 --- center-pads a string with a specified character. the resulting length will
@@ -170,9 +170,14 @@ function M.asciiart_cpad(tbl, len, char)
     end
   end
 
+  if longest_line_len > len then
+    return tbl
+  end
+
   -- do the padding
+  local num_padding = (len - longest_line_len) / 2
   for i = 1, #tbl do
-    tbl[i] = M.lpad(tbl[i], longest_line_len, char)
+    tbl[i] = M.lpad(tbl[i], num_padding, char)
   end
   return tbl
 end

@@ -11,35 +11,20 @@ return {
     local art = require("art")
     local util = require("util")
 
-    local month_arts = {
-      [1] = art.new_years,
-      [2] = art.valentines,
-      [3] = art.st_paddys,
-      [4] = art.easter,
-      [5] = art.flowers,
-      [6] = art.summer,
-      [7] = art.moon,
-      [8] = art.summer,
-      [9] = art.fall,
-      [10] = art.halloween,
-      [11] = art.thanksgiving,
-      [12] = art.christmas,
-    }
-
     local dashboard = require("alpha.themes.dashboard")
 
     -- local neovimlogo = art.neovim[math.random(#art.neovim)]
     local neovimlogo = art.neovim[1]
 
-    local asciiart = month_arts[os.date("*t").month]
+    local asciiart = art.ncc
     math.randomseed(os.time(os.date("!*t")))
     if math.random() < 0.01 then
       -- something sus
-      asciiart = art.amogus
+      asciiart = art.doh
     end
     asciiart = util.asciiart_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
 
-    local completesign = util.table_concat(neovimlogo, { "" }, asciiart)
+    local completesign = util.table_concat(neovimlogo, { "" }, { "" }, { "" }, asciiart)
     dashboard.section.header.val = completesign
 
     dashboard.section.buttons.val = {
