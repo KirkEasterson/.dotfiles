@@ -156,6 +156,29 @@ function M.tbl_cpad(tbl, len, char)
   return tbl
 end
 
+--- center pads a table of strings with a specified character. all entries in
+--- the returned table will be the same length, except for string whose length
+--- is longer than len
+---@param tbl table<string>
+---@param len integer
+---@param char string?
+---@return table<string>
+function M.asciiart_cpad(tbl, len, char)
+  -- find longest line
+  local longest_line_len = 0
+  for i = 1, #tbl do
+    if vim.fn.strdisplaywidth(tbl[i])  > longest_line_len then
+      longest_line_len = vim.fn.strdisplaywidth(tbl[i])
+    end
+  end
+
+  -- do the padding
+  for i = 1, #tbl do
+    tbl[i] = M.lpad(tbl[i], longest_line_len, char)
+  end
+  return tbl
+end
+
 --- retruns true if the program is executable on the host system
 ---@param program string
 ---@return boolean
