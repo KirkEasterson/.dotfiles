@@ -12,18 +12,18 @@ return {
     local util = require("util")
 
     local month_arts = {
-      [1] = art.new_years3,
-      [2] = art.valentines2,
-      [3] = art.st_paddys2,
-      [4] = art.easter2,
-      [5] = art.flowers2,
-      [6] = art.summer2,
-      [7] = art.moon2,
-      [8] = art.summer2,
-      [9] = art.fall2,
-      [10] = art.halloween2,
-      [11] = art.thanksgiving2,
-      [12] = art.christmas2,
+      [1] = art.new_years,
+      [2] = art.valentines,
+      [3] = art.st_paddys,
+      [4] = art.easter,
+      [5] = art.flowers,
+      [6] = art.summer,
+      [7] = art.moon,
+      [8] = art.summer,
+      [9] = art.fall,
+      [10] = art.halloween,
+      [11] = art.thanksgiving,
+      [12] = art.christmas,
     }
 
     local dashboard = require("alpha.themes.dashboard")
@@ -37,7 +37,7 @@ return {
       -- something sus
       asciiart = art.amogus
     end
-    asciiart = util.tbl_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
+    asciiart = util.asciiart_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
 
     local completesign = util.table_concat(neovimlogo, { "" }, asciiart)
     dashboard.section.header.val = completesign
