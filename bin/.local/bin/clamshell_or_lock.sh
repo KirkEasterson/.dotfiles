@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# TODO: use xrandr if on xorg
+
 if grep -q open /proc/acpi/button/lid/LID/state; then
 	wlr-randr --output eDP-1 --on
 else
