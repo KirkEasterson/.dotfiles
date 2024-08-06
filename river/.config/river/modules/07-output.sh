@@ -1,13 +1,14 @@
 #!/bin/sh
 
-# detect clamshell on startup
+# clamshell mode
+riverctl map-switch normal lid toggle spawn "clamshell.sh"
 riverctl spawn "clamshell.sh"
 
-# TODO: not this is external display
-# lock on lid close
-riverctl map-switch normal lid close spawn "lock.sh"
+# TODO: lock on lid close
+# riverctl map-switch normal lid close spawn "lock.sh"
 
 # lock after 5 minutes
+# turn off display after 10 minutes # TODO: implement this
 riverctl spawn "swayidle -w \
 	timeout 300 'lock.sh' \
 	before-sleep 'lock.sh'"
