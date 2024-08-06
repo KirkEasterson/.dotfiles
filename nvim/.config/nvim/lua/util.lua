@@ -156,9 +156,7 @@ function M.tbl_cpad(tbl, len, char)
   return tbl
 end
 
---- center pads a table of strings with a specified character. all entries in
---- the returned table will be the same length, except for string whose length
---- is longer than len
+--- centerleft pads a table of strings with a specified character
 ---@param tbl table<string>
 ---@param len integer
 ---@param char string?
@@ -167,7 +165,7 @@ function M.asciiart_cpad(tbl, len, char)
   -- find longest line
   local longest_line_len = 0
   for i = 1, #tbl do
-    if vim.fn.strdisplaywidth(tbl[i])  > longest_line_len then
+    if vim.fn.strdisplaywidth(tbl[i]) > longest_line_len then
       longest_line_len = vim.fn.strdisplaywidth(tbl[i])
     end
   end
