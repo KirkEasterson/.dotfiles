@@ -105,6 +105,7 @@ return {
     top = 0,
     bottom = 0,
   },
+  custom_block_glyphs = true,
   scrollback_lines = 100000,
   cursor_blink_rate = 0,
   pane_focus_follows_mouse = true,
