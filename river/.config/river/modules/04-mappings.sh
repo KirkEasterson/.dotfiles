@@ -62,15 +62,13 @@ riverctl map normal Super K focus-view previous
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
 
-# TODO: make this be vim-like but one key down
 # focus the next/previous output
-riverctl map normal Super Period focus-output next
+riverctl map normal Super M focus-output next
 riverctl map normal Super Comma focus-output previous
 
-# TODO: make this be vim-like but one key down
 # send the focused view to the next/previous output
-riverctl map normal Super+Shift Period send-to-output next
-riverctl map normal Super+Shift Comma send-to-output previous
+riverctl map normal Super N send-to-output next
+riverctl map normal Super Period send-to-output previous
 
 # bump the focused view to the top of the layout stack
 riverctl map normal Super Z zoom
