@@ -151,6 +151,26 @@ return {
       },
     })
 
+    lsp_zero.configure("jsonls", {
+      ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+        -- jsonls doesn't really support json5
+        -- remove some annoying errors
+        local opd = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {})
+        if string.match(result.uri, "%.jsonc$", -6) and result.diagnostics ~= nil then
+          local idx = 1
+          while idx <= #result.diagnostics do
+            -- "Comments are not permitted in JSON."
+            if result.diagnostics[idx].code == 519 then
+              table.remove(result.diagnostics, idx)
+            else
+              idx = idx + 1
+            end
+          end
+        end
+        opd(err, result, ctx, config)
+      end,
+    })
+
     lsp_zero.set_sign_icons({
       error = "󰅘",
       hint = "󰌶",
