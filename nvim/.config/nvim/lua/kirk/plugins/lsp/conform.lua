@@ -30,6 +30,7 @@ return {
       javascript = { "prettierd", "prettier", "eslint_d" },
       javascriptreact = { "prettierd", "prettier", "eslint_d" },
       json = { "prettier" },
+      jsonc = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
       -- ocaml = { "ocamlformat" },
