@@ -824,10 +824,10 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
-  -- Add new window to bottom of stack
-  if not awesome.startup then
-    awful.client.setslave(c)
-  end
+  -- -- Add new window to bottom of stack
+  -- if not awesome.startup then
+  --   awful.client.setslave(c)
+  -- end
 
   -- -- round corners
   -- c.shape = function(cr, w, h)
