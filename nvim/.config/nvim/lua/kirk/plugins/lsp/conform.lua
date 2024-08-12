@@ -23,6 +23,7 @@ return {
   opts = {
     formatters_by_ft = {
       c = { "clang_format" },
+      c_sharp = { "csharpier" },
       cpp = { "clang_format" },
       css = { "prettier" },
       go = { "gofumpt", "goimports" }, -- TODO: add "golines"
