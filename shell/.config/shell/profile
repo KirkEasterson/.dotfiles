@@ -23,10 +23,15 @@ else
 	dunst &
 	volumeicon &
 	cbatticon &
-	# xremap .config/xremap/config.yml &
-	# xcape -e "Shift_L=parenleft;Shift_R=parenright" &
 
-	xautolock -time 10 -killtime 30 -killer 'systemctl suspend' -detectsleep -locker 'lock.sh' &
+	# lock after 10 minutes, suspend after 30 minutes
+	xautolock \
+		-time 10 \
+		-locker 'clamshell_or_lock.sh' \
+		-nowlocker 'clamshell_or_lock.sh' \
+		-killtime 30 \
+		-killer 'systemctl suspend' \
+		-detectsleep &
 	xss-lock --transfer-sleep-lock -- xautolock -locknow &
 fi
 
