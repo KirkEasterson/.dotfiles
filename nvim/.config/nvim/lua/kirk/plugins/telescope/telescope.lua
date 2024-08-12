@@ -29,7 +29,7 @@ return {
       desc = "Find files",
     },
     {
-      "<leader>fF",
+      "<leader>FF",
       function()
         require("telescope.builtin").current_buffer_fuzzy_find()
       end,
