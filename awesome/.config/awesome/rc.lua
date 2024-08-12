@@ -945,10 +945,10 @@ client.connect_signal("request::titlebars", function(c)
   awful.titlebar(c, { size = titlebar_height }):set_widget(margin_layout)
 end)
 
--- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-  c:emit_signal("request::activate", "mouse_enter", { raise = false })
-end)
+-- -- Enable sloppy focus, so that focus follows mouse.
+-- client.connect_signal("mouse::enter", function(c)
+--   c:emit_signal("request::activate", "mouse_enter", { raise = false })
+-- end)
 
 -- set focus border
 client.connect_signal("focus", function(c)
