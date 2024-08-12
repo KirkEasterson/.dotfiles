@@ -7,7 +7,7 @@ show_notification=true
 notification_type=1
 
 [StatusIcon]
-stepsize=10
+stepsize=5
 onclick=pavucontrol
 theme=Default
 use_panel_specific_icons=false
