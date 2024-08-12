@@ -13,6 +13,10 @@
 [push]
 	autoSetupRemote = true
 
+; easy worktree clone
+[alias]
+	clone-for-worktrees = "!sh git_clone_bare_for_worktrees.sh"
+
 ; delta
 [core]
 	pager = delta
