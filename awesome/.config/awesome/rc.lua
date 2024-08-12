@@ -1,3 +1,5 @@
+-- The default rc.lua can be found at ´/etc/xdg/awesome/rc.lua´
+
 -- TODO:
 --	- in general: CLEAN THIS UP
 --		- THIS IS EMBARASSING
