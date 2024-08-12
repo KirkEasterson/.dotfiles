@@ -25,7 +25,7 @@ is_lid_open() {
 
 get_num_displays() {
 	if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
-		num_displays=$(xrandr | grep -c " connected")
+		num_displays=$(xrandr | sed "1d" | wc -l)
 	else
 		num_displays=$(wlr-randr | grep -c -v "^ ")
 	fi
