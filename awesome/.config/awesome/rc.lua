@@ -136,7 +136,7 @@ mypoweroptsmenu = {
   {
     "Lock",
     function()
-      awful.spawn.with_shell("light-locker-command -l")
+      awful.spawn.with_shell("xautolock -locknow")
     end,
   },
   {
