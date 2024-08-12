@@ -2,7 +2,7 @@
 
 # NOTE: this script requires the executable `bc`
 
-vol_diff="10"
+vol_diff="5"
 
 raise_vol () {
   wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ ${vol_diff}%+
