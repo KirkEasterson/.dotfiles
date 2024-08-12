@@ -501,32 +501,20 @@ end)))
 globalkeys = gears.table.join(
 
   -- focus window
-  awful.key({ modkey }, "h", function()
-    awful.client.focus.global_bydirection("left")
-  end, { description = "focus window to the left", group = "client" }),
   awful.key({ modkey }, "j", function()
-    awful.client.focus.global_bydirection("down")
+    awful.client.focus.byidx(1)
   end, { description = "focus window below", group = "client" }),
   awful.key({ modkey }, "k", function()
-    awful.client.focus.global_bydirection("up")
+    awful.client.focus.byidx(-1)
   end, { description = "focus window above", group = "client" }),
-  awful.key({ modkey }, "l", function()
-    awful.client.focus.global_bydirection("right")
-  end, { description = "focus window to the right", group = "client" }),
 
   -- swap window
-  awful.key({ modkey, "Shift" }, "h", function()
-    awful.client.swap.global_bydirection("left")
-  end, { description = "swap with window to the left", group = "client" }),
   awful.key({ modkey, "Shift" }, "j", function()
-    awful.client.swap.global_bydirection("down")
+    awful.client.swap.byidx(1)
   end, { description = "swap with window below", group = "client" }),
   awful.key({ modkey, "Shift" }, "k", function()
-    awful.client.swap.global_bydirection("up")
+    awful.client.swap.byidx(-1)
   end, { description = "swap with window above", group = "client" }),
-  awful.key({ modkey, "Shift" }, "l", function()
-    awful.client.swap.global_bydirection("right")
-  end, { description = "swap with window to the right", group = "client" }),
 
   -- resize window
   awful.key({ modkey, altkey }, "h", function()
