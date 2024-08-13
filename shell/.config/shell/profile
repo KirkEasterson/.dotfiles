@@ -28,7 +28,7 @@ else
 	xautolock \
 		-time 10 \
 		-locker 'clamshell_or_lock.sh' \
-		-nowlocker 'clamshell_or_lock.sh' \
+		-nowlocker 'lock.sh' \
 		-killtime 30 \
 		-killer 'systemctl suspend' \
 		-detectsleep &
