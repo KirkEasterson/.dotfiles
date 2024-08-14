@@ -1,13 +1,13 @@
 profile laptop {
-	output 'BOE 0x094C Unknown' mode 1920x1200@60 position 0,0
+	output eDP-1 position 0,0
 }
 
-profile home {
-	output 'BOE 0x094C Unknown' mode 1920x1200@60 position 6260,490
-	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200@59.950 position 1879,250
+profile home1 {
+	output eDP-1 position 2561,0
+	output 'Dell Inc. DELL U2715H GH85D5B8035S' mode 2560x1440 position 0,0
 }
 
-profile home_clamshell {
-	output 'BOE 0x094C Unknown' disable
-	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200@59.950 position 1879,250
+profile home1_clamshell {
+	output eDP-1 disable
+	output 'Dell Inc. DELL U2715H GH85D5B8035S' mode 2560x1440 position 0,0
 }
