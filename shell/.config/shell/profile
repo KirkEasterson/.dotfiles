@@ -31,7 +31,9 @@ else
 		-killtime 30 \
 		-killer 'systemctl suspend' \
 		-detectsleep &
-	xss-lock --transfer-sleep-lock -- xautolock -locknow &
+
+	# this is a hack to implement my own clamshell mode
+	xss-lock --transfer-sleep-lock -- 'clamshell_or_lock.sh' &
 fi
 
 eval $(dbus-launch --auto-syntax)
