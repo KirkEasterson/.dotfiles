@@ -9,10 +9,10 @@ blueman-applet &
 udiskie -a &
 pcmanfm --daemon-mode &
 1password --silent &
+dunst &
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	kanshi &
-	mako &
 
 else
 	if [ -s ~/.Xmodmap ]; then
@@ -20,7 +20,6 @@ else
 	fi
 	picom &
 	sxhkd &
-	dunst &
 	volumeicon &
 	cbatticon &
 
