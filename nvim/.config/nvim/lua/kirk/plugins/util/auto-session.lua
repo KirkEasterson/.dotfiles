@@ -10,7 +10,7 @@ return {
     "SessionSave",
   },
   opts = {
-    -- log_level = vim.log.levels.ERROR,
+    log_level = vim.log.levels.ERROR,
     auto_session_enable_last_session = false,
     auto_session_enabled = true,
     auto_session_create_enabled = true,
