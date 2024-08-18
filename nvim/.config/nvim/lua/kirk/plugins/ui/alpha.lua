@@ -5,6 +5,7 @@ return {
     "BlakeJC94/alpha-nvim-fortune",
     "folke/drop.nvim",
   },
+  -- enabled = false,
   lazy = false,
   priority = 998, -- 1 less than gruvbox
   config = function(_, opts)
