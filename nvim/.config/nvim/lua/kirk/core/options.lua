@@ -31,7 +31,7 @@ local disabled_plugins = {
   "rplugin",
   "rrhelper",
   "ruby_provider",
-  "spellfile_plugin",
+  -- "spellfile_plugin",
   "synmenu",
   "tar",
   "tarPlugin",
@@ -119,7 +119,11 @@ opt.wildignore:append({
 opt.title = true
 
 opt.spell = true
-opt.spelllang = { "en_us" }
+opt.spelllang = {
+  "en_us",
+  -- "sv",
+  -- "nb",
+}
 vim.cmd([[highlight SpellBad cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
 vim.cmd([[highlight SpellCap cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
 vim.cmd([[highlight SpellRare cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
