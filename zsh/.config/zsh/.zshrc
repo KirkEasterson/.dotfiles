@@ -14,6 +14,12 @@ KEYTIMEOUT=1
 
 setopt complete_aliases
 
+# this allows for tab-completion of program args
+if [ "$(find ${ZDOTDIR}/.zcompdump -mtime +1)" ] ; then
+    autoload -Uz compinit; compinit
+fi
+autoload -Uz compinit; compinit -C
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
