@@ -12,6 +12,10 @@ super + {_,shift +} w
 super + {_,shift +} e
 	{$FILEMANAGER,$TERMINAL -e ranger ~}
 
+# dumb script when lid-open fails
+super + shift + z
+	enable-laptop.sh
+
 # screen locker
 super + ctrl + q
 	xautolock -locknow
