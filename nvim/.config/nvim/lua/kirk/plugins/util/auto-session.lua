@@ -1,6 +1,7 @@
 return {
   "rmagatti/auto-session",
   version = false,
+  lazy = false,
   cmd = {
     "Autosession",
     "SessionDelete",
@@ -11,6 +12,7 @@ return {
   },
   opts = {
     log_level = vim.log.levels.ERROR,
+    silent_restore = true,
     auto_session_enable_last_session = false,
     auto_session_enabled = true,
     auto_session_create_enabled = true,
