@@ -1,34 +1,42 @@
-from ranger.api.commands import *
+import subprocess
+import os
 from threading import Thread
 
+from ranger.api.commands import Command
+from ranger.ext.get_executables import get_executables
 
-class dragon(Command):
+
+class Dragon(Command):
+    """A class for a "Dragon" command"""
+
     def execute(self):
+        """The entry point"""
         th = Thread(target=self.dragondaemon, daemon=True)
         th.start()
         th.join()
 
     def dragondaemon(self):
-        arguments = "$TERMINAL --class dragon-term -e dragon-daemon {}".format(
-            " ".join(self.args[1:])
-        )
+        """execute the dragon-drop command"""
+        arguments = f"$TERMINAL --class dragon-term -e dragon-daemon {self.args[1:]}"
+        # .format(
+        #     " ".join(self.args[1:])
+        # )
         self.fm.execute_command(arguments)
 
 
-# https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration
-class fzf_select(Command):
+class FzfSelect(Command):
     """
     :fzf_select
     Find a file using fzf.
     With a prefix argument to select only directories.
 
-    See: https://github.com/junegunn/fzf
+    See:
+        - https://github.com/junegunn/fzf
+        - https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration
     """
 
     def execute(self):
-        import subprocess
-        import os
-        from ranger.ext.get_executables import get_executables
+        """The entry point"""
 
         if "fzf" not in get_executables():
             self.fm.notify("Could not find fzf in the PATH.", bad=True)
@@ -42,29 +50,41 @@ class fzf_select(Command):
 
         if fd is not None:
             hidden = "--hidden" if self.fm.settings.show_hidden else ""
-            exclude = "--no-ignore-vcs --exclude '.git' --exclude '*.py[co]' --exclude '__pycache__'"
+            exclude = (
+                "--no-ignore-vcs"
+                " --exclude '.git'"
+                " --exclude '*.py[co]'"
+                " --exclude '__pycache__'"
+            )
             only_directories = "--type directory" if self.quantifier else ""
-            fzf_default_command = "{} --follow {} {} {} --color=always".format(
-                fd, hidden, exclude, only_directories
+
+            fzf_default_command = (
+                f"{fd} --follow {hidden} {exclude} {only_directories} --color=always"
             )
         else:
             hidden = (
                 "-false" if self.fm.settings.show_hidden else r"-path '*/\.*' -prune"
             )
-            exclude = r"\( -name '\.git' -o -iname '\.*py[co]' -o -fstype 'dev' -o -fstype 'proc' \) -prune"
+            exclude = (
+                r"\( -name '\.git'"
+                r" -o -iname '\.*py[co]'"
+                r" -o -fstype 'dev'"
+                r" -o -fstype 'proc' \) -prune"
+            )
             only_directories = "-type d" if self.quantifier else ""
             fzf_default_command = (
-                "find -L . -mindepth 1 {} -o {} -o {} -print | cut -b3-".format(
-                    hidden, exclude, only_directories
-                )
+                "find -L ."
+                f" -mindepth 1 {hidden}"
+                f" -o {exclude}"
+                f" -o {only_directories}"
+                " -print | cut -b3-"
             )
 
         env = os.environ.copy()
         env["FZF_DEFAULT_COMMAND"] = fzf_default_command
-        env[
-            "FZF_DEFAULT_OPTS"
-        ] = '--height=100% --layout=reverse --ansi --preview="{}"'.format(
-            """
+        env["FZF_DEFAULT_OPTS"] = (
+            '--height=100% --layout=reverse --ansi --preview="{}"'.format(
+                """
             (
                 bat --color=always {} ||
                 batcat --color=always {} ||
@@ -72,6 +92,7 @@ class fzf_select(Command):
                 tree -ahpCL 3 -I '.git' -I '*.py[co]' -I '__pycache__' {}
             ) 2>/dev/null | head -n 100
         """
+            )
         )
 
         fzf = self.fm.execute_command(
@@ -84,50 +105,3 @@ class fzf_select(Command):
                 self.fm.cd(selected)
             else:
                 self.fm.select_file(selected)
-
-
-class YankContent(Command):
-    """
-    Copy the content of image file and text file with xclip
-    """
-
-    def execute(self):
-        import os
-        import subprocess
-        from ranger.container.file import File
-        from ranger.ext.get_executables import get_executables
-
-        if "xclip" not in get_executables():
-            self.fm.notify("xclip is not found.", bad=True)
-            return
-
-        arg = self.rest(1)
-        if arg:
-            if not os.path.isfile(arg):
-                self.fm.notify("{} is not a file.".format(arg))
-                return
-            file = File(arg)
-        else:
-            file = self.fm.thisfile
-            if not file.is_file:
-                self.fm.notify("{} is not a file.".format(file.relative_path))
-                return
-
-        relative_path = file.relative_path
-        cmd = ["xclip", "-selection", "clipboard"]
-        if not file.is_binary():
-            with open(file.path, "rb") as fd:
-                subprocess.check_call(cmd, stdin=fd)
-        elif file.image:
-            cmd += ["-t", file.mimetype, file.path]
-            subprocess.check_call(cmd)
-            self.fm.notify(
-                "Content of {} is copied to x clipboard".format(relative_path)
-            )
-        else:
-            self.fm.notify(
-                "{} is not an image file or a text file.".format(relative_path)
-            )
-
-    def tab(self, tabnum):
-        return self._tab_directory_content()
