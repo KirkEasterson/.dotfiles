@@ -1,6 +1,6 @@
 return {
   "rmagatti/auto-session",
-  version = false,
+  version = "v2.4.*", -- TODO: upgrade when "silent bug" is fixed
   lazy = false,
   cmd = {
     "Autosession",
