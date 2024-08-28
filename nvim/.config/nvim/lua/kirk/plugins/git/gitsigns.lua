@@ -33,7 +33,7 @@ return {
   opts = {
     trouble = false,
     attach_to_untracked = true,
-    linehl = true,
+    linehl = false,
     numhl = true,
     -- word_diff = true,
 
