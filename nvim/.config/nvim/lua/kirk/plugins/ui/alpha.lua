@@ -17,7 +17,7 @@ return {
     -- local neovimlogo = art.neovim[math.random(#art.neovim)]
     local neovimlogo = art.neovim[1]
 
-    local asciiart = art.ncc
+    local asciiart = art.triangle_box
     math.randomseed(os.time(os.date("!*t")))
     if math.random() < 0.01 then
       -- something sus
@@ -25,7 +25,7 @@ return {
     end
     asciiart = util.asciiart_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
 
-    local completesign = util.table_concat(neovimlogo, { "" }, { "" }, { "" }, asciiart)
+    local completesign = util.table_concat(neovimlogo, asciiart)
     dashboard.section.header.val = completesign
 
     dashboard.section.buttons.val = {
