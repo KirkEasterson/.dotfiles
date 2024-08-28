@@ -44,7 +44,18 @@ return {
     local cmp_types = require("cmp.types.cmp")
     local lspkind = require("lspkind")
 
-    cmp.setup({
+    local cmp_opts = {
+      performance = {
+        debounce = 0, -- default is 60ms
+        throttle = 0, -- default is 30ms
+      },
+      matching = {
+        disallow_fuzzy_matching = true,
+        disallow_fullfuzzy_matching = true,
+        disallow_partial_fuzzy_matching = true,
+        disallow_partial_matching = false,
+        disallow_prefix_unmatching = true,
+      },
       snippet = {
         expand = function(args)
           require("luasnip").lsp_expand(args.body)
@@ -87,24 +98,16 @@ return {
             },
           })(entry, vim_item)
 
-          -- -- TODO: icon on left side https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
-          -- local strings = vim.split(kind.kind, "%s", { trimempty = true })
-          -- print('1111111111')
-          -- print(tprint(kind))
-          -- kind.kind = " " .. (strings[1] or "") .. " "
-          -- kind.menu = "    (" .. (strings[2] or "") .. ")"
-          -- print('2222222222')
-          -- print(tprint(kind))
-
           return kind
         end,
       },
       mapping = cmp.mapping.preset.insert({
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-y>"] = cmp.mapping.confirm(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp", keyword_length = 1 },
@@ -125,7 +128,9 @@ return {
         native_menu = false,
         ghost_text = false,
       },
-    })
+    }
+
+    cmp.setup(cmp_opts)
 
     cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
       sources = cmp.config.sources({
