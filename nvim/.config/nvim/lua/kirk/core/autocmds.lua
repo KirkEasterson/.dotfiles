@@ -63,15 +63,20 @@ autocmd("BufwritePost", {
   end,
 })
 
-autocmd("TermOpen", {
-  desc = "Start terminal in insert mode",
-  callback = function()
+-- terminal
+-- inspired by:
+--  - https://github.com/catgoose/nvim/blob/30a0af45401aefc305afabc600d093037f5c9894/lua/config/autocmd.lua#L93
+local terminal = augroup("TerminalLocalOptions", {})
+autocmd({ "TermOpen" }, {
+  group = terminal,
+  pattern = { "*" },
+  desc = "Set terminal mappings",
+  callback = function(event)
+    -- ignore output panels
     local wininfo = vim.api.nvim_buf_get_name(0)
     if wininfo == nil or wininfo == "" then
       return
     end
-
-    -- ignore output panels
     local ignore = {
       "Neotest Output Panel",
     }
@@ -81,9 +86,46 @@ autocmd("TermOpen", {
       end
     end
 
+    -- remove vim things
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-    vim.cmd("startinsert!")
+    vim.opt_local.cursorline = false
+    vim.opt_local.signcolumn = "no"
+    vim.opt_local.statuscolumn = ""
+
+    -- allow ctrl+vimkeys in terminal mode
+    local code_term_esc = vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true, true)
+    for _, key in ipairs({ "h", "j", "k", "l" }) do
+      vim.keymap.set("t", "<C-" .. key .. ">", function()
+        local code_dir = vim.api.nvim_replace_termcodes("<C-" .. key .. ">", true, true, true)
+        vim.api.nvim_feedkeys(code_term_esc .. code_dir, "t", true)
+      end, { noremap = true })
+    end
+
+    if vim.bo.filetype == "" then
+      vim.api.nvim_set_option_value("filetype", "terminal", { buf = event.bufnr })
+      -- TODO: what is this?
+      -- if vim.g.catgoose_terminal_enable_startinsert == 1 then
+      vim.cmd.startinsert()
+      -- end
+    end
+  end,
+})
+autocmd({ "WinEnter" }, {
+  group = terminal,
+  pattern = { "*" },
+  callback = function()
+    -- ignore non-terminal windows
+    if vim.bo.filetype ~= "terminal" then
+      return
+    end
+
+    -- -- TODO: what is this?
+    -- if not vim.g.catgoose_terminal_enable_startinsert then
+    --   return
+    -- end
+
+    vim.cmd.startinsert()
   end,
 })
 
