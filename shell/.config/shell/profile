@@ -26,7 +26,7 @@ else
 	# lock after 10 minutes, suspend after 30 minutes
 	xautolock \
 		-time 10 \
-		-locker 'clamshell_or_lock.sh' \
+		-locker 'lock.sh' \
 		-nowlocker 'lock.sh' \
 		-killtime 30 \
 		-killer 'systemctl suspend' \
