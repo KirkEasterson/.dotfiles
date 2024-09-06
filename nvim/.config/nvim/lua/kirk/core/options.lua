@@ -117,6 +117,8 @@ opt.wildignore:append({
 })
 
 opt.title = true
+opt.titlelen = 0
+opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"
 
 opt.spell = true
 opt.spelllang = {
