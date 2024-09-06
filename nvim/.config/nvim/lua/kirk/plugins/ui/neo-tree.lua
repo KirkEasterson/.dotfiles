@@ -3,7 +3,7 @@ return {
   enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
     "MunifTanjim/nui.nvim",
     "3rd/image.nvim",
   },

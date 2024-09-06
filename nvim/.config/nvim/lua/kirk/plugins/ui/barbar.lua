@@ -2,7 +2,7 @@ return {
   "romgrk/barbar.nvim",
   enabled = false,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
     "lewis6991/gitsigns.nvim",
   },
   event = {

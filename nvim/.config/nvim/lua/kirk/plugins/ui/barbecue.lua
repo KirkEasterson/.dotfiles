@@ -2,7 +2,7 @@ return {
   "utilyre/barbecue.nvim",
   enabled = false,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
     "ellisonleao/gruvbox.nvim",
 
     -- I don't use it, but barbecue won't load without it

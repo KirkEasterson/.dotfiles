@@ -2,7 +2,7 @@ return {
   "nvimdev/lspsaga.nvim",
   dependencies = {
     "VonHeikemen/lsp-zero.nvim",
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
     "nvim-treesitter/nvim-treesitter",
   },
   event = "LspAttach",

@@ -2,7 +2,7 @@ return {
   "akinsho/bufferline.nvim",
   enabled = false,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
   },
   lazy = false,
   event = {

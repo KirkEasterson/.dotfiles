@@ -3,7 +3,7 @@ return {
   enabled = false,
   dependencies = {
     "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
   },
   keys = {
     {
