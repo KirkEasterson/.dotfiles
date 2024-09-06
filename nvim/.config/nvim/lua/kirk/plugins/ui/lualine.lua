@@ -47,6 +47,7 @@ return {
     },
     sections = {
       lualine_c = {
+        { "filename" },
         { "macro-recording", fmt = show_macro_recording },
       },
     },

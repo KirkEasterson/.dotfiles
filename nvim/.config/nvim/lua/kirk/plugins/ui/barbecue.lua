@@ -1,6 +1,6 @@
 return {
   "utilyre/barbecue.nvim",
-  -- enabled = false,
+  enabled = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "ellisonleao/gruvbox.nvim",
