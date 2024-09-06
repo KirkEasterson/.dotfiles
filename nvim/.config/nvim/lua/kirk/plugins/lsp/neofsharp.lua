@@ -1,6 +1,6 @@
 return {
   "adelarsq/neofsharp.vim",
-  -- enabled = false,
+  enabled = false,
   ft = {
     "fsharp",
     "fsproj",
