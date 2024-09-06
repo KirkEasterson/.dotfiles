@@ -8,10 +8,9 @@ return {
 
     "ellisonleao/gruvbox.nvim",
   },
-  init = function()
-    vim.treesitter.language.register("markdown", "octo")
-  end,
   config = function(_, _)
+    vim.treesitter.language.register("markdown", "octo")
+
     local gruvbox = require("gruvbox")
     local opts = {
       default_merge_method = "squash",
