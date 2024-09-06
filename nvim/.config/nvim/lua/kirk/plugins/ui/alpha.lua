@@ -5,7 +5,6 @@ return {
     "BlakeJC94/alpha-nvim-fortune",
     "folke/drop.nvim",
   },
-  -- enabled = false,
   lazy = false,
   priority = 998, -- 1 less than gruvbox
   config = function(_, opts)
@@ -14,20 +13,12 @@ return {
 
     local dashboard = require("alpha.themes.dashboard")
 
-    -- local neovimlogo = art.neovim[math.random(#art.neovim)]
     local neovimlogo = art.neovim[1]
+    local asciiart = util.asciiart_cpad(art.triangle_box, vim.fn.strdisplaywidth(neovimlogo[1]))
 
-    local asciiart = art.triangle_box
-    math.randomseed(os.time(os.date("!*t")))
-    if math.random() < 0.01 then
-      -- something sus
-      asciiart = art.doh
-    end
-    asciiart = util.asciiart_cpad(asciiart, vim.fn.strdisplaywidth(neovimlogo[1]))
-
-    local completesign = util.table_concat(neovimlogo, asciiart)
-    dashboard.section.header.val = completesign
-
+    local fortune = require("alpha.fortune")
+    dashboard.section.footer.val = fortune()
+    dashboard.section.header.val = util.table_concat(neovimlogo, asciiart)
     dashboard.section.buttons.val = {
       dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
@@ -35,9 +26,6 @@ return {
       dashboard.button("e", "  > File tree", ":NvimTreeOpen<CR>"),
       dashboard.button("q", "󰅚  > Quit NVIM", ":qa<CR>"),
     }
-
-    local fortune = require("alpha.fortune")
-    dashboard.section.footer.val = fortune()
 
     require("alpha").setup(dashboard.opts)
   end,
