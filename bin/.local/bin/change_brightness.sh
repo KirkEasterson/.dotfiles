@@ -1,11 +1,11 @@
 #!/bin/bash
 
 raise_brightness () {
-  brightnessctl --quiet set 5%+ -n 10
+  brightnessctl --quiet set 5%+ -n 5
 }
 
 lower_brightness () {
-  brightnessctl --quiet set 5%- -n 10
+  brightnessctl --quiet set 5%- -n 5
 }
 
 get_brightness () {
