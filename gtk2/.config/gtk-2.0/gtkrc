@@ -5,7 +5,7 @@ include "/home/kirk/.gtkrc-2.0.mine"
 gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="JetBrainsMono Nerd Font Light 11"
-gtk-cursor-theme-name="Adwaita"
+gtk-cursor-theme-name="breeze_cursors"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
@@ -16,4 +16,5 @@ gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
+gtk-xft-rgba="rgb"
 gtk-modules="gail:atk-bridge"
