@@ -3,7 +3,7 @@
 laptop="eDP-1"
 
 is_lid_open() {
-	return "$(grep -q open /proc/acpi/button/lid/LID/state)"
+	return $(grep -q open /proc/acpi/button/lid/LID/state)
 }
 
 enable_laptop() {
