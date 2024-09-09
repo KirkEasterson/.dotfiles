@@ -1,37 +1,43 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # # init keyring
 # eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # # export keyring
 # export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
-flameshot &
-nm-applet &
-blueman-applet &
-udiskie -a &
-pcmanfm --daemon-mode &
-1password --silent &
-dunst &
+if [ -n "${DISPLAY}" ]; then
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-	kanshi &
+	flameshot &
+	nm-applet &
+	blueman-applet &
+	udiskie -a &
+	pcmanfm --daemon-mode &
+	1password --silent &
+	dunst &
 
-else
-	if [ -s ~/.Xmodmap ]; then
-		xmodmap ~/.Xmodmap
+	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+		kanshi &
+
+	else
+		if [ -s ~/.Xmodmap ]; then
+			xmodmap ~/.Xmodmap
+		fi
+		picom &
+		sxhkd &
+		volumeicon &
+		cbatticon &
+
+		# lock after 10 minutes, suspend after 30 minutes
+		xautolock \
+			-time 10 \
+			-locker 'lock.sh' \
+			-nowlocker 'lock.sh' \
+			-killtime 30 \
+			-killer 'systemctl suspend' \
+			-detectsleep &
+		xss-lock --transfer-sleep-lock -- 'xautolock -locknow' &
 	fi
-	picom &
-	sxhkd &
-	volumeicon &
-	cbatticon &
-
-	# lock after 10 minutes, suspend after 30 minutes
-	xautolock \
-		-time 10 \
-		-locker 'lock.sh' \
-		-nowlocker 'lock.sh' \
-		-killtime 30 \
-		-killer 'systemctl suspend' \
-		-detectsleep &
-	xss-lock --transfer-sleep-lock -- 'xautolock -locknow' &
 fi
 
 eval $(dbus-launch --auto-syntax)
