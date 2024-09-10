@@ -1,5 +1,6 @@
 return {
   "nvimdev/lspsaga.nvim",
+  enabled = false,
   dependencies = {
     "VonHeikemen/lsp-zero.nvim",
     "echasnovski/mini.icons",

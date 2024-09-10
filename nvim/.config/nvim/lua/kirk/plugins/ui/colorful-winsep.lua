@@ -4,7 +4,6 @@ return {
   dependencies = {
     "ellisonleao/gruvbox.nvim",
   },
-  branch = "main", -- `alpha` is the "main" branch, not `main`
   event = "WinNew",
   opts = {
     interval = 5,

@@ -1,5 +1,6 @@
 return {
   "aaronhallaert/advanced-git-search.nvim",
+  enabled = false,
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "sindrets/diffview.nvim",

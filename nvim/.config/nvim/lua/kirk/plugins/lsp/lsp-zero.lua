@@ -70,7 +70,7 @@ return {
         "taplo", -- toml
         "terraformls",
         "tflint",
-        "tsserver",
+        "ts_ls",
         "vimls",
         "yamlls",
         "zls", -- zig

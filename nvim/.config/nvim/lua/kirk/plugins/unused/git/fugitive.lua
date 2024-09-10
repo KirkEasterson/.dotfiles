@@ -1,6 +1,7 @@
 return {
   "tpope/vim-fugitive",
-  -- enabled = false,
+  enabled = false,
+  lazy = false,
   cmd = {
     "G",
     "GBrowse",
