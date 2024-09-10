@@ -20,7 +20,7 @@ return {
     "hrsh7th/cmp-calc",
     "uga-rosa/cmp-dictionary",
     "f3fora/cmp-spell",
-    "tzachar/cmp-ai",
+    -- "tzachar/cmp-ai",
     "SergioRibera/cmp-dotenv",
 
     -- lang specific
