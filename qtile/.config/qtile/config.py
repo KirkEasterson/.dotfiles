@@ -24,7 +24,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, qtile, widget
+import os
+import subprocess
+
+from libqtile import hook, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
@@ -32,6 +35,23 @@ is_wayland = qtile.core.name == "wayland"
 
 mod = "mod4"
 alt = "mod1"
+
+
+@hook.subscribe.startup
+def autostart():
+    autostart_cmd = os.path.expanduser(
+        os.environ["XDG_CONFIG_HOME"] + "/qtile/autostart.sh"
+    )
+    subprocess.Popen([autostart_cmd])
+
+
+@hook.subscribe.startup_once
+def autostart_once():
+    autostart_once_cmd = os.path.expanduser(
+        os.environ["XDG_CONFIG_HOME"] + "${XDG_CONFIG_HOME}/qtile/autostart_once.sh"
+    )
+    subprocess.Popen([autostart_once_cmd])
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -134,28 +154,15 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Floating(),
-    # layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=1),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.MonadTall(
+        border_focus="#fabd2f",
+        border_normal="#1d2021",
+        border_width=4,
+        new_client_position="bottom",
+        single_border_width=0,
+    ),
+    # layout.Floating(),
 ]
-
-widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
 
 screens = [Screen()]
 
@@ -164,7 +171,7 @@ mouse = [
     Drag(
         [mod],
         "Button1",
-        lazy.window.set_position_floating(),
+        lazy.window.set_position(),
         start=lazy.window.get_position(),
     ),
     Drag(
