@@ -22,8 +22,6 @@ if [ -n "${DISPLAY}" ]; then
 		fi
 		picom &
 		sxhkd &
-		volumeicon &
-		cbatticon &
 
 		# lock after 10 minutes, suspend after 30 minutes
 		xautolock \
