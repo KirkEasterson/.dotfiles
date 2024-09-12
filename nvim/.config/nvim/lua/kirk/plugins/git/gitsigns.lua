@@ -36,6 +36,9 @@ return {
     linehl = false,
     numhl = true,
     -- word_diff = true,
+    watch_gitdir = {
+      follow_files = true,
+    },
 
     signs = {
       add = { text = "┃" },
