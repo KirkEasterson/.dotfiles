@@ -17,7 +17,7 @@
 return {
   "folke/which-key.nvim",
   dependencies = {
-    "akinsho/bufferline.nvim",
+    -- "akinsho/bufferline.nvim",
   },
   event = "VeryLazy",
   cmd = "WhichKey",
