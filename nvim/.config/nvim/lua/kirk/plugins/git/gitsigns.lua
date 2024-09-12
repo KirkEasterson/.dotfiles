@@ -32,7 +32,7 @@ return {
   },
   opts = {
     trouble = false,
-    attach_to_untracked = true,
+    attach_to_untracked = false,
     linehl = false,
     numhl = true,
     -- word_diff = true,
