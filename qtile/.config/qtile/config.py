@@ -30,6 +30,7 @@ import subprocess
 from libqtile import hook, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from libqtile.backend.wayland import InputConfig
 
 is_wayland = qtile.core.name == "wayland"
 
@@ -152,6 +153,34 @@ mouse = [
     ),
     Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
+
+if is_wayland:
+    wl_input_rules = {
+        "type:keyboard": InputConfig(
+            kb_options="caps:escape",
+            kb_repeat_delay=200,
+            kb_repeat_rate=30,
+        ),
+        "pointer-*": InputConfig(
+            accel_profile="flat",
+            click_method="clickfinger",
+            drag=False,
+            middle_emulation=True,
+            natural_scoll=True,
+            scroll_method="two_finger",
+            tap=True,
+        ),
+        "*-Kensington_Orbit_Fusion_Wireless_Trackball": InputConfig(
+            pointer_accel=0.4,
+            scroll_button="BTN_MIDDLE",
+            scroll_method="on_button_down",
+        ),
+        "*-Getech_HUGE_TrackBall": InputConfig(
+            pointer_accel=0.4,
+            scroll_button="BTN_TASK",
+            scroll_method="on_button_down",
+        ),
+    }
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
