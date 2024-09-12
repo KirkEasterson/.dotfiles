@@ -131,9 +131,12 @@ autocmd({ "WinEnter" }, {
 
 autocmd("FileType", {
   desc = "Start git entries in insert mode",
-  pattern = { "gitcommit", "gitrebase" },
+  pattern = {
+    "NeogitCommitMessage",
+    "gitcommit",
+    "gitrebase",
+  },
   callback = function()
-    print("=============")
     vim.opt_local.formatoptions = ""
     vim.cmd.startinsert()
   end,
