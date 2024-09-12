@@ -21,8 +21,20 @@ util.map("n", "<MiddleMouse>", function() end)
 
 -- faster save and quits
 util.map("n", "<leader>w", vim.cmd.w, { desc = "Save file" })
-util.map("n", "<leader>q", vim.cmd.q, { desc = "Close buffer" })
+util.map("n", "<leader>q", vim.cmd.q, { desc = "Close window" })
 util.map("n", "<leader>z", vim.cmd.qa, { desc = "Quit" })
+
+-- closing buffers
+util.map("n", "<C-w>", vim.cmd.bd, { desc = "Delete current buffer" })
+util.map("n", "<M-w>", function()
+  local bufs = vim.api.nvim_list_bufs()
+  local current_buf = vim.api.nvim_get_current_buf()
+  for _, i in ipairs(bufs) do
+    if i ~= current_buf then
+      vim.api.nvim_buf_delete(i, {})
+    end
+  end
+end, { desc = "Delete all but current buffer" })
 
 -- reselect text after indenting
 util.map("v", "<", "<gv")
