@@ -132,7 +132,11 @@ autocmd({ "WinEnter" }, {
 autocmd("FileType", {
   desc = "Start git entries in insert mode",
   pattern = { "gitcommit", "gitrebase" },
-  command = "startinsert | 1",
+  callback = function()
+    print("=============")
+    vim.opt_local.formatoptions = ""
+    vim.cmd.startinsert()
+  end,
 })
 
 local reload_file_group = augroup("ReloadFile", {})
