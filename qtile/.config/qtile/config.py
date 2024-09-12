@@ -91,9 +91,8 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     # Toggle between different layouts as defined below
-    Key(
-        [MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"
-    ),  # TODO: walk through tags
+    Key([MOD], "Tab", lazy.screen.next_group(), desc="Next group"),
+    Key([MOD, "shift"], "Tab", lazy.screen.prev_group(), desc="Prev group"),
     Key([MOD, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [MOD, "shift"],
