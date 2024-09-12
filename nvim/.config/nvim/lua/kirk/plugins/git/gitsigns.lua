@@ -48,6 +48,17 @@ return {
       topdelete = { text = "┃" },
       untracked = { text = "┃" },
     },
+
+    signs_staged = {
+      add = { text = "║" },
+      change = { text = "║" },
+      changedelete = { text = "║" },
+      delete = { text = "║" },
+      topdelete = { text = "║" },
+      untracked = { text = "║" },
+    },
+    signs_staged_enable = true,
+
     current_line_blame = false,
     current_line_blame_opts = {
       delay = 10,
