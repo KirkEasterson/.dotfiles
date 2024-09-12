@@ -49,9 +49,22 @@ return {
       untracked = { text = "┃" },
     },
     current_line_blame = false,
-    current_line_blame_formatter = "  <author>  <author_time:%d %b %Y>  <summary>",
     current_line_blame_opts = {
       delay = 10,
     },
+    current_line_blame_formatter = function(name, blame_info)
+      if blame_info.author == name then
+        blame_info.author = "You"
+      end
+
+      local message = string.format(
+        "%s  %s  %s",
+        blame_info.author,
+        os.date("%Y-%b-%d", blame_info.author_time),
+        blame_info.summary
+      )
+
+      return { { "  " .. message, "GitSignsCurrentLineBlame" } }
+    end,
   },
 }
