@@ -36,20 +36,18 @@ is_wayland = qtile.core.name == "wayland"
 mod = "mod4"
 alt = "mod1"
 
+qtile_dir = os.environ["XDG_CONFIG_HOME"] + "/qtile"
+
 
 @hook.subscribe.startup
 def autostart():
-    autostart_cmd = os.path.expanduser(
-        os.environ["XDG_CONFIG_HOME"] + "/qtile/autostart.sh"
-    )
+    autostart_cmd = os.path.expanduser(f"{qtile_dir}/autostart.sh")
     subprocess.Popen([autostart_cmd])
 
 
 @hook.subscribe.startup_once
 def autostart_once():
-    autostart_once_cmd = os.path.expanduser(
-        os.environ["XDG_CONFIG_HOME"] + "${XDG_CONFIG_HOME}/qtile/autostart_once.sh"
-    )
+    autostart_once_cmd = os.path.expanduser(f"{qtile_dir}/autostart_once.sh")
     subprocess.Popen([autostart_once_cmd])
 
 
