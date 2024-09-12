@@ -58,14 +58,14 @@ return {
       callback = function()
         local autosession = require("auto-session")
         if not autosession.session_exists_for_cwd() then
-          autosession.SaveSession()
+          autosession.SaveSession(_, _)
           return
         end
 
         local neogit = require("neogit")
         neogit.close()
         vim.cmd([[%bd!]])
-        autosession.RestoreSession()
+        autosession.RestoreSession(_)
         neogit.open()
       end,
     })
