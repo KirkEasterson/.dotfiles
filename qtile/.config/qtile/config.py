@@ -33,21 +33,21 @@ from libqtile.lazy import lazy
 
 is_wayland = qtile.core.name == "wayland"
 
-mod = "mod4"
-alt = "mod1"
+MOD = "mod4"
+ALT = "mod1"
 
-qtile_dir = os.environ["XDG_CONFIG_HOME"] + "/qtile"
+QTILE_DIR = os.environ["XDG_CONFIG_HOME"] + "/qtile"
 
 
 @hook.subscribe.startup
 def autostart():
-    autostart_cmd = os.path.expanduser(f"{qtile_dir}/autostart.sh")
+    autostart_cmd = os.path.expanduser(f"{QTILE_DIR}/autostart.sh")
     subprocess.Popen([autostart_cmd])
 
 
 @hook.subscribe.startup_once
 def autostart_once():
-    autostart_once_cmd = os.path.expanduser(f"{qtile_dir}/autostart_once.sh")
+    autostart_once_cmd = os.path.expanduser(f"{QTILE_DIR}/autostart_once.sh")
     subprocess.Popen([autostart_once_cmd])
 
 
@@ -55,60 +55,60 @@ keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
     # Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+        [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),
     Key(
-        [mod, "shift"],
+        [MOD, "shift"],
         "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, alt], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, alt], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, alt], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, alt], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([MOD, ALT], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([MOD, ALT], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([MOD, ALT], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([MOD, ALT], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key(
-        [mod, "shift"],
+        [MOD, "shift"],
         "Return",
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
     # Toggle between different layouts as defined below
     Key(
-        [mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"
+        [MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"
     ),  # TODO: walk through tags
-    Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([MOD, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
-        [mod, "shift"],
+        [MOD, "shift"],
         "f",
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
     ),
     Key(
-        [mod],
+        [MOD],
         "f",
         lazy.window.toggle_floating(),
         desc="Toggle floating on the focused window",
     ),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "shift"], "x", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([MOD, "shift"], "x", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -117,7 +117,7 @@ keys = [
 for vt in range(1, 8):
     keys.append(
         Key(
-            ["control", alt],
+            ["control", ALT],
             f"f{vt}",
             lazy.core.change_vt(vt).when(is_wayland),
             desc=f"Switch to VT{vt}",
@@ -132,17 +132,17 @@ for i in groups:
         [
             # mod + group number = switch to group
             Key(
-                [mod],
+                [MOD],
                 i.name,
                 lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                desc=f"Switch to group {i.name}",
             ),
             # mod + shift + group number = switch to & move focused window to group
             Key(
-                [mod, "shift"],
+                [MOD, "shift"],
                 i.name,
                 lazy.window.togroup(i.name),
-                desc="Move focused window to group {}".format(i.name),
+                desc=f"Move focused window to group {i.name}",
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod + shift + group number = move focused window to group
@@ -167,15 +167,15 @@ screens = [Screen()]
 # Drag floating layouts.
 mouse = [
     Drag(
-        [mod],
+        [MOD],
         "Button1",
         lazy.window.set_position(),
         start=lazy.window.get_position(),
     ),
     Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+        [MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
