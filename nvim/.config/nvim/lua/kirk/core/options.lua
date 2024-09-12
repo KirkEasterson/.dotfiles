@@ -223,6 +223,7 @@ opt.fillchars:append({
 opt.shortmess:append("IWsA")
 
 opt.swapfile = false -- don't create swap files
+opt.autoread = true -- sync buffers automatically
 
 opt.splitright = true --  splits open to the right
 opt.splitbelow = true --  splits open below
