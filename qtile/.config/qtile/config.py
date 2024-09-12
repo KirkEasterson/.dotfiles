@@ -52,16 +52,10 @@ def autostart_once():
 
 
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
-    # Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
     Key(
         [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),
@@ -73,24 +67,10 @@ keys = [
     ),
     Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
     Key([MOD, ALT], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([MOD, ALT], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([MOD, ALT], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, ALT], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [MOD, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
-    # Toggle between different layouts as defined below
     Key([MOD], "Tab", lazy.screen.next_group(), desc="Next group"),
     Key([MOD, "shift"], "Tab", lazy.screen.prev_group(), desc="Prev group"),
     Key([MOD, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
