@@ -8,13 +8,13 @@ return {
     "Gitsigns",
   },
   keys = {
-    -- {
-    -- 	"<leader>bt",
-    -- 	function ()
-    -- 		require("gitsigns").toggle_current_line_blame()
-    -- 	end,
-    -- 	desc = "Toggle git line blame",
-    -- },
+    {
+      "<leader>bt",
+      function()
+        require("gitsigns").toggle_current_line_blame()
+      end,
+      desc = "Toggle git line blame",
+    },
     {
       "[c",
       function()
@@ -46,7 +46,7 @@ return {
       untracked = { text = "┃" },
     },
     current_line_blame = false,
-    current_line_blame_formatter = " 󰊢 <author>  <author_time:%d %b %Y>  <summary>",
+    current_line_blame_formatter = "  <author>  <author_time:%d %b %Y>  <summary>",
     current_line_blame_opts = {
       delay = 10,
     },
