@@ -12,13 +12,9 @@ super + {_,shift +} w
 super + {_,shift +} e
 	{$FILEMANAGER,$TERMINAL -e ranger ~}
 
-# dumb script when lid-open fails
-super + shift + z
-	enable-laptop.sh
-
 # screen locker
 super + ctrl + q
-	xautolock -locknow
+	lock.sh
 
 # program launcher
 XF86Search
@@ -30,9 +26,9 @@ super + ctrl + space
 
 # notes
 super + n
-	$TERMINAL -e ~/scripts/notes.sh
+	notes.sh edit
 super + shift + n
-	~/scripts/most_recent_note.sh
+	notes.sh view
 
 # media keys
 XF86Audio{Lower,Raise}Volume
@@ -62,7 +58,7 @@ XF86MonBrightness{Down,Up}
 
 # screenshot
 {_,shift +} Print
-	flameshot {gui,full}
+	screenshot.sh {gui,fullscreen}
 
 # keyboard layouts
 super + shift + a
