@@ -207,24 +207,3 @@ autocmd("BufWritePost", {
   end,
   once = false,
 })
-
-local num_toggle_autgroup = augroup("numbertoggle", {})
-autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
-  pattern = "*",
-  group = num_toggle_autgroup,
-  callback = function()
-    if vim.o.nu then
-      vim.opt.relativenumber = true
-    end
-  end,
-})
-
-autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
-  pattern = "*",
-  group = num_toggle_autgroup,
-  callback = function()
-    if vim.o.nu then
-      vim.opt.relativenumber = false
-    end
-  end,
-})
