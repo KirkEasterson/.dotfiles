@@ -100,31 +100,36 @@ if is_wayland:
             Key(
                 [MOD, "control"],
                 "space",
-                lazy.spawn("$emoji_picker.sh"),
+                lazy.spawn("emoji_picker.sh"),
                 desc="Emoji picker",
             ),
             # terminals
-            Key([MOD], "Return", lazy.spawn("$TERMINAL"), desc="Spawn terminal"),
+            Key(
+                [MOD],
+                "Return",
+                lazy.spawn(os.environ["TERMINAL"]),
+                desc="Spawn terminal",
+            ),
             Key(
                 [MOD, "shift"],
                 "Return",
-                lazy.spawn("$TERMINAL_SECONDARY"),
+                lazy.spawn(os.environ["TERMINAL_SECONDARY"]),
                 desc="Spawn alternative terminal",
             ),
             # file managers
-            Key([MOD], "e", lazy.spawn("$FILEMANAGER"), desc="Spawn file manager"),
+            Key([MOD], "e", lazy.spawn(os.environ["FILEMANAGER"]), desc="Spawn file manager"),
             Key(
                 [MOD, "shift"],
                 "e",
-                lazy.spawn('$TERMINAL -e "ranger"'),
+                lazy.spawn(f'{os.environ["TERMINAL"]} -e "ranger"'),
                 desc="Spawn TUI file manager",
             ),
             # browsers
-            Key([MOD], "w", lazy.spawn("$BROWSER"), desc="Spawn browser"),
+            Key([MOD], "w", lazy.spawn(os.environ["BROWSER"]), desc="Spawn browser"),
             Key(
                 [MOD, "shift"],
                 "w",
-                lazy.spawn("$BROWSER_SECONDARY"),
+                lazy.spawn(os.environ["BROWSER_SECONDARY"]),
                 desc="Spawn alternative browser",
             ),
             # notes
