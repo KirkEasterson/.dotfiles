@@ -76,8 +76,9 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export _JAVA_AWT_WM_NONREPARENTING=1
 	export QT_QPA_PLATFORM="wayland"
 
-	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
-	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-sway}"
+	# TODO: not default to qtile
+	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-qtile}"
+	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-qtile}"
 
 	# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 	export GTK_USE_PORTAL=0
