@@ -4,9 +4,18 @@
 # desktop environments.
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-	# TODO: filter on different compositors
-	swaymsg input type:keyboard xkb_layout "$1" || true
-	riverctl keyboard-layout -options "caps:escape" "$1" || true
+	case $XDG_CURRENT_DESKTOP in
+	sway)
+		swaymsg input type:keyboard xkb_layout "$1"
+		;;
+	river)
+		riverctl keyboard-layout -options "caps:escape" "$1"
+		;;
+	qtile)
+		qtile cmd-obj -o core -f set_keymap -a "$1" "caps:escape"
+		;;
+	esac
+
 else
 	setxkbmap "${1}"
 fi
