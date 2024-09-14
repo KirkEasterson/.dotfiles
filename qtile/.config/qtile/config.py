@@ -91,6 +91,191 @@ keys = [
     Key([MOD, "shift"], "x", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
+# wayland keys
+if is_wayland:
+    keys.extend(
+        [
+            # search
+            Key([MOD], "space", lazy.spawn("search.sh"), desc="Search"),
+            Key(
+                [MOD, "control"],
+                "space",
+                lazy.spawn("$emoji_picker.sh"),
+                desc="Emoji picker",
+            ),
+            # terminals
+            Key([MOD], "Return", lazy.spawn("$TERMINAL"), desc="Spawn terminal"),
+            Key(
+                [MOD, "shift"],
+                "Return",
+                lazy.spawn("$TERMINAL_SECONDARY"),
+                desc="Spawn alternative terminal",
+            ),
+            # file managers
+            Key([MOD], "e", lazy.spawn("$FILEMANAGER"), desc="Spawn file manager"),
+            Key(
+                [MOD, "shift"],
+                "e",
+                lazy.spawn('$TERMINAL -e "ranger"'),
+                desc="Spawn TUI file manager",
+            ),
+            # browsers
+            Key([MOD], "w", lazy.spawn("$BROWSER"), desc="Spawn browser"),
+            Key(
+                [MOD, "shift"],
+                "w",
+                lazy.spawn("$BROWSER_SECONDARY"),
+                desc="Spawn alternative browser",
+            ),
+            # notes
+            Key([MOD], "n", lazy.spawn("notes.sh edit"), desc="Take notes"),
+            Key(
+                [MOD, "shift"],
+                "n",
+                lazy.spawn("notes.sh view"),
+                desc="View notes",
+            ),
+            # screenshot
+            Key([], "Print", lazy.spawn("screenshot.sh gui"), desc="Take screenshot"),
+            Key(
+                ["shift"],
+                "Print",
+                lazy.spawn("screenshot.sh fullscreen"),
+                desc="Take full screenshot",
+            ),
+            # lock
+            Key(
+                [MOD, "control"],
+                "q",
+                lazy.spawn("lock.sh"),
+                desc="Lock",
+            ),
+            # change keyboard layout
+            Key(
+                [MOD, "shift"],
+                "a",
+                lazy.spawn('set_keymap.sh "us(altgr-intl)"'),
+                desc="US kb layout",
+            ),
+            Key(
+                [MOD, "shift"],
+                "s",
+                lazy.spawn("set_keymap.sh se"),
+                desc="Swedish kb layout",
+            ),
+            Key(
+                [MOD, "shift"],
+                "g",
+                lazy.spawn("set_keymap.sh no"),
+                desc="Norwegian kb layout",
+            ),
+            Key(
+                [MOD, "shift"],
+                "d",
+                lazy.spawn("set_keymap.sh prog-qwerty"),
+                desc="Programming kb layout",
+            ),
+            # brightness
+            Key(
+                [],
+                "XF86MonBrightnessDown",
+                lazy.spawn("change_brightness.sh lower"),
+                desc="Lower brightness",
+            ),
+            Key(
+                [],
+                "XF86MonBrightnessUp",
+                lazy.spawn("change_brightness.sh raise"),
+                desc="Raise brightness",
+            ),
+            # media keys
+            Key(
+                [],
+                "XF86AudioLowerVolume",
+                lazy.spawn("change_vol.sh lower"),
+                desc="Lower volume",
+            ),
+            Key(
+                [],
+                "XF86AudioRaiseVolume",
+                lazy.spawn("change_vol.sh raise"),
+                desc="Raise volume",
+            ),
+            Key(
+                [],
+                "XF86AudioMute",
+                lazy.spawn("change_vol.sh toggle-mute"),
+                desc="Mute volume",
+            ),
+            Key(
+                [],
+                "XF86AudioMicMute",
+                lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+                desc="Mute mic",
+            ),
+            Key(
+                [],
+                "XF86AudioPlay",
+                lazy.spawn("playerctl play-pause"),
+                desc="Play/pause audio",
+            ),
+            Key(
+                [],
+                "XF86AudioPause",
+                lazy.spawn("playerctl play-pause"),
+                desc="Play/pause audio",
+            ),
+            Key(
+                [],
+                "XF86AudioStop",
+                lazy.spawn("playerctl stop"),
+                desc="Stop audio",
+            ),
+            Key(
+                [],
+                "XF86AudioPrev",
+                lazy.spawn("playerctl previous"),
+                desc="Previous track",
+            ),
+            Key(
+                [],
+                "XF86AudioNext",
+                lazy.spawn("playerctl next"),
+                desc="Next track",
+            ),
+            Key(
+                [],
+                "XF86AudioRewind",
+                lazy.spawn("playerctl position 5-"),
+                desc="Rewind",
+            ),
+            Key(
+                [],
+                "XF86AudioForward",
+                lazy.spawn("playerctl position 5+"),
+                desc="Fast-forward",
+            ),
+            Key(
+                [],
+                "XF86WLAN",
+                lazy.spawn("wifi toggle"),
+                desc="Toggle wifi",
+            ),
+            Key(
+                [],
+                "XF86Bluetooth",
+                lazy.spawn("bluetooth toggle"),
+                desc="Toggle bluetooth",
+            ),
+            Key(
+                [],
+                "XF86Mail",
+                lazy.spawn("thunderbird"),
+                desc="Email",
+            ),
+        ]
+    )
+
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
 # We therefore defer the check until the key binding is run by using .when(func=...)
@@ -154,33 +339,42 @@ mouse = [
     Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
 
-if is_wayland:
-    wl_input_rules = {
-        "type:keyboard": InputConfig(
-            kb_options="caps:escape",
-            kb_repeat_delay=200,
-            kb_repeat_rate=30,
-        ),
-        "pointer-*": InputConfig(
-            accel_profile="flat",
-            click_method="clickfinger",
-            drag=False,
-            middle_emulation=True,
-            natural_scoll=True,
-            scroll_method="two_finger",
-            tap=True,
-        ),
-        "*-Kensington_Orbit_Fusion_Wireless_Trackball": InputConfig(
-            pointer_accel=0.4,
-            scroll_button="BTN_MIDDLE",
-            scroll_method="on_button_down",
-        ),
-        "*-Getech_HUGE_TrackBall": InputConfig(
-            pointer_accel=0.4,
-            scroll_button="BTN_TASK",
-            scroll_method="on_button_down",
-        ),
-    }
+wl_input_rules = {
+    "type:keyboard": InputConfig(
+        kb_layout="no,se,us(altgr-intl),prog-qwerty",
+        kb_options="caps:escape",
+        kb_repeat_delay=200,
+        kb_repeat_rate=30,
+        kb_variant=",nodeadkeys",
+    ),
+    "type:touchpad": InputConfig(
+        accel_profile="flat",
+        click_method="clickfinger",
+        drag=False,
+        dwt=False,
+        middle_emulation=True,
+        natural_scroll=True,
+        pointer_accel=0,
+        scroll_method="two_finger",
+        tap=True,
+    ),
+    "type:pointer": InputConfig(
+        accel_profile="flat",
+        middle_emulation=True,
+        natural_scroll=True,
+        pointer_accel=0,
+    ),
+    "*-Kensington_Orbit_Fusion_Wireless_Trackball": InputConfig(
+        pointer_accel=0.4,
+        scroll_button="BTN_MIDDLE",
+        scroll_method="on_button_down",
+    ),
+    "*-Getech_HUGE_TrackBall": InputConfig(
+        pointer_accel=0.4,
+        scroll_button="BTN_TASK",
+        scroll_method="on_button_down",
+    ),
+}
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
@@ -210,9 +404,6 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
 
 # xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
