@@ -1,41 +1,45 @@
 #!/bin/bash
 
-raise_brightness () {
-  brightnessctl --quiet set 5%+ -n 5
+brightness_diff="5"
+min_brightness="1"
+
+raise_brightness() {
+	brightnessctl set ${brightness_diff}%+ -n ${min_brightness}
 }
 
-lower_brightness () {
-  brightnessctl --quiet set 5%- -n 5
+lower_brightness() {
+	brightnessctl set ${brightness_diff}%- -n ${min_brightness}
 }
 
-get_brightness () {
-  brightnessctl i | sed -n 's/.*Current brightness: [0-9]* (\([0-9]*\).*/\1/p'
+get_brightness() {
+	echo "$1" | sed -n 's/.*Current brightness: [0-9]* (\([0-9]*\).*/\1/p'
 }
 
-get_icon () {
-    echo "video-display"
+get_icon() {
+	echo "video-display"
 }
 
-notify_user () {
-  brightness=$(get_brightness)
-  icon=$(get_icon "$brightness")
+notify_user() {
+	brightness=$(get_brightness "$1")
+	icon=$(get_icon "$brightness")
 
-  notify-send "Brightness" \
-    -u "low" \
-    -i "$icon" \
-    -h "int:value:${brightness}" \
-    -h "string:x-canonical-private-synchronous:sys-notify"
+	notify-send "Brightness" \
+		-u "low" \
+		-i "$icon" \
+		-h "int:value:${brightness}" \
+		-h "string:x-canonical-private-synchronous:sys-notify"
 }
 
 case "${1}" in
-  ("raise")
-    raise_brightness
-    ;;
-  ("lower")
-    lower_brightness
-    ;;
-  (*)
-    exit 0
+"raise")
+	output=$(raise_brightness)
+	;;
+"lower")
+	output=$(lower_brightness)
+	;;
+*)
+	exit 0
+	;;
 esac
 
-notify_user
+notify_user "$output"
