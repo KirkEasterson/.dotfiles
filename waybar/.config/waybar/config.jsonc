@@ -1,394 +1,359 @@
 {
-	"layer": "top",
-	"position": "top",
-	"height": 20,
-	"margin": 0,
-	"padding": 0,
-	"spacing": 0,
-	"modules-left": [
-		"group/group-win"
-	],
-	"modules-right": [
-		"custom/media",
-		"wlr/workspaces",
-		"hyprland/workspaces",
-		"sway/workspaces",
-		"river/tags",
-		// "river/layout", // TODO: maybe something else
-		"custom/separator",
-		"tray",
-		"privacy",
-		"custom/line-separator",
-		"custom/weather",
-		"custom/line-separator",
-		"custom/idle-inhibitor",
-		// "idle_inhibitor",
-		"custom/line-separator",
-		"backlight",
-		"custom/line-separator",
-		"temperature",
-		"custom/line-separator",
-		"cpu",
-		"custom/line-separator",
-		"memory",
-		"custom/line-separator",
-		// "custom/recorder",
-		// "custom/line-separator",
-		"language",
-		"hyprland/language",
-		"sway/language",
-		"custom/line-separator",
-		"network",
-		"custom/line-separator",
-		"wireplumber",
-		"custom/line-separator",
-		// "power-profiles-daemon",
-		"battery",
-		"custom/separator",
-		"clock",
-		"custom/search"
-	],
-	"group/group-power": {
-		"orientation": "inherit",
-		"drawer": {
-			"transition-duration": 500,
-			"children-class": "not-power",
-			"transition-left-to-right": false
-		},
-		"modules": [
-			"custom/power",
-			"custom/quit",
-			"custom/lock",
-			"custom/reboot"
-		]
-	},
-	"custom/power": {
-		"format": "",
-		"tooltip": false,
-		"on-click": "shutdown now"
-	},
-	"custom/quit": {
-		"format": "󰗼",
-		"tooltip": false,
-		"on-click": "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'"
-	},
-	"custom/lock": {
-		"format": "󰍁",
-		"tooltip": false,
-		"on-click": "swaylock"
-	},
-	"custom/reboot": {
-		"format": "󰜉",
-		"tooltip": false,
-		"on-click": "reboot"
-	},
-	"group/group-win": {
-		"orientation": "inherit",
-		"drawer": {
-			"transition-duration": 500,
-			"children-class": "not-win",
-			"transition-left-to-right": false
-		},
-		"modules": [
-			// "custom/title",
-			// "wlr/taskbar",
-			"hyprland/window",
-			"sway/window",
-			"river/window",
-			"custom/close",
-			"custom/maximize",
-			"custom/minimize"
-		]
-	},
-	"custom/title": {
-		"format": "title test",
-		"tooltip": false,
-		"on-click": ""
-	},
-	"custom/close": {
-		"format": "",
-		"tooltip": false,
-		"on-click": "riverctl close"
-	},
-	"custom/maximize": {
-		"format": "",
-		"tooltip": false,
-		"on-click": "riverctl toggle-fullscreen"
-	},
-	"custom/minimize": {
-		"format": "",
-		"tooltip": false,
-		"on-click": "notify-send minimize" // TODO: find an alternative to minimize
-	},
-	"custom/search": {
-		"format": "",
-		"tooltip": "Search",
-		"on-click": "search.sh"
-	},
-	"wlr/workspaces": {
-		"format": "{name}",
-		"on-click": "activate"
-	},
-	"hyprland/workspaces": {
-		"format": "{name}"
-	},
-	"sway/workspaces": {
-		"all-outputs": true,
-		"disable-scroll": true,
-		"format": "{name}"
-	},
-	"hyprland/window": {
-		"separate-outputs": true
-	},
-	"sway/window": {
-		"format": "{app_id}",
-		"icon": true,
-		"max-length": 22
-	},
-	"river/window": {
-		"tooltip": false,
-		"max-length": 22
-	},
-	"wlr/taskbar": {
-		"format": "{icon}{name}",
-		"markup": true,
-		"tooltip-format": "{title}",
-		"on-click": "activate",
-		"on-click-middle": "close"
-	},
-	"tray": {
-		"icon-size": 20,
-		"spacing": 10
-	},
-	"privacy": {
-		"modules": [
-			{
-				"type": "screenshare",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-out",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-in",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			}
-		]
-	},
-	"network": {
-		"interval": 1,
-		"format-icons": {
-			"disconnected": "",
-			"ethernet": " ",
-			"wifi": " "
-		},
-		"format": "{icon}",
-		"tooltip-format-wifi": "{ifname} {ipaddr}/{cidr}\n{essid} ({signalStrength}%) \n {bandwidthUpBits}  {bandwidthDownBits}",
-		"tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} \n {bandwidthUpBits}  {bandwidthDownBits}",
-		"tooltip-format-disconnected": ""
-	},
-	"language": {
-		"format": " {flag}{short}",
-		"min-length": 4
-	},
-	"hyprland/language": {
-		"format": " {short}",
-		"min-length": 4
-	},
-	"sway/language": {
-		"format": " {short}",
-		"min-length": 4
-	},
-	"clock": {
-		"tooltip-format": "<tt>{calendar}</tt>",
-		"interval": 1,
-		"format": "{:%a %d %b %Y %H:%M:%S}",
-		"timezone": "Europe/Oslo",
-		"calendar": {
-			"weeks-pos": "right",
-			"format": {
-				"months": "<span color='#fbf1c7'><b>{}</b></span>",
-				"today": "<span color='#fbf1c7'><b><u>{}</u></b></span>",
-				"days": "<span color='#d5c4a1'>{}</span>",
-				"weeks": "<span color='#a89984'>│<i>w{}</i></span>",
-				"weekdays": "<span color='#fabd2f'><u><i>{}</i></u></span>"
-			}
-		}
-	},
-	"cpu": {
-		"format": " {usage}%"
-	},
-	"memory": {
-		"format": " {percentage}%",
-		"tooltip-format": "{used:0.1f}GiB RAM used"
-	},
-	"temperature": {
-		// "thermal-zone": 2,
-		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-		"critical-threshold": 80,
-		"interval": 2,
-		"format-critical": "{icon}{temperatureC}°C",
-		"format": "{icon}{temperatureC}°C",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
-	"backlight": {
-		// "device": "acpi_video1",
-		"format": "{icon} {percent}%",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
-	"power-profiles-daemon": {
-		"min-length": 3,
-		"format": "{icon}",
-		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-		"tooltip": true,
-		"format-icons": {
-			"default": "",
-			"performance": "",
-			"balanced": " ",
-			"power-saver": " "
-		}
-	},
-	"battery": {
-		"interval": 60,
-		"states": {
-			// "good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{icon} {capacity}%",
-		"format-charging": "{icon}󱐋 {capacity}%",
-		"format-plugged": "{icon}󱐋 {capacity}%",
-		// "format-good": "", // An empty format will hide the module
-		"format-full": "󰁹 {capacity}%",
-		"format-icons": [
-			"󰂎",
-			"󰁺",
-			"󰁻",
-			"󰁼",
-			"󰁽",
-			"󰁾",
-			"󰁿",
-			"󰂀",
-			"󰂁",
-			"󰂂"
-		]
-	},
-	"wireplumber": {
-		// "scroll-step": 1, // %, can be a float
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
-		"format-bluetooth-muted": "󰖁 {volume}%",
-		"format-muted": "󰖁 {volume}%",
-		"format-source": " {volume}%",
-		"format-source-muted": "{volume}%",
-		"tooltip-format": "{volume}%",
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "󰂑",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [
-				"󰕿",
-				"󰖀",
-				"󰕾"
-			]
-		},
-		"on-click": "pavucontrol"
-	},
-	"custom/line-separator": {
-		"format": "│",
-		"tooltip": false
-	},
-	"custom/separator": {
-		"format": " ",
-		"tooltip": false
-	},
-	"custom/weather": {
-		"exec": "weather.sh",
-		"interval": "60",
-		"tooltip": false
-	},
-	"custom/media": {
-		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
-		"format": "{icon}  {}",
-		"return-type": "json",
-		"max-length": 20,
-		"min-length": 15,
-		"format-icons": {
-			"chrome": "",
-			"chromium": "",
-			"default": "󰝚",
-			"discord": "󰙯",
-			"edge": "",
-			"firefox": "󰈹",
-			"slack": "󰒱",
-			"spotify": "",
-			"teams": "󰊻",
-			"vlc": "󰕼"
-		},
-		"escape": true,
-		"on-click": "playerctl play-pause"
-	},
-	"idle_inhibitor": {
-		"format": "{icon} ",
-		"format-icons": {
-			"activated": "󰒳",
-			"deactivated": "󰒲"
-		},
-		"on-click": "inhibit-idle.sh on",
-		"on-click-middle": "inhibit-idle.sh off",
-		"on-click-right": "inhibit-idle.sh interactive",
-		"signal": 15
-	},
-	"custom/idle-inhibitor": {
-		"interval": 60,
-		"return-type": "json",
-		"format": "{icon} ",
-		"format-icons": {
-			"on": "󰒳",
-			"off": "󰒲"
-		},
-		"exec": "inhibit-idle.sh",
-		"on-click": "inhibit-idle.sh on",
-		"on-click-middle": "inhibit-idle.sh off",
-		"on-click-right": "inhibit-idle.sh interactive",
-		"signal": 15
-	},
-	"custom/recorder": {
-		"return-type": "json",
-		"format": "{icon} ",
-		"format-icons": {
-			"off": "󰕨 ",
-			"screen": " ",
-			"screen_and_audio": " ",
-			"screen_selection": " 󰒅",
-			"webcam": "󰖠"
-		},
-		// "exec": "record.sh status",
-		"on-click": "record.sh",
-		"signal": 8
-	}
+  "layer": "top",
+  "position": "top",
+  "height": 20,
+  "margin": 0,
+  "padding": 0,
+  "spacing": 0,
+  "modules-left": [
+    "wlr/workspaces",
+    "hyprland/workspaces",
+    "sway/workspaces",
+    "river/tags",
+    "custom/separator",
+    // "wlr/taskbar",
+    "hyprland/window",
+    "sway/window",
+    "river/window",
+  ],
+  "modules-right": [
+    "custom/media",
+    "tray",
+    "privacy",
+    "custom/line-separator",
+    "custom/weather",
+    "custom/line-separator",
+    "custom/idle-inhibitor",
+    // "idle_inhibitor",
+    "custom/line-separator",
+    "backlight",
+    "custom/line-separator",
+    "temperature",
+    "custom/line-separator",
+    "cpu",
+    "custom/line-separator",
+    "memory",
+    "custom/line-separator",
+    // "custom/recorder",
+    // "custom/line-separator",
+    "language",
+    "hyprland/language",
+    "sway/language",
+    "custom/line-separator",
+    "network",
+    "custom/line-separator",
+    "wireplumber",
+    "custom/line-separator",
+    // "power-profiles-daemon",
+    "battery",
+    "custom/separator",
+    "clock",
+    "custom/search",
+  ],
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false,
+    },
+    "modules": ["custom/power", "custom/quit", "custom/lock", "custom/reboot"],
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "shutdown now",
+  },
+  "custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'",
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "swaylock",
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "reboot",
+  },
+  "group/group-win": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-win",
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      // "custom/title",
+      // "wlr/taskbar",
+      "hyprland/window",
+      "sway/window",
+      "river/window",
+      "custom/close",
+      "custom/maximize",
+      "custom/minimize",
+    ],
+  },
+  "custom/title": {
+    "format": "title test",
+    "tooltip": false,
+    "on-click": "",
+  },
+  "custom/close": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "riverctl close",
+  },
+  "custom/maximize": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "riverctl toggle-fullscreen",
+  },
+  "custom/minimize": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "notify-send minimize", // TODO: find an alternative to minimize
+  },
+  "custom/search": {
+    "format": "",
+    "tooltip": "Search",
+    "on-click": "search.sh",
+  },
+  "wlr/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+  },
+  "hyprland/workspaces": {
+    "format": "{name}",
+  },
+  "sway/workspaces": {
+    "all-outputs": true,
+    "disable-scroll": true,
+    "format": "{name}",
+  },
+  "hyprland/window": {
+    "separate-outputs": true,
+  },
+  "sway/window": {
+    "format": "{app_id}",
+    "icon": true,
+    "max-length": 22,
+  },
+  "river/window": {
+    "tooltip": false,
+    "max-length": 22,
+  },
+  "wlr/taskbar": {
+    "format": "{icon}{name}",
+    "markup": true,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10,
+  },
+  "privacy": {
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+    ],
+  },
+  "network": {
+    "interval": 1,
+    "format-icons": {
+      "disconnected": "",
+      "ethernet": " ",
+      "wifi": " ",
+    },
+    "format": "{icon}",
+    "tooltip-format-wifi": "{ifname} {ipaddr}/{cidr}\n{essid} ({signalStrength}%) \n {bandwidthUpBits}  {bandwidthDownBits}",
+    "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} \n {bandwidthUpBits}  {bandwidthDownBits}",
+    "tooltip-format-disconnected": "",
+  },
+  "language": {
+    "format": " {flag}{short}",
+    "min-length": 4,
+  },
+  "hyprland/language": {
+    "format": " {short}",
+    "min-length": 4,
+  },
+  "sway/language": {
+    "format": " {short}",
+    "min-length": 4,
+  },
+  "clock": {
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "interval": 1,
+    "format": "{:%a %d %b %Y %H:%M:%S}",
+    "timezone": "Europe/Oslo",
+    "calendar": {
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#fbf1c7'><b>{}</b></span>",
+        "today": "<span color='#fbf1c7'><b><u>{}</u></b></span>",
+        "days": "<span color='#d5c4a1'>{}</span>",
+        "weeks": "<span color='#a89984'>│<i>w{}</i></span>",
+        "weekdays": "<span color='#fabd2f'><u><i>{}</i></u></span>",
+      },
+    },
+  },
+  "cpu": {
+    "format": " {usage}%",
+  },
+  "memory": {
+    "format": " {percentage}%",
+    "tooltip-format": "{used:0.1f}GiB RAM used",
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "interval": 2,
+    "format-critical": "{icon}{temperatureC}°C",
+    "format": "{icon}{temperatureC}°C",
+    "format-icons": ["", "", "", "", "", ""],
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+  "power-profiles-daemon": {
+    "min-length": 3,
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": " ",
+      "power-saver": " ",
+    },
+  },
+  "battery": {
+    "interval": 60,
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{icon}󱐋 {capacity}%",
+    "format-plugged": "{icon}󱐋 {capacity}%",
+    // "format-good": "", // An empty format will hide the module
+    "format-full": "󰁹 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+  },
+  "wireplumber": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": "󰖁 {volume}%",
+    "format-muted": "󰖁 {volume}%",
+    "format-source": " {volume}%",
+    "format-source-muted": "{volume}%",
+    "tooltip-format": "{volume}%",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󰂑",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "on-click": "pavucontrol",
+  },
+  "custom/line-separator": {
+    "format": "│",
+    "tooltip": false,
+  },
+  "custom/separator": {
+    "format": " ",
+    "tooltip": false,
+  },
+  "custom/weather": {
+    "exec": "weather.sh",
+    "interval": "60",
+    "tooltip": false,
+  },
+  "custom/media": {
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+    "format": "{icon}  {}",
+    "return-type": "json",
+    "max-length": 20,
+    "min-length": 15,
+    "format-icons": {
+      "chrome": "",
+      "chromium": "",
+      "default": "󰝚",
+      "discord": "󰙯",
+      "edge": "",
+      "firefox": "󰈹",
+      "slack": "󰒱",
+      "spotify": "",
+      "teams": "󰊻",
+      "vlc": "󰕼",
+    },
+    "escape": true,
+    "on-click": "playerctl play-pause",
+  },
+  "idle_inhibitor": {
+    "format": "{icon} ",
+    "format-icons": {
+      "activated": "󰒳",
+      "deactivated": "󰒲",
+    },
+    "on-click": "inhibit-idle.sh on",
+    "on-click-middle": "inhibit-idle.sh off",
+    "on-click-right": "inhibit-idle.sh interactive",
+    "signal": 15,
+  },
+  "custom/idle-inhibitor": {
+    "interval": 60,
+    "return-type": "json",
+    "format": "{icon} ",
+    "format-icons": {
+      "on": "󰒳",
+      "off": "󰒲",
+    },
+    "exec": "inhibit-idle.sh",
+    "on-click": "inhibit-idle.sh on",
+    "on-click-middle": "inhibit-idle.sh off",
+    "on-click-right": "inhibit-idle.sh interactive",
+    "signal": 15,
+  },
+  "custom/recorder": {
+    "return-type": "json",
+    "format": "{icon} ",
+    "format-icons": {
+      "off": "󰕨 ",
+      "screen": " ",
+      "screen_and_audio": " ",
+      "screen_selection": " 󰒅",
+      "webcam": "󰖠",
+    },
+    // "exec": "record.sh status",
+    "on-click": "record.sh",
+    "signal": 8,
+  },
 }
