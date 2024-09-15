@@ -125,17 +125,14 @@ window#waybar {
 }
 
 #cpu {
-  text-decoration-line: underline;
   text-decoration-color: @red1;
 }
 
 #memory {
-  text-decoration-line: underline;
   text-decoration-color: @green2;
 }
 
 #temperature {
-  text-decoration-line: underline;
   text-decoration-color: @blue1;
 }
 
