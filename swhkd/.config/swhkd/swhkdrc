@@ -3,6 +3,8 @@ super + {_,shift +} Return
 	{$TERMINAL,$TERMINAL_SECONDARY}
 
 # browsers
+XF86WWW
+	$BROWSER
 super + {_,shift +} w
 	{$BROWSER,$BROWSER_SECONDARY}
 
@@ -12,38 +14,58 @@ super + {_,shift +} e
 
 # screen locker
 super + ctrl + q
-	swaylock -f -c 000000
+	lock.sh
 
 # program launcher
+XF86Search
+	search.sh
 super + space
-	wofi
+	search.sh
+super + ctrl + space
+	emoji_picker.sh
+
+# notes
+super + n
+	notes.sh edit
+super + shift + n
+	notes.sh view
 
 # media keys
-XF86Audio{Raise,Lower}Volume
-	pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+XF86Audio{Lower,Raise}Volume
+	change_vol.sh {lower,raise}
 XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	change_vol.sh toggle-mute
 XF86AudioMicMute
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle
-XF86Audio{Play,Stop,Prev,Next}
-	playerctl {play-pause,stop,prev,next}
+	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+XF86Audio{Play,Pause,Stop,Prev,Next}
+	playerctl {play-pause,play-pause,stop,previous,next}
+XF86Audio{Rewind,Forward}
+	playerctl position 5{-,+}
+
+# requires tlp
+XF86WLAN
+	wifi toggle
+XF86Bluetooth
+	bluetooth toggle
+
+# mail # TODO: use default client instead of hard-coding this
+XF86Mail
+	thunderbird
 
 # brightness keys
 XF86MonBrightness{Down,Up}
-	brightnessctl -q set 5%{-,+}
-
-# search
-XF86Search
-	wofi
+	change_brightness.sh {lower,raise}
 
 # screenshot
 {_,shift +} Print
-	grimblast --notify {save area,screen}
+	screenshot.sh {gui,fullscreen}
 
 # keyboard layouts
 super + shift + a
-	setxkbmap us
+	set_keymap.sh "us(altgr-intl)"
 super + shift + s
-	setxkbmap se
+	set_keymap.sh "se"
 super + shift + g
-	setxkbmap no
+	set_keymap.sh "no"
+super + shift + d
+	set_keymap.sh "prog-qwerty"
