@@ -7,7 +7,7 @@ get_num_displays() {
 		num_displays=$(wlr-randr | grep -c -v "^ ")
 	fi
 
-	echo "$num_displays"
+	echo -n "$num_displays"
 }
 
 clamshell.sh
