@@ -72,5 +72,5 @@ bindings = [
 	{ chars = "\u001B[27;5;55~", key = "Key7", mods = "Control" },
 	{ chars = "\u001B[27;5;56~", key = "Key8", mods = "Control" },
 	{ chars = "\u001B[27;5;57~", key = "Key9", mods = "Control" },
-	{ chars = "\u001B[27;5;58~", key = "Key0", mods = "Control" },
+	# { chars = "\u001B[27;5;58~", key = "Key0", mods = "Control" },
 ]
