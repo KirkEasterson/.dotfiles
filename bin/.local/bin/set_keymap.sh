@@ -17,5 +17,5 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	esac
 
 else
-	setxkbmap "${1}"
+	setxkbmap -option "caps:escape" "$1"
 fi

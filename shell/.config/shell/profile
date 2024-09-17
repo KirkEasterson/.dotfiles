@@ -17,9 +17,8 @@ if [ -n "${DISPLAY}" ]; then
 		kanshi &
 
 	else
-		if [ -s ~/.Xmodmap ]; then
-			xmodmap ~/.Xmodmap
-		fi
+		setxkbmap -option "caps:escape"
+
 		picom &
 		sxhkd &
 
