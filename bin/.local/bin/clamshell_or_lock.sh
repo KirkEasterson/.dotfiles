@@ -10,13 +10,9 @@ get_num_displays() {
 	echo -n "$num_displays"
 }
 
-clamshell.sh
-
-# exit if there are other displays enabled
 num_displays=$(get_num_displays)
-if [ "$num_displays" -ne 0 ]; then
-	exit 0
+if [ "$num_displays" -gt 1 ]; then
+	clamshell.sh
+else
+	lock.sh
 fi
-
-# lock the machine
-lock.sh
