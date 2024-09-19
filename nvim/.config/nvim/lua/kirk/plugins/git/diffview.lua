@@ -16,14 +16,14 @@ return {
     {
       "<leader>dvo",
       function()
-        require("diffview").open("--untracked-files=no")
+        require("diffview").open({ "--untracked-files=no" })
       end,
       desc = "Open diff view",
     },
     {
       "<leader>dvO",
       function()
-        require("diffview").open()
+        require("diffview").open({})
       end,
       desc = "Open diff view with untracked files",
     },
@@ -37,7 +37,7 @@ return {
     {
       "<leader>dvH",
       function()
-        require("diffview").file_history()
+        require("diffview").file_history(nil, {})
       end,
       desc = "Open diff view with branch history",
     },
