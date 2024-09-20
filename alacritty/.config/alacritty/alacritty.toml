@@ -6,13 +6,12 @@ bindings = [{ action = "None", mouse = "Middle" }]
 history = 100000
 
 [window]
-dynamic_padding = true
-dynamic_title = true
+option_as_alt = "Both"
 
 [bell]
-animation = "Ease"
+animation = "EaseOutSine"
 color = "#cc241d"
-duration = 300
+duration = 150
 command = { program = "xkbbell" }
 
 [font]
@@ -21,6 +20,7 @@ bold = { family = "ComicCodeLigatures Nerd Font", style = "Bold" }
 bold_italic = { family = "ComicCodeLigatures Nerd Font", style = "Bold Italic" }
 italic = { family = "ComicCodeLigatures Nerd Font", style = "Italic" }
 normal = { family = "ComicCodeLigatures Nerd Font", style = "Regular" }
+builtin_box_drawing = false
 
 [env]
 # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
