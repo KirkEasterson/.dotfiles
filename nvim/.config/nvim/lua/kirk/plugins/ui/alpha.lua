@@ -13,7 +13,7 @@ return {
 
     local dashboard = require("alpha.themes.dashboard")
 
-    local neovimlogo = art.neovim[1]
+    local neovimlogo = art.neovim[4]
     local asciiart = util.asciiart_cpad(art.triangle_box, vim.fn.strdisplaywidth(neovimlogo[1]))
 
     local fortune = require("alpha.fortune")
