@@ -81,7 +81,7 @@ return {
             maxwidth = 1,
             colwidth = 1,
             fillchar = "│",
-            fillcharhl = "CursorLineNr",
+            fillcharhl = "",
             namespace = { "gitsign" },
           },
           condition = { true },
