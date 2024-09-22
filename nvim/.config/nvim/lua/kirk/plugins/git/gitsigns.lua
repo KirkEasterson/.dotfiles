@@ -34,7 +34,7 @@ return {
     trouble = false,
     attach_to_untracked = false,
     linehl = false,
-    numhl = true,
+    numhl = false,
     -- word_diff = true,
     watch_gitdir = {
       follow_files = true,
