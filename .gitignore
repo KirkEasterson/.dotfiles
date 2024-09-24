@@ -15,4 +15,6 @@ firefox/*
 !firefox/addons.json
 !firefox/user.js
 
+yazi/plugins/*
+
 *remarkable*
