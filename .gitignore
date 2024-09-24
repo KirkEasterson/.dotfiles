@@ -1,5 +1,14 @@
-.luarc.json
-__pycache__/
+**/*.env
+**/*.env.*
+**/.envrc
+**/.autoenv.zsh
+
+**/.luarc.json
+**/__pycache__/
+**/.mypycache
+**/*.pyc
+**/*.pyo
+**/.vscode
 
 monitors.conf
 
@@ -17,4 +26,32 @@ firefox/*
 
 **/yazi/plugins/*
 
-*remarkable*
+**/shell/local_exports
+
+**/zsh/.antidote/
+**/zsh/.zcompdump*
+**/zsh/.zsh_plugins.zsh
+**/zsh/antidote/
+
+**/vlc/vlc-qt-interface.conf
+
+**/vim/plugged/
+**/vim/autoload/
+
+**/nvim/autoload
+**/nvim/plugin
+**/nvim/plugged
+**/nvim/db_ui
+
+**/btop/btop.log
+
+**/sway/outputs
+**/sway/workspaces
+
+**/tmux/plugins
+
+**/qimgv/savedState.conf
+
+**/lazygit/state.yml
+
+**/karabiner/automatic_backups
