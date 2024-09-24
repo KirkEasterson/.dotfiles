@@ -87,7 +87,9 @@ image_bound      = [ 0, 0 ]
 suppress_preload = false
 
 [plugin]
-
+prepend_previewers = [
+	{ name = "*.md", run = "glow" },
+]
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
@@ -129,6 +131,16 @@ previewers = [
 	# Fallback
 	{ name = "*", run = "file" },
 ]
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
 
 [input]
 cursor_blink = false
