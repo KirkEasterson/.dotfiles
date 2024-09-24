@@ -10,7 +10,7 @@ super + {_,shift +} w
 
 # file managers
 super + {_,shift +} e
-	{$FILEMANAGER,$TERMINAL -e ranger ~}
+	{$TERMINAL -e yazi ~,$FILEMANAGER}
 
 # screen locker
 super + ctrl + q

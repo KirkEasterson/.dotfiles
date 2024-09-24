@@ -22,8 +22,8 @@ riverctl map normal Super Return spawn "$TERMINAL"
 riverctl map normal Super+Shift Return spawn "$TERMINAL_SECONDARY"
 
 # file managers
-riverctl map normal Super E spawn "$FILEMANAGER"
-riverctl map normal Super+Shift E spawn "$TERMINAL -e ranger"
+riverctl map normal Super E spawn "$TERMINAL -e yazi"
+riverctl map normal Super+Shift E spawn "$FILEMANAGER"
 
 # launchers
 riverctl map normal Super Space spawn search.sh

@@ -117,12 +117,19 @@ if is_wayland:
                 desc="Spawn alternative terminal",
             ),
             # file managers
-            Key([MOD], "e", lazy.spawn(os.environ["FILEMANAGER"]), desc="Spawn file manager"),
+            Key(
+                [
+                    MOD,
+                ],
+                "e",
+                lazy.spawn(f'{os.environ["TERMINAL"]} -e "yazi"'),
+                desc="Spawn TUI file manager",
+            ),
             Key(
                 [MOD, "shift"],
                 "e",
-                lazy.spawn(f'{os.environ["TERMINAL"]} -e "ranger"'),
-                desc="Spawn TUI file manager",
+                lazy.spawn(os.environ["FILEMANAGER"]),
+                desc="Spawn file manager",
             ),
             # browsers
             Key([MOD], "w", lazy.spawn(os.environ["BROWSER"]), desc="Spawn browser"),
