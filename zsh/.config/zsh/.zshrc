@@ -52,9 +52,14 @@ bindkey -M viins '^Y' autosuggest-accept
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 
-# override default search command
-zle -N search_hist{,} # he widget must
-bindkey -M vicmd "/" search_hist
+if [ -f '/usr/share/fzf/completion.zsh' ]; then
+	source '/usr/share/fzf/completion.zsh'
+fi
+if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then
+	source '/usr/share/fzf/key-bindings.zsh'
+	zle -N fzf-history-widget{,}
+	bindkey -M vicmd "/" fzf-history-widget
+fi
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select

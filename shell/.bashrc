@@ -21,10 +21,17 @@ bind "set completion-ignore-case on"
 # opam configuration
 [[ ! -r /home/kirk/.opam/opam-init/init.sh ]] || source /home/kirk/.opam/opam-init/init.sh  > /dev/null 2> /dev/null
 
+if [ -f '/usr/share/fzf/completion.bash' ]; then
+	source '/usr/share/fzf/completion.bash'
+fi
+if [ -f '/usr/share/fzf/key-bindings.bash' ]; then
+	source '/usr/share/fzf/key-bindings.bash'
+fi
+
 complete -C /usr/bin/terraform terraform
 
 # init zoxide
-eval "$(zoxide init bash)"
+# eval "$(zoxide init bash)"
 
 # start starship
 eval "$(starship init bash)"
