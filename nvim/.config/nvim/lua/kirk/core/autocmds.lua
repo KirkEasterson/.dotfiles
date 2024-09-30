@@ -35,7 +35,13 @@ autocmd({ "BufWritePre" }, {
     if not not vim.g.started_by_firenvim then
       return -- it will save on keypress, so this autocmd is annoying
     end
+
+    -- 'substitute' will move the cursor, so we save the position to restore it.
+    -- this causes the cursor to flash, which isn't ideal, but it's unavoidable
+    -- and not that big of a deal.
+    local pre_pos = vim.api.nvim_win_get_cursor(0)
     vim.cmd([[%s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, pre_pos)
   end,
 })
 
