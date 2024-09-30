@@ -4,10 +4,12 @@ return {
   cmd = {
     "Autosession",
     "SessionDelete",
+    "SessionDisableAutoSave",
     "SessionPurgeOrphaned",
     "SessionRestore",
-    "SessionRestoreFromFile",
     "SessionSave",
+    "SessionSearch",
+    "SessionToggleAutoSave",
   },
   opts = {
     log_level = vim.log.levels.ERROR,
