@@ -1,6 +1,5 @@
 return {
   "rmagatti/auto-session",
-  version = "v2.4.*", -- TODO: upgrade when "silent bug" is fixed
   lazy = false,
   cmd = {
     "Autosession",
@@ -12,18 +11,17 @@ return {
   },
   opts = {
     log_level = vim.log.levels.ERROR,
-    silent_restore = true,
-    auto_session_enable_last_session = false,
-    auto_session_enabled = true,
-    auto_session_create_enabled = true,
-    auto_save_enabled = true,
-    auto_restore_enabled = false,
-    auto_session_use_git_branch = true,
-    pre_save_cmds = {
-      "NvimTreeClose",
-    },
+    use_git_branch = true,
+    continue_restore_on_error = false,
     session_lens = {
       load_on_setup = false,
+    },
+    bypass_save_filetypes = {
+      "alpha",
+      "dashboard",
+    },
+    pre_save_cmds = {
+      "NvimTreeClose",
     },
   },
   init = function()
