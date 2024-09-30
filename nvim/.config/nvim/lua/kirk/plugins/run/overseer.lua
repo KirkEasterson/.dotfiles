@@ -1,6 +1,21 @@
 return {
   "stevearc/overseer.nvim",
-  enabled = false,
+  -- enabled = false,
+  cmd = {
+    "OverseerBuild",
+    "OverseerClearCache",
+    "OverseerClose",
+    "OverseerDeleteBundle",
+    "OverseerInfo",
+    "OverseerLoadBundle",
+    "OverseerOpen",
+    "OverseerQuickAction",
+    "OverseerRun",
+    "OverseerRunCmd",
+    "OverseerSaveBundle",
+    "OverseerTaskAction",
+    "OverseerToggle",
+  },
   opts = {
     task_list = {
       direction = "bottom",

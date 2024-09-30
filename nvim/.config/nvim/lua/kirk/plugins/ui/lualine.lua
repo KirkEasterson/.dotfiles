@@ -46,6 +46,11 @@ return {
       },
     },
     sections = {
+      lualine_b = {
+        {
+          "overseer",
+        },
+      },
       lualine_c = {
         { "filename" },
         { "macro-recording", fmt = show_macro_recording },
