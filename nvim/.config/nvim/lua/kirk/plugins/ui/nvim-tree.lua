@@ -2,6 +2,7 @@ return {
   "nvim-tree/nvim-tree.lua",
   dependencies = {
     "echasnovski/mini.icons",
+    "stevearc/dressing.nvim",
   },
   cmd = {
     "NvimTreeClipboard",
