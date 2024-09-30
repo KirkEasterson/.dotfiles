@@ -48,6 +48,7 @@ return {
     sections = {
       lualine_b = {
         {
+          "grapple",
           "overseer",
         },
       },
