@@ -6,7 +6,7 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   cmd = "Grapple",
   opts = {
-    scope = "git",
+    scope = "git_branch",
   },
   keys = {
     {
