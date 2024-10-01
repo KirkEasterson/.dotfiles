@@ -4,6 +4,7 @@ return {
   dependencies = {
     "leoluz/nvim-dap-go",
     "Joakker/lua-json5",
+    "stevearc/overseer.nvim",
   },
   keys = {
     {
@@ -78,6 +79,8 @@ return {
     },
   },
   config = function()
+    require("overseer").enable_dap()
+
     require("dap.ext.vscode").json_decode = require("json5").parse
     require("dap.ext.vscode").load_launchjs(nil, {
       cppdbg = { "c", "cpp" },

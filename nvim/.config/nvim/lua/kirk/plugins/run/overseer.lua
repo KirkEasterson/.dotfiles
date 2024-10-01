@@ -17,6 +17,7 @@ return {
     "OverseerToggle",
   },
   opts = {
+    dap = false, -- for lazy loading
     task_list = {
       direction = "bottom",
       min_height = 25,
@@ -26,6 +27,14 @@ return {
         ["q"] = function()
           vim.cmd.OverseerClose()
         end,
+      },
+    },
+    component_aliases = {
+      default_neotest = {
+        "on_output_summarize",
+        "on_exit_set_status",
+        "on_complete_notify",
+        "on_complete_dispose",
       },
     },
   },
