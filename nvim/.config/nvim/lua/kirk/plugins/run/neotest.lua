@@ -110,6 +110,14 @@ return {
         virtual_text = false, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
         signs = true,
       },
+      consumers = {
+        overseer = require("neotest.consumers.overseer"),
+      },
+      overseer = {
+        enabled = true,
+        -- When this is true (the default), it will replace all neotest.run.* commands
+        force_default = false,
+      },
     }
     require("neotest").setup(opts)
   end,
