@@ -20,7 +20,7 @@
 (dolist (mode '(org-mode-hook
 		 term-mode-hook
 		 eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+(add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (require 'package)
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
