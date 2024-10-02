@@ -139,6 +139,12 @@
 	     (evil-mode 1))
 	     ;; (evil-want-fine-undo 1))
 (setq evil-undo-system 'undo-tree)
+(setq evil-insert 'bar)
+(setq evil-normal-state-cursor 'box)
+(setq evil-visual-state-cursor 'box)
+(setq evil-motion-state-cursor 'box)
+(setq evil-motion-state-cursor 'box)
+(setq evil-operator-state-cursor 'solid-block)
 
 (use-package evil-surround
 	     :ensure t
