@@ -1,7 +1,5 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
-  -- enabled = false,
-  -- commit = "73e44f43c70289c70195b5e7bc6a077ceffddda4", -- this cause issues with rust and typescript https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/513
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
@@ -42,9 +40,13 @@ return {
       },
       select = {
         enable = true,
+        disable = {
+          "zig",
+        },
         lookahead = true,
         keymaps = {
-          -- this cause issues with rust https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/513
+          -- this cause issues with rust and zig
+          --  - https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/513
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
