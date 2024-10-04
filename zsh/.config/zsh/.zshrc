@@ -45,6 +45,12 @@ _fix_cursor() {
 
 precmd_functions+=(_fix_cursor)
 
+# tmux sessionizer
+tmux_sessionizer() tmux_sessionizer.sh
+zle -N tmux_sessionizer
+bindkey -M viins '^F' tmux_sessionizer
+bindkey -M vicmd '^F' tmux_sessionizer
+
 # like my nvim mapping
 bindkey -M viins '^Y' autosuggest-accept
 
