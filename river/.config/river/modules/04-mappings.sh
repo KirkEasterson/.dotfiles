@@ -156,12 +156,12 @@ riverctl map passthrough Super F11 enter-mode normal
 # not have a modifier
 for mode in normal locked; do
 	# Eject the optical drive (well if you still have one that is)
-	riverctl map $mode None XF86MonBrightnessDown spawn "change_brightness.sh lower"
-	riverctl map $mode None XF86MonBrightnessUp spawn "change_brightness.sh raise"
+	riverctl map -repeat $mode None XF86MonBrightnessDown spawn "change_brightness.sh lower"
+	riverctl map -repeat $mode None XF86MonBrightnessUp spawn "change_brightness.sh raise"
 
 	# Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-	riverctl map $mode None XF86AudioLowerVolume spawn "change_vol.sh lower"
-	riverctl map $mode None XF86AudioRaiseVolume spawn "change_vol.sh raise"
+	riverctl map -repeat $mode None XF86AudioLowerVolume spawn "change_vol.sh lower"
+	riverctl map -repeat $mode None XF86AudioRaiseVolume spawn "change_vol.sh raise"
 	riverctl map $mode None XF86AudioMute spawn "change_vol.sh toggle-mute"
 	riverctl map $mode None XF86AudioMicMute spawn "change_vol.sh toggle-mic-mute"
 
@@ -171,6 +171,6 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioStop spawn "playerctl stop"
 	riverctl map $mode None XF86AudioPrev spawn "playerctl previous"
 	riverctl map $mode None XF86AudioNext spawn "playerctl next"
-	riverctl map $mode None XF86AudioRewind spawn "playerctl position 5-"
-	riverctl map $mode None XF86AudioForward spawn "playerctl position 5+"
+	riverctl map -repeat $mode None XF86AudioRewind spawn "playerctl position 5-"
+	riverctl map -repeat $mode None XF86AudioForward spawn "playerctl position 5+"
 done
