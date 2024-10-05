@@ -9,8 +9,6 @@ if [ -n "${DISPLAY}" ]; then
 	nm-applet &
 	blueman-applet &
 	udiskie -a &
-	pcmanfm --daemon-mode &
-	1password --silent &
 	dunst &
 
 	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
