@@ -20,7 +20,7 @@ util.map("n", "<X2Mouse>", "<C-i>")
 util.map("n", "<MiddleMouse>", function() end)
 
 -- faster save and quits
-util.map("n", "<leader>w", vim.cmd.w, { desc = "Save file" })
+util.map("n", "<leader>w", "<cmd>silent! write<cr>", { desc = "Save file" })
 util.map("n", "<leader>q", vim.cmd.q, { desc = "Close window" })
 util.map("n", "<leader>z", vim.cmd.qa, { desc = "Quit" })
 
