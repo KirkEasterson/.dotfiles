@@ -17,6 +17,15 @@ return {
           vim.opt.showtabline = 0
           vim.cmd.startinsert()
 
+          -- unmap save/quit
+          local util = require("util")
+          util.map("n", "<leader>w", "<Nop>")
+          util.map("n", "<leader>q", "<Nop>")
+
+          -- new save/quit mappings
+          util.map("n", "<leader>w", "<cmd>silent! write<cr>", { desc = "Save file" })
+          util.map("n", "<leader>q", vim.cmd.wq, { desc = "Close window" })
+
           -- interact with page
           vim.api.nvim_set_keymap(
             "n",
@@ -32,38 +41,59 @@ return {
                 return
               end
               vim.g.timer_started = true
-              vim.fn.timer_start(10000, function()
-                vim.g.timer_started = false
+              vim.fn.timer_start(10000, function() -- ten seconds
                 vim.cmd("silent! write")
+                vim.g.timer_started = false
               end)
             end,
           })
 
           -- website specific settings
           vim.api.nvim_create_autocmd({ "BufEnter" }, {
-            pattern = "github.com_*.txt",
-            command = "set filetype=markdown",
+            callback = function()
+              local bufname = vim.api.nvim_buf_get_name(0)
+              if bufname:match("github.com") then
+                vim.cmd("set filetype=markdown")
+              elseif bufname:match("slack.com") then
+                vim.cmd("set filetype=markdown")
+              elseif bufname:match("stackoverflow.com") then
+                vim.cmd("set filetype=markdown")
+              elseif bufname:match("stackexchange.com") then
+                vim.cmd("set filetype=markdown")
+              end
+            end,
           })
         end
       end,
     })
   end,
   init = function()
-    if not not vim.g.started_by_firenvim then
-      vim.g.firenvim_config = {
-        globalSettings = {
-          cmdlineTimeout = 3000,
-        },
-        localSettings = {
-          [".*"] = {
-            cmdline = "neovim",
-            content = "text",
-            priority = 0,
-            selector = "textarea",
-            takeover = "always",
-          },
-        },
-      }
+    if not vim.g.started_by_firenvim then
+      -- regular nvim, exit early
+      return
     end
+
+    vim.g.firenvim_config = {
+      globalSettings = {
+        cmdlineTimeout = 3000,
+      },
+      localSettings = {
+        [".*"] = {
+          cmdline = "neovim",
+          content = "text",
+          priority = 0,
+          selector = "textarea:not([readonly]):not([class=\"handsontableInput\"]), div[role=\"textbox\"]",
+          takeover = "always",
+        },
+        [ [[.*notion\.so.*]] ] = {
+          priority = 9,
+          takeover = "never",
+        },
+        [ [[.*docs\.google\.com.*]] ] = {
+          priority = 9,
+          takeover = "never",
+        },
+      },
+    }
   end,
 }

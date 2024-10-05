@@ -18,33 +18,9 @@ if not status_ok then
   return
 end
 
--- local setup_dirs = {
---   { import = "kirk.plugins.dap" },
---   { import = "kirk.plugins.dev" },
---   { import = "kirk.plugins.firenvim" },
---   { import = "kirk.plugins.git" },
---   { import = "kirk.plugins.lsp" },
---   { import = "kirk.plugins.misc" },
---   { import = "kirk.plugins.notes" },
---   { import = "kirk.plugins.run" },
---   { import = "kirk.plugins.telescope" },
---   { import = "kirk.plugins.theme" },
---   { import = "kirk.plugins.treesitter" },
---   { import = "kirk.plugins.ui" },
---   { import = "kirk.plugins.util" },
--- }
-
--- -- https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819214
--- if not not vim.g.started_by_firenvim then
---   setup_dirs = {
---     { import = "kirk.plugins.theme" },
---     { import = "kirk.plugins.firenvim" },
---   }
--- end
-
-lazy.setup({
+local setup_dirs = {
+  { import = "kirk.plugins.firenvim" },
   -- { import = "kirk.plugins.dap" },
-  { import = "kirk.plugins.db" },
   { import = "kirk.plugins.dev" },
   { import = "kirk.plugins.git" },
   { import = "kirk.plugins.lsp" },
@@ -56,7 +32,17 @@ lazy.setup({
   { import = "kirk.plugins.treesitter" },
   { import = "kirk.plugins.ui" },
   { import = "kirk.plugins.util" },
-}, {
+}
+
+-- https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819214
+if not not vim.g.started_by_firenvim then
+  setup_dirs = {
+    { import = "kirk.plugins.firenvim" },
+    { import = "kirk.plugins.theme" },
+  }
+end
+
+lazy.setup(setup_dirs, {
   defaults = {
     lazy = true,
     version = "*", -- use latest stable versions for plugin
