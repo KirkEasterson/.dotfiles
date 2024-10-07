@@ -49,71 +49,31 @@ return {
       desc = "Close diff view",
     },
   },
-  config = function()
-    require("diffview").setup({
-      enhanced_diff_hl = true,
-      show_help_hints = false,
-      view = {
-        default = {
-          winbar_info = true,
-        },
-        merge_tool = {
-          winbar_info = true,
-        },
-        file_history = {
-          winbar_info = true,
-        },
+  opts = {
+    enhanced_diff_hl = true,
+    show_help_hints = false,
+    view = {
+      default = {
+        winbar_info = true,
       },
-      file_panel = {
-        win_config = {
-          position = "bottom",
-          height = 10,
-        },
+      merge_tool = {
+        winbar_info = true,
       },
-      file_history_panel = {
-        win_config = {
-          position = "bottom",
-          height = 10,
-        },
+      file_history = {
+        winbar_info = true,
       },
-      keymaps = {
-        file_panel = {
-          {
-            "n",
-            "<c-u>",
-            require("diffview.actions").scroll_view(-0.1),
-            {
-              desc = "Scroll the view up",
-            },
-          },
-          {
-            "n",
-            "<c-d>",
-            require("diffview.actions").scroll_view(0.1),
-            {
-              desc = "Scroll the view down",
-            },
-          },
-        },
-        file_history_panel = {
-          {
-            "n",
-            "<c-u>",
-            require("diffview.actions").scroll_view(-0.1),
-            {
-              desc = "Scroll the view up",
-            },
-          },
-          {
-            "n",
-            "<c-d>",
-            require("diffview.actions").scroll_view(0.1),
-            {
-              desc = "Scroll the view down",
-            },
-          },
-        },
+    },
+    file_panel = {
+      win_config = {
+        position = "bottom",
+        height = 10,
       },
-    })
-  end,
+    },
+    file_history_panel = {
+      win_config = {
+        position = "bottom",
+        height = 10,
+      },
+    },
+  },
 }
