@@ -191,7 +191,7 @@ opt.listchars:append({
   lead = " ",
   precedes = "…",
   tab = "  ", -- this must be two characters
-  trail = "▒",
+  trail = "·",
 
   -- use the below line to simulate indent-blankline
   --	it won't be visible on empty-lines though
