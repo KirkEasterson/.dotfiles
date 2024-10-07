@@ -85,10 +85,25 @@ return {
       prompt_prefix = " ",
       selection_caret = " ",
       sorting_strategy = "ascending",
-      layout_strategy = "vertical",
+      borderchars = { "─", "", "─", "", "─", "─", "─", "─" },
       path_display = { "truncate" },
+      layout_strategy = "center",
       layout_config = {
-        prompt_position = "top",
+        center = {
+          -- anchor = "CENTER",
+          anchor = "S",
+          anchor_padding = 0,
+          prompt_position = "top",
+          -- preview_height = 0.7, -- 60% of available lines
+          -- height = 0.3, -- maximally available lines
+          width = function(_, max_columns, _)
+            return max_columns
+          end,
+          height = function(_, _, max_lines)
+            return math.floor(0.3 * max_lines)
+            -- return max_lines
+          end,
+        },
       },
       cache_picker = {
         num_pickers = 3,
