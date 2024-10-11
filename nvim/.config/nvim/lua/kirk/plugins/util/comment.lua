@@ -1,7 +1,7 @@
 return {
   "numToStr/Comment.nvim",
   dependencies = {
-    "JoosepAlviste/nvim-ts-context-commentstring",
+    "folke/ts-comments.nvim",
   },
   keys = {
     { "gc" },
@@ -37,10 +37,12 @@ return {
       desc = "Toggle block comment",
     },
   },
-  config = function(_, _)
-    local opts = {
-      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-    }
+  config = function(_, opts)
+    if vim.fn.has("nvim-0.10.0") ~= 1 then
+      opts = {
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      }
+    end
 
     require("Comment").setup(opts)
   end,
