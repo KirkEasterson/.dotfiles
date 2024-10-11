@@ -1,5 +1,6 @@
 return {
   "JoosepAlviste/nvim-ts-context-commentstring",
+  enabled = vim.fn.has("nvim-0.10.0") ~= 1,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
