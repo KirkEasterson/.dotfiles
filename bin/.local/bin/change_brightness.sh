@@ -1,7 +1,7 @@
 #!/bin/bash
 
 brightness_diff="5"
-min_brightness="1"
+min_brightness="0"
 
 raise_brightness() {
 	brightnessctl set ${brightness_diff}%+ -n ${min_brightness}
