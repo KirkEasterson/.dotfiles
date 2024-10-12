@@ -70,16 +70,16 @@ theme:
     table:
       showSeparator: true
   colors: # these render differently in tmux
-    text:
-      primary: "#EBDBB2" # fg
-      secondary: "#A89984" # fg4
-      inverted: "#32303F" # bg0_s
-      faint: "#A89984" # fg4
-      warning: "#FB4934" # red
-      success: "#B8BB26" # green
     background:
       selected: "#1D2021" # bg0_h
     border:
+      faint: "#928374" # gray
       primary: "#458588" # blue
       secondary: "#3C3836" # bg1
-      faint: "#928374" # gray
+    text:
+      faint: "#A89984" # fg4
+      inverted: "#32303F" # bg0_s
+      primary: "#EBDBB2" # fg
+      secondary: "#A89984" # fg4
+      success: "#B8BB26" # green
+      warning: "#FB4934" # red
