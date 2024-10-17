@@ -25,8 +25,10 @@ autocmd({ "FileType" }, {
   end,
 })
 
+local trailing_space = augroup("TrailingSpace", {})
 autocmd({ "BufWritePre" }, {
   desc = "Remove trailing-space",
+  group = trailing_space,
   pattern = { "*" },
   callback = function()
     if vim.bo.filetype == "markdown" then
@@ -43,6 +45,18 @@ autocmd({ "BufWritePre" }, {
     vim.cmd([[%s/\s\+$//e]])
     vim.api.nvim_win_set_cursor(0, pre_pos)
   end,
+})
+autocmd({ "InsertEnter" }, {
+  desc = "Remove trailing space character for insert mode",
+  group = trailing_space,
+  pattern = { "*" },
+  command = "set listchars-=trail:·", -- TODO: this for only current line
+})
+autocmd({ "InsertLeave" }, {
+  desc = "Enable trailing space character for non-insert mode",
+  group = trailing_space,
+  pattern = { "*" },
+  command = "set listchars+=trail:·",
 })
 
 autocmd("TextYankPost", {
