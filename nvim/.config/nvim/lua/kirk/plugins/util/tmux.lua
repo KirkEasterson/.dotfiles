@@ -1,6 +1,6 @@
 return {
   "aserowy/tmux.nvim",
-  cond = function ()
+  cond = function()
     return os.getenv("TMUX") ~= nil
   end,
   lazy = false,
