@@ -50,13 +50,21 @@ autocmd({ "InsertEnter" }, {
   desc = "Remove trailing space character for insert mode",
   group = trailing_space,
   pattern = { "*" },
-  command = "set listchars-=trail:·", -- TODO: this for only current line
+  -- command = "set listchars-=trail:·",
+  callback = function()
+    vim.opt.listchars:remove("trail")
+  end,
 })
 autocmd({ "InsertLeave" }, {
   desc = "Enable trailing space character for non-insert mode",
   group = trailing_space,
   pattern = { "*" },
-  command = "set listchars+=trail:·",
+  -- command = "set listchars+=trail:·",
+  callback = function()
+    vim.opt.listchars:append({
+      trail = "·",
+    })
+  end,
 })
 
 autocmd("TextYankPost", {
