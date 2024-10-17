@@ -17,6 +17,13 @@ return {
       desc = "Grapple toggle tag",
     },
     {
+      "<leader>hr",
+      function()
+        require("grapple").reset()
+      end,
+      desc = "Grapple reset tags",
+    },
+    {
       "<leader>hw",
       function()
         require("grapple").toggle_tags()
