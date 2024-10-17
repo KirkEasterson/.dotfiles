@@ -1,12 +1,3 @@
-local function show_macro_recording()
-  local recording_register = vim.fn.reg_recording()
-  if recording_register == "" then
-    return ""
-  else
-    return "Recording @" .. recording_register
-  end
-end
-
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -54,7 +45,16 @@ return {
       },
       lualine_c = {
         { "filename" },
-        { "macro-recording", fmt = show_macro_recording },
+        {
+          "macro-recording",
+          fmt = function()
+            local reg = vim.fn.reg_recording()
+            if reg == "" then
+              return ""
+            end
+            return "Recording @" .. reg
+          end,
+        },
       },
     },
   },
