@@ -38,14 +38,11 @@ return {
     "petertriho/cmp-git",
     "davidsierradz/cmp-conventionalcommits",
   },
-  config = function(_, opts)
-    require("cmp_git").setup({})
-
+  config = function(_, _)
     local cmp = require("cmp")
     local cmp_types = require("cmp.types.cmp")
-    local lspkind = require("lspkind")
 
-    local cmp_opts = {
+    cmp.setup({
       performance = {
         debounce = 0, -- default is 60ms
         throttle = 0, -- default is 30ms
@@ -80,7 +77,7 @@ return {
           cmp_types.ItemField.Menu,
         },
         format = function(entry, vim_item)
-          local kind = lspkind.cmp_format({
+          local kind = require("lspkind").cmp_format({
             mode = "symbol_text",
             maxwidth = 50,
             ellipsis_char = "…",
@@ -129,9 +126,7 @@ return {
         native_menu = false,
         ghost_text = false,
       },
-    }
-
-    cmp.setup(cmp_opts)
+    })
 
     cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
       sources = cmp.config.sources({
@@ -146,5 +141,7 @@ return {
     })
 
     cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+    require("cmp_git").setup({})
   end,
 }
