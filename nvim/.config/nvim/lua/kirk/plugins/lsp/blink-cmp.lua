@@ -5,8 +5,10 @@ return {
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
-
   opts = {
+    -- TODO:
+    --  - add borders to cmp window
+    --  - add sources from nvim-cmp
     highlight = {
       use_nvim_cmp_as_default = true,
     },
