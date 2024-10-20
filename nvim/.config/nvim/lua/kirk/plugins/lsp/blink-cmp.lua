@@ -49,5 +49,8 @@ return {
       show_documentation = "<C-e>",
       hide_documentation = "<C-e>",
     },
+    prebuiltBinaries = {
+      forceVersion = true,
+    },
   },
 }
