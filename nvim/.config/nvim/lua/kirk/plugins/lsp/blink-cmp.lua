@@ -20,7 +20,12 @@ return {
               max_width = 45,
             },
             " ",
-            { ctx.kind_icon, ctx.icon_gap, ctx.kind, hl_group = "BlinkCmpKind" .. ctx.kind },
+            {
+              ctx.kind_icon,
+              ctx.icon_gap,
+              "[" .. ctx.kind .. "]",
+              hl_group = "BlinkCmpKind" .. ctx.kind,
+            },
           }
         end,
       },
