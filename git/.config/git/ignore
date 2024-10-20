@@ -1,4 +1,12 @@
-.env
-.env.*
-.envrc
-.autoenv.zsh
+**/*.env
+**/*.env.*
+**/.envrc
+**/.autoenv.zsh
+
+**/.luarc.json
+**/__pycache__/
+**/.mypycache
+**/*.pyc
+**/*.pyo
+**/.vscode
+**/.idea
