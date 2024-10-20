@@ -6,9 +6,6 @@ return {
     "rafamadriz/friendly-snippets",
   },
   opts = {
-    -- TODO:
-    --  - add borders to cmp window
-    --  - add sources from nvim-cmp
     nerd_font_variant = "mono",
     highlight = {
       use_nvim_cmp_as_default = true,
@@ -16,6 +13,19 @@ return {
     windows = {
       autocomplete = {
         border = "rounded",
+        draw = function(ctx)
+          return {
+            " ",
+            {
+              ctx.item.label,
+              fill = true,
+              hl_group = ctx.deprecated and "BlinkCmpLabelDeprecated" or "BlinkCmpLabel",
+              max_width = 45,
+            },
+            " ",
+            { ctx.kind_icon, ctx.icon_gap, ctx.kind, hl_group = "BlinkCmpKind" .. ctx.kind },
+          }
+        end,
       },
       documentation = {
         border = "rounded",
