@@ -7,9 +7,6 @@ return {
   },
   opts = {
     nerd_font_variant = "mono",
-    highlight = {
-      use_nvim_cmp_as_default = true,
-    },
     windows = {
       autocomplete = {
         border = "rounded",
