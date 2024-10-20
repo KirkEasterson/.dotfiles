@@ -1,9 +1,5 @@
 return {
   "mfussenegger/nvim-lint",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
   config = function()
     require("lint").linters_by_ft = {
       cpp = { "cpplint" },
