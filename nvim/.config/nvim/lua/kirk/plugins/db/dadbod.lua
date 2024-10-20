@@ -4,7 +4,8 @@ return {
   dependencies = {
     "tpope/vim-dadbod",
     "kristijanhusak/vim-dadbod-completion",
-    "hrsh7th/nvim-cmp",
+
+    -- "hrsh7th/nvim-cmp",
   },
   cmd = {
     -- dadbod
@@ -33,16 +34,16 @@ return {
     vim.g.db_ui_auto_execute_table_helpers = 1
     vim.g.db_ui_show_help = 0
 
-    vim.api.nvim_create_autocmd({ "FileType" }, {
-      pattern = { "sql", "mysql", "plsql" },
-      callback = function()
-        require("cmp").setup.buffer({
-          sources = {
-            { name = "vim-dadbod-completion" },
-          },
-        })
-      end,
-      desc = "Add completion for vim-dadbod",
-    })
+    -- vim.api.nvim_create_autocmd({ "FileType" }, {
+    --   pattern = { "sql", "mysql", "plsql" },
+    --   callback = function()
+    --     require("cmp").setup.buffer({
+    --       sources = {
+    --         { name = "vim-dadbod-completion" },
+    --       },
+    --     })
+    --   end,
+    --   desc = "Add completion for vim-dadbod",
+    -- })
   end,
 }
