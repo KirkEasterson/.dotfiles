@@ -24,6 +24,40 @@ util.map("n", "<leader>w", "<cmd>silent! write<cr>", { desc = "Save file" })
 util.map("n", "<leader>q", vim.cmd.q, { desc = "Close window" })
 util.map("n", "<leader>z", vim.cmd.qa, { desc = "Quit" })
 
+-- quickfix list navigation
+util.map("n", "[q", vim.cmd.cprev, { desc = "Quickfix list - prev" })
+util.map("n", "]q", vim.cmd.cnext, { desc = "Quickfix list - next" })
+util.map("n", "[Q", vim.cmd.cfirst, { desc = "Quickfix list - first" })
+util.map("n", "]Q", vim.cmd.clast, { desc = "Quickfix list - last" })
+util.map("n", "<leader>tq", function()
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["quickfix"] == 1 then
+      vim.cmd("cclose")
+      return
+    end
+  end
+  if not vim.tbl_isempty(vim.fn.getqflist()) then
+    vim.cmd("copen")
+  end
+end, { desc = "Quickfix list - toggle" })
+
+-- location list navigation
+util.map("n", "[l", vim.cmd.cprev, { desc = "Location list - prev" })
+util.map("n", "]l", vim.cmd.cnext, { desc = "Location list - next" })
+util.map("n", "[L", vim.cmd.cfirst, { desc = "Location list - first" })
+util.map("n", "]L", vim.cmd.clast, { desc = "Location list - last" })
+util.map("n", "<leader>tl", function()
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["location"] == 1 then
+      vim.cmd("lclose")
+      return
+    end
+  end
+  if not vim.tbl_isempty(vim.fn.getloclist(0)) then
+    vim.cmd("lopen")
+  end
+end, { desc = "Location list - toggle" })
+
 -- closing buffers
 util.map("n", "<C-w>", vim.cmd.bd, { desc = "Delete current buffer" })
 util.map("n", "<M-w>", function()

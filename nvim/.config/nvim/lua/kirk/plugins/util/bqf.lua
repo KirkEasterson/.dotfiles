@@ -1,5 +1,6 @@
 return {
   "kevinhwang91/nvim-bqf",
+  enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
