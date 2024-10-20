@@ -9,7 +9,7 @@ return {
     -- TODO:
     --  - add borders to cmp window
     --  - add sources from nvim-cmp
-    nerd_font_variant = "normal",
+    nerd_font_variant = "mono",
     highlight = {
       use_nvim_cmp_as_default = true,
     },
