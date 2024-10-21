@@ -25,47 +25,55 @@ util.map("n", "<leader>q", vim.cmd.q, { desc = "Close window" })
 util.map("n", "<leader>z", vim.cmd.qa, { desc = "Quit" })
 
 -- quickfix list navigation
-util.map("n", "[q", vim.cmd.cprev, { desc = "Quickfix list - prev" })
-util.map("n", "]q", vim.cmd.cnext, { desc = "Quickfix list - next" })
 util.map("n", "[Q", vim.cmd.cfirst, { desc = "Quickfix list - first" })
 util.map("n", "]Q", vim.cmd.clast, { desc = "Quickfix list - last" })
+util.map("n", "[q", function()
+  if not (pcall(vim.cmd, "cprev")) then
+    vim.cmd("clast")
+  end
+end, { desc = "Quickfix list - prev" })
+util.map("n", "]q", function()
+  if not (pcall(vim.cmd, "cnext")) then
+    vim.cmd("cfirst")
+  end
+end, { desc = "Quickfix list - next" })
 util.map("n", "<leader>tq", function()
+  if vim.tbl_isempty(vim.fn.getqflist()) then
+    return
+  end
   for _, win in pairs(vim.fn.getwininfo()) do
     if win["quickfix"] == 1 then
       vim.cmd("cclose")
       return
     end
   end
-  if not vim.tbl_isempty(vim.fn.getqflist()) then
-    vim.cmd("copen")
-  end
+  vim.cmd("copen")
 end, { desc = "Quickfix list - toggle" })
 
 -- location list navigation
+util.map("n", "[L", vim.cmd.cfirst, { desc = "Location list - first" })
+util.map("n", "]L", vim.cmd.clast, { desc = "Location list - last" })
 util.map("n", "[l", function()
-  local success = pcall(vim.cmd, "cprev")
-  if not success then
+  if not (pcall(vim.cmd, "cprev")) then
     vim.cmd("clast")
   end
 end, { desc = "Location list - prev" })
 util.map("n", "]l", function()
-  local success = pcall(vim.cmd, "cnext")
-  if not success then
+  if not (pcall(vim.cmd, "cnext")) then
     vim.cmd("cfirst")
   end
 end, { desc = "Location list - next" })
-util.map("n", "[L", vim.cmd.cfirst, { desc = "Location list - first" })
-util.map("n", "]L", vim.cmd.clast, { desc = "Location list - last" })
 util.map("n", "<leader>tl", function()
+  if vim.tbl_isempty(vim.fn.getloclist(0)) then
+    return
+  end
   for _, win in pairs(vim.fn.getwininfo()) do
     if win["location"] == 1 then
       vim.cmd("lclose")
       return
     end
   end
-  if not vim.tbl_isempty(vim.fn.getloclist(0)) then
-    vim.cmd("lopen")
-  end
+  vim.cmd("lopen")
 end, { desc = "Location list - toggle" })
 
 -- disable default bindings
