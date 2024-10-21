@@ -42,8 +42,18 @@ util.map("n", "<leader>tq", function()
 end, { desc = "Quickfix list - toggle" })
 
 -- location list navigation
-util.map("n", "[l", vim.cmd.cprev, { desc = "Location list - prev" })
-util.map("n", "]l", vim.cmd.cnext, { desc = "Location list - next" })
+util.map("n", "[l", function()
+  local success = pcall(vim.cmd, "cprev")
+  if not success then
+    vim.cmd("clast")
+  end
+end, { desc = "Location list - prev" })
+util.map("n", "]l", function()
+  local success = pcall(vim.cmd, "cnext")
+  if not success then
+    vim.cmd("cfirst")
+  end
+end, { desc = "Location list - next" })
 util.map("n", "[L", vim.cmd.cfirst, { desc = "Location list - first" })
 util.map("n", "]L", vim.cmd.clast, { desc = "Location list - last" })
 util.map("n", "<leader>tl", function()
