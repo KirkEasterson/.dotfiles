@@ -1,5 +1,6 @@
 return {
   "chrisgrieser/nvim-recorder",
+  enabled = false,
   dependencies = {
     "nvim-lualine/lualine.nvim",
   },
