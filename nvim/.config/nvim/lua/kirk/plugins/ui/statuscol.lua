@@ -1,6 +1,15 @@
 return {
   "luukvbaal/statuscol.nvim",
-  lazy = false,
+  dependencies = {
+    "lewis6991/gitsigns.nvim",
+    "chentoast/marks.nvim",
+    -- "mfussenegger/nvim-dap",
+    -- "kevinhwang91/nvim-ufo",
+  },
+  event = {
+    "BufNewFile",
+    "BufReadPre",
+  },
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({

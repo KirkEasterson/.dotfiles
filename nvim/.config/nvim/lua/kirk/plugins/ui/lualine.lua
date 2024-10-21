@@ -3,7 +3,10 @@ return {
   dependencies = {
     "echasnovski/mini.icons",
   },
-  lazy = false,
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   opts = {
     disabled_filetypes = {
       statusline = {

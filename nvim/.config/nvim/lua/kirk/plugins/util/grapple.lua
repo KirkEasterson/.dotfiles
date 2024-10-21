@@ -3,6 +3,7 @@ return {
   dependencies = {
     "echasnovski/mini.icons",
   },
+  event = { "BufReadPost", "BufNewFile" },
   cmd = "Grapple",
   opts = {
     scope = "git_branch",

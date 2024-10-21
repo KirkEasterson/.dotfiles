@@ -1,6 +1,10 @@
 -- TODO:: remove <C-w>d and <C-w><C-d> mapping for diagnostics under cursor
 return {
   "neovim/nvim-lspconfig",
+  event = {
+    "BufNewFile",
+    "BufReadPost",
+  },
   cmd = {
     "LspInfo",
     "LspLog",
