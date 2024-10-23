@@ -18,16 +18,30 @@ return {
     {
       "[c",
       function()
-        require("gitsigns").prev_hunk()
+        require("gitsigns").nav_hunk("prev")
       end,
       desc = "Prev hunk",
     },
     {
       "]c",
       function()
-        require("gitsigns").next_hunk()
+        require("gitsigns").nav_hunk("next", { wrap = true })
       end,
       desc = "Next hunk",
+    },
+    {
+      "[C",
+      function()
+        require("gitsigns").nav_hunk("first")
+      end,
+      desc = "First hunk",
+    },
+    {
+      "]C",
+      function()
+        require("gitsigns").nav_hunk("last")
+      end,
+      desc = "Last hunk",
     },
   },
   opts = {
