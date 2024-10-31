@@ -14,8 +14,6 @@
 )
 
 (defalias
-    caps_esc_ctrl (tap-hold-next-release 150 esc lctl)
-
     ctl_a (tap-hold-next-release 150 a lctl)
     alt_s (tap-hold-next-release 150 s lalt)
     met_d (tap-hold-next-release 150 d lmet)
@@ -29,5 +27,5 @@
 
 
 (deflayer qwerty
-  @caps_esc_ctrl @ctl_a   @alt_s   @met_d   @sft_f   g   h   @sft_j   @met_k   @alt_l   @ctl_;
+  esc @ctl_a   @alt_s   @met_d   @sft_f   g   h   @sft_j   @met_k   @alt_l   @ctl_;
 )
