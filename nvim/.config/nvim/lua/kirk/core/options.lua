@@ -1,5 +1,4 @@
 local g = vim.g
-local o = vim.o
 local opt = vim.opt
 
 g.mapleader = " " -- prefix key
@@ -160,7 +159,7 @@ opt.scrolloff = 4 -- scroll when y away from vertical edge
 opt.sidescrolloff = 8 -- scroll when x away from horizontal edge
 opt.signcolumn = "yes" -- column for linting
 opt.colorcolumn = "80" -- show line for 80char soft-limit
-opt.textwidth = 80 -- text limit, but will only be applied to comments
+-- opt.textwidth = 80 -- text limit, but will only be applied to comments
 
 -- formatting options (`:h fo-table`)
 --  - "c": enable formatting for comments
