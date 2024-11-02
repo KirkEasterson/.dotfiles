@@ -3,7 +3,7 @@ return {
   dependencies = {
     "echasnovski/mini.icons",
     "BlakeJC94/alpha-nvim-fortune",
-    "folke/drop.nvim",
+    -- "folke/drop.nvim",
   },
   lazy = false,
   priority = 998, -- 1 less than gruvbox
