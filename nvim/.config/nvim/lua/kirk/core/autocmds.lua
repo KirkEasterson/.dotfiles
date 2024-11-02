@@ -214,7 +214,7 @@ autocmd("BufReadPost", {
 
 autocmd("BufWritePost", {
   group = augroup("CustomSettings", {}),
-  desc = "Make sh file executable if a shebang is deteced",
+  desc = "Make sh file executable if a shebang is detected",
   pattern = "*",
   callback = function(args)
     local uv = vim.uv
