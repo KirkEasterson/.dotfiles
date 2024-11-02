@@ -96,9 +96,6 @@ exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id flameshot
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# make capslock an additional escape
-exec_always --no-startup-id setxkbmap -option caps:escape
-
 # Dropdown/Scratchpad terminals
 exec --no-startup-id $TERMINAL -t 'scratchpad_dropdown'
 exec --no-startup-id $TERMINAL -t 'scratchpad_todo' -e tudu
