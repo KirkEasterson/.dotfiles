@@ -2,6 +2,7 @@ return {
   "saghen/blink.cmp",
   -- enabled = false,
   lazy = false, -- lazy loading handled internally
+  version = "v0.3", -- TODO: upgrade to v5
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
