@@ -15,8 +15,6 @@ if [ -n "${DISPLAY}" ]; then
 		kanshi &
 
 	else
-		setxkbmap -option "caps:escape"
-
 		picom &
 		sxhkd &
 

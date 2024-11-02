@@ -354,7 +354,6 @@ mouse = [
 wl_input_rules = {
     "type:keyboard": InputConfig(
         kb_layout="no,se,us(altgr-intl),prog-qwerty",
-        kb_options="caps:escape",
         kb_repeat_delay=200,
         kb_repeat_rate=30,
         kb_variant=",nodeadkeys",

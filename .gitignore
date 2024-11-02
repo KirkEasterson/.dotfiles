@@ -24,6 +24,9 @@ firefox/*
 !firefox/addons.json
 !firefox/user.js
 
+**/systemd/user/default.target.wants/*
+**/systemd/user/sockets.target.wants/*
+
 **/yazi/plugins/*
 
 **/shell/local_exports
