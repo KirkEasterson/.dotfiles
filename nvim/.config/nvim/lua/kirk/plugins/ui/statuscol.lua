@@ -76,7 +76,6 @@ return {
         { -- git signs
           hl = "GitSigns",
           sign = {
-            auto = false,
             wrap = true,
             maxwidth = 1,
             colwidth = 1,
@@ -84,7 +83,6 @@ return {
             fillcharhl = "",
             namespace = { "gitsign" },
           },
-          condition = { true },
         },
       },
     })
