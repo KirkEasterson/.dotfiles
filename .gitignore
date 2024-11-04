@@ -19,6 +19,8 @@ bin/.local/share/*
 bin/.local/state/*
 git/.config/git/gitconfig.local
 
+**/fontconfig/conf.d/*
+
 firefox/*
 !firefox/chrome/userChrome.css
 !firefox/addons.json
