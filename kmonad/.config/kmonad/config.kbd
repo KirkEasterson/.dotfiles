@@ -14,15 +14,15 @@
 )
 
 (defalias
-    ctl_a (tap-hold-next-release 175 a lctl)
-    alt_s (tap-hold-next-release 175 s lalt)
-    met_d (tap-hold-next-release 175 d lmet)
-    sft_f (tap-hold-next-release 175 f lsft)
+    ctl_a (tap-hold-next-release 200 a lctl)
+    alt_s (tap-hold-next-release 200 s lalt)
+    met_d (tap-hold-next-release 200 d lmet)
+    sft_f (tap-hold-next-release 200 f lsft)
 
-    sft_j (tap-hold-next-release 175 j rsft)
-    met_k (tap-hold-next-release 175 k rmet)
-    alt_l (tap-hold-next-release 175 l ralt)
-    ctl_; (tap-hold-next-release 175 ; rctl)
+    sft_j (tap-hold-next-release 200 j rsft)
+    met_k (tap-hold-next-release 200 k rmet)
+    alt_l (tap-hold-next-release 200 l ralt)
+    ctl_; (tap-hold-next-release 200 ; rctl)
 )
 
 
