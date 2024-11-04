@@ -1,4 +1,11 @@
 (setq inhibit-startup-message t) ;; no startup screen
+(setq initial-scratch-message "") ;; no scratch buffer message
+
+;; increase garbage collection threshold
+(setq gc-cons-threshold #x40000000)
+
+;; maximum reading process output size (allows for larger data transfers)
+(setq read-process-output-max (* 1024 1024 4))
 
 (scroll-bar-mode -1) ;; disable scrollbar
 (tool-bar-mode -1) ;; disable toolbar
