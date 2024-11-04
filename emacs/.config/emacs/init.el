@@ -45,6 +45,12 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+;; nerd fonts
+(defcustom ek-use-nerd-fonts t
+  "Configuration for using Nerd Fonts Symbols."
+  :type 'boolean
+  :group 'appearance)
+
 (use-package doom-themes
   :ensure t
   :config
