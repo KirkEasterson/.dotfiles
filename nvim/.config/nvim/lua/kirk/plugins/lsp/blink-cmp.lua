@@ -42,11 +42,6 @@ return {
         enabled = true,
       },
     },
-    trigger = {
-      signature_help = {
-        enabled = true,
-      },
-    },
     keymap = {
       accept = "<C-y>",
       show_documentation = "<C-e>",
