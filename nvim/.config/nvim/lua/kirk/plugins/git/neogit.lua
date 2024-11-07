@@ -10,6 +10,7 @@ return {
     "rmagatti/auto-session",
   },
   cmd = "Neogit",
+  version = false, -- TODO: remove this once better versioning is added
   keys = {
     {
       "<leader>gg",
