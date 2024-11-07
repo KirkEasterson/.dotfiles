@@ -22,7 +22,6 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
-      dashboard.button("r", "󰦛  > Restore session", ":SessionRestore<CR>"),
       dashboard.button("e", "  > File tree", ":NvimTreeOpen<CR>"),
       dashboard.button("q", "󰅚  > Quit NVIM", ":qa<CR>"),
     }
