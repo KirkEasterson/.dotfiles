@@ -1,9 +1,7 @@
+-- this plugin also handles pane control _outside_ of TMUX
+
 return {
   "aserowy/tmux.nvim",
-  cond = function()
-    return os.getenv("TMUX") ~= nil
-  end,
-  lazy = false,
   keys = {
     {
       "<C-h>",
@@ -11,7 +9,6 @@ return {
         require("tmux").move_left()
       end,
       desc = "Move left",
-      mode = "t",
     },
     {
       "<C-j>",
@@ -19,7 +16,6 @@ return {
         require("tmux").move_bottom()
       end,
       desc = "Move down",
-      mode = "t",
     },
     {
       "<C-k>",
@@ -27,7 +23,6 @@ return {
         require("tmux").move_top()
       end,
       desc = "Move up",
-      mode = "t",
     },
     {
       "<C-l>",
@@ -35,7 +30,6 @@ return {
         require("tmux").move_right()
       end,
       desc = "Move right",
-      mode = "t",
     },
     {
       "<M-h>",
@@ -43,7 +37,6 @@ return {
         require("tmux").resize_left()
       end,
       desc = "Resize left",
-      mode = "t",
     },
     {
       "<M-j>",
@@ -51,7 +44,6 @@ return {
         require("tmux").resize_bottom()
       end,
       desc = "Resize down",
-      mode = "t",
     },
     {
       "<M-k>",
@@ -59,7 +51,6 @@ return {
         require("tmux").resize_top()
       end,
       desc = "Resize up",
-      mode = "t",
     },
     {
       "<M-l>",
@@ -67,7 +58,6 @@ return {
         require("tmux").resize_right()
       end,
       desc = "Resize right",
-      mode = "t",
     },
   },
   opts = {
