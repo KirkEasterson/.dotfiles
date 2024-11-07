@@ -1,6 +1,6 @@
 return {
   "petertriho/cmp-git",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

@@ -1,9 +1,9 @@
 -- TODO:: remove <C-w>d and <C-w><C-d> mapping for diagnostics under cursor
 return {
   "neovim/nvim-lspconfig",
-  dependencies = {
-    "saghen/blink.cmp",
-  },
+  -- dependencies = {
+  --   "saghen/blink.cmp",
+  -- },
   event = {
     "BufNewFile",
     "BufReadPost",

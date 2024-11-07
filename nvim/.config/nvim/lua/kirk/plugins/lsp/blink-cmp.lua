@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  -- enabled = false,
+  enabled = false,
   lazy = false, -- lazy loading handled internally
   version = "v0.3", -- TODO: upgrade to v5
   dependencies = {
@@ -39,6 +39,11 @@ return {
     },
     accept = {
       auto_brackets = {
+        enabled = true,
+      },
+    },
+    trigger = {
+      signature_help = {
         enabled = true,
       },
     },
