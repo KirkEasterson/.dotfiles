@@ -10,10 +10,10 @@ status() {
 
 inhibit() {
 	if [ $# -eq 0 ]; then
-		notify-send "Inhibiting idle" -h string:x-canonical-private-synchronous:idle
+		notify_user "Inhibiting idle"
 		num_minutes=$((365 * 24 * 60))
 	else
-		notify-send "Inhibiting idle for ${num_minutes} minutes" -h string:x-canonical-private-synchronous:idle
+		notify_user "Inhibiting idle for ${num_minutes} minutes"
 		num_minutes=$1
 	fi
 
@@ -23,6 +23,10 @@ inhibit() {
 
 uninhibit() {
 	pkill -f "systemd-inhibit --what=idle" || true
+}
+
+notify_user() {
+	notify-send "$1" -h string:x-canonical-private-synchronous:idle
 }
 
 send_signal() {
@@ -47,7 +51,7 @@ case $1'' in
 	;;
 'off')
 	uninhibit
-	notify-send "No longer inhibiting idle" -h string:x-canonical-private-synchronous:idle
+	notify_user "No longer inhibiting idle"
 	send_signal
 	exit 0
 	;;
