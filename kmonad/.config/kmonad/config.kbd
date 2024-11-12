@@ -1,5 +1,5 @@
 (defcfg
-  input  (device-file "/dev/input/by-id/usb-izwan_zwactyl_50_vial:f64c2b3c-event-kbd")
+  input  (device-file "$KBD_DEV")
   output (uinput-sink "My KMonad output")
 
   ;; Comment this if you want unhandled events not to be emitted
