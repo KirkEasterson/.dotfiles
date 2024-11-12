@@ -84,6 +84,7 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export GTK_USE_PORTAL=0
 
 	export SEARCH="fuzzel"
+	export BAR="waybar"
 
 	export WLR_RENDERER="vulkan"
 	export WLR_NO_HARDWARE_CURSORS=1
@@ -92,6 +93,7 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	# export XWAYLAND_NO_GLAMOR=1
 else
 	export SEARCH="rofi"
+	export BAR="polybar"
 fi
 
 # user defaults

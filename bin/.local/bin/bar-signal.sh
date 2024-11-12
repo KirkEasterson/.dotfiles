@@ -1,6 +1,12 @@
 #!/bin/sh
 # set -u
 
+bar_pid=$(pidof -x "$BAR")
+
+if [ "$bar_pid" = "" ]; then
+    exit 0
+fi
+
 declare -A signal
 signal["github"]=4
 signal["playerctl"]=5
