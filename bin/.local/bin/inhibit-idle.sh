@@ -54,7 +54,7 @@ case $1'' in
 *)
 	num_processes=$(status)
 	num_processes="${num_processes//[$'\t\r\n ']/}"
-	if [ "$num_processes" -eq "0" ]; then
+	if [ "$num_processes" -ne "0" ]; then
 		class="on"
 		text="Inhibiting idle (mid click to clear)"
 	else
