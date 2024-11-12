@@ -40,20 +40,18 @@ case $1'' in
 	if [ $ret_val -ne 0 ]; then
 		exit 0
 	fi
+
 	inhibit "$num_minutes"
 	send_signal
-	exit 0
 	;;
 'on')
 	inhibit
 	send_signal
-	exit 0
 	;;
 'off')
 	uninhibit
 	notify_user "No longer inhibiting idle"
 	send_signal
-	exit 0
 	;;
 *)
 	num_processes=$(status)
@@ -65,7 +63,7 @@ case $1'' in
 		class="off"
 		text="Idle not inhibited"
 	fi
+
+	printf '{"alt":"%s","tooltip":"%s"}\n' "$class" "$text"
 	;;
 esac
-
-printf '{"alt":"%s","tooltip":"%s"}\n' "$class" "$text"
