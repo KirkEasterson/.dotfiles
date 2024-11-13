@@ -39,7 +39,7 @@ send_signal() {
 
 case $1'' in
 'interactive')
-	num_minutes=$(printf "1\n10\n15\n20\n30\n45\n60\n90\n120" | ${SEARCH} -d -p "Number of minutes to inhibit idle:")
+	num_minutes=$(printf "1\n10\n15\n30\n60\n90\n120" | ${SEARCH} -d -p "Number of minutes to inhibit idle:")
 	ret_val=$?
 	if [ $ret_val -ne 0 ]; then
 		exit 0
