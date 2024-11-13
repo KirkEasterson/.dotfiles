@@ -18,7 +18,11 @@ inhibit() {
 	fi
 
 	uninhibit
-	systemd-inhibit --what=idle --who=swayidle-inhibit --why=commanded --mode=block sleep $((num_minutes * 60)) &
+	systemd-inhibit \
+		--what=idle \
+		--who=swayidle-inhibit \
+		--why=commanded \
+		--mode=block sleep $((num_minutes * 60)) &
 }
 
 uninhibit() {
