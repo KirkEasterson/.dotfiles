@@ -57,7 +57,7 @@ notify_user() {
 		-u "low" \
 		-i "$icon" \
 		-h "int:value:${volume}" \
-		-h "string:x-canonical-private-synchronous:sys-notify"
+		-h "string:x-canonical-private-synchronous:volume"
 }
 
 case "${1}" in
