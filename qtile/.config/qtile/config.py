@@ -140,10 +140,10 @@ if is_wayland:
                 desc="Spawn alternative browser",
             ),
             # notes
-            Key([MOD], "n", lazy.spawn("notes.sh edit"), desc="Take notes"),
+            Key([MOD], "o", lazy.spawn("notes.sh edit"), desc="Take notes"),
             Key(
                 [MOD, "shift"],
-                "n",
+                "o",
                 lazy.spawn("notes.sh view"),
                 desc="View notes",
             ),
