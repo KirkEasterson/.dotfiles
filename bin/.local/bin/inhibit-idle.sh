@@ -65,7 +65,7 @@ case $1'' in
 	num_processes="${num_processes//[$'\t\r\n ']/}"
 	if [ "$num_processes" -ne "0" ]; then
 		class="on"
-		text="Inhibiting idle (mid click to clear)"
+		text="Inhibiting idle"
 	else
 		class="off"
 		text="Idle not inhibited"
