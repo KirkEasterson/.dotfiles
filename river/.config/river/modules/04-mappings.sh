@@ -34,8 +34,8 @@ riverctl map normal Super W spawn "$BROWSER"
 riverctl map normal Super+Shift W spawn "$BROWSER_SECONDARY"
 
 # notes
-riverctl map normal Super O spawn "notes.sh edit"
-riverctl map normal Super+Shift O spawn "notes.sh view"
+riverctl map normal Super N spawn "notes.sh edit"
+riverctl map normal Super+Shift N spawn "notes.sh view"
 
 # screenshot
 riverctl map normal None Print spawn "screenshot.sh gui"

@@ -25,9 +25,9 @@ super + ctrl + space
 	emoji_picker.sh
 
 # notes
-super + o
+super + n
 	notes.sh edit
-super + shift + o
+super + shift + n
 	notes.sh view
 
 # media keys
