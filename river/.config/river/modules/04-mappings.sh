@@ -67,8 +67,8 @@ riverctl map normal Super M focus-output next
 riverctl map normal Super Comma focus-output previous
 
 # send the focused view to the next/previous output
-riverctl map normal Super N send-to-output previous
-riverctl map normal Super Period send-to-output next
+riverctl map normal Super+Shift M send-to-output next
+riverctl map normal Super+Shift Comma send-to-output previous
 
 # bump the focused view to the top of the layout stack
 riverctl map normal Super Z zoom
