@@ -4,7 +4,7 @@ Description=Autostart kmonad
 [Service]
 ExecStart=/home/kirk/.config/kmonad/external_keyboard_script.sh
 StandardOutput=journal
-Restart=on-failure
+Restart=always
 RestartSec=3
 Nice=-20
 
