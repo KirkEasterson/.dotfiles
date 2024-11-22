@@ -37,15 +37,16 @@ return {
       },
     },
     sections = {
-      lualine_b = {
-        "branch",
-      },
+      lualine_b = {},
       lualine_c = {
-        "grapple",
         "filename",
-        "diff",
         "diagnostics",
+        "branch",
+        "diff",
+      },
+      lualine_x = {
         "overseer",
+        "grapple",
         {
           "macro-recording",
           fmt = function()
