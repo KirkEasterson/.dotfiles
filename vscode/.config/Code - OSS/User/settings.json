@@ -2,7 +2,6 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "workbench.colorTheme": "Gruvbox Dark Medium",
   "telemetry.telemetryLevel": "off",
   "gitlens.telemetry.enabled": false,
   "window.menuBarVisibility": "toggle",
@@ -13,5 +12,7 @@
   "editor.acceptSuggestionOnEnter": "off",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "keyboard.dispatch": "keyCode"
 }
