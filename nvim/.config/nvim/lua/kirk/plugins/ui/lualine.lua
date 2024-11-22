@@ -38,13 +38,14 @@ return {
     },
     sections = {
       lualine_b = {
-        {
-          "grapple",
-          "overseer",
-        },
+        "branch",
       },
       lualine_c = {
-        { "filename" },
+        "grapple",
+        "filename",
+        "diff",
+        "diagnostics",
+        "overseer",
         {
           "macro-recording",
           fmt = function()
@@ -52,7 +53,7 @@ return {
             if reg == "" then
               return ""
             end
-            return "Recording @" .. reg
+            return "recording @" .. reg
           end,
         },
       },
