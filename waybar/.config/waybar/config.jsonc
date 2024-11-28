@@ -222,6 +222,7 @@
   "memory": {
     "format": " {percentage}%",
     "tooltip-format": "{used:0.1f}GiB RAM used",
+    "on-click": "wezterm -e htop",
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -262,6 +263,7 @@
     // "format-good": "", // An empty format will hide the module
     "format-full": "󰁹 {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+    "on-click": "gnome-power-statistics",
   },
   "wireplumber": {
     // "scroll-step": 1, // %, can be a float
