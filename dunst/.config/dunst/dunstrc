@@ -298,7 +298,7 @@
 
 [notify-send]
     appname = "notify-send"
-    format = "%s %p\n%b"
+    format = "<b>%s</b> %p\n%b"
 
 [logs]
     summary = "log-.*"
