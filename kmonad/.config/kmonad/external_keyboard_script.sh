@@ -17,6 +17,7 @@ else
 fi
 
 export KBD_DEV
+# NOTE: $XDG_CONFIG_HOME can't be used below
 KBDCFG=$(envsubst <"${HOME}/.config/kmonad/config.kbd")
 
 # TODO: make this line POSIX compliant
