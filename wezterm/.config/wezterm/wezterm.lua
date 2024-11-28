@@ -110,7 +110,7 @@ return {
   cursor_blink_rate = 0,
   pane_focus_follows_mouse = true,
   enable_wayland = is_wayland(),
-  max_fps = 120,
+  max_fps = 240,
   window_close_confirmation = "NeverPrompt",
   audible_bell = "SystemBeep",
   visual_bell = {
@@ -122,7 +122,7 @@ return {
   colors = {
     visual_bell = "#cc241d",
   },
-  animation_fps = 1,
+  animation_fps = 240,
   check_for_updates = false,
   mouse_bindings = {
     {
