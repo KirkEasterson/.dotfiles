@@ -2,6 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "echasnovski/mini.icons",
+    "ellisonleao/gruvbox.nvim",
   },
   event = {
     "BufNewFile",
@@ -39,9 +40,20 @@ return {
     sections = {
       lualine_b = {},
       lualine_c = {
-        "filename",
+        {
+          "filename",
+          color = {
+            gui = "bold",
+            fg = require("gruvbox").palette.neutral_yellow,
+          },
+        },
         "diagnostics",
-        "branch",
+        {
+          "branch",
+          color = {
+            fg = require("gruvbox").palette.neutral_aqua,
+          },
+        },
         "diff",
       },
       lualine_x = {
