@@ -26,6 +26,7 @@ bold_italic = { family = "ComicCodeLigatures Nerd Font", style = "Bold Italic" }
 italic = { family = "ComicCodeLigatures Nerd Font", style = "Italic" }
 normal = { family = "ComicCodeLigatures Nerd Font", style = "Regular" }
 builtin_box_drawing = false
+offset = { x = 1, y = 2 }
 
 [env]
 # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
