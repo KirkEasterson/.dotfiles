@@ -48,7 +48,6 @@
     "battery",
     "custom/separator",
     "clock",
-    "custom/search",
   ],
   "group/group-power": {
     "orientation": "inherit",
