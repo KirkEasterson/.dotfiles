@@ -10,6 +10,7 @@ riverctl rule-add -title "Save File" float
 riverctl rule-add -title "Save Folder" float
 riverctl rule-add -title "Save" float
 
+riverctl rule-add -title "Bluetooth Devices" float
 riverctl rule-add -app-id "dragon-drop" float
 riverctl rule-add -app-id "com-atlauncher-App" float
 riverctl rule-add -title "webcam-on-screen" float
