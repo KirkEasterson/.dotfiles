@@ -1,59 +1,93 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  -- enabled = false,
   lazy = false, -- lazy loading handled internally
-  version = "v0.3", -- TODO: upgrade to v5
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
   opts = {
-    nerd_font_variant = "mono",
-    windows = {
-      autocomplete = {
+    appearance = {
+      nerd_font_variant = "mono",
+      use_nvim_cmp_as_default = true,
+    },
+    sources = {
+      default = {
+        "lsp",
+        "path",
+        "snippets",
+        "buffer",
+      },
+    },
+    completion = {
+      trigger = {
+        signature_help = {
+          enabled = true,
+        },
+      },
+      accept = {
+        auto_brackets = {
+          enabled = true,
+        },
+      },
+      menu = {
         border = "rounded",
-        draw = function(ctx)
-          return {
-            " ",
+        draw = {
+          align_to_component = "none",
+          treesitter = { "lsp" },
+          columns = {
             {
-              ctx.item.label,
-              fill = true,
-              hl_group = ctx.deprecated and "BlinkCmpLabelDeprecated" or "BlinkCmpLabel",
-              max_width = 45,
+              "label",
+              "label_description",
+              gap = 1,
             },
-            " ",
             {
-              ctx.kind_icon,
-              ctx.icon_gap,
-              "[" .. ctx.kind .. "]",
-              hl_group = "BlinkCmpKind" .. ctx.kind,
+              "kind_icon",
+              "kind",
+              gap = 1,
             },
-          }
-        end,
+            {
+              "open_bracket",
+              "source_name",
+              "close_bracket",
+            },
+          },
+          components = {
+            open_bracket = {
+              text = function()
+                return "["
+              end,
+              highlight = function()
+                return "BlinkCmpSource"
+              end,
+            },
+            close_bracket = {
+              text = function()
+                return "]"
+              end,
+              highlight = function()
+                return "BlinkCmpSource"
+              end,
+            },
+          },
+        },
       },
       documentation = {
-        border = "rounded",
+        auto_show = true,
+        window = {
+          border = "rounded",
+        },
       },
-      signature_help = {
-        border = "rounded",
-      },
-    },
-    accept = {
-      auto_brackets = {
+      signature = {
         enabled = true,
+        window = {
+          border = "rounded",
+        },
       },
-    },
-    trigger = {
-      signature_help = {
-        enabled = true,
+      fuzzy = {
+        prebuiltBinaries = {
+          forceVersion = true,
+        },
       },
-    },
-    keymap = {
-      accept = "<C-y>",
-      show_documentation = "<C-e>",
-      hide_documentation = "<C-e>",
-    },
-    prebuiltBinaries = {
-      forceVersion = true,
     },
   },
 }
