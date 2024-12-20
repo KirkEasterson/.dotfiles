@@ -1,6 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "echasnovski/mini.icons",
     { "junegunn/fzf", build = "./install --bin" },
@@ -11,16 +11,39 @@ return {
     {
       "<leader>ff",
       function()
-        require("fzf-lua").files({ resume = true })
+        require("fzf-lua").files({
+          resume = true,
+          winopts = {
+            split = "belowright new",
+            preview = {
+              hidden = "hidden",
+            },
+          },
+        })
       end,
       desc = "Find files",
     },
     {
+      "<leader>fb",
+      function()
+        require("fzf-lua").buffers({
+          resume = true,
+          winopts = {
+            split = "belowright new",
+            preview = {
+              hidden = "hidden",
+            },
+          },
+        })
+      end,
+      desc = "Search buffers",
+    },
+    {
       "<leader>fg",
       function()
-        require("fzf-lua").live_grep({ resume = true })
+        require("fzf-lua").live_grep_native({ resume = true })
       end,
-      desc = "Live grep",
+      desc = "Project search",
     },
     {
       "<leader>fG",
@@ -28,21 +51,7 @@ return {
         require("fzf-lua").grep_cword({ resume = true })
       end,
       mode = { "n" },
-      desc = "Grep string",
-    },
-    {
-      "<leader>fo",
-      function()
-        require("fzf-lua").oldfiles({ resume = true })
-      end,
-      desc = "Recent files",
-    },
-    {
-      "<leader>fF",
-      function()
-        require("fzf-lua").lgrep_curbuf({ resume = true })
-      end,
-      desc = "",
+      desc = "Search for current word",
     },
     {
       "<leader>fG",
@@ -50,14 +59,14 @@ return {
         require("fzf-lua").grep_visual({ resume = true })
       end,
       mode = { "v" },
-      desc = "Grep selection",
+      desc = "Search for selection",
     },
     {
-      "<leader>fb",
+      "<leader>fu",
       function()
-        require("fzf-lua").buffers({ resume = true })
+        require("fzf-lua").lgrep_curbuf({ resume = true })
       end,
-      desc = "Search buffers",
+      desc = "Search current bugger",
     },
 
     -- fzf lsp/treesitter helpers
@@ -89,101 +98,46 @@ return {
       end,
       desc = "Workspace diagnostics",
     },
-
-    -- fzf git helpers
-    {
-      "<leader>gf",
-      function()
-        require("fzf-lua").git_files({ resume = true })
-      end,
-      desc = "Git files",
-    },
-    {
-      "<leader>gb",
-      function()
-        require("fzf-lua").git_branches({ resume = true })
-      end,
-      desc = "Git branches",
-    },
-    {
-      "<leader>gc",
-      function()
-        require("fzf-lua").git_commits({ resume = true })
-      end,
-      desc = "Git commits",
-    },
-    {
-      "<leader>gr",
-      function()
-        require("fzf-lua").git_bcommits({ resume = true })
-      end,
-      desc = "Git branch commits",
-    },
-
-    -- fzf util helpers
-    {
-      "<leader>fh",
-      function()
-        require("fzf-lua").help_tags({ resume = true })
-      end,
-      desc = "Keymaps",
-    },
-    {
-      "<leader>fk",
-      function()
-        require("fzf-lua").keymaps({ resume = true })
-      end,
-      desc = "Keymaps",
-    },
-    {
-      "<leader>fp",
-      function()
-        require("fzf-lua").spell_suggest({ resume = true })
-      end,
-      desc = "Spell suggest",
-    },
-    {
-      "<leader>fe",
-      function()
-        require("fzf-lua").registers({ resume = true })
-      end,
-      desc = "Spell suggest",
-    },
   },
-  opts = {
-    grep = {
-      rg_opts = {
-        -- color codes not yet interpreted
-        "--color=never",
-
-        -- the following are required for telescope
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-
-        "--hidden", -- include hidden files
-        "--max-depth=99", -- max num dirs to descend
-        "--smart-case", -- use smart case
+  config = function(_, _)
+    local fzf_lua = require("fzf-lua")
+    fzf_lua.setup({
+      grep = {
+        rg_opts = table.concat({
+          "--hidden",
+          "--column",
+          "--no-heading",
+          "--color=always",
+          "--smart-case",
+          "--max-columns=4096 -e",
+        }, " "),
       },
-    },
-    oldfiles = {
-      cwd_only = true,
-      include_current_session = true,
-    },
-    default = {
-      git_icons = true,
-    },
-    -- TODO: get these bindings to work
-    -- keymap = {
-    -- 	builtin = {
-    -- 		-- ["ctrl-d"] = "preview-page-down",
-    -- 		-- ["ctrl-u"] = "preview-page-up",
-    -- 	},
-    -- 	fzf = {
-    -- 		-- ["ctrl-d"] = "preview-page-down",
-    -- 		-- ["ctrl-u"] = "preview-page-up",
-    -- 	},
-    -- },
-  },
+      oldfiles = {
+        cwd_only = true,
+        include_current_session = true,
+      },
+      previewers = {
+        builtin = {
+          syntax_limit_b = 1024 * 100, -- 100KB
+        },
+      },
+      keymap = {
+        builtin = {
+          true,
+          ["<C-d>"] = "preview-page-down",
+          ["<C-u>"] = "preview-page-up",
+        },
+        fzf = {
+          true,
+          ["ctrl-q"] = "select-all+accept", -- to quickfix list
+        },
+      },
+      actions = {
+        files = {
+          true,
+          ["ctrl-x"] = fzf_lua.actions.file_split,
+        },
+      },
+    })
+  end,
 }
