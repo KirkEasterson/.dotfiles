@@ -1,81 +1,125 @@
 ### ARCHIVE EXTRACTION
 # usage: ex <file>
-ex ()
-{
-  if [ -f "$1" ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+ex() {
+	if [ -f "$1" ]; then
+		case $1 in
+		*.tar.bz2) tar xjf $1 ;;
+		*.tar.gz) tar xzf $1 ;;
+		*.bz2) bunzip2 $1 ;;
+		*.rar) unrar x $1 ;;
+		*.gz) gunzip $1 ;;
+		*.tar) tar xf $1 ;;
+		*.tbz2) tar xjf $1 ;;
+		*.tgz) tar xzf $1 ;;
+		*.zip) unzip $1 ;;
+		*.Z) uncompress $1 ;;
+		*.7z) 7z x $1 ;;
+		*.deb) ar x $1 ;;
+		*.tar.xz) tar xf $1 ;;
+		*.tar.zst) unzstd $1 ;;
+		*) echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
 # navigation
-up () {
-  local d=""
-  local limit="$1"
+up() {
+	local d=""
+	local limit="$1"
 
-  # Default to limit of 1
-  if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
-    limit=1
-  fi
+	# Default to limit of 1
+	if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+		limit=1
+	fi
 
-  for ((i=1;i<=limit;i++)); do
-    d="../$d"
-  done
+	for ((i = 1; i <= limit; i++)); do
+		d="../$d"
+	done
 
-  # perform cd. Show error if cd fails
-  if ! cd "$d"; then
-    echo "Couldn't go up $limit dirs.";
-  fi
+	# perform cd. Show error if cd fails
+	if ! cd "$d"; then
+		echo "Couldn't go up $limit dirs."
+	fi
 }
 
 # make a directory and cd to it
-take () {
-  mkdir -p -- "$1" && cd -P -- "$1"
+take() {
+	mkdir -p -- "$1" && cd -P -- "$1" || return
 }
 
 # lazy loading NVM
-lnvm () {
+lnvm() {
 
-  # load nvm
-  if [ -s "${NVM_DIR}/nvm.sh" ]; then
-    . "${NVM_DIR}/nvm.sh"
-  fi
+	# load nvm
+	if [ -s "${NVM_DIR}/nvm.sh" ]; then
+		. "${NVM_DIR}/nvm.sh"
+	fi
 
-  # load nvm completion
-  if [ -s "${NVM_DIR}/bash_completion" ]; then
-    . "${NVM_DIR}/bash_completion"
-  elif [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
-    . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  fi
+	# load nvm completion
+	if [ -s "${NVM_DIR}/bash_completion" ]; then
+		. "${NVM_DIR}/bash_completion"
+	elif [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+		. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+	fi
 }
 
-search_hist () {
-  print -z $(cat ${HISTFILE} | sed -re 's/ *[0-9]* *//' | uniq | fzf --tac --no-sort)
+search_hist() {
+	print -z $(cat ${HISTFILE} | sed -re 's/ *[0-9]* *//' | uniq | fzf --tac --no-sort)
 }
 
-# is_wayland () {
-#   if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-#     false
-#   fi
-# }
+machine_type() {
+	unameOut="$(uname -s)"
+	case "${unameOut}" in
+	Linux*) machine="Linux" ;;
+	Darwin*) machine="Mac" ;;
+	CYGWIN*) machine="Cygwin" ;;
+	MINGW*) machine="MinGw" ;;
+	MSYS_NT*) machine="MSys" ;;
+	*) machine="UNKNOWN:${unameOut}" ;;
+	esac
+	echo "${machine}"
+}
+
+to_clipboard() {
+	case "$(machine_type)" in
+	"Linux")
+		if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
+			wl-copy -n "$1" 2>/dev/null
+		else
+			xclip -sel clip "$1"
+		fi
+		;;
+	"Mac")
+		pbcopy "$1"
+		;;
+	*)
+		exit 1
+		;;
+	esac
+}
+
+from_clipboard() {
+	case "$(machine_type)" in
+	"Linux")
+		if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
+			wl-paste -n
+		else
+			xclip -o
+		fi
+		;;
+	"Mac")
+		pbpaste
+		;;
+	*)
+		exit 1
+		;;
+	esac
+}
 
 if [ -f "${XDG_CONFIG_HOME}/shell/local/functions" ]; then
 	source "${XDG_CONFIG_HOME}/shell/local/functions"
 fi
+
+# vim: set ft=sh :
