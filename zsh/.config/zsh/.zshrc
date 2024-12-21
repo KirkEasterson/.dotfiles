@@ -79,6 +79,10 @@ fi
 source ${ZDOTDIR}/antidote/antidote.zsh
 antidote load
 
+# fix for wl-copy causing shell to hang
+# https://bbs.archlinux.org/viewtopic.php?pid=2173713#p2173713
+function zsh-system-clipboard-set(){ zsh-system-clipboard-set-${ZSH_SYSTEM_CLIPBOARD_METHOD} "$@" 2>/dev/null; }
+
 # configuration for plugins
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
