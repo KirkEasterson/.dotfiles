@@ -102,6 +102,9 @@ return {
   config = function(_, _)
     local fzf_lua = require("fzf-lua")
     fzf_lua.setup({
+      fzf_opts = {
+        ["--cycle"] = true,
+      },
       grep = {
         rg_opts = table.concat({
           "--hidden",
