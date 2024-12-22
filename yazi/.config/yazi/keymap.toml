@@ -120,8 +120,12 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
+	{ on = [ "g", "c" ],       run = "cd ~/Documents",   desc = "Go to the documents directory" },
+	{ on = [ "g", "p" ],       run = "cd ~/Pictures",   desc = "Go to the pictures directory" },
+	{ on = [ "g", "s" ],       run = "cd ~/Pictures/screenshots",   desc = "Go to the screenshots directory" },
+
+	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Tabs
@@ -294,6 +298,7 @@ keymap = [
 keymap = [
 	{ on = "<C-c>",   run = "close",                                      desc = "Cancel completion" },
 	{ on = "<Tab>",   run = "close --submit",                             desc = "Submit the completion" },
+	{ on = "<C-y>",   run = "close --submit",                             desc = "Submit the completion" },
 	{ on = "<Enter>", run = [ "close --submit", "close_input --submit" ], desc = "Submit the completion and input" },
 
 	{ on = "<A-k>", run = "arrow -1", desc = "Move cursor up" },
