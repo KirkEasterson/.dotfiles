@@ -2,7 +2,7 @@
 Description=Autostart kmonad
 
 [Service]
-ExecStart=/home/kirk/.config/kmonad/external_keyboard_script.sh
+ExecStart=/home/kirk/.config/kmonad/external_devices.sh
 StandardOutput=journal
 Restart=always
 RestartSec=3
