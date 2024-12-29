@@ -1,2 +1,4 @@
 skin-tone = neutral
 prompt = "  "
+hidden-descriptions = true
+files = [emoticons]
