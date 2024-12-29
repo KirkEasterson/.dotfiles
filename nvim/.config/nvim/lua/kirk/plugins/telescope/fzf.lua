@@ -117,6 +117,7 @@ return {
       },
       oldfiles = {
         cwd_only = true,
+        stat_file = true, -- verify file exists on disk
         include_current_session = true,
       },
       previewers = {
@@ -137,6 +138,10 @@ return {
       },
       actions = {
         files = {
+          true,
+          ["ctrl-x"] = fzf_lua.actions.file_split,
+        },
+        buffers = {
           true,
           ["ctrl-x"] = fzf_lua.actions.file_split,
         },
