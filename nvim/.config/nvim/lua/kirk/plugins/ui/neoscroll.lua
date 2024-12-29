@@ -1,6 +1,7 @@
 return {
   "karb94/neoscroll.nvim",
-  enabled = false,
+  -- enabled = false,
+  event = "VimEnter",
   keys = {
     "<C-b>",
     "<C-d>",
@@ -15,19 +16,28 @@ return {
     -- "<ScrollWheelUp>",
   },
   opts = {
-    -- https://github.com/karb94/neoscroll.nvim/issues/80
-    -- call WinScrolled and CursorMoved only once
-    pre_hook = function()
-      vim.opt.eventignore:append({
-        "WinScrolled",
-        "CursorMoved",
-      })
-    end,
-    post_hook = function()
-      vim.opt.eventignore:remove({
-        "WinScrolled",
-        "CursorMoved",
-      })
-    end,
+    legacy_computing_symbols_support = true,
+    ignore_events = {
+      "WinScrolled",
+      "CursorMoved",
+    },
   },
+  config = function(_, opts)
+    require("neoscroll").setup(opts)
+
+    local animation_time = "50"
+    require("neoscroll.config").set_mappings({
+      ["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", animation_time } },
+      ["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", animation_time } },
+      ["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", animation_time } },
+      ["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", animation_time } },
+      ["<C-y>"] = { "scroll", { "-0.10", "false", animation_time } },
+      ["<C-e>"] = { "scroll", { "0.10", "false", animation_time } },
+      ["zt"] = { "zt", { animation_time } },
+      ["zz"] = { "zz", { animation_time } },
+      ["zb"] = { "zb", { animation_time } },
+      ["G"] = { "scroll", { "10000", "true", animation_time } },
+      ["gg"] = { "scroll", { "-10000", "true", animation_time } },
+    })
+  end,
 }
