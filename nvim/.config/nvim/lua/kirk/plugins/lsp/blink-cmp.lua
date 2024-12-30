@@ -19,14 +19,15 @@ return {
       },
     },
     completion = {
-      trigger = {
-        signature_help = {
-          enabled = true,
-        },
-      },
       accept = {
         auto_brackets = {
           enabled = true,
+        },
+      },
+      documentation = {
+        auto_show = true,
+        window = {
+          border = "rounded",
         },
       },
       menu = {
@@ -71,22 +72,11 @@ return {
           },
         },
       },
-      documentation = {
-        auto_show = true,
-        window = {
-          border = "rounded",
-        },
-      },
-      signature = {
-        enabled = true,
-        window = {
-          border = "rounded",
-        },
-      },
-      fuzzy = {
-        prebuiltBinaries = {
-          forceVersion = true,
-        },
+    },
+    signature = {
+      enabled = true,
+      window = {
+        border = "rounded",
       },
     },
   },
