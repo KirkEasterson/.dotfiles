@@ -13,11 +13,11 @@ return {
     },
     localSettings = {
       [".*"] = {
+        priority = 0,
         cmdline = "neovim",
         content = "text",
-        priority = 0,
         selector = "textarea:not([readonly]):not([class=\"handsontableInput\"]), div[role=\"textbox\"]",
-        takeover = "always",
+        takeover = "never",
       },
       [ [[.*notion\.so.*]] ] = {
         priority = 9,
@@ -29,31 +29,26 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    vim.g.firenvim_config = opts
-
-    -- don't show certain ui elements
+  init = function()
+    print("in firenvim init")
     vim.o.laststatus = 0
     vim.opt.cmdheight = 0
     vim.opt.confirm = false
     vim.opt.showtabline = 0
+    vim.o.lines = 100
+    vim.o.columns = 300
     vim.cmd.startinsert()
 
-    -- overwrite save/quit mappings
     local util = require("util")
-    util.map("n", "<leader>q", "wq!", { desc = "Close window" })
+    util.unmap("n", "<leader>q")
+    util.map("n", "<leader>q", "<cmd>wq!<CR>", { desc = "Quit" })
+    util.map("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<CR>", { desc = "Move focus back to page" })
 
-    -- interact with page
-    vim.api.nvim_set_keymap(
-      "n",
-      "<Esc><Esc>",
-      "<Cmd>call firenvim#focus_page()<CR>",
-      { desc = "Move focus back to page" }
-    )
-
+    local firenvim_augroup = vim.api.nvim_create_augroup("FirenvimSettings", { clear = true })
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
       pattern = "*",
       desc = "Set filetypes in firenvim",
+      group = firenvim_augroup,
       callback = function()
         local bufname = vim.api.nvim_buf_get_name(0)
         if bufname:match("github.com") then
@@ -69,9 +64,9 @@ return {
       end,
     })
 
-    -- sync changes to the page
     vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
       desc = "Sync firenvim buffer with page",
+      group = firenvim_augroup,
       callback = function(_)
         if vim.g.timer_started == true then
           return
@@ -83,5 +78,8 @@ return {
         end)
       end,
     })
+  end,
+  config = function(_, opts)
+    vim.g.firenvim_config = opts
   end,
 }
