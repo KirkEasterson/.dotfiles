@@ -23,6 +23,13 @@ function M.map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+--- helper function for vim.keymap.del
+---@param mode string|table vim mode
+---@param lhs string binding
+function M.unmap(mode, lhs)
+  vim.keymap.del(mode, lhs)
+end
+
 --- build string for printing entire contents of a table
 ---@param tbl table
 ---@param indent integer?
