@@ -41,7 +41,6 @@ return {
 
     -- overwrite save/quit mappings
     local util = require("util")
-    util.map("n", "<leader>q", "<Nop>")
     util.map("n", "<leader>q", "wq!", { desc = "Close window" })
 
     -- interact with page
