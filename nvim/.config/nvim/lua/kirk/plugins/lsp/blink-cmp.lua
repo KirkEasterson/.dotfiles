@@ -33,7 +33,6 @@ return {
       menu = {
         border = "rounded",
         draw = {
-          align_to_component = "none",
           treesitter = { "lsp" },
           columns = {
             {
