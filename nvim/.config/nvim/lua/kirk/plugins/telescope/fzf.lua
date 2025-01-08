@@ -125,6 +125,16 @@ return {
           syntax_limit_b = 1024 * 100, -- 100KB
         },
       },
+      files = {
+        actions = {
+          ["ctrl-x"] = fzf_lua.actions.file_split,
+        },
+      },
+      buffers = {
+        actions = {
+          ["ctrl-x"] = fzf_lua.actions.file_split,
+        },
+      },
       keymap = {
         builtin = {
           true,
@@ -134,16 +144,6 @@ return {
         fzf = {
           true,
           ["ctrl-q"] = "select-all+accept", -- to quickfix list
-        },
-      },
-      actions = {
-        files = {
-          true,
-          ["ctrl-x"] = fzf_lua.actions.file_split,
-        },
-        buffers = {
-          true,
-          ["ctrl-x"] = fzf_lua.actions.file_split,
         },
       },
     })
