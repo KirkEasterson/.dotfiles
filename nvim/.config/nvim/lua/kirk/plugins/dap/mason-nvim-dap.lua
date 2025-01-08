@@ -1,6 +1,7 @@
 return {
   "jay-babu/mason-nvim-dap.nvim",
-  enabled = false,
+  -- enabled = false,
+  version = false,
   dependencies = {
     "williamboman/mason.nvim",
     "mfussenegger/nvim-dap",
@@ -19,9 +20,6 @@ return {
       "js",
       "node2",
       "python",
-      -- "haskell",
-      -- "javadbg",
-      -- "kotlin",
     },
     handlers = {
       function(config)

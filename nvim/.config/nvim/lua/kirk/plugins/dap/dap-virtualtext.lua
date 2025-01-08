@@ -1,6 +1,6 @@
 return {
   "theHamsta/nvim-dap-virtual-text",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },

@@ -20,7 +20,7 @@ end
 
 local setup_dirs = {
   { import = "kirk.plugins.firenvim" },
-  -- { import = "kirk.plugins.dap" },
+  { import = "kirk.plugins.dap" },
   { import = "kirk.plugins.dev" },
   { import = "kirk.plugins.git" },
   { import = "kirk.plugins.lsp" },

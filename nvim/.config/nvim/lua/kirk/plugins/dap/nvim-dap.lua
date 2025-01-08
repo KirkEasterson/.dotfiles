@@ -1,9 +1,9 @@
 return {
   "mfussenegger/nvim-dap",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "leoluz/nvim-dap-go",
-    "Joakker/lua-json5",
+    -- "Joakker/lua-json5",
     "stevearc/overseer.nvim",
   },
   keys = {
@@ -81,11 +81,53 @@ return {
   config = function()
     require("overseer").enable_dap()
 
-    require("dap.ext.vscode").json_decode = require("json5").parse
+    -- require("dap.ext.vscode").json_decode = require("json5").parse
     require("dap.ext.vscode").load_launchjs(nil, {
-      cppdbg = { "c", "cpp" },
-      node = { "javascript", "javascriptreact", "typescriptreact", "typescript" },
+      cppdbg = {
+        "c",
+        "cpp",
+      },
+      node = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+      },
     })
+
+    -- require("dap").adapters["pwa-node"] = {
+    --   type = "server",
+    --   host = "127.0.0.1",
+    --   port = "${port}",
+    --   executable = {
+    --     command = vim.fn.stdpath("data") .. "/mason/bin/js-debug-adapter",
+    --     args = {
+    --       "${port}",
+    --     },
+    --     -- command = "node",
+    --     -- -- 💀 Make sure to update this path to point to your installation
+    --     -- args = { vim.fn.stdpath("data") .. "/mason/bin/vscode-js-debug", "${port}" },
+    --   },
+    -- }
+
+    require("dap").configurations.typescript = {
+      {
+        type = "pwa-node",
+        request = "launch",
+        name = "Launch file",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+      },
+      {
+        type = "pwa-node",
+        request = "attach",
+        name = "Attach to Node app",
+        address = "localhost",
+        port = 3001,
+        cwd = "${workspaceFolder}",
+        restart = true,
+      },
+    }
   end,
   init = function()
     -- TODO: merge this with highlight
