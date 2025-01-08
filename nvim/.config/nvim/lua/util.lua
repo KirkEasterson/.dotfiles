@@ -189,11 +189,23 @@ function M.asciiart_cpad(tbl, len, char)
   return tbl
 end
 
---- retruns true if the program is executable on the host system
+--- returns true if the program is executable on the host system
 ---@param program string
 ---@return boolean
 function M.is_executable(program)
   return vim.fn.executable(program) == 1
+end
+
+--- maps a function to a table
+---@param tbl table
+---@param f function
+---@return table
+function M.fmap(tbl, f)
+  local t = {}
+  for k, v in pairs(tbl) do
+    t[k] = f(v)
+  end
+  return t
 end
 
 return M
