@@ -236,6 +236,9 @@
     // "device": "acpi_video1",
     "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "change_brightness.sh lower",
+    "on-scroll-down": "change_brightness.sh raise",
+    "tooltip": false,
   },
   "power-profiles-daemon": {
     "min-length": 3,
@@ -283,6 +286,10 @@
       "default": ["󰕿", "󰖀", "󰕾"],
     },
     "on-click": "pavucontrol",
+    "on-click-middle": "change_vol.sh toggle-mute",
+    "on-scroll-up": "change_vol.sh lower",
+    "on-scroll-down": "change_vol.sh raise",
+    "tooltip": false,
   },
   "custom/line-separator": {
     "format": "│",
