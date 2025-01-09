@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 20,
+  "height": 22,
   "margin": 0,
   "padding": 0,
   "spacing": 0,
@@ -39,8 +39,6 @@
     "language",
     "hyprland/language",
     "sway/language",
-    "custom/line-separator",
-    "network",
     "custom/line-separator",
     "wireplumber",
     "custom/line-separator",
@@ -142,15 +140,19 @@
     "max-length": 22,
   },
   "river/window": {
+    "format": "{}",
     "tooltip": false,
     "max-length": 22,
   },
   "wlr/taskbar": {
-    "format": "{icon}{name}",
+    "format": "{icon} {name}",
     "markup": true,
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+    },
   },
   "tray": {
     "icon-size": 20,
