@@ -61,3 +61,5 @@ firefox/*
 **/lazygit/state.yml
 
 **/karabiner/automatic_backups
+
+**/*amedia*
