@@ -15,8 +15,9 @@ monitors.conf
 elpa/
 transient/
 
-bin/.local/share/*
-bin/.local/state/*
+scripts/.local/bin/*
+scripts/.local/share/*
+scripts/.local/state/*
 git/.config/git/gitconfig.local
 
 **/fontconfig/conf.d/*
