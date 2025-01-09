@@ -78,5 +78,14 @@ return {
         border = "rounded",
       },
     },
+    keymap = {
+      ["<Tab>"] = {
+        function(_)
+          -- use only in command mode
+          return vim.fn.mode() ~= "c"
+        end,
+        "select_and_accept",
+      },
+    },
   },
 }
