@@ -4,8 +4,9 @@ return {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
 
-    "nvim-telescope/telescope.nvim",
-    "nvim-telescope/telescope-fzf-native.nvim",
+    "ibhagwan/fzf-lua",
+    -- "nvim-telescope/telescope.nvim",
+    -- "nvim-telescope/telescope-fzf-native.nvim",
 
     "rmagatti/auto-session",
   },
@@ -28,9 +29,9 @@ return {
     disable_insert_on_commit = false, -- start commits in insert mode
     graph_style = "unicode",
     use_per_project_settings = false,
-    telescope_sorter = function()
-      return require("telescope").extensions.fzf.native_fzf_sorter()
-    end,
+    -- telescope_sorter = function()
+    --   return require("telescope").extensions.fzf.native_fzf_sorter()
+    -- end,
     signs = {
       -- { CLOSED, OPENED }
       hunk = { "", "" },
@@ -39,8 +40,8 @@ return {
     },
     integrations = {
       diffview = true,
-      telescope = true,
-      fzf_lua = false,
+      telescope = false,
+      fzf_lua = true,
     },
 
     -- https://github.com/NeogitOrg/neogit/issues/1377#issuecomment-2174427660
