@@ -66,6 +66,10 @@ export HOMEBREW_NO_EMOJI=1
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 
+# allow global npm installs in arch linux
+export npm_config_prefix="$HOME/.local"
+
+
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 
 	# https://github.com/swaywm/sway/wiki#i-cant-open-links-in-external-applications-in-firefox
