@@ -10,5 +10,7 @@ return {
   },
   opts = {
     mode = "topline",
+    multiwindow = true,
+    multiline_threshold = 1,
   },
 }
