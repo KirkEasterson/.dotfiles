@@ -110,6 +110,7 @@ return {
           "--hidden",
           "--column",
           "--no-heading",
+          "--line-number",
           "--color=always",
           "--smart-case",
           "--max-columns=4096 -e",
