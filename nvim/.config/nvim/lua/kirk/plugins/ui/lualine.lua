@@ -50,6 +50,13 @@ return {
         "diagnostics",
         {
           "branch",
+          -- max_length = 20,
+          fmt = function(str)
+            if #str > 20 then
+              return str:sub(1, 19) .. "…"
+            end
+            return str
+          end,
           color = {
             fg = require("gruvbox").palette.neutral_aqua,
           },
