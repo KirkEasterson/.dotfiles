@@ -6,12 +6,14 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
 
-    "Issafalcon/neotest-dotnet",
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-python",
+    "nvim-neotest/neotest-jest",
+
+    "Issafalcon/neotest-dotnet",
+    "marilari88/neotest-vitest",
     "rouge8/neotest-rust",
     "lawrence-laz/neotest-zig",
-    "nvim-neotest/neotest-jest",
   },
   keys = {
     {
