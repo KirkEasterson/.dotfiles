@@ -11,5 +11,6 @@ riverctl spawn "clamshell.sh"
 # turn off display after 10 minutes # TODO: implement this
 riverctl spawn "swayidle -w \
 	timeout 300 'lock.sh' \
-	timeout 600 'set_all_displays.sh off' resume 'set_all_displays.sh on' \
+	timeout 600 'set_all_displays.sh off' \
+		resume 'set_all_displays.sh on' \
 	before-sleep 'lock.sh'"
