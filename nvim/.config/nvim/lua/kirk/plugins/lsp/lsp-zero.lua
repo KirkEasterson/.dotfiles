@@ -26,19 +26,20 @@ return {
   },
   keys = {
     -- -- https://github.com/VonHeikemen/lsp-zero.nvim#keybindings
-    -- { "K",    desc = "Hover info" },
-    -- { "gd",   desc = "Definition" },
-    -- { "gD",   desc = "Decleration" },
-    -- { "gi",   desc = "List implementations" },
-    -- { "go",   desc = "Type definition" },
-    -- { "gr",   desc = "List references" },
-    -- { "gs",   desc = "Display signature" },
-    -- { "<F2>", desc = "Rename" },
-    -- { "<F3>", desc = "Format" },
-    -- { "<F4>", desc = "Code actions" },
-    -- { "gl",   desc = "Show diagnostics" },
-    -- { "[d",   desc = "Previous diagnostic" },
-    -- { "]d",   desc = "Next diagnostic" },
+    {
+      "<leader>rn",
+      function()
+        vim.lsp.buf.rename()
+      end,
+      desc = "Rename",
+    },
+    {
+      "ga",
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      desc = "Code actions",
+    },
   },
   opts = {},
   config = function(_, opts)
@@ -110,6 +111,12 @@ return {
       lsp_zero.default_keymaps({
         buffer = bufnr,
         preserve_mappings = false,
+        exclude = {
+          "<F2>",
+          "<F3>",
+          "<F4>",
+          "<F5>",
+        },
       })
 
       -- -- for ufo folding
