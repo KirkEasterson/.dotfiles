@@ -104,6 +104,7 @@ return {
         require("neotest-dotnet"),
         require("neotest-python"),
         require("neotest-rust"),
+        require("neotest-vitest"),
         require("neotest-zig")({
           dap = { adapter = "lldb" },
         }),
