@@ -12,7 +12,7 @@ HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
 KEYTIMEOUT=1
 
-setopt complete_aliases
+setopt no_complete_aliases
 
 # this allows for tab-completion of program args
 if [ "$(find ${ZDOTDIR}/.zcompdump -mtime +1)" ] ; then
