@@ -14,5 +14,6 @@ num_displays=$(get_num_displays)
 if [ "$num_displays" -gt 1 ]; then
 	clamshell.sh
 else
+	inhibit-idle.sh off
 	lock.sh
 fi
