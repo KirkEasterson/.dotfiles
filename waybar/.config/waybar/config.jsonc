@@ -303,6 +303,7 @@
   },
   "custom/weather": {
     "exec": "weather.sh",
+    "on-click": "weather.sh",
     "interval": "60",
     "tooltip": false,
   },
