@@ -14,8 +14,10 @@ return {
     "IBLToggleScope",
   },
   opts = {
+    debounce = 50,
     indent = {
       char = "▏",
+      tab_char = "▏",
       smart_indent_cap = true,
       repeat_linebreak = true, -- requires > nvim 0.10
     },
@@ -24,9 +26,9 @@ return {
     },
     scope = {
       enabled = false,
-      char = "▏", -- thinnest line possible
-      show_start = false,
-      show_end = false,
+      char = "▍",
+      show_start = true,
+      show_end = true,
     },
     exclude = {
       filetypes = {
@@ -39,6 +41,7 @@ return {
         "dashboard",
         "gitcommit",
         "help",
+        "lspinfo",
         "man",
         "neogitstatus",
         "packer",
