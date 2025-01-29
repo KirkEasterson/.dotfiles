@@ -6,6 +6,25 @@ return {
     "rafamadriz/friendly-snippets",
   },
   opts = {
+    enabled = function()
+      if vim.b.completion == false then
+        return false
+      end
+
+      if vim.bo.buftype == "prompt" then
+        return false
+      end
+
+      -- if vim.fn.mode() == "c" then
+      --   return false
+      -- end
+
+      if vim.fn.reg_executing() ~= "" then
+        return false
+      end
+
+      return true
+    end,
     appearance = {
       nerd_font_variant = "mono",
       use_nvim_cmp_as_default = true,
@@ -76,15 +95,6 @@ return {
       enabled = true,
       window = {
         border = "rounded",
-      },
-    },
-    keymap = {
-      ["<Tab>"] = {
-        function(_)
-          -- use only in command mode
-          return vim.fn.mode() ~= "c"
-        end,
-        "select_and_accept",
       },
     },
   },
