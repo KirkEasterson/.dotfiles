@@ -1,3 +1,7 @@
+local picker_opts = {
+  resume = true,
+}
+
 return {
   "ibhagwan/fzf-lua",
   -- enabled = false,
@@ -12,7 +16,6 @@ return {
       "<leader>ff",
       function()
         require("fzf-lua").files({
-          resume = true,
           winopts = {
             split = "belowright new",
             preview = {
@@ -27,7 +30,6 @@ return {
       "<leader>fb",
       function()
         require("fzf-lua").buffers({
-          resume = true,
           winopts = {
             split = "belowright new",
             preview = {
@@ -41,14 +43,14 @@ return {
     {
       "<leader>fg",
       function()
-        require("fzf-lua").live_grep_native({ resume = true })
+        require("fzf-lua").live_grep_native()
       end,
       desc = "Project search",
     },
     {
       "<leader>fG",
       function()
-        require("fzf-lua").grep_cword({ resume = true })
+        require("fzf-lua").grep_cword()
       end,
       mode = { "n" },
       desc = "Search for current word",
@@ -56,7 +58,7 @@ return {
     {
       "<leader>fG",
       function()
-        require("fzf-lua").grep_visual({ resume = true })
+        require("fzf-lua").grep_visual()
       end,
       mode = { "v" },
       desc = "Search for selection",
@@ -64,7 +66,7 @@ return {
     {
       "<leader>fu",
       function()
-        require("fzf-lua").lgrep_curbuf({ resume = true })
+        require("fzf-lua").lgrep_curbuf()
       end,
       desc = "Search current bugger",
     },
@@ -73,28 +75,28 @@ return {
     {
       "<leader>fr",
       function()
-        require("fzf-lua").lsp_references({ resume = true })
+        require("fzf-lua").lsp_references()
       end,
       desc = "LSP references",
     },
     {
       "<leader>fs",
       function()
-        require("fzf-lua").lsp_document_symbols({ resume = true })
+        require("fzf-lua").lsp_document_symbols()
       end,
       desc = "LSP document symbols",
     },
     {
       "<leader>fd",
       function()
-        require("fzf-lua").diagnostics_document({ resume = true })
+        require("fzf-lua").diagnostics_document()
       end,
       desc = "Document diagnostics",
     },
     {
       "<leader>fD",
       function()
-        require("fzf-lua").diagnostics_workspace({ resume = true })
+        require("fzf-lua").diagnostics_workspace()
       end,
       desc = "Workspace diagnostics",
     },
@@ -145,6 +147,7 @@ return {
         fzf = {
           true,
           ["ctrl-q"] = "select-all+accept", -- to quickfix list
+          ["f5"] = "unix-line-discard",
         },
       },
     })
