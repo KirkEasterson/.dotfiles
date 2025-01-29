@@ -89,7 +89,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 # gcloud configuration
 if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/google-cloud-cli/path.zsh.inc' ]; then . '/opt/google-cloud-cli/path.zsh.inc'; fi
+
 if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/opt/google-cloud-cli/completion.zsh.inc' ]; then . '/opt/google-cloud-cli/completion.zsh.inc'; fi
 
 # opam configuration
 [[ ! -r '${HOME}/.opam/opam-init/init.zsh' ]] || source '${HOME}/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
