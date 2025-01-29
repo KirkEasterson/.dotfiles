@@ -1,2 +1,6 @@
 source "$HOME/.config/shell/env"
-source "$HOME/.config/shell/profile"
+
+# run profile if not in tmux
+if [ -n "$TMUX" ]; then
+	source "$HOME/.config/shell/profile"
+fi
