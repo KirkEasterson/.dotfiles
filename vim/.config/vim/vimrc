@@ -131,6 +131,7 @@ call plug#begin()
 
 Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vim-which-key'
