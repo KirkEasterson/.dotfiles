@@ -4,7 +4,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
+    -- "rcarriga/nvim-notify",
   },
   cmd = {
     "Noice",
@@ -16,7 +16,22 @@ return {
     cmdline = {
       view = "cmdline",
     },
+    notify = {
+      enabled = false,
+    },
     lsp = {
+      progress = {
+        enabled = false,
+      },
+      -- hover = {
+      --   enabled = false,
+      -- },
+      -- signature = {
+      --   enabled = false,
+      -- },
+      -- message = {
+      --   enabled = false,
+      -- },
       override = {
         ["cmp.entry.get_documentation"] = true,
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
