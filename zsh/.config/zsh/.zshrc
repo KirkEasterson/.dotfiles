@@ -12,13 +12,16 @@ HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
 KEYTIMEOUT=1
 
+# this is not a typo; `no-*` is intentional
 setopt no_complete_aliases
 
-# this allows for tab-completion of program args
+# build zcompdump only once per day
+autoload -Uz compinit;
 if [ "$(find ${ZDOTDIR}/.zcompdump -mtime +1)" ] ; then
-    autoload -Uz compinit; compinit
+	compinit
+else
+	compinit -C
 fi
-autoload -Uz compinit; compinit -C
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -58,19 +61,23 @@ bindkey -M viins '^Y' autosuggest-accept
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 
-if [ -f '/usr/share/fzf/completion.zsh' ]; then
-	source '/usr/share/fzf/completion.zsh'
-fi
-if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then
-	source '/usr/share/fzf/key-bindings.zsh'
-	zle -N fzf-history-widget{,}
-	bindkey -M vicmd "/" fzf-history-widget
-fi
+zle -N fzf-history-widget{,}
+bindkey -M vicmd "/" fzf-history-widget
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
+
+include "/opt/google-cloud-cli/completion.zsh.inc"
+include "/opt/google-cloud-cli/path.zsh.inc"
+include "${HOME}/google-cloud-sdk/completion.zsh.inc"
+include "${HOME}/google-cloud-sdk/path.zsh.inc"
+
+include "/usr/share/fzf/completion.zsh"
+include "/usr/share/fzf/key-bindings.zsh"
+
+include "${HOME}/.opam/opam-init/init.zsh"
 
 # bootstrap antidote
 if [[ ! -d ${ZDOTDIR}/antidote ]]; then
@@ -81,21 +88,13 @@ antidote load
 
 # fix for wl-copy causing shell to hang
 # https://bbs.archlinux.org/viewtopic.php?pid=2173713#p2173713
-function zsh-system-clipboard-set(){ zsh-system-clipboard-set-${ZSH_SYSTEM_CLIPBOARD_METHOD} "$@" 2>/dev/null; }
+function zsh-system-clipboard-set(){
+	zsh-system-clipboard-set-${ZSH_SYSTEM_CLIPBOARD_METHOD} "$@" 2>/dev/null
+}
 
 # configuration for plugins
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
-
-# gcloud configuration
-if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/opt/google-cloud-cli/path.zsh.inc' ]; then . '/opt/google-cloud-cli/path.zsh.inc'; fi
-
-if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -f '/opt/google-cloud-cli/completion.zsh.inc' ]; then . '/opt/google-cloud-cli/completion.zsh.inc'; fi
-
-# opam configuration
-[[ ! -r '${HOME}/.opam/opam-init/init.zsh' ]] || source '${HOME}/.opam/opam-init/init.zsh'  > /dev/null 2> /dev/null
 
 # eval "$(direnv hook zsh)"
 # eval "$(zoxide init zsh)"

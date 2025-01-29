@@ -8,7 +8,7 @@ eval $(keychain --eval id_ed25519_github --quick --quiet --timeout 60 --ignore-m
 
 # load cargo
 if [ -s "$XDG_DATA_HOME/cargo/env" ]; then
-  . "$XDG_DATA_HOME/cargo/env"
+  source "$XDG_DATA_HOME/cargo/env"
 fi
 
 # linux
@@ -20,4 +20,3 @@ fi
 if [ -f  '/opt/homebrew/bin/brew' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-
