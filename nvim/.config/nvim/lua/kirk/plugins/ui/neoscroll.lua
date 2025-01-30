@@ -36,8 +36,8 @@ return {
       ["zt"] = { "zt", { animation_time } },
       ["zz"] = { "zz", { animation_time } },
       ["zb"] = { "zb", { animation_time } },
-      ["G"] = { "scroll", { "10000", "true", animation_time } },
-      ["gg"] = { "scroll", { "-10000", "true", animation_time } },
+      -- ["G"] = { "scroll", { "10000", "true", animation_time } },
+      -- ["gg"] = { "scroll", { "-10000", "true", animation_time } },
     })
   end,
 }
