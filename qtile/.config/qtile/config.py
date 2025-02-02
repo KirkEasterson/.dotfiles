@@ -24,26 +24,58 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# some code taken from:
+#   - https://github.com/stefur/qtile-config
+
 import os
 import subprocess
+from enum import Enum
+
+from colors import colors
 
 from libqtile import hook, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.backend.wayland import InputConfig
 
 is_wayland = qtile.core.name == "wayland"
 
 MOD = "mod4"
 ALT = "mod1"
 
-QTILE_DIR = os.environ["XDG_CONFIG_HOME"] + "/qtile"
+QTILE_DIR = os.path.expandvars("${XDG_CONFIG_HOME}/qtile")
+
+
+def move_window_to_screen(qtile, window, screen):
+    """Moves a window to a screen and focuses it, allowing you to move it
+    further if you wish."""
+    window.togroup(screen.group.name)
+    qtile.focus_screen(screen.index)
+    screen.group.focus(window, True)
+
+
+@lazy.function
+def move_window_to_prev_screen(qtile):
+    """Moves a window to the previous screen. Loops around the beginning and
+    end."""
+    index = qtile.current_screen.index
+    index = index - 1 if index > 0 else len(qtile.screens) - 1
+    move_window_to_screen(qtile, qtile.current_window, qtile.screens[index])
+
+
+@lazy.function
+def move_window_to_next_screen(qtile):
+    """Moves a window to the next screen. Loops around the beginning and
+    end."""
+    index = qtile.current_screen.index
+    index = index + 1 if index < len(qtile.screens) - 1 else 0
+    move_window_to_screen(qtile, qtile.current_window, qtile.screens[index])
 
 
 @hook.subscribe.startup
 def autostart():
     autostart_cmd = os.path.expanduser(f"{QTILE_DIR}/autostart.sh")
     subprocess.Popen([autostart_cmd])
+    qtile.hide_show_bar("all", "all")
 
 
 @hook.subscribe.startup_once
@@ -54,45 +86,55 @@ def autostart_once():
 
 keys = [
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window left"),
+    Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([MOD, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
+    Key([MOD, ALT], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([MOD, ALT], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([MOD, ALT], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([MOD, ALT], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    # Key([MOD], "n", lazy.layout.left(), desc="Move focus to left"),
+    Key([MOD], "m", lazy.layout.next_screen(), desc="Next screen"),
+    Key([MOD], "<comma>", lazy.layout.prev_screen(), desc="Prev screen"),
+    # Key([MOD], "<period>", lazy.layout.right(), desc="Move focus to right"),
+    # Key([MOD, "shift"], "n", lazy.layout.shuffle_left(), desc="Move window left"),
     Key(
-        [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+        [MOD, "shift"],
+        "m",
+        move_window_to_next_screen,
+        desc="Move window to next screen",
     ),
     Key(
         [MOD, "shift"],
-        "l",
-        lazy.layout.shuffle_right(),
-        desc="Move window to the right",
+        "<comma>",
+        move_window_to_prev_screen,
+        desc="Move window to prev screen",
     ),
-    Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([MOD, ALT], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([MOD, ALT], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([MOD, ALT], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([MOD, ALT], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    # Key([MOD, "shift"], "<period>", lazy.layout.shuffle_right(), desc=""),
     Key([MOD], "Tab", lazy.screen.next_group(), desc="Next group"),
     Key([MOD, "shift"], "Tab", lazy.screen.prev_group(), desc="Prev group"),
     Key([MOD, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [MOD, "shift"],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
-    Key(
-        [MOD],
-        "f",
-        lazy.window.toggle_floating(),
-        desc="Toggle floating on the focused window",
-    ),
+    Key([MOD, "shift"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key([MOD], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([MOD, "shift"], "x", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
 # wayland keys
 if is_wayland:
+    from libqtile.backend.wayland import InputConfig
+
+    @hook.subscribe.focus_change
+    @hook.subscribe.client_killed
+    @hook.subscribe.client_managed
+    def update_waybar(*_args) -> None:
+        """Update waybar with open groups and windows"""
+        subprocess.Popen(["qtile-groups.py"])
+
     keys.extend(
         [
             # search
@@ -288,6 +330,42 @@ if is_wayland:
         ]
     )
 
+    wl_input_rules = {
+        "type:keyboard": InputConfig(
+            kb_layout="no,se,us(altgr-intl),prog-qwerty",
+            kb_repeat_delay=200,
+            kb_repeat_rate=30,
+            kb_variant=",nodeadkeys",
+        ),
+        "type:touchpad": InputConfig(
+            accel_profile="flat",
+            click_method="clickfinger",
+            drag=False,
+            dwt=False,
+            middle_emulation=True,
+            natural_scroll=True,
+            pointer_accel=0,
+            scroll_method="two_finger",
+            tap=True,
+        ),
+        "type:pointer": InputConfig(
+            accel_profile="flat",
+            middle_emulation=True,
+            natural_scroll=True,
+            pointer_accel=0,
+        ),
+        "*-Kensington_Orbit_Fusion_Wireless_Trackball": InputConfig(
+            pointer_accel=0.4,
+            scroll_button="BTN_MIDDLE",
+            scroll_method="on_button_down",
+        ),
+        "*-Getech_HUGE_TrackBall": InputConfig(
+            pointer_accel=0.4,
+            scroll_button="BTN_TASK",
+            scroll_method="on_button_down",
+        ),
+    }
+
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
 # We therefore defer the check until the key binding is run by using .when(func=...)
@@ -327,10 +405,10 @@ for i in groups:
 layouts = [
     layout.MonadTall(
         border_focus="#fabd2f",
-        border_normal="#1d2021",
-        border_width=4,
-        new_client_position="bottom",
-        single_border_width=0,
+        border_normal="#655c54",
+        border_width=2,
+        new_client_position="top",
+        single_border_width=2,
     ),
     # layout.Floating(),
 ]
@@ -350,42 +428,6 @@ mouse = [
     ),
     Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
-
-wl_input_rules = {
-    "type:keyboard": InputConfig(
-        kb_layout="no,se,us(altgr-intl),prog-qwerty",
-        kb_repeat_delay=200,
-        kb_repeat_rate=30,
-        kb_variant=",nodeadkeys",
-    ),
-    "type:touchpad": InputConfig(
-        accel_profile="flat",
-        click_method="clickfinger",
-        drag=False,
-        dwt=False,
-        middle_emulation=True,
-        natural_scroll=True,
-        pointer_accel=0,
-        scroll_method="two_finger",
-        tap=True,
-    ),
-    "type:pointer": InputConfig(
-        accel_profile="flat",
-        middle_emulation=True,
-        natural_scroll=True,
-        pointer_accel=0,
-    ),
-    "*-Kensington_Orbit_Fusion_Wireless_Trackball": InputConfig(
-        pointer_accel=0.4,
-        scroll_button="BTN_MIDDLE",
-        scroll_method="on_button_down",
-    ),
-    "*-Getech_HUGE_TrackBall": InputConfig(
-        pointer_accel=0.4,
-        scroll_button="BTN_TASK",
-        scroll_method="on_button_down",
-    ),
-}
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
