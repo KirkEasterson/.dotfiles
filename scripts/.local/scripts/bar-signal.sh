@@ -8,17 +8,8 @@ if [ "$bar_pid" = "" ]; then
 fi
 
 declare -A signal
-signal["github"]=4
-signal["playerctl"]=5
-signal["sunset"]=6
-signal["scratchpad"]=7
+signal["qtile-groups"]=7
 signal["recorder"]=8
-signal["clipboard"]=9
-signal["zeit"]=10
-signal["dnd"]=11
-signal["adaptive"-brightness]=12
-signal["valent"]=13
-signal["pacman"]=14
 signal["idle"]=15
 
 number=${signal[${1}]}
