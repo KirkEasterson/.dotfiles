@@ -8,7 +8,7 @@ return {
     { "gb" },
     {
       "gcc",
-      desc = "Toggle line comment", --
+      desc = "Toggle line comment",
     },
     {
       "gbc",
