@@ -61,6 +61,7 @@ return {
       "gomod",
       "gosum",
       "gowork",
+      "hcl",
       "hjson",
       "html",
       "http",
