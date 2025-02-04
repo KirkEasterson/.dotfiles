@@ -19,6 +19,7 @@
   "duck.nvim": { "branch": "main", "commit": "644cc9e457b640a0125820f50195684b628aae63" },
   "firenvim": { "branch": "master", "commit": "03ba12a5a92a02d171005775a8150998c4060a74" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
+  "fzf": { "branch": "master", "commit": "bbe1721a1883426f639c1efe6afef1d3e6c25181" },
   "fzf-lua": { "branch": "main", "commit": "d26acfea8d2b873a6c5f66e8d0168871e5be3945" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "0b04035bb7b3c83e999b9676e2fb46fd0aa9f910" },
