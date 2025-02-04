@@ -1,5 +1,3 @@
 include {
   "~/.config/sway/modules/*"
 }
-
-# include @sysconfdir@/sway/config.d/*
