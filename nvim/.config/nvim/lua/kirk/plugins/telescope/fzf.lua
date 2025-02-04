@@ -4,103 +4,103 @@ local picker_opts = {
 
 return {
   "ibhagwan/fzf-lua",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "echasnovski/mini.icons",
     { "junegunn/fzf", build = "./install --bin" },
   },
   cmd = "FzfLua",
-  keys = {
-    -- fzf file helpers
-    {
-      "<leader>ff",
-      function()
-        require("fzf-lua").files({
-          winopts = {
-            split = "belowright new",
-            preview = {
-              hidden = "hidden",
-            },
-          },
-        })
-      end,
-      desc = "Find files",
-    },
-    {
-      "<leader>fb",
-      function()
-        require("fzf-lua").buffers({
-          winopts = {
-            split = "belowright new",
-            preview = {
-              hidden = "hidden",
-            },
-          },
-        })
-      end,
-      desc = "Search buffers",
-    },
-    {
-      "<leader>fg",
-      function()
-        require("fzf-lua").live_grep_native()
-      end,
-      desc = "Project search",
-    },
-    {
-      "<leader>fG",
-      function()
-        require("fzf-lua").grep_cword()
-      end,
-      mode = { "n" },
-      desc = "Search for current word",
-    },
-    {
-      "<leader>fG",
-      function()
-        require("fzf-lua").grep_visual()
-      end,
-      mode = { "v" },
-      desc = "Search for selection",
-    },
-    {
-      "<leader>fu",
-      function()
-        require("fzf-lua").lgrep_curbuf()
-      end,
-      desc = "Search current bugger",
-    },
-
-    -- fzf lsp/treesitter helpers
-    {
-      "<leader>fr",
-      function()
-        require("fzf-lua").lsp_references()
-      end,
-      desc = "LSP references",
-    },
-    {
-      "<leader>fs",
-      function()
-        require("fzf-lua").lsp_document_symbols()
-      end,
-      desc = "LSP document symbols",
-    },
-    {
-      "<leader>fd",
-      function()
-        require("fzf-lua").diagnostics_document()
-      end,
-      desc = "Document diagnostics",
-    },
-    {
-      "<leader>fD",
-      function()
-        require("fzf-lua").diagnostics_workspace()
-      end,
-      desc = "Workspace diagnostics",
-    },
-  },
+  -- keys = {
+  --   -- fzf file helpers
+  --   {
+  --     "<leader>ff",
+  --     function()
+  --       require("fzf-lua").files({
+  --         winopts = {
+  --           split = "belowright new",
+  --           preview = {
+  --             hidden = "hidden",
+  --           },
+  --         },
+  --       })
+  --     end,
+  --     desc = "Find files",
+  --   },
+  --   {
+  --     "<leader>fb",
+  --     function()
+  --       require("fzf-lua").buffers({
+  --         winopts = {
+  --           split = "belowright new",
+  --           preview = {
+  --             hidden = "hidden",
+  --           },
+  --         },
+  --       })
+  --     end,
+  --     desc = "Search buffers",
+  --   },
+  --   {
+  --     "<leader>fg",
+  --     function()
+  --       require("fzf-lua").live_grep_native()
+  --     end,
+  --     desc = "Project search",
+  --   },
+  --   {
+  --     "<leader>fG",
+  --     function()
+  --       require("fzf-lua").grep_cword()
+  --     end,
+  --     mode = { "n" },
+  --     desc = "Search for current word",
+  --   },
+  --   {
+  --     "<leader>fG",
+  --     function()
+  --       require("fzf-lua").grep_visual()
+  --     end,
+  --     mode = { "v" },
+  --     desc = "Search for selection",
+  --   },
+  --   {
+  --     "<leader>fu",
+  --     function()
+  --       require("fzf-lua").lgrep_curbuf()
+  --     end,
+  --     desc = "Search current bugger",
+  --   },
+  --
+  --   -- fzf lsp/treesitter helpers
+  --   {
+  --     "<leader>fr",
+  --     function()
+  --       require("fzf-lua").lsp_references()
+  --     end,
+  --     desc = "LSP references",
+  --   },
+  --   {
+  --     "<leader>fs",
+  --     function()
+  --       require("fzf-lua").lsp_document_symbols()
+  --     end,
+  --     desc = "LSP document symbols",
+  --   },
+  --   {
+  --     "<leader>fd",
+  --     function()
+  --       require("fzf-lua").diagnostics_document()
+  --     end,
+  --     desc = "Document diagnostics",
+  --   },
+  --   {
+  --     "<leader>fD",
+  --     function()
+  --       require("fzf-lua").diagnostics_workspace()
+  --     end,
+  --     desc = "Workspace diagnostics",
+  --   },
+  -- },
   config = function(_, _)
     local fzf_lua = require("fzf-lua")
     fzf_lua.setup({
