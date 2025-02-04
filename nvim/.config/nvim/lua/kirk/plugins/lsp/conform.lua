@@ -22,11 +22,14 @@ return {
   },
   opts = {
     formatters_by_ft = {
+      -- ocaml = { "ocamlformat" },
+      ["terraform-vars"] = { "tflint" },
       c = { "clang_format" },
       c_sharp = { "csharpier" },
       cpp = { "clang_format" },
       css = { "prettier" },
       go = { "gofumpt", "goimports" }, -- TODO: add "golines"
+      hcl = { "packer_fmt" },
       html = { "prettier" },
       javascript = { "prettierd", "prettier", "eslint_d" },
       javascriptreact = { "prettierd", "prettier", "eslint_d" },
@@ -34,12 +37,12 @@ return {
       jsonc = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
-      -- ocaml = { "ocamlformat" },
       python = { "black" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
       svelte = { "prettier" },
       terraform = { "tflint" },
+      tf = { "tflint" },
       typescript = { "prettierd", "prettier", "eslint_d" },
       typescriptreact = { "prettierd", "prettier", "eslint_d" },
       yaml = { "yamlfmt", "prettier" },
