@@ -17,6 +17,8 @@ return {
       -- markdown = { "markdownlint" },
       python = { "pylint" },
       svelte = { "eslint_d" },
+      terraform = { "tflint" },
+      tf = { "tflint" },
       typescript = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       yaml = { "yamllint" },
