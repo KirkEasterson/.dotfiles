@@ -10,6 +10,8 @@ return {
     {
       "<leader>fc",
       function()
+        -- TODO: add "organize imports" for formatters that don't do this
+
         require("conform").format({
           lsp_fallback = true,
           async = true,
