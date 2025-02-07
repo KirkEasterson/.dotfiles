@@ -16,7 +16,10 @@ return {
     {
       "<leader>dvo",
       function()
-        require("diffview").open({ "--untracked-files=no" })
+        require("diffview").open({
+          require("util").git_default_branch(),
+          "--untracked-files=no",
+        })
       end,
       desc = "Open diff view",
     },

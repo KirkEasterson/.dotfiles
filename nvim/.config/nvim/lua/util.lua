@@ -208,4 +208,21 @@ function M.fmap(tbl, f)
   return t
 end
 
+--- returns "master", "main", or nil
+---@return string?
+function M.git_default_branch()
+  local handle = io.popen("git default-branch")
+  if handle == nil then
+    return nil
+  end
+
+  local result = handle:read("*a")
+  if result == nil then
+    return nil
+  end
+
+  handle:close()
+  return result
+end
+
 return M
