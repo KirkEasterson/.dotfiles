@@ -152,5 +152,5 @@ end, { desc = "Paste over selection without erasing unnamed register" })
 
 -- toggle relative line numbers
 util.map("n", "tl", function()
-  vim.wo.relativenumber = not vim.wo.relativenumber
+  vim.o.relativenumber = not vim.o.relativenumber
 end, { desc = "Toggle relative linenumbers" })
