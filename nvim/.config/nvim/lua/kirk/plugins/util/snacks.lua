@@ -7,6 +7,7 @@ return {
       "<leader>ff",
       function()
         require("snacks").picker.files({
+          hidden = (string.find(vim.fn.expand("%"), "dotfiles")) ~= nil,
           layout = {
             preset = "ivy_split",
             preview = false,
@@ -18,7 +19,12 @@ return {
     {
       "<leader>fb",
       function()
-        require("snacks").picker.buffers()
+        require("snacks").picker.buffers({
+          layout = {
+            preset = "ivy_split",
+            preview = false,
+          },
+        })
       end,
       desc = "Search buffers",
     },
