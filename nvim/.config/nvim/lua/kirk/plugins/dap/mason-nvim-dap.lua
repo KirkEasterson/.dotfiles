@@ -18,7 +18,6 @@ return {
       "bash",
       "delve",
       "js",
-      -- "node2", -- TODO: get this to install correctly
       "python",
     },
     handlers = {
