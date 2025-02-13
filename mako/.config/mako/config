@@ -1,21 +1,21 @@
 font=JetBrains Mono 11
 #sort=-time
 layer=overlay
-background-color=#2e3440
+background-color=#282828
 margin=5
 padding=0,5,10
-border-color=#88c0d0
+border-color=#83a598
 default-timeout=5000
 ignore-timeout=1
 icon-path=/usr/share/icons/Papirus-Dark
+on-notify=exec notification-sound.sh information
 
-# TODO: use gruvbox colors
 [urgency=normal]
-border-color=#d08770
+border-color=#a89984
 
 [urgency=high]
-border-color=#bf616a
+border-color=#cc241d
 default-timeout=0
 
 [summary~="log-.*"]
-border-color=#a3be8c
+border-color=#8ec07c
