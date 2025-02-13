@@ -20,6 +20,10 @@
 [alias]
 	clone-for-worktrees = "!sh git_clone_bare_for_worktrees.sh"
 
+; easy fixups
+[alias]
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+
 ; delta
 [core]
 	pager = delta
