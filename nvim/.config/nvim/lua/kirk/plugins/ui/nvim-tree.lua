@@ -16,8 +16,8 @@ local function on_attach(bufnr)
 
   -- custom mappings
   vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
-  vim.keymap.set("n", "[d", api.node.diagnostics.prev, opts("Prev Diagnostic"))
-  vim.keymap.set("n", "]d", api.node.diagnostics.next, opts("Next Diagnostic"))
+  vim.keymap.set("n", "[d", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
+  vim.keymap.set("n", "]d", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
 end
 
 return {
