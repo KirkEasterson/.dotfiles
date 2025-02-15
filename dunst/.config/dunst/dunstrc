@@ -300,3 +300,7 @@
 [logs]
     summary = "log-.*"
     frame_color = "#a3be8c"
+
+[play_sound]
+    body = "*"
+    script = "notication-sound.sh information"
