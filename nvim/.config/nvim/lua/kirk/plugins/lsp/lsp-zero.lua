@@ -13,6 +13,8 @@ return {
     -- "jose-elias-alvarez/null-ls.nvim",
     -- "jay-babu/mason-null-ls.nvim",
 
+    "antosha417/nvim-lsp-file-operations",
+
     "nvim-lua/plenary.nvim",
   },
   cmd = {
@@ -118,6 +120,9 @@ return {
           "<F5>",
         },
       })
+
+      client.server_capabilities =
+        vim.tbl_deep_extend("force", client.server_capabilities, require("lsp-file-operations").default_capabilities())
 
       -- -- for ufo folding
       -- client.server_capabilities.textDocument = {
