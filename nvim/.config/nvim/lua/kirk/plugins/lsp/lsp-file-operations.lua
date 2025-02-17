@@ -1,8 +1,8 @@
 return {
   "antosha417/nvim-lsp-file-operations",
   dependencies = {
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-tree/nvim-tree.lua" },
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-tree.lua",
   },
   main = "lsp-file-operations",
   opts = {},
