@@ -19,3 +19,6 @@ default-timeout=0
 
 [summary~="log-.*"]
 border-color=#8ec07c
+
+[mode=do-not-disturb]
+invisible=1

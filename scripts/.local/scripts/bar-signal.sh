@@ -10,6 +10,7 @@ fi
 declare -A signal
 signal["qtile-groups"]=7
 signal["recorder"]=8
+signal["disturb"]=14
 signal["idle"]=15
 
 number=${signal[${1}]}

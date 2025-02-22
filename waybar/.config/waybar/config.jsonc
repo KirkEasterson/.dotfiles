@@ -27,6 +27,8 @@
     "custom/idle-inhibitor",
     // "idle_inhibitor",
     "custom/line-separator",
+    "custom/do-not-disturb",
+    "custom/line-separator",
     "backlight",
     "custom/line-separator",
     "temperature",
@@ -315,7 +317,7 @@
     "tooltip": false,
   },
   "custom/media": {
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+    "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null",
     "format": "{icon}  {}",
     "return-type": "json",
     "max-length": 20,
@@ -359,6 +361,20 @@
     "on-click-middle": "inhibit-idle.sh off",
     "on-click-right": "inhibit-idle.sh interactive",
     "signal": 15,
+  },
+  "custom/do-not-disturb": {
+    "interval": 60,
+    "return-type": "json",
+    "format": "{icon} ",
+    "format-icons": {
+      "on": "",
+      "off": "",
+    },
+    "exec": "do-not-disturb.sh",
+    "on-click": "do-not-disturb.sh enable",
+    "on-click-middle": "do-not-disturb.sh disable",
+    "on-click-right": "do-not-disturb.sh toggle",
+    "signal": 14,
   },
   "custom/recorder": {
     "return-type": "json",
