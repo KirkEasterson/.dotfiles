@@ -12,7 +12,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 export GOPATH="$HOME/go"
-#export GOROOT="/usr/lib/go"
+export GOROOT="/usr/lib/go"
 #export GOROOT="/opt/homebrew/bin/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/bin"
