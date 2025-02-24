@@ -38,7 +38,7 @@
 	mse_del (tap-hold-next-release 200 del (layer-toggle U_MOUSE))
 
 	;; right hand
-	sym_lay (tap-hold-next-release 200 tab (layer-toggle U_SYM))
+	sym_tab (tap-hold-next-release 200 tab (layer-toggle U_SYM))
 	num_ent (tap-hold-next-release 200 ent (layer-toggle U_NUM))
 	fun_spc (tap-hold-next-release 200 spc (layer-toggle U_FUN))
 )
@@ -47,14 +47,14 @@
 q       w        e       r       t  y  u       i        o        p
 @ctl_a  @alt_s   @met_d  @sft_f  g  h  @sft_j  @met_k   @alt_l   @ctl_;
 @btn_z	@ralt_x  c       v       b  n  m       ,        @ralt_.  @btn_slash
-     @mda_esc  @nav_bspc  @mse_del  @sym_lay  @num_ent  @fun_spc
+     @mda_esc  @nav_bspc  @mse_del  @sym_tab  @num_ent  @fun_spc
 )
 
 (deflayer U_EXTRA
 q       w        e       r       t  y  u       i        o        p
 @ctl_a  @alt_s   @met_d  @sft_f  g  h  @sft_j  @met_k   @alt_l   @ctl_;
 @btn_z	@ralt_x  c       v       b  n  m       ,        @ralt_.  @btn_slash
-     @mda_esc  @nav_bspc  @mse_del  @sym_lay  @num_ent  @fun_spc
+     @mda_esc  @nav_bspc  @mse_del  @sym_tab  @num_ent  @fun_spc
 )
 (deflayer U_TAP
 q	w	e	r	t	y	u	i	o	p
