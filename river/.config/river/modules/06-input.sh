@@ -4,7 +4,7 @@
 # All inputs
 ################################
 
-riverctl set-repeat 30 200
+# riverctl set-repeat 30 200
 riverctl keyboard-layout -options "caps:escape" "no"
 
 riverctl input pointer-* accel-profile flat
