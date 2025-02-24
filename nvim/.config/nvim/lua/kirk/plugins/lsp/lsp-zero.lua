@@ -56,6 +56,7 @@ return {
         "cmake",
         "csharp_ls",
         "cssls",
+        "diagnosticls",
         "docker_compose_language_service",
         "dockerls",
         "eslint",
@@ -64,9 +65,9 @@ return {
         "html",
         "jsonls",
         "lemminx", -- xml
-        "diagnosticls",
         "lua_ls",
         "omnisharp",
+        "prismals",
         "pyright",
         "rust_analyzer",
         "sqlls",
