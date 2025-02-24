@@ -10,6 +10,7 @@ fi
 declare -A signal
 signal["qtile-groups"]=7
 signal["recorder"]=8
+signal["weather"]=9
 signal["disturb"]=14
 signal["idle"]=15
 
