@@ -12,7 +12,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt sysrq cmp  rctl
+  lctl lmet lalt           spc            ralt sysrq rctl
 )
 
 (defalias
@@ -29,15 +29,25 @@
 	ralt_x (tap-hold-next-release 200 x ralt)
 	ralt_. (tap-hold-next-release 200 . ralt)
 
-    ubase (multi-tap 200 XX (layer-switch U_BASE))
-    utap (multi-tap 200 XX (layer-switch U_TAP))
-    uextra (multi-tap 200 XX (layer-switch U_EXTRA))
-    ufun (multi-tap 200 XX (layer-switch U_FUN))
-    unum (multi-tap 200 XX (layer-switch U_NUM))
-    usym (multi-tap 200 XX (layer-switch U_SYM))
-    unav (multi-tap 200 XX (layer-switch U_NAV))
-    umouse (multi-tap 200 XX (layer-switch U_MOUSE))
-    umedia (multi-tap 200 XX (layer-switch U_MEDIA))
+	;; simulated thumb cluster
+    mda_lctl (tap-hold-next-release 200 lctl (layer-toggle U_MEDIA))
+	nav_lmet (tap-hold-next-release 200 lmet (layer-toggle U_NAV))
+	mse_lalt (tap-hold-next-release 200 lalt (layer-toggle U_MOUSE))
+
+	sym_ralt (tap-hold-next-release 200 ralt (layer-toggle U_SYM))
+	num_rmet (tap-hold-next-release 200 sysrq (layer-toggle U_NUM))
+	fun_rctl (tap-hold-next-release 200 rctl (layer-toggle U_FUN))
+
+	;; other layers
+    ubase (tap-hold-next-release 200 XX (layer-toggle U_BASE))
+    utap (tap-hold-next-release 200 XX (layer-toggle U_TAP))
+    uextra (tap-hold-next-release 200 XX (layer-toggle U_EXTRA))
+    ufun (tap-hold-next-release 200 XX (layer-toggle U_FUN))
+    unum (tap-hold-next-release 200 XX (layer-toggle U_NUM))
+    usym (tap-hold-next-release 200 XX (layer-toggle U_SYM))
+    unav (tap-hold-next-release 200 XX (layer-toggle U_NAV))
+    umouse (tap-hold-next-release 200 XX (layer-toggle U_MOUSE))
+    umedia (tap-hold-next-release 200 XX (layer-toggle U_MEDIA))
 )
 
 (deflayer U_BASE
@@ -45,7 +55,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   esc @ctl_a   @alt_s   @met_d   @sft_f   g   h   @sft_j   @met_k   @alt_l   @ctl_;    '    ret
   lsft z    @ralt_x    c    v    b    n    m    ,    @ralt_.    /    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
+  @mda_lctl @nav_lmet @mse_lalt        spc        @sym_ralt @num_rmet @fun_rctl
 )
 
 (deflayer U_EXTRA
@@ -53,7 +63,7 @@
   tab  q       w    e   r       t       y  u  i       o       p        [       ]    \
   esc  @ctl_a  @alt_s   @met_d  @sft_f  g  h  @sft_j  @met_k  @alt_l   @ctl_;  '    ret
   lsft z       @ralt_x  c       v       b  n  m       ,       @ralt_.  /       rsft
-  lctl lmet    lalt                     spc           ralt    rmet     cmp     rctl
+  lctl lmet    lalt                     spc           ralt    rmet     rctl
 )
 
 (deflayer U_TAP
@@ -61,7 +71,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   esc  a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet cmp  rctl
+  lctl lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer U_BUTTTON
@@ -69,53 +79,53 @@
   XX   C-z  C-x  C-c  C-v  C-y  C-y  C-v  C-c  C-x  C-z  XX   XX   XX
   XX   ctl  alt  met  sft  XX   XX   sft  met  alt  ctl  XX   XX
   XX   C-z  C-x  C-c  C-v  C-y  C-y  C-v  C-c  C-x  C-z  XX
-  lctl lmet lalt           spc            ralt rmet cmp  rctl
-)
-
-(deflayer U_NAV
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  XX  XX    @utap    @uextra    @ubase    XX    C-y    C-v    C-c    C-x    C-z    XX    XX   XX
-  esc ctl   alt   met   sft   XX   left   down   up   right    XX   XX   XX
-  XX  XX    ralt    @unum    @unav    XX    home    pgdn    pgup    end    ins    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
-)
-
-(deflayer U_MOUSE
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  XX  XX    @utap    @uextra    @ubase    XX    C-y    C-v    C-c    C-x    C-z    XX    XX   XX
-  esc ctl   alt   met   sft   XX   kp4   kp2   kp8   kp6    XX   XX   XX
-  XX  XX    ralt    @usym    @umouse    XX    XX    XX    XX    XX    XX    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
+  lctl lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer U_MEDIA
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  XX  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   XX  XX    @utap    @uextra    @ubase    XX    XX    XX    XX    XX    XX    XX    XX   XX
   esc ctl   alt   met   sft   XX   previoussong   vold   volu   nextsong    XX   XX   XX
   XX  XX    ralt    @ufun    @umedia    XX    XX    XX    XX    XX    XX    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
+  lctl lmet lalt                 spc            stopcd playpause mute
 )
 
-(deflayer U_NUM
-  grv  [    7    8    9    ]    6    7    8    9    0    -    =    bspc
-  XX  ;   4   5   6   =    XX    @ubase    @uextra    @utap    XX    XX    XX   XX
-  esc `    1    2    3    \\   XX   vold   volu   nextsong    XX   XX   XX
-  XX  XX    XX    .    0    -    XX    @unum    @unav    ralt    XX    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
+(deflayer U_NAV
+  XX  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  XX  XX    @utap    @uextra    @ubase    XX    C-y    C-v    C-c    C-x    C-z    XX    XX   XX
+  esc ctl   alt   met   sft   XX   left   down   up   right    XX   XX   XX
+  XX  XX    ralt    @unum    @unav    XX    home    pgdn    pgup    end    ins    rsft
+  lctl lmet lalt                 spc            ralt rmet rctl
+)
+
+(deflayer U_MOUSE
+  XX  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  XX  XX    @utap    @uextra    @ubase    XX    C-y    C-v    C-c    C-x    C-z    XX    XX   XX
+  esc ctl   alt   met   sft   XX   kp4   kp2   kp8   kp6    XX   XX   XX
+  XX  XX    ralt    @usym    @umouse    XX    XX    XX    XX    XX    XX    rsft
+  lctl lmet lalt                 spc            ralt rmet rctl
 )
 
 (deflayer U_SYM
-  grv  {    &    *    \(    }    6    7    8    9    0    -    =    bspc
-  XX  :   $   %   ^   +    XX    @ubase    @uextra    @utap    XX    XX    XX   XX
-  esc ~    !    @    #    |   XX   vold   volu   nextsong    XX   XX   XX
-  XX  XX    XX    \(    \)    \_    XX    @usym    @umouse    ralt    XX    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
+  XX  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  XX   {    &    *    \(    }    XX    @ubase    @uextra    @utap    XX    XX    XX   XX
+  esc  :   $   %   ^   +   XX   vold   volu   nextsong    XX   XX   XX
+  XX   ~    !    @    #    |   XX    @usym    @umouse    ralt    XX    rsft
+  \(    \)    \_                 spc            ralt rmet rctl
+)
+
+(deflayer U_NUM
+  XX  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  XX  [    7    8    9    ]    XX    @ubase    @uextra    @utap    XX    XX    XX   XX
+  esc ;   4   5   6   =   XX   vold   volu   nextsong    XX   XX   XX
+  XX  `    1    2    3    \\    XX    @unum    @unav    ralt    XX    rsft
+  .    0    -                 spc            ralt rmet rctl
 )
 
 (deflayer U_FUN
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  XX  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   XX  f12   f7   f8   f9   sysrq  XX    @ubase    @uextra    @utap    XX    XX    XX   XX
   esc f11    f4    f5    f6   slck   XX   sft  met  alt  ctl   XX  XX
   XX  f10    f1    f2    f3    pause    XX    @ufun    @umedia    ralt    XX    rsft
-  lctl lmet lalt                 spc            ralt rmet cmp  rctl
+  lctl lmet lalt                 spc            ralt rmet rctl
 )
