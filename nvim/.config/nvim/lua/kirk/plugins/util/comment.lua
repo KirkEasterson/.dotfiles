@@ -45,5 +45,8 @@ return {
     end
 
     require("Comment").setup(opts)
+
+    local ft = require("Comment.ft")
+    ft.commonlisp = ";; %s"
   end,
 }
