@@ -60,7 +60,7 @@ q       w        e       r       t  y  u       i        o        p
 q	w	e	r	t	y	u	i	o	p
 a	s	d	f	g	h	j	k	l	'
 z	x	c	v	b	n	m	,	.	/
-		esc	spc	tab	ent	bspc	del
+		esc	bspc	del	tab	ent	spc
 )
 
 (deflayer U_BUTTON
@@ -81,7 +81,7 @@ XX	ralt	(multi-tap 200 XX (layer-switch U_FUN))	(multi-tap 200 XX (layer-switch 
 XX	(multi-tap 200 XX (layer-switch U_TAP))	(multi-tap 200 XX (layer-switch U_EXTRA))	(multi-tap 200 XX (layer-switch U_BASE))	XX	C-y	C-v	C-c	C-x	C-z
 ctl	alt	met	sft	XX	left	down	up	right	caps
 XX	ralt	(multi-tap 200 XX (layer-switch U_NUM))	(multi-tap 200 XX (layer-switch U_NAV))	XX	home	pgdn	pgup	end	ins
-		XX	XX	XX	ent	bspc	del
+		XX	XX	XX	tab	ent	spc
 )
 
 (deflayer U_MOUSE
@@ -109,5 +109,5 @@ XX	ralt	(multi-tap 200 XX (layer-switch U_SYM))	(multi-tap 200 XX (layer-switch 
 f12	f7	f8	f9	sysrq	XX	(multi-tap 200 XX (layer-switch U_BASE))	(multi-tap 200 XX (layer-switch U_EXTRA))	(multi-tap 200 XX (layer-switch U_TAP))	XX
 f11	f4	f5	f6	slck	XX	sft	met	alt	ctl
 f10	f1	f2	f3	pause	XX	(multi-tap 200 XX (layer-switch U_FUN))	(multi-tap 200 XX (layer-switch U_MEDIA))	ralt	XX
-		comp	spc	tab	XX	XX	XX
+		comp	bspc	del	XX	XX	XX
 )
