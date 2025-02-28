@@ -1,7 +1,13 @@
 #!/bin/sh
 
-if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
-	$SEARCH -show drun "$@"
-else
-	$SEARCH "$@"
-fi
+case "$SEARCH" in
+"rofi")
+	rofi -show drun "$@"
+	;;
+"fuzzel")
+	fuzzel "$@"
+	;;
+*)
+	exit 0
+	;;
+esac
