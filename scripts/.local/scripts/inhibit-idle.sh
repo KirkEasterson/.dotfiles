@@ -71,6 +71,6 @@ case $1'' in
 		text="Idle not inhibited"
 	fi
 
-	printf '{"alt":"%s","tooltip":"%s"}\n' "$class" "$text"
+	printf '{"alt":"%s","class":"%s","tooltip":"%s"}\n' "$class" "$class" "$text"
 	;;
 esac

@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 22,
+  "height": 24,
   "margin": 0,
   "padding": 0,
   "spacing": 0,
@@ -368,8 +368,8 @@
     "return-type": "json",
     "format": "{icon} ",
     "format-icons": {
-      "on": "",
-      "off": "",
+      "on": "",
+      "off": "",
     },
     "exec": "do-not-disturb.sh",
     "on-click": "do-not-disturb.sh enable",

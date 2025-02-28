@@ -92,6 +92,6 @@ case "$1" in
 		;;
 	esac
 
-	printf '{"alt":"%s","tooltip":"%s"}\n' "$class" "$text"
+	printf '{"alt":"%s","class":"%s","tooltip":"%s"}\n' "$class" "$class" "$text"
 	;;
 esac

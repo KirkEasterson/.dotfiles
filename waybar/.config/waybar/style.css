@@ -196,3 +196,19 @@ window#waybar {
 #taskbar button.active {
   background-color: @bg2;
 }
+
+#custom-do-not-disturb.off {
+  color: @yellow1;
+}
+
+#custom-do-not-disturb.on {
+  color: @red1;
+}
+
+#custom-idle-inhibitor.off {
+  color: @blue2;
+}
+
+#custom-idle-inhibitor.on {
+  color: @red1;
+}
