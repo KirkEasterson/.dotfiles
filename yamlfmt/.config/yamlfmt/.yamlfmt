@@ -2,4 +2,3 @@
 formatter:
   type: basic
   retain_line_breaks: true
-  include_document_start: true
