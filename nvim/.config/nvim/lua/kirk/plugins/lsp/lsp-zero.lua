@@ -71,6 +71,7 @@ return {
         "pyright",
         "rust_analyzer",
         "sqlls",
+        "svelte",
         "taplo", -- toml
         "terraformls",
         "tflint",
