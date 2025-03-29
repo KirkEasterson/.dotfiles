@@ -1,11 +1,5 @@
 local util = require("util")
 
--- QOL util.mapping to type commands without needing shift (US-like keyboards only)
-util.map("n", ";", ":")
-util.map("n", ":", ";")
-util.map("v", ";", ":")
-util.map("v", ":", ";")
-
 -- center the cursor on movements
 util.map("n", "<C-i>", "<C-i>zz")
 util.map("n", "<C-o>", "<C-o>zz")
@@ -63,7 +57,7 @@ util.map("n", "]l", function()
     vim.cmd("cfirst")
   end
 end, { desc = "Location list - next" })
-util.map("n", "<leader>tl", function()
+util.map("n", "<leader>lt", function()
   if vim.tbl_isempty(vim.fn.getloclist(0)) then
     return
   end
@@ -151,6 +145,6 @@ util.map("x", "<leader>qp", function()
 end, { desc = "Paste over selection without erasing unnamed register" })
 
 -- toggle relative line numbers
-util.map("n", "tl", function()
+util.map("n", "<leader>tl", function()
   vim.o.relativenumber = not vim.o.relativenumber
 end, { desc = "Toggle relative linenumbers" })
