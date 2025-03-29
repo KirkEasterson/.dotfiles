@@ -119,6 +119,8 @@ opt.title = true
 opt.titlelen = 0
 opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"
 
+opt.winbar = "%{%v:lua.require('util').winbar()%}"
+
 opt.spell = true
 opt.spelllang = {
   "en_us",
