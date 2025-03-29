@@ -36,7 +36,7 @@ toggle() {
 status() {
 	case $NOTIFIER in
 	"dunst")
-		if dunstctl is-paused; then
+		if dunstctl is-paused --exit-code; then
 			STATUS="enabled"
 		else
 			STATUS="disabled"
