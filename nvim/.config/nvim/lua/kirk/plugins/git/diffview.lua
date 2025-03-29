@@ -16,40 +16,38 @@ return {
     {
       "<leader>dvo",
       function()
-        require("diffview").open({
-          require("util").git_default_branch(),
-          "--untracked-files=no",
-        })
+        if next(require("diffview.lib").views) == nil then
+          require("diffview").open({
+            require("util").git_default_branch(),
+            "--untracked-files=no",
+          })
+        else
+          require("diffview").close()
+        end
       end,
-      desc = "Open diff view",
-    },
-    {
-      "<leader>dvO",
-      function()
-        require("diffview").open({})
-      end,
-      desc = "Open diff view with untracked files",
+      desc = "Toggle diff view",
     },
     {
       "<leader>dvh",
       function()
-        vim.cmd.DiffviewFileHistory("%")
+        if next(require("diffview.lib").views) == nil then
+          vim.cmd.DiffviewFileHistory("%")
+        else
+          require("diffview").close()
+        end
       end,
       desc = "Open diff view with file history",
     },
     {
       "<leader>dvH",
       function()
-        require("diffview").file_history(nil, {})
+        if next(require("diffview.lib").views) == nil then
+          require("diffview").file_history(nil, {})
+        else
+          require("diffview").close()
+        end
       end,
       desc = "Open diff view with branch history",
-    },
-    {
-      "<leader>dvc",
-      function()
-        require("diffview").close()
-      end,
-      desc = "Close diff view",
     },
   },
   opts = {
