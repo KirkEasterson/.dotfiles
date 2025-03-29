@@ -26,3 +26,7 @@ riverctl input "*-Kensington_Orbit_Fusion_Wireless_Trackball" scroll-factor 0.4
 riverctl input "*-Getech_HUGE_TrackBall" scroll-button BTN_TASK
 riverctl input "*-Getech_HUGE_TrackBall" scroll-method button
 riverctl input "*-Getech_HUGE_TrackBall" scroll-factor 0.4
+
+riverctl input "*-Kensington_Expert_Wireless_TB_Mouse" scroll-button BTN_TASK
+riverctl input "*-Kensington_Expert_Wireless_TB_Mouse" scroll-method button
+riverctl input "*-Kensington_Expert_Wireless_TB_Mouse" scroll-factor 0.4
