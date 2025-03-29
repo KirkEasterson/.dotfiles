@@ -200,8 +200,41 @@ keymap = [
 	], run = "cd ~/Pictures/screenshots", desc = "Go to the screenshots directory" },
 	{ on = [
 		"g",
+		"v",
+	], run = "cd ~/Videos/", desc = "Go to the videos directory" },
+	{ on = [
+		"g",
 		"c",
 	], run = "cd ~/.config", desc = "Go to the config directory" },
+
+
+	# Move
+	# { on = [
+	# 	"g",
+	# 	"<Space>",
+	# ], run = "plugin fzf", desc = "Jump to a directory or reveal a file using fzf" },
+	{ on = [
+		"m",
+		"h",
+	], run = "shell 'mv $@ ~/'", desc = "Move contents to the home directory" },
+	{ on = [
+		"m",
+		"d",
+	], run = "shell 'mv $@ ~/Downloads/'", desc = "Move contents to the downloads directory" },
+	{ on = [
+		"m",
+		"o",
+	], run = "shell 'mv $@ ~/Documents/'", desc = "Move contents to the documents directory" },
+	{ on = [
+		"m",
+		"p",
+	], run = "shell 'mv $@ ~/Pictures/'", desc = "Move contents to the pictures directory" },
+	{ on = [
+		"m",
+		"v",
+	], run = "shell 'mv $@ ~/Videos/'", desc = "Move contents to the videos directory" },
+
+
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
