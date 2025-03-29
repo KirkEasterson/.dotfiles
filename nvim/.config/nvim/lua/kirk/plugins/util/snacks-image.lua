@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     image = {
-      enabled = true,
+      enabled = false,
     },
   },
 }
