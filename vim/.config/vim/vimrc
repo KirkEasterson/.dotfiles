@@ -38,7 +38,7 @@ set linebreak " avoid wrapping a line in the middle of a word
 syntax enable " enable syntax highlighting
 set showmatch " highlight matching [{()}]
 
-set scrolloff=88888888 " scroll when x away from edge
+set scrolloff=8 " scroll when x away from edge
 set signcolumn=yes " column for linting
 set colorcolumn=80 " 80col limit
 
@@ -61,12 +61,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" easier commands (US layout)
-nnoremap ; :
-vnoremap ; :
-nnoremap : ;
-vnoremap : ;
 
 " center results
 nnoremap n nzzzv
