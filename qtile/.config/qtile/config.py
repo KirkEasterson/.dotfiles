@@ -99,7 +99,7 @@ keys = [
     Key([MOD, ALT], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     # Key([MOD], "n", lazy.layout.left(), desc="Move focus to left"),
     Key([MOD], "m", lazy.layout.next_screen(), desc="Next screen"),
-    Key([MOD], "<comma>", lazy.layout.prev_screen(), desc="Prev screen"),
+    Key([MOD], "comma", lazy.layout.prev_screen(), desc="Prev screen"),
     # Key([MOD], "<period>", lazy.layout.right(), desc="Move focus to right"),
     # Key([MOD, "shift"], "n", lazy.layout.shuffle_left(), desc="Move window left"),
     Key(
@@ -110,7 +110,7 @@ keys = [
     ),
     Key(
         [MOD, "shift"],
-        "<comma>",
+        "comma",
         move_window_to_prev_screen,
         desc="Move window to prev screen",
     ),
