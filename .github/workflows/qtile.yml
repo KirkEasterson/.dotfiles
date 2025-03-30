@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
       - name: "Install qtile"
-        run: sudo apt install -y qtile
+        run: pip install qtile
       - name: "Validate"
         run: qtile check --config ./qtile/.config/qtile/.config.py
