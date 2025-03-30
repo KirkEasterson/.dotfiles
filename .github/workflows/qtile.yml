@@ -8,6 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
+      - name: "pwd test"
+        run: "pwd"
+      - name: "ls test"
+        run: "ls"
       - name: "Install qtile"
         run: pip install qtile
       - name: "Validate"
