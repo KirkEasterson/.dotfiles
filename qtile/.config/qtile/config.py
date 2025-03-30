@@ -398,7 +398,7 @@ layouts = [
     layout.MonadTall(
         border_focus="#fabd2f",
         border_normal="#655c54",
-        border_width=2,
+        border_width=4,
         new_client_position="top",
         single_border_width=2,
     ),
