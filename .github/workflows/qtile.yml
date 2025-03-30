@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
       - name: "Install qtile dependencies"
-        run: sudo apt install -y python3-pip python3-xcffib python3-cairocffi
+        run: sudo apt install -y xserver-xorg xinit libpangocairo-1.0-0 python3-pip python3-xcffib python3-cairocffi
       - name: "Install qtile"
         run: pip install qtile
       - name: "Validate"
