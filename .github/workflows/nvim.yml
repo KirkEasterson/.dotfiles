@@ -1,9 +1,7 @@
----
 name: "nvim"
 
 on: ["push"]
 
-# TODO: get this to work
 env:
   NVIM_BASE_DIR: "nvim/.config/nvim"
 
@@ -17,11 +15,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v0.20.0
           args: >-
-            --allow-hidden
-            --check
-            -f ${{ env.NVIM_BASE_DIR }}/stylua.toml
-            ${{ env.NVIM_BASE_DIR }}
-
+            --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }} #magic___^_^___line
   test:
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +24,6 @@ jobs:
       - run: "stow nvim"
       - uses: MunifTanjim/setup-neovim-action@v1
         with:
-          tag: nightly
+          tag: stable
       - name: Test nvim with config
         run: nvim --headless +qa
