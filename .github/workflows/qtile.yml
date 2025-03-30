@@ -3,7 +3,7 @@ name: "qtile"
 on: ["push"]
 
 jobs:
-  stylua:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,15 +11,3 @@ jobs:
         run: sudo apt install -y qtile
       - name: "Validate"
         run: qtile check --config ./qtile/.config/qtile/.config.py
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: "sudo apt install stow"
-      - run: "stow nvim"
-      - uses: MunifTanjim/setup-neovim-action@v1
-        with:
-          tag: nightly
-      - name: Test nvim with config
-        run: nvim --headless +qa
