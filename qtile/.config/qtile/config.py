@@ -35,6 +35,7 @@ from colors import colors
 
 from libqtile import hook, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.backend.base import Window, window
 from libqtile.lazy import lazy
 
 is_wayland = qtile.core.name == "wayland"
@@ -407,19 +408,31 @@ layouts = [
 
 screens = [Screen()]
 
-# Drag floating layouts.
-mouse = [
-    Drag(
-        [MOD],
-        "Button1",
-        lazy.window.set_position(),
-        start=lazy.window.get_position(),
-    ),
-    Drag(
-        [MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
-    ),
-    Click([MOD], "Button2", lazy.window.bring_to_front()),
-]
+# Drag windows
+if Window.floating is True:
+    mouse = [
+        Drag(
+            [MOD],
+            "Button1",
+            lazy.window.set_position_floating(),
+            start=lazy.window.get_position(),
+        ),
+        Drag(
+            [MOD],
+            "Button3",
+            lazy.window.set_size_floating(),
+            start=lazy.window.get_size(),
+        ),
+    ]
+else:
+    mouse = [
+        Drag(
+            [MOD],
+            "Button1",
+            lazy.window.set_position(),
+            start=lazy.window.get_position(),
+        ),
+    ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
