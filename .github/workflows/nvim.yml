@@ -15,7 +15,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v0.20.0
           args: >-
-            --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }} #magic___^_^___line
+            --allow-hidden
+            --check
+            -f ${{ env.NVIM_BASE_DIR }}/stylua.toml
+            ${{ env.NVIM_BASE_DIR }}
+
   test:
     runs-on: ubuntu-latest
     steps:
