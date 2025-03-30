@@ -126,7 +126,7 @@ keys = [
 
 # wayland keys
 if is_wayland:
-    from libqtile.backend.wayland import InputConfig
+    from libqtile.backend.wayland.inputs import InputConfig
 
     @hook.subscribe.focus_change
     @hook.subscribe.client_killed
