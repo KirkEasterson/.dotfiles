@@ -89,7 +89,7 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 	export GTK_USE_PORTAL=0
 
-	export SEARCH="fuzzel"
+	export SEARCH="rofi"
 	export BAR="waybar"
 
 	export WLR_RENDERER="vulkan"
