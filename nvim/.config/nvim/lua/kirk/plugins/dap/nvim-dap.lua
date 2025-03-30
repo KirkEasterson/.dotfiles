@@ -82,18 +82,18 @@ return {
     require("overseer").enable_dap()
 
     -- require("dap.ext.vscode").json_decode = require("json5").parse
-    require("dap.ext.vscode").load_launchjs(nil, {
-      cppdbg = {
-        "c",
-        "cpp",
-      },
-      node = {
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-      },
-    })
+    -- require("dap.ext.vscode").load_launchjs(nil, {
+    --   cppdbg = {
+    --     "c",
+    --     "cpp",
+    --   },
+    --   node = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "typescript",
+    --     "typescriptreact",
+    --   },
+    -- })
 
     -- require("dap").adapters["pwa-node"] = {
     --   type = "server",
@@ -101,33 +101,9 @@ return {
     --   port = "${port}",
     --   executable = {
     --     command = vim.fn.stdpath("data") .. "/mason/bin/js-debug-adapter",
-    --     args = {
-    --       "${port}",
-    --     },
-    --     -- command = "node",
-    --     -- -- 💀 Make sure to update this path to point to your installation
-    --     -- args = { vim.fn.stdpath("data") .. "/mason/bin/vscode-js-debug", "${port}" },
+    --     args = { "src/index.ts" },
     --   },
     -- }
-
-    require("dap").configurations.typescript = {
-      {
-        type = "pwa-node",
-        request = "launch",
-        name = "Launch file",
-        program = "${file}",
-        cwd = "${workspaceFolder}",
-      },
-      {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach to Node app",
-        address = "localhost",
-        port = 3001,
-        cwd = "${workspaceFolder}",
-        restart = true,
-      },
-    }
   end,
   init = function()
     -- TODO: merge this with highlight
