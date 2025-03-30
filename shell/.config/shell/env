@@ -83,8 +83,8 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	export QT_QPA_PLATFORM="wayland"
 
 	# TODO: not default to river
-	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-river}"
-	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-river}"
+	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-qtile}"
+	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-qtile}"
 
 	# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 	export GTK_USE_PORTAL=0
