@@ -64,6 +64,10 @@ bindkey -M viins '^H' backward-delete-char
 zle -N fzf-history-widget{,}
 bindkey -M vicmd "/" fzf-history-widget
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '^X^E' edit-command-line
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
