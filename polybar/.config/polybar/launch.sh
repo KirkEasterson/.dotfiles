@@ -10,4 +10,6 @@ if type "xrandr"; then
 	for m in $(xrandr --listactivemonitors | sed 1,1d | cut -d" " -f6); do
 		MONITOR=$m polybar top &
 	done
+else
+	polybar top &
 fi
