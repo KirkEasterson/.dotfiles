@@ -10,14 +10,14 @@ case "$status" in
 "200")
 	case "$content" in
 	*"Unknown location"*)
-		echo ""
+		printf ""
 		;;
 	*)
-		echo "$content"
+		printf "%s" "$content"
 		;;
 	esac
 	;;
 *)
-	echo ""
+	printf ""
 	;;
 esac
