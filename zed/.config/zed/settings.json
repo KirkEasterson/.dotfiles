@@ -1,0 +1,42 @@
+{
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_family": "Iosevka Term Slab Nerd Font Mono",
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Dark Hard",
+    "dark": "One Dark"
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "formatter": "language_server",
+  "format_on_save": "off",
+  "tab_bar": {
+    "show_tab_bar_buttons": false,
+    "show": false,
+    "show_nav_history_buttons": false
+  },
+  "inlay_hints": {
+    "enabled": false
+  },
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "scrollbar": {
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "warning"
+  }
+}
