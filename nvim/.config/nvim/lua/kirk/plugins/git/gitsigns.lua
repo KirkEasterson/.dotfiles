@@ -55,12 +55,12 @@ return {
     },
 
     signs = {
-      add = { text = "┃" },
-      change = { text = "┃" },
-      changedelete = { text = "┃" },
-      delete = { text = "┃" },
-      topdelete = { text = "┃" },
-      untracked = { text = "┃" },
+      add = { text = "▍" },
+      change = { text = "▍" },
+      changedelete = { text = "▍" },
+      delete = { text = "▍" },
+      topdelete = { text = "▍" },
+      untracked = { text = "▍" },
     },
 
     signs_staged = {
