@@ -24,7 +24,7 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(set-face-attribute 'default nil :font "ComicCodeLigatures Nerd Font" :height 150)
+(set-face-attribute 'default nil :font "Iosevka Term Slab Nerd Font Mono" :height 150)
 
 (column-number-mode)
 (global-display-line-numbers-mode t)
