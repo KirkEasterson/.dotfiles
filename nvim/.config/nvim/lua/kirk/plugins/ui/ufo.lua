@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-ufo",
-  enabled = false,
+  enabled = false, -- TODO: https://github.com/kevinhwang91/nvim-ufo/issues/286
   dependencies = {
     "kevinhwang91/promise-async",
     "nvim-treesitter/nvim-treesitter",
@@ -19,12 +19,9 @@ return {
     "UfoDisableFold",
   },
   keys = {
-    {
-      "z", -- prefix for fold functionality
-      -- "zo", -- open fold under cursor
-      -- "zc", -- close fold under cursor
-      -- "za", -- toggle fold under cursor
-    },
+    -- "zo", -- open fold under cursor
+    -- "zc", -- close fold under cursor
+    -- "za", -- toggle fold under cursor
     {
       "zR",
       function()
@@ -41,8 +38,8 @@ return {
     },
   },
   opts = {
-    provider_selector = function(bufnr, filetype, buftype)
-      return { "treesitter", "indent" }
+    provider_selector = function(_, _, _)
+      return { "lsp", "treesitter" }
     end,
   },
   config = function(_, opts)
@@ -54,6 +51,7 @@ return {
         "NeogitStatus",
         "git",
         "markdown",
+        "snacks*",
       },
       callback = function()
         require("ufo").detach()

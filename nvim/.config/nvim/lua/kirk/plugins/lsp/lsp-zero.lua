@@ -127,11 +127,12 @@ return {
         vim.tbl_deep_extend("force", client.server_capabilities, require("lsp-file-operations").default_capabilities())
 
       -- -- for ufo folding
-      -- client.server_capabilities.textDocument = {
-      --   foldingRange = {
-      --     dynamicRegistration = false,
-      --     lineFoldingOnly = true,
-      --   },
+      -- if client.server_capabilities.textDocument == nil then
+      --   client.server_capabilities.textDocument = {}
+      -- end
+      -- client.server_capabilities.textDocument.foldingRange = {
+      --   dynamicRegistration = false,
+      --   lineFoldingOnly = true,
       -- }
     end
 

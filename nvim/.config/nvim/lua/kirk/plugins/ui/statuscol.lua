@@ -33,11 +33,6 @@ return {
         "trouble",
       },
       segments = {
-        -- { -- fold
-        --   text = { builtin.foldfunc },
-        --   click = "v:lua.ScFa",
-        --   sign = { foldclosed = true },
-        -- },
         { -- marks
           sign = {
             namespace = { "MarkSigns" },
@@ -73,13 +68,18 @@ return {
           text = { builtin.lnumfunc },
           click = "v:lua.ScLa",
         },
+        { -- fold
+          text = { builtin.foldfunc },
+          click = "v:lua.ScFa",
+          sign = { foldclosed = true },
+        },
         { -- git signs
           hl = "GitSigns",
           sign = {
             wrap = true,
             maxwidth = 1,
             colwidth = 1,
-            fillchar = "│",
+            fillchar = "▍",
             fillcharhl = "",
             namespace = { "gitsign" },
           },

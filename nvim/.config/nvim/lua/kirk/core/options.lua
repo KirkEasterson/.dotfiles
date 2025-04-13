@@ -1,5 +1,6 @@
 local g = vim.g
 local opt = vim.opt
+local o = vim.o
 
 g.mapleader = " " -- prefix key
 g.maplocalleader = " " -- secondary prefix key
@@ -208,7 +209,7 @@ opt.fillchars:append({
   fold = " ",
   foldclose = "󰅂",
   foldopen = "󰅀",
-  foldsep = "│",
+  foldsep = " ",
 
   -- win separator
   horiz = "━",
@@ -219,6 +220,13 @@ opt.fillchars:append({
   vertright = "┣",
   verthoriz = "╋",
 })
+
+o.foldenable = true
+o.foldcolumn = "1"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 
 -- short messages
 opt.shortmess:append("IWsA")
