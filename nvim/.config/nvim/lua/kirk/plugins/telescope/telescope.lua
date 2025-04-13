@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
 
@@ -14,72 +14,6 @@ return {
   },
   cmd = {
     "Telescope",
-  },
-  keys = {
-    {
-      "<leader>f",
-      desc = "Telescope",
-    },
-
-    -- file helpers
-    {
-      "<leader>ff",
-      function()
-        require("telescope.builtin").find_files()
-      end,
-      desc = "Find files",
-    },
-    {
-      "<leader>FF",
-      function()
-        require("telescope.builtin").current_buffer_fuzzy_find()
-      end,
-      desc = "Find in buffer",
-    },
-    {
-      "<leader>fg",
-      function()
-        require("telescope.builtin").live_grep()
-      end,
-      desc = "Live grep",
-    },
-    {
-      "<leader>fG",
-      function()
-        require("telescope.builtin").grep_string()
-      end,
-      desc = "Grep string",
-    },
-    {
-      "<leader>fb",
-      function()
-        require("telescope.builtin").buffers()
-      end,
-      desc = "Search buffers",
-    },
-
-    -- lsp/treesitter helpers
-    {
-      "<leader>fr",
-      function()
-        require("telescope.builtin").lsp_references()
-      end,
-      desc = "LSP references",
-    },
-    {
-      "<leader>fs",
-      function()
-        require("telescope.builtin").lsp_document_symbols()
-      end,
-      desc = "LSP document symbols",
-    },
-    {
-      "<leader>fd",
-      function()
-        require("telescope.builtin").diagnostics()
-      end,
-      desc = "Diagnostics",
-    },
   },
   opts = {
     defaults = {
@@ -150,9 +84,9 @@ return {
       },
       preview = {
         mime_hook = function(filepath, bufnr, opts)
-          local is_image = function(filepath)
+          local is_image = function(fp)
             local image_extensions = { "png", "jpg" } -- Supported image formats
-            local split_path = vim.split(filepath:lower(), ".", { plain = true })
+            local split_path = vim.split(fp:lower(), ".", { plain = true })
             local extension = split_path[#split_path]
             return vim.tbl_contains(image_extensions, extension)
           end
