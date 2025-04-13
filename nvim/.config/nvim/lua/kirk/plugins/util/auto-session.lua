@@ -60,7 +60,7 @@ return {
       "blank",
       "buffers",
       "curdir",
-      "folds",
+      -- "folds",
       "help",
       "localoptions",
       "tabpages",
