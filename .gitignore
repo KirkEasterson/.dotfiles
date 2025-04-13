@@ -62,4 +62,7 @@ firefox/*
 
 **/karabiner/automatic_backups
 
+**/lnav/*
+!**/lnav/config.json
+
 **/*amedia*
