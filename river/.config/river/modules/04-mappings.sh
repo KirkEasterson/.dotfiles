@@ -99,6 +99,12 @@ riverctl map normal Super+Alt+Shift J resize vertical 100
 riverctl map normal Super+Alt+Shift K resize vertical -100
 riverctl map normal Super+Alt+Shift L resize horizontal 100
 
+# TODO: find a will to dynamically change gap size
+# riverctl map normal Super Y send-layout-cmd rivertile "outer-padding -5"
+# riverctl map normal Super U send-layout-cmd rivertile "view-padding -5"
+# riverctl map normal Super I send-layout-cmd rivertile "view-padding +5"
+# riverctl map normal Super O send-layout-cmd rivertile "outer-padding +5"
+
 # manipulate floating views
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
