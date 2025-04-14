@@ -38,6 +38,7 @@ return {
             namespace = { "MarkSigns" },
             name = { ".*" },
             maxwidth = 2,
+            colwidth = 1,
             auto = true,
           },
         },
@@ -45,6 +46,7 @@ return {
           sign = {
             namespace = { "diagnostic" },
             maxwidth = 1,
+            colwidth = 1,
             auto = false,
           },
           click = "v:lua.ScSa",
@@ -54,6 +56,7 @@ return {
             namespace = { "neotest" },
             name = { ".*" },
             maxwidth = 1,
+            colwidth = 1,
             auto = true,
           },
         },
@@ -61,6 +64,7 @@ return {
           sign = {
             namespace = { "dap" },
             maxwidth = 1,
+            colwidth = 1,
             auto = true,
           },
         },
