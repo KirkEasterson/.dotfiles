@@ -79,7 +79,7 @@ return {
             wrap = true,
             maxwidth = 1,
             colwidth = 1,
-            fillchar = "▍",
+            fillchar = "┃",
             fillcharhl = "",
             namespace = { "gitsign" },
           },
