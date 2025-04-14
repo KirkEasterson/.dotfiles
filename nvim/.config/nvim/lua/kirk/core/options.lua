@@ -207,8 +207,8 @@ opt.fillchars:append({
 
   -- folds
   fold = " ",
-  foldclose = "󰅂",
-  foldopen = "󰅀",
+  foldclose = "",
+  foldopen = "",
   foldsep = " ",
 
   -- win separator
