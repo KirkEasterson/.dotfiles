@@ -1,7 +1,7 @@
 theme = "GruvboxDark"
 
 font-size = 14
-font-family = "Iosevka Term Slab Nerd Font Mono"
+font-family = "Iosevka Term Nerd Font Mono"
 font-feature = "-calt"
 font-feature = "-dlig"
 font-feature = "-liga"

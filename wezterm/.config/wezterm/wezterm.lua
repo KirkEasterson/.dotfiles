@@ -77,7 +77,7 @@ return {
   default_prog = { "/usr/bin/zsh" },
 
   font = wezterm.font_with_fallback({
-    "Iosevka Term Slab Nerd Font Mono",
+    "Iosevka Term Nerd Font Mono",
     "JetBrains Mono Nerd Font",
   }),
   font_size = 12,

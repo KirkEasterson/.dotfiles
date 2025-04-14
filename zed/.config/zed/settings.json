@@ -5,7 +5,7 @@
   },
   "vim_mode": true,
   "ui_font_size": 16,
-  "buffer_font_family": "Iosevka Term Slab Nerd Font Mono",
+  "buffer_font_family": "Iosevka Term Nerd Font Mono",
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
