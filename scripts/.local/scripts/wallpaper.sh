@@ -7,8 +7,5 @@ wal -i "$file" --theme "base16-gruvbox-hard"
 
 notify-send "Wallpaper updated" "Updating themes"
 
-# TODO: restart programs
-#	- terminal
-#	- vim
-
+# pgrep river > /dev/null && ${XDG_CONFIG_HOME}/river/init
 pgrep qutebrowser > /dev/null && qutebrowser ':config-source'
