@@ -32,6 +32,9 @@
 @define-color yellow1 #fabd2f;
 @define-color yellow2 #d79921;
 
+/* must be an absolute path  */
+@import "/home/kirk/.cache/wal/colors-waybar.css";
+
 * {
   font-family: "JetBrains Mono Nerd Font";
   font-size: 14px;

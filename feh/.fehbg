@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale $HOME/.config/wall.png
+feh --no-fehbg --bg-scale $HOME/.config/wallpaper

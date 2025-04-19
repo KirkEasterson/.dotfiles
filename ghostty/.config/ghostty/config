@@ -1,4 +1,6 @@
-theme = "GruvboxDark"
+# theme = "GruvboxDark"
+config-file = "~/.cache/wal/ghostty.conf"
+background-opacity=0.98
 
 font-size = 14
 font-family = "Iosevka Term Nerd Font Mono"

@@ -1,6 +1,7 @@
 [general]
 import = [
-	"~/.config/alacritty/themes/gruvbox-dark.toml"
+	# "~/.config/alacritty/themes/gruvbox-dark.toml"
+	"~/.cache/wal/colors-alacritty.toml"
 ]
 
 [mouse]
@@ -12,6 +13,7 @@ history = 100000
 
 [window]
 option_as_alt = "Both"
+opacity = 0.98
 
 [bell]
 animation = "EaseOutSine"
