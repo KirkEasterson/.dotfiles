@@ -3,6 +3,45 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
+
+    -- vim
+    {
+      "<leader>fh",
+      function()
+        require("snacks").picker.help()
+      end,
+      desc = "Help",
+    },
+    {
+      "<leader>fk",
+      function()
+        require("snacks").picker.keymaps()
+      end,
+      desc = "Keymaps",
+    },
+    {
+      "<leader>fn",
+      function()
+        require("snacks").picker.notifications()
+      end,
+      desc = "Keymaps",
+    },
+    {
+      "<leader>fm",
+      function()
+        require("snacks").picker.marks()
+      end,
+      desc = "Marks",
+    },
+    {
+      "<leader>fM",
+      function()
+        require("snacks").picker.man()
+      end,
+      desc = "Man",
+    },
+
+    -- code navigation
     {
       "<leader>ff",
       function()
@@ -15,7 +54,7 @@ return {
           },
         })
       end,
-      desc = "Find files",
+      desc = "Files",
     },
     {
       "<leader>fb",
@@ -27,36 +66,110 @@ return {
           },
         })
       end,
-      desc = "Search buffers",
+      desc = "Buffers",
     },
     {
       "<leader>fB",
       function()
         require("snacks").picker.lines()
       end,
-      desc = "Search current buffer",
+      desc = "Current buffer",
     },
     {
       "<leader>fg",
       function()
-        require("snacks").picker.grep()
+        local filepath = vim.fn.expand("%")
+        require("snacks").picker.grep({
+          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+        })
       end,
-      desc = "Project search",
+      desc = "Grep",
     },
     {
       "<leader>fG",
       function()
-        require("snacks").picker.grep_word()
+        local filepath = vim.fn.expand("%")
+        require("snacks").picker.grep_word({
+          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+        })
       end,
-      desc = "Search for current word",
+      desc = "Grep word",
       mode = { "n", "v" },
     },
+    {
+      "<leader>fd",
+      function()
+        local filepath = vim.fn.expand("%")
+        require("snacks").picker.diagnostics({
+          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          layout = {
+            preset = "sidebar",
+          },
+        })
+      end,
+      desc = "Diagnostics",
+    },
+    {
+      "<leader>fD",
+      function()
+        local filepath = vim.fn.expand("%")
+        require("snacks").picker.diagnostics_buffer({
+          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          layout = {
+            preset = "sidebar",
+          },
+        })
+      end,
+      desc = "Buffer diagnostics",
+    },
+
+    -- lsp
     {
       "<leader>fr",
       function()
         require("snacks").picker.lsp_references()
       end,
       desc = "LSP references",
+    },
+    {
+      "<leader>fs",
+      function()
+        require("snacks").picker.lsp_symbols({
+          layout = {
+            preset = "sidebar",
+          },
+        })
+      end,
+      desc = "LSP symbols",
+    },
+    {
+      "<leader>fS",
+      function()
+        local filepath = vim.fn.expand("%")
+        require("snacks").picker.lsp_workspace_symbols({
+          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          layout = {
+            preset = "sidebar",
+          },
+        })
+      end,
+      desc = "LSP symbols",
+    },
+
+    -- git
+    {
+      "<leader>fl",
+      function()
+        require("snacks").picker.git_log()
+      end,
+      desc = "Git log",
+    },
+    {
+      "<leader>fL",
+      function()
+        require("snacks").picker.git_log_file()
+      end,
+      desc = "Git log file",
     },
   },
   opts = {
