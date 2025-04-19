@@ -8,7 +8,7 @@ return {
   },
   keys = {
     {
-      "<leader>fc",
+      "<leader>oc",
       function()
         -- TODO: add "organize imports" for formatters that don't do this
 
