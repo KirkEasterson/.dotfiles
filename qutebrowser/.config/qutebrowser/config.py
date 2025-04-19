@@ -1,3 +1,5 @@
+import pywal.draw
+
 config.load_autoconfig(True)
 
 c.auto_save.session = True
@@ -30,4 +32,5 @@ config.bind(",m", "spawn umpv.py {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
 config.bind(";M", "hint --rapid links spawn umpv {hint-url}")
 
-config.source("gruvbox.py")
+# config.source("gruvbox.py")
+pywal.draw.color(c, {"spacing": {"vertical": 0, "horizontal": 0}})
