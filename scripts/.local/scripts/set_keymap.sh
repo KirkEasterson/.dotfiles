@@ -16,6 +16,9 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 	qtile)
 		qtile cmd-obj -o core -f set_keymap -a "$1" "${xkb_options}"
 		;;
+	Hyprland)
+		hyprctl --batch "keyword input:kb_layout ${1} ; keyword input:kb_options ${xkb_options}"
+		;;
 	esac
 
 else
