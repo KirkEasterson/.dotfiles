@@ -266,3 +266,10 @@ vim.filetype.add({
     tf = "terraform",
   },
 })
+
+-- hyprland config
+vim.filetype.add({
+  pattern = {
+    [".*/hypr/.*%.conf"] = "hyprlang",
+  },
+})
