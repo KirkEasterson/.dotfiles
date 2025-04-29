@@ -1,0 +1,23 @@
+profile laptop {
+	output $laptop enable
+}
+
+profile home1_clamshell {
+	output eDP-1 disable
+	output $home_dell_1 {
+		enable
+		position 0,0
+	}
+	output $home_dell_2 {
+		enable
+		position 2560,0
+	}
+}
+
+profile am1_clamshell {
+	output eDP-1 disable
+	output $am1 {
+		enable
+		position 0,0
+	}
+}

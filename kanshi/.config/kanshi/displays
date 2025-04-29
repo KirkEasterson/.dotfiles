@@ -1,0 +1,21 @@
+output eDP-1 {
+	alias $laptop
+	mode 1920x1200
+	position 0,0
+}
+
+output "Dell Inc. DELL U2715H GH85D5B8035S" {
+	alias $home_dell_1
+	mode 2560x1440
+}
+
+output "Dell Inc. DELL U2415 7MT0173R0DLS" {
+	alias $home_dell_2
+	mode 1920x1200
+}
+
+output "Lenovo Group Limited L32p-30 U511LW6Y" {
+	alias $am1
+	mode 3840x2160
+	scale 1.5
+}
