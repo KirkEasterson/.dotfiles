@@ -3,11 +3,13 @@ profile laptop {
 }
 
 profile home1 {
-	output eDP-1 position 2561,0
-	output 'Dell Inc. DELL U2715H GH85D5B8035S' mode 2560x1440 position 0,0
+	output eDP-1 position 0,0
+	output 'Dell Inc. DELL U2715H GH85D5B8035S' mode 2560x1440 position 1920,0
+	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200 position 4480,0
 }
 
 profile home1_clamshell {
 	output eDP-1 disable
 	output 'Dell Inc. DELL U2715H GH85D5B8035S' mode 2560x1440 position 0,0
+	output 'Dell Inc. DELL U2415 7MT0173R0DLS' mode 1920x1200 position 2560,0
 }
