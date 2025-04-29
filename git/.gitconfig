@@ -1,6 +1,8 @@
 [user]
 	email = kirk.easterson@gmail.com
 	name = Kirk Easterson
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [safe]
 	directory = /home/kirk/.cache/yay/gspt-git/src/gspt-git
 [init]
