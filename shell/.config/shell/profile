@@ -20,7 +20,6 @@ if [ -n "${DISPLAY}" ]; then
 		~/.config/polybar/launch.sh &
 		~/.fehbg
 
-
 		# lock after 10 minutes, suspend after 30 minutes
 		xautolock \
 			-time 10 \
