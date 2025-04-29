@@ -10,6 +10,12 @@ riverctl rule-add -title "Save File" float
 riverctl rule-add -title "Save Folder" float
 riverctl rule-add -title "Save" float
 
+riverctl rule-add -title "Logg på" float
+
+riverctl rule-add -title "*User Agreement*" float
+
+riverctl rule-add -title "Torrent Options" float
+
 riverctl rule-add -title "Bluetooth Devices" float
 riverctl rule-add -app-id "dragon-drop" float
 riverctl rule-add -app-id "com-atlauncher-App" float
