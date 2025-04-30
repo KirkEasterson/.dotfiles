@@ -1,23 +1,44 @@
 return {
   "monaqa/dial.nvim",
-  enabled = false,
+  version = false,
   cmd = {
     "DialIncrement",
     "DialDecrement",
   },
   keys = {
-    -- TODO: figure out why the lua calls didn't work
     {
       "<C-a>",
-      vim.cmd.DialIncrement,
-      mode = { "n", "v" },
-      -- desc = "Increment",
+      function()
+        require("dial.map").manipulate("increment", "normal")
+      end,
+      mode = { "n" },
+      desc = "Increment",
     },
     {
       "<C-x>",
-      vim.cmd.DialDecrement,
-      mode = { "n", "v" },
-      -- desc = "Decrement",
+      function()
+        require("dial.map").manipulate("decrement", "normal")
+      end,
+      mode = { "n" },
+      desc = "Decrement",
+    },
+    {
+      "<C-a>",
+      function()
+        require("dial.map").manipulate("increment", "visual")
+        vim.api.nvim_feedkeys("gv", "n", true)
+      end,
+      mode = { "v" },
+      desc = "Increment",
+    },
+    {
+      "<C-x>",
+      function()
+        require("dial.map").manipulate("decrement", "visual")
+        vim.api.nvim_feedkeys("gv", "n", true)
+      end,
+      mode = { "v" },
+      desc = "Decrement",
     },
   },
   config = function()
