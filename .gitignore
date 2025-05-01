@@ -65,4 +65,7 @@ firefox/*
 **/lnav/*
 !**/lnav/config.json
 
+**/ardour8/*
+!**/ardour8/config
+
 **/*amedia*
