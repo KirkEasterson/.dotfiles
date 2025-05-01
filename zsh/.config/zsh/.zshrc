@@ -4,7 +4,7 @@ source "${HOME}/.config/shell/commonrc"
 
 HISTSIZE=100000
 SAVEHIST=100000
-if [[ ! -a "${XDG_CACHE_HOME}/zsh/history" ]]; then
+if [[ ! -e "${XDG_CACHE_HOME}/zsh/history" ]]; then
 	mkdir -p "${XDG_CACHE_HOME}/zsh" >/dev/null 2>&1
 	touch "${XDG_CACHE_HOME}/zsh/history"
 fi
@@ -16,8 +16,8 @@ KEYTIMEOUT=1
 setopt no_complete_aliases
 
 # build zcompdump only once per day
-autoload -Uz compinit;
-if [ "$(find ${ZDOTDIR}/.zcompdump -mtime +1)" ] ; then
+autoload -Uz compinit
+if [ "$(find ${ZDOTDIR}/.zcompdump -mtime +1)" ]; then
 	compinit
 else
 	compinit -C
@@ -25,16 +25,16 @@ fi
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-	 [[ $1 = 'block' ]]; then
-	echo -ne '\e[1 q'
+	if [[ ${KEYMAP} == vicmd ]] ||
+		[[ $1 = 'block' ]]; then
+		echo -ne '\e[1 q'
 
-  elif [[ ${KEYMAP} == main ]] ||
-	   [[ ${KEYMAP} == viins ]] ||
-	   [[ ${KEYMAP} = '' ]] ||
-	   [[ $1 = 'beam' ]]; then
-	echo -ne '\e[5 q'
-  fi
+	elif [[ ${KEYMAP} == main ]] ||
+		[[ ${KEYMAP} == viins ]] ||
+		[[ ${KEYMAP} = '' ]] ||
+		[[ $1 = 'beam' ]]; then
+		echo -ne '\e[5 q'
+	fi
 }
 zle -N zle-keymap-select
 
@@ -43,7 +43,7 @@ echo -ne '\e[5 q'
 
 # Use beam shape cursor for each new prompt.
 _fix_cursor() {
-   echo -ne '\e[5 q'
+	echo -ne '\e[5 q'
 }
 
 precmd_functions+=(_fix_cursor)
@@ -96,13 +96,13 @@ antidote load
 
 # fix for wl-copy causing shell to hang
 # https://bbs.archlinux.org/viewtopic.php?pid=2173713#p2173713
-function zsh-system-clipboard-set(){
+function zsh-system-clipboard-set() {
 	zsh-system-clipboard-set-${ZSH_SYSTEM_CLIPBOARD_METHOD} "$@" 2>/dev/null
 }
 
 # configuration for plugins
-ZSH_AUTOSUGGEST_STRATEGY=( history )
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # eval "$(direnv hook zsh)"
 # eval "$(zoxide init zsh)"
