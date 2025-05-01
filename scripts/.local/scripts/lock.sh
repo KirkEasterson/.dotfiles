@@ -20,5 +20,5 @@ if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
 		--show-failed-attempts \
 		--show-keyboard-layout
 else
-	swaylock
+	swaylock -f
 fi

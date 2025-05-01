@@ -1,3 +1,3 @@
-timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
-timeout 305 'swaylock -f -F -c 000000'
-before-sleep 'swaylock -f -F -c 000000'
+timeout 300 'lock.sh'
+timeout 600 'set_all_displays.sh off'
+after-resume 'set_all_displays.sh on && refresh-kanshi.sh'

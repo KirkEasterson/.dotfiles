@@ -8,10 +8,14 @@ set_display() {
 			cut -d " " -f1 |
 			xargs -I {} xrandr --output {} --"$1"
 	else
-		wlr-randr |
-			grep -v "^ " |
-			cut -d " " -f1 |
-			xargs -I {} wlr-randr --output {} --"$1"
+		case $XDG_CURRENT_DESKTOP in
+		sway|river|qtile)
+			wlopm --"$1" "*"
+			;;
+		Hyprland)
+			hyprctl dispatch dpms "$1"
+			;;
+		esac
 	fi
 
 }
