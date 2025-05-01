@@ -49,6 +49,7 @@ return {
       typescriptreact = { "prettierd", "prettier", "eslint_d" },
       yaml = { "yamlfmt", "prettier" },
       zig = { "zigfmt" },
+      zsh = { "shfmt" },
     },
   },
 }
