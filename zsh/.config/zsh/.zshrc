@@ -48,8 +48,12 @@ _fix_cursor() {
 
 precmd_functions+=(_fix_cursor)
 
-# tmux sessionizer
-tmux_sessionizer() tmux_sessionizer.sh
+# https://www.reddit.com/r/zsh/comments/1dz79rj/comment/lce60fe/
+tmux_sessionizer() {
+	zle push-line
+	BUFFER='tmux_sessionizer.sh'
+	zle accept-line
+}
 zle -N tmux_sessionizer
 bindkey -M viins '^F' tmux_sessionizer
 bindkey -M vicmd '^F' tmux_sessionizer
