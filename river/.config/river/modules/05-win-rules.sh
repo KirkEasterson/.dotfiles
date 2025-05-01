@@ -10,6 +10,10 @@ riverctl rule-add -title "Save File" float
 riverctl rule-add -title "Save Folder" float
 riverctl rule-add -title "Save" float
 
+# ardour
+riverctl rule-add -title "Name Session" float
+riverctl rule-add -title "Snapshot and switch" float
+
 riverctl rule-add -title "Logg på" float
 
 riverctl rule-add -title "*User Agreement*" float
