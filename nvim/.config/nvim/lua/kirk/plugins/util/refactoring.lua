@@ -1,30 +1,21 @@
 return {
   "ThePrimeagen/refactoring.nvim",
-  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
+    "folke/snacks.nvim",
   },
   keys = {
     {
+      "<leader>rr",
+      function()
+        require("refactoring").select_refactor({ prefer_ex_cmd = true })
+      end,
+      mode = { "n", "v" },
+      desc = "View refactors",
+    },
+    {
       "<leader>re",
-      function()
-        require("refactoring").refactor("Extract Function")
-      end,
-      mode = { "v" },
-      desc = "Extract Function",
-    },
-    {
-      "<leader>rf",
-      function()
-        require("refactoring").refactor("Extract Function To File")
-      end,
-      mode = { "v" },
-      desc = "Extract Function To File",
-    },
-    {
-      "<leader>rv",
       function()
         require("refactoring").refactor("Extract Variable")
       end,
@@ -40,6 +31,22 @@ return {
       desc = "Inline Variable",
     },
     {
+      "<leader>rf",
+      function()
+        require("refactoring").refactor("Extract Function")
+      end,
+      mode = { "v" },
+      desc = "Extract Function",
+    },
+    {
+      "<leader>rF",
+      function()
+        require("refactoring").refactor("Extract Function To File")
+      end,
+      mode = { "v" },
+      desc = "Extract Function To File",
+    },
+    {
       "<leader>rb",
       function()
         require("refactoring").refactor("Extract Block")
@@ -47,24 +54,16 @@ return {
       desc = "Extract Block",
     },
     {
-      "<leader>rbf",
+      "<leader>rB",
       function()
         require("refactoring").refactor("Extract Block To File")
       end,
       desc = "Extract Block To File",
     },
     {
-      "<leader>rr",
-      function()
-        require("telescope").extensions.refactoring.refactors()
-      end,
-      mode = { "n", "v" },
-      desc = "View refactors",
-    },
-    {
       "<leader>rp",
       function()
-        require("refactoring").debug.printf()
+        require("refactoring").debug.printf({ below = true })
       end,
       desc = "Debug line below",
     },
@@ -80,28 +79,26 @@ return {
       function()
         require("refactoring").debug.print_var({ normal = true })
       end,
+      mode = { "n", "v" },
       desc = "Debug variable below",
     },
     {
-      "<leader>rv",
+      "<leader>rV",
       function()
-        require("refactoring").debug.print_var()
+        local temp = "test"
+        require("refactoring").debug.print_var({ below = false })
       end,
-      mode = { "v" },
+      mode = { "n", "v" },
       desc = "Debug variable above",
     },
     {
       "<leader>rc",
       function()
-        require("refactoring").debug.cleanup()
+        require("refactoring").debug.cleanup({})
       end,
       mode = { "n", "v" },
       desc = "Cleanup debug prints",
     },
   },
   opts = {},
-  config = function(_, opts)
-    require("refactoring").setup(opts)
-    require("telescope").load_extension("refactoring")
-  end,
 }
