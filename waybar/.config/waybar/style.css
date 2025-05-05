@@ -215,3 +215,11 @@ window#waybar {
 #custom-idle-inhibitor.on {
   color: @red1;
 }
+
+#custom-recorder {
+  color: @yellow1;
+}
+
+#custom-recorder.off {
+  color: @blue2;
+}
