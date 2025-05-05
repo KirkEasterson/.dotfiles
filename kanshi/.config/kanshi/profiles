@@ -21,3 +21,11 @@ profile am1_clamshell {
 		position 0,0
 	}
 }
+
+profile am2_clamshell {
+	output eDP-1 disable
+	output $am2 {
+		enable
+		position 0,0
+	}
+}

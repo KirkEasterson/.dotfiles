@@ -19,3 +19,9 @@ output "Lenovo Group Limited L32p-30 U511LW6Y" {
 	mode 3840x2160
 	scale 1.5
 }
+
+output "Dell Inc. DELL U3219Q 7R0T413" {
+	alias $am2
+	mode 3840x2160
+	scale 1.5
+}
