@@ -204,6 +204,10 @@ keymap = [
 	], run = "cd ~/Videos/", desc = "Go to the videos directory" },
 	{ on = [
 		"g",
+		"m",
+	], run = "cd ~/Music/", desc = "Go to the music directory" },
+	{ on = [
+		"g",
 		"c",
 	], run = "cd ~/.config", desc = "Go to the config directory" },
 
