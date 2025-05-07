@@ -6,7 +6,16 @@
 if [ $# -eq 1 ]; then
 	selected=$1
 else
-	selected=$(find ~/dev -mindepth 1 -maxdepth 4 -type d | fzf)
+	selected=$(
+		find ~/dev \
+			-mindepth 1 \
+			-maxdepth 4 \
+			-type d \
+			-not -path "*node*modules*" \
+			-not -path "*.turbo" \
+			-not -path "*.git*" |
+			fzf
+	)
 	if [ -z "$selected" ]; then
 		exit 0
 	fi
