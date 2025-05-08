@@ -3,12 +3,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
-
-    "ibhagwan/fzf-lua",
-    -- "nvim-telescope/telescope.nvim",
-    -- "nvim-telescope/telescope-fzf-native.nvim",
-
     "rmagatti/auto-session",
+    "folke/snacks.nvim",
   },
   cmd = "Neogit",
   keys = {
@@ -39,9 +35,10 @@ return {
       section = { "", "" },
     },
     integrations = {
+      snacks = true,
       diffview = true,
+      fzf_lua = false,
       telescope = false,
-      fzf_lua = true,
     },
 
     -- https://github.com/NeogitOrg/neogit/issues/1377#issuecomment-2174427660
