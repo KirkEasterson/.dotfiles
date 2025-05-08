@@ -308,12 +308,13 @@
   "custom/weather": {
     "exec": "weather.sh",
     "on-click": "bar-signal.sh 9",
-    "interval": "60",
+    "interval": "600",
     "tooltip": false,
     "signal": 9,
   },
   "custom/media": {
     "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null",
+    "interval": "once",
     "format": "{icon}  {}",
     "return-type": "json",
     "max-length": 20,
