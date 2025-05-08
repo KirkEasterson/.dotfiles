@@ -39,7 +39,6 @@
     "custom/line-separator",
     "memory",
     "custom/line-separator",
-    "language",
     "hyprland/language",
     "sway/language",
     "custom/line-separator",
@@ -198,10 +197,6 @@
     "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} \n {bandwidthUpBits}  {bandwidthDownBits}",
     "tooltip-format-disconnected": "",
   },
-  "language": {
-    "format": " {flag}{short}",
-    "min-length": 4,
-  },
   "hyprland/language": {
     "format": " {short}",
     "min-length": 4,
@@ -238,7 +233,7 @@
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    "interval": 2,
+    "interval": 1,
     "format-critical": "{icon}{temperatureC}°C",
     "format": "{icon}{temperatureC}°C",
     "format-icons": ["", "", "", "", "", ""],
@@ -350,7 +345,7 @@
     "signal": 15,
   },
   "custom/idle-inhibitor": {
-    "interval": 60,
+    "interval": "once",
     "return-type": "json",
     "format": "{icon} ",
     "format-icons": {
@@ -364,7 +359,7 @@
     "signal": 15,
   },
   "custom/do-not-disturb": {
-    "interval": 60,
+    "interval": "once",
     "return-type": "json",
     "format": "{icon} ",
     "format-icons": {
@@ -378,6 +373,7 @@
     "signal": 14,
   },
   "custom/recorder": {
+    "interval": "once",
     "return-type": "json",
     "format": "{icon} ",
     "format-icons": {
