@@ -4,7 +4,7 @@ local picker_opts = {
 
 return {
   "ibhagwan/fzf-lua",
-  -- enabled = false,
+  enabled = false,
   dependencies = {
     "echasnovski/mini.icons",
     { "junegunn/fzf", build = "./install --bin" },
