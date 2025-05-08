@@ -18,7 +18,7 @@
     "river/window",
   ],
   "modules-right": [
-    "custom/media",
+    // "custom/media",
     "tray",
     "privacy",
     "custom/line-separator",
