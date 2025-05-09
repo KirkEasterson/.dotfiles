@@ -2,7 +2,7 @@
 
 case "$SEARCH" in
 "rofi")
-	rofi -show drun "$@"
+	rofi -show drun -monitor -1 "$@"
 	;;
 "fuzzel")
 	fuzzel "$@"
