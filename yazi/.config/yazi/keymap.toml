@@ -185,11 +185,15 @@ keymap = [
 	{ on = [
 		"g",
 		"d",
-	], run = "cd ~/Downloads", desc = "Go to the downloads directory" },
+	], run = "cd ~/Documents", desc = "Go to the documents directory" },
 	{ on = [
 		"g",
 		"o",
-	], run = "cd ~/Documents", desc = "Go to the documents directory" },
+	], run = "cd ~/Downloads", desc = "Go to the downloads directory" },
+	{ on = [
+		"g",
+		"m",
+	], run = "cd ~/Music/", desc = "Go to the music directory" },
 	{ on = [
 		"g",
 		"p",
@@ -202,10 +206,6 @@ keymap = [
 		"g",
 		"v",
 	], run = "cd ~/Videos/", desc = "Go to the videos directory" },
-	{ on = [
-		"g",
-		"m",
-	], run = "cd ~/Music/", desc = "Go to the music directory" },
 	{ on = [
 		"g",
 		"c",
@@ -224,11 +224,15 @@ keymap = [
 	{ on = [
 		"m",
 		"d",
-	], run = "shell 'mv $@ ~/Downloads/'", desc = "Move contents to the downloads directory" },
+	], run = "shell 'mv $@ ~/Documents/'", desc = "Move contents to the documents directory" },
 	{ on = [
 		"m",
 		"o",
-	], run = "shell 'mv $@ ~/Documents/'", desc = "Move contents to the documents directory" },
+	], run = "shell 'mv $@ ~/Downloads/'", desc = "Move contents to the downloads directory" },
+	{ on = [
+		"m",
+		"m",
+	], run = "shell 'mv $@ ~/Music/'", desc = "Move contents to the pictures directory" },
 	{ on = [
 		"m",
 		"p",
