@@ -4,12 +4,17 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
+  cmd = {
+    "TSContextDisable",
+    "TSContextEnable",
+    "TSContextToggle",
+  },
   event = {
     "BufNewFile",
     "BufReadPost",
   },
   opts = {
-    mode = "topline",
+    mode = "cursor",
     multiwindow = true,
     max_lines = 5,
     multiline_threshold = 1,
