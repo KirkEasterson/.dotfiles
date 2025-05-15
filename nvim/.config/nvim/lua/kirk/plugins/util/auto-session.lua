@@ -57,12 +57,14 @@ return {
   end,
   init = function()
     local session_opts = {
-      "blank",
       "buffers",
       "curdir",
       -- "folds",
+      -- "globals",
       "help",
       "localoptions",
+      "options",
+      "resize",
       "tabpages",
       "terminal",
       "winpos",
