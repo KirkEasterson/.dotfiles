@@ -103,7 +103,7 @@ return {
         require("snacks").picker.diagnostics({
           hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
           layout = {
-            preset = "sidebar",
+            preset = "ivy_split",
           },
         })
       end,
@@ -116,7 +116,7 @@ return {
         require("snacks").picker.diagnostics_buffer({
           hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
           layout = {
-            preset = "sidebar",
+            preset = "ivy_split",
           },
         })
       end,
@@ -136,7 +136,7 @@ return {
       function()
         require("snacks").picker.lsp_symbols({
           layout = {
-            preset = "sidebar",
+            preset = "ivy_split",
           },
         })
       end,
@@ -149,7 +149,7 @@ return {
         require("snacks").picker.lsp_workspace_symbols({
           hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
           layout = {
-            preset = "sidebar",
+            preset = "ivy_split",
           },
         })
       end,
