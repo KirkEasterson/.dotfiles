@@ -45,12 +45,10 @@ return {
     {
       "<leader>ff",
       function()
-        local filepath = vim.fn.expand("%")
         require("snacks").picker.files({
-          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          hidden = true,
           layout = {
             preset = "ivy_split",
-            preview = false,
           },
         })
       end,
@@ -62,7 +60,6 @@ return {
         require("snacks").picker.buffers({
           layout = {
             preset = "ivy_split",
-            preview = false,
           },
         })
       end,
