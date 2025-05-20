@@ -144,7 +144,6 @@ opt.autoindent = true -- new lines inherit indenting
 opt.wrap = false -- don't wrap lines
 opt.linebreak = true -- if wrapping, wrap on complete words
 opt.breakindent = true -- preserve indenting on wrapped lines
-opt.lazyredraw = true -- redraw only when needed
 
 opt.visualbell = false
 opt.errorbells = true
@@ -152,7 +151,7 @@ opt.belloff = "esc"
 
 opt.hidden = true -- Enable background buffers
 opt.history = 100 -- Remember N lines in history
-opt.lazyredraw = true -- Faster scrolling
+opt.lazyredraw = false
 opt.updatetime = 250 -- ms to wait for trigger an event
 
 opt.syntax = "enable" -- show syntax highlighting
