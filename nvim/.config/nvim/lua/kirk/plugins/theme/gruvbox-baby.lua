@@ -14,5 +14,7 @@ return {
         "gruvbox-baby",
       },
     })
+
+    vim.api.nvim_set_hl(0, "ColorColumn", { bg = require("gruvbox").palette.dark0 })
   end,
 }
