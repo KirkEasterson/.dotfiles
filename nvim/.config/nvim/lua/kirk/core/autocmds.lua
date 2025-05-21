@@ -235,15 +235,3 @@ autocmd("BufWritePost", {
   end,
   once = false,
 })
-
-local winbar = augroup("Winbar", {})
-autocmd({ "VimEnter", "BufWinEnter" }, {
-  desc = "Remove winbar for some buffers",
-  group = winbar,
-  pattern = { "*" },
-  callback = function()
-    if vim.bo.buftype == "" then
-      vim.opt.winbar = ""
-    end
-  end,
-})
