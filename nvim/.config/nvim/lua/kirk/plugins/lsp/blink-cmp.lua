@@ -36,21 +36,33 @@ return {
         "snippets",
         "buffer",
       },
+      buffer = {
+        max_items = 3,
+        min_keyword_length = 5,
+      },
+      lsp = {
+        max_items = 5,
+      },
+      path = {
+        max_items = 2,
+      },
+      snippets = {
+        max_items = 2,
+      },
     },
     completion = {
+      ghost_test = {
+        enabled = false,
+      },
       accept = {
         auto_brackets = {
-          enabled = true,
+          enabled = false,
         },
       },
       documentation = {
         auto_show = true,
-        window = {
-          border = "rounded",
-        },
       },
       menu = {
-        border = "rounded",
         draw = {
           treesitter = { "lsp" },
           columns = {
@@ -93,9 +105,6 @@ return {
     },
     signature = {
       enabled = true,
-      window = {
-        border = "rounded",
-      },
     },
   },
 }
