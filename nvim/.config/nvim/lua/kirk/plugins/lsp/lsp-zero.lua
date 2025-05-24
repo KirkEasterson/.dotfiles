@@ -168,6 +168,7 @@ return {
       },
     })
 
+    -- https://github.com/LazyVim/LazyVim/discussions/2830#discussioncomment-8916666
     lsp_zero.configure("jsonls", {
       ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
         -- jsonls doesn't really support json5
