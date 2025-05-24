@@ -76,8 +76,8 @@ return {
         "taplo", -- toml
         "terraformls",
         "tflint",
-        "ts_ls",
         "vimls",
+        "vtsls",
         "yamlls",
         "zls", -- zig
         -- "asm_lsp", -- assembly
