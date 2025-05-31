@@ -73,7 +73,7 @@ return {
           click = "v:lua.ScLa",
         },
         { -- fold
-          text = { builtin.foldfunc },
+          text = { " ", builtin.foldfunc },
           click = "v:lua.ScFa",
           sign = { foldclosed = true },
         },
