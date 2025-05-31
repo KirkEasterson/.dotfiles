@@ -3,7 +3,6 @@ return {
   enabled = false, -- TODO: https://github.com/kevinhwang91/nvim-ufo/issues/286
   dependencies = {
     "kevinhwang91/promise-async",
-    "nvim-treesitter/nvim-treesitter",
   },
   event = {
     "BufNewFile",
@@ -37,11 +36,7 @@ return {
       desc = "Close all folds",
     },
   },
-  opts = {
-    provider_selector = function(_, _, _)
-      return { "lsp", "treesitter" }
-    end,
-  },
+  opts = {},
   config = function(_, opts)
     require("ufo").setup(opts)
 
