@@ -9,6 +9,7 @@ riverctl rule-add -title "Save As" float
 riverctl rule-add -title "Save File" float
 riverctl rule-add -title "Save Folder" float
 riverctl rule-add -title "Save" float
+riverctl rule-add -title "Confirm File Replacing" float
 
 # ardour
 riverctl rule-add -title "Name Session" float
