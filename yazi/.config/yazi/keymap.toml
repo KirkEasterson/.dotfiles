@@ -280,7 +280,7 @@ keymap = [
 	], run = "plugin chmod", desc = "Chmod on selected files" },
 
 	# Wallpaper
-	{ on = "<C-w>", run = "shell 'wallpaper.sh \"$1\"'", desc = "Set wallpaper" },
+	{ on = "<C-w>", run = "shell --orphan 'wallpaper.sh \"$1\"'", desc = "Set wallpaper" },
 ]
 
 [tasks]
