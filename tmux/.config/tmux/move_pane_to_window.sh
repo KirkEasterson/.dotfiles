@@ -2,9 +2,9 @@
 
 target="$1"
 if tmux list-windows | grep -q "^${target}:"; then
-	tmux join-pane -t ":${target}"
+	tmux join-pane -d -t ":${target}"
 else
-	tmux break-pane -t ":${target}"
+	tmux break-pane -d -t ":${target}"
 fi
 
 # re-order the windows
