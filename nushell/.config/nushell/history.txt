@@ -1,0 +1,4 @@
+ls
+config nu
+k
+ls
