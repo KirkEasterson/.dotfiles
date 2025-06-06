@@ -75,9 +75,8 @@ return {
     {
       "<leader>fg",
       function()
-        local filepath = vim.fn.expand("%")
         require("snacks").picker.grep({
-          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          hidden = true,
         })
       end,
       desc = "Grep",
@@ -85,9 +84,8 @@ return {
     {
       "<leader>fG",
       function()
-        local filepath = vim.fn.expand("%")
         require("snacks").picker.grep_word({
-          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          hidden = true,
         })
       end,
       desc = "Grep word",
@@ -96,9 +94,8 @@ return {
     {
       "<leader>fd",
       function()
-        local filepath = vim.fn.expand("%")
         require("snacks").picker.diagnostics({
-          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          hidden = true,
           layout = {
             preset = "ivy_split",
           },
@@ -109,9 +106,8 @@ return {
     {
       "<leader>fD",
       function()
-        local filepath = vim.fn.expand("%")
         require("snacks").picker.diagnostics_buffer({
-          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          hidden = true,
           layout = {
             preset = "ivy_split",
           },
@@ -142,9 +138,8 @@ return {
     {
       "<leader>fS",
       function()
-        local filepath = vim.fn.expand("%")
         require("snacks").picker.lsp_workspace_symbols({
-          hidden = (string.find(filepath, "dotfiles")) ~= nil or (string.find(filepath, ".config")) ~= nil,
+          hidden = true,
           layout = {
             preset = "ivy_split",
           },
