@@ -1,3 +1,5 @@
+$env.config.show_banner = false
+
 $env.config.edit_mode = 'vi'
 
 # NOTE: these are handled by starship
@@ -9,6 +11,5 @@ $env.config.cursor_shape.vi_normal = "block"
 
 $env.PROMPT_COMMAND_RIGHT = ""
 
-$env.STARSHIP_SHELL = "nu"
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
