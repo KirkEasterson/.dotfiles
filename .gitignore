@@ -39,6 +39,8 @@ firefox/*
 **/zsh/.zsh_plugins.zsh
 **/zsh/antidote/
 
+**/nushell/history.txt
+
 **/vlc/vlc-qt-interface.conf
 
 **/vim/plugged/
