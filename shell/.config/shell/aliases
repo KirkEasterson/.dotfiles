@@ -82,8 +82,19 @@ alias nr='npm run'
 alias nls='npm list'
 alias nlsg='npm list --global'
 
+# updating ubuntu
+alias uupg="sudo nala upgrade -y && flatpak upgrade -y"
+alias aupg="sudo apt update -y && sudo apt upgrade -y"
+alias nupg="sudo nala upgrade -y"
+
+# update flatpak
+alias fupg="flatpak upgrade -y"
+
 # update brew
 alias bupg="brew update && brew upgrade"
+
+# update arch
+alias pupg="sudo pacman -Syyu"
 
 if [ -f "$XDG_CONFIG_HOME/shell/local/aliases" ]; then
 	source "$XDG_CONFIG_HOME/shell/local/aliases"
