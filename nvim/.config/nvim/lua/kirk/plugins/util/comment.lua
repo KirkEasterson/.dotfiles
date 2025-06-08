@@ -3,9 +3,8 @@ return {
   dependencies = {
     "folke/ts-comments.nvim",
   },
+  event = "UIEnter",
   keys = {
-    { "gc" },
-    { "gb" },
     {
       "gcc",
       desc = "Toggle line comment",
