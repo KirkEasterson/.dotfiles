@@ -18,7 +18,6 @@ return {
     dashboard.section.header.val = art.triangle_box
     dashboard.section.buttons.val = {
       dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
-      dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
       dashboard.button("e", "  > File tree", ":NvimTreeOpen<CR>"),
       dashboard.button("q", "󰅚  > Quit NVIM", ":qa<CR>"),
     }
