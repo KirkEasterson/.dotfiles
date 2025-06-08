@@ -13,12 +13,9 @@ return {
 
     local dashboard = require("alpha.themes.dashboard")
 
-    local neovimlogo = art.neovim[4]
-    local asciiart = util.asciiart_cpad(art.triangle_box, vim.fn.strdisplaywidth(neovimlogo[1]))
-
     local fortune = require("alpha.fortune")
     dashboard.section.footer.val = fortune()
-    dashboard.section.header.val = util.table_concat(neovimlogo, asciiart)
+    dashboard.section.header.val = art.triangle_box
     dashboard.section.buttons.val = {
       dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
