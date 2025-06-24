@@ -54,57 +54,75 @@ riverctl map normal Super+Shift D spawn "set_keymap.sh prog-qwerty"
 
 # close window
 riverctl map normal Super+Shift Q close
+#
+# bump the focused view to the top of the layout stack
+riverctl map normal Super Z zoom
 
 # focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
+riverctl map normal Super Down focus-view next
+riverctl map normal Super Up focus-view previous
 
 # swap the focused view with the next/previous view in the layout stack
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
+riverctl map normal Super+Shift Down swap next
+riverctl map normal Super+Shift Up swap previous
 
 # focus the next/previous output
-riverctl map normal Super M focus-output next
-riverctl map normal Super Comma focus-output previous
+riverctl map normal Super+Control J focus-output next
+riverctl map normal Super+Control K focus-output previous
+riverctl map normal Super+Control Down focus-output next
+riverctl map normal Super+Control Up focus-output previous
 
 # send the focused view to the next/previous output
-riverctl map normal Super+Shift M send-to-output -current-tags next
-riverctl map normal Super+Shift Comma send-to-output -current-tags previous
-
-# bump the focused view to the top of the layout stack
-riverctl map normal Super Z zoom
+riverctl map normal Super+Control+Shift J send-to-output -current-tags next
+riverctl map normal Super+Control+Shift K send-to-output -current-tags previous
+riverctl map normal Super+Control+Shift Down send-to-output -current-tags next
+riverctl map normal Super+Control+Shift Up send-to-output -current-tags previous
 
 # decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
 
 # increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count -1"
 riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift Left send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Shift Up send-layout-cmd rivertile "main-count +1"
 
 # move floating views (will convert view from tiled to floating)
 riverctl map normal Super+Alt H move left 100
 riverctl map normal Super+Alt J move down 100
 riverctl map normal Super+Alt K move up 100
 riverctl map normal Super+Alt L move right 100
+riverctl map normal Super+Alt Left move left 100
+riverctl map normal Super+Alt Down move down 100
+riverctl map normal Super+Alt Up move up 100
+riverctl map normal Super+Alt Right move right 100
 
 # snap floating views to screen edges (will convert view from tiled to floating)
 riverctl map normal Super+Alt+Control H snap left
 riverctl map normal Super+Alt+Control J snap down
 riverctl map normal Super+Alt+Control K snap up
 riverctl map normal Super+Alt+Control L snap right
+riverctl map normal Super+Alt+Control Left snap left
+riverctl map normal Super+Alt+Control Down snap down
+riverctl map normal Super+Alt+Control Up snap up
+riverctl map normal Super+Alt+Control Right snap right
 
 # resize floating views (will convert view from tiled to floating)
 riverctl map normal Super+Alt+Shift H resize horizontal -100
 riverctl map normal Super+Alt+Shift J resize vertical 100
 riverctl map normal Super+Alt+Shift K resize vertical -100
 riverctl map normal Super+Alt+Shift L resize horizontal 100
-
-# TODO: find a will to dynamically change gap size
-# riverctl map normal Super Y send-layout-cmd rivertile "outer-padding -5"
-# riverctl map normal Super U send-layout-cmd rivertile "view-padding -5"
-# riverctl map normal Super I send-layout-cmd rivertile "view-padding +5"
-# riverctl map normal Super O send-layout-cmd rivertile "outer-padding +5"
+riverctl map normal Super+Alt+Shift Left resize horizontal -100
+riverctl map normal Super+Alt+Shift Down resize vertical 100
+riverctl map normal Super+Alt+Shift Up resize vertical -100
+riverctl map normal Super+Alt+Shift Right resize horizontal 100
 
 # manipulate floating views
 riverctl map-pointer normal Super BTN_LEFT move-view
@@ -112,7 +130,7 @@ riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
 for i in $(seq 1 9); do
-	tags=$((1 << ($i - 1)))
+	tags=$((1 << (i - 1)))
 
 	# move to tag
 	riverctl map normal Super "$i" set-focused-tags "$tags"
@@ -131,33 +149,11 @@ done
 riverctl map normal Super Tab set-focused-tags next
 riverctl map normal Super+Shift Tab set-focused-tags prev
 
-all_tags=$(((1 << 32) - 1))
-# focus all tags
-riverctl map normal Super 0 set-focused-tags $all_tags
-# tag focused view with all tags
-riverctl map normal Super+Shift 0 set-view-tags $all_tags
-
 # toggle float
 riverctl map normal Super F toggle-float
 
 # toggle fullscreen
 riverctl map normal Super+Shift F toggle-fullscreen
-
-# change layout orientation
-riverctl map normal Super Up send-layout-cmd rivertile "main-location top"
-riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left send-layout-cmd rivertile "main-location left"
-
-# Declare a passthrough mode. This mode has only a single mapping to return to
-# normal mode. This makes it useful for testing a nested wayland compositor
-riverctl declare-mode passthrough
-
-# enter passthrough mode
-riverctl map normal Super F11 enter-mode passthrough
-
-# return to normal mode
-riverctl map passthrough Super F11 enter-mode normal
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
