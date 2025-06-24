@@ -9,13 +9,12 @@ return {
   priority = 998, -- 1 less than gruvbox
   config = function(_, opts)
     local art = require("art")
-    local util = require("util")
 
     local dashboard = require("alpha.themes.dashboard")
 
     local fortune = require("alpha.fortune")
     dashboard.section.footer.val = fortune()
-    dashboard.section.header.val = art.triangle_box
+    dashboard.section.header.val = art.fish
     dashboard.section.buttons.val = {
       dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("e", "  > File tree", ":NvimTreeOpen<CR>"),
