@@ -39,7 +39,8 @@ riverctl map normal Super+Shift N spawn "notes.sh view"
 
 # screenshot
 riverctl map normal None Print spawn "screenshot.sh gui"
-riverctl map normal Super Print "screenshot.sh fullscreen"
+riverctl map normal Super Print "screenshot.sh window"
+riverctl map normal Super+Shift Print "screenshot.sh fullscreen"
 
 # keyboard layouts
 riverctl map normal Super+Shift A spawn "set_keymap.sh \"us(altgr-intl)\""
