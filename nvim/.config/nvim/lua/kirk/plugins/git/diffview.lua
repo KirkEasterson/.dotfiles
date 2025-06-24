@@ -1,3 +1,13 @@
+--- toggle diffview views
+--- @param open_view function function to open the view
+local function toggle_view(open_view)
+  if next(require("diffview.lib").views) == nil then
+    open_view()
+  else
+    require("diffview").close()
+  end
+end
+
 return {
   "sindrets/diffview.nvim",
   dependencies = {
@@ -16,36 +26,30 @@ return {
     {
       "<leader>dvo",
       function()
-        if next(require("diffview.lib").views) == nil then
+        toggle_view(function()
           require("diffview").open({
             require("util").git_default_branch(),
             "--untracked-files=no",
           })
-        else
-          require("diffview").close()
-        end
+        end)
       end,
       desc = "Toggle diff view",
     },
     {
       "<leader>dvh",
       function()
-        if next(require("diffview.lib").views) == nil then
+        toggle_view(function()
           vim.cmd.DiffviewFileHistory("%")
-        else
-          require("diffview").close()
-        end
+        end)
       end,
       desc = "Open diff view with file history",
     },
     {
       "<leader>dvH",
       function()
-        if next(require("diffview.lib").views) == nil then
+        toggle_view(function()
           require("diffview").file_history(nil, {})
-        else
-          require("diffview").close()
-        end
+        end)
       end,
       desc = "Open diff view with branch history",
     },
