@@ -5,7 +5,6 @@
 
 gui() {
 	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		# grim -g "$(slurp -b 00000090 -s cc000000 -w 0)" "${output_file}"
 		XDG_CURRENT_DESKTOP=sway flameshot gui
 	else
 		flameshot gui
@@ -14,7 +13,6 @@ gui() {
 
 window() {
 	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		# grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" "${output_file}"
 		XDG_CURRENT_DESKTOP=sway flameshot full
 	else
 		flameshot full
@@ -23,7 +21,6 @@ window() {
 
 fullscreen() {
 	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		# grim "${output_file}"
 		XDG_CURRENT_DESKTOP=sway flameshot full
 	else
 		flameshot full
@@ -34,9 +31,10 @@ sound() {
 	pw-play /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
-screenshots_dir="$(xdg-user-dir PICTURES)/screenshots"
-# output_file="${screenshots_dir}/$(date '+%F_%H-%M-%S').png"
-mkdir -p "${screenshots_dir}"
+if [ ! -d "${screenshots_dir}" ]; then
+	screenshots_dir="$(xdg-user-dir PICTURES)/screenshots"
+	mkdir -p "${screenshots_dir}"
+fi
 
 case "${1}" in
 "gui")
