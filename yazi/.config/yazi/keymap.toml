@@ -271,7 +271,7 @@ keymap = [
 	{ on = "<F1>", run = "help", desc = "Open help" },
 
 	# Dragon
-	{ on = "<C-n>", run = "shell 'dragon-drop -x -i -T \"$1\"' --confirm", desc = "Dragon" },
+	{ on = "<C-n>", run = "shell 'dragon-drop -x -i -a -T \"$@\"' --confirm", desc = "Dragon" },
 
 	# chmod
 	{ on = [
