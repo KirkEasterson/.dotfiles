@@ -1,9 +1,19 @@
 #!/bin/sh
 
-# TODO: add option to toggle window
+show() {
+	echo "showing"
+	mpv /dev/video0 \
+		--profile=low-latency \
+		--untimed \
+		--no-osc \
+		--geometry=-0-0 \
+		--autofit=20% \
+		--title=webcam-on-screen
+}
 
-mpv /dev/video0 \
-	--profile=low-latency \
-	--untimed \
-	--no-osc \
-	--title=webcam-on-screen
+hide() {
+	echo "hiding"
+	pkill -f /dev/video
+}
+
+hide || show

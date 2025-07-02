@@ -24,10 +24,14 @@ riverctl rule-add -title "Torrent Options" float
 riverctl rule-add -title "Bluetooth Devices" float
 riverctl rule-add -app-id "dragon-drop" float
 riverctl rule-add -app-id "com-atlauncher-App" float
-riverctl rule-add -title "webcam-on-screen" float
 
 riverctl rule-add -app-id "firefox" -title "Library" float
 riverctl rule-add -app-id "thunderbird" -title "*Reminder" float
 
 # manually set server-side-decorations for everything
 riverctl rule-add -app-id "*" ssd
+
+all_tags=$(((1 << 32) - 1))
+riverctl rule-add -title "webcam-on-screen" tags "$all_tags"
+riverctl rule-add -title "webcam-on-screen" float
+riverctl rule-add -title "webcam-on-screen" position 10000 10000 # bottom right corner

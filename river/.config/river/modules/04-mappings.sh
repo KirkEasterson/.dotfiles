@@ -48,6 +48,8 @@ riverctl map normal Super+Shift S spawn "set_keymap.sh se"
 riverctl map normal Super+Shift G spawn "set_keymap.sh no"
 riverctl map normal Super+Shift D spawn "set_keymap.sh prog-qwerty"
 
+riverctl map normal Super+Shift T spawn "webcam.sh"
+
 ################################
 # Window control
 ################################
