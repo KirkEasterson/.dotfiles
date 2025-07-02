@@ -62,15 +62,15 @@ prompt_end() {
 }
 
 prompt_recording() {
-	choice=$(printf "screen\\nscreen_and_audio\\nscreen_selection\\nwebcam" |
-		$SEARCH -dmenu -p "Select recording:")
+	choice=$(printf "Screen\\nScreen and audio\\nScreen selection\\nWebcam" |
+		$SEARCH -dmenu -p "Recording type")
 
 	case "$choice" in
-	screen) screen ;;
-	screen_and_audio) screen_and_audio ;;
-	screen_selection) screen_selection ;;
-	# audio) audio;;
-	webcam) webcam ;;
+	"Screen") screen ;;
+	"Screen and audio") screen_and_audio ;;
+	"Screen selection") screen_selection ;;
+	# "Audio") audio;;
+	"Webcam") webcam ;;
 	*) exit 1 ;;
 	esac
 }
