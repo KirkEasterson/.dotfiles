@@ -1,22 +1,22 @@
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "2da96e3"
-hash = "f9ee1436e3b853508d87f7d49dce56e6"
+rev = "bd3eaa5"
+hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "b12a9ab"
-hash = "2f1053f89d1a301a648ab181d0948e38"
+rev = "2ad42fa"
+hash = "1adc12c2b2b025411ab61eb8f0879574"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "b12a9ab"
-hash = "1f3dad061209081a6b04dd6ff2cb06c7"
+rev = "2ad42fa"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "b12a9ab"
-hash = "e0ada736ea676c2bbb3ec705a49526ef"
+rev = "2ad42fa"
+hash = "e01006bfb38951ea89031bd918b20dbb"
 
 [flavor]
 deps = []
