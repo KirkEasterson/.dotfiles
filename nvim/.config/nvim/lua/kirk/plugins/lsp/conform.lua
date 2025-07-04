@@ -42,7 +42,6 @@ return {
       python = { "black" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
-      svelte = { "prettier" },
       terraform = { "tflint" },
       tf = { "tflint" },
       typescript = { "prettierd", "prettier", "eslint_d" },
