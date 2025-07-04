@@ -46,9 +46,10 @@ riverctl map normal Super+Shift Print "screenshot.sh fullscreen"
 riverctl map normal Super+Shift A spawn "set_keymap.sh \"us(altgr-intl)\""
 riverctl map normal Super+Shift S spawn "set_keymap.sh se"
 riverctl map normal Super+Shift G spawn "set_keymap.sh no"
-riverctl map normal Super+Shift D spawn "set_keymap.sh prog-qwerty"
 
+# personal scripts
 riverctl map normal Super+Shift T spawn "webcam.sh"
+riverctl map normal Super+Shift D spawn "$TERMINAL -e dotfiles"
 
 ################################
 # Window control
