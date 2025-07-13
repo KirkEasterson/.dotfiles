@@ -34,4 +34,5 @@ riverctl rule-add -app-id "*" ssd
 all_tags=$(((1 << 32) - 1))
 riverctl rule-add -title "webcam-on-screen" tags "$all_tags"
 riverctl rule-add -title "webcam-on-screen" float
+riverctl rule-add -title "webcam-on-screen" csd
 riverctl rule-add -title "webcam-on-screen" position 10000 10000 # bottom right corner
