@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "VeryLazy",
+  event = "UIEnter",
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
   cmd = {
