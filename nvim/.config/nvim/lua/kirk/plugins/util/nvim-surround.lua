@@ -1,6 +1,6 @@
 return {
   "kylechui/nvim-surround",
-  event = "UIEnter",
+  event = "VeryLazy",
   keys = {
     { "ys", mode = { "n" } },
     { "ds", mode = { "n" } },

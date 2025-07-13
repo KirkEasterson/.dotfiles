@@ -4,10 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   main = "nvim-treesitter.configs",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   opts = {
     textobjects = {
       move = {

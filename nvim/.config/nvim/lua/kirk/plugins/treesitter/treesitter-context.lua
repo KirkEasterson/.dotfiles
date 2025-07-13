@@ -9,10 +9,7 @@ return {
     "TSContextEnable",
     "TSContextToggle",
   },
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   opts = {
     mode = "cursor",
     multiwindow = true,

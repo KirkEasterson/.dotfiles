@@ -4,10 +4,7 @@ return {
   dependencies = {
     "saghen/blink.cmp",
   },
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   cmd = {
     "LspInfo",
     "LspLog",

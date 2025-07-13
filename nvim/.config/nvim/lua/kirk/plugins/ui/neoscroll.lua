@@ -1,7 +1,7 @@
 return {
   "karb94/neoscroll.nvim",
   -- enabled = false,
-  event = "VimEnter",
+  event = "VeryLazy",
   keys = {
     "<C-b>",
     "<C-d>",

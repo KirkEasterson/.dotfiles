@@ -6,10 +6,7 @@ return {
     -- "mfussenegger/nvim-dap",
     -- "kevinhwang91/nvim-ufo",
   },
-  event = {
-    "BufNewFile",
-    "BufReadPre",
-  },
+  event = "UIEnter",
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({

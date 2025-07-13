@@ -4,10 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     -- "nvim-telescope/telescope.nvim",
   },
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   cmd = {
     "TodoLocList",
     "TodoQuickFix",

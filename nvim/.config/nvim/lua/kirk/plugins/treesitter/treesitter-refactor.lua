@@ -4,10 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   main = "nvim-treesitter.configs",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   opts = {
     refactor = {
       highlight_current_scope = {

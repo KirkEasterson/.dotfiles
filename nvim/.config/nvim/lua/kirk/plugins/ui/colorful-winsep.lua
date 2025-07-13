@@ -4,7 +4,7 @@ return {
   dependencies = {
     "ellisonleao/gruvbox.nvim",
   },
-  event = "WinNew",
+  event = "VeryLazy",
   opts = {
     interval = 5,
     smooth = false,

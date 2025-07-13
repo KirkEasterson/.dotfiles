@@ -2,6 +2,7 @@
 
 return {
   "aserowy/tmux.nvim",
+  event = "VeryLazy",
   keys = {
     {
       "<C-h>",

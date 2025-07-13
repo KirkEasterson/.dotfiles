@@ -1,9 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   cmd = {
     "Gitsigns",
   },

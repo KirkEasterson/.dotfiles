@@ -1,9 +1,6 @@
 return {
   "monkoose/matchparen.nvim",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   cmd = {
     "MatchParenDisable",
     "MatchParenEnable",

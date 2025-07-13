@@ -4,10 +4,7 @@ return {
     "echasnovski/mini.icons",
     "ellisonleao/gruvbox.nvim",
   },
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "UIEnter",
   opts = {
     disabled_filetypes = {
       statusline = {

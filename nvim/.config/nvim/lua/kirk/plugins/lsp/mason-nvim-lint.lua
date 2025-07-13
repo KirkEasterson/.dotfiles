@@ -1,9 +1,6 @@
 return {
   "rshkarin/mason-nvim-lint",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   dependencies = {
     "williamboman/mason.nvim",
     "mfussenegger/nvim-lint",

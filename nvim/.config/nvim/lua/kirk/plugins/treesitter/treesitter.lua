@@ -1,9 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
   cmd = {

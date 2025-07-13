@@ -3,7 +3,7 @@ return {
   dependencies = {
     "folke/ts-comments.nvim",
   },
-  event = "UIEnter",
+  event = "VeryLazy",
   keys = {
     {
       "gcc",

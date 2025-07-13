@@ -1,10 +1,7 @@
 return {
   "echasnovski/mini.indentscope",
   -- enabled = false,
-  event = {
-    "BufNewFile",
-    "BufReadPost",
-  },
+  event = "VeryLazy",
   opts = {
     symbol = "│",
     draw = {

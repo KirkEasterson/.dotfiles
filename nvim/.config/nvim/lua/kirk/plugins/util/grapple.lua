@@ -16,7 +16,7 @@ return {
   dependencies = {
     "echasnovski/mini.icons",
   },
-  event = { "BufReadPost", "BufNewFile" },
+  event = "VeryLazy",
   cmd = "Grapple",
   opts = {
     scope = "git_branch",
