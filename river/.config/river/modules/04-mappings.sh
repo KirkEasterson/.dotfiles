@@ -48,8 +48,9 @@ riverctl map normal Super+Shift S spawn "set_keymap.sh se"
 riverctl map normal Super+Shift G spawn "set_keymap.sh no"
 
 # personal scripts
-riverctl map normal Super+Shift T spawn "webcam.sh"
 riverctl map normal Super+Shift D spawn "$TERMINAL -e dotfiles"
+riverctl map normal Super+Shift T spawn "webcam.sh"
+riverctl map normal Super+Shift C spawn "$TERMINAL -e calculator.sh"
 
 ################################
 # Window control
