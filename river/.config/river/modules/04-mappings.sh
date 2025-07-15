@@ -13,6 +13,11 @@ riverctl map normal Super+Control R spawn "${XDG_CONFIG_HOME}/river/init && noti
 # exit river
 riverctl map normal Super+Shift X exit
 
+# scaling
+riverctl map normal Super Plus spawn "scale.sh up"
+riverctl map normal Super Minus spawn "scale.sh down"
+riverctl map normal Super 0 spawn "scale.sh reset"
+
 ################################
 # Programs
 ################################
