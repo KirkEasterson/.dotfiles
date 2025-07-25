@@ -1,0 +1,9 @@
+gaps : 0
+border_width : 3
+focused_border_colour : #d79921
+unfocused_border_colour : #655c54
+master_width : 50
+
+bind : super + enter : "$TERMINAL"
+bind : super + space : "search.sh"
+bind : super + shift + x : quit
