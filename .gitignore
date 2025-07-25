@@ -51,6 +51,9 @@ firefox/*
 **/nvim/plugged
 **/nvim/db_ui
 
+**/emacs/auto-save-list
+**/emacs/eln-cache
+
 **/btop/btop.log
 
 **/sway/outputs
