@@ -7,14 +7,14 @@
   "spacing": 0,
   "modules-left": [
     "wlr/workspaces",
-    "hyprland/workspaces",
-    "sway/workspaces",
+    // "hyprland/workspaces",
+    // "sway/workspaces",
     "river/tags",
-    "custom/qtile-groups",
+    // "custom/qtile-groups",
     "custom/separator",
     // "wlr/taskbar",
-    "hyprland/window",
-    "sway/window",
+    // "hyprland/window",
+    // "sway/window",
     "river/window",
   ],
   "modules-right": [
@@ -39,8 +39,8 @@
     "custom/line-separator",
     "memory",
     "custom/line-separator",
-    "hyprland/language",
-    "sway/language",
+    // "hyprland/language",
+    // "sway/language",
     "custom/line-separator",
     "wireplumber",
     "custom/line-separator",
@@ -49,78 +49,6 @@
     "custom/separator",
     "clock",
   ],
-  "group/group-power": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "not-power",
-      "transition-left-to-right": false,
-    },
-    "modules": ["custom/power", "custom/quit", "custom/lock", "custom/reboot"],
-  },
-  "custom/power": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "shutdown now",
-  },
-  "custom/quit": {
-    "format": "󰗼",
-    "tooltip": false,
-    "on-click": "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'",
-  },
-  "custom/lock": {
-    "format": "󰍁",
-    "tooltip": false,
-    "on-click": "swaylock",
-  },
-  "custom/reboot": {
-    "format": "󰜉",
-    "tooltip": false,
-    "on-click": "reboot",
-  },
-  "group/group-win": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "not-win",
-      "transition-left-to-right": false,
-    },
-    "modules": [
-      // "custom/title",
-      // "wlr/taskbar",
-      "hyprland/window",
-      "sway/window",
-      "river/window",
-      "custom/close",
-      "custom/maximize",
-      "custom/minimize",
-    ],
-  },
-  "custom/title": {
-    "format": "title test",
-    "tooltip": false,
-    "on-click": "",
-  },
-  "custom/close": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "riverctl close",
-  },
-  "custom/maximize": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "riverctl toggle-fullscreen",
-  },
-  "custom/minimize": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "notify-send minimize", // TODO: find an alternative to minimize
-  },
-  "custom/search": {
-    "format": "",
-    "tooltip": "Search",
-    "on-click": "search.sh",
-  },
   "wlr/workspaces": {
     "format": "{name}",
     "on-click": "activate",
@@ -185,18 +113,6 @@
       },
     ],
   },
-  "network": {
-    "interval": 10,
-    "format-icons": {
-      "disconnected": "",
-      "ethernet": " ",
-      "wifi": " ",
-    },
-    "format": "{icon}",
-    "tooltip-format-wifi": "{ifname} {ipaddr}/{cidr}\n{essid} ({signalStrength}%) \n {bandwidthUpBits}  {bandwidthDownBits}",
-    "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} \n {bandwidthUpBits}  {bandwidthDownBits}",
-    "tooltip-format-disconnected": "",
-  },
   "hyprland/language": {
     "format": " {short}",
     "min-length": 4,
@@ -223,16 +139,18 @@
   },
   "cpu": {
     "format": " {usage}%",
+    "on-click": "$TERMINAL -e htop",
+    "interval": 5,
   },
   "memory": {
     "format": " {percentage}%",
     "tooltip-format": "{used:0.1f}GiB RAM used",
-    "on-click": "wezterm -e htop",
+    "on-click": "$TERMINAL -e htop",
+    "interval": 5,
   },
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
+    "on-click": "$TERMINAL -e htop",
     "interval": 1,
     "format-critical": "{icon}{temperatureC}°C",
     "format": "{icon}{temperatureC}°C",
@@ -308,7 +226,7 @@
   "custom/weather": {
     "exec": "weather.sh",
     "on-click": "bar-signal.sh 9",
-    "interval": "600",
+    "interval": "600", // 10 minutes
     "tooltip": false,
     "signal": 9,
   },
