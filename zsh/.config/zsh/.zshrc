@@ -12,7 +12,7 @@ HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 setopt INC_APPEND_HISTORY_TIME
 KEYTIMEOUT=1
 
-# this is not a typo; `no-*` is intentional
+# show completions on the expanded alias
 setopt no_complete_aliases
 
 # build zcompdump only once per day
