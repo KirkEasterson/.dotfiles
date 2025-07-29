@@ -7,15 +7,6 @@ alias grep='grep --color=auto'
 alias egrep='grep -E --color=auto' # extended regex
 alias fgrep='grep -F --color=auto' # fixed strings
 
-# Search command line history
-alias hg="history | grep "
-
-# Search running processes
-alias pg="ps aux | grep "
-
-# Search files in the current folder
-alias fg="find . | grep "
-
 # create parent directories
 alias mkdir="mkdir -pv"
 
