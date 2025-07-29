@@ -91,8 +91,20 @@ include "${HOME}/.opam/opam-init/init.zsh"
 if [[ ! -d ${ZDOTDIR}/antidote ]]; then
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR}/antidote
 fi
-source ${ZDOTDIR}/antidote/antidote.zsh
-antidote load
+
+# # load on init
+# source ${ZDOTDIR}/antidote/antidote.zsh
+# antidote load
+
+# lazy load
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+	(
+		source ${ZDOTDIR}/antidote/antidote.zsh
+		antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+	)
+fi
+source ${zsh_plugins}.zsh
 
 # fix for wl-copy causing shell to hang
 # https://bbs.archlinux.org/viewtopic.php?pid=2173713#p2173713
