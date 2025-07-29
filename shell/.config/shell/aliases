@@ -1,6 +1,6 @@
 # Changing "ls" to "eza"
-alias ls='eza -l --color=always --group-directories-first --icons'
-alias lsa='eza -la --color=always --group-directories-first --icons'
+alias ls='eza -l --color=always --group-directories-first --icons=always'
+alias lsa='eza -la --color=always --group-directories-first --icons=always'
 
 # Colorize commands
 alias grep='grep --color=auto'
