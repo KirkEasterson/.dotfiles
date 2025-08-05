@@ -5,18 +5,18 @@ hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "2ad42fa"
+rev = "de53d90"
 hash = "1adc12c2b2b025411ab61eb8f0879574"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "2ad42fa"
+rev = "de53d90"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "2ad42fa"
-hash = "e01006bfb38951ea89031bd918b20dbb"
+rev = "de53d90"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [flavor]
 deps = []
