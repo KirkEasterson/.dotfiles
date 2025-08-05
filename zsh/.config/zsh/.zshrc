@@ -82,8 +82,7 @@ include "/opt/google-cloud-cli/path.zsh.inc"
 include "${HOME}/google-cloud-sdk/completion.zsh.inc"
 include "${HOME}/google-cloud-sdk/path.zsh.inc"
 
-include "/usr/share/fzf/completion.zsh"
-include "/usr/share/fzf/key-bindings.zsh"
+source <(fzf --zsh)
 
 include "${HOME}/.opam/opam-init/init.zsh"
 
