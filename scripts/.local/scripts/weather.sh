@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 url="https://wttr.in/?format=%c%t&m"
 resp=$(wget --content-on-error --server-response -qO- "$url" 2>&1)

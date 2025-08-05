@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 send_signal() {
 	bar-signal.sh "recorder"
