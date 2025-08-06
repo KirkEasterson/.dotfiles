@@ -6,7 +6,7 @@ return {
   priority = 1000,
   config = function(_, opts)
     vim.g.gruvbox_baby_background_color = "dark"
-    vim.g.gruvbox_baby_transparent_mode = true
+    vim.g.gruvbox_baby_transparent_mode = not vim.g.gonvim_running
 
     vim.cmd({
       cmd = "colorscheme",
