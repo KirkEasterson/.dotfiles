@@ -16,7 +16,7 @@ jobs:
     container:
       image: "ghcr.io/zsh-users/zsh:${{ matrix.version }}"
     steps:
-      - uses: "actions/checkout@v4"
+      - uses: "actions/checkout@v5"
       - run: "install_packages stow"
       - run: "stow shell"
       - run: "stow zsh"
