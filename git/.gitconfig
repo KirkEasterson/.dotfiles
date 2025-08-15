@@ -59,4 +59,4 @@
 	dft = difftool
 
 [include]
-    path = ~/.config/git/gitconfig.local
+    path = ~/.config/git/.gitconfig.local
