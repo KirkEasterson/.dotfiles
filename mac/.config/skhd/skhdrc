@@ -1,9 +1,9 @@
 # programs
 cmd - w : open -n -a /Applications/Firefox.app
 cmd - e : open -n -a /Applications/kitty.app --args  -e yazi
-cmd + shift - e : open ~
+cmd - shift - e : open ~
 cmd - return : open -n -a /Applications/kitty.app
-cmd + shift - return : open -n -a /Applications/ghostty.app
+cmd - shift - return : open -n -a /Applications/ghostty.app
 
 
 
