@@ -31,7 +31,7 @@ return {
       cpp = { "clang_format" },
       css = { "prettier" },
       go = { "gofumpt", "goimports" }, -- TODO: add "golines"
-      hcl = { "packer_fmt" },
+      -- hcl = { "packer_fmt" },
       html = { "prettier" },
       javascript = { "prettierd", "prettier", "eslint_d" },
       javascriptreact = { "prettierd", "prettier", "eslint_d" },
