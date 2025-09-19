@@ -74,4 +74,4 @@ firefox/*
 **/ardour8/*
 !**/ardour8/config
 
-**/*amedia*
+**/*node_modules*
