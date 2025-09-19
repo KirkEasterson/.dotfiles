@@ -24,19 +24,3 @@ profile home1_clamshell_dual_monitor {
 		position 2560,0
 	}
 }
-
-profile am1_clamshell {
-	output eDP-1 disable
-	output $am1 {
-		enable
-		position 0,0
-	}
-}
-
-profile am2_clamshell {
-	output eDP-1 disable
-	output $am2 {
-		enable
-		position 0,0
-	}
-}
