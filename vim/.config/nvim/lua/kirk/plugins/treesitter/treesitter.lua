@@ -48,6 +48,7 @@ return {
       "cpp",
       "css",
       "csv",
+      "devicetree",
       "diff",
       "dockerfile",
       "git_config",
