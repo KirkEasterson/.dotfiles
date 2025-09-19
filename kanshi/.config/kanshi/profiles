@@ -1,8 +1,19 @@
 profile laptop {
-	output $laptop enable
+	output $laptop {
+		enable
+		position 0,0
+	}
 }
 
-profile home1_clamshell {
+profile home1_clamshell_single_monitor {
+	output eDP-1 disable
+	output $home_dell_1 {
+		enable
+		position 0,0
+	}
+}
+
+profile home1_clamshell_dual_monitor {
 	output eDP-1 disable
 	output $home_dell_1 {
 		enable

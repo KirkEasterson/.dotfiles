@@ -1,7 +1,6 @@
 output eDP-1 {
 	alias $laptop
-	mode 1920x1200@60Hz
-	position 0,0
+	mode 1920x1080
 }
 
 output "Dell Inc. DELL U2715H GH85D5B8035S" {
