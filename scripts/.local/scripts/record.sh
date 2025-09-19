@@ -84,14 +84,31 @@ if [ ! -d "${screencasts_dir}" ]; then
 fi
 
 case "$1" in
-"screen") screen ;;
-"screen_and_audio") screen_and_audio ;;
-"screen_selection") screen_selection ;;
-# audio) audio;;
-"webcam") webcam ;;
-"kill") kill_recording ;;
-"prompt") ([ -f /tmp/recordingpid ] && prompt_end) || prompt_recording ;;
-*) status ;;
+"screen")
+	screen
+	send_signal
+	;;
+"screen_and_audio")
+	screen_and_audio
+	send_signal
+	;;
+"screen_selection")
+	screen_selection
+	send_signal
+	;;
+"webcam")
+	webcam
+	send_signal
+	;;
+"kill")
+	kill_recording
+	send_signal
+	;;
+"prompt")
+	([ -f /tmp/recordingpid ] && prompt_end) || prompt_recording
+	send_signal
+	;;
+*)
+	status
+	;;
 esac
-
-send_signal
