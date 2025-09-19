@@ -11,9 +11,9 @@ else
 			-mindepth 1 \
 			-maxdepth 4 \
 			-type d \
-			-not -path "*node*modules*" \
-			-not -path "*.turbo" \
-			-not -path "*.git*" |
+			-name .git \
+			-prune |
+			sed -e "s/\/.git$//" |
 			fzf
 	)
 	if [ -z "$selected" ]; then
