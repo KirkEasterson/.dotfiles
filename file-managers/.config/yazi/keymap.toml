@@ -36,7 +36,10 @@ keymap = [
 	{ on = "<PageUp>", run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<PageDown>", run = "arrow 100%", desc = "Move cursor down one page" },
 
-	{ on = [ "g", "g" ], run = "arrow top", desc = "Move cursor to the top" },
+	{ on = [
+		"g",
+		"g",
+	], run = "arrow top", desc = "Move cursor to the top" },
 	{ on = "G", run = "arrow bot", desc = "Move cursor to the bottom" },
 
 	# Selection
@@ -188,6 +191,14 @@ keymap = [
 	], run = "cd ~/Documents", desc = "Go to the documents directory" },
 	{ on = [
 		"g",
+		"e",
+	], run = "cd ~/dev", desc = "Go to the dev directory" },
+	{ on = [
+		"g",
+		"n",
+	], run = "cd ~/Documents/notes", desc = "Go to the notes directory" },
+	{ on = [
+		"g",
 		"o",
 	], run = "cd ~/Downloads", desc = "Go to the downloads directory" },
 	{ on = [
@@ -241,7 +252,6 @@ keymap = [
 		"m",
 		"v",
 	], run = "shell 'mv $@ ~/Videos/'", desc = "Move contents to the videos directory" },
-
 
 
 	# Tabs

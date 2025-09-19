@@ -115,7 +115,13 @@ image_bound = [0, 0]
 suppress_preload = false
 
 [plugin]
-prepend_previewers = [{ name = "*.md", run = "glow" }]
+prepend_previewers = [
+	{ name = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
+	{ name = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
+	{ name = "*.tar*", run = 'piper --format=url -- tar tf "$1"' },
+	{ name = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+	# { name = "*", run = 'piper -- hexyl --border=none --terminal-width=$w "$1"' },
+]
 prepend_fetchers = [
 	{ id = "git", name = "*", run = "git" },
 	{ id = "git", name = "*/", run = "git" },
