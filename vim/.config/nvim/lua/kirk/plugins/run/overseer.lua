@@ -1,6 +1,6 @@
 return {
   "stevearc/overseer.nvim",
-  -- enabled = false,
+  enabled = false,
   cmd = {
     "OverseerBuild",
     "OverseerClearCache",
