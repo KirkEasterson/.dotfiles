@@ -22,14 +22,14 @@ return {
     -- "zc", -- close fold under cursor
     -- "za", -- toggle fold under cursor
     {
-      "zR",
+      "zO",
       function()
         require("ufo").openAllFolds()
       end,
       desc = "Open all folds",
     },
     {
-      "zM",
+      "zC",
       function()
         require("ufo").closeAllFolds()
       end,
