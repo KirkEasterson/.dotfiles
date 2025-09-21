@@ -1,42 +1,86 @@
-# Use tall and fullscreen layouts
+### OPTIONS
 layouts:
-    - tall
-    - fullscreen
-    - tall-right
-    - wide
-    - two-pane
-    - 3column-left
-    - middle-wide
-    - 3column-right
-    - 4column-left
-    - 4column-right
-    - column
-    - row
-    - floating
-    - widescreen-tall
-    - widescreen-tall-right
-    - bsp
+  - tall
+  - floating
 
-# Add "command" to the default mods
 mod1:
-    - command
-    - shift
-    - control
+  - command
 mod2:
-    - command
-    - shift
-    - control
-    - option
+  - command
+  - shift
+mod3:
+  - command
+  - control
+mod4:
+  - command
+  - control
+  - shift
 
-# Modify the amethyst relaunch to use x and not z
-relaunch-amethyst:
-    mod: mod2
-    key: x
-
-# Enable focus-follows-mouse
 mouse-follows-focus: false
-focus-follows-mouse: true
+focus-follows-mouse: false
+mouse-swaps-windows: true
+mouse-resizes-windows: true
 
-# Add 10px margin between windows
-window-margins: true
-window-margin-size: 10
+ignore-menu-bar: false
+
+new-windows-to-main: true
+follow-space-thrown-windows: false
+
+### MAPPINGS
+relaunch-amethyst:
+  mod: mod2
+  key: r
+
+focus-cw:
+  mod: mod1
+  key: j
+focus-ccw:
+  mod: mod1
+  key: k
+swap-cw:
+  mod: mod2
+  key: j
+swap-ccw:
+  mod: mod2
+  key: k
+
+focus-screen-cw:
+  mod: mod3
+  key: j
+focus-screen-ccw:
+  mod: mod3
+  key: k
+swap-screen-cw:
+  mod: mod4
+  key: j
+swapscreen-ccw:
+  mod: mod4
+  key: k
+
+throw-space-1:
+  mod: mod2
+  key: 1
+throw-space-2:
+  mod: mod2
+  key: 2
+throw-space-3:
+  mod: mod2
+  key: 3
+throw-space-4:
+  mod: mod2
+  key: 4
+throw-space-5:
+  mod: mod2
+  key: 5
+throw-space-6:
+  mod: mod2
+  key: 6
+throw-space-7:
+  mod: mod2
+  key: 7
+throw-space-8:
+  mod: mod2
+  key: 8
+throw-space-9:
+  mod: mod2
+  key: 9
