@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
 
 # edit toay's note
-edit_today () {
+edit_today() {
 	today=$(date +%Y-%m-%d)
 	today_note_file="${src_dir}/note-${today}.md"
 
 	# check if file exists
 	if [ ! -f "${today_note_file}" ]; then
-		printf "# Notes for %s" "${today}" > "${today_note_file}"
+		printf "# Notes for %s" "${today}" >"${today_note_file}"
 	fi
 
-	# TODO: make this less hacky
-	$TERMINAL -e \
-		nvim -c "norm Go" \
+	nvim -c "norm Go" \
 		-c "norm Go### $(date +%H:%M:%S)" \
 		-c "norm G2o" \
-		-c "startinsert" "${today_note_file}" & disown
+		-c "startinsert" "${today_note_file}"
 }
 
 # build a specified note
-build () {
+build() {
 	src="$1"
 	target="${pdf_dir}/$(basename "$src" .md).pdf"
 
@@ -29,11 +27,14 @@ build () {
 }
 
 # view the latest note
-view_latest () {
-	find "${pdf_dir}" \( -name "*.pdf" \) -print \
-		| sort -r \
-		| head -n 1 \
-		| xargs xdg-open & disown
+view_latest() {
+	latest=$(
+		find "${pdf_dir}" \( -name "*.pdf" \) -print |
+			sort -r |
+			head -n 1
+	)
+
+	open "$latest"
 }
 
 # initialize variables
@@ -51,15 +52,16 @@ fi
 
 # process args
 case "${1}" in
-	("edit")
-		edit_today
-		;;
-	("build")
-		build "$2"
-		;;
-	("view")
-		view_latest
-		;;
-	(*)
-		exit 0
+"edit")
+	edit_today
+	;;
+"build")
+	build "$2"
+	;;
+"view")
+	view_latest
+	;;
+*)
+	exit 0
+	;;
 esac
