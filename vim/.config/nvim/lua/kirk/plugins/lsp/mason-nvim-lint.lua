@@ -26,7 +26,6 @@ return {
       "stylua",
       "yamllint",
       -- "markdownlint",
-      -- "stylua",
     },
   },
 }
