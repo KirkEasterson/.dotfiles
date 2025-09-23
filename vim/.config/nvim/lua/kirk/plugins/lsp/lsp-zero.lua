@@ -39,6 +39,13 @@ return {
       end,
       desc = "Code actions",
     },
+    {
+      "gl",
+      function()
+        vim.diagnostic.open_float()
+      end,
+      desc = "Show diagnostics",
+    },
   },
   opts = {},
   config = function(_, opts)
