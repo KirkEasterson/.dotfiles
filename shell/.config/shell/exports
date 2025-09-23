@@ -14,8 +14,12 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 export GOPATH="$HOME/go"
-export GOROOT="/usr/lib/go"
-#export GOROOT="/opt/homebrew/bin/go"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	export GOROOT="/usr/lib/go"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	export GOROOT="$(brew --prefix golang)/libexec"
+fi
+
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/bin"
 

@@ -25,4 +25,3 @@ fi
 if [ -s "${XDG_CACHE_HOME}/wal/colors-tty.sh" ]; then
   source "${XDG_CACHE_HOME}/wal/colors-tty.sh"
 fi
-

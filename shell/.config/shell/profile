@@ -3,33 +3,36 @@
 # # export keyring
 # export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
-if [ -n "${DISPLAY}" ]; then
 
-	flameshot &
-	nm-applet &
-	blueman-applet &
-	udiskie -a &
-	dunst &
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	if [ -n "${DISPLAY}" ]; then
 
-	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-		kanshi &
+		flameshot &
+		nm-applet &
+		blueman-applet &
+		udiskie -a &
+		dunst &
 
-	else
-		picom &
-		sxhkd &
-		~/.config/polybar/launch.sh &
-		~/.fehbg
+		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+			kanshi &
 
-		# lock after 10 minutes, suspend after 30 minutes
-		xautolock \
-			-time 10 \
-			-locker 'lock.sh' \
-			-nowlocker 'lock.sh' \
-			-killtime 30 \
-			-killer 'systemctl suspend' \
-			-detectsleep &
-		xss-lock --transfer-sleep-lock -- 'xautolock -locknow' &
+		else
+			picom &
+			sxhkd &
+			~/.config/polybar/launch.sh &
+			~/.fehbg
+
+			# lock after 10 minutes, suspend after 30 minutes
+			xautolock \
+				-time 10 \
+				-locker 'lock.sh' \
+				-nowlocker 'lock.sh' \
+				-killtime 30 \
+				-killer 'systemctl suspend' \
+				-detectsleep &
+			xss-lock --transfer-sleep-lock -- 'xautolock -locknow' &
+		fi
 	fi
-fi
 
-eval $(dbus-launch --auto-syntax)
+	eval $(dbus-launch --auto-syntax)
+fi
