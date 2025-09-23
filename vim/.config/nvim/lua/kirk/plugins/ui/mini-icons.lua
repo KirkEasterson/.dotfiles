@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.icons",
+  "nvim-mini/mini.icons",
   opts = {},
   config = function(_, opts)
     local mini_icons = require("mini.icons")

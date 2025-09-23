@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.bracketed",
+  "nvim-mini/mini.bracketed",
   enabled = false,
   keys = {
     { "[", mode = { "n" } },

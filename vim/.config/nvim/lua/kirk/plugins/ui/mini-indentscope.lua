@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.indentscope",
+  "nvim-mini/mini.indentscope",
   -- enabled = false,
   event = "VeryLazy",
   opts = {
