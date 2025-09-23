@@ -32,7 +32,7 @@ firefox/*
 
 **/yazi/plugins/*
 
-**/shell/local_exports
+**/shell/local*
 
 **/zsh/.antidote/
 **/zsh/.zcompdump*
