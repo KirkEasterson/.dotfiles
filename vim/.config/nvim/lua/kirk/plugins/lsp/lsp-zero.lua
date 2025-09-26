@@ -57,6 +57,7 @@ return {
       ensure_installed = {
         "ansiblels",
         "bashls",
+        "buf", -- protobuf
         "clangd",
         "cmake",
         "csharp_ls",
@@ -73,7 +74,6 @@ return {
         "lua_ls",
         "omnisharp",
         "prismals",
-        "protols",
         "pyright",
         "rust_analyzer",
         "sqlls",

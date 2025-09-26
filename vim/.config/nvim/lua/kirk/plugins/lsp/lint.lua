@@ -12,7 +12,6 @@ return {
       json = { "jsonlint" },
       -- lua = { "stylua", "luacheck" },
       -- markdown = { "markdownlint" },
-      proto = { "protolint" },
       python = { "pylint" },
       svelte = { "eslint_d" },
       terraform = { "tflint" },
