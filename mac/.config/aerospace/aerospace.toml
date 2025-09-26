@@ -85,10 +85,6 @@ cmd-shift-e = 'exec-and-forget open ~'
 cmd-n = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance notes.sh edit'
 cmd-shift-n = 'exec-and-forget notes.sh view'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#layout
-cmd-slash = 'layout tiles horizontal vertical'
-cmd-comma = 'layout accordion horizontal vertical'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-h = 'focus left'
 cmd-j = 'focus down'
