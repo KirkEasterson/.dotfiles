@@ -77,12 +77,12 @@ cmd-shift-r = 'reload-config'
 cmd-shift-q = 'close'
 cmd-shift-f = 'fullscreen'
 
-cmd-enter = 'exec-and-forget open -n /Applications/kitty.app'
+cmd-enter = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance'
 cmd-shift-enter = 'exec-and-forget open -n /Applications/ghostty.app'
 cmd-w = 'exec-and-forget open -n /Applications/Firefox.app'
-cmd-e = 'exec-and-forget open -n /Applications/kitty.app --args -e yazi'
+cmd-e = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance -e yazi'
 cmd-shift-e = 'exec-and-forget open ~'
-cmd-n = 'exec-and-forget open -n /Applications/kitty.app --args notes.sh edit'
+cmd-n = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance notes.sh edit'
 cmd-shift-n = 'exec-and-forget notes.sh view'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
