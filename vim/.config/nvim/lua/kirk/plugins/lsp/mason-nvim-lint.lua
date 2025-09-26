@@ -20,6 +20,7 @@ return {
       "jsonlint",
       "luacheck",
       "prettier",
+      "protolint",
       "pylint",
       "shellcheck",
       "stylelint", -- css

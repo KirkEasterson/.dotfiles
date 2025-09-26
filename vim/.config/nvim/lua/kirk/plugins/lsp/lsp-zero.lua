@@ -73,6 +73,7 @@ return {
         "lua_ls",
         "omnisharp",
         "prismals",
+        "protols",
         "pyright",
         "rust_analyzer",
         "sqlls",
