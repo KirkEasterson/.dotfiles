@@ -13,6 +13,9 @@ return {
       "TelescopePrompt",
       "mason",
     },
+    animate = {
+      enabled = false,
+    },
   },
   init = function()
     vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = require("gruvbox").palette.bright_orange })
