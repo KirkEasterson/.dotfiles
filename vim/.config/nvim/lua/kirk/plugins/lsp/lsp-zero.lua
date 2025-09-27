@@ -57,7 +57,7 @@ return {
       ensure_installed = {
         "ansiblels",
         "bashls",
-        "buf", -- protobuf
+        "buf_ls", -- protobuf
         "clangd",
         "cmake",
         "csharp_ls",
