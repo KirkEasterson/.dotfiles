@@ -34,7 +34,7 @@ view_latest() {
 			head -n 1
 	)
 
-	open "$latest"
+	zathura "$latest"
 }
 
 # initialize variables
