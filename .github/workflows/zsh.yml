@@ -4,20 +4,11 @@ on: ["push"]
 jobs:
   test:
     runs-on: "ubuntu-latest"
-    strategy:
-      fail-fast: false
-      matrix:
-        version:
-          - "master" # weekly build
-          - "5.9" # latest
-    container:
-      image: "ghcr.io/zsh-users/zsh:${{ matrix.version }}"
     steps:
       - uses: "actions/checkout@v4"
-      - run: "apt update"
-      - run: "apt upgrade"
-      - run: "apt install stow"
+      - run: "sudo apt install stow"
       - run: "stow shell"
 
+      - run: sudo "apt install zsh"
       - name: "Check zsh"
         run: "ZDOTDIR=~/.config/zsh zsh --version"
