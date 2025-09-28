@@ -4,19 +4,9 @@ on: ["push"]
 jobs:
   test:
     runs-on: "ubuntu-latest"
-    strategy:
-      fail-fast: false
-      matrix:
-        version:
-          - "master"
-          - "5.9"
-          - "5.8.1"
-          - "5.7.1"
-    container:
-      image: "ghcr.io/zsh-users/zsh:${{ matrix.version }}"
     steps:
       - uses: "actions/checkout@v4"
-      - run: "install_packages stow"
+      - run: "sudo apt install stow"
       - run: "stow shell"
 
       - name: "Check zsh"
