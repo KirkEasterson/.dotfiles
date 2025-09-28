@@ -77,7 +77,7 @@ cmd-shift-r = 'reload-config'
 cmd-shift-q = 'close'
 cmd-shift-f = 'fullscreen'
 
-cmd-enter = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance'
+cmd-enter = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance -d $HOME'
 cmd-shift-enter = 'exec-and-forget open -n /Applications/ghostty.app'
 cmd-w = 'exec-and-forget open -n /Applications/Firefox.app'
 cmd-e = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance -e yazi'
