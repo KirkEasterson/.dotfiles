@@ -12,6 +12,7 @@ return {
     require("statuscol").setup({
       setopt = true,
       relculright = true,
+      bt_ignore = { "terminal" },
       ft_ignore = {
         "NeogitStatus",
         "NvimTree",
@@ -25,7 +26,6 @@ return {
         "scratch",
         "startify",
         "term",
-        "terminal",
         "toggleterm",
         "trouble",
       },
