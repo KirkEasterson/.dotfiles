@@ -11,4 +11,4 @@ jobs:
       - name: "Install qtile"
         run: pip install qtile
       - name: "Validate"
-        run: qtile check --config ./qtile/.config/qtile/config.py
+        run: qtile check --config ./window-managers/.config/qtile/config.py

@@ -3,7 +3,7 @@ name: "nvim"
 on: ["push"]
 
 env:
-  NVIM_BASE_DIR: "nvim/.config/nvim"
+  NVIM_BASE_DIR: "vim/.config/nvim"
 
 jobs:
   stylua:

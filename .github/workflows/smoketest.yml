@@ -1,4 +1,3 @@
----
 name: smoke-test
 
 on: [push]
@@ -12,17 +11,16 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-          # firefox: # TODO: get github actions to work without x server
-        #   - "latest-beta"
-        #   - "latest-devedition"
-        #   - "latest-nightly"
-        #   - "latest-esr"
-        #   - "latest"
+          #   - "latest-beta"
+          #   - "latest-devedition"
+          #   - "latest-nightly"
+          #   - "latest-esr"
+          #   - "latest"
     steps:
       - uses: actions/checkout@v4
 
       - name: Install stow (linux)
-        run: sudo apt-get install -y stow firefox
+        run: sudo apt-get install -y stow
         if: ${{ matrix.os == 'ubuntu-latest' }}
 
       - uses: Homebrew/actions/setup-homebrew@master
@@ -30,11 +28,6 @@ jobs:
       - name: Install stow (macos)
         run: brew install stow firefox
         if: ${{ matrix.os == 'macos-latest' }}
-
-      # - name: Setup firefox (${{ matrix.firefox }})
-      #   uses: browser-actions/setup-firefox@v1
-      #   with:
-      #     firefox-version: ${{ matrix.firefox }}
 
       - name: Run install script
         run: ./install.sh
