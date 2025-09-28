@@ -1,8 +1,10 @@
 # dotfiles
+
 Repository for my linux/macOS dotfiles, managed by GNU stow.
 
 # Prerequisites
-- `stow`
+
+- [stow](https://www.gnu.org/software/stow/)
 
 # Installation
 
@@ -21,15 +23,5 @@ There may be conflicts with certain files (e.g. `.bashrc`, `.profile`, etc). In 
 Use `stow`:
 
 ```
-stow wezterm
+stow vim
 ```
-
-### Firefox
-
-I've found the following repository to be sufficient for my firefox theme, though I've made some slight changes. Ideally this would be version controlled like the other configs, but this isn't straight-forward for firefox.
-
-- https://github.com/Dook97/firefox-qutebrowser-userchrome
-
-# Roadmap
-
-- [ ] automate firefox css, possibly in a separate repo
