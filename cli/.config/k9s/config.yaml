@@ -1,6 +1,6 @@
 k9s:
   liveViewAutoRefresh: false
-  screenDumpDir: /home/kirk/.local/state/k9s/screen-dumps
+  screenDumpDir: "${XDG_STATE_HOME}/k9s/screen-dumps"
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
