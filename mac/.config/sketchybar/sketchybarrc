@@ -101,8 +101,8 @@ fi
 ##### RIGHT ITEMS #####
 sketchybar --add item clock right \
     --set clock script="$PLUGIN_DIR/clock.sh" \
-    update_freq=1 \
-    label.color=0xfffbf1c7
+    label.font="$FONT:Bold:14.0" \
+    update_freq=1
 
 sketchybar --add item battery right \
     --subscribe battery system_woke power_source_change \
@@ -136,9 +136,8 @@ sketchybar --add item kb right \
 
 sketchybar --add item weather right \
     --set weather script="$PLUGIN_DIR/weather.sh" \
-    update_freq=300 \
-    icon.color=0xffd65d0e \
-    icon.font="$FONT:Bold:24.0"
+    label.font="$FONT:Italic:14.0" \
+    update_freq=300
 
 sketchybar --add item brew right \
     --set brew script="$PLUGIN_DIR/brew.sh" \
