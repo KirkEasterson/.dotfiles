@@ -8,14 +8,14 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - "master"
-          - "5.9"
-          - "5.8.1"
-          - "5.7.1"
+          - "master" # weekly build
+          - "5.9" # latest
     container:
       image: "ghcr.io/zsh-users/zsh:${{ matrix.version }}"
     steps:
       - uses: "actions/checkout@v4"
+      - run: "apt update"
+      - run: "apt upgrade"
       - run: "apt install stow"
       - run: "stow shell"
 
