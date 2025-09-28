@@ -70,11 +70,15 @@ if pgrep -x "AeroSpace" >/dev/null; then
             --subscribe "space.$sid" aerospace_workspace_change \
             --set "space.$sid" \
             background.color=0x44ffffff \
-            background.corner_radius=5 \
             background.height=20 \
             background.drawing=off \
-            padding_left=2 \
-            padding_right=2 \
+            icon="" \
+            icon.padding_left=0 \
+            icon.padding_right=0 \
+            label.padding_left=7 \
+            label.padding_right=7 \
+            background.padding_left=0 \
+            background.padding_right=0 \
             label="$sid" \
             click_script="aerospace workspace $sid" \
             script="$CONFIG_DIR/plugins/aerospace.sh $sid"
