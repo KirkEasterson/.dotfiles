@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-sketchybar --set $NAME background.drawing=$SELECTED
+sketchybar --set "$NAME" background.drawing="$SELECTED"

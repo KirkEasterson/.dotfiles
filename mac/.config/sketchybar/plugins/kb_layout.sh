@@ -9,4 +9,4 @@ case ${SOURCE} in
 'com.apple.keylayout.ABC') LABEL='us' ;;
 esac
 
-sketchybar --set $NAME label="$LABEL"
+sketchybar --set "$NAME" label="$LABEL"

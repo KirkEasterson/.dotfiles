@@ -1,162 +1,155 @@
+# vi: ft=bash
+
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-FONT="UbuntuMono Nerd Font"
+FONT="IosevkaTerm Nerd Font Mono"
 
-
-
-##### Bar Appearance #####
+##### create bar #####
 sketchybar --bar height=38 \
-                 blur_radius=0 \
-                 position=top \
-                 sticky=on \
-                 padding_left=14 \
-                 padding_right=14 \
-                 color=0xff000000
+    blur_radius=0 \
+    position=top \
+    sticky=on \
+    padding_left=14 \
+    padding_right=14 \
+    color=0xff000000
 
+##### set defaults #####
+sketchybar --default icon.font="$FONT:Regular:17.0" \
+    icon.color=0xffebdbb2 \
+    label.font="$FONT:Regular:14.0" \
+    label.color=0xffebdbb2 \
+    padding_left=5 \
+    padding_right=5 \
+    label.padding_left=2 \
+    label.padding_right=2 \
+    icon.padding_left=2 \
+    icon.padding_right=2 \
+    updates=when_shown
 
-##### Changing Defaults #####
-sketchybar --default icon.font="$FONT:Bold:17.0" \
-                     icon.color=0xffebdbb2 \
-                     label.font="$FONT:Bold:14.0" \
-                     label.color=0xffebdbb2 \
-                     padding_left=5 \
-                     padding_right=5 \
-                     label.padding_left=2 \
-                     label.padding_right=2 \
-                     icon.padding_left=2 \
-                     icon.padding_right=2 \
-                     updates=when_shown
-
-
+##### LEFT ITEMS #####
 sketchybar --add item apple.logo left \
-           --set apple.logo icon="" \
-                 label.drawing=off \
-                 click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
-                 popup.background.border_width=2 \
-                 popup.background.corner_radius=3 \
-                 popup.background.color=0xff000000 \
-                 popup.background.border_color=0xff9dd274 \
-           --add item apple.about popup.apple.logo \
-           --set apple.about icon= \
-                            label="About This Mac" \
-                            click_script="open -a \"About This Mac\"; sketchybar -m --set apple.logo popup.drawing=off" \
-           --add item apple.settings popup.apple.logo \
-           --set apple.settings icon= \
-                            label="System Settings" \
-                            click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off" \
-           --add item apple.store popup.apple.logo \
-           --set apple.store icon=󰒚 \
-                            label="App Store" \
-                            click_script="open -a 'App Store'; sketchybar -m --set apple.logo popup.drawing=off" \
-           --add item apple.activity popup.apple.logo \
-           --set apple.activity icon= \
-                            label="Activity" \
-                            click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off" \
-           --add item apple.sleep popup.apple.logo \
-           --set apple.sleep icon=󰤄 \
-                            label="Sleep" \
-                            click_script="osascript -e 'tell app \"System Events\" to sleep'" \
-           --add item apple.restart popup.apple.logo \
-           --set apple.restart icon= \
-                            label="Restart" \
-                            click_script="osascript -e 'tell app \"loginwindow\" to «event aevtrrst»'" \
-           --add item apple.shutdown popup.apple.logo \
-           --set apple.shutdown icon= \
-                            label="Shutdown" \
-                            click_script="osascript -e 'tell app \"loginwindow\" to «event aevtrsdn»'" \
-           --add item apple.lock popup.apple.logo \
-           --set apple.lock icon= \
-                            label="Lock Screen" \
-                            click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off" \
-           --add item apple.logout popup.apple.logo \
-           --set apple.logout icon=󰗽 \
-                            label="Logout" \
-                            click_script="osascript -e 'tell app \"System Events\" to log out'; sketchybar -m --set apple.logo popup.drawing=off"
+    --set apple.logo icon="" \
+    label.drawing=off \
+    click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
+    popup.background.border_width=2 \
+    popup.background.corner_radius=3 \
+    popup.background.color=0xff000000 \
+    popup.background.border_color=0xff9dd274 \
+    --add item apple.about popup.apple.logo \
+    --set apple.about icon= \
+    label="About This Mac" \
+    click_script="open -a \"About This Mac\"; sketchybar -m --set apple.logo popup.drawing=off" \
+    --add item apple.activity popup.apple.logo \
+    --set apple.activity icon= \
+    label="Activity" \
+    click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off" \
+    --add item apple.sleep popup.apple.logo \
+    --set apple.sleep icon=󰤄 \
+    label="Sleep" \
+    click_script="osascript -e 'tell app \"System Events\" to sleep'" \
+    --add item apple.restart popup.apple.logo \
+    --set apple.restart icon= \
+    label="Restart" \
+    click_script="osascript -e 'tell app \"loginwindow\" to «event aevtrrst»'" \
+    --add item apple.shutdown popup.apple.logo \
+    --set apple.shutdown icon= \
+    label="Shutdown" \
+    click_script="osascript -e 'tell app \"loginwindow\" to «event aevtrsdn»'" \
+    --add item apple.lock popup.apple.logo \
+    --set apple.lock icon= \
+    label="Lock Screen" \
+    click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off" \
+    --add item apple.logout popup.apple.logo \
+    --set apple.logout icon=󰗽 \
+    label="Logout" \
+    click_script="osascript -e 'tell app \"System Events\" to log out'; sketchybar -m --set apple.logo popup.drawing=off"
 
+if pgrep -x "AeroSpace" >/dev/null; then
+    sketchybar --add event aerospace_workspace_change
+    for sid in $(aerospace list-workspaces --all); do
+        sketchybar --add item "space.$sid" left \
+            --subscribe "space.$sid" aerospace_workspace_change \
+            --set "space.$sid" \
+            background.color=0x44ffffff \
+            background.corner_radius=5 \
+            background.height=20 \
+            background.drawing=off \
+            padding_left=2 \
+            padding_right=2 \
+            label="$sid" \
+            click_script="aerospace workspace $sid" \
+            script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+    done
+else
+    SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9")
+    for i in "${!SPACE_ICONS[@]}"; do
+        sid=$(($i + 1))
+        sketchybar --add space space.$sid left \
+            --set space.$sid associated_space=$sid \
+            icon="${SPACE_ICONS[i]}" \
+            background.color=0xff458588 \
+            background.corner_radius=5 \
+            background.height=20 \
+            background.drawing=off \
+            padding_left=2 \
+            padding_right=2 \
+            label.drawing=off \
+            script="$PLUGIN_DIR/space.sh" \
+            click_script="yabai -m space --focus $sid"
+    done
+fi
 
-##### Adding Mission Control Space Indicators #####
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  sketchybar --add space space.$sid left \
-             --set space.$sid associated_space=$sid \
-                              icon=${SPACE_ICONS[i]} \
-                              background.color=0xff458588 \
-                              background.corner_radius=5 \
-                              background.height=20 \
-                              background.drawing=off \
-                              padding_left=2 \
-                              padding_right=2 \
-                              label.drawing=off \
-                              script="$PLUGIN_DIR/space.sh" \
-                              click_script="yabai -m space --focus $sid"
-done
-
-
-##### Adding Left Items #####
-sketchybar --add item space_separator left \
-           --set space_separator label.drawing=off
-
-# sketchybar --add item front_app left \
-#            --subscribe front_app front_app_switched \
-#            --set front_app script="$PLUGIN_DIR/front_app.sh" \
-#                            icon.color=0xffd65d0e
-
-sketchybar --add item spotify left \
-           --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
-           --subscribe spotify spotify_change \
-           --set spotify script="$PLUGIN_DIR/spotify.sh" \
-                         icon.drawing=off \
-                         label.drawing=off
-
-
-##### Adding Right Items #####
+##### RIGHT ITEMS #####
 sketchybar --add item clock right \
-           --set clock script="$PLUGIN_DIR/clock.sh" \
-                       update_freq=1 \
-                       label.color=0xfffbf1c7
-
+    --set clock script="$PLUGIN_DIR/clock.sh" \
+    update_freq=1 \
+    label.color=0xfffbf1c7
 
 sketchybar --add item battery right \
-           --subscribe battery system_woke power_source_change \
-           --set battery script="$PLUGIN_DIR/battery.sh" \
-                         update_freq=120
+    --subscribe battery system_woke power_source_change \
+    --set battery script="$PLUGIN_DIR/battery.sh" \
+    update_freq=300
 
 sketchybar --add item cpu right \
-           --set cpu    script="$PLUGIN_DIR/cpu.sh" \
-                        update_freq=2 \
-                        icon=󱤓 \
-                        icon.color=0xffcc241d
+    --set cpu script="$PLUGIN_DIR/cpu.sh" \
+    update_freq=1 \
+    icon= \
+    icon.color=0xffcc241d
 
 sketchybar --add item ram right \
-           --set ram    script="$PLUGIN_DIR/ram.sh" \
-                        update_freq=2 \
-                        icon=󰍛 \
-                        icon.color=0xffcc241d
+    --set ram script="$PLUGIN_DIR/ram.sh" \
+    update_freq=1 \
+    icon= \
+    icon.color=0xffcc241d
 
 sketchybar --add item volume right \
-           --subscribe volume volume_change \
-           --set volume  script="$PLUGIN_DIR/volume.sh" \
-                         icon.color=0xff458588
+    --subscribe volume volume_change \
+    --set volume script="$PLUGIN_DIR/volume.sh" \
+    icon.color=0xff458588
 
 sketchybar --add item kb right \
-           --add event input_change "AppleSelectedInputSourcesChangedNotification" \
-           --subscribe kb input_change \
-           --set kb    script="$PLUGIN_DIR/kb_layout.sh" \
-                       label.font="$FONT:Italic:14.0" \
-                       icon= \
-                       icon.color=0xffa89984
+    --add event input_change "AppleSelectedInputSourcesChangedNotification" \
+    --subscribe kb input_change \
+    --set kb script="$PLUGIN_DIR/kb_layout.sh" \
+    label.font="$FONT:Italic:14.0" \
+    icon= \
+    icon.color=0xffa89984
 
 sketchybar --add item weather right \
-           --set weather script="$PLUGIN_DIR/weather.sh" \
-                      update_freq=60 \
-                      icon.color=0xffd65d0e \
-                      icon.font="$FONT:Bold:24.0"
+    --set weather script="$PLUGIN_DIR/weather.sh" \
+    update_freq=300 \
+    icon.color=0xffd65d0e \
+    icon.font="$FONT:Bold:24.0"
 
+sketchybar --add item brew right \
+    --set brew script="$PLUGIN_DIR/brew.sh" \
+    update_freq=60 \
+    icon.color=0xffd65d0e
 
-sketchybar --add item brew right \b16286
-           --set brew script="$PLUGIN_DIR/brew.sh" \
-                      update_freq=60 \
-                      icon.color=0xffd65d0e
+sketchybar --add item spotify right \
+    --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
+    --subscribe spotify spotify_change \
+    --set spotify script="$PLUGIN_DIR/spotify.sh" \
+    icon.drawing=off \
+    label.drawing=off
 
 sketchybar --update

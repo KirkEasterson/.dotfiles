@@ -1,6 +1,6 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
-if [ $(mpc status | wc -l | tr -d ' ') == "1" ]; then
+if [ "$(mpc status | wc -l | tr -d ' ')" == "1" ]; then
   output=""
   icon=""
 else
@@ -8,7 +8,7 @@ else
   song=$(mpc current -f %title%)
   status=$(mpc current %state%)
 
-  if [ $status = "playing" ]; then
+  if [ "$status" = "playing" ]; then
     icon=""
   else
     icon=""
@@ -17,6 +17,5 @@ else
   output="${artist} • ${song}"
 fi
 
-echo $output
 sketchybar -m --set mpd icon="${icon}" \
-              --set mpd label="${output}"
+  --set mpd label="${output}"
