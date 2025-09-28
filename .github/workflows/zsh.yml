@@ -16,7 +16,7 @@ jobs:
       image: "ghcr.io/zsh-users/zsh:${{ matrix.version }}"
     steps:
       - uses: "actions/checkout@v4"
-      - run: "sudo apt install stow"
+      - run: "apt install stow"
       - run: "stow shell"
 
       - name: "Check zsh"
