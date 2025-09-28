@@ -13,9 +13,9 @@ sketchybar --bar height=32 \
     color=0xff000000
 
 ##### set defaults #####
-sketchybar --default icon.font="$FONT:Regular:17.0" \
+sketchybar --default icon.font="$FONT:Regular:16.0" \
     icon.color=0xffebdbb2 \
-    label.font="$FONT:Regular:17.0" \
+    label.font="$FONT:Regular:16.0" \
     label.color=0xffebdbb2 \
     padding_left=5 \
     padding_right=5 \
@@ -105,7 +105,7 @@ fi
 ##### RIGHT ITEMS #####
 sketchybar --add item clock right \
     --set clock script="$PLUGIN_DIR/clock.sh" \
-    label.font="$FONT:Bold:17.0" \
+    label.font="$FONT:Bold:16.0" \
     update_freq=1
 
 sketchybar --add item battery right \
@@ -134,13 +134,13 @@ sketchybar --add item kb right \
     --add event input_change "AppleSelectedInputSourcesChangedNotification" \
     --subscribe kb input_change \
     --set kb script="$PLUGIN_DIR/kb_layout.sh" \
-    label.font="$FONT:Italic:17.0" \
+    label.font="$FONT:Italic:16.0" \
     icon= \
     icon.color=0xffa89984
 
 sketchybar --add item weather right \
     --set weather script="$PLUGIN_DIR/weather.sh" \
-    label.font="$FONT:Italic:17.0" \
+    label.font="$FONT:Italic:16.0" \
     update_freq=300
 
 sketchybar --add item brew right \
