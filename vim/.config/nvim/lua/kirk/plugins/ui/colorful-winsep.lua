@@ -1,6 +1,6 @@
 return {
   "nvim-zh/colorful-winsep.nvim",
-  -- enabled = false,
+  enabled = false, -- TODO: fix errors that randomly show up
   dependencies = {
     "ellisonleao/gruvbox.nvim",
   },
