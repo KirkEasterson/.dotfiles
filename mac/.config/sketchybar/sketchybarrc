@@ -4,7 +4,8 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 FONT="IosevkaTerm Nerd Font Mono"
 
 ##### create bar #####
-sketchybar --bar height=32 \
+sketchybar --bar display=main \
+    height=32 \
     blur_radius=0 \
     position=top \
     sticky=on \
