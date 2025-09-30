@@ -54,16 +54,18 @@ return {
       pattern = "NeogitBranchCheckout",
       group = neogit_group,
       callback = function()
-        local autosession = require("auto-session")
-        if not autosession.session_exists_for_cwd() then
-          autosession.SaveSession(nil, false)
-          return
-        end
-
         local neogit = require("neogit")
+        local autosession = require("auto-session")
+
+        -- TODO: find out why this always returns false
+        -- if not autosession.session_exists_for_cwd() then
+        --   autosession.SaveSession(nil, false)
+        --   return
+        -- end
+
         neogit.close()
         vim.cmd([[%bd!]])
-        autosession.RestoreSession("")
+        autosession.RestoreSession("", { show_message = false })
         neogit.open()
       end,
     })
