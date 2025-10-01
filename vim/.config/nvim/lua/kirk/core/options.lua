@@ -60,11 +60,15 @@ for _, v in pairs(enabled_plugins) do
 end
 
 local session_opts = {
+  "blank",
   "buffers",
   "curdir",
+  -- "folds",
+  "globals",
   "help",
   "localoptions",
   "options",
+  -- "resize", -- DO NOT ENABLE: this cause rendering issues with tiling window managers
   "tabpages",
   "terminal",
   "winpos",
