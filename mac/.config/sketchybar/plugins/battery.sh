@@ -38,7 +38,9 @@ case ${PERCENTAGE} in
 [1][0-9])
   ICON="󰁺"
   ;;
-*) ICON="󰂎" ;;
+*)
+  ICON="󰂎"
+  ;;
 esac
 
 case ${PERCENTAGE} in
