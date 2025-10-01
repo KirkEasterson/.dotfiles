@@ -118,17 +118,20 @@ sketchybar --add item cpu right \
     --set cpu script="$PLUGIN_DIR/cpu.sh" \
     update_freq=1 \
     icon= \
+    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffcc241d
 
 sketchybar --add item ram right \
     --set ram script="$PLUGIN_DIR/ram.sh" \
     update_freq=1 \
     icon= \
+    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffcc241d
 
 sketchybar --add item volume right \
     --subscribe volume volume_change \
     --set volume script="$PLUGIN_DIR/volume.sh" \
+    icon.font="$FONT:Regular:30.0" \
     icon.color=0xff458588
 
 sketchybar --add item kb right \
@@ -137,6 +140,7 @@ sketchybar --add item kb right \
     --set kb script="$PLUGIN_DIR/kb_layout.sh" \
     label.font="$FONT:Italic:16.0" \
     icon= \
+    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffa89984
 
 sketchybar --add item weather right \
@@ -147,6 +151,7 @@ sketchybar --add item weather right \
 sketchybar --add item brew right \
     --set brew script="$PLUGIN_DIR/brew.sh" \
     update_freq=60 \
+    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffd65d0e
 
 sketchybar --add item spotify right \
