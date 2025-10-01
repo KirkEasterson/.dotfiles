@@ -26,21 +26,4 @@ return {
       "NvimTreeClose",
     },
   },
-  init = function()
-    local session_opts = {
-      "buffers",
-      "curdir",
-      -- "folds",
-      -- "globals",
-      "help",
-      "localoptions",
-      "options",
-      "resize",
-      "tabpages",
-      "terminal",
-      "winpos",
-      "winsize",
-    }
-    vim.o.sessionoptions = table.concat(session_opts, ",")
-  end,
 }

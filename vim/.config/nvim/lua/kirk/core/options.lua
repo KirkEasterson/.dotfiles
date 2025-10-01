@@ -59,6 +59,19 @@ for _, v in pairs(enabled_plugins) do
   g["loaded_" .. v] = false
 end
 
+local session_opts = {
+  "buffers",
+  "curdir",
+  "help",
+  "localoptions",
+  "options",
+  "tabpages",
+  "terminal",
+  "winpos",
+  "winsize",
+}
+vim.o.sessionoptions = table.concat(session_opts, ",")
+
 -- neovide
 if g.neovide then
   opt.linespace = 4
