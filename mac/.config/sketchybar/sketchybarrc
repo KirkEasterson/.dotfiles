@@ -148,6 +148,11 @@ sketchybar --add item weather right \
     label.font="$FONT:Italic:16.0" \
     update_freq=300
 
+sketchybar --add item caffeinate right \
+    --set caffeinate script="$PLUGIN_DIR/caffeinate.sh" \
+    click_script="$PLUGIN_DIR/caffeinate.sh" \
+    icon=
+
 sketchybar --add item brew right \
     --set brew script="$PLUGIN_DIR/brew.sh" \
     update_freq=60 \
