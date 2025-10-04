@@ -132,6 +132,7 @@ sketchybar --add item volume right \
     --subscribe volume volume_change \
     --set volume script="$PLUGIN_DIR/volume.sh" \
     icon.font="$FONT:Regular:30.0" \
+    icon.padding_right=8 \
     icon.color=0xff458588
 
 sketchybar --add item kb right \
