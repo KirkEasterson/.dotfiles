@@ -1,3 +1,5 @@
+# vim: filetype=bash
+
 # Changing "ls" to "eza"
 alias ls='eza -l --color=always --group-directories-first --icons=always'
 alias lsa='eza -la --color=always --group-directories-first --icons=always'
