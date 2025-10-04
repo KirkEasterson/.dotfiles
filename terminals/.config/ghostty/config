@@ -1,21 +1,26 @@
-# theme = "GruvboxDark"
-config-file = "~/.cache/wal/ghostty.conf"
-background-opacity=0.98
+theme = "GruvboxDark"
+# config-file = "~/.cache/wal/ghostty.conf"
+background-opacity=1
 
-font-size = 14
-font-family = "Iosevka Term Nerd Font Mono"
+font-size = 18
+font-family = "Iosevka Nerd Font Mono"
 font-feature = "-calt"
 font-feature = "-dlig"
 font-feature = "-liga"
 
+quit-after-last-window-closed = true
 mouse-hide-while-typing = true
 link-url = true
 
-window-decoration = false
+window-decoration = client
 window-save-state = "never"
 resize-overlay = "never"
 confirm-close-surface = false
 gtk-single-instance = true
+
+macos-titlebar-style = native
+macos-option-as-alt = left
+macos-window-shadow = false
 
 keybind = clear
 keybind = ctrl+shift+c=copy_to_clipboard
