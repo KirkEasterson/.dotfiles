@@ -11,16 +11,16 @@ if [ "$BT_DEVICES" != "" ]; then
   ICON="󰋋"
 else
   case ${VOLUME} in
-  [7-9][0-9] | 100)
-    ICON="󰕾"
+  [5-9][0-9] | 100)
+    ICON=""
     ;;
-  [4-6][0-9])
-    ICON="󰖀"
+  [1-4][0-9])
+    ICON=""
     ;;
-  [1-3][0-9] | [1-9])
-    ICON="󰕿"
+  [1-9])
+    ICON=""
     ;;
-  *) ICON="󰸈" ;;
+  *) ICON="" ;;
   esac
 fi
 
