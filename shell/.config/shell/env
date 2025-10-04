@@ -78,37 +78,38 @@ export PATH="$XDG_DATA_HOME/flatpak/exports/share:$PATH"
 # allow global npm installs in arch linux
 export npm_config_prefix="$HOME/.local"
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+		# https://github.com/swaywm/sway/wiki#i-cant-open-links-in-external-applications-in-firefox
+		export MOZ_DBUS_REMOTE=1
+		export MOZ_ENABLE_WAYLAND=1
 
-	# https://github.com/swaywm/sway/wiki#i-cant-open-links-in-external-applications-in-firefox
-	export MOZ_DBUS_REMOTE=1
-	export MOZ_ENABLE_WAYLAND=1
+		# enabling this prevents some games from launching
+		export SDL_VIDEODRIVER="wayland"
 
-	# enabling this prevents some games from launching
-	export SDL_VIDEODRIVER="wayland"
+		export _JAVA_AWT_WM_NONREPARENTING=1
+		export QT_QPA_PLATFORM="wayland"
 
-	export _JAVA_AWT_WM_NONREPARENTING=1
-	export QT_QPA_PLATFORM="wayland"
+		# TODO: not default to river
+		export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-river}"
+		export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-river}"
 
-	# TODO: not default to river
-	export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-river}"
-	export XDG_SESSION_DESKTOP="${XDG_SESSION_DESKTOP:-river}"
+		# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+		export GTK_USE_PORTAL=0
 
-	# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-	export GTK_USE_PORTAL=0
+		export SEARCH="rofi"
+		export BAR="waybar"
 
-	export SEARCH="rofi"
-	export BAR="waybar"
+		export WLR_RENDERER="vulkan"
+		export WLR_NO_HARDWARE_CURSORS=1
 
-	export WLR_RENDERER="vulkan"
-	export WLR_NO_HARDWARE_CURSORS=1
-
-	# this impacts game performance
-	# export XWAYLAND_NO_GLAMOR=1
-else
-	export SEARCH="rofi"
-	export BAR="polybar"
+		# this impacts game performance
+		# export XWAYLAND_NO_GLAMOR=1
+	else
+		export SEARCH="rofi"
+		export BAR="polybar"
+	fi
 fi
 
 # user defaults
