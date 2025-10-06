@@ -14,8 +14,7 @@ sketchybar --bar display=main \
     color=0xff000000
 
 ##### set defaults #####
-sketchybar --default icon.font="$FONT:Regular:16.0" \
-    icon.color=0xffebdbb2 \
+sketchybar --default \
     label.font="$FONT:Regular:16.0" \
     label.color=0xffebdbb2 \
     padding_left=5 \
@@ -24,6 +23,8 @@ sketchybar --default icon.font="$FONT:Regular:16.0" \
     label.padding_right=2 \
     icon.padding_left=2 \
     icon.padding_right=2 \
+    icon.font="$FONT:Regular:30.0" \
+    icon.color=0xffebdbb2 \
     updates=when_shown
 
 ##### LEFT ITEMS #####
@@ -112,26 +113,24 @@ sketchybar --add item clock right \
 sketchybar --add item battery right \
     --subscribe battery system_woke power_source_change \
     --set battery script="$PLUGIN_DIR/battery.sh" \
+    icon.font="$FONT:Regular:16.0" \
     update_freq=300
 
 sketchybar --add item cpu right \
     --set cpu script="$PLUGIN_DIR/cpu.sh" \
     update_freq=1 \
     icon= \
-    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffcc241d
 
 sketchybar --add item ram right \
     --set ram script="$PLUGIN_DIR/ram.sh" \
     update_freq=1 \
     icon= \
-    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffcc241d
 
 sketchybar --add item volume right \
     --subscribe volume volume_change \
     --set volume script="$PLUGIN_DIR/volume.sh" \
-    icon.font="$FONT:Regular:30.0" \
     icon.padding_right=8 \
     icon.color=0xff458588
 
@@ -141,7 +140,6 @@ sketchybar --add item kb right \
     --set kb script="$PLUGIN_DIR/kb_layout.sh" \
     label.font="$FONT:Italic:16.0" \
     icon= \
-    icon.font="$FONT:Regular:30.0" \
     icon.color=0xffa89984
 
 sketchybar --add item weather right \
@@ -149,16 +147,15 @@ sketchybar --add item weather right \
     label.font="$FONT:Italic:16.0" \
     update_freq=300
 
+sketchybar --add item brew right \
+    --set brew script="$PLUGIN_DIR/brew.sh" \
+    update_freq=60 \
+    icon.color=0xffd65d0e
+
 sketchybar --add item caffeinate right \
     --set caffeinate script="$PLUGIN_DIR/caffeinate.sh" \
     click_script="$PLUGIN_DIR/caffeinate.sh" \
     icon=
-
-sketchybar --add item brew right \
-    --set brew script="$PLUGIN_DIR/brew.sh" \
-    update_freq=60 \
-    icon.font="$FONT:Regular:30.0" \
-    icon.color=0xffd65d0e
 
 sketchybar --add item spotify right \
     --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
