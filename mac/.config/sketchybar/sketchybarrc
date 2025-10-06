@@ -10,7 +10,7 @@ sketchybar --bar display=main \
     position=top \
     sticky=on \
     padding_left=5 \
-    padding_right=10 \
+    padding_right=20 \
     color=0xff000000
 
 ##### set defaults #####
