@@ -45,23 +45,14 @@ return {
     {
       "<leader>ff",
       function()
-        require("snacks").picker.files({
-          hidden = true,
-          layout = {
-            preset = "ivy_split",
-          },
-        })
+        require("snacks").picker.files({ hidden = true })
       end,
       desc = "Files",
     },
     {
       "<leader>fb",
       function()
-        require("snacks").picker.buffers({
-          layout = {
-            preset = "ivy_split",
-          },
-        })
+        require("snacks").picker.buffers()
       end,
       desc = "Buffers",
     },
@@ -75,18 +66,14 @@ return {
     {
       "<leader>fg",
       function()
-        require("snacks").picker.grep({
-          hidden = true,
-        })
+        require("snacks").picker.grep({ hidden = true })
       end,
       desc = "Grep",
     },
     {
       "<leader>fG",
       function()
-        require("snacks").picker.grep_word({
-          hidden = true,
-        })
+        require("snacks").picker.grep_word({ hidden = true })
       end,
       desc = "Grep word",
       mode = { "n", "v" },
@@ -94,24 +81,14 @@ return {
     {
       "<leader>fd",
       function()
-        require("snacks").picker.diagnostics({
-          hidden = true,
-          layout = {
-            preset = "ivy_split",
-          },
-        })
+        require("snacks").picker.diagnostics({ hidden = true })
       end,
       desc = "Diagnostics",
     },
     {
       "<leader>fD",
       function()
-        require("snacks").picker.diagnostics_buffer({
-          hidden = true,
-          layout = {
-            preset = "ivy_split",
-          },
-        })
+        require("snacks").picker.diagnostics_buffer({ hidden = true })
       end,
       desc = "Buffer diagnostics",
     },
@@ -127,23 +104,14 @@ return {
     {
       "<leader>fs",
       function()
-        require("snacks").picker.lsp_symbols({
-          layout = {
-            preset = "ivy_split",
-          },
-        })
+        require("snacks").picker.lsp_symbols()
       end,
       desc = "LSP symbols",
     },
     {
       "<leader>fS",
       function()
-        require("snacks").picker.lsp_workspace_symbols({
-          hidden = true,
-          layout = {
-            preset = "ivy_split",
-          },
-        })
+        require("snacks").picker.lsp_workspace_symbols({ hidden = true })
       end,
       desc = "LSP symbols",
     },
@@ -170,6 +138,9 @@ return {
       prompt = " ",
       filename_bonus = true,
       cwd_bonus = true,
+      layout = {
+        preset = "ivy_split",
+      },
     },
   },
 }
