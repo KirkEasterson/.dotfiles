@@ -1,22 +1,29 @@
 #!/bin/bash
 
-CAFFINATE_ID=$(pmset -g assertions | grep "caffeinate" | awk '{print $2}' | cut -d '(' -f1 | head -n 1)
+CAFFINATE_ID=$(pgrep caffeinate)
+SLEEP_ICON="󰒲"
+AWAKE_ICON="󰒳"
 
-# It was not a button click
-if [ -z "$BUTTON" ]; then
-	if [ -z "$CAFFINATE_ID" ]; then
-		sketchybar --set "$NAME" icon=󰒳
+toggle_caffeine() {
+	if [ -n "$CAFFINATE_ID" ]; then
+		pkill caffeinate
 	else
-		sketchybar --set "$NAME" icon=󰒲
+		caffeinate -id &
+		disown
 	fi
-	exit 0
+}
+
+# if a mouse click, then toggle caffeine
+if [ -n "$BUTTON" ]; then
+	toggle_caffeine
 fi
 
-# It is a mouse click
-if [ -z "$CAFFINATE_ID" ]; then
-	caffeinate -id &
-	sketchybar --set "$NAME" icon=󰒲
+# if caffeine is running
+if [ -n "$CAFFINATE_ID" ]; then
+	ICON="$AWAKE_ICON"
 else
-	kill -9 "$CAFFINATE_ID"
-	sketchybar --set "$NAME" icon=󰒳
+	ICON="$SLEEP_ICON"
 fi
+
+sketchybar --set "$NAME" icon="$ICON"
+exit 0
