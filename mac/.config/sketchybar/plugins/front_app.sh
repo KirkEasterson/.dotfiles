@@ -55,13 +55,24 @@ case $INFO in
 "DBeaver")
   ICON=
   ;;
+"IntelliJ IDEA")
+  ICON=
+  ;;
+"Postman")
+  ICON=
+  ;;
 "Code")
   ICON=󰨞
+  ;;
+"Microsoft Outlook")
+  ICON=󰴢
+  ;;
+"Microsoft Teams")
+  ICON=󰊻
   ;;
 *)
   ICON=󰛄
   ;;
 esac
 
-sketchybar --set "$NAME" icon=$ICON \
-  label="$INFO"
+sketchybar --set "$NAME" icon=$ICON label="$INFO"
