@@ -14,12 +14,12 @@ if [ -s "$XDG_DATA_HOME/cargo/env" ]; then
 fi
 
 # linux
-if [ -f  '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
+if [ -f '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # macos
-if [ -f  '/opt/homebrew/bin/brew' ]; then
+if [ -f '/opt/homebrew/bin/brew' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
