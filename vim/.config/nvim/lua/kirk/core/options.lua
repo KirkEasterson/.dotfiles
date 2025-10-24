@@ -242,7 +242,7 @@ o.foldcolumn = "1"
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- short messages
 opt.shortmess:append("IWsA")
