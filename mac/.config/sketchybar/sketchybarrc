@@ -162,6 +162,13 @@ sketchybar --add item caffeinate right \
     click_script="$PLUGIN_DIR/caffeinate.sh" \
     icon=
 
+sketchybar --add item ollama right \
+    --set ollama script="$PLUGIN_DIR/ollama.sh" \
+    click_script="$PLUGIN_DIR/ollama.sh" \
+    update_freq=60 \
+    icon.font="$FONT:Regular:16.0" \
+    icon=
+
 sketchybar --add item spotify right \
     --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
     --subscribe spotify spotify_change \
