@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 outdated=$(brew outdated --quiet | wc -l | tr -d " ")
-threshold=0
+threshold=10
 
 # only show menubar item above threshold
 if [[ $outdated -gt $threshold ]]; then
