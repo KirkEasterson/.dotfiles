@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# icons for the taskbar
 BASE_ICON="✨"
 ON_ICON="${BASE_ICON}✔"
 OFF_ICON="${BASE_ICON}✘"
 
 # `docker` isn't in the path for the service
 DOCKER_CMD="/usr/local/bin/docker"
+
+OPENWEBUI_PORT="3000"
 OPENWEBUI_CONTAINER_NAME="open-webui"
 
 ollama_id() {
@@ -21,9 +24,13 @@ stop_ollama() {
 	pkill ollama
 }
 
+openwebui_container() {
+	$DOCKER_CMD container ls -qa --filter name=^${OPENWEBUI_CONTAINER_NAME}$
+}
+
 init_openwebui() {
 	$DOCKER_CMD run -d \
-		-p 3000:8080 \
+		-p ${OPENWEBUI_PORT}:8080 \
 		-e WEBUI_AUTH=False \
 		-v open-webui:/app/backend/data \
 		--name $OPENWEBUI_CONTAINER_NAME \
@@ -31,6 +38,9 @@ init_openwebui() {
 }
 
 start_openwebui() {
+	if [ -z "$(openwebui_container)" ]; then
+		init_openwebui
+	fi
 	$DOCKER_CMD container start $OPENWEBUI_CONTAINER_NAME
 }
 
