@@ -63,7 +63,7 @@ local session_opts = {
   "blank",
   "buffers",
   "curdir",
-  -- "folds",
+  "folds",
   "globals",
   "help",
   "localoptions",
