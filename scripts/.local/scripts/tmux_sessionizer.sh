@@ -7,9 +7,9 @@ if [ $# -eq 1 ]; then
 	selected=$1
 else
 	selected=$(
-		find ~/dev \
-			-mindepth 1 \
-			-maxdepth 4 \
+		find ~/dev/github.com/ \
+			-mindepth 2 \
+			-maxdepth 3 \
 			-type d \
 			-name .git \
 			-prune |
@@ -17,29 +17,20 @@ else
 			fzf
 	)
 	if [ -z "$selected" ]; then
-		exit 0
+		exit 1
 	fi
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_label=$(basename "$selected" | tr . _)
 
-# if inside tmux
-if [ -n "$TMUX" ]; then
-	# if the session doesn't exist, create it
-	if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-		tmux new-session -d -s "$selected_name" -c "$selected"
-	fi
+# ensure session exists
+is_tmux_running=$(pgrep tmux)
+if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$selected_label" 2>/dev/null; then
+	tmux new-session -d -s "$selected_label" -c "$selected"
+fi
 
-	tmux switch-client -t "$selected_name"
-
-# if not inside tmux
-else
-	tmux_running=$(pgrep tmux)
-
-	# if tmux isn't running or the session doesn't exist, create it
-	if [ -z "$tmux_running" ] || ! tmux has-session -t="$selected_name" 2>/dev/null; then
-		tmux new-session -d -s "$selected_name" -c "$selected"
-	fi
-
-	tmux attach-session -t "$selected_name"
+if [ -n "$TMUX" ]; then # if inside tmux
+	tmux switch-client -t "$selected_label"
+else # if not inside tmux
+	tmux attach-session -t "$selected_label"
 fi
