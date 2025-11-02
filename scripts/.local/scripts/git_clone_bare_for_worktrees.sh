@@ -1,5 +1,6 @@
-#!/usr/bin/env sh
-set -e
+#!/usr/bin/env bash
+
+set -eux -o pipefail
 
 # Take from:
 #	https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/

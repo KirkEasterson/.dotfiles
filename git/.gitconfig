@@ -1,6 +1,10 @@
+# vim: filetype=ini
+
 [user]
 	email = kirk.easterson@gmail.com
 	name = Kirk Easterson
+[github]
+	user = kirkeasterson
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [safe]
@@ -8,55 +12,71 @@
 [init]
 	defaultBranch = main
 [core]
-	excludesfile = /home/kirk/.config/git/ignore
-	askPass = ksshaskpass
+	autocrlf = input
+	editor = nvim
+	excludesfile = /Users/kirk/.config/git/ignore_global
+[push]
+	default = simple
+[log]
+	date = relative
+[color]
+	ui = auto
+	ui = true
+[pull]
+	rebase = true
 [fetch]
 	prune = true
 [push]
 	autoSetupRemote = true
+[diff]
+	colorMoved = default
+	tool = difftastic
 
-[alias]
-	default-branch = !"git-default-branch.sh"
 
-; easy worktree clone
-[alias]
-	clone-for-worktrees = "!sh git_clone_bare_for_worktrees.sh"
+;;;;;;; EXTENSIONS ;;;;;;;
 
-[alias]
-	pristine = !git reset --hard && git clean -dffx
-
-; easy fixups
-[alias]
-  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
-
-[alias]
-  gl = "log --oneline --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-; delta
 [core]
 	pager = delta
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	navigate = true # use n and N to move between diff sections
-	; side-by-side = true
+	; use n and N to move between diff sections
+	navigate = true
 	line-numbers = true
-[merge] ; TODO: change some colors to make changes more obvious
+	; side-by-side = true
+[merge]
+	; TODO: change some colors to make changes more obvious
 	conflictstyle = diff3
-[diff]
-	colorMoved = default
 
-; difftastic
-[diff]
-	tool = difftastic
 [difftool]
 	prompt = false
 [difftool "difftastic"]
 	cmd = difft "$LOCAL" "$REMOTE"
 [pager]
 	difftool = true
+
+;;;;;;; ALIASES ;;;;;;;
+; any scripts called are in this same repo
+
+; vanilla git helpers
+[alias]
+	default-branch = !"git-default-branch.sh"
+	gl = !"git_log.sh"
+	pristine = !"git_pristine.sh"
+	fixup = !"git_fixup.sh"
+
+; extensions
 [alias]
 	dft = difftool
 
+; my opinionated git setup
+[alias]
+	clone-mine = !"git_clone.sh"
+	branch-mine = !"git_branch.sh"
+	prune-branches = !"git_prune_branches.sh"
+	clone-for-worktrees = !"git_clone_bare_for_worktrees.sh"
+
+
+;;;;;;; LOCAL CONFIG ;;;;;;;
 [include]
-    path = ~/.config/git/.gitconfig.local
+	path = ~/.config/git/.gitconfig.local

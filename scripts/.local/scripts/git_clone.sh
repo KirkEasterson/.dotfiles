@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-# git clone a go project to $GOPATH/src
 if [ $# -eq 0 ]; then
 	>&2 echo "Provide a git repository"
 	return
 fi
 
-url=$1
-
 # magic regex: https://serverfault.com/a/917253
 re="^(https|git)(:\/\/|@)([^\/:]+)[\/:]([^\/:]+)\/(.+).git*$"
+
+url=$1
 if [[ $url =~ $re ]]; then
 	host=${BASH_REMATCH[3]}
 	team=${BASH_REMATCH[4]}

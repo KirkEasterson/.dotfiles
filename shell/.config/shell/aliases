@@ -32,11 +32,13 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gca="git commit -am"
 
+alias gcm="git clone-mine"
+
 alias gb="git branch"
 alias gbd="git branch -d"
 
 alias gco="git checkout"
-alias gcob="git checkout -b"
+alias gcob="git branch-mine" # custom git alias
 
 alias gt="git stash"
 alias gta="git stash apply"
@@ -44,7 +46,7 @@ alias gta="git stash apply"
 alias gm="git merge"
 alias gr="git rebase"
 
-alias gl="git gl"
+alias gl="git gl" # custom git alias
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gps="git push"

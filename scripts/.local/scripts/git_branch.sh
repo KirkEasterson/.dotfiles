@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+	>&2 echo "Provide a branch name"
+	return
+fi
+
+date=$(date "+%Y-%m-%d-%H-%M-%S")
+git checkout -b "kirk/${1}_${date}"
