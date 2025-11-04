@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux -o pipefail
+set -eu -o pipefail
 
 # delete all branches that have been merged to the default branch
 

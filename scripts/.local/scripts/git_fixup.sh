@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux -o pipefail
+set -eu -o pipefail
 
 git log \
 	-n 50 \

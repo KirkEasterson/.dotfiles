@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]; then
 	>&2 echo "Provide a branch name"
-	return
+	exit 1
 fi
 
 date=$(date "+%Y-%m-%d-%H-%M-%S")

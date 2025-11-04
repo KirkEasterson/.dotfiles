@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]; then
 	>&2 echo "Provide a git repository"
-	return
+	exit 1
 fi
 
 # magic regex: https://serverfault.com/a/917253
@@ -15,7 +15,7 @@ if [[ $url =~ $re ]]; then
 	repo=${BASH_REMATCH[5]}
 else
 	>&2 echo "Provide a valid git repository"
-	return
+	exit 1
 fi
 
 dest="${HOME}/dev/$host/$team/$repo"
