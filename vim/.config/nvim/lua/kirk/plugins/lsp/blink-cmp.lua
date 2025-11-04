@@ -41,12 +41,8 @@ return {
           max_items = 3,
           min_keyword_length = 5,
         },
-        lsp = {
-          max_items = 5,
-        },
-        path = {
-          max_items = 2,
-        },
+        lsp = {},
+        path = {},
         snippets = {
           max_items = 2,
         },
@@ -60,6 +56,12 @@ return {
       },
       documentation = {
         auto_show = true,
+      },
+      keyword = {
+        range = "full",
+      },
+      list = {
+        max_items = 30,
       },
       menu = {
         draw = {
