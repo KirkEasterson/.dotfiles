@@ -68,6 +68,7 @@ return {
         "eslint",
         "golangci_lint_ls",
         "gopls",
+        "helm_ls",
         "html",
         "jsonls",
         "lemminx", -- xml
