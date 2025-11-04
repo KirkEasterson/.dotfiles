@@ -32,7 +32,7 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gca="git commit -am"
 
-alias gcm="git clone-mine"
+alias gci="git clone-mine"
 
 alias gb="git branch"
 alias gbd="git branch -d"
