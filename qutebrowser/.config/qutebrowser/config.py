@@ -9,6 +9,7 @@ c.content.autoplay = False
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "auto"
+c.tabs.last_close = "close"
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?ia=web&q={}",
@@ -33,11 +34,18 @@ config.bind("<Ctrl-Y>", "command-accept", mode="command")
 config.bind("<Ctrl-P>", "completion-item-focus prev", mode="command")
 config.bind("<Ctrl-N>", "completion-item-focus next", mode="command")
 
-config.bind("<Ctrl-K>", "open --tab https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png", mode="normal")
+config.bind(
+    "<Ctrl-K>",
+    "open --tab https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png",
+    mode="normal",
+)
 
 config.bind(",m", "spawn umpv.py {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
 config.bind(";M", "hint --rapid links spawn umpv {hint-url}")
 
-# config.source("gruvbox.py")
+config.set("colors.webpage.darkmode.enabled", True)
+
 pywal.draw.color(c, {"spacing": {"vertical": 0, "horizontal": 0}})
+c.colors.hints.fg = "#000000"
+c.colors.hints.bg = "#ffff00"

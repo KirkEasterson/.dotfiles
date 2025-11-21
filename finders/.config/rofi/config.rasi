@@ -16,7 +16,6 @@ configuration {
 	sorting-method: "fzf";
 }
 
-// @theme "gruvbox-dark-soft"
 @import "~/.cache/wal/colors-rofi-dark.rasi"
 
 #window {

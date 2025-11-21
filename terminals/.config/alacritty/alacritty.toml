@@ -1,6 +1,5 @@
 [general]
 import = [
-	# "~/.config/alacritty/themes/gruvbox-dark.toml"
 	"~/.cache/wal/colors-alacritty.toml"
 ]
 

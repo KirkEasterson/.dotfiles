@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local home = wezterm.home_dir
 
 --- returns true if current session is wayland
 ---@return boolean
@@ -42,33 +43,8 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
   window:set_config_overrides(overrides)
 end)
 
--- TODO: get this to adjust to system theme
--- wezterm.on("window-config-reloaded", function(window, pane)
--- 	local overrides = window:get_config_overrides() or {}
--- 	local scheme = scheme_for_appearance(get_appearance())
--- 	if overrides.color_scheme ~= scheme then
--- 		overrides.color_scheme = scheme
--- 		window:set_config_overrides(overrides)
--- 	end
--- end)
-
-local function get_appearance()
-  if wezterm.gui then
-    return wezterm.gui.get_appearance()
-  end
-  return "dark"
-end
-
-local function scheme_for_appearance(appearance)
-  os.execute("notify-send " .. appearance:lower()) -- debugging
-  local mode = ""
-  if appearance:lower():find("dark") then
-    mode = "dark"
-  else
-    mode = "light"
-  end
-  return "Gruvbox " .. mode .. ", medium (base16)"
-end
+-- pywal colors with hot-reloading
+wezterm.add_to_config_reload_watch_list(home .. "/.cache/wal/wezterm-wal.toml")
 
 return {
 
@@ -93,8 +69,9 @@ return {
     "clig=0",
     "liga=0",
   },
-  -- color_scheme = scheme_for_appearance(get_appearance()),
-  color_scheme = "Gruvbox dark, medium (base16)",
+  color_scheme_dirs = { home .. "/.cache/wal" },
+  color_scheme = "wezterm-wal",
+  window_background_opacity = 0.98,
   front_end = "WebGpu",
   webgpu_power_preference = "HighPerformance",
   webgpu_preferred_adapter = wezterm.gui.enumerate_gpus()[1],
@@ -110,7 +87,7 @@ return {
   cursor_blink_rate = 0,
   pane_focus_follows_mouse = true,
   enable_wayland = is_wayland(),
-  max_fps = 240,
+  max_fps = 60,
   window_close_confirmation = "NeverPrompt",
   audible_bell = "SystemBeep",
   visual_bell = {
@@ -122,7 +99,7 @@ return {
   colors = {
     visual_bell = "#cc241d",
   },
-  animation_fps = 240,
+  animation_fps = 60,
   check_for_updates = false,
   mouse_bindings = {
     {
