@@ -2,7 +2,6 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "echasnovski/mini.icons",
-    "ellisonleao/gruvbox.nvim",
   },
   event = "UIEnter",
   opts = {
@@ -25,7 +24,7 @@ return {
       },
     },
     options = {
-      theme = "gruvbox",
+      theme = "16color",
       globalstatus = true,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
@@ -42,22 +41,18 @@ return {
           "filename",
           color = {
             gui = "bold",
-            fg = require("gruvbox").palette.neutral_yellow,
           },
         },
         "diagnostics",
         {
           "branch",
-          -- max_length = 20,
           fmt = function(str)
+            -- max_length = 20,
             if #str > 20 then
-              return str:sub(1, 19) .. "…"
+              str = str:sub(1, 19) .. "…"
             end
             return str
           end,
-          color = {
-            fg = require("gruvbox").palette.neutral_aqua,
-          },
         },
         "diff",
       },

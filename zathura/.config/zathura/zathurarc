@@ -18,5 +18,3 @@ set guioptions "svh"
 # 	h - show horizontal scroll bar
 
 set selection-clipboard clipboard
-
-include "~/.cache/wal/colors-zathura"

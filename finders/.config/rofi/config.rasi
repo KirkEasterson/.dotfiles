@@ -16,7 +16,7 @@ configuration {
 	sorting-method: "fzf";
 }
 
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+@theme "solarized_alternate"
 
 #window {
 	padding:	2;
