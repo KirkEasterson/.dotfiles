@@ -1,5 +1,3 @@
-import pywal.draw
-
 config.load_autoconfig(True)
 
 c.auto_save.session = True
@@ -10,6 +8,8 @@ c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "auto"
 c.tabs.last_close = "close"
+
+config.set("colors.webpage.darkmode.enabled", True)
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?ia=web&q={}",
@@ -43,9 +43,3 @@ config.bind(
 config.bind(",m", "spawn umpv.py {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
 config.bind(";M", "hint --rapid links spawn umpv {hint-url}")
-
-config.set("colors.webpage.darkmode.enabled", True)
-
-pywal.draw.color(c, {"spacing": {"vertical": 0, "horizontal": 0}})
-c.colors.hints.fg = "#000000"
-c.colors.hints.bg = "#ffff00"
