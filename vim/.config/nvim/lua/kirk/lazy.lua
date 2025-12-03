@@ -61,7 +61,7 @@ lazy.setup(setup_dirs, {
   -- 	enabled = true,
   -- },
   install = {
-    colorscheme = { "gruvbox" },
+    colorscheme = { "solarized" },
   },
   performance = {
     rtp = {
