@@ -8,7 +8,7 @@ OFF_ICON="${BASE_ICON}✘"
 # `docker` isn't in the path for the service
 DOCKER_CMD="/usr/local/bin/docker"
 
-OPENWEBUI_PORT="3000"
+OPENWEBUI_PORT="3001"
 OPENWEBUI_CONTAINER_NAME="open-webui"
 
 ollama_id() {
