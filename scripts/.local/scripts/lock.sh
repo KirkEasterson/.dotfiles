@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
-	LOCK_IMG="${XDG_CONFIG_HOME}/lock.png"
+	LOCK_IMG="${XDG_CONFIG_HOME}/wallpaper"
 	SCREEN_RESOLUTION="$(xdpyinfo | grep dimensions | cut -d' ' -f7)"
 	BGCOLOR="#000000"
 
