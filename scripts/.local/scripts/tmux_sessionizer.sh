@@ -3,13 +3,15 @@
 # based on:
 #	- https://github.com/ThePrimeagen/.dotfiles/blob/602019e902634188ab06ea31251c01c1a43d1621/bin/.local/scripts/tmux-sessionizer
 
+base_path="${HOME}/dev"
+
 if [ $# -eq 1 ]; then
 	selected=$1
 else
 	selected=$(
-		find ~/dev/github.com/ \
-			-mindepth 2 \
-			-maxdepth 3 \
+		find "$base_path" \
+			-mindepth 3 \
+			-maxdepth 4 \
 			-type d \
 			-name .git \
 			-prune |
