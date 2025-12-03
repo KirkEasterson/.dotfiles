@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 
-# Terminate already running bar instances
-killall -q waybar
+if [ $(pgrep waybar) ]; then
+  killall -q waybar
+  # wait until the process has been shut down
+  while pgrep -x waybar >/dev/null; do sleep 1; done
+fi
 
-# Wait until the processes have been shut down
-while pgrep -x waybar >/dev/null; do sleep 1; done
-
-# Launch main
 waybar
