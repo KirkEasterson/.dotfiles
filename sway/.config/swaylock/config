@@ -4,4 +4,4 @@ daemonize
 show-keyboard-layout
 
 font=JetBrains Mono
-image=$XDG_CONFIG_HOME/lock.png
+image=$XDG_CONFIG_HOME/wallpaper
