@@ -6,14 +6,14 @@
 @define-color base1   #93a1a1;
 @define-color base2   #eee8d5;
 @define-color base3   #fdf6e3;
-@define-color yellow  #b58900;
-@define-color orange  #cb4b16;
-@define-color red     #dc322f;
-@define-color magenta #d33682;
-@define-color violet  #6c71c4;
-@define-color blue    #268bd2;
-@define-color cyan    #2aa198;
-@define-color green   #859900;
+@define-color yellow  #ffff00;
+@define-color orange  #ffa500;
+@define-color red     #ff0000;
+@define-color magenta #ff00ff;
+@define-color violet  #8f00ff;
+@define-color blue    #0000ff;
+@define-color cyan    #00ffff;
+@define-color green   #00ff00;
 
 /* must be an absolute path  */
 /* @import "/home/kirk/.cache/wal/colors-waybar.css"; */
@@ -29,7 +29,7 @@
 }
 
 window#waybar {
-  color: @base2;
+  color: @base3;
   background: @black;
   border-bottom: 1px solid @grey;
 }
@@ -91,7 +91,7 @@ window#waybar {
 
 @keyframes blink {
   to {
-    background-color: inherit;
+    background: inherit;
     color: inherit;
   }
 }
@@ -127,7 +127,7 @@ window#waybar {
 }
 
 #clock {
-  color: @background;
+  color: @base3;
   background: @base02;
   font-weight: bold;
   padding: 0px 5px;
@@ -138,17 +138,17 @@ window#waybar {
 }
 
 #taskbar button {
-  background-color: @background;
+  background: @background;
   margin: 1px;
   padding: 5px;
 }
 
 #taskbar button.active {
-  background-color: @bg2;
+  background: @bg2;
 }
 
 #custom-do-not-disturb.off {
-  color: @grey;
+  color: @yellow;
 }
 
 #custom-do-not-disturb.on {

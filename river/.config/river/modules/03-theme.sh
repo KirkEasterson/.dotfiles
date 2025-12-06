@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# gruvbox theme:
-riverctl border-color-focused 0xd79921
-riverctl border-color-unfocused 0x655c54
-riverctl border-width 2
+riverctl border-color-focused "0xffff00"
+riverctl border-color-unfocused "0x555555"
+riverctl border-width 1

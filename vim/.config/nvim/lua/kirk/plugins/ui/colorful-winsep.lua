@@ -2,7 +2,7 @@ return {
   "nvim-zh/colorful-winsep.nvim",
   enabled = false, -- TODO: fix errors that randomly show up
   dependencies = {
-    "ellisonleao/gruvbox.nvim",
+    "RRethy/base16-nvim",
   },
   event = "VeryLazy",
   opts = {
@@ -18,6 +18,6 @@ return {
     },
   },
   init = function()
-    vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = require("gruvbox").palette.bright_orange })
+    vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = require("base16-colorscheme").colors.base03 })
   end,
 }
