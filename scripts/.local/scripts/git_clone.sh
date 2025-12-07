@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then
 fi
 
 # magic regex: https://serverfault.com/a/917253
-re="^(https|git)(:\/\/|@)([^\/:]+)[\/:]([^\/:]+)\/(.+).git*$"
+re="^(https|git|ssh:\/\/git)(:\/\/|@)([^\/:]+)[\/:]([^\/:]+)\/(.+).git*$"
 
 url=$1
 if [[ $url =~ $re ]]; then
