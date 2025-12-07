@@ -1,6 +1,6 @@
 return {
   "Tsuzat/NeoSolarized.nvim",
-  enabled = false,
+  -- enabled = false,
   lazy = false,
   priority = 1000,
   opts = {
