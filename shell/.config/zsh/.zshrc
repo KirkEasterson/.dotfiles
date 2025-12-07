@@ -54,7 +54,6 @@ echo -ne '\e[5 q'
 _fix_cursor() {
 	echo -ne '\e[5 q'
 }
-
 precmd_functions+=(_fix_cursor)
 
 # https://www.reddit.com/r/zsh/comments/1dz79rj/comment/lce60fe/
@@ -113,12 +112,6 @@ if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
 	)
 fi
 source ${zsh_plugins}.zsh
-
-# fix for wl-copy causing shell to hang
-# https://bbs.archlinux.org/viewtopic.php?pid=2173713#p2173713
-function zsh-system-clipboard-set() {
-	zsh-system-clipboard-set-${ZSH_SYSTEM_CLIPBOARD_METHOD} "$@" 2>/dev/null
-}
 
 # configuration for plugins
 ZSH_AUTOSUGGEST_STRATEGY=(history)
