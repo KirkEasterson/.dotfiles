@@ -2,18 +2,27 @@
 
 source "${HOME}/.config/shell/commonrc"
 
-HISTSIZE=100000
-SAVEHIST=100000
-if [[ ! -e "${XDG_CACHE_HOME}/zsh/history" ]]; then
-	mkdir -p "${XDG_CACHE_HOME}/zsh" >/dev/null 2>&1
-	touch "${XDG_CACHE_HOME}/zsh/history"
-fi
+HISTSIZE=10000000
+SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/zsh/history"
-setopt INC_APPEND_HISTORY_TIME
-KEYTIMEOUT=1
 
-# show completions on the expanded alias
+# immediately write to history file, not on shell exit
+setopt inc_append_history_time
+
+# remove duplicates first
+setopt hist_expire_dups_first
+
+# don't write duplicates
+setopt hist_ignore_dups
+
+# expand aliases in history
 setopt no_complete_aliases
+
+# trim empty space before writing to history
+setopt hist_reduce_blanks
+
+# fast switch to vi normal mode
+KEYTIMEOUT=1
 
 # build zcompdump only once per day
 autoload -Uz compinit
