@@ -10,47 +10,48 @@ return {
     "LspUninstall",
   },
   opts = {
-    -- -- these were moved to lsp-zero
-    -- automatic_installation = true,
-    -- ensure_installed = {
-    -- 	"ansiblels",
-    -- 	"asm_lsp", -- assembly
-    -- 	"bashls",
-    -- 	"clangd",
-    -- 	"cmake",
-    -- 	"csharp_ls",
-    -- 	"cssls",
-    -- 	"diagnosticls",
-    -- 	"docker_compose_language_service",
-    -- 	"dockerls",
-    -- 	"eslint",
-    -- 	"fsautocomplete",
-    -- 	"golangci_lint_ls",
-    -- 	"gopls",
-    -- 	"hls", -- haskell
-    -- 	"html",
-    -- 	"jdtls", -- java
-    -- 	"jsonls",
-    -- 	"kotlin_language_server",
-    -- 	"lemminx", -- xml
-    -- 	"lua_ls",
-    -- 	"ocamllsp",
-    -- 	"omnisharp",
-    -- 	"pyright",
-    -- 	"rnix", -- nix
-    -- 	"rust_analyzer",
-    -- 	"sqlls",
-    -- 	"taplo", -- toml
-    -- 	"terraformls",
-    -- 	"texlab",
-    -- 	"tflint",
-    -- 	"ts_ls",
-    -- 	"vimls",
-    -- 	"yamlls",
-    -- 	"zls", -- zig
-    -- },
-    -- -- handlers = {
-    -- -- 	require('lsp-zero').default_setup,
-    -- -- },
+    automatic_enable = true,
+    ensure_installed = {
+      "ansiblels",
+      "bashls",
+      "buf_ls", -- protobuf
+      "clangd",
+      "cmake",
+      "csharp_ls",
+      "cssls",
+      "diagnosticls",
+      "docker_compose_language_service",
+      "dockerls",
+      "eslint",
+      "golangci_lint_ls",
+      "gopls",
+      "helm_ls",
+      "html",
+      "jsonls",
+      "lemminx", -- xml
+      "lua_ls",
+      "omnisharp",
+      "prismals",
+      "pyright",
+      "rust_analyzer",
+      "sqlls",
+      "svelte",
+      "taplo", -- toml
+      "terraformls",
+      "tflint",
+      "vimls",
+      "vtsls",
+      "yamlls",
+      "zls", -- zig
+      -- "asm_lsp", -- assembly
+      -- "csharp_ls",
+      -- "fsautocomplete",
+      -- "hls", -- haskell
+      -- "jdtls", -- java
+      -- "kotlin_language_server",
+      -- "ocamllsp",
+      -- "rnix", -- nix
+      -- "texlab",
+    },
   },
 }

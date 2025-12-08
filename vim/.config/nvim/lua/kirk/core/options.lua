@@ -267,6 +267,24 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 opt.winborder = "rounded"
 
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    border = "rounded",
+  },
+  inlay_hints = {
+    enabled = false,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅘",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "󰌶",
+    },
+  },
+})
+
 if vim.fn.executable("rg") == 1 then
   opt.grepprg = "rg --vimgrep"
   opt.grepformat = "%f:%l:%c:%m"
