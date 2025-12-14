@@ -156,7 +156,7 @@ window#waybar {
 }
 
 #custom-idle-inhibitor.on {
-  color: @yellow;
+  color: @base1;
 }
 
 #custom-idle-inhibitor.off {
