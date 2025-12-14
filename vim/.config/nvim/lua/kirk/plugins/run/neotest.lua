@@ -7,11 +7,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
 
     "nvim-neotest/neotest-go",
-    "nvim-neotest/neotest-python",
-    "nvim-neotest/neotest-jest",
-
-    "Issafalcon/neotest-dotnet",
-    "marilari88/neotest-vitest",
     "rouge8/neotest-rust",
     "lawrence-laz/neotest-zig",
   },
@@ -95,22 +90,31 @@ return {
     },
   },
   config = function(_, opts)
+    local neotest_ns = vim.api.nvim_create_namespace("neotest")
+    vim.diagnostic.config({
+      virtual_text = {
+        format = function(diagnostic)
+          local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+          return message
+        end,
+      },
+    }, neotest_ns)
+
     opts = {
       adapters = {
-        -- the below lines are the reason opts must be defined in config
         require("neotest-go")({
+          experimental = {
+            test_table = true,
+          },
           args = { "-race", "-cover", "-timeout=60s" },
         }),
-        require("neotest-dotnet"),
-        require("neotest-python"),
         require("neotest-rust"),
-        require("neotest-vitest"),
         require("neotest-zig")({
           dap = { adapter = "lldb" },
         }),
       },
       status = {
-        virtual_text = false, -- TODO: make a PR for `hlmode: combine` https://github.com/APZelos/blamer.nvim/issues/47
+        virtual_text = false,
         signs = true,
       },
       -- consumers = {
