@@ -24,13 +24,12 @@ setopt hist_reduce_blanks
 # fast switch to vi normal mode
 KEYTIMEOUT=1
 
-# build zcompdump only once per day
+# https://gist.github.com/ctechols/ca1035271ad134841284?permalink_comment_id=4624611#gistcomment-4624611
 autoload -Uz compinit
-if [ "$(find ${ZDOTDIR}/.zcompdump -mtime +1)" ]; then
+if [ "$(find ${ZDOTDIR}/.zcompdump -mtime 1)" ]; then
 	compinit
-else
-	compinit -C
 fi
+compinit -C
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
