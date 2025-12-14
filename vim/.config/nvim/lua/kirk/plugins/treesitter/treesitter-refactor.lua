@@ -4,7 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   main = "nvim-treesitter.configs",
-  event = "VeryLazy",
+  lazy = false,
   opts = {
     refactor = {
       highlight_current_scope = {

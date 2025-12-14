@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
   -- enabled = false, -- causes issues with zig
+  lazy = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },

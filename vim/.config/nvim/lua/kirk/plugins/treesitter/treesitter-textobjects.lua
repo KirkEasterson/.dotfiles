@@ -1,10 +1,11 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
   main = "nvim-treesitter.configs",
-  event = "VeryLazy",
+  lazy = false,
   opts = {
     textobjects = {
       move = {
