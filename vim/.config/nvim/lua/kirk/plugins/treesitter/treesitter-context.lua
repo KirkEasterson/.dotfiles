@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
   -- enabled = false, -- causes issues with zig
-  lazy = false,
+  version = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
@@ -10,7 +10,7 @@ return {
     "TSContextEnable",
     "TSContextToggle",
   },
-  event = "VeryLazy",
+  lazy = false,
   opts = {
     mode = "cursor",
     multiwindow = true,

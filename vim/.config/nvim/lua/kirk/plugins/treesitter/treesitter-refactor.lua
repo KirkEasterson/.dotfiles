@@ -1,5 +1,7 @@
+-- TODO. replace with https://github.com/nvim-treesitter/nvim-treesitter-locals
 return {
   "nvim-treesitter/nvim-treesitter-refactor",
+  enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
