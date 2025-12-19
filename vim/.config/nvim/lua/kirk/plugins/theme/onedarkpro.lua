@@ -2,6 +2,12 @@ return {
   "olimorris/onedarkpro.nvim",
   enabled = false,
   priority = 1000,
+  cmd={
+    "OneDarkProCache",
+    "OneDarkProClean",
+    "OneDarkProColors",
+    "OneDarkProExtras",
+  },
   opts = {
     styles = {
       types = "bold",
