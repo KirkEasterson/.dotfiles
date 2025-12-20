@@ -1,6 +1,6 @@
 return {
   "windwp/nvim-autopairs",
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
