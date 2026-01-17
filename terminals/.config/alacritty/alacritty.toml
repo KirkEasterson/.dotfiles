@@ -24,8 +24,6 @@ bold = { family = "Iosevka Term Nerd Font Mono", style = "Bold" }
 bold_italic = { family = "Iosevka Term Nerd Font Mono", style = "Bold Italic" }
 italic = { family = "Iosevka Term Nerd Font Mono", style = "Italic" }
 normal = { family = "Iosevka Term Nerd Font Mono", style = "Regular" }
-builtin_box_drawing = false
-offset = { x = 1, y = 2 }
 
 [env]
 # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
