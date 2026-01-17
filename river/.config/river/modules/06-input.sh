@@ -8,6 +8,8 @@
 riverctl keyboard-layout -options "caps:escape" "no"
 
 riverctl input pointer-* accel-profile flat
+riverctl input pointer-* disable-while-typing disabled
+riverctl input pointer-* pointer-accel 1
 riverctl input pointer-* click-method clickfinger
 riverctl input pointer-* drag disabled
 riverctl input pointer-* middle-emulation enabled
