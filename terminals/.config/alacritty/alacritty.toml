@@ -9,7 +9,7 @@ bindings = [{ action = "None", mouse = "Middle" }]
 history = 100000
 
 [window]
-option_as_alt = "Both"
+option_as_alt = "OnlyLeft"
 # opacity = 0.98
 
 [bell]
