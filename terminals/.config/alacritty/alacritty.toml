@@ -1,7 +1,5 @@
 [general]
-import = [
-	"~/.cache/wal/colors-alacritty.toml"
-]
+import = ["~/.config/alacritty/themes/base16.toml"]
 
 [mouse]
 hide_when_typing = false
