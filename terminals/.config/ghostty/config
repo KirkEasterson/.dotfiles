@@ -1,8 +1,7 @@
-theme = "Gruvbox Dark Hard"
-# config-file = "~/.cache/wal/ghostty.conf"
+theme = "base16"
 background-opacity=1
 
-font-size = 14
+font-size = 13
 font-family = "Iosevka Nerd Font Mono"
 font-feature = "-calt"
 font-feature = "-dlig"
@@ -12,6 +11,7 @@ quit-after-last-window-closed = true
 mouse-hide-while-typing = true
 link-url = true
 
+working-directory="home"
 window-decoration = false
 window-save-state = "never"
 resize-overlay = "never"
@@ -23,8 +23,39 @@ macos-option-as-alt = left
 macos-window-shadow = false
 
 keybind = clear
-keybind = ctrl+shift+c=copy_to_clipboard
+keybind = performable:ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 keybind = ctrl+plus=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
+
+keybind = ctrl+1=text:\x1b[27;5;49~
+keybind = ctrl+2=text:\x1b[27;5;50~
+keybind = ctrl+3=text:\x1b[27;5;51~
+keybind = ctrl+4=text:\x1b[27;5;52~
+keybind = ctrl+5=text:\x1b[27;5;53~
+keybind = ctrl+6=text:\x1b[27;5;54~
+keybind = ctrl+7=text:\x1b[27;5;55~
+keybind = ctrl+8=text:\x1b[27;5;56~
+keybind = ctrl+9=text:\x1b[27;5;63~
+
+# keybind = uncomsumed:ctrl+1=text:\u001B[27;5;49~
+# keybind = uncomsumed:ctrl+2=text:\u001B[27;5;50~
+# keybind = uncomsumed:ctrl+3=text:\u001B[27;5;51~
+# keybind = uncomsumed:ctrl+4=text:\u001B[27;5;52~
+# keybind = uncomsumed:ctrl+5=text:\u001B[27;5;53~
+# keybind = uncomsumed:ctrl+6=text:\u001B[27;5;54~
+# keybind = uncomsumed:ctrl+7=text:\u001B[27;5;55~
+# keybind = uncomsumed:ctrl+8=text:\u001B[27;5;56~
+# keybind = uncomsumed:ctrl+9=text:\u001B[27;5;57~
+# # keybind = ctrl+0=text:\u001B[27;5;58~
+
+keybind = ctrl+shift+1=text:\x1b[27;6;49~
+keybind = ctrl+shift+2=text:\x1b[27;6;50~
+keybind = ctrl+shift+3=text:\x1b[27;6;51~
+keybind = ctrl+shift+4=text:\x1b[27;6;52~
+keybind = ctrl+shift+5=text:\x1b[27;6;53~
+keybind = ctrl+shift+6=text:\x1b[27;6;54~
+keybind = ctrl+shift+7=text:\x1b[27;6;55~
+keybind = ctrl+shift+8=text:\x1b[27;6;56~
+keybind = ctrl+shift+9=text:\x1b[27;6;63~
