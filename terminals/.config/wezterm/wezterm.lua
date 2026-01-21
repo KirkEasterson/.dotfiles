@@ -67,7 +67,6 @@ return {
 	},
 	disable_default_key_bindings = true,
 	keys = {
-		-- change font size
 		{ key = "+", mods = "CTRL", action = act.IncreaseFontSize },
 		{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
 		{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
@@ -78,7 +77,6 @@ return {
 		{ key = "_", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
 		{ key = "0", mods = "CTRL", action = act.ResetFontSize },
 
-		-- copy/paste
 		{ key = "Copy", mods = "NONE", action = act.CopyTo("Clipboard") },
 		{ key = "C", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
 		{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
@@ -86,8 +84,32 @@ return {
 		{ key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
 		{ key = "V", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
 
-		-- scrolling
 		{ key = "PageUp", action = act.ScrollByPage(-1) },
 		{ key = "PageDown", action = act.ScrollByPage(1) },
+
+		{ key = "h", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;72~") },
+		{ key = "j", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;74~") },
+		{ key = "k", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;75~") },
+		{ key = "l", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;76~") },
+
+		{ key = "1", mods = "CTRL", action = act.SendString("\x1b[27;5;49~") },
+		{ key = "2", mods = "CTRL", action = act.SendString("\x1b[27;5;50~") },
+		{ key = "3", mods = "CTRL", action = act.SendString("\x1b[27;5;51~") },
+		{ key = "4", mods = "CTRL", action = act.SendString("\x1b[27;5;52~") },
+		{ key = "5", mods = "CTRL", action = act.SendString("\x1b[27;5;53~") },
+		{ key = "6", mods = "CTRL", action = act.SendString("\x1b[27;5;54~") },
+		{ key = "7", mods = "CTRL", action = act.SendString("\x1b[27;5;55~") },
+		{ key = "8", mods = "CTRL", action = act.SendString("\x1b[27;5;56~") },
+		{ key = "9", mods = "CTRL", action = act.SendString("\x1b[27;5;57~") },
+
+		{ key = "1", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;49~") },
+		{ key = "2", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;50~") },
+		{ key = "3", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;51~") },
+		{ key = "4", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;52~") },
+		{ key = "5", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;53~") },
+		{ key = "6", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;54~") },
+		{ key = "7", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;55~") },
+		{ key = "8", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;56~") },
+		{ key = "9", mods = "SHIFT|CTRL", action = act.SendString("\x1b[27;6;57~") },
 	},
 }

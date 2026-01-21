@@ -1,0 +1,31 @@
+[colors]
+background = "#000000"
+cursor_bg = "#ffffff"
+foreground = "#ffffff"
+cursor_fg = "#000000"
+cursor_border = "#ffffff"
+selection_fg = "#000000"
+selection_bg = "#b5d5ff"
+scrollbar_thumb = "#222222"
+split = "#444444"
+
+ansi = [
+  "#000000",
+  "#ff0000",
+  "#00ff00",
+  "#ffff00",
+  "#0000ff",
+  "#ff00ff",
+  "#00ffff",
+  "#ffffff",
+]
+brights = [
+  "#555555",
+  "#ff5555",
+  "#55ff55",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#55ffff",
+  "#bbbbbb",
+]
