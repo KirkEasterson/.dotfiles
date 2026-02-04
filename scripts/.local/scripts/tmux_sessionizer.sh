@@ -17,6 +17,7 @@ else
 			-prune |
 			sed -e "s/\/.git$//" |
 			fzf
+		# TODO: remove $base_path from each entry to fzf
 	)
 	if [ -z "$selected" ]; then
 		exit 1
