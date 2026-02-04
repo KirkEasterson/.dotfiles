@@ -1,7 +1,6 @@
 shell/.config/shell/local/
 
 **/*.env
-**/*.env.*
 **/.envrc
 **/.autoenv.zsh
 
