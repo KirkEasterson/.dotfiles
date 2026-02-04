@@ -50,6 +50,7 @@ alias gl="git gl" # custom git alias
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gps="git push"
+alias gpsf="git push --force-with-lease"
 alias gpl="git pull"
 
 # lazygit
