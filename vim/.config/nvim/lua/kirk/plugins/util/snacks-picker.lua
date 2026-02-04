@@ -102,6 +102,13 @@ return {
       desc = "LSP references",
     },
     {
+      "<leader>fi",
+      function()
+        require("snacks").picker.lsp_implementations()
+      end,
+      desc = "LSP references",
+    },
+    {
       "<leader>fs",
       function()
         require("snacks").picker.lsp_symbols()
