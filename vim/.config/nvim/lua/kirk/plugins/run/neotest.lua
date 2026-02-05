@@ -6,7 +6,16 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
 
-    "nvim-neotest/neotest-go",
+    "rcarriga/nvim-dap-ui",
+
+    -- "nvim-neotest/neotest-go", -- TODO: use this once it is fixed
+    {
+      "fredrikaverpil/neotest-golang",
+      version = "*", -- Optional, but recommended; track releases
+      build = function()
+        vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+      end,
+    },
     "rouge8/neotest-rust",
     "lawrence-laz/neotest-zig",
   },
@@ -101,17 +110,20 @@ return {
     }, neotest_ns)
 
     opts = {
+      level = vim.log.levels.DEBUG,
       adapters = {
-        require("neotest-go")({
-          experimental = {
-            test_table = true,
-          },
-          args = { "-race", "-cover", "-timeout=60s" },
-        }),
+        -- require("neotest-go")({
+        --   experimental = {
+        --     test_table = true,
+        --   },
+        --   args = { "-race", "-cover", "-timeout=60s" },
+        --   recursive_run = true,
+        -- }),
         require("neotest-rust"),
         require("neotest-zig")({
           dap = { adapter = "lldb" },
         }),
+        require("neotest-golang")({}),
       },
       status = {
         virtual_text = false,
