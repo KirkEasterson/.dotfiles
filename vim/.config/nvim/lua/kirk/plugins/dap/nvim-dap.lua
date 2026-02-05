@@ -85,15 +85,16 @@ return {
     },
   },
   init = function()
-    -- TODO: merge this with highlight
-    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapBreakpointRejected", { text = "󰋗", texthl = "", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapBreakpointCondition", { text = "󰅙", texthl = "", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapLogPoint", { text = "󰛿", texthl = "", linehl = "", numhl = "" })
-
     vim.cmd([[highlight	DapBreakpoint guifg=red]])
-    vim.cmd([[highlight	DapBreakpointRejected guifg=red]])
-    vim.cmd([[highlight	DapBreakpointCondition guifg=red]])
-    vim.cmd([[highlight	DapLogPoint guifg=red]])
+    vim.cmd([[highlight	DapBreakpointCondition guifg=yellow]])
+    vim.cmd([[highlight	DapLogPoint guifg=blue]])
+    vim.cmd([[highlight	DapStopped guifg=green]])
+    vim.cmd([[highlight	DapBreakpointRejected guifg=grey]])
+
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointCondition" })
+    vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint" })
+    vim.fn.sign_define("DapStopped", { text = "󰘍", texthl = "DapStopped" })
+    vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpointRejected" })
   end,
 }
