@@ -38,13 +38,75 @@ return {
   },
   config = function()
     local ts = require("nvim-treesitter")
-
-    -- track buffers waiting for parser installation: { lang = { [buf] = true, ... } }
-    local waiting_buffers = {}
-    -- track languages currently being installed to avoid duplicate install tasks
-    local installing_langs = {}
-
     local group = vim.api.nvim_create_augroup("TreesitterSetup", { clear = true })
+    local parsers = {
+      "bash",
+      "bibtex",
+      "c",
+      "c_sharp",
+      "cmake",
+      "comment",
+      "commonlisp",
+      "cpp",
+      "css",
+      "csv",
+      "devicetree",
+      "diff",
+      "dockerfile",
+      "fish",
+      "git_config",
+      "git_rebase",
+      "gitattributes",
+      "gitcommit",
+      "gitignore",
+      "go",
+      "gomod",
+      "gosum",
+      "gowork",
+      "hcl",
+      "hjson",
+      "html",
+      "http",
+      "java",
+      "javascript",
+      "json",
+      "json5",
+      -- "jsonc",
+      "latex",
+      "lua",
+      "luadoc",
+      "luap",
+      "luau",
+      "make",
+      "markdown",
+      "markdown_inline",
+      -- "norg",
+      "ocaml",
+      "ocaml_interface",
+      "odin",
+      "prisma",
+      "proto",
+      "python",
+      "query",
+      "regex",
+      "rust",
+      "scss",
+      "svelte",
+      "sxhkdrc",
+      "terraform",
+      "todotxt",
+      "toml",
+      "tsx",
+      "tsv",
+      "typescript",
+      "typst",
+      "vim",
+      "vimdoc",
+      "vue",
+      "xml",
+      "yaml",
+      "zig",
+    }
 
     -- install core parsers after lazy.nvim finishes loading all plugins
     vim.api.nvim_create_autocmd("User", {
@@ -53,145 +115,17 @@ return {
       once = true,
       desc = "Install core treesitter parsers",
       callback = function()
-        ts.install({
-          "bash",
-          "bibtex",
-          "c",
-          "c_sharp",
-          "cmake",
-          "comment",
-          "commonlisp",
-          "cpp",
-          "css",
-          "csv",
-          "devicetree",
-          "diff",
-          "dockerfile",
-          "fish",
-          "git_config",
-          "git_rebase",
-          "gitattributes",
-          "gitcommit",
-          "gitignore",
-          "go",
-          "gomod",
-          "gosum",
-          "gowork",
-          "hcl",
-          "hjson",
-          "html",
-          "http",
-          "java",
-          "javascript",
-          "json",
-          "json5",
-          "jsonc",
-          "latex",
-          "lua",
-          "luadoc",
-          "luap",
-          "luau",
-          "make",
-          "markdown",
-          "markdown_inline",
-          "norg",
-          "ocaml",
-          "ocaml_interface",
-          "odin",
-          "prisma",
-          "proto",
-          "python",
-          "query",
-          "regex",
-          "rust",
-          "scss",
-          "svelte",
-          "sxhkdrc",
-          "terraform",
-          "todotxt",
-          "toml",
-          "tsx",
-          "tsv",
-          "typescript",
-          "typst",
-          "vim",
-          "vimdoc",
-          "vue",
-          "xml",
-          "yaml",
-          "zig",
-        })
+        ts.install(parsers)
       end,
     })
-
-    local ignore_filetypes = {
-      "checkhealth",
-      "lazy",
-      "mason",
-      "snacks_dashboard",
-      "snacks_notif",
-      "snacks_win",
-    }
 
     -- auto-install parsers and enable highlighting on FileType
     vim.api.nvim_create_autocmd("FileType", {
       group = group,
+      pattern = parsers,
       desc = "Enable treesitter highlighting and indentation",
-      callback = function(event)
-        if vim.tbl_contains(ignore_filetypes, event.match) then
-          return
-        end
-
-        local lang = vim.treesitter.language.get_lang(event.match) or event.match
-        local buf = event.buf
-
-        if not enable_treesitter(buf, lang) then
-          -- Parser not available, queue buffer (set handles duplicates)
-          waiting_buffers[lang] = waiting_buffers[lang] or {}
-          waiting_buffers[lang][buf] = true
-
-          -- Only start install if not already in progress
-          if not installing_langs[lang] then
-            installing_langs[lang] = true
-            local task = ts.install({ lang })
-
-            -- Register callback for when installation completes
-            if task and task.await then
-              task:await(function()
-                vim.schedule(function()
-                  installing_langs[lang] = nil
-
-                  -- Enable treesitter on all waiting buffers for this language
-                  local buffers = waiting_buffers[lang]
-                  if buffers then
-                    for b in pairs(buffers) do
-                      enable_treesitter(b, lang)
-                    end
-                    waiting_buffers[lang] = nil
-                  end
-                end)
-              end)
-            else
-              -- Fallback: clear state if task doesn't support await
-              installing_langs[lang] = nil
-              waiting_buffers[lang] = nil
-            end
-          end
-        end
-      end,
-    })
-
-    -- clean up waiting buffers when buffer is deleted
-    vim.api.nvim_create_autocmd("BufDelete", {
-      group = group,
-      desc = "Clean up treesitter waiting buffers",
-      callback = function(event)
-        for lang, buffers in pairs(waiting_buffers) do
-          buffers[event.buf] = nil
-          if next(buffers) == nil then
-            waiting_buffers[lang] = nil
-          end
-        end
+      callback = function()
+        vim.treesitter.start()
       end,
     })
   end,
