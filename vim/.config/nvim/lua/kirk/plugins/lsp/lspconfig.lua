@@ -96,6 +96,9 @@ return {
       organize_imports_on_format = true,
     })
 
-    vim.lsp.enable({ "lua_ls" })
+    vim.lsp.enable({
+      "lua_ls",
+      "tinymist",
+    })
   end,
 }
