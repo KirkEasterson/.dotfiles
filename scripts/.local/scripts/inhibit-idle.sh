@@ -22,7 +22,7 @@ inhibit() {
 		--what=idle \
 		--who=swayidle-inhibit \
 		--why=commanded \
-		--mode=block sleep $((num_minutes * 60)) &
+		--mode=block sleep $((num_minutes * 60)) & disown
 }
 
 uninhibit() {
