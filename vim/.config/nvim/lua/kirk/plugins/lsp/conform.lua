@@ -46,6 +46,7 @@ return {
       tf = { "tflint" },
       typescript = { "prettierd", "prettier", "eslint_d" },
       typescriptreact = { "prettierd", "prettier", "eslint_d" },
+      typst = { "typstyle", lsp_format = "prefer" },
       yaml = { "yamlfmt", "prettier" },
       zig = { "zigfmt" },
       zsh = { "shfmt" },
