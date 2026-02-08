@@ -39,6 +39,7 @@ return {
       "taplo", -- toml
       "terraformls",
       "tflint",
+      "tinymist", -- typst
       "vimls",
       "vtsls",
       "yamlls",
