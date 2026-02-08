@@ -31,7 +31,6 @@ local setup_dirs = {
   { import = "kirk.plugins.misc" },
   -- { import = "kirk.plugins.notes" },
   { import = "kirk.plugins.run" },
-  { import = "kirk.plugins.telescope" },
   { import = "kirk.plugins.theme" },
   { import = "kirk.plugins.treesitter" },
   { import = "kirk.plugins.ui" },
