@@ -22,8 +22,5 @@ return {
       "alpha",
       "dashboard",
     },
-    pre_save_cmds = {
-      "NvimTreeClose",
-    },
   },
 }
