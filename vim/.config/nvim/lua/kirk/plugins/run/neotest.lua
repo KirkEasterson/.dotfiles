@@ -25,8 +25,8 @@ return {
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
-        require("neotest").run.run()
         require("neotest").output_panel.open()
+        require("neotest").run.run()
       end,
       desc = "Run test",
     },
@@ -35,8 +35,8 @@ return {
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
-        require("neotest").run.stop()
         require("neotest").output_panel.open()
+        require("neotest").run.stop()
       end,
       desc = "Stop test",
     },
@@ -45,8 +45,8 @@ return {
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
-        require("neotest").run.run(vim.fn.expand("%"))
         require("neotest").output_panel.open()
+        require("neotest").run.run(vim.fn.expand("%"))
       end,
       desc = "Run test file",
     },
@@ -55,8 +55,8 @@ return {
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
-        require("neotest").run.run(vim.fn.getcwd())
         require("neotest").output_panel.open()
+        require("neotest").run.run(vim.fn.getcwd())
       end,
       desc = "Run test suite",
     },
@@ -129,14 +129,6 @@ return {
         virtual_text = false,
         signs = true,
       },
-      -- consumers = {
-      --   overseer = require("neotest.consumers.overseer"),
-      -- },
-      -- overseer = {
-      --   enabled = true,
-      --   -- When this is true (the default), it will replace all neotest.run.* commands
-      --   force_default = false,
-      -- },
     }
     require("neotest").setup(opts)
   end,

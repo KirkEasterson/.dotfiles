@@ -6,20 +6,6 @@ return {
   },
   keys = {
     {
-      "<leader>dp",
-      function()
-        require("dap").toggle_breakpoint()
-      end,
-      desc = "Toggle breakpoint",
-    },
-    {
-      "<leader>dP",
-      function()
-        require("dap").clear_breakpoints()
-      end,
-      desc = "Clear breakpoints",
-    },
-    {
       "<leader>du",
       function()
         require("dap").continue()
@@ -74,14 +60,6 @@ return {
         require("dap").terminate()
       end,
       desc = "Terminate program",
-    },
-    {
-      "<leader>dt",
-      function()
-        require("dap-go").debug_test()
-      end,
-      desc = "Debug test",
-      ft = "go",
     },
   },
   init = function()

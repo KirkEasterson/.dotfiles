@@ -17,7 +17,9 @@ return {
       desc = "Toggle debug UI",
     },
   },
-  opts = {},
+  opts = {
+    expand_lines = false,
+  },
   config = function(_, opts)
     local dap, dapui = require("dap"), require("dapui")
 
