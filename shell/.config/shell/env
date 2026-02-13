@@ -33,6 +33,9 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export SPACESHIP_CONFIG_FILE="$XDG_CONFIG_HOME/spaceship/spaceship.zsh"
 
+export SCREENRC="${XDG_CONFIG_HOME}/screen/screenrc"
+export SCREENDIR="${XDG_RUNTIME_DIR}/screen"
+
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 
