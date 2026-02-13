@@ -21,7 +21,7 @@ return {
   },
   keys = {
     {
-      "<leader>Tr",
+      "<leader>tr",
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
@@ -31,7 +31,7 @@ return {
       desc = "Run test",
     },
     {
-      "<leader>Ts",
+      "<leader>ts",
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
@@ -41,7 +41,7 @@ return {
       desc = "Stop test",
     },
     {
-      "<leader>Tf",
+      "<leader>tf",
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
@@ -51,7 +51,7 @@ return {
       desc = "Run test file",
     },
     {
-      "<leader>Tu",
+      "<leader>tu",
       function()
         require("neotest").summary.open()
         require("neotest").output_panel.clear()
@@ -61,7 +61,7 @@ return {
       desc = "Run test suite",
     },
     {
-      "<leader>Td",
+      "<leader>td",
       function()
         require("neotest").summary.open()
         require("neotest").run.run({ strategy = "dap" })
@@ -69,7 +69,7 @@ return {
       desc = "Debug test",
     },
     {
-      "<leader>TT",
+      "<leader>tt",
       function()
         require("neotest").summary.toggle()
         require("neotest").output_panel.toggle()
@@ -77,7 +77,7 @@ return {
       desc = "Toggle test panel",
     },
     {
-      "<leader>Ts",
+      "<leader>ts",
       function()
         require("neotest").summary.toggle()
       end,

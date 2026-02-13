@@ -31,7 +31,7 @@ util.map("n", "]q", function()
     vim.cmd("cfirst")
   end
 end, { desc = "Quickfix list - next" })
-util.map("n", "<leader>tq", function()
+util.map("n", "<leader>qt", function()
   if vim.tbl_isempty(vim.fn.getqflist()) then
     return
   end
@@ -146,6 +146,6 @@ util.map("x", "<leader>qp", function()
 end, { desc = "Paste over selection without erasing unnamed register" })
 
 -- toggle relative line numbers
-util.map("n", "<leader>tl", function()
+util.map("n", "<leader>rt", function()
   vim.o.relativenumber = not vim.o.relativenumber
 end, { desc = "Toggle relative linenumbers" })
