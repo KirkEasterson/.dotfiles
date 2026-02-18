@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# vim: filetype=bash
+
+options=(
+	style=square
+	width=2.0
+	hidpi=off
+	active_color=0xffffff00
+	inactive_color=0xff222222
+)
+
+borders "${options[@]}"
