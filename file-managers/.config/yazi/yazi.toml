@@ -56,7 +56,7 @@ play = [
 [open]
 rules = [
 	# Folder
-	{ name = "*/", use = [
+	{ mime = "inode/directory", use = [
 		"edit",
 		"open",
 		"reveal",
@@ -100,7 +100,7 @@ rules = [
 		"reveal",
 	] },
 	# Fallback
-	{ name = "*", use = [
+	{ mime = "*", use = [
 		"open",
 		"reveal",
 	] },
@@ -116,19 +116,19 @@ suppress_preload = false
 
 [plugin]
 prepend_previewers = [
-	{ name = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
-	{ name = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
-	{ name = "*.tar*", run = 'piper --format=url -- tar tf "$1"' },
-	{ name = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+	{ url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
+	{ url = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
+	{ url = "*.tar*", run = 'piper --format=url -- tar tf "$1"' },
+	{ url = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
 	# { name = "*", run = 'piper -- hexyl --border=none --terminal-width=$w "$1"' },
 ]
 prepend_fetchers = [
-	{ id = "git", name = "*", run = "git" },
-	{ id = "git", name = "*/", run = "git" },
+	{ id = "git", url = "*", run = "git" },
+	{ id = "git", url = "*/", run = "git" },
 ]
 fetchers = [
 	# Mimetype
-	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+	{ id = "mime", url = "*", run = "mime", if = "!mime", prio = "high" },
 ]
 preloaders = [
 	# Image
@@ -143,7 +143,7 @@ preloaders = [
 	{ mime = "application/vnd.ms-opentype", run = "font" },
 ]
 previewers = [
-	{ name = "*/", run = "folder", sync = true },
+	{ mime = "inode/directory", run = "folder", sync = true },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
@@ -165,7 +165,7 @@ previewers = [
 	# Empty file
 	{ mime = "inode/x-empty", run = "empty" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ url = "*", run = "file" },
 ]
 
 [input]
@@ -219,13 +219,11 @@ delete_offset = [0, 0, 70, 20]
 
 # overwrite
 overwrite_title = "Overwrite file?"
-overwrite_content = "Will overwrite the following file:"
 overwrite_origin = "center"
 overwrite_offset = [0, 0, 50, 15]
 
 # quit
 quit_title = "Quit?"
-quit_content = "The following task is still running, are you sure you want to quit?"
 quit_origin = "center"
 quit_offset = [0, 0, 50, 15]
 
