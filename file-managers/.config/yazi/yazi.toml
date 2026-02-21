@@ -126,10 +126,6 @@ prepend_fetchers = [
 	{ id = "git", url = "*", run = "git" },
 	{ id = "git", url = "*/", run = "git" },
 ]
-fetchers = [
-	# Mimetype
-	{ id = "mime", url = "*", run = "mime", if = "!mime", prio = "high" },
-]
 preloaders = [
 	# Image
 	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
