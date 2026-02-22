@@ -1,6 +1,6 @@
 return {
   "glacambre/firenvim",
-  -- enabled = false,
+  enabled = false,
   cond = not not vim.g.started_by_firenvim, -- https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819214
 
   lazy = false,

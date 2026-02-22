@@ -3,7 +3,7 @@ return {
   dependencies = {
     "echasnovski/mini.icons",
   },
-  event = "UIEnter",
+  lazy = false,
   opts = {
     disabled_filetypes = {
       statusline = {

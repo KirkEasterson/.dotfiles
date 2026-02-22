@@ -2,9 +2,6 @@ return {
   "luukvbaal/statuscol.nvim",
   dependencies = {
     "lewis6991/gitsigns.nvim",
-    "chentoast/marks.nvim",
-    -- "mfussenegger/nvim-dap",
-    -- "kevinhwang91/nvim-ufo",
   },
   event = "UIEnter",
   config = function()

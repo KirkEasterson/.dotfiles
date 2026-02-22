@@ -1,11 +1,9 @@
 return {
   "kristijanhusak/vim-dadbod-ui",
-  -- enabled = false,
+  enabled = false,
   dependencies = {
     "tpope/vim-dadbod",
     "kristijanhusak/vim-dadbod-completion",
-
-    -- "hrsh7th/nvim-cmp",
   },
   cmd = {
     -- dadbod

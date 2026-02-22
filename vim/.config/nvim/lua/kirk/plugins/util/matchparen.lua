@@ -1,5 +1,6 @@
 return {
   "monkoose/matchparen.nvim",
+  enabled = false,
   event = "VeryLazy",
   cmd = {
     "MatchParenDisable",
