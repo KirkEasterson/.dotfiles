@@ -123,7 +123,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 
-Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
@@ -136,7 +136,7 @@ let g:NERDTreeWinPos = 'right'
 let g:NERDTreeShowHidden = 1
 
 set background=dark
-autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme solarized
 
 " autocommands that call SyncNerdTree() when the buffer is changed or written
 " to
