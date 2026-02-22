@@ -16,6 +16,7 @@ return {
         vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
       end,
     },
+    "marilari88/neotest-vitest",
     "rouge8/neotest-rust",
     "lawrence-laz/neotest-zig",
   },
@@ -124,6 +125,7 @@ return {
           dap = { adapter = "lldb" },
         }),
         require("neotest-golang")({}),
+        require("neotest-vitest"),
       },
       status = {
         virtual_text = false,
