@@ -3,7 +3,7 @@
 # vim: filetype=bash
 
 options=(
-	style=square
+	style=uniform
 	width=2.0
 	hidpi=off
 	active_color=0xffffff00
