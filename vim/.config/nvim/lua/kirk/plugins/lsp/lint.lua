@@ -16,8 +16,8 @@ return {
       svelte = { "eslint_d" },
       terraform = { "tflint" },
       tf = { "tflint" },
-      typescript = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
+      -- typescript = { "eslint_d" },
+      -- typescriptreact = { "eslint_d" },
       yaml = { "yamllint" },
       -- ["yaml.ansible"] = { "ansible-lint" },
     }
