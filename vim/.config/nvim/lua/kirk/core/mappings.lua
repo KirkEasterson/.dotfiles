@@ -31,7 +31,7 @@ util.map("n", "]q", function()
     vim.cmd("cfirst")
   end
 end, { desc = "Quickfix list - next" })
-util.map("n", "<leader>qt", function()
+util.map("n", "<leader>tq", function()
   if vim.tbl_isempty(vim.fn.getqflist()) then
     return
   end
