@@ -25,7 +25,7 @@ return {
   opts = {
     formatters_by_ft = {
       -- ocaml = { "ocamlformat" },
-      ["terraform-vars"] = { "tflint" },
+      -- ["terraform-vars"] = { "tflint" },
       c = { "clang_format" },
       c_sharp = { "csharpier" },
       cpp = { "clang_format" },
@@ -42,10 +42,10 @@ return {
       python = { "black" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
-      terraform = { "tflint" },
-      tf = { "tflint" },
-      typescript = { "prettierd", "prettier", "eslint_d" },
-      typescriptreact = { "prettierd", "prettier", "eslint_d" },
+      -- terraform = { "tflint" },
+      -- tf = { "tflint" },
+      typescript = { "biome", "biome-check", "biome-organize-imports" },
+      typescriptreact = { "biome", "biome-check", "biome-organize-imports" },
       typst = { "typstyle", lsp_format = "prefer" },
       yaml = { "yamlfmt", "prettier" },
       zig = { "zigfmt" },
