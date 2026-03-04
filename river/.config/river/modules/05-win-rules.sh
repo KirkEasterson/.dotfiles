@@ -13,6 +13,7 @@ riverctl rule-add -title "Confirm File Replacing" float
 
 # ardour
 riverctl rule-add -title "Name Session" float
+riverctl rule-add -title "Session Setup" float
 riverctl rule-add -title "Snapshot and switch" float
 
 riverctl rule-add -title "Logg på" float
