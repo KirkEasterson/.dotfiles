@@ -12,7 +12,7 @@ th.git.updated = ui.Style():fg("yellow")
 th.git.deleted = ui.Style():fg("red")
 th.git.clean = ui.Style():fg("green")
 
-th.git.unknown_sign = ""
+th.git.unknown_sign = " "
 th.git.modified_sign = ""
 th.git.added_sign = ""
 th.git.untracked_sign = ""
