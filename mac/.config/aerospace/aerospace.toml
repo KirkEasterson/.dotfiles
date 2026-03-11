@@ -84,7 +84,9 @@ outer.right = 0
 
 cmd-shift-r = 'reload-config'
 cmd-shift-q = 'close'
+cmd-alt-f = 'layout floating tiling'
 cmd-shift-f = 'fullscreen'
+cmd-alt-t = 'layout horizontal vertical'
 
 cmd-enter = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance -d $HOME'
 cmd-shift-enter = 'exec-and-forget open -n /Applications/ghostty.app'
