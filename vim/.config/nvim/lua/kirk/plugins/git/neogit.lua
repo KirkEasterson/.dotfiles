@@ -1,6 +1,5 @@
 return {
   "NeogitOrg/neogit",
-  version = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
@@ -41,9 +40,6 @@ return {
       fzf_lua = false,
       telescope = false,
     },
-
-    -- https://github.com/NeogitOrg/neogit/issues/1377#issuecomment-2174427660
-    filewatcher = { enabled = true },
   },
   config = function(_, opts)
     require("neogit").setup(opts)
