@@ -6,7 +6,7 @@ ON_ICON="${BASE_ICON}✔"
 OFF_ICON="${BASE_ICON}✘"
 
 # `docker` isn't in the path for the service
-DOCKER_CMD="/usr/local/bin/docker"
+DOCKER_CMD="/opt/homebrew/bin/docker"
 
 OPENWEBUI_PORT="3001"
 OPENWEBUI_CONTAINER_NAME="open-webui"
