@@ -125,7 +125,7 @@ return {
           dap = { adapter = "lldb" },
         }),
         require("neotest-golang")({}),
-        require("neotest-vitest"),
+        -- require("neotest-vitest"),
       },
       status = {
         virtual_text = false,
