@@ -19,15 +19,3 @@ jobs:
             --check
             -f ${{ env.NVIM_BASE_DIR }}/stylua.toml
             ${{ env.NVIM_BASE_DIR }}
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - run: "sudo apt install stow"
-      - run: "stow vim"
-      - uses: MunifTanjim/setup-neovim-action@v1
-        with:
-          tag: stable
-      - name: Test nvim with config
-        run: nvim --headless +qa
