@@ -1,0 +1,14 @@
+name: "zsh"
+on: ["push"]
+
+jobs:
+  test:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - run: "sudo apt install stow"
+      - run: "stow shell"
+
+      - run: "sudo apt install zsh"
+      - name: "Check zsh"
+        run: "ZDOTDIR=~/.config/zsh zsh --version"

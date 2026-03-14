@@ -1,0 +1,28 @@
+name: smoke-test
+
+on: [push]
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stow (linux)
+        run: sudo apt-get install -y stow
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+
+      - uses: Homebrew/actions/setup-homebrew@master
+        if: ${{ matrix.os == 'macos-latest' }}
+      - name: Install stow (macos)
+        run: brew install stow firefox
+        if: ${{ matrix.os == 'macos-latest' }}
+
+      - name: Run install script
+        run: ./install.sh
