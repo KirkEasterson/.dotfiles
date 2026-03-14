@@ -10,7 +10,8 @@ jobs:
       matrix:
         os:
           # - macos-latest # TODO: uncomment once a macos runner exists
-          - ubuntu-latest
+          # - ubuntu-latest
+          - docker
     steps:
       - uses: actions/checkout@v6
 
