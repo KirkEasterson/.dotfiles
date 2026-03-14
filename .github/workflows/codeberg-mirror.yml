@@ -19,5 +19,6 @@ jobs:
       - uses: yesolutions/mirror-action@master
         with:
           REMOTE: "${{ vars.FORGEJO_BASE_URL }}/${{ vars.FORGEJO_USERNAME }}/${{ vars.FORGEJO_REPO }}.git"
+          GIT_SSH_PUBLIC_KEY: "${{ secrets.GIT_SSH_PUBLIC_KEY }}"
           GIT_SSH_PRIVATE_KEY: "${{ secrets.GIT_SSH_PRIVATE_KEY }}"
           GIT_SSH_KNOWN_HOSTS: "${{ secrets.GIT_SSH_KNOWN_HOSTS }}"
