@@ -1,0 +1,47 @@
+# name: "codeberg-mirror"
+#
+# on: ["push"]
+# jobs:
+#   mirror:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 0
+#       - uses: yesolutions/mirror-action@master
+#         with:
+#           REMOTE: "ssh://git@codeberg.org/kirkeasterson/.dotfiles.git"
+#           GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+#           GIT_SSH_KNOWN_HOSTS: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
+#
+#
+
+# taken from: https://github.com/Tuxilio/sync-test/blob/main/.github/workflows/sync_repo_github-forgejo.yml
+name: Repo sync (GitHub -> Forgejo)
+on:
+  push:
+    branches:
+      - "**"
+      # TODO: re-renable cron _after_ testing is done
+      # workflow_dispatch: # Manual dispatch
+      # schedule:
+      #   - cron: "0 */6 * * *"
+
+jobs:
+  sync-repo-to-forgejo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: "Gather facts"
+        run: |
+          echo "Repo variables:"
+          echo "  FORGEJO_PUSH_URL: ${{ vars.FORGEJO_BASE_URL }}${{ vars.FORGEJO_REPO }}.git"
+          echo "  FORGEJO_USERNAME: ${{ vars.FORGEJO_USERNAME }}"
+      - name: "Sync repo"
+        uses: spyoungtech/mirror-action@master
+        with:
+          REMOTE: "${{ vars.FORGEJO_BASE_URL }}${{ vars.FORGEJO_REPO }}.git"
+          GIT_USERNAME: ${{ vars.FORGEJO_USERNAME }}
+          GIT_PASSWORD: ${{ secrets._FORGEJO_TOKEN }}
