@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - macos-latest
+          # - macos-latest # TODO: uncomment once a macos runner exists
           - ubuntu-latest
     steps:
       - uses: actions/checkout@v6
