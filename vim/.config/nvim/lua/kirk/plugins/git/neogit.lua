@@ -36,6 +36,7 @@ return {
       item = { "", "" },
       section = { "", "" },
     },
+    diff_viewer = "diffview",
     integrations = {
       snacks = true,
       diffview = true,
