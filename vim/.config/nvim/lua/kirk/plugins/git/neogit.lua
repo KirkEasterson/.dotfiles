@@ -23,6 +23,8 @@ return {
     disable_commit_confirmation = true,
     disable_hint = true,
     disable_insert_on_commit = false, -- start commits in insert mode
+    prompt_amend_commit = false, -- no confirmation for already published commits
+    process_spinner = true,
     graph_style = "unicode",
     use_per_project_settings = false,
     -- telescope_sorter = function()
