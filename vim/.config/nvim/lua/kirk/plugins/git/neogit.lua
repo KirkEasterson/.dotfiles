@@ -41,6 +41,8 @@ return {
       diffview = true,
       fzf_lua = false,
       telescope = false,
+      mini_pick = false,
+      codediff = false,
     },
   },
   config = function(_, opts)
