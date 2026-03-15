@@ -43,8 +43,8 @@ return {
   },
   config = function(_, opts)
     require("neogit").setup(opts)
-
     local neogit_group = vim.api.nvim_create_augroup("UserNeogitEvents", { clear = true })
+
     vim.api.nvim_create_autocmd({ "User" }, {
       desc = "Load session for checked out branch",
       pattern = "NeogitBranchCheckout",
@@ -53,15 +53,23 @@ return {
         local neogit = require("neogit")
         local autosession = require("auto-session")
 
-        -- TODO: find out why this always returns false
-        -- if not autosession.session_exists_for_cwd() then
-        --   autosession.SaveSession(nil, false)
-        --   return
-        -- end
-
         neogit.close()
         vim.cmd([[%bd!]])
         autosession.RestoreSession("", { show_message = false })
+        neogit.open()
+      end,
+    })
+
+    vim.api.nvim_create_autocmd({ "User" }, {
+      desc = "Create new session for new branches",
+      pattern = { "NeogitBranchCreate", "NeogitBranchRename" },
+      group = neogit_group,
+      callback = function()
+        local neogit = require("neogit")
+        local autosession = require("auto-session")
+
+        neogit.close()
+        autosession.SaveSession(nil, false)
         neogit.open()
       end,
     })
