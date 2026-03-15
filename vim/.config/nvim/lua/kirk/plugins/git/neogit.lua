@@ -1,11 +1,12 @@
 return {
-  "NeogitOrg/neogit",
+  "kirkeasterson/neogit",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
     "rmagatti/auto-session",
     "folke/snacks.nvim",
   },
+  branch = "kirk/hooks",
   cmd = "Neogit",
   keys = {
     {
@@ -18,6 +19,16 @@ return {
     },
   },
   opts = {
+    hooks = {
+      ["PreBranchCheckout"] = function()
+        local neogit = require("neogit")
+        local autosession = require("auto-session")
+
+        neogit.close()
+        autosession.SaveSession(nil, false)
+        neogit.open()
+      end,
+    },
     auto_show_console = false,
     console_timeout = 5000,
     disable_commit_confirmation = true,
