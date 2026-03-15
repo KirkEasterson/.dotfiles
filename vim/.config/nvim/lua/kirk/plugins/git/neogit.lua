@@ -31,8 +31,8 @@ return {
     signs = {
       -- { CLOSED, OPENED }
       hunk = { "", "" },
-      item = { "", "" },
-      section = { "", "" },
+      item = { "", "" },
+      section = { "", "" },
     },
     integrations = {
       snacks = true,
