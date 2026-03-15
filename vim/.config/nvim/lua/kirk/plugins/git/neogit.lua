@@ -30,7 +30,7 @@ return {
     -- end,
     signs = {
       -- { CLOSED, OPENED }
-      hunk = { "", "" },
+      hunk = { "", "" },
       item = { "", "" },
       section = { "", "" },
     },
