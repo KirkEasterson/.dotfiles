@@ -150,7 +150,7 @@ sketchybar --add item kb right \
 sketchybar --add item weather right \
     --set weather script="$PLUGIN_DIR/weather.sh" \
     label.font="$FONT:Italic:16.0" \
-    update_freq=300
+    update_freq=3600
 
 sketchybar --add item caffeinate right \
     --set caffeinate script="$PLUGIN_DIR/caffeinate.sh" \
