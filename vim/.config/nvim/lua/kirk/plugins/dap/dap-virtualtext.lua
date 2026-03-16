@@ -8,5 +8,6 @@ return {
     commented = true,
     only_first_definition = false,
     all_references = true,
+    virt_text_pos = "eol",
   },
 }
