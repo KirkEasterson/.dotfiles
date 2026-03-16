@@ -124,7 +124,9 @@ return {
         require("neotest-zig")({
           dap = { adapter = "lldb" },
         }),
-        require("neotest-golang")({}),
+        require("neotest-golang")({
+          warn_test_name_dupes = false, -- native go packages have many duplicate tests
+        }),
         -- require("neotest-vitest"),
       },
       status = {
