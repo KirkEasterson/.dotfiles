@@ -12,12 +12,6 @@ history = 100000
 option_as_alt = "OnlyLeft"
 # opacity = 0.98
 
-[bell]
-animation = "EaseOutSine"
-color = "#cc241d"
-duration = 150
-command = { program = "xkbbell" }
-
 [font]
 size = 13.0
 bold = { family = "Iosevka Term Nerd Font Mono", style = "Bold" }
