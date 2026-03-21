@@ -7,6 +7,7 @@ source "$XDG_CONFIG_HOME/shell/aliases"
 source "$XDG_CONFIG_HOME/shell/functions"
 
 eval $(keychain --eval id_ed25519_github --quick --quiet --timeout 60 --ignore-missing)
+eval $(keychain --eval id_ed25519_codeberg --quick --quiet --timeout 60 --ignore-missing)
 
 # load cargo
 if [ -s "$XDG_DATA_HOME/cargo/env" ]; then
