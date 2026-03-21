@@ -35,7 +35,6 @@ local setup_dirs = {
   { import = "kirk.plugins.treesitter" },
   { import = "kirk.plugins.ui" },
   { import = "kirk.plugins.util" },
-  { import = "kirk.plugins.ai" },
 }
 
 -- https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819214
