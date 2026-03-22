@@ -133,5 +133,8 @@ export BROWSER_SECONDARY="qutebrowser"
 export FILEMANAGER="pcmanfm"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
+
 export SSH_ASKPASS_REQUIRE="prefer"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	export SSH_ASKPASS="/usr/lib/seahorse/ssh-askpass"
+fi
