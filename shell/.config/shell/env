@@ -52,15 +52,17 @@ export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export PYLINTRC="$XDG_CONFIG_HOME/pylint/pylintrc"
 export MYPY_CACHE_DIR="$XDG_CACHE_HOME/mypy"
-# TODO: add conda vars
 
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 export MIX_XDG="true" # for elixir
+export STACK_XDG=1    # for haskell
 
 export OPAMROOT="$XDG_DATA_HOME/opam"
+
+export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 
 export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
@@ -81,6 +83,9 @@ export MINETEST_USER_PATH="$XDG_DATA_HOME/luanti"
 export ANSIBLE_HOME="$XDG_CONFIG_HOME/ansible"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
 export ANSIBLE_GALAXY_CACHE_DIR="$XDG_CACHE_HOME/ansible/galaxy_cache"
+export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible/tmp"
+export ANSIBLE_SSH_CONTROL_PATH_DIR="${XDG_CACHE_HOME}/ansible/cp"
+export ANSIBLE_ASYNC_DIR="${XDG_CACHE_HOME}/ansible_async"
 
 export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME/vagrant/aliases"
@@ -91,6 +96,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 fi
 
+export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
+export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
 export MINIKUBE_HOME="$XDG_DATA_HOME"/minikube
 export ARGOCD_CONFIG_DIR="$XDG_DATA_HOME/argocd"
 export TALOSCONFIG="$XDG_DATA_HOME/talos"
@@ -98,9 +105,16 @@ export TALOSCONFIG="$XDG_DATA_HOME/talos"
 export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/rediscli_history"
 export REDISCLI_RCFILE="$XDG_CONFIG_HOME/redis/redisclirc"
 
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+
+export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
+export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo/bin"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
+
+export OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models
 
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"

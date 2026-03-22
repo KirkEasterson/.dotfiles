@@ -92,6 +92,12 @@ alias bupg="brew update && brew upgrade"
 # update arch
 alias pupg="sudo pacman -Syyu"
 
+# xdg aliases
+alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
+alias xbindkeys='xbindkeys -f "$XDG_CONFIG_HOME/xbindkeys/config"'
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+# alias keychain='keychain --absolute --dir "$XDG_RUNTIME_DIR/keychain"'
+
 if [ -f "$XDG_CONFIG_HOME/shell/local/aliases" ]; then
 	source "$XDG_CONFIG_HOME/shell/local/aliases"
 fi
