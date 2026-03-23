@@ -30,7 +30,7 @@ export LC_ALL="en_US.UTF-8"
 # export LC_MEASUREMENT="nb_NO.UTF-8"
 # export LC_IDENTIFICATION="nb_NO.UTF-8"
 
-export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
+export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME/bash-completion/bash_completion"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
