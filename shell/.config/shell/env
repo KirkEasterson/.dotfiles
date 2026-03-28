@@ -49,7 +49,7 @@ export SCREENDIR="${XDG_RUNTIME_DIR}/screen"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOCACHE="$XDG_CACHE_HOME/go"
 export GOENV="$XDG_CONFIG_HOME/go/env"
-export GOBIN="$HOME/.local/bin"
+export GOBIN="$HOME/.local/bin/go"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	export GOROOT="/usr/lib/go"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
