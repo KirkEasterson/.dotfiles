@@ -15,16 +15,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export GOPATH="$HOME/go"
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	export GOROOT="/usr/lib/go"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	export GOROOT="$(brew --prefix golang)/libexec"
-fi
-
-export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$GOROOT/bin"
-
 if [ -f "$XDG_CONFIG_HOME/shell/local/exports" ]; then
 	source "$XDG_CONFIG_HOME/shell/local/exports"
 fi
