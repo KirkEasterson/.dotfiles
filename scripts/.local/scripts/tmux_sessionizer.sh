@@ -29,7 +29,7 @@ selected_label=$(basename "$selected" | tr . _)
 # ensure session exists
 is_tmux_running=$(pgrep tmux)
 if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$selected_label" 2>/dev/null; then
-	tmux new-session -d -s "$selected_label" -c "$selected"
+	tmux new-session -d -s "$selected_label" -c "$selected" nvim
 fi
 
 if [ -n "$TMUX" ]; then # if inside tmux
