@@ -47,7 +47,8 @@ export SCREENRC="${XDG_CONFIG_HOME}/screen/screenrc"
 export SCREENDIR="${XDG_RUNTIME_DIR}/screen"
 
 export GOPATH="$XDG_DATA_HOME/go"
-export GOCACHE="$XDG_CACHE_HOME/go"
+export GOCACHE="$XDG_CACHE_HOME/go-build"
+export GOMODCACHE="$XDG_CACHE_HOME/go/pkg/mod"
 export GOENV="$XDG_CONFIG_HOME/go/env"
 export GOBIN="$HOME/.local/bin/go"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
