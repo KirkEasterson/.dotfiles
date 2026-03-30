@@ -14,7 +14,7 @@ else
 			-maxdepth 4 \
 			-type d \
 			-name .git \
-			-prune |
+			-prune 2>/dev/null |
 			sed -e "s/\/.git$//" |
 			fzf
 		# TODO: remove $base_path from each entry to fzf
