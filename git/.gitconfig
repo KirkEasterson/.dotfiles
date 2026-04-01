@@ -76,7 +76,6 @@
 	clone-mine = !"git_clone.sh"
 	branch-mine = !"git_branch.sh"
 	prune-branches = !"git_prune_branches.sh"
-	clone-for-worktrees = !"git_clone_bare_for_worktrees.sh"
 
 
 ;;;;;;; LOCAL CONFIG ;;;;;;;
