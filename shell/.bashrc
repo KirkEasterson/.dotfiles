@@ -43,6 +43,8 @@ include "/usr/share/fzf/key-bindings.bash"
 
 include "${HOME}/.opam/opam-init/init.sh"
 
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
+
 # init zoxide
 # eval "$(zoxide init bash)"
 

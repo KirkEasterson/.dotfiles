@@ -106,6 +106,9 @@ antidote load
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
+# worktrunk shell integration
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
 # eval "$(direnv hook zsh)"
 # eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
