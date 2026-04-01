@@ -12,7 +12,6 @@ else
 		find "$base_path" \
 			-mindepth 3 \
 			-maxdepth 4 \
-			-type d \
 			-name .git \
 			-prune 2>/dev/null |
 			sed -e "s/\/.git$//" |
