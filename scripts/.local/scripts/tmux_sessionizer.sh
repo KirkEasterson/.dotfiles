@@ -14,9 +14,9 @@ else
 			-maxdepth 4 \
 			-name .git \
 			-prune 2>/dev/null |
-			sed -e "s/\/.git$//" |
+			sed -e "s|\/.git$||" |
+			sed -e "s|^$base_path\/||" |
 			fzf
-		# TODO: remove $base_path from each entry to fzf
 	)
 	if [ -z "$selected" ]; then
 		exit 1
