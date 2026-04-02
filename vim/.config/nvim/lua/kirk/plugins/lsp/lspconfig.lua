@@ -2,7 +2,6 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "saghen/blink.cmp",
     "antosha417/nvim-lsp-file-operations",
   },
   event = "UIEnter",
