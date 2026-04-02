@@ -24,7 +24,7 @@ return {
       function()
         require("snacks").picker.notifications()
       end,
-      desc = "Keymaps",
+      desc = "Notifications",
     },
     {
       "<leader>fm",
@@ -106,7 +106,7 @@ return {
       function()
         require("snacks").picker.lsp_implementations()
       end,
-      desc = "LSP references",
+      desc = "LSP implementations",
     },
     {
       "<leader>fs",
@@ -120,7 +120,7 @@ return {
       function()
         require("snacks").picker.lsp_workspace_symbols({ hidden = true })
       end,
-      desc = "LSP symbols",
+      desc = "LSP workspace symbols",
     },
 
     -- git
