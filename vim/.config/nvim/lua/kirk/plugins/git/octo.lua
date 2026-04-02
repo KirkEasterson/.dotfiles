@@ -3,11 +3,12 @@ return {
   cmd = "Octo",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
+    "folke/snacks.nvim",
     "echasnovski/mini.icons",
   },
   opts = {
     default_merge_method = "squash",
+    picker = "snacks",
   },
   init = function()
     vim.treesitter.language.register("markdown", "octo")
