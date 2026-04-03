@@ -48,7 +48,6 @@ firefox/*
 **/vim/autoload/
 
 **/nvim/autoload
-**/nvim/plugin
 **/nvim/plugged
 **/nvim/db_ui
 
