@@ -8,7 +8,6 @@ require("auto-session").setup({
     load_on_setup = false,
   },
   bypass_save_filetypes = {
-    "alpha",
     "dashboard",
   },
 })

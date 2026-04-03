@@ -19,7 +19,6 @@ return {
       load_on_setup = false,
     },
     bypass_save_filetypes = {
-      "alpha",
       "dashboard",
     },
   },
