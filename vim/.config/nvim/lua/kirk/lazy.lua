@@ -22,6 +22,7 @@ if not status_ok then
 end
 
 local setup_dirs = {
+  { import = "kirk.plugins.theme" },
   { import = "kirk.plugins.firenvim" },
   { import = "kirk.plugins.dap" },
   { import = "kirk.plugins.db" },
@@ -31,7 +32,6 @@ local setup_dirs = {
   { import = "kirk.plugins.misc" },
   -- { import = "kirk.plugins.notes" },
   { import = "kirk.plugins.run" },
-  { import = "kirk.plugins.theme" },
   { import = "kirk.plugins.treesitter" },
   { import = "kirk.plugins.ui" },
   { import = "kirk.plugins.util" },
