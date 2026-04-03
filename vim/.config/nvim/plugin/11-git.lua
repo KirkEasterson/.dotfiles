@@ -8,7 +8,7 @@ vim.pack.add({
   "https://github.com/ruifm/gitlinker.nvim",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
-  "https://github.com/NeogitOrg/neogit",
+  { src = "https://github.com/kirkeasterson/neogit", version = "kirk/hooks" },
 })
 
 require("gitlinker").setup({
