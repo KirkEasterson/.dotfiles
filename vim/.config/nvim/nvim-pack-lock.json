@@ -122,8 +122,9 @@
       "src": "https://github.com/danymat/neogen"
     },
     "neogit": {
-      "rev": "b310c20666b5f4ded140fd725339031703805496",
-      "src": "https://github.com/NeogitOrg/neogit"
+      "rev": "adab5b1e15e60ba593c17af5edca1afdcaa7a182",
+      "src": "https://github.com/kirkeasterson/neogit",
+      "version": "'kirk/hooks'"
     },
     "neotest": {
       "rev": "fd0b7986dd0ae04e38ec7dc0c78a432e3820839c",
