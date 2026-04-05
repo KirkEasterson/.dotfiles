@@ -22,7 +22,7 @@ require("nvim-tree").setup({
       }
     end
 
-    api.config.mappings.default_on_attach(bufnr)
+    api.map.on_attach.default(bufnr)
     vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
     vim.keymap.set("n", "[d", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
     vim.keymap.set("n", "]d", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
