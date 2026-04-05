@@ -33,7 +33,9 @@ require("nvim-tree").setup({
   disable_netrw = true,
   update_focused_file = {
     enable = true,
-    update_root = true,
+    update_root = {
+      enable = true,
+    },
   },
   view = {
     adaptive_size = false,
@@ -44,7 +46,7 @@ require("nvim-tree").setup({
   },
   renderer = {
     add_trailing = true,
-    highlight_git = true,
+    highlight_git = "all",
     highlight_modified = "all",
     icons = {
       git_placement = "after",
