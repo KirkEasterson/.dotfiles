@@ -15,19 +15,9 @@ vim.pack.add({
   "https://github.com/rafamadriz/friendly-snippets",
   "https://github.com/Bilal2453/luvit-meta",
   "https://github.com/gonstoll/wezterm-types",
-  "https://github.com/folke/lazydev.nvim",
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
   "https://github.com/L3MON4D3/LuaSnip",
 })
-
--- TODO: get lazydev to work
--- require("lazydev").setup({
---   library = {
---     { path = "luvit-meta/library", words = { "vim%.uv" } },
---     { path = "wezterm-types", mods = { "wezterm" } },
---     { path = "nvim-dap-ui" },
---   },
--- })
 
 require("blink.cmp").setup({
   appearance = {
@@ -38,7 +28,7 @@ require("blink.cmp").setup({
   },
   sources = {
     default = {
-      -- "lazydev",
+      "lazydev",
       "lsp",
       "path",
       "snippets",
@@ -54,11 +44,11 @@ require("blink.cmp").setup({
       snippets = {
         max_items = 2,
       },
-      -- lazydev = {
-      --   name = "LazyDev",
-      --   module = "lazydev.integrations.blink",
-      --   score_offset = 100,
-      -- },
+      lazydev = {
+        name = "LazyDev",
+        module = "lazydev.integrations.blink",
+        score_offset = 100,
+      },
     },
   },
   completion = {
