@@ -4,6 +4,8 @@ on: ["push"]
 jobs:
   test:
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: read
     steps:
       - uses: "actions/checkout@v6"
       - run: "sudo apt install stow"

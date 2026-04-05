@@ -5,6 +5,8 @@ on: [push]
 jobs:
   install:
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
