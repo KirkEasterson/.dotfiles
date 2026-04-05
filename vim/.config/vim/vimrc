@@ -128,6 +128,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vim-which-key'
+Plug 'vim-fuzzbox/fuzzbox.vim'
 
 call plug#end()
 
@@ -157,3 +158,9 @@ function SyncNERDTree()
     NERDTreeClose
   endif
 endfunction
+
+" let g:fuzzbox_compact = 1
+
+nnoremap <silent> <leader>ff :FuzzyFiles<CR>
+nnoremap <silent> <leader>fg :FuzzyGrep<CR>
+nnoremap <silent> <leader>fb :FuzzyBuffers<CR>
