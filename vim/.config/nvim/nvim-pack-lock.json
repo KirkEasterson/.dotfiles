@@ -211,10 +211,6 @@
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
     },
-    "spelunker.vim": {
-      "rev": "a0bc530f62798bbe053905555a4aa9ed713485eb",
-      "src": "https://github.com/kamykn/spelunker.vim"
-    },
     "statuscol.nvim": {
       "rev": "c46172d0911aa5d49ba5f39f4351d1bb7aa289cc",
       "src": "https://github.com/luukvbaal/statuscol.nvim"
