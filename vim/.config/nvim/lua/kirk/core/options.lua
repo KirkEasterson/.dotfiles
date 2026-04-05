@@ -145,10 +145,10 @@ opt.spelllang = {
   -- "sv",
   -- "nb",
 }
-vim.cmd([[highlight SpellBad cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
-vim.cmd([[highlight SpellCap cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
-vim.cmd([[highlight SpellRare cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
-vim.cmd([[highlight SpellLocal cterm=undercurl ctermfg=247 gui=undercurl guifg=NONE]])
+vim.api.nvim_set_hl(0, "SpellBad", { fg = nil, cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellCap", { fg = nil, cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellRare", { fg = nil, cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellLocal", { fg = nil, cterm = { undercurl = true } })
 
 opt.number = true -- show line numbers
 opt.relativenumber = true -- show relative line numbers
