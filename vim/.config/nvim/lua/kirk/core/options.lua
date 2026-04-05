@@ -143,7 +143,7 @@ opt.spell = true
 opt.spelllang = {
   "en_us",
   -- "sv",
-  -- "nb",
+  "nb",
 }
 vim.api.nvim_set_hl(0, "SpellBad", { fg = nil, cterm = { undercurl = true } })
 vim.api.nvim_set_hl(0, "SpellCap", { fg = nil, cterm = { undercurl = true } })
