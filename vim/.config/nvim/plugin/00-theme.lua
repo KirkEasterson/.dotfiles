@@ -28,7 +28,7 @@ require("colorizer").setup({
   },
 })
 
--- vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = require("base16-colorscheme").colors.base03 })
+vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = "yellow" })
 require("colorful-winsep").setup({
   interval = 5,
   smooth = false,
