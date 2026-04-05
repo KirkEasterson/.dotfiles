@@ -12,11 +12,12 @@ vim.pack.add({
   "https://github.com/Weissle/persistent-breakpoints.nvim",
 })
 
-vim.cmd([[highlight	DapBreakpoint guifg=red]])
-vim.cmd([[highlight	DapBreakpointCondition guifg=yellow]])
-vim.cmd([[highlight	DapLogPoint guifg=blue]])
-vim.cmd([[highlight	DapStopped guifg=green]])
-vim.cmd([[highlight	DapBreakpointRejected guifg=grey]])
+vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "red" })
+vim.api.nvim_set_hl(0, "DapBreakpointCondition", { fg = "yellow" })
+vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "blue" })
+vim.api.nvim_set_hl(0, "DapStopped", { fg = "green" })
+vim.api.nvim_set_hl(0, "DapBreakpointRejected", { fg = "grey" })
+
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointCondition" })
 vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint" })
