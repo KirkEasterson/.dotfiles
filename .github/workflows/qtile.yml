@@ -11,6 +11,6 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
       - name: "Install qtile"
-        run: pip install qtile
+        run: pip install qtile==0.35.0
       - name: "Validate"
         run: qtile check --config ./window-managers/.config/qtile/config.py
