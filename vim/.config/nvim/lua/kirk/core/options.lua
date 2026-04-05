@@ -309,3 +309,34 @@ vim.filetype.add({
     [".*/hypr/.*%.conf"] = "hyprlang",
   },
 })
+
+vim.filetype.add({
+  extension = {
+    env = "dotenv",
+  },
+  filename = {
+    [".env"] = "dotenv",
+    ["env"] = "dotenv",
+    [".envrc"] = "dotenv",
+    ["envrc"] = "dotenv",
+  },
+  pattern = {
+    -- INFO: Match filenames like - ".env.example", ".env.local" and so on
+    ["%.env%.[%w_.-]+"] = "dotenv",
+    ["%.envrc%.[%w_.-]+"] = "dotenv",
+  },
+})
+
+-- TODO: get this to work, and with yaml formatting
+vim.filetype.add({
+  extension = {
+    env = "vault",
+  },
+  filename = {
+    ["vault.yml"] = "vault",
+  },
+  pattern = {
+    -- INFO: Match filenames like - "server_vault.yml", "db_vault.yml" and so on
+    ["%vault.yaml%.[%w_.-]+"] = "vault",
+  },
+})
