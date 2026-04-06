@@ -981,7 +981,7 @@ beautiful.systray_icon_spacing = 5
 awful.screen.focus(screen.primary)
 
 -- AUTO-EXEC
-awful.spawn.with_shell("~/.fehbg")
+awful.spawn.with_shell("wallpaper.sh")
 awful.spawn.with_shell("~/.config/awesome/tmux_scratch.sh")
 
 -- Autorun programs

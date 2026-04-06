@@ -21,7 +21,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			picom &
 			sxhkd &
 			~/.config/polybar/launch.sh &
-			~/.fehbg
+			wallpaper.sh
 
 			# lock after 10 minutes, suspend after 30 minutes
 			xautolock \
