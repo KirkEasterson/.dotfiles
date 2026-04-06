@@ -15,7 +15,7 @@ local disabled_plugins = {
   "2html_plugin",
   "bugreport",
   "compiler",
-  "ftplugin",
+  -- "ftplugin",
   "getscript",
   "getscriptPlugin",
   "gzip",
