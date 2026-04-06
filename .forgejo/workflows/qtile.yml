@@ -6,9 +6,13 @@ jobs:
   check:
     runs-on: docker
     container:
-      image: python:3.14.3-slim
+      image: node:25-slim
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14.3"
+          cache: "pip"
       - name: "Install qtile"
         run: pip install qtile==0.35.0
       - name: "Validate"
