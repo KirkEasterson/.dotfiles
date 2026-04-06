@@ -15,6 +15,6 @@ jobs:
         with:
           python-version: "3.14.3"
       - name: "Install qtile"
-        run: pip install xcffib==1.12.0 qtile==0.35.0
+        run: pip install --upgrade xcffib==1.12.0 cairocffi==1.7.1 qtile==0.35.0
       - name: "Validate"
         run: qtile check --config ./window-managers/.config/qtile/config.py
