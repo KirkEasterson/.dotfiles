@@ -18,23 +18,9 @@ vim.lsp.config("*", {
   capabilities = require("lsp-file-operations").default_capabilities(),
 })
 
--- TODO: migrate to lsp/
-vim.lsp.config("omnisharp", {
-  -- handlers = {
-  -- 	["textDocument/definition"] = require("omnisharp_extended").handler,
-  -- },
-  cmd = {
-    "omnisharp",
-    "--languageserver",
-    "--hostPID",
-    tostring(vim.fn.getpid()),
-  },
-  enable_import_completion = true,
-  organize_imports_on_format = true,
-})
-
 vim.lsp.enable({
   "lua_ls",
+  "omnisharp",
   "tinymist",
 })
 
