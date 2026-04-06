@@ -6,7 +6,7 @@ jobs:
   check:
     runs-on: docker
     container:
-      image: node:25-slim
+      image: debian:12-slim
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
