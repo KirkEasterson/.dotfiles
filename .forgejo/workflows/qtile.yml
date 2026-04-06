@@ -9,7 +9,7 @@ jobs:
       image: ubuntu:24.04
     steps:
       - name: "Install node"
-        run: apt install nodejs
+        run: apt install -y node
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
