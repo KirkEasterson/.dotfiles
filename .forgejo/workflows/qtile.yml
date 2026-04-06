@@ -8,6 +8,9 @@ jobs:
     container:
       image: debian:12-slim
     steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '25'
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
