@@ -69,6 +69,8 @@ require("mason-lspconfig").setup({
     "terraformls",
     "tflint",
     "tinymist", -- typst
+    "typos_lsp",
+    "vale_ls",
     "vimls",
     "vtsls",
     "yamlls",

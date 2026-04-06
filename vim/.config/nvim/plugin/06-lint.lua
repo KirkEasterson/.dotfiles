@@ -15,7 +15,7 @@ require("lint").linters_by_ft = {
   javascriptreact = { "eslint_d" },
   json = { "jsonlint" },
   -- lua = { "stylua", "luacheck" },
-  -- markdown = { "markdownlint" },
+  markdown = { "markdownlint", "vale" },
   python = { "pylint" },
   svelte = { "eslint_d" },
   terraform = { "tflint" },
@@ -63,6 +63,7 @@ require("mason-nvim-lint").setup({
     "shellcheck",
     "stylelint",
     -- "stylua", -- BAD
+    "vale",
     "yamllint",
     "markdownlint",
   },
