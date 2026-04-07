@@ -8,9 +8,9 @@ jobs:
       contents: read
     steps:
       - uses: "actions/checkout@v6"
-      - run: "sudo apt install stow"
+      - run: "apt install stow"
       - run: "stow shell"
 
-      - run: "sudo apt install zsh"
+      - run: "apt install zsh"
       - name: "Check zsh"
         run: "ZDOTDIR=~/.config/zsh zsh --version"
