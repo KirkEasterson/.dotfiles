@@ -157,6 +157,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
     neogit.close()
     vim.cmd([[%bd!]])
     autosession.RestoreSession("", { show_message = false })
+    autosession.SaveSession(nil, false) -- in case there was no session to restore
     neogit.open()
   end,
 })
