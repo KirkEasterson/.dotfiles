@@ -8,14 +8,14 @@ env:
 jobs:
   stylua:
     runs-on: docker
+    container:
+      image: debian:12-slim
     steps:
+      - name: "Install node"
+        run: apt update && apt install -y lsb-release nodejs
       - uses: actions/checkout@v6
       - uses: JohnnyMorganz/stylua-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: v0.20.0
+          version: v2.4.0
           args: >-
-            --allow-hidden
-            --check
-            -f ${{ env.NVIM_BASE_DIR }}/stylua.toml
-            ${{ env.NVIM_BASE_DIR }}
+            --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
