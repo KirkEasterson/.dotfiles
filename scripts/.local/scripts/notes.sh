@@ -11,7 +11,7 @@ edit_today() {
 	fi
 
 	nvim -c "norm Go" \
-		-c "norm Go### $(date +%H:%M:%S)" \
+		-c "norm Go## $(date +%H:%M:%S)" \
 		-c "norm G2o" \
 		-c "startinsert" "${today_note_file}"
 }
