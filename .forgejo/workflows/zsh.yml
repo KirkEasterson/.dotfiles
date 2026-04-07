@@ -4,6 +4,8 @@ on: ["push"]
 jobs:
   test:
     runs-on: docker
+    container:
+      image: ubuntu:24.04
     steps:
       - uses: "actions/checkout@v6"
       - run: "sudo apt install stow"
