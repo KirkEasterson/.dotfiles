@@ -11,7 +11,7 @@ jobs:
     container:
       image: debian:12-slim
     steps:
-      - name: "Install node and cargo"
+      - name: "Install workflow dependencies"
         run: apt update && apt install -y lsb-release nodejs cargo
       - uses: actions/checkout@v6
 

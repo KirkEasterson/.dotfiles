@@ -7,7 +7,7 @@ jobs:
     container:
       image: debian:12-slim
     steps:
-      - name: "Install node"
+      - name: "Install workflow dependencies"
         run: apt update && apt install -y lsb-release nodejs
       - uses: "actions/checkout@v6"
       - run: "apt install -y stow"
