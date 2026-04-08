@@ -11,11 +11,12 @@ jobs:
     container:
       image: debian:12-slim
     steps:
-      - name: "Install node"
-        run: apt update && apt install -y lsb-release nodejs
+      - name: "Install node and cargo"
+        run: apt update && apt install -y lsb-release nodejs cargo
       - uses: actions/checkout@v6
-      - uses: JohnnyMorganz/stylua-action@v4
-        with:
-          version: v2.4.0
-          args: >-
-            --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+
+      - name: "Install stylua"
+        run: cargo install stylua
+
+      - name: "Run stylua"
+        run: stylua --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
