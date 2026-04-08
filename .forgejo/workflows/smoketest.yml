@@ -21,6 +21,7 @@ jobs:
       - name: "Install Homebrew (macos)"
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "/opt/homebrew/bin" >> $FORGEJO_PATH
         if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Install node (macos)
