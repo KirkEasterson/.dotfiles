@@ -9,9 +9,12 @@ jobs:
       image: debian:12-slim
     steps:
       - name: "Install node"
-        run: apt update && apt upgrade && apt install -y lsb-release nodejs
+        run: apt update && apt install -y lsb-release nodejs
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14.3"
       - name: "Install qtile"
-        run: apt install qtile
+        run: pip install --upgrade xcffib==1.12.0 cairocffi==1.7.1 qtile==0.35.0
       - name: "Validate"
         run: qtile check --config ./window-managers/.config/qtile/config.py
