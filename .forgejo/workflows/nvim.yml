@@ -15,8 +15,8 @@ jobs:
         run: apt update && apt install -y lsb-release nodejs cargo
       - uses: actions/checkout@v6
 
-      - name: "Install stylua"
-        run: cargo install stylua
+      # - name: "Install stylua"
+      #   run: cargo install stylua
 
       - name: "Run stylua"
         run: stylua --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
