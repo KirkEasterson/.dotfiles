@@ -6,7 +6,7 @@ jobs:
   config-check:
     runs-on: docker
     container:
-      image: ubuntu:24.04
+      image: debian:12-slim
     steps:
       - name: "Install node"
         run: apt update && apt install -y lsb-release nodejs
