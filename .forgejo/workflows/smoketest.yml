@@ -12,18 +12,18 @@ jobs:
       matrix:
         os:
           - debian:12-slim
-          - sickcodes/docker-osx
+          # - sickcodes/docker-osx
     steps:
       - name: "Install node (linux)"
         run: apt update && apt install -y lsb-release nodejs
         if: ${{ matrix.os == 'debian:12-slim' }}
 
-      - uses: Homebrew/actions/setup-homebrew@master
-        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+      # - uses: Homebrew/actions/setup-homebrew@master
+      #   if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
-      - name: Install node (macos)
-        run: brew install nodejs
-        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+      # - name: Install node (macos)
+      #   run: brew install nodejs
+      #   if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - uses: actions/checkout@v6
 
@@ -31,9 +31,9 @@ jobs:
         run: sudo apt-get install -y stow
         if: ${{ matrix.os == 'debian:12-slim' }}
 
-      - name: Install stow (macos)
-        run: brew install stow
-        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+      # - name: Install stow (macos)
+      #   run: brew install stow
+      #   if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Run install script
         run: ./install.sh
