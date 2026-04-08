@@ -23,9 +23,9 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
-      # - name: Install node (macos)
-      #   run: brew install nodejs
-      #   if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+      - name: Install node (macos)
+        run: brew install nodejs
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - uses: actions/checkout@v6
 
