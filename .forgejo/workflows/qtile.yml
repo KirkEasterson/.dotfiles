@@ -6,7 +6,7 @@ jobs:
   config-check:
     runs-on: docker
     container:
-      image: debian:12-slim
+      image: ubuntu:24.04 # necessary for setup-python
     steps:
       - name: "Install node"
         run: apt update && apt install -y lsb-release nodejs
