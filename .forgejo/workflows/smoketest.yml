@@ -4,26 +4,36 @@ on: [push]
 
 jobs:
   install:
-    runs-on: ${{ matrix.os }}
+    runs-on: docker
+    container:
+      image: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os:
-          # - macos-latest # TODO: uncomment once a macos runner exists
-          # - ubuntu-latest
-          - docker
+          - debian:12-slim
+          - sickcodes/docker-osx
     steps:
+      - name: "Install node (linux)"
+        run: apt update && apt install -y lsb-release nodejs
+        if: ${{ matrix.os == 'debian:12-slim' }}
+
+      - uses: Homebrew/actions/setup-homebrew@master
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+
+      - name: Install node (macos)
+        run: brew install nodejs
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+
       - uses: actions/checkout@v6
 
       - name: Install stow (linux)
         run: sudo apt-get install -y stow
-        if: ${{ matrix.os == 'ubuntu-latest' }}
+        if: ${{ matrix.os == 'debian:12-slim' }}
 
-      - uses: Homebrew/actions/setup-homebrew@master
-        if: ${{ matrix.os == 'macos-latest' }}
       - name: Install stow (macos)
-        run: brew install stow firefox
-        if: ${{ matrix.os == 'macos-latest' }}
+        run: brew install stow
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Run install script
         run: ./install.sh
