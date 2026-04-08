@@ -9,7 +9,7 @@ jobs:
       image: ubuntu:24.04 # necessary for setup-python
     steps:
       - name: "Install node"
-        run: apt update && apt install -y lsb-release nodejs libxcb1
+        run: apt update && apt install -y lsb-release nodejs libxcb1 libcairo2
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
