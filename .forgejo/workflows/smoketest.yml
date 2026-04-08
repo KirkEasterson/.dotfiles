@@ -3,7 +3,7 @@ name: smoke-test
 on: [push]
 
 jobs:
-  install-check:
+  install:
     runs-on: docker
     container:
       image: ${{ matrix.os }}
@@ -34,9 +34,9 @@ jobs:
         run: apt-get install -y stow
         if: ${{ matrix.os == 'debian:12-slim' }}
 
-      # - name: Install stow (macos)
-      #   run: brew install stow
-      #   if: ${{ matrix.os == 'sickcodes/docker-osx' }}
+      - name: Install stow (macos)
+        run: brew install stow
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Run install script
         run: ./install.sh
