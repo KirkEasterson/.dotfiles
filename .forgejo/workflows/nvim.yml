@@ -11,6 +11,7 @@ jobs:
     container:
       image: debian:12-slim
     steps:
+      - run: apt install curl
       - name: "Install Homebrew"
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
