@@ -9,7 +9,7 @@ jobs:
       image: debian:12-slim
     steps:
       - name: "Install node"
-        run: apt update && apt install -y lsb-release nodejs
+        run: apt update && apt upgrade && apt install -y lsb-release nodejs
       - uses: actions/checkout@v6
       - name: "Install qtile"
         run: apt install qtile
