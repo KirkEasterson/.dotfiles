@@ -2,7 +2,7 @@ name: "zsh"
 on: ["push"]
 
 jobs:
-  test:
+  config-check:
     runs-on: docker
     container:
       image: debian:12-slim

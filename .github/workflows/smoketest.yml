@@ -3,7 +3,7 @@ name: smoke-test
 on: [push]
 
 jobs:
-  install:
+  install-check:
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read

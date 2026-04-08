@@ -2,7 +2,7 @@ name: "zsh"
 on: ["push"]
 
 jobs:
-  test:
+  config-check:
     runs-on: "ubuntu-latest"
     permissions:
       contents: read

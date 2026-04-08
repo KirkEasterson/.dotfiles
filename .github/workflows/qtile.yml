@@ -3,7 +3,7 @@ name: "qtile"
 on: ["push"]
 
 jobs:
-  check:
+  config-check:
     runs-on: ubuntu-latest
     permissions:
       contents: read
