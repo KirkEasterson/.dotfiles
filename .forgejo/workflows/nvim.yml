@@ -11,12 +11,18 @@ jobs:
     container:
       image: debian:12-slim
     steps:
+      - name: "Install Homebrew"
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
+
       - name: "Install workflow dependencies"
-        run: apt update && apt install -y lsb-release nodejs cargo
+        run: brew install nodejs stow
+
       - uses: actions/checkout@v6
 
-      # - name: "Install stylua"
-      #   run: cargo install stylua
+      - name: "Install stylua"
+        run: brew install stylua
 
       - name: "Run stylua"
         run: stylua --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
