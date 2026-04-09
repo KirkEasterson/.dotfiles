@@ -12,7 +12,7 @@ jobs:
       matrix:
         os:
           - debian:12-slim
-          - sickcodes/docker-osx:naked
+          - sickcodes/docker-osx
     steps:
       - name: "Install node (linux)"
         run: apt update && apt install -y lsb-release nodejs
@@ -22,11 +22,11 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
-        if: ${{ matrix.os == 'sickcodes/docker-osx:naked' }}
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Install node (macos)
         run: brew install nodejs
-        if: ${{ matrix.os == 'sickcodes/docker-osx:naked' }}
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - uses: actions/checkout@v6
 
@@ -36,7 +36,7 @@ jobs:
 
       - name: Install stow (macos)
         run: brew install stow
-        if: ${{ matrix.os == 'sickcodes/docker-osx:naked' }}
+        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Run install script
         run: ./install.sh
