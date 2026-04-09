@@ -2,11 +2,7 @@ name: github-to-codeberg-sync
 on:
   push:
     branches:
-      - "**"
-      # TODO: re-renable cron _after_ testing is done
-      # workflow_dispatch: # Manual dispatch
-      # schedule:
-      #   - cron: "0 */6 * * *"
+      - "master"
 
 jobs:
   sync-repo-to-forgejo:
