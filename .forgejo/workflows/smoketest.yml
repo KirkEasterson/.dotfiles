@@ -6,37 +6,15 @@ jobs:
   install:
     runs-on: docker
     container:
-      image: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - debian:12-slim
-          - sickcodes/docker-osx
+      image: debian:12-slim
     steps:
-      - name: "Install node (linux)"
+      - name: "Install node"
         run: apt update && apt install -y lsb-release nodejs
-        if: ${{ matrix.os == 'debian:12-slim' }}
-
-      - name: "Install Homebrew (macos)"
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
-        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
-
-      - name: Install node (macos)
-        run: brew install nodejs
-        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - uses: actions/checkout@v6
 
-      - name: Install stow (linux)
+      - name: Install stow
         run: apt-get install -y stow
-        if: ${{ matrix.os == 'debian:12-slim' }}
-
-      - name: Install stow (macos)
-        run: brew install stow
-        if: ${{ matrix.os == 'sickcodes/docker-osx' }}
 
       - name: Run install script
         run: ./install.sh
