@@ -39,10 +39,15 @@ require("blink.cmp").setup({
         max_items = 3,
         min_keyword_length = 5,
       },
-      lsp = {},
-      path = {},
+      lsp = {
+        min_keyword_length = 0,
+      },
+      path = {
+        min_keyword_length = 1,
+      },
       snippets = {
-        max_items = 2,
+        max_items = 5,
+        min_keyword_length = 2,
       },
       lazydev = {
         name = "LazyDev",
