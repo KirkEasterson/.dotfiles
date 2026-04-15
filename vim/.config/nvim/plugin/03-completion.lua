@@ -13,11 +13,14 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.pack.add({
   "https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/L3MON4D3/LuaSnip",
   "https://github.com/Bilal2453/luvit-meta",
   "https://github.com/gonstoll/wezterm-types",
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
-  "https://github.com/L3MON4D3/LuaSnip",
 })
+
+require("luasnip").setup()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 require("blink.cmp").setup({
   appearance = {
@@ -26,12 +29,15 @@ require("blink.cmp").setup({
   signature = {
     enabled = true,
   },
+  snippets = {
+    preset = "luasnip",
+  },
   sources = {
     default = {
       "lazydev",
       "lsp",
-      "path",
       "snippets",
+      "path",
       "buffer",
     },
     providers = {
@@ -48,6 +54,9 @@ require("blink.cmp").setup({
       snippets = {
         max_items = 5,
         min_keyword_length = 2,
+        opts = {
+          friendly_snippets = true, -- default
+        },
       },
       lazydev = {
         name = "LazyDev",
@@ -109,21 +118,27 @@ require("blink.cmp").setup({
       },
     },
   },
+  keymap = {
+    ["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
+    ["<C-e>"] = { "hide", "fallback" },
+
+    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+    ["<C-p"] = { "select_prev", "fallback" },
+    ["<C-n"] = { "select_next", "fallback" },
+    ["<C-y>"] = { "select_and_accept", "fallback" },
+
+    ["<C-j>"] = { "snippet_forward", "fallback" },
+    ["<C-k>"] = { "snippet_backward", "fallback" },
+  },
 })
 
-require("luasnip").setup()
-
 local ls = require("luasnip")
-vim.keymap.set({ "i" }, "<C-p>", function()
+vim.keymap.set({ "i" }, "<C-j>", function()
   ls.expand()
 end, { desc = "Snippet - expand" })
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
-  ls.jump(1)
-end, { desc = "Snippet - next " })
-vim.keymap.set({ "i", "s" }, "<C-k>", function()
-  ls.jump(-1)
-end, { desc = "Snippet - previous " })
-vim.keymap.set({ "i", "s" }, "<C-e>", function()
+vim.keymap.set({ "i", "s" }, "<C-i>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
