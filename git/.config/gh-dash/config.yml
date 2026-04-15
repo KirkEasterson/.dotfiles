@@ -51,8 +51,7 @@ defaults:
   refetchIntervalMinutes: 30
 
 repoPaths:
-  :owner/:repo: ~/dev/pulls/:owner/:repo
-  reMarkable/*: ~/dev/remarkable/*
+  :owner/:repo: ~/dev/github.com/:owner/:repo
 
   # TODO: add bindings for using git-worktree
 keybindings:
