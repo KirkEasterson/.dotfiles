@@ -12,11 +12,20 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
-  "https://github.com/rafamadriz/friendly-snippets",
-  "https://github.com/L3MON4D3/LuaSnip",
   "https://github.com/Bilal2453/luvit-meta",
   "https://github.com/gonstoll/wezterm-types",
+  "https://github.com/folke/lazydev.nvim",
+  "https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/L3MON4D3/LuaSnip",
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
+})
+
+require("lazydev").setup({
+  library = {
+    { path = "luvit-meta/library", words = { "vim%.uv" } },
+    { path = "wezterm-types", mods = { "wezterm" } },
+    { path = "nvim-dap-ui" },
+  },
 })
 
 require("luasnip").setup()
