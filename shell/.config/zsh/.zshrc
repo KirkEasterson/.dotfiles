@@ -84,14 +84,9 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
 
-include "/opt/google-cloud-cli/completion.zsh.inc"
-include "/opt/google-cloud-cli/path.zsh.inc"
-include "${HOME}/google-cloud-sdk/completion.zsh.inc"
-include "${HOME}/google-cloud-sdk/path.zsh.inc"
-
 source <(fzf --zsh)
 
-include "${HOME}/.opam/opam-init/init.zsh"
+# include "${HOME}/.opam/opam-init/init.zsh"
 
 # bootstrap antidote
 if [[ ! -d ${ZDOTDIR}/antidote ]]; then
