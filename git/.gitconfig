@@ -60,23 +60,9 @@
 ;;;;;;; ALIASES ;;;;;;;
 ; any scripts called are in this same repo
 
-; vanilla git helpers
-[alias]
-	default-branch = !"git-default-branch.sh"
-	gl = !"git_log.sh"
-	pristine = !"git_pristine.sh"
-	fixup = !"git_fixup.sh"
-
 ; extensions
 [alias]
 	dft = difftool
-
-; my opinionated git setup
-[alias]
-	clone-mine = !"git_clone.sh"
-	branch-mine = !"git_branch.sh"
-	prune-branches = !"git_prune_branches.sh"
-
 
 ;;;;;;; LOCAL CONFIG ;;;;;;;
 [include]

@@ -38,7 +38,7 @@ alias gb="git branch"
 alias gbd="git branch -d"
 
 alias gco="git checkout"
-alias gcob="git branch-mine" # custom git alias
+alias gcob="git branch-mine"
 
 alias gt="git stash"
 alias gta="git stash apply"
@@ -46,7 +46,7 @@ alias gta="git stash apply"
 alias gm="git merge"
 alias gr="git rebase"
 
-alias gl="git gl" # custom git alias
+alias gl="git log-mine"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gps="git push"
