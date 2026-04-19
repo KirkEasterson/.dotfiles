@@ -20,7 +20,6 @@
 [log]
 	date = relative
 [color]
-	ui = auto
 	ui = true
 [pull]
 	rebase = true
@@ -31,7 +30,8 @@
 [push]
 	autoSetupRemote = true
 [diff]
-	colorMoved = default
+	colorMoved = zebra
+	colorMovedWS = ignore-space-change
 	tool = difftastic
 
 
@@ -44,25 +44,14 @@
 [delta]
 	; use n and N to move between diff sections
 	navigate = true
+	hyperlinks = true
 	line-numbers = true
-	; side-by-side = true
+	side-by-side = true
+	minus-style = syntax "#550000"
+	plus-style = syntax "#000055"
 [merge]
 	; TODO: change some colors to make changes more obvious
 	conflictstyle = diff3
-
-[difftool]
-	prompt = false
-[difftool "difftastic"]
-	cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-	difftool = true
-
-;;;;;;; ALIASES ;;;;;;;
-; any scripts called are in this same repo
-
-; extensions
-[alias]
-	dft = difftool
 
 ;;;;;;; LOCAL CONFIG ;;;;;;;
 [include]
