@@ -176,6 +176,7 @@ local parsers = {
   "hjson",
   "html",
   "http",
+  "ini",
   "java",
   "javascript",
   "json",
