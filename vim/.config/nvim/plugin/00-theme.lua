@@ -32,7 +32,8 @@ vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = "yellow" })
 require("colorful-winsep").setup({
   interval = 5,
   smooth = false,
-  no_exec_files = {
+  excluded_ft = {
+    "snacks",
     "mason",
   },
   animate = {
