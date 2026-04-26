@@ -63,9 +63,6 @@ require("blink.cmp").setup({
       snippets = {
         max_items = 5,
         min_keyword_length = 2,
-        opts = {
-          friendly_snippets = true, -- default
-        },
       },
       lazydev = {
         name = "LazyDev",
