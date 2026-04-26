@@ -60,6 +60,7 @@ firefox/*
 **/sway/workspaces
 
 **/tmux/plugins
+**/tmux/tmux.conf.local
 
 **/qimgv/savedState.conf
 
