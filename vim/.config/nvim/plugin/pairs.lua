@@ -8,7 +8,6 @@ vim.pack.add({
 
 local autopairs = require("nvim-autopairs")
 local rule = require("nvim-autopairs.rule")
-local ts_conds = require("nvim-autopairs.ts-conds")
 
 autopairs.setup({
   enable_check_bracket_line = true,
@@ -42,7 +41,6 @@ autopairs.add_rules({
     "vue",
     "xml",
   }),
-  -- }):with_pair(ts_conds.is_ts_node({ "Type" })),
 
   -- arrow key in js/ts `=>`
   rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript" })
