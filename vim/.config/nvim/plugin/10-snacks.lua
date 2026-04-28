@@ -62,8 +62,12 @@ vim.keymap.set({ "n" }, "<leader>fS", function()
 end, { desc = "LSP workspace symbols" })
 
 vim.keymap.set({ "n" }, "<leader>fl", function()
-  require("snacks").picker.git_log()
+  require("snacks").picker.git_log({
+    sort = { fields = { "idx" } },
+  })
 end, { desc = "Git log" })
 vim.keymap.set({ "n" }, "<leader>fL", function()
-  require("snacks").picker.git_log_file()
+  require("snacks").picker.git_log_file({
+    sort = { fields = { "idx" } },
+  })
 end, { desc = "Git log file" })
