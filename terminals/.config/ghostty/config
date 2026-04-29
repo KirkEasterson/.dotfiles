@@ -12,14 +12,18 @@ mouse-hide-while-typing = true
 link-url = true
 
 working-directory="home"
-window-decoration = false
+window-decoration = auto
 window-save-state = "never"
 resize-overlay = "never"
 confirm-close-surface = false
 gtk-single-instance = true
 
-macos-titlebar-style = native
+macos-auto-secure-input = true
+macos-non-native-fullscreen = true
 macos-option-as-alt = left
+macos-secure-input-indication = true
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = native
 macos-window-shadow = false
 
 keybind = clear
