@@ -171,6 +171,7 @@ local parsers = {
   "go",
   "gomod",
   "gosum",
+  "gotmpl",
   "gowork",
   "hcl",
   "hjson",
