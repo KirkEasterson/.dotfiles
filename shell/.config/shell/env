@@ -54,8 +54,7 @@ export GOBIN="$HOME/.local/bin/go"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	export GOROOT="/usr/lib/go"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	brew_go_root=$(brew --prefix golang)
-	export GOROOT="${brew_go_root}/libexec"
+	export GOROOT="/opt/homebrew/opt/go/libexec"
 fi
 
 export PATH="$PATH:$GOBIN"
