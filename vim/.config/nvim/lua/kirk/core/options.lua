@@ -303,6 +303,12 @@ vim.filetype.add({
   },
 })
 
+vim.filetype.add({
+  extension = {
+    gotmpl = "gotmpl",
+  },
+})
+
 -- hyprland config
 vim.filetype.add({
   pattern = {
