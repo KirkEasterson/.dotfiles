@@ -1,7 +1,7 @@
 theme = "base16"
 background-opacity=1
 
-font-size = 13
+font-size = 14
 font-family = "Iosevka Nerd Font Mono"
 font-feature = "-calt"
 font-feature = "-dlig"
