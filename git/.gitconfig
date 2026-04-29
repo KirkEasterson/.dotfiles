@@ -32,7 +32,6 @@
 [diff]
 	colorMoved = zebra
 	colorMovedWS = ignore-space-change
-	tool = difftastic
 
 
 ;;;;;;; EXTENSIONS ;;;;;;;
