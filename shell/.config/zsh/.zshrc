@@ -104,8 +104,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # worktrunk shell integration
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
-# eval "$(direnv hook zsh)"
-# eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
+if [ -x "$(command -v direnv)" ]; then eval "$(direnv hook zsh)" fi
+if [ -x "$(command -v zoxide)" ]; then eval "$(zoxide init zsh)" fi
+if [ -x "$(command -v starship)" ]; then eval "$(starship init zsh)" fi
 
 [ -z "${ZPROF}" ] || zprof
