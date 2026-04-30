@@ -290,34 +290,11 @@ if vim.fn.executable("rg") == 1 then
   opt.grepformat = "%f:%l:%c:%m"
 end
 
--- TODO: is this even necessary
-if vim.env.TERM == "xterm-kitty" then
-  vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
-  vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
-end
-
 -- hacky fix for terraform files
 vim.filetype.add({
   extension = {
     tf = "terraform",
-  },
-})
-
-vim.filetype.add({
-  extension = {
     gotmpl = "gotmpl",
-  },
-})
-
--- hyprland config
-vim.filetype.add({
-  pattern = {
-    [".*/hypr/.*%.conf"] = "hyprlang",
-  },
-})
-
-vim.filetype.add({
-  extension = {
     env = "dotenv",
   },
   filename = {
