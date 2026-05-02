@@ -29,6 +29,8 @@ riverctl rule-add -app-id "com-atlauncher-App" float
 riverctl rule-add -app-id "firefox" -title "Library" float
 riverctl rule-add -app-id "thunderbird" -title "*Reminder" float
 
+riverctl rule-add -app-id "flameshot" float
+
 # manually set server-side-decorations for everything
 riverctl rule-add -app-id "*" ssd
 
