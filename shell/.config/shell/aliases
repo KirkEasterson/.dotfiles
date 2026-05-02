@@ -55,6 +55,11 @@ alias gps="git push"
 alias gpsf="git push --force-with-lease"
 alias gpl="git pull"
 
+alias gwl="git worktree list"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
+alias gwm="git worktree move"
+
 # lazygit
 alias lg="lazygit"
 alias ghd="gh dash"
