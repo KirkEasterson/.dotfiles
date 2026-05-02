@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # This script serves as a wrapper for setting keyboard layouts in different
 # desktop environments.

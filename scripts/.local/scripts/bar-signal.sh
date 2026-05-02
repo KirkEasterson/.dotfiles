@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # set -u
 
 bar_pid=$(pidof -x "$BAR")
 
 if [ "$bar_pid" = "" ]; then
-    exit 0
+  exit 0
 fi
 
 declare -A signal

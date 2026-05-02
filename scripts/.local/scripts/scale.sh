@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if [ ! -x "$(command -v wlr-randr)" ]; then
 	echo "wlr-randr not installed"

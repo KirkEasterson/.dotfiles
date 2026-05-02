@@ -1,17 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-sound () {
+sound() {
   file=$(
-  case ${1} in
-    ("normal")
-      echo "battery.oga" ;;
-    ("caution")
-      echo "battery-caution.oga" ;;
-    ("low")
-      echo "battery-low.oga" ;;
-    (*)
-      return ;;
-  esac)
+    case ${1} in
+    "normal")
+      echo "battery.oga"
+      ;;
+    "caution")
+      echo "battery-caution.oga"
+      ;;
+    "low")
+      echo "battery-low.oga"
+      ;;
+    *)
+      return
+      ;;
+    esac
+  )
 
   pw-play "/usr/share/sounds/freedesktop/stereo/${file}"
 }
@@ -20,9 +25,9 @@ sound () {
 CHECKFREQ=60
 
 BATTERY_LEVEL=$(acpi -b | grep -P -o '[0-9]+(?=%)')
-OLD_BATTERY_LEVEL=$BATTERY_LEVEL;
+OLD_BATTERY_LEVEL=$BATTERY_LEVEL
 
-while(true) do
+while (true); do
   BATTERY_LEVEL=$(acpi -b | grep -P -o '[0-9]+(?=%)')
   if on_ac_power; then
     if [ "${BATTERY_LEVEL}" -ge 95 ]; then
@@ -34,5 +39,5 @@ while(true) do
     fi
   fi
 
-  sleep $CHECKFREQ;
+  sleep $CHECKFREQ
 done

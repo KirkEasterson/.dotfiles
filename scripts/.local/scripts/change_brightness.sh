@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 brightness_diff="5"
 min_brightness="0"

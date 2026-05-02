@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
 	LOCK_IMG="${XDG_CONFIG_HOME}/wallpaper"

@@ -1,20 +1,24 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # https://ubuntuforums.org/showthread.php?t=380002
 #
 # USB Insert / Remove sound script
 # Created by om3ganet (msn@om3ga.net)
 
-sound () {
+sound() {
   file=$(
-  case ${1} in
-    ("insert")
-      echo "device-added.oga" ;;
-    ("remove")
-      echo "device-removed.oga" ;;
-    (*)
-      return ;;
-  esac)
+    case ${1} in
+    "insert")
+      echo "device-added.oga"
+      ;;
+    "remove")
+      echo "device-removed.oga"
+      ;;
+    *)
+      return
+      ;;
+    esac
+  )
 
   pw-play "/usr/share/sounds/freedesktop/stereo/${file}"
 }
@@ -23,9 +27,9 @@ sound () {
 CHECKFREQ=0.25
 
 DEVCOUNT=$(lsusb | wc -l | awk '{ print $1 }')
-OLDDEVCOUNT=$DEVCOUNT;
+OLDDEVCOUNT=$DEVCOUNT
 
-while(true) do
+while (true); do
   DEVCOUNT=$(lsusb | wc -l | awk '{ print $1 }')
   if [ "${DEVCOUNT}" -gt "${OLDDEVCOUNT}" ]; then
     sound "insert"
@@ -33,7 +37,7 @@ while(true) do
     sound "remove"
   fi
 
-  OLDDEVCOUNT=$DEVCOUNT;
+  OLDDEVCOUNT=$DEVCOUNT
 
-  sleep $CHECKFREQ;
+  sleep $CHECKFREQ
 done
