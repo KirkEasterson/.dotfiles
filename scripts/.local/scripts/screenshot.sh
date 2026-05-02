@@ -4,27 +4,15 @@
 # since flameshot does not yet support river. But it works fine on river ¯\_(ツ)_/¯
 
 gui() {
-	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		XDG_CURRENT_DESKTOP=sway flameshot gui
-	else
-		flameshot gui
-	fi
+	flameshot gui
 }
 
 window() {
-	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		XDG_CURRENT_DESKTOP=sway flameshot full
-	else
-		flameshot full
-	fi
+	flameshot full
 }
 
 fullscreen() {
-	if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-		XDG_CURRENT_DESKTOP=sway flameshot full
-	else
-		flameshot full
-	fi
+	flameshot full
 }
 
 sound() {
