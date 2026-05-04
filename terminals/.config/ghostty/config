@@ -10,6 +10,7 @@ font-feature = "-liga"
 quit-after-last-window-closed = true
 mouse-hide-while-typing = true
 link-url = true
+auto-update = off
 
 working-directory="home"
 window-decoration = auto
