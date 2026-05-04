@@ -10,7 +10,6 @@ vim.pack.add({
 })
 
 require("Comment").setup()
-require("Comment.ft").commonlisp = ";; %s"
 
 require("todo-comments").setup({
   signs = false,
