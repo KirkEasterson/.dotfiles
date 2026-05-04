@@ -43,17 +43,6 @@ keybind = ctrl+7=text:\x1b[27;5;55~
 keybind = ctrl+8=text:\x1b[27;5;56~
 keybind = ctrl+9=text:\x1b[27;5;63~
 
-# keybind = uncomsumed:ctrl+1=text:\u001B[27;5;49~
-# keybind = uncomsumed:ctrl+2=text:\u001B[27;5;50~
-# keybind = uncomsumed:ctrl+3=text:\u001B[27;5;51~
-# keybind = uncomsumed:ctrl+4=text:\u001B[27;5;52~
-# keybind = uncomsumed:ctrl+5=text:\u001B[27;5;53~
-# keybind = uncomsumed:ctrl+6=text:\u001B[27;5;54~
-# keybind = uncomsumed:ctrl+7=text:\u001B[27;5;55~
-# keybind = uncomsumed:ctrl+8=text:\u001B[27;5;56~
-# keybind = uncomsumed:ctrl+9=text:\u001B[27;5;57~
-# # keybind = ctrl+0=text:\u001B[27;5;58~
-
 keybind = ctrl+shift+1=text:\x1b[27;6;49~
 keybind = ctrl+shift+2=text:\x1b[27;6;50~
 keybind = ctrl+shift+3=text:\x1b[27;6;51~
