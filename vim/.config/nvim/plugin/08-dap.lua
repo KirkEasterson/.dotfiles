@@ -21,7 +21,7 @@ vim.api.nvim_set_hl(0, "DapBreakpointRejected", { fg = "grey" })
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointCondition" })
 vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint" })
-vim.fn.sign_define("DapStopped", { text = "󰘍", texthl = "DapStopped" })
+vim.fn.sign_define("DapStopped", { text = "󰁕", texthl = "DapStopped" })
 vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpointRejected" })
 
 require("mason-nvim-dap").setup({
