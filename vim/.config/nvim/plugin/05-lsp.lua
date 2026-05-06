@@ -32,7 +32,6 @@ require("mason-lspconfig").setup({
     "buf_ls", -- protobuf
     "clangd",
     "cmake",
-    "csharp_ls",
     "cssls",
     "diagnosticls",
     "docker_compose_language_service",
@@ -45,12 +44,9 @@ require("mason-lspconfig").setup({
     "jsonls",
     "lemminx", -- xml
     "lua_ls",
-    "omnisharp",
-    "prismals",
     "pyright",
     "rust_analyzer",
     "sqlls",
-    "svelte",
     "taplo", -- toml
     "terraformls",
     "tflint",
@@ -61,12 +57,6 @@ require("mason-lspconfig").setup({
     "vtsls",
     "yamlls",
     "zls", -- zig
-    -- "asm_lsp", -- assembly
-    -- "csharp_ls",
-    -- "fsautocomplete",
-    -- "hls", -- haskell
-    -- "jdtls", -- java
-    -- "kotlin_language_server",
     -- "ocamllsp",
     -- "rnix", -- nix
     -- "texlab",
