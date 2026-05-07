@@ -137,6 +137,10 @@ require("blink.cmp").setup({
 
     ["<C-j>"] = { "snippet_forward", "fallback" },
     ["<C-k>"] = { "snippet_backward", "fallback" },
+
+    -- disable mappings
+    ["<Tab>"] = false,
+    ["<S-Tab>"] = false,
   },
 })
 
