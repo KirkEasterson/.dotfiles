@@ -18,6 +18,9 @@ window-save-state = "never"
 resize-overlay = "never"
 confirm-close-surface = false
 gtk-single-instance = true
+app-notifications = false
+custom-shader-animation = false
+quick-terminal-animation-duration = 0
 
 macos-auto-secure-input = true
 macos-non-native-fullscreen = true
