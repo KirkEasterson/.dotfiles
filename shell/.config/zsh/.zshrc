@@ -5,6 +5,11 @@ source "${HOME}/.config/shell/commonrc"
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+setopt BANG_HIST
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
 
 # immediately write to history file, not on shell exit
 setopt inc_append_history_time
