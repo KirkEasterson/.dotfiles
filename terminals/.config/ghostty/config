@@ -3,9 +3,9 @@ background-opacity=1
 
 font-size = 14
 font-family = "IosevkaTerm Nerd Font Mono"
-font-feature = "-calt"
-font-feature = "-dlig"
-font-feature = "-liga"
+font-feature = "-calt,-liga,-dlig"
+font-thicken = true
+font-thicken-strength = "200"
 
 quit-after-last-window-closed = true
 mouse-hide-while-typing = true
