@@ -120,11 +120,6 @@ from_clipboard() {
 	esac
 }
 
-testscripter() {
-	path=$(git worktree list | fzf | awk '{print $1}')
-	cd "$path" || exit
-}
-
 if [ -f "${XDG_CONFIG_HOME}/shell/local/functions" ]; then
 	source "${XDG_CONFIG_HOME}/shell/local/functions"
 fi
