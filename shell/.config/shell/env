@@ -213,7 +213,7 @@ export CODEX_HOME="$XDG_CONFIG_HOME/codex"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 		export TERMINAL="foot"
-		export TERMINAL_SECONDARY="ghostty"
+		export TERMINAL_SECONDARY="kitty"
 
 		# https://github.com/swaywm/sway/wiki#i-cant-open-links-in-external-applications-in-firefox
 		export MOZ_DBUS_REMOTE=1
@@ -241,7 +241,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		# this impacts game performance
 		# export XWAYLAND_NO_GLAMOR=1
 	else
-		export TERMINAL="ghostty"
+		export TERMINAL="kitty"
 		export TERMINAL_SECONDARY="alacritty"
 		export SEARCH="rofi"
 		export BAR="polybar"
