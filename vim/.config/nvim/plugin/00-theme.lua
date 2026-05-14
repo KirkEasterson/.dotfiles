@@ -2,7 +2,6 @@ vim.pack.add({
   "https://github.com/Tsuzat/NeoSolarized.nvim",
   "https://github.com/nvim-mini/mini.icons",
   "https://github.com/NvChad/nvim-colorizer.lua",
-  "https://github.com/nvim-zh/colorful-winsep.nvim",
   "https://github.com/lukas-reineke/indent-blankline.nvim",
 })
 
@@ -28,32 +27,6 @@ require("colorizer").setup({
   },
 })
 
-vim.api.nvim_set_hl(0, "ColorfulWinSep", { bg = nil, fg = "yellow" })
-require("colorful-winsep").setup({
-  interval = 5,
-  smooth = false,
-  excluded_ft = {
-    "snacks",
-    "mason",
-  },
-  animate = {
-    enabled = false,
-  },
-  indicator_for_2wins = {
-    position = "center",
-    symbols = {
-      start_left = "",
-      end_left = "",
-      start_down = "",
-      end_down = "",
-      start_up = "",
-      end_up = "",
-      start_right = "",
-      end_right = "",
-    },
-  },
-})
-
 require("ibl").setup({
   debounce = 50,
   indent = {
@@ -74,10 +47,6 @@ require("ibl").setup({
   exclude = {
     filetypes = {
       "NvimTree",
-      "TelescopePrompt",
-      "TelescopeResults",
-      "Trouble",
-      "alpha",
       "checkhealth",
       "dashboard",
       "gitcommit",
@@ -85,8 +54,6 @@ require("ibl").setup({
       "lspinfo",
       "man",
       "neogitstatus",
-      "packer",
-      "startify",
     },
   },
 })
