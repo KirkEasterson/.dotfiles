@@ -98,7 +98,7 @@
       "src": "https://github.com/zapling/mason-conform.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "0c2823e0418f3d9230ff8b201c976e84de1cb401",
+      "rev": "eaa34887d444cb002e1b165fac399ae4bbc771f7",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason-nvim-dap.nvim": {
@@ -110,11 +110,11 @@
       "src": "https://github.com/rshkarin/mason-nvim-lint"
     },
     "mason.nvim": {
-      "rev": "cb8445f8ce85d957416c106b780efd51c6298f89",
+      "rev": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9",
       "src": "https://github.com/williamboman/mason.nvim"
     },
     "mini.icons": {
-      "rev": "bac6317300e205335df425296570d84322730067",
+      "rev": "9c7b1b90b15bdd69c52f6e31889dbc9987c30ec4",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "neogen": {
@@ -135,7 +135,7 @@
       "src": "https://github.com/fredrikaverpil/neotest-golang"
     },
     "nvim-autopairs": {
-      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-colorizer.lua": {
@@ -159,7 +159,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lint": {
-      "rev": "eab58b48eb11d7745c11c505e0f3057165902461",
+      "rev": "665525810630701b84181e4d9eefd24b49845b29",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lsp-file-operations": {
@@ -167,7 +167,7 @@
       "src": "https://github.com/antosha417/nvim-lsp-file-operations"
     },
     "nvim-lspconfig": {
-      "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
+      "rev": "75e49cfa588a89ca667d767c0afef3ceac205faa",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -188,7 +188,7 @@
       "version": "'main'"
     },
     "nvim-treesitter-context": {
-      "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
+      "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
