@@ -1,30 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({ "FileType" }, {
-  desc = "Enable wrapping and easy-undo for text, markdown, and tex files",
-  pattern = { "markdown", "tex", "text" },
-  callback = function()
-    vim.opt_local.wrap = true
-
-    -- easier undos
-    local util = require("util")
-    util.map("i", ",", ",<c-g>u")
-    util.map("i", ".", ".<c-g>u")
-    util.map("i", "[", "[<c-g>u")
-    util.map("i", "!", "!<c-g>u")
-    util.map("i", "?", "?<c-g>u")
-  end,
-})
-
-autocmd({ "FileType" }, {
-  desc = "Disable spell for certain filetypes",
-  pattern = { "dotenv" },
-  callback = function()
-    vim.opt.spell = false
-  end,
-})
-
 local trailing_space = augroup("TrailingSpace", {})
 autocmd({ "BufWritePre" }, {
   desc = "Remove trailing-space",
@@ -153,19 +129,6 @@ autocmd({ "WinEnter" }, {
     --   return
     -- end
 
-    vim.cmd.startinsert()
-  end,
-})
-
-autocmd("FileType", {
-  desc = "Start git entries in insert mode",
-  pattern = {
-    "NeogitCommitMessage",
-    "gitcommit",
-    "gitrebase",
-  },
-  callback = function()
-    vim.opt_local.formatoptions = ""
     vim.cmd.startinsert()
   end,
 })

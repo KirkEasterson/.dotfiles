@@ -5,3 +5,5 @@ vim.pack.add({
 require("cloak").setup({
   cloak_length = 32,
 })
+
+vim.opt.spell = false
