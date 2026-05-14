@@ -33,20 +33,31 @@ bind "set completion-ignore-case on"
 
 complete -C /usr/bin/terraform terraform
 
-include "/opt/google-cloud-cli/completion.bash.inc"
-include "/opt/google-cloud-cli/path.bash.inc"
-include "${HOME}/google-cloud-sdk/completion.bash.inc"
-include "${HOME}/google-cloud-sdk/path.bash.inc"
+if [ -f "/opt/google-cloud-cli/completion.bash.inc" ]; then
+	source "/opt/google-cloud-cli/completion.bash.inc"
+fi
+if [ -f "/opt/google-cloud-cli/path.bash.inc" ]; then
+	source "/opt/google-cloud-cli/path.bash.inc"
+fi
+if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then
+	source "${HOME}/google-cloud-sdk/completion.bash.inc"
+fi
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then
+	source "${HOME}/google-cloud-sdk/path.bash.inc"
+fi
 
-include "/usr/share/fzf/completion.bash"
-include "/usr/share/fzf/key-bindings.bash"
+if [ -f "/usr/share/fzf/completion.bash" ]; then
+	source "/usr/share/fzf/completion.bash"
+fi
+if [ -f "/usr/share/fzf/key-bindings.bash" ]; then
+	source "/usr/share/fzf/key-bindings.bash"
+fi
 
-include "${HOME}/.opam/opam-init/init.sh"
+if [ -f "${XDG_DATA_HOME}/opam/opam-init/init.sh" ]; then
+	source "${XDG_DATA_HOME}/opam/opam-init/init.sh"
+fi
 
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
-
-# init zoxide
-# eval "$(zoxide init bash)"
-
-# start starship
-eval "$(starship init bash)"
+if [ -x "$(command -v wt)" ]; then eval "$(command wt config shell init bash)"; fi
+if [ -x "$(command -v direnv)" ]; then eval "$(direnv hook bash)"; fi
+if [ -x "$(command -v zoxide)" ]; then eval "$(zoxide init bash)"; fi
+if [ -x "$(command -v starship)" ]; then eval "$(starship init bash)"; fi
