@@ -91,8 +91,6 @@ _comp_options+=(globdots)
 
 source <(fzf --zsh)
 
-# include "${HOME}/.opam/opam-init/init.zsh"
-
 # bootstrap antidote
 if [[ ! -d ${ZDOTDIR}/antidote ]]; then
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR}/antidote
@@ -106,9 +104,31 @@ antidote load
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-# worktrunk shell integration
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+if [ -f "/opt/google-cloud-cli/completion.zsh.inc" ]; then
+	source "/opt/google-cloud-cli/completion.zsh.inc"
+fi
+if [ -f "/opt/google-cloud-cli/path.zsh.inc" ]; then
+	source "/opt/google-cloud-cli/path.zsh.inc"
+fi
+if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then
+	source "${HOME}/google-cloud-sdk/completion.zsh.inc"
+fi
+if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then
+	source "${HOME}/google-cloud-sdk/path.zsh.inc"
+fi
 
+if [ -f "/usr/share/fzf/completion.zsh" ]; then
+	source "/usr/share/fzf/completion.zsh"
+fi
+if [ -f "/usr/share/fzf/key-bindings.zsh" ]; then
+	source "/usr/share/fzf/key-bindings.zsh"
+fi
+
+if [ -f "${XDG_DATA_HOME}/opam/opam-init/init.sh" ]; then
+	source "${XDG_DATA_HOME}/opam/opam-init/init.sh"
+fi
+
+if [ -x "$(command -v wt)" ]; then eval "$(command wt config shell init zsh)"; fi
 if [ -x "$(command -v direnv)" ]; then eval "$(direnv hook zsh)"; fi
 if [ -x "$(command -v zoxide)" ]; then eval "$(zoxide init zsh)"; fi
 if [ -x "$(command -v starship)" ]; then eval "$(starship init zsh)"; fi

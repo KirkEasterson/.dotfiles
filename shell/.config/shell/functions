@@ -51,10 +51,6 @@ take() {
 	mkdir -p -- "$1" && cd -P -- "$1" || return
 }
 
-include() {
-	[[ -f "$1" ]] && source "$1"
-}
-
 # lazy loading NVM
 lnvm() {
 
