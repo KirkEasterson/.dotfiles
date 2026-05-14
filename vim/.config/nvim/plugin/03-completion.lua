@@ -135,14 +135,15 @@ require("blink.cmp").setup({
     ["<C-n"] = { "select_next", "fallback" },
     ["<C-y>"] = { "select_and_accept", "fallback" },
 
-    ["<C-j>"] = { "snippet_forward", "fallback" },
-    ["<C-k>"] = { "snippet_backward", "fallback" },
-
     -- disable mappings
     ["<Tab>"] = false,
     ["<S-Tab>"] = false,
   },
 })
+
+-- disable default snippet bindings
+vim.keymap.del({ "s", "i" }, "<Tab>")
+vim.keymap.del({ "s", "i" }, "<S-Tab>")
 
 local ls = require("luasnip")
 vim.keymap.set({ "i" }, "<C-t>", function()
