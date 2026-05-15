@@ -9,7 +9,8 @@ vim.pack.add({
 require("lint").linters_by_ft = {
   cpp = { "cpplint" },
   -- css = { "stylellint" },
-  -- gitcommit = { "commitlint" },
+  -- gitcommit = { "commitlint","codespell" },
+  gitcommit = { "codespell" },
   -- go = { "golangci-lint" },
   javascript = { "eslint_d" },
   javascriptreact = { "eslint_d" },
@@ -59,6 +60,7 @@ require("mason-nvim-lint").setup({
     "jsonlint",
     "luacheck",
     -- "prettier", -- BAD
+    -- "prettierd", -- BAD
     "pylint",
     "shellcheck",
     "stylelint",
