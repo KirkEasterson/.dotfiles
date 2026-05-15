@@ -89,13 +89,13 @@ cmd-alt-f = 'layout floating tiling'
 cmd-shift-f = 'fullscreen'
 cmd-alt-t = 'layout horizontal vertical'
 
-cmd-enter = 'exec-and-forget open -na /Applications/ghostty.app'
+cmd-enter = 'exec-and-forget open -n /Applications/ghostty.app'
 cmd-shift-enter = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance -d $HOME'
 cmd-w = 'exec-and-forget open -n /Applications/Firefox.app'
-cmd-e = 'exec-and-forget open -n /Applications/ghostty.app --args -e yazi'
+cmd-e = 'exec-and-forget open -na /Applications/ghostty.app --args -e yazi'
 cmd-shift-e = 'exec-and-forget open ~'
-cmd-n = 'exec-and-forget open -n /Applications/kitty.app --args --single-instance notes.sh edit'
-cmd-shift-n = 'exec-and-forget $HOME/.local/scripts/notes.sh view'
+cmd-n = 'exec-and-forget open "obsidian://adv-uri?vault=obsidian-work&daily=true"'
+cmd-shift-n = 'exec-and-forget open "obsidian://adv-uri?vault=obsidian-work"'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-h = 'focus left'
