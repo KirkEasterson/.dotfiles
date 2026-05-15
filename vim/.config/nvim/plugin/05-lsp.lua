@@ -45,6 +45,7 @@ require("mason-lspconfig").setup({
     "lemminx", -- xml
     "lua_ls",
     "pyright",
+    "regal",
     "rust_analyzer",
     "sqlls",
     "taplo", -- toml

@@ -23,6 +23,7 @@ require("conform").setup({
     jsonc = { "prettier" },
     lua = { "stylua" },
     markdown = { "prettier" },
+    rego = { "opa_fmt" },
     python = { "black" },
     rust = { "rustfmt" },
     sh = { "shfmt" },
