@@ -5,7 +5,7 @@ if [ $# -eq 0 ]; then
 	exit 1
 fi
 
-date=$(date "+%Y/%m/%d/%H-%M-%S")
-branch_name=${USER}/${date}/${1}
+date=$(date "+%Y-%m-%d_%H-%M-%S")
+branch_name=${USER}_${date}_${1}
 
 git checkout -b "$branch_name"
