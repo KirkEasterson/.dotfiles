@@ -1,11 +1,10 @@
----
 prSections:
   - title: Created
     filters: is:open author:@me
+  - title: Mentioned
+    filters: is:open mentions:@me
   - title: Needs review
     filters: is:open review-requested:@me
-  - title: Involved
-    filters: is:open involves:@me -author:@me
 
 issuesSections:
   - title: Created
@@ -59,10 +58,9 @@ keybindings:
   prs:
     - key: i
       command: |
-        tmux new-window -c {{.RepoPath}} '
-          gh pr checkout {{.PrNumber}} &&
-          nvim -c ":DiffviewOpen main...{{.HeadRefName}}"
-        '
+        tmux new-window -c {{.RepoPath}}
+        'gh pr checkout {{.PrNumber}} &&
+          nvim -c ":DiffviewOpen main...{{.HeadRefName}}"'
 
 theme:
   ui:
