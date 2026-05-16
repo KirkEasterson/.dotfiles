@@ -34,7 +34,7 @@
       "src": "https://github.com/nvim-zh/colorful-winsep.nvim"
     },
     "conform.nvim": {
-      "rev": "dca1a190aa85f9065979ef35802fb77131911106",
+      "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "dial.nvim": {
@@ -98,7 +98,7 @@
       "src": "https://github.com/zapling/mason-conform.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "eaa34887d444cb002e1b165fac399ae4bbc771f7",
+      "rev": "7b01e2974a47d489bb92f47a41e4c0088ea8f86e",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason-nvim-dap.nvim": {
@@ -106,11 +106,12 @@
       "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
     },
     "mason-nvim-lint": {
-      "rev": "cafbc5d82d8eb4af0daf0057332a325ddf2f436b",
-      "src": "https://github.com/rshkarin/mason-nvim-lint"
+      "rev": "47421ba5cb43fafba9657ebe95df9a7a480c1871",
+      "src": "https://github.com/kirkeasterson/mason-nvim-lint",
+      "version": "'kirk_2026-05-16_07-44-08_add-commitlint-and-gitlint-mapping'"
     },
     "mason.nvim": {
-      "rev": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9",
+      "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
       "src": "https://github.com/williamboman/mason.nvim"
     },
     "mini.icons": {
@@ -167,7 +168,7 @@
       "src": "https://github.com/antosha417/nvim-lsp-file-operations"
     },
     "nvim-lspconfig": {
-      "rev": "75e49cfa588a89ca667d767c0afef3ceac205faa",
+      "rev": "8f7e64066e2641d5e7d494962a9c7051e3d38dd5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -179,7 +180,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "f9bfc0059eca24546b69a7006110463da4808f8f",
+      "rev": "07f541fcaa4a5ae019598240362449ab7e9812b3",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
