@@ -3,28 +3,31 @@ vim.pack.add({
   -- "https://github.com/williamboman/mason.nvim",
 
   "https://github.com/mfussenegger/nvim-lint",
-  "https://github.com/rshkarin/mason-nvim-lint",
+  -- "https://github.com/rshkarin/mason-nvim-lint",
+  {
+    src = "https://github.com/kirkeasterson/mason-nvim-lint",
+    version = "kirk_2026-05-16_07-44-08_add-commitlint-and-gitlint-mapping",
+  },
 })
 
 require("lint").linters_by_ft = {
   cpp = { "cpplint" },
-  -- css = { "stylellint" },
-  -- gitcommit = { "commitlint","codespell" },
-  gitcommit = { "codespell" },
-  -- go = { "golangci-lint" },
+  css = { "stylelint" },
+  gitcommit = { "commitlint", "codespell" },
+  go = { "golangcilint" },
   javascript = { "eslint_d" },
   javascriptreact = { "eslint_d" },
   json = { "jsonlint" },
-  -- lua = { "stylua", "luacheck" },
+  lua = { "luacheck" },
   markdown = { "markdownlint", "vale" },
   python = { "pylint" },
   svelte = { "eslint_d" },
   terraform = { "tflint" },
   tf = { "tflint" },
-  -- typescript = { "eslint_d" },
-  -- typescriptreact = { "eslint_d" },
+  typescript = { "eslint_d" },
+  typescriptreact = { "eslint_d" },
   yaml = { "yamllint" },
-  -- ["yaml.ansible"] = { "ansible-lint" },
+  ["yaml.ansible"] = { "ansible_lint" },
 }
 
 vim.api.nvim_create_autocmd({
@@ -44,27 +47,23 @@ vim.api.nvim_create_autocmd({
   desc = "Lint",
 })
 
--- TODO: make a PR to mason-nvim-lint to add the "BAD" linters
 require("mason-nvim-lint").setup({
   ensure_installed = {
     "actionlint",
     "ansible_lint",
     "cmakelint",
     "codespell",
-    -- "commitlint", -- BAD
+    "commitlint",
     "cpplint",
     "editorconfig-checker",
     "eslint_d",
-    -- "gitlint", -- BAD
+    "gitlint",
     "golangcilint",
     "jsonlint",
     "luacheck",
-    -- "prettier", -- BAD
-    -- "prettierd", -- BAD
     "pylint",
     "shellcheck",
     "stylelint",
-    -- "stylua", -- BAD
     "vale",
     "yamllint",
     "markdownlint",
