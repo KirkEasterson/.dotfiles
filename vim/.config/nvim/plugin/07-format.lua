@@ -8,14 +8,13 @@ vim.pack.add({
 
 require("conform").setup({
   formatters_by_ft = {
-    -- ocaml = { "ocamlformat" },
-    -- ["terraform-vars"] = { "tflint" },
+    -- ocaml = { "ocamlformat" }, -- TODO: fix installation issues with this
     c = { "clang_format" },
     c_sharp = { "csharpier" },
     cpp = { "clang_format" },
     css = { "prettier" },
     go = { "gofumpt", "goimports" }, -- TODO: add "golines"
-    -- hcl = { "packer_fmt" },
+    hcl = { "hclfmt" },
     html = { "prettier" },
     javascript = { "prettierd", "prettier", "eslint_d" },
     javascriptreact = { "prettierd", "prettier", "eslint_d" },
@@ -27,8 +26,9 @@ require("conform").setup({
     python = { "black" },
     rust = { "rustfmt" },
     sh = { "shfmt" },
-    -- terraform = { "tflint" },
-    -- tf = { "tflint" },
+    terraform = { "terraform" },
+    ["terraform-vars"] = { "terraform" },
+    tf = { "terraform" },
     typescript = { "biome", "biome-check", "biome-organize-imports" },
     typescriptreact = { "biome", "biome-check", "biome-organize-imports" },
     typst = { "typstyle", lsp_format = "prefer" },
