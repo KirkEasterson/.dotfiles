@@ -160,11 +160,8 @@ vim.api.nvim_create_autocmd({ "User" }, {
   callback = function()
     local neogit = require("neogit")
     local autosession = require("auto-session")
-
     neogit.close()
-    vim.cmd([[%bd!]])
-    autosession.restore_session("", { show_message = false })
-    autosession.save_session(nil, { show_message = false, is_autosave = true })
+    autosession.restore_session(nil, { show_message = false })
     neogit.open()
   end,
 })
@@ -176,7 +173,6 @@ vim.api.nvim_create_autocmd({ "User" }, {
   callback = function()
     local neogit = require("neogit")
     local autosession = require("auto-session")
-
     neogit.close()
     autosession.save_session(nil, { show_message = false, is_autosave = true })
     neogit.open()
