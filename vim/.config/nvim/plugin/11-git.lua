@@ -8,7 +8,7 @@ vim.pack.add({
   "https://github.com/ruifm/gitlinker.nvim",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
-  { src = "https://github.com/kirkeasterson/neogit", version = "kirk/hooks" },
+  { src = "https://github.com/kirkeasterson/neogit", version = "dev" },
 })
 
 require("gitlinker").setup({
@@ -112,16 +112,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 require("neogit").setup({
-  hooks = {
-    ["PreBranchCheckout"] = function()
-      local neogit = require("neogit")
-      local autosession = require("auto-session")
-
-      neogit.close()
-      autosession.save_session(nil, { show_message = false, is_autosave = true })
-      neogit.open()
-    end,
-  },
   auto_show_console = false,
   console_timeout = 5000,
   disable_commit_confirmation = true,
@@ -149,6 +139,16 @@ require("neogit").setup({
     mini_pick = false,
     codediff = false,
   },
+  hooks = {
+    ["PreBranchCheckout"] = function()
+      local neogit = require("neogit")
+      local autosession = require("auto-session")
+
+      neogit.close()
+      autosession.save_session(nil, { show_message = false, is_autosave = true })
+      neogit.open()
+    end,
+  },
 })
 
 local neogit_group = vim.api.nvim_create_augroup("UserNeogitEvents", { clear = true })
@@ -173,6 +173,34 @@ vim.api.nvim_create_autocmd({ "User" }, {
   callback = function()
     local neogit = require("neogit")
     local autosession = require("auto-session")
+    neogit.close()
+    autosession.save_session(nil, { show_message = false, is_autosave = true })
+    neogit.open()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  desc = "Load session for existing worktree",
+  pattern = { "NeogitWorktreeGoto" },
+  group = neogit_group,
+  callback = function()
+    local neogit = require("neogit")
+    local autosession = require("auto-session")
+
+    neogit.close()
+    autosession.restore_session(nil, { show_message = false })
+    neogit.open()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  desc = "Create new session for new worktrees",
+  pattern = { "NeogitWorktreeCreate" },
+  group = neogit_group,
+  callback = function()
+    local neogit = require("neogit")
+    local autosession = require("auto-session")
+
     neogit.close()
     autosession.save_session(nil, { show_message = false, is_autosave = true })
     neogit.open()
