@@ -66,6 +66,12 @@ require("gitsigns").setup({
   end,
 })
 
+vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "blue" })
+vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "yellow" })
+vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "red" })
+vim.api.nvim_set_hl(0, "GitSignsTopDelete", { fg = "red" })
+vim.api.nvim_set_hl(0, "GitSignsChangeDelete", { fg = "magenta" })
+
 --- toggle diffview views
 --- @param open_view function function to open the view
 local function toggle_view(open_view)
