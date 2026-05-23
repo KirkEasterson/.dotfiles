@@ -7,7 +7,10 @@ require("auto-session").setup({
   session_lens = {
     load_on_setup = false,
   },
-  bypass_save_filetypes = {
+  close_unsupported_windows = true,
+  close_filetypes_on_save = {
     "dashboard",
+    "NeogitStatus",
+    "NvimTree",
   },
 })
