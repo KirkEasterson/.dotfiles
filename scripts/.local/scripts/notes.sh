@@ -2,6 +2,7 @@
 
 # edit toay's note
 edit_today() {
+	now=$(date +%H:%M:%S)
 	today=$(date +%Y-%m-%d)
 	today_note_file="${src_dir}/note-${today}.md"
 
@@ -11,7 +12,7 @@ edit_today() {
 	fi
 
 	nvim -c "norm Go" \
-		-c "norm Go## $(date +%H:%M:%S)" \
+		-c "norm Go## ${now}" \
 		-c "norm G2o" \
 		-c "startinsert" "${today_note_file}"
 }
