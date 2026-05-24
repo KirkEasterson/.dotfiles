@@ -1,6 +1,16 @@
 vim.pack.add({
+  "https://github.com/kevinhwang91/promise-async",
+  "https://github.com/kevinhwang91/nvim-ufo",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/luukvbaal/statuscol.nvim",
+})
+
+vim.api.nvim_set_hl(0, "FoldColumn", { fg = "#888888" })
+
+require("ufo").setup({
+  provider_selector = function(bufnr, filetype, buftype)
+    return { "lsp" }
+  end,
 })
 
 local builtin = require("statuscol.builtin")
@@ -68,6 +78,7 @@ require("statuscol").setup({
       text = { " ", builtin.foldfunc },
       click = "v:lua.ScFa",
       sign = { foldclosed = true },
+      hl = "FoldColumn",
     },
     { -- git signs
       hl = "GitSigns",
