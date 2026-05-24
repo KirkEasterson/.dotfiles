@@ -145,7 +145,8 @@ util.map("x", "<leader>qp", function()
   })
 end, { desc = "Paste over selection without erasing unnamed register" })
 
--- toggle relative line numbers
 util.map("n", "<leader>rt", function()
   vim.o.relativenumber = not vim.o.relativenumber
 end, { desc = "Toggle relative linenumbers" })
+
+util.map("n", "<Tab>", "za", { desc = "Toggle fold under cursor" })
