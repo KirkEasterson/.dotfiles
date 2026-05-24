@@ -35,7 +35,11 @@ view_latest() {
 			head -n 1
 	)
 
-	zathura "$latest"
+	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+		xdg-open "$latest"
+	elif [[ "$OSTYPE" == "darwin"* ]]; then
+		open "$latest"
+	fi
 }
 
 # initialize variables
