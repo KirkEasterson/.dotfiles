@@ -31,6 +31,8 @@ x-scheme-handler/roblox-studio-auth=org.vinegarhq.Vinegar.studio.desktop
 x-scheme-handler/roblox=roblox-player.desktop
 application/x-roblox-rbxl=org.vinegarhq.Vinegar.studio.desktop
 application/x-roblox-rbxlx=org.vinegarhq.Vinegar.studio.desktop
+x-scheme-handler/io.element.desktop=element.desktop
+x-scheme-handler/element=element.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-W14R41.desktop;userapp-Thunderbird-IS8OQ2.desktop;
