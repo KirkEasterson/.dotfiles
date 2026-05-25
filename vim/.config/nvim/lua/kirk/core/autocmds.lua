@@ -55,18 +55,6 @@ autocmd("TextYankPost", {
   end,
 })
 
-autocmd("BufwritePost", {
-  desc = "Build notes",
-  pattern = "*note-*.md",
-  callback = function()
-    local fn = vim.fn
-    if not fn.executable("notes.sh") then
-      return
-    end
-    fn.jobstart("notes.sh build " .. fn.expand("%%"))
-  end,
-})
-
 -- terminal
 -- inspired by:
 --  - https://github.com/catgoose/nvim/blob/30a0af45401aefc305afabc600d093037f5c9894/lua/config/autocmd.lua#L93

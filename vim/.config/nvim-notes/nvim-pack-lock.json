@@ -1,0 +1,20 @@
+{
+  "plugins": {
+    "NeoSolarized.nvim": {
+      "rev": "3c55ad358c062aa4879950c4f83b4deeac6b72df",
+      "src": "https://github.com/Tsuzat/NeoSolarized.nvim"
+    },
+    "live-preview.nvim": {
+      "rev": "c1fcf75c5f9c9c01dd392852de44204b60f1b5b1",
+      "src": "https://github.com/brianhuster/live-preview.nvim"
+    },
+    "mini.icons": {
+      "rev": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
+    "table-nvim": {
+      "rev": "816d251963bf4c8c3d765dab40ebac3c259c7b6d",
+      "src": "https://github.com/SCJangra/table-nvim"
+    }
+  }
+}

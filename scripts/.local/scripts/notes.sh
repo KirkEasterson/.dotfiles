@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+nvim_appname="nvim-notes"
+
 # edit toay's note
 edit_today() {
 	now=$(date +%H:%M:%S)
@@ -11,7 +13,8 @@ edit_today() {
 		printf "# Notes for %s" "${today}" >"${today_note_file}"
 	fi
 
-	nvim -c "norm Go" \
+	NVIM_APPNAME="$nvim_appname" nvim \
+		-c "norm Go" \
 		-c "norm Go## ${now}" \
 		-c "norm G2o" \
 		-c "startinsert" "${today_note_file}"
@@ -24,7 +27,8 @@ build() {
 
 	# run in the background
 	# TODO: support emojis
-	pandoc "${src}" -o "${target}" --pdf-engine=lualatex & disown
+	pandoc "${src}" -o "${target}" --pdf-engine=lualatex &
+	disown
 }
 
 # view the latest note
@@ -41,6 +45,11 @@ view_latest() {
 		open "$latest"
 	fi
 }
+
+# initialize nvim notes data
+mkdir -p "${XDG_DATA_HOME}/$nvim_appname"
+mkdir -p "${XDG_STATE_HOME}/$nvim_appname"
+mkdir -p "${XDG_CACHE_HOME}/$nvim_appname"
 
 # initialize variables
 notes_dir="${NOTES:=${HOME}/Documents/notes}"
