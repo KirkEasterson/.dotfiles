@@ -12,13 +12,13 @@
       "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "markdown-plus.nvim": {
+      "rev": "54550db5a4b722f7c597828b8fa8f16945cf1b75",
+      "src": "https://github.com/yousefhadder/markdown-plus.nvim"
+    },
     "mini.icons": {
       "rev": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",
       "src": "https://github.com/nvim-mini/mini.icons"
-    },
-    "table-nvim": {
-      "rev": "816d251963bf4c8c3d765dab40ebac3c259c7b6d",
-      "src": "https://github.com/SCJangra/table-nvim"
     }
   }
 }
