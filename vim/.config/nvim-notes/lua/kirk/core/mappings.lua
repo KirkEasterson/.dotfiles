@@ -18,7 +18,7 @@ util.map("n", "J", "mzJ`z")
 util.map("v", "y", "ygv<ESC>") -- keep cursor in same spot when yanking
 
 -- system clipboard interaction
-util.map({ "v" }, "<leader>x", '"+x', { desc = "Cut to system clipboard" })
-util.map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
-util.map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
-util.map({ "n", "v" }, "<leader>P", '"+P', { desc = "Paste from system clipboard" })
+util.map({ "v" }, "<leader>x", "\"+x", { desc = "Cut to system clipboard" })
+util.map({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
+util.map({ "n", "v" }, "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
+util.map({ "n", "v" }, "<leader>P", "\"+P", { desc = "Paste from system clipboard" })

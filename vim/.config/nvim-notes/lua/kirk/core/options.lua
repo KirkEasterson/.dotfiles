@@ -12,49 +12,49 @@ g.ttimeoutlen = 100
 
 -- disable builtin plugins
 local disabled_plugins = {
-	"2html_plugin",
-	"bugreport",
-	"compiler",
-	-- "ftplugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	"netrw",
-	"netrwFileHandlers",
-	"netrwPlugin",
-	"netrwSettings",
-	"node_provider",
-	"optwin",
-	"perl_provider",
-	"python3_provider",
-	"rplugin",
-	"rrhelper",
-	"ruby_provider",
-	-- "spellfile_plugin",
-	"synmenu",
-	"tar",
-	"tarPlugin",
-	"tutor",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
-	-- "matchbracket",
-	-- "matchit",
-	-- "matchparen",
+  "2html_plugin",
+  "bugreport",
+  "compiler",
+  -- "ftplugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwFileHandlers",
+  "netrwPlugin",
+  "netrwSettings",
+  "node_provider",
+  "optwin",
+  "perl_provider",
+  "python3_provider",
+  "rplugin",
+  "rrhelper",
+  "ruby_provider",
+  -- "spellfile_plugin",
+  "synmenu",
+  "tar",
+  "tarPlugin",
+  "tutor",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  -- "matchbracket",
+  -- "matchit",
+  -- "matchparen",
 }
 for _, v in pairs(disabled_plugins) do
-	g["loaded_" .. v] = true
+  g["loaded_" .. v] = true
 end
 
 -- enable builtin plugins
 local enabled_plugins = {
-	"matchbracket",
-	"matchparen",
+  "matchbracket",
+  "matchparen",
 }
 for _, v in pairs(enabled_plugins) do
-	g["loaded_" .. v] = false
+  g["loaded_" .. v] = false
 end
 
 opt.mousescroll = "ver:3,hor:3"
@@ -67,9 +67,9 @@ opt.winbar = "%{%v:lua.require('util').winbar()%}"
 
 opt.spell = true
 opt.spelllang = {
-	"en_us",
-	-- "sv",
-	-- "nb",
+  "en_us",
+  -- "sv",
+  -- "nb",
 }
 vim.api.nvim_set_hl(0, "SpellBad", { fg = nil, cterm = { undercurl = true } })
 vim.api.nvim_set_hl(0, "SpellCap", { fg = nil, cterm = { undercurl = true } })
@@ -131,17 +131,17 @@ opt.wildmode = { "full", "list", "longest" }
 
 opt.list = true -- enable rendering of listchars
 opt.listchars:append({
-	extends = "…",
-	lead = " ",
-	precedes = "…",
-	tab = "  ", -- this must be two characters
-	trail = "·",
+  extends = "…",
+  lead = " ",
+  precedes = "…",
+  tab = "  ", -- this must be two characters
+  trail = "·",
 
-	-- use the below line to simulate indent-blankline
-	--	it won't be visible on empty-lines though
-	-- leadmultispace = "│ ",
-	-- multispace     = "│ ",
-	-- tab            = "│ ", -- this must be two characters
+  -- use the below line to simulate indent-blankline
+  --	it won't be visible on empty-lines though
+  -- leadmultispace = "│ ",
+  -- multispace     = "│ ",
+  -- tab            = "│ ", -- this must be two characters
 })
 opt.fillchars:append({ eob = " " })
 
@@ -165,24 +165,24 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 opt.winborder = "rounded"
 
 vim.diagnostic.config({
-	virtual_text = false,
-	float = {
-		border = "rounded",
-	},
-	inlay_hints = {
-		enabled = false,
-	},
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "󰅘",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "󰌶",
-		},
-	},
+  virtual_text = false,
+  float = {
+    border = "rounded",
+  },
+  inlay_hints = {
+    enabled = false,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅘",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "󰌶",
+    },
+  },
 })
 
 if vim.fn.executable("rg") == 1 then
-	opt.grepprg = "rg --vimgrep"
-	opt.grepformat = "%f:%l:%c:%m"
+  opt.grepprg = "rg --vimgrep"
+  opt.grepformat = "%f:%l:%c:%m"
 end

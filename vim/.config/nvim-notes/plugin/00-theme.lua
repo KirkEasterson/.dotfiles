@@ -1,10 +1,10 @@
 vim.pack.add({
-	"https://github.com/Tsuzat/NeoSolarized.nvim",
-	"https://github.com/nvim-mini/mini.icons",
+  "https://github.com/Tsuzat/NeoSolarized.nvim",
+  "https://github.com/nvim-mini/mini.icons",
 })
 
 require("NeoSolarized").setup({
-	terminal_colors = false,
+  terminal_colors = false,
 })
 
 vim.cmd.colorscheme("NeoSolarized")
