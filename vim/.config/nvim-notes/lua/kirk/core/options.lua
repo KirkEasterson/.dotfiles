@@ -84,9 +84,14 @@ opt.termguicolors = true -- allow custom highlighting
 opt.incsearch = true -- highlight matches as you type
 opt.hlsearch = false -- unhighlight matches after searching
 opt.autoindent = true -- new lines inherit indenting
-opt.wrap = false -- don't wrap lines
+opt.wrap = true
 opt.linebreak = true -- if wrapping, wrap on complete words
 opt.breakindent = true -- preserve indenting on wrapped lines
+
+opt.tabstop = 2 -- number of visual spaces per tab
+opt.softtabstop = 2 -- number of spaces in tab when editing
+opt.shiftwidth = 2 -- number of spaces when indenting with <> keys
+opt.expandtab = true -- use spaces for tabs
 
 opt.visualbell = false
 opt.errorbells = true
@@ -113,10 +118,6 @@ opt.colorcolumn = "80" -- show line for 80char soft-limit
 --  - "v": break line at empty space
 --  - "j": remove comment leader when joining lines
 -- opt.formatoptions = "canvj" -- automatically apply text width only to comments
-
-opt.tabstop = 4 -- number of visual spaces per tab
-opt.softtabstop = 4 -- number of spaces in tab when editing
-opt.shiftwidth = 4 -- number of spaces when indenting with <> keys
 
 opt.mouse = "a" -- enable mouse for scrolling and resizing
 opt.mousehide = true
