@@ -1,40 +1,42 @@
--- vim.pack.add({
---   -- ALREADY LOADED DEPENDENCIES
---   -- "https://github.com/echasnovski/mini.icons",
---
---   "https://github.com/nvim-lualine/lualine.nvim",
--- })
---
--- require("lualine").setup({
---   options = {
---     theme = "16color",
---     globalstatus = true,
---     component_separators = { left = "", right = "" },
---     section_separators = { left = "", right = "" },
---     refresh = { statusline = 50 },
---   },
---   sections = {
---     lualine_b = {},
---     lualine_c = {
---       {
---         "filename",
---         color = {
---           gui = "bold",
---         },
---       },
---       "diagnostics",
---     },
---     lualine_x = {
---       {
---         "macro-recording",
---         fmt = function()
---           local reg = vim.fn.reg_recording()
---           if reg == "" then
---             return ""
---           end
---           return "recording @" .. reg
---         end,
---       },
---     },
---   },
--- })
+vim.schedule(function()
+  vim.pack.add({
+    -- ALREADY LOADED DEPENDENCIES
+    -- "https://github.com/echasnovski/mini.icons",
+
+    "https://github.com/nvim-lualine/lualine.nvim",
+  })
+
+  require("lualine").setup({
+    options = {
+      theme = "16color",
+      globalstatus = true,
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+      refresh = { statusline = 50 },
+    },
+    sections = {
+      lualine_b = {},
+      lualine_c = {
+        {
+          "filename",
+          color = {
+            gui = "bold",
+          },
+        },
+        "diagnostics",
+      },
+      lualine_x = {
+        {
+          "macro-recording",
+          fmt = function()
+            local reg = vim.fn.reg_recording()
+            if reg == "" then
+              return ""
+            end
+            return "recording @" .. reg
+          end,
+        },
+      },
+    },
+  })
+end)
