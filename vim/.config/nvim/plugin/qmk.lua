@@ -1,35 +1,37 @@
-vim.pack.add({
-  "https://github.com/codethread/qmk.nvim",
-})
+vim.schedule(function()
+  vim.pack.add({
+    "https://github.com/codethread/qmk.nvim",
+  })
 
-require("qmk").setup({
-  name = "chocofi",
-  variant = "zmk",
-  comment_preview = {
-    position = "top",
-    keymap_overrides = {
-      ["&none"] = "",
-      ["&trans"] = "…",
+  require("qmk").setup({
+    name = "chocofi",
+    variant = "zmk",
+    comment_preview = {
+      position = "top",
+      keymap_overrides = {
+        ["&none"] = "",
+        ["&trans"] = "…",
+      },
+      symbols = {
+        space = " ",
+        horz = "─",
+        vert = "│",
+        tl = "┌",
+        tm = "┬",
+        tr = "┐",
+        ml = "├",
+        mm = "┼",
+        mr = "┤",
+        bl = "└",
+        bm = "┴",
+        br = "┘",
+      },
     },
-    symbols = {
-      space = " ",
-      horz = "─",
-      vert = "│",
-      tl = "┌",
-      tm = "┬",
-      tr = "┐",
-      ml = "├",
-      mm = "┼",
-      mr = "┤",
-      bl = "└",
-      bm = "┴",
-      br = "┘",
+    layout = {
+      "x x x x x x _ _ _ x x x x x x",
+      "x x x x x x _ _ _ x x x x x x",
+      "x x x x x x _ _ _ x x x x x x",
+      "_ _ _ _ x x x _ x x x _ _ _ _",
     },
-  },
-  layout = {
-    "x x x x x x _ _ _ x x x x x x",
-    "x x x x x x _ _ _ x x x x x x",
-    "x x x x x x _ _ _ x x x x x x",
-    "_ _ _ _ x x x _ x x x _ _ _ _",
-  },
-})
+  })
+end)

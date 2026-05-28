@@ -1,81 +1,83 @@
-vim.pack.add({
-  -- ALREADY LOADED DEPENDENCIES
-  -- "https://github.com/williamboman/mason.nvim",
+vim.schedule(function()
+  vim.pack.add({
+    -- ALREADY LOADED DEPENDENCIES
+    -- "https://github.com/williamboman/mason.nvim",
 
-  "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/williamboman/mason-lspconfig.nvim",
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/antosha417/nvim-lsp-file-operations",
-})
-
--- semantic tokens should be less than treesitter
-vim.highlight.priorities.semantic_tokens = 95
-
-require("lspconfig.ui.windows").default_options.border = "rounded"
-
-require("lsp-file-operations").setup()
-vim.lsp.config("*", {
-  capabilities = require("lsp-file-operations").default_capabilities(),
-})
-
-vim.lsp.enable({
-  "lua_ls",
-  "omnisharp",
-  "tinymist",
-})
-
-require("mason-lspconfig").setup({
-  automatic_enable = true,
-  ensure_installed = {
-    "ansiblels",
-    "bashls",
-    "buf_ls", -- protobuf
-    "clangd",
-    "cmake",
-    "cssls",
-    "diagnosticls",
-    "docker_compose_language_service",
-    "dockerls",
-    "eslint",
-    "golangci_lint_ls",
-    "gopls",
-    "helm_ls",
-    "html",
-    "jsonls",
-    "lemminx", -- xml
-    "lua_ls",
-    "pyright",
-    "regal",
-    "rust_analyzer",
-    "sqlls",
-    "taplo", -- toml
-    "terraformls",
-    "tflint",
-    "tinymist", -- typst
-    "typos_lsp",
-    "vale_ls",
-    "vimls",
-    "vtsls",
-    "yamlls",
-    "zls", -- zig
-    -- "ocamllsp",
-    -- "rnix", -- nix
-    -- "texlab",
-  },
-})
-
--- LSP folding
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
-local language_servers = vim.lsp.get_clients()
-for _, ls in ipairs(language_servers) do
-  require("lspconfig")[ls].setup({
-    capabilities = capabilities,
+    "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/williamboman/mason-lspconfig.nvim",
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/antosha417/nvim-lsp-file-operations",
   })
-end
+
+  -- semantic tokens should be less than treesitter
+  vim.highlight.priorities.semantic_tokens = 95
+
+  require("lspconfig.ui.windows").default_options.border = "rounded"
+
+  require("lsp-file-operations").setup()
+  vim.lsp.config("*", {
+    capabilities = require("lsp-file-operations").default_capabilities(),
+  })
+
+  vim.lsp.enable({
+    "lua_ls",
+    "omnisharp",
+    "tinymist",
+  })
+
+  require("mason-lspconfig").setup({
+    automatic_enable = true,
+    ensure_installed = {
+      "ansiblels",
+      "bashls",
+      "buf_ls", -- protobuf
+      "clangd",
+      "cmake",
+      "cssls",
+      "diagnosticls",
+      "docker_compose_language_service",
+      "dockerls",
+      "eslint",
+      "golangci_lint_ls",
+      "gopls",
+      "helm_ls",
+      "html",
+      "jsonls",
+      "lemminx", -- xml
+      "lua_ls",
+      "pyright",
+      "regal",
+      "rust_analyzer",
+      "sqlls",
+      "taplo", -- toml
+      "terraformls",
+      "tflint",
+      "tinymist", -- typst
+      "typos_lsp",
+      "vale_ls",
+      "vimls",
+      "vtsls",
+      "yamlls",
+      "zls", -- zig
+      -- "ocamllsp",
+      -- "rnix", -- nix
+      -- "texlab",
+    },
+  })
+
+  -- LSP folding
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
+  local language_servers = vim.lsp.get_clients()
+  for _, ls in ipairs(language_servers) do
+    require("lspconfig")[ls].setup({
+      capabilities = capabilities,
+    })
+  end
+end)
 
 vim.keymap.set({ "n" }, "gd", function()
   vim.lsp.buf.definition()

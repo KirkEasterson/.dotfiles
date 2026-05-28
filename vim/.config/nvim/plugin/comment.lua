@@ -1,22 +1,24 @@
-vim.pack.add({
-  -- ALREADY LOADED DEPENDENCIES
-  -- "https://github.com/folke/ts-comments.nvim",
-  -- "https://github.com/nvim-treesitter/nvim-treesitter",
-  -- "https://github.com/nvim-lua/plenary.nvim",
+vim.schedule(function()
+  vim.pack.add({
+    -- ALREADY LOADED DEPENDENCIES
+    -- "https://github.com/folke/ts-comments.nvim",
+    -- "https://github.com/nvim-treesitter/nvim-treesitter",
+    -- "https://github.com/nvim-lua/plenary.nvim",
 
-  "https://github.com/numToStr/Comment.nvim",
-  "https://github.com/danymat/neogen",
-  "https://github.com/folke/todo-comments.nvim",
-})
+    "https://github.com/numToStr/Comment.nvim",
+    "https://github.com/danymat/neogen",
+    "https://github.com/folke/todo-comments.nvim",
+  })
 
-require("Comment").setup()
+  require("Comment").setup()
 
-require("todo-comments").setup({
-  signs = false,
-})
+  require("todo-comments").setup({
+    signs = false,
+  })
 
-require("neogen").setup()
+  require("neogen").setup()
 
-vim.keymap.set({ "n" }, "<leader>ng", function()
-  require("neogen").generate()
-end, { desc = "Generate docs" })
+  vim.keymap.set({ "n" }, "<leader>ng", function()
+    require("neogen").generate()
+  end, { desc = "Generate docs" })
+end)

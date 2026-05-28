@@ -1,5 +1,7 @@
-vim.pack.add({
-  "https://github.com/tzachar/highlight-undo.nvim",
-})
+vim.schedule(function()
+  vim.pack.add({
+    "https://github.com/tzachar/highlight-undo.nvim",
+  })
 
-require("highlight-undo").setup()
+  require("highlight-undo").setup()
+end)

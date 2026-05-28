@@ -1,8 +1,10 @@
-vim.pack.add({
-  "https://github.com/chentoast/marks.nvim",
-})
+vim.schedule(function()
+  vim.pack.add({
+    "https://github.com/chentoast/marks.nvim",
+  })
 
-require("marks").setup({
-  signs = true,
-  cyclic = true,
-})
+  require("marks").setup({
+    signs = true,
+    cyclic = true,
+  })
+end)
