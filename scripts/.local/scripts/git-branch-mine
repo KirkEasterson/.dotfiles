@@ -6,6 +6,6 @@ if [ $# -eq 0 ]; then
 fi
 
 date=$(date "+%Y-%m-%d_%H-%M-%S")
-branch_name=${USER}_${date}_${1}
+branch_name=${USER}/${date}/${1}
 
 git checkout -b "$branch_name"
