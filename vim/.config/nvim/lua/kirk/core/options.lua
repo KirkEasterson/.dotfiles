@@ -133,6 +133,8 @@ opt.wildignore:append({
   "venv",
 })
 
+o.lazyredraw = true
+
 opt.title = true
 opt.titlelen = 0
 opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"

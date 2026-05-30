@@ -59,6 +59,8 @@ end
 
 opt.mousescroll = "ver:3,hor:3"
 
+o.lazyredraw = true
+
 opt.title = true
 opt.titlelen = 0
 opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"
