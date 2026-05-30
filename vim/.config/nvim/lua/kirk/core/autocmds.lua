@@ -159,27 +159,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = vim.api.nvim_create_augroup("CustomSettings", {}),
-  desc = "Make sh file executable if a shebang is detected",
-  pattern = "*",
-  callback = function(args)
-    local uv = vim.uv
-    local api = vim.api
-
-    local shebang = api.nvim_buf_get_lines(0, 0, 1, true)[1]
-    if not shebang or not shebang:match("^#!.+") then
-      return
-    end
-    local filename = api.nvim_buf_get_name(args.buf)
-    local fileinfo = uv.fs_stat(filename)
-    if not fileinfo or bit.band(fileinfo.mode - 32768, 0x40) ~= 0 then
-      return
-    end
-
-    vim.notify("File made executable")
-    uv.fs_chmod(filename, bit.bor(fileinfo.mode, 493))
-  end,
-  once = false,
-})
