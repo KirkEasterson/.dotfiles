@@ -1,7 +1,7 @@
-local trailing_space = vim.api.nvim_create_augroup("TrailingSpace", {})
+local trailing_space_group = vim.api.nvim_create_augroup("TrailingSpace", {})
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  desc = "Remove trailing-space",
-  group = trailing_space,
+  desc = "Remove trailing space",
+  group = trailing_space_group,
   pattern = { "*" },
   callback = function()
     if vim.bo.filetype == "markdown" then
@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   desc = "Remove trailing space character for insert mode",
-  group = trailing_space,
+  group = trailing_space_group,
   pattern = { "*" },
   -- command = "set listchars-=trail:·",
   callback = function()
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 })
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   desc = "Enable trailing space character for non-insert mode",
-  group = trailing_space,
+  group = trailing_space_group,
   pattern = { "*" },
   -- command = "set listchars+=trail:·",
   callback = function()
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight yanked text",
-  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
   pattern = "*",
   callback = function()
     vim.highlight.on_yank({
@@ -55,9 +55,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- terminal
 -- inspired by:
 --  - https://github.com/catgoose/nvim/blob/30a0af45401aefc305afabc600d093037f5c9894/lua/config/autocmd.lua#L93
-local terminal = vim.api.nvim_create_augroup("TerminalLocalOptions", {})
+local terminal_group = vim.api.nvim_create_augroup("TerminalLocalOptions", {})
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
-  group = terminal,
+  group = terminal_group,
   pattern = { "*" },
   desc = "Set terminal mappings",
   callback = function(event)
@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
   end,
 })
 vim.api.nvim_create_autocmd({ "WinEnter" }, {
-  group = terminal,
+  group = terminal_group,
   pattern = { "*" },
   callback = function()
     -- ignore non-terminal windows
