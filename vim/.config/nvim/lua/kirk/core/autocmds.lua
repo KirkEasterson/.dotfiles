@@ -1,8 +1,5 @@
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-
-local trailing_space = augroup("TrailingSpace", {})
-autocmd({ "BufWritePre" }, {
+local trailing_space = vim.api.nvim_create_augroup("TrailingSpace", {})
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   desc = "Remove trailing-space",
   group = trailing_space,
   pattern = { "*" },
@@ -22,7 +19,7 @@ autocmd({ "BufWritePre" }, {
     vim.api.nvim_win_set_cursor(0, pre_pos)
   end,
 })
-autocmd({ "InsertEnter" }, {
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   desc = "Remove trailing space character for insert mode",
   group = trailing_space,
   pattern = { "*" },
@@ -31,7 +28,7 @@ autocmd({ "InsertEnter" }, {
     vim.opt.listchars:remove("trail")
   end,
 })
-autocmd({ "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   desc = "Enable trailing space character for non-insert mode",
   group = trailing_space,
   pattern = { "*" },
@@ -43,9 +40,9 @@ autocmd({ "InsertLeave" }, {
   end,
 })
 
-autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight yanked text",
-  group = augroup("highlight_yank", { clear = true }),
+  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   pattern = "*",
   callback = function()
     vim.highlight.on_yank({
@@ -58,8 +55,8 @@ autocmd("TextYankPost", {
 -- terminal
 -- inspired by:
 --  - https://github.com/catgoose/nvim/blob/30a0af45401aefc305afabc600d093037f5c9894/lua/config/autocmd.lua#L93
-local terminal = augroup("TerminalLocalOptions", {})
-autocmd({ "TermOpen" }, {
+local terminal = vim.api.nvim_create_augroup("TerminalLocalOptions", {})
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
   group = terminal,
   pattern = { "*" },
   desc = "Set terminal mappings",
@@ -103,7 +100,7 @@ autocmd({ "TermOpen" }, {
     end
   end,
 })
-autocmd({ "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "WinEnter" }, {
   group = terminal,
   pattern = { "*" },
   callback = function()
@@ -121,15 +118,15 @@ autocmd({ "WinEnter" }, {
   end,
 })
 
-local reload_file_group = augroup("ReloadFile", {})
-autocmd({ "FocusGained", "BufEnter" }, {
+local reload_file_group = vim.api.nvim_create_augroup("ReloadFile", {})
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
   desc = "Auto load file changes when focus or buffer is entered",
   group = reload_file_group,
   pattern = "*",
   command = "if &buftype == \"nofile\" | checktime | endif",
 })
 
-autocmd("FileChangedShellPost", {
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
   desc = "Actions when the file is changed outside of Neovim",
   group = reload_file_group,
   callback = function()
@@ -137,23 +134,23 @@ autocmd("FileChangedShellPost", {
   end,
 })
 
-autocmd("QuickFixCmdPost", {
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   desc = "Automatically open quickfix list",
-  group = augroup("AutoOpenQuickfix", { clear = true }),
+  group = vim.api.nvim_create_augroup("AutoOpenQuickfix", { clear = true }),
   pattern = { "[^l]*" },
   command = "cwindow",
 })
 
-autocmd({ "QuickFixCmdPost" }, {
+vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
   desc = "Automatically open location list",
-  group = augroup("LocationList", {}),
+  group = vim.api.nvim_create_augroup("LocationList", {}),
   pattern = "l*",
   command = "lopen",
 })
 
-autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("BufReadPost", {
   desc = "Goto last location in newly opened buffer",
-  group = augroup("BufferSettings", { clear = true }),
+  group = vim.api.nvim_create_augroup("BufferSettings", { clear = true }),
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, "\"")
     local lcount = vim.api.nvim_buf_line_count(0)
@@ -163,8 +160,8 @@ autocmd("BufReadPost", {
   end,
 })
 
-autocmd("BufWritePost", {
-  group = augroup("CustomSettings", {}),
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = vim.api.nvim_create_augroup("CustomSettings", {}),
   desc = "Make sh file executable if a shebang is detected",
   pattern = "*",
   callback = function(args)
