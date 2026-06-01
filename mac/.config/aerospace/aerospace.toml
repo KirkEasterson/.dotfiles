@@ -94,8 +94,12 @@ cmd-shift-enter = 'exec-and-forget open -n /Applications/kitty.app --args --sing
 cmd-w = 'exec-and-forget open -n /Applications/Firefox.app'
 cmd-e = 'exec-and-forget open -na /Applications/ghostty.app --args -e yazi'
 cmd-shift-e = 'exec-and-forget open ~'
+
 cmd-n = 'exec-and-forget open "obsidian://adv-uri?vault=obsidian-work&daily=true"'
 cmd-shift-n = 'exec-and-forget open "obsidian://adv-uri?vault=obsidian-work"'
+
+# cmd-n = 'exec-and-forget open -na /Applications/ghostty.app --args -e ~/.local/scripts/notes.sh edit'
+# cmd-shift-n = 'exec-and-forget $HOME/.local/scripts/notes.sh view'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-h = 'focus left'
