@@ -55,6 +55,9 @@ set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to.
 set exrc " use local vimrc, if it exists
 
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 """""""""" MAPPINGS
 " navigation
 nnoremap <C-h> <C-w>h
