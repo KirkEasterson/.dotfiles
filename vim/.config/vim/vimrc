@@ -152,7 +152,6 @@ colorscheme elflord
 augroup nerd_tree_sync_current_dir
   autocmd!
   autocmd BufEnter * call SyncNERDTree()
-  autocmd BufWrite * call SyncNERDTree()
 augroup end
 
 " sync NERDTree with the current file open
