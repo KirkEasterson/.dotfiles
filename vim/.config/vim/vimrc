@@ -130,6 +130,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vim-which-key'
@@ -166,6 +167,8 @@ function SyncNERDTree()
     NERDTreeClose
   endif
 endfunction
+
+nnoremap <silent> <leader>gg :Git<CR>
 
 " let g:fuzzbox_compact = 1
 
