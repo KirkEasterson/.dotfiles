@@ -126,6 +126,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
@@ -134,6 +136,9 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'vim-fuzzbox/fuzzbox.vim'
 
 call plug#end()
+
+let g:airline_theme='simple'
+let g:airline#extensions#tabline#enabled = 1
 
 let g:NERDTreeWinPos = 'right'
 let g:NERDTreeShowHidden = 1
