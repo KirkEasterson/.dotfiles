@@ -1,3 +1,4 @@
+---
 name: smoke-test
 
 on: [push]

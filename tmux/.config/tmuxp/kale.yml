@@ -6,4 +6,3 @@ windows:
   - window_name: nvim
     panes:
       - "nvim"
-

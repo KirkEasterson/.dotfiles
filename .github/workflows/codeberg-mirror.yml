@@ -1,3 +1,4 @@
+---
 name: github-to-codeberg-sync
 on:
   push:
