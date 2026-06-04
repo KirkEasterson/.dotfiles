@@ -39,6 +39,8 @@ vim.schedule(function()
     },
   })
 
+  vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
   require("mason-conform").setup()
 
   vim.keymap.set({ "n", "x", "v" }, "<leader>oc", function()
