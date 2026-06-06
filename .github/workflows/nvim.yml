@@ -5,6 +5,7 @@ on: ["push"]
 
 env:
   NVIM_BASE_DIR: "vim/.config/nvim"
+  STYLUA_BASE_DIR: "formatters/.config/stylua"
 
 jobs:
   stylua:
@@ -18,4 +19,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v2.4.0
           args: >-
-            --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+            --allow-hidden --check -f ${{ envSTYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
