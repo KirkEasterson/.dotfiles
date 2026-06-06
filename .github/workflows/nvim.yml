@@ -4,7 +4,7 @@ name: "nvim"
 on: ["push"]
 
 env:
-  NVIM_BASE_DIR: "vim/.config/nvim"
+  NVIM_BASE_DIR: "vim/.config/"
   STYLUA_BASE_DIR: "formatters/.config/stylua"
 
 jobs:
@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    strategy:
+      matrix:
+        config: ["nvim", "nvim-notes"]
     steps:
       - uses: actions/checkout@v6
       - uses: JohnnyMorganz/stylua-action@v5
@@ -19,4 +22,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v2.4.0
           args: >-
-            --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+            --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}${{ matrix.config }}
