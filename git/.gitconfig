@@ -55,3 +55,7 @@
 ;;;;;;; LOCAL CONFIG ;;;;;;;
 [include]
 	path = ~/.config/git/.gitconfig.local
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
