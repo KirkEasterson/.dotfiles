@@ -19,4 +19,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v2.4.0
           args: >-
-            --allow-hidden --check -f ${{ envSTYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+            --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
