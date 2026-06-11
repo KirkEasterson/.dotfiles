@@ -3,6 +3,7 @@
 [user]
 	email = kirk.easterson@gmail.com
 	name = Kirk Easterson
+	signingkey = 1C26F04C0686E499
 [github]
 	user = kirkeasterson
 [url "git@github.com:"]
