@@ -3,19 +3,19 @@
 # based on:
 #	- https://github.com/ThePrimeagen/.dotfiles/blob/602019e902634188ab06ea31251c01c1a43d1621/bin/.local/scripts/tmux-sessionizer
 
-base_path="${HOME}/dev"
+repos_path="${HOME}/dev"
 
 if [ $# -eq 1 ]; then
 	selected=$1
 else
 	selected=$(
-		find "$base_path" \
+		find "$repos_path" \
 			-mindepth 3 \
 			-maxdepth 4 \
 			-name .git \
 			-prune 2>/dev/null |
 			sed -e "s|\/.git$||" |
-			sed -e "s|^$base_path\/||" |
+			sed -e "s|^$repos_path\/||" |
 			fzf
 	)
 	if [ -z "$selected" ]; then
@@ -23,17 +23,20 @@ else
 	fi
 fi
 
-selected_fullpath="$base_path/$selected"
-selected_label=$(basename "$selected" | tr . _)
+repo_full_path="${repos_path}/${selected}"
+repo_org_full_path=$(dirname -z "$repo_full_path")
+repo_name=$(basename -z "$selected")
+org_name=$(basename -z "$repo_org_full_path")
+session_name="${org_name}/${repo_name}"
 
 # ensure session exists
 is_tmux_running=$(pgrep tmux)
-if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$selected_label" 2>/dev/null; then
-	tmux new-session -d -s "$selected_label" -c "$selected_fullpath"
+if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$session_name" 2>/dev/null; then
+	tmux new-session -d -s "$session_name" -c "$repo_full_path"
 fi
 
 if [ -n "$TMUX" ]; then # if inside tmux
-	tmux switch-client -t "$selected_label"
+	tmux switch-client -t "$session_name"
 else # if not inside tmux
-	tmux attach-session -t "$selected_label"
+	tmux attach-session -t "$session_name"
 fi
