@@ -20,6 +20,7 @@ vim.schedule(function()
       javascript = { "prettierd", "prettier", "eslint_d" },
       javascriptreact = { "prettierd", "prettier", "eslint_d" },
       json = { "prettier" },
+      ["json5"] = { "prettier" },
       jsonc = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
