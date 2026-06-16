@@ -24,9 +24,9 @@ else
 fi
 
 repo_full_path="${repos_path}/${selected}"
-repo_org_full_path=$(dirname -z "$repo_full_path")
-repo_name=$(basename -z "$selected")
-org_name=$(basename -z "$repo_org_full_path")
+repo_org_full_path=$(dirname "$repo_full_path")
+repo_name=$(basename "$selected")
+org_name=$(basename "$repo_org_full_path")
 session_name="${org_name}/${repo_name}"
 
 # ensure session exists
