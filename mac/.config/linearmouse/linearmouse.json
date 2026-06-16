@@ -34,6 +34,43 @@
         },
         "speed" : 0
       }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x8019",
+          "productName" : "ExpertBT5.0",
+          "vendorID" : "0x47d"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "acceleration" : 1,
+        "distance" : {
+          "horizontal" : "36px",
+          "vertical" : "39.3px"
+        },
+        "modifiers" : {
+          "vertical" : {
+            "command" : {
+              "type" : "pinchZoom"
+            },
+            "control" : {
+              "type" : "zoom"
+            }
+          }
+        },
+        "smoothed" : {
+          "enabled" : false
+        },
+        "speed" : 0
+      }
     }
   ]
 }
