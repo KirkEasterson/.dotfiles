@@ -71,6 +71,50 @@
         },
         "speed" : 0
       }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0x11c",
+          "productName" : "HUGE TrackBall",
+          "vendorID" : "0x56e"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "acceleration" : 1,
+        "distance" : "36px",
+        "modifiers" : {
+          "horizontal" : {
+            "option" : {
+              "scale" : 4,
+              "type" : "changeSpeed"
+            }
+          },
+          "vertical" : {
+            "command" : {
+              "type" : "pinchZoom"
+            },
+            "control" : {
+              "type" : "zoom"
+            },
+            "option" : {
+              "scale" : 4,
+              "type" : "changeSpeed"
+            }
+          }
+        },
+        "smoothed" : {
+          "enabled" : false
+        },
+        "speed" : 0
+      }
     }
   ]
 }
