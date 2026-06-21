@@ -76,4 +76,5 @@ firefox/*
 
 **/*node_modules*
 
-**/vale/styles
+**/vale/styles/*
+!**/vale/styles/config/
