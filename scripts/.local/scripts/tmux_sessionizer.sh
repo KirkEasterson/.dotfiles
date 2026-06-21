@@ -15,7 +15,7 @@ search_fd() {
 		--prune \
 		--type directory \
 		--base-directory "$repos_path" \
-		--glob ".git" 2>/dev/null
+		--glob ".git"
 }
 
 search_find() {
@@ -23,7 +23,7 @@ search_find() {
 		-mindepth 3 \
 		-maxdepth 4 \
 		-name .git \
-		-prune 2>/dev/null
+		-prune
 }
 
 search() {
