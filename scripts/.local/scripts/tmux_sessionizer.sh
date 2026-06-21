@@ -27,7 +27,7 @@ search_find() {
 }
 
 search() {
-	if [ -z "$(which fd)" ]; then
+	if [ -x "$(command -v fd)" ]; then
 		search_fd
 	else
 		search_find
