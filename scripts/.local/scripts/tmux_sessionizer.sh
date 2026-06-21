@@ -1,19 +1,44 @@
 #!/usr/bin/env sh
 
+set -eu
+
 # based on:
 #	- https://github.com/ThePrimeagen/.dotfiles/blob/602019e902634188ab06ea31251c01c1a43d1621/bin/.local/scripts/tmux-sessionizer
 
 repos_path="${HOME}/dev"
 
+search_fd() {
+	fd \
+		--hidden \
+		--min-depth 3 \
+		--max-depth 5 \
+		--prune \
+		--type directory \
+		--base-directory "$repos_path" \
+		--glob ".git" 2>/dev/null
+}
+
+search_find() {
+	find "$repos_path" \
+		-mindepth 3 \
+		-maxdepth 4 \
+		-name .git \
+		-prune 2>/dev/null
+}
+
+search() {
+	if [ -z "$(which fd)" ]; then
+		search_fd
+	else
+		search_find
+	fi
+}
+
 if [ $# -eq 1 ]; then
 	selected=$1
 else
 	selected=$(
-		find "$repos_path" \
-			-mindepth 3 \
-			-maxdepth 4 \
-			-name .git \
-			-prune 2>/dev/null |
+		search |
 			sed -e "s|\/.git$||" |
 			sed -e "s|^$repos_path\/||" |
 			fzf
