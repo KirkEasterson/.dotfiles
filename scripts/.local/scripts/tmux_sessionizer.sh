@@ -5,7 +5,7 @@ set -e
 # based on:
 #	- https://github.com/ThePrimeagen/.dotfiles/blob/602019e902634188ab06ea31251c01c1a43d1621/bin/.local/scripts/tmux-sessionizer
 
-repos_path="${HOME}/dev"
+repos_path="${HOME}/dev/"
 
 search_fd() {
 	fd \
@@ -48,7 +48,7 @@ else
 	fi
 fi
 
-session_path="${repos_path}/${selected}"
+session_path="${repos_path}${selected}"
 session_name=$(basename "$selected")
 
 # NOTE: tmux implicitly replaces `.` with `_` when creating sessions. attaching
