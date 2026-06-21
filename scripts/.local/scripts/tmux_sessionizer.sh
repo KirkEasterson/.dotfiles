@@ -48,11 +48,8 @@ else
 	fi
 fi
 
-repo_full_path="${repos_path}/${selected}"
-repo_org_full_path=$(dirname "$repo_full_path")
-repo_name=$(basename "$selected")
-org_name=$(basename "$repo_org_full_path")
-session_name="${org_name}/${repo_name}"
+session_path="${repos_path}/${selected}"
+session_name=$(basename "$selected")
 
 # NOTE: tmux implicitly replaces `.` with `_` when creating sessions. attaching
 # to the session will break without this. BUT, this must also be done while
@@ -63,7 +60,7 @@ session_name=$(echo "${session_name}" | sed 's/\./_/g')
 # ensure session exists
 is_tmux_running=$(pgrep tmux)
 if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$session_name" 2>/dev/null; then
-	tmux new-session -d -s "$session_name" -c "$repo_full_path"
+	tmux new-session -d -s "$session_name" -c "$session_path"
 fi
 
 if [ -n "$TMUX" ]; then # if inside tmux
