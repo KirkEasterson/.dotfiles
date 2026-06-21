@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -eu
+set -e
 
 # based on:
 #	- https://github.com/ThePrimeagen/.dotfiles/blob/602019e902634188ab06ea31251c01c1a43d1621/bin/.local/scripts/tmux-sessionizer
