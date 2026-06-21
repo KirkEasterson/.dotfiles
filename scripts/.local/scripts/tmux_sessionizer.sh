@@ -54,6 +54,12 @@ repo_name=$(basename "$selected")
 org_name=$(basename "$repo_org_full_path")
 session_name="${org_name}/${repo_name}"
 
+# NOTE: tmux implicitly replaces `.` with `_` when creating sessions. attaching
+# to the session will break without this. BUT, this must also be done while
+# creating the session. otherwise a session made from `.` cannot be connected
+# to when using `_`
+session_name=$(echo "${session_name}" | sed 's/\./_/g')
+
 # ensure session exists
 is_tmux_running=$(pgrep tmux)
 if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$session_name" 2>/dev/null; then
