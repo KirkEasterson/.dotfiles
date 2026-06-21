@@ -39,7 +39,7 @@ if [ $# -eq 1 ]; then
 else
 	selected=$(
 		search |
-			sed -e "s|\/.git$||" |
+			sed -e "s|\/.git[\/]\{0,1\}$||" |
 			sed -e "s|^$repos_path\/||" |
 			fzf
 	)
