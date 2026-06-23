@@ -115,6 +115,54 @@
         },
         "speed" : 0
       }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "productID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "serialNumber" : "FM7HE20B4JB0000DZU+ANEM",
+          "vendorID" : "0x0"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "modifiers" : {
+          "horizontal" : {
+            "command" : {
+              "type" : "pinchZoom"
+            },
+            "control" : {
+              "type" : "zoom"
+            },
+            "option" : {
+              "scale" : 4,
+              "type" : "changeSpeed"
+            },
+            "shift" : {
+              "type" : "auto"
+            }
+          },
+          "vertical" : {
+            "command" : {
+              "type" : "pinchZoom"
+            },
+            "control" : {
+              "type" : "zoom"
+            },
+            "option" : {
+              "scale" : 4,
+              "type" : "changeSpeed"
+            }
+          }
+        }
+      }
     }
   ]
 }
