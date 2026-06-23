@@ -133,17 +133,18 @@
         "disableAcceleration" : true
       },
       "scrolling" : {
+        "acceleration" : 1,
+        "distance" : "auto",
         "modifiers" : {
           "horizontal" : {
             "command" : {
-              "type" : "pinchZoom"
+              "type" : "auto"
             },
             "control" : {
-              "type" : "zoom"
+              "type" : "auto"
             },
             "option" : {
-              "scale" : 4,
-              "type" : "changeSpeed"
+              "type" : "auto"
             },
             "shift" : {
               "type" : "auto"
@@ -154,14 +155,21 @@
               "type" : "pinchZoom"
             },
             "control" : {
-              "type" : "zoom"
+              "type" : "auto"
             },
             "option" : {
+              "type" : "auto"
+            },
+            "shift" : {
               "scale" : 4,
               "type" : "changeSpeed"
             }
           }
-        }
+        },
+        "smoothed" : {
+          "enabled" : false
+        },
+        "speed" : 0
       }
     }
   ]
