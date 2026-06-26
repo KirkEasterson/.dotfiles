@@ -19,10 +19,6 @@ bold_italic = { family = "Iosevka Term Nerd Font Mono", style = "Bold Italic" }
 italic = { family = "Iosevka Term Nerd Font Mono", style = "Italic" }
 normal = { family = "Iosevka Term Nerd Font Mono", style = "Regular" }
 
-[env]
-# https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
-TERM = "xterm-256color"
-
 [keyboard]
 bindings = [
 	{ chars = "\u001B[27;3;9~", key = "Tab", mods = "Alt" },
