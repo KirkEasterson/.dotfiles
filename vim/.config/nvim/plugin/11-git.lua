@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.schedule(function()
   vim.pack.add({
     -- ALREADY LOADED DEPENDENCIES
-    -- "https://github.com/rmagatti/auto-session",
     -- "https://github.com/folke/snacks.nvim",
     -- "https://github.com/echasnovski/mini.icons",
 

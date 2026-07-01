@@ -1,85 +1,83 @@
-vim.schedule(function()
-  vim.pack.add({
-    { src = "https://github.com/folke/snacks.nvim", version = vim.version.range("*") },
-  })
+vim.pack.add({
+  { src = "https://github.com/folke/snacks.nvim", version = vim.version.range("*") },
+})
 
-  require("snacks").setup({
-    picker = {
-      enabled = true,
-      prompt = " ",
-      filename_bonus = true,
-      cwd_bonus = true,
-      layout = {
-        preset = "ivy_split",
-      },
+require("snacks").setup({
+  picker = {
+    enabled = true,
+    prompt = " ",
+    filename_bonus = true,
+    cwd_bonus = true,
+    layout = {
+      preset = "ivy_split",
     },
-    image = {
-      enabled = false,
-    },
+  },
+  image = {
+    enabled = false,
+  },
+})
+
+vim.keymap.set({ "n" }, "<leader>fk", function()
+  require("snacks").picker.keymaps()
+end, { desc = "Keymaps" })
+vim.keymap.set({ "n" }, "<leader>fm", function()
+  require("snacks").picker.marks()
+end, { desc = "Marks" })
+vim.keymap.set({ "n" }, "<leader>fq", function()
+  require("snacks").picker.qflist()
+end, { desc = "Quickfix list" })
+
+vim.keymap.set({ "n" }, "<leader>fh", function()
+  require("snacks").picker.help()
+end, { desc = "Help" })
+vim.keymap.set({ "n" }, "<leader>fH", function()
+  require("snacks").picker.highlights()
+end, { desc = "Marks" })
+
+vim.keymap.set({ "n" }, "<leader>ff", function()
+  require("snacks").picker.files({ hidden = true })
+end, { desc = "Files" })
+vim.keymap.set({ "n" }, "<leader>fb", function()
+  require("snacks").picker.buffers()
+end, { desc = "Buffers" })
+
+vim.keymap.set({ "n" }, "<leader>fB", function()
+  require("snacks").picker.lines()
+end, { desc = "Current buffer" })
+vim.keymap.set({ "n" }, "<leader>fg", function()
+  require("snacks").picker.grep({ hidden = true })
+end, { desc = "Grep" })
+vim.keymap.set({ "n", "v" }, "<leader>fG", function()
+  require("snacks").picker.grep_word({ hidden = true })
+end, { desc = "Grep word" })
+
+vim.keymap.set({ "n" }, "<leader>fd", function()
+  require("snacks").picker.diagnostics({ hidden = true })
+end, { desc = "Diagnostics" })
+vim.keymap.set({ "n" }, "<leader>fD", function()
+  require("snacks").picker.diagnostics_buffer({ hidden = true })
+end, { desc = "Buffer diagnostics" })
+
+vim.keymap.set({ "n" }, "<leader>fr", function()
+  require("snacks").picker.lsp_references()
+end, { desc = "LSP references" })
+vim.keymap.set({ "n" }, "<leader>fi", function()
+  require("snacks").picker.lsp_implementations()
+end, { desc = "LSP implementations" })
+vim.keymap.set({ "n" }, "<leader>fs", function()
+  require("snacks").picker.lsp_symbols()
+end, { desc = "LSP symbols" })
+vim.keymap.set({ "n" }, "<leader>fS", function()
+  require("snacks").picker.lsp_workspace_symbols()
+end, { desc = "LSP workspace symbols" })
+
+vim.keymap.set({ "n" }, "<leader>fl", function()
+  require("snacks").picker.git_log({
+    sort = { fields = { "idx" } },
   })
-
-  vim.keymap.set({ "n" }, "<leader>fk", function()
-    require("snacks").picker.keymaps()
-  end, { desc = "Keymaps" })
-  vim.keymap.set({ "n" }, "<leader>fm", function()
-    require("snacks").picker.marks()
-  end, { desc = "Marks" })
-  vim.keymap.set({ "n" }, "<leader>fq", function()
-    require("snacks").picker.qflist()
-  end, { desc = "Quickfix list" })
-
-  vim.keymap.set({ "n" }, "<leader>fh", function()
-    require("snacks").picker.help()
-  end, { desc = "Help" })
-  vim.keymap.set({ "n" }, "<leader>fH", function()
-    require("snacks").picker.highlights()
-  end, { desc = "Marks" })
-
-  vim.keymap.set({ "n" }, "<leader>ff", function()
-    require("snacks").picker.files({ hidden = true })
-  end, { desc = "Files" })
-  vim.keymap.set({ "n" }, "<leader>fb", function()
-    require("snacks").picker.buffers()
-  end, { desc = "Buffers" })
-
-  vim.keymap.set({ "n" }, "<leader>fB", function()
-    require("snacks").picker.lines()
-  end, { desc = "Current buffer" })
-  vim.keymap.set({ "n" }, "<leader>fg", function()
-    require("snacks").picker.grep({ hidden = true })
-  end, { desc = "Grep" })
-  vim.keymap.set({ "n", "v" }, "<leader>fG", function()
-    require("snacks").picker.grep_word({ hidden = true })
-  end, { desc = "Grep word" })
-
-  vim.keymap.set({ "n" }, "<leader>fd", function()
-    require("snacks").picker.diagnostics({ hidden = true })
-  end, { desc = "Diagnostics" })
-  vim.keymap.set({ "n" }, "<leader>fD", function()
-    require("snacks").picker.diagnostics_buffer({ hidden = true })
-  end, { desc = "Buffer diagnostics" })
-
-  vim.keymap.set({ "n" }, "<leader>fr", function()
-    require("snacks").picker.lsp_references()
-  end, { desc = "LSP references" })
-  vim.keymap.set({ "n" }, "<leader>fi", function()
-    require("snacks").picker.lsp_implementations()
-  end, { desc = "LSP implementations" })
-  vim.keymap.set({ "n" }, "<leader>fs", function()
-    require("snacks").picker.lsp_symbols()
-  end, { desc = "LSP symbols" })
-  vim.keymap.set({ "n" }, "<leader>fS", function()
-    require("snacks").picker.lsp_workspace_symbols()
-  end, { desc = "LSP workspace symbols" })
-
-  vim.keymap.set({ "n" }, "<leader>fl", function()
-    require("snacks").picker.git_log({
-      sort = { fields = { "idx" } },
-    })
-  end, { desc = "Git log" })
-  vim.keymap.set({ "n" }, "<leader>fL", function()
-    require("snacks").picker.git_log_file({
-      sort = { fields = { "idx" } },
-    })
-  end, { desc = "Git log file" })
-end)
+end, { desc = "Git log" })
+vim.keymap.set({ "n" }, "<leader>fL", function()
+  require("snacks").picker.git_log_file({
+    sort = { fields = { "idx" } },
+  })
+end, { desc = "Git log file" })
