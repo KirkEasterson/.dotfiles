@@ -1,4 +1,3 @@
--- vim.schedule(function()
 vim.pack.add({
   { src = "https://github.com/kevinhwang91/promise-async", version = vim.version.range("*") },
   { src = "https://github.com/kevinhwang91/nvim-ufo", version = vim.version.range("*") },
@@ -94,4 +93,3 @@ require("statuscol").setup({
     },
   },
 })
--- end)
