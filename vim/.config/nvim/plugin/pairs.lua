@@ -3,8 +3,8 @@ vim.schedule(function()
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
 
-    "https://github.com/windwp/nvim-autopairs",
-    "https://github.com/kylechui/nvim-surround",
+    { src = "https://github.com/windwp/nvim-autopairs", version = vim.version.range("*") },
+    { src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("*") },
   })
 
   local autopairs = require("nvim-autopairs")

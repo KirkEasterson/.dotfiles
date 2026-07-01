@@ -1,6 +1,6 @@
 vim.schedule(function()
   vim.pack.add({
-    "https://github.com/codethread/qmk.nvim",
+    { src = "https://github.com/codethread/qmk.nvim", version = vim.version.range("*") },
   })
 
   require("qmk").setup({

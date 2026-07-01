@@ -1,3 +1,3 @@
 vim.pack.add({
-  "https://github.com/tpope/vim-sleuth",
+  { src = "https://github.com/tpope/vim-sleuth", version = vim.version.range("*") },
 })

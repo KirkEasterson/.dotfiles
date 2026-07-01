@@ -1,6 +1,6 @@
 vim.schedule(function()
   vim.pack.add({
-    "https://github.com/tamton-aquib/duck.nvim",
+    { src = "https://github.com/tamton-aquib/duck.nvim", version = vim.version.range("*") },
   })
 
   vim.keymap.set({ "n" }, "<leader>dh", function()

@@ -13,11 +13,11 @@ vim.schedule(function()
   })
 
   vim.pack.add({
-    "https://github.com/Bilal2453/luvit-meta",
-    "https://github.com/gonstoll/wezterm-types",
-    "https://github.com/folke/lazydev.nvim",
-    "https://github.com/rafamadriz/friendly-snippets",
-    "https://github.com/L3MON4D3/LuaSnip",
+    { src = "https://github.com/Bilal2453/luvit-meta", version = vim.version.range("*") },
+    { src = "https://github.com/gonstoll/wezterm-types", version = vim.version.range("*") },
+    { src = "https://github.com/folke/lazydev.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/rafamadriz/friendly-snippets", version = vim.version.range("*") },
+    { src = "https://github.com/L3MON4D3/LuaSnip", version = vim.version.range("*") },
     { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
   })
 

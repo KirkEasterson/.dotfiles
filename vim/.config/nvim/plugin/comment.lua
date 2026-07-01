@@ -5,9 +5,9 @@ vim.schedule(function()
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
     -- "https://github.com/nvim-lua/plenary.nvim",
 
-    "https://github.com/numToStr/Comment.nvim",
-    "https://github.com/danymat/neogen",
-    "https://github.com/folke/todo-comments.nvim",
+    { src = "https://github.com/numToStr/Comment.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/danymat/neogen", version = vim.version.range("*") },
+    { src = "https://github.com/folke/todo-comments.nvim", version = vim.version.range("*") },
   })
 
   require("Comment").setup()

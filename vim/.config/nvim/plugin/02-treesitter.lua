@@ -18,8 +18,8 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
-  "https://github.com/nvim-treesitter/nvim-treesitter-context",
-  "https://github.com/folke/ts-comments.nvim",
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context", version = vim.version.range("*") },
+  { src = "https://github.com/folke/ts-comments.nvim", version = vim.version.range("*") },
 })
 
 vim.treesitter.language.register("markdown", "octo")

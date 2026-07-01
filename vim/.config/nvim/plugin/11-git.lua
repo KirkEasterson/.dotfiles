@@ -5,10 +5,10 @@ vim.schedule(function()
     -- "https://github.com/folke/snacks.nvim",
     -- "https://github.com/echasnovski/mini.icons",
 
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/ruifm/gitlinker.nvim",
-    "https://github.com/lewis6991/gitsigns.nvim",
-    "https://github.com/sindrets/diffview.nvim",
+    { src = "https://github.com/nvim-lua/plenary.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/ruifm/gitlinker.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/sindrets/diffview.nvim", version = vim.version.range("*") },
     { src = "https://github.com/kirkeasterson/neogit", version = "dev" },
   })
 

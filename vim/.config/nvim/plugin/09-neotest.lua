@@ -17,12 +17,12 @@ vim.schedule(function()
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
     -- "https://github.com/rcarriga/nvim-dap-ui",
 
-    "https://github.com/nvim-neotest/nvim-nio",
-    "https://github.com/antoinemadec/FixCursorHold.nvim",
-    "https://github.com/fredrikaverpil/neotest-golang",
-    -- "https://github.com/marilari88/neotest-vitest",
-    -- "https://github.com/rouge8/neotest-rust",
-    -- "https://github.com/lawrence-laz/neotest-zig",
+    { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
+    { src = "https://github.com/antoinemadec/FixCursorHold.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/fredrikaverpil/neotest-golang", version = vim.version.range("*") },
+    -- { src = "https://github.com/marilari88/neotest-vitest", version = vim.version.range("*") },
+    -- { src = "https://github.com/rouge8/neotest-rust", version = vim.version.range("*") },
+    -- { src = "https://github.com/lawrence-laz/neotest-zig", version = vim.version.range("*") },
 
     "https://github.com/nvim-neotest/neotest",
   })

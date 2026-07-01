@@ -1,6 +1,6 @@
 vim.schedule(function()
   vim.pack.add({
-    "https://github.com/folke/which-key.nvim",
+    { src = "https://github.com/folke/which-key.nvim", version = vim.version.range("*") },
   })
 
   require("which-key").setup({

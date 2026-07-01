@@ -3,8 +3,8 @@ vim.schedule(function()
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/williamboman/mason.nvim",
 
-    "https://github.com/stevearc/conform.nvim",
-    "https://github.com/zapling/mason-conform.nvim",
+    { src = "https://github.com/stevearc/conform.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/zapling/mason-conform.nvim", version = vim.version.range("*") },
   })
 
   require("conform").setup({

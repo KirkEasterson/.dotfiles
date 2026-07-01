@@ -1,4 +1,6 @@
-vim.pack.add({ "https://github.com/rmagatti/auto-session" })
+vim.pack.add({
+  { src = "https://github.com/rmagatti/auto-session", version = vim.version.range("*") },
+})
 
 require("auto-session").setup({
   log_level = vim.log.levels.ERROR,

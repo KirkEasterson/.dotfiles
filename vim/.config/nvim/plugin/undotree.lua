@@ -7,7 +7,7 @@
 -- end, { desc = "Undo tree" })
 
 vim.pack.add({
-  "https://github.com/mbbill/undotree",
+  { src = "https://github.com/mbbill/undotree", version = vim.version.range("*") },
 })
 
 vim.g.undotree_ShortIndicators = 1

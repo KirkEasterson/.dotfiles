@@ -1,6 +1,6 @@
 vim.schedule(function()
   vim.pack.add({
-    "https://github.com/monaqa/dial.nvim",
+    { src = "https://github.com/monaqa/dial.nvim", version = vim.version.range("*") },
   })
 
   local augend = require("dial.augend")

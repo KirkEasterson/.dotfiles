@@ -1,9 +1,9 @@
 vim.schedule(function()
   vim.pack.add({
-    "https://github.com/kevinhwang91/promise-async",
-    "https://github.com/kevinhwang91/nvim-ufo",
-    "https://github.com/lewis6991/gitsigns.nvim",
-    "https://github.com/luukvbaal/statuscol.nvim",
+    { src = "https://github.com/kevinhwang91/promise-async", version = vim.version.range("*") },
+    { src = "https://github.com/kevinhwang91/nvim-ufo", version = vim.version.range("*") },
+    { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/luukvbaal/statuscol.nvim", version = vim.version.range("*") },
   })
 
   vim.api.nvim_set_hl(0, "FoldColumn", { fg = "#888888" })

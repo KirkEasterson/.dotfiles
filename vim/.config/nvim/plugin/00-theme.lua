@@ -1,8 +1,8 @@
 vim.pack.add({
-  "https://github.com/Tsuzat/NeoSolarized.nvim",
-  "https://github.com/nvim-mini/mini.icons",
-  "https://github.com/NvChad/nvim-colorizer.lua",
-  "https://github.com/lukas-reineke/indent-blankline.nvim",
+  { src = "https://github.com/Tsuzat/NeoSolarized.nvim", version = vim.version.range("*") },
+  { src = "https://github.com/nvim-mini/mini.icons", version = vim.version.range("*") },
+  { src = "https://github.com/NvChad/nvim-colorizer.lua", version = vim.version.range("*") },
+  { src = "https://github.com/lukas-reineke/indent-blankline.nvim", version = vim.version.range("*") },
 })
 
 require("NeoSolarized").setup({
