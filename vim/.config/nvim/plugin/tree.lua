@@ -2,89 +2,87 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.schedule(function()
-  vim.pack.add({
-    -- ALREADY LOADED DEPENDENCIES
-    -- "https://github.com/echasnovski/mini.icons",
+vim.pack.add({
+  -- ALREADY LOADED DEPENDENCIES
+  -- "https://github.com/echasnovski/mini.icons",
 
-    { src = "https://github.com/nvim-tree/nvim-tree.lua", version = vim.version.range("*") },
-  })
+  { src = "https://github.com/nvim-tree/nvim-tree.lua", version = vim.version.range("*") },
+})
 
-  require("nvim-tree").setup({
-    on_attach = function(bufnr)
-      local api = require("nvim-tree.api")
-      local function opts(desc)
-        return {
-          desc = "nvim-tree: " .. desc,
-          buffer = bufnr,
-          noremap = true,
-          silent = true,
-          nowait = true,
-        }
-      end
+require("nvim-tree").setup({
+  on_attach = function(bufnr)
+    local api = require("nvim-tree.api")
+    local function opts(desc)
+      return {
+        desc = "nvim-tree: " .. desc,
+        buffer = bufnr,
+        noremap = true,
+        silent = true,
+        nowait = true,
+      }
+    end
 
-      api.map.on_attach.default(bufnr)
-      vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
-      vim.keymap.set("n", "[d", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
-      vim.keymap.set("n", "]d", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
-    end,
-    sort_by = "case_sensitive",
-    sync_root_with_cwd = true,
-    respect_buf_cwd = true,
-    disable_netrw = true,
-    update_focused_file = {
+    api.map.on_attach.default(bufnr)
+    vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
+    vim.keymap.set("n", "[d", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
+    vim.keymap.set("n", "]d", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
+  end,
+  sort_by = "case_sensitive",
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  disable_netrw = true,
+  update_focused_file = {
+    enable = true,
+    update_root = {
       enable = true,
-      update_root = {
-        enable = true,
+    },
+  },
+  view = {
+    adaptive_size = false,
+    side = "right",
+    signcolumn = "yes",
+    number = false,
+    relativenumber = false,
+  },
+  renderer = {
+    add_trailing = true,
+    highlight_git = "all",
+    highlight_modified = "all",
+    icons = {
+      git_placement = "after",
+      modified_placement = "after",
+      show = {
+        folder_arrow = false,
       },
     },
-    view = {
-      adaptive_size = false,
-      side = "right",
-      signcolumn = "yes",
-      number = false,
-      relativenumber = false,
-    },
-    renderer = {
-      add_trailing = true,
-      highlight_git = "all",
-      highlight_modified = "all",
+    indent_markers = {
+      enable = true,
       icons = {
-        git_placement = "after",
-        modified_placement = "after",
-        show = {
-          folder_arrow = false,
-        },
-      },
-      indent_markers = {
-        enable = true,
-        icons = {
-          corner = "└",
-          edge = "│",
-          item = "├",
-          bottom = "─",
-          none = " ",
-        },
+        corner = "└",
+        edge = "│",
+        item = "├",
+        bottom = "─",
+        none = " ",
       },
     },
-    diagnostics = {
-      enable = true,
-      show_on_dirs = true,
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
+  git = {
+    ignore = false,
+  },
+  actions = {
+    change_dir = {
+      enable = false,
     },
-    git = {
-      ignore = false,
-    },
-    actions = {
-      change_dir = {
-        enable = false,
-      },
-    },
-    notify = {
-      threshold = vim.log.levels.WARN,
-    },
-  })
+  },
+  notify = {
+    threshold = vim.log.levels.WARN,
+  },
+})
 
-  vim.keymap.set({ "n" }, "<leader>e", function()
-    require("nvim-tree.api").tree.toggle()
-  end, { desc = "File tree" })
-end)
+vim.keymap.set({ "n" }, "<leader>e", function()
+  require("nvim-tree.api").tree.toggle()
+end, { desc = "File tree" })
