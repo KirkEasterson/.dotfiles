@@ -9,9 +9,6 @@ vim.schedule(function()
     { src = "https://github.com/antosha417/nvim-lsp-file-operations", version = vim.version.range("*") },
   })
 
-  -- semantic tokens should be less than treesitter
-  vim.highlight.priorities.semantic_tokens = 95
-
   require("lspconfig.ui.windows").default_options.border = "rounded"
 
   require("lsp-file-operations").setup()
