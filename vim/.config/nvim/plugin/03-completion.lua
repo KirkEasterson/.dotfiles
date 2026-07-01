@@ -1,17 +1,17 @@
-vim.schedule(function()
-  local group = vim.api.nvim_create_augroup("LuasnipSetup", { clear = true })
-  vim.api.nvim_create_autocmd("PackChanged", {
-    group = group,
-    desc = "Build luasnip",
-    callback = function(ev)
-      local name, kind = ev.data.spec.name, ev.data.kind
-      if name == "LuaSnip" and (kind == "update" or kind == "install") then
-        -- TODO: check that this is correct
-        vim.cmd("make install_jsregexp")
-      end
-    end,
-  })
+local group = vim.api.nvim_create_augroup("LuasnipSetup", { clear = true })
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = group,
+  desc = "Build luasnip",
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == "LuaSnip" and (kind == "update" or kind == "install") then
+      -- TODO: check that this is correct
+      vim.cmd("make install_jsregexp")
+    end
+  end,
+})
 
+vim.schedule(function()
   vim.pack.add({
     { src = "https://github.com/Bilal2453/luvit-meta", version = vim.version.range("*") },
     { src = "https://github.com/gonstoll/wezterm-types", version = vim.version.range("*") },

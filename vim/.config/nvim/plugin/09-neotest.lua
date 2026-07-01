@@ -1,16 +1,16 @@
-vim.schedule(function()
-  local group = vim.api.nvim_create_augroup("NeotestSetup", { clear = true })
-  vim.api.nvim_create_autocmd("PackChanged", {
-    group = group,
-    desc = "Build neotest-golang",
-    callback = function(ev)
-      local name, kind = ev.data.spec.name, ev.data.kind
-      if name == "neotest-golang" and (kind == "update" or kind == "install") then
-        vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
-      end
-    end,
-  })
+local group = vim.api.nvim_create_augroup("NeotestSetup", { clear = true })
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = group,
+  desc = "Build neotest-golang",
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == "neotest-golang" and (kind == "update" or kind == "install") then
+      vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
+    end
+  end,
+})
 
+vim.schedule(function()
   vim.pack.add({
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/nvim-lua/plenary.nvim",
