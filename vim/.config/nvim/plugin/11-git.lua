@@ -1,3 +1,15 @@
+local group = vim.api.nvim_create_augroup("DiffviewSetup", { clear = true })
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = group,
+  desc = "Install jsregexp",
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == "diffview" and (kind == "update" or kind == "install") then
+      vim.cmd("make install_jsregexp")
+    end
+  end,
+})
+
 vim.schedule(function()
   vim.pack.add({
     -- ALREADY LOADED DEPENDENCIES
