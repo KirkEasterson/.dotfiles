@@ -18,7 +18,10 @@
       },
       "scrolling" : {
         "acceleration" : 1,
-        "distance" : "36px",
+        "distance" : {
+          "horizontal" : "36px",
+          "vertical" : 1
+        },
         "modifiers" : {
           "vertical" : {
             "command" : {
@@ -26,6 +29,10 @@
             },
             "control" : {
               "type" : "zoom"
+            },
+            "shift" : {
+              "scale" : 4,
+              "type" : "changeSpeed"
             }
           }
         },
@@ -107,6 +114,9 @@
             "option" : {
               "scale" : 4,
               "type" : "changeSpeed"
+            },
+            "shift" : {
+              "type" : "ignore"
             }
           }
         },
