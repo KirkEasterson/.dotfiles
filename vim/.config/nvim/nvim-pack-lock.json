@@ -153,7 +153,7 @@
       "version": "'dev'"
     },
     "neotest": {
-      "rev": "ff5437f7d9af801917bed119082934b0eb6ee0e9",
+      "rev": "fb84d87285698f7055f618083c351984449119b8",
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
@@ -217,7 +217,7 @@
       "version": ">=0.0.0"
     },
     "nvim-tree.lua": {
-      "rev": "85d1145ac71c1b8e1423862c78165a1f609faf60",
+      "rev": "531b807b8f0d6f75016a0ee1e0cd5ce2086e9d95",
       "src": "https://github.com/nvim-tree/nvim-tree.lua",
       "version": ">=0.0.0"
     },
