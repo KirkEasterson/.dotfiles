@@ -58,6 +58,7 @@ keybindings:
   issues: []
   prs:
     - key: i
+      name: tmux-checkout
       command: |
         tmux new-window -c {{.RepoPath}}
         'gh pr checkout {{.PrNumber}} &&
