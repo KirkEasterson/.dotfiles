@@ -29,6 +29,9 @@ macos-secure-input-indication = true
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = native
 macos-window-shadow = false
+macos-dock-drop-behavior = new-window
+macos-applescript = false
+macos-shortcuts = deny
 
 keybind = clear
 keybind = performable:ctrl+shift+c=copy_to_clipboard
