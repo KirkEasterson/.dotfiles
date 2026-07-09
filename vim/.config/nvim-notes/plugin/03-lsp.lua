@@ -1,10 +1,10 @@
 vim.schedule(function()
   vim.pack.add({
-    "https://github.com/williamboman/mason.nvim",
-    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/williamboman/mason-lspconfig.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/antosha417/nvim-lsp-file-operations",
+    { src = "https://github.com/williamboman/mason.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/neovim/nvim-lspconfig", version = vim.version.range("*") },
+    { src = "https://github.com/williamboman/mason-lspconfig.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/nvim-lua/plenary.nvim", version = vim.version.range("*") },
+    { src = "https://github.com/antosha417/nvim-lsp-file-operations", version = vim.version.range("*") },
   })
 
   require("mason").setup({

@@ -3,7 +3,7 @@ vim.schedule(function()
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/echasnovski/mini.icons",
 
-    "https://github.com/nvim-lualine/lualine.nvim",
+    { src = "https://github.com/nvim-lualine/lualine.nvim", version = vim.version.range("*") },
   })
 
   require("lualine").setup({

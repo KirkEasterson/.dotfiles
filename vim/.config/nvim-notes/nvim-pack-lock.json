@@ -2,55 +2,66 @@
   "plugins": {
     "NeoSolarized.nvim": {
       "rev": "3c55ad358c062aa4879950c4f83b4deeac6b72df",
-      "src": "https://github.com/Tsuzat/NeoSolarized.nvim"
+      "src": "https://github.com/Tsuzat/NeoSolarized.nvim",
+      "version": ">=0.0.0"
     },
     "conform.nvim": {
-      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
-      "src": "https://github.com/stevearc/conform.nvim"
+      "rev": "3543d000dafbc41cc7761d860cfdb24e82154f75",
+      "src": "https://github.com/stevearc/conform.nvim",
+      "version": ">=0.0.0"
     },
     "live-preview.nvim": {
-      "rev": "c1fcf75c5f9c9c01dd392852de44204b60f1b5b1",
+      "rev": "5977060965161f7b3be3166467d03e09d10c68ea",
       "src": "https://github.com/brianhuster/live-preview.nvim"
     },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
+      "src": "https://github.com/nvim-lualine/lualine.nvim",
+      "version": ">=0.0.0"
     },
     "markdown-plus.nvim": {
-      "rev": "007a9fbeea104180aa63cf4770050a989d2fd45f",
+      "rev": "59075587b4540abd5fac68232c39d5a46db6d44c",
       "src": "https://github.com/yousefhadder/markdown-plus.nvim"
     },
     "mason-conform.nvim": {
       "rev": "48da2ebd5efbaf8a99566eadc3ece82d523f03c5",
-      "src": "https://github.com/zapling/mason-conform.nvim"
+      "src": "https://github.com/zapling/mason-conform.nvim",
+      "version": ">=0.0.0"
     },
     "mason-lspconfig.nvim": {
-      "rev": "0a695750d747db1e7e70bcf0267ef8951c95fc83",
-      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+      "rev": "a5671269a1ddfa7790cdf97c14e600e269da550f",
+      "src": "https://github.com/williamboman/mason-lspconfig.nvim",
+      "version": ">=0.0.0"
     },
     "mason-nvim-lint": {
-      "rev": "cafbc5d82d8eb4af0daf0057332a325ddf2f436b",
-      "src": "https://github.com/rshkarin/mason-nvim-lint"
+      "rev": "b579a00ee39dcd590b1023028dc8fb3d203a67b0",
+      "src": "https://github.com/rshkarin/mason-nvim-lint",
+      "version": ">=0.0.0"
     },
     "mason.nvim": {
-      "rev": "16ba83bfc8a25f52bb545134f5bee082b195c460",
-      "src": "https://github.com/williamboman/mason.nvim"
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
+      "src": "https://github.com/williamboman/mason.nvim",
+      "version": ">=0.0.0"
     },
     "mini.icons": {
-      "rev": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",
-      "src": "https://github.com/nvim-mini/mini.icons"
+      "rev": "e56797f90192d81f1fda02e662fc3e8e3d775027",
+      "src": "https://github.com/nvim-mini/mini.icons",
+      "version": ">=0.0.0"
     },
     "nvim-lint": {
-      "rev": "99cbc3ca8a76845fca50e496be7212bebf907dd3",
-      "src": "https://github.com/mfussenegger/nvim-lint"
+      "rev": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
+      "src": "https://github.com/mfussenegger/nvim-lint",
+      "version": ">=0.0.0"
     },
     "nvim-lsp-file-operations": {
       "rev": "b9c795d3973e8eec22706af14959bc60c579e771",
-      "src": "https://github.com/antosha417/nvim-lsp-file-operations"
+      "src": "https://github.com/antosha417/nvim-lsp-file-operations",
+      "version": ">=0.0.0"
     },
     "nvim-lspconfig": {
       "rev": "229b79051b380377664edc4cbd534930154921a1",
-      "src": "https://github.com/neovim/nvim-lspconfig"
+      "src": "https://github.com/neovim/nvim-lspconfig",
+      "version": ">=0.0.0"
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
@@ -58,11 +69,12 @@
       "version": "'main'"
     },
     "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
+      "rev": "50012918b2fc8357b87cff2a7f7f0446e47da174",
+      "src": "https://github.com/nvim-lua/plenary.nvim",
+      "version": ">=0.0.0"
     },
     "render-markdown.nvim": {
-      "rev": "5adf0895310c1904e5abfaad40a2baad7fe44a07",
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
       "src": "git@github.com:MeanderingProgrammer/render-markdown.nvim"
     }
   }
