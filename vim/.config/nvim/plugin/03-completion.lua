@@ -73,6 +73,9 @@ vim.schedule(function()
       },
     },
     completion = {
+      ghost_text = {
+        enabled = false,
+      },
       accept = {
         auto_brackets = {
           enabled = false,
