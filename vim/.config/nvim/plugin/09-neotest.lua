@@ -91,7 +91,7 @@ vim.schedule(function()
   end, { desc = "Debug test" })
 
   vim.keymap.set({ "n" }, "<leader>tt", function()
-    require("neotest").summary.toggle({ enter = true })
+    require("neotest").summary.toggle()
     require("neotest").output_panel.toggle()
   end, { desc = "Toggle test panel" })
   vim.keymap.set({ "n" }, "<leader>ts", function()
