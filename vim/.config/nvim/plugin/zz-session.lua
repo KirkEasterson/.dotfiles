@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = "https://github.com/rmagatti/auto-session", version = vim.version.range("*") },
+  "https://github.com/rmagatti/auto-session", -- TODO: add stable version when new release is made
 })
 
 require("auto-session").setup({
