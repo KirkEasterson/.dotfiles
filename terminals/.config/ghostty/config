@@ -6,6 +6,8 @@ font-family = "IosevkaTerm Nerd Font Mono"
 font-feature = "-calt,-liga,-dlig"
 font-thicken = true
 font-thicken-strength = "200"
+adjust-cell-height=-15%
+adjust-cell-width=-5%
 
 quit-after-last-window-closed = true
 mouse-hide-while-typing = true
