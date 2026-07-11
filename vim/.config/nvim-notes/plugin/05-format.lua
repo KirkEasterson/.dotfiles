@@ -4,7 +4,7 @@ vim.schedule(function()
     -- "https://github.com/williamboman/mason.nvim",
 
     { src = "https://github.com/stevearc/conform.nvim", version = vim.version.range("*") },
-    { src = "https://github.com/zapling/mason-conform.nvim", version = vim.version.range("*") },
+     "https://github.com/zapling/mason-conform.nvim",
   })
 
   require("conform").setup({

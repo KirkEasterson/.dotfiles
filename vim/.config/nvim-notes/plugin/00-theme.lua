@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = "https://github.com/Tsuzat/NeoSolarized.nvim", version = vim.version.range("*") },
+   "https://github.com/Tsuzat/NeoSolarized.nvim",
   { src = "https://github.com/nvim-mini/mini.icons", version = vim.version.range("*") },
 })
 
