@@ -5,7 +5,7 @@ vim.schedule(function()
 
     { src = "https://github.com/neovim/nvim-lspconfig", version = vim.version.range("*") },
     { src = "https://github.com/williamboman/mason-lspconfig.nvim", version = vim.version.range("*") },
-    { src = "https://github.com/nvim-lua/plenary.nvim", version = vim.version.range("*") },
+    "https://github.com/nvim-lua/plenary.nvim", -- TODO: use a stable version once there's a new release
     { src = "https://github.com/antosha417/nvim-lsp-file-operations", version = vim.version.range("*") },
   })
 

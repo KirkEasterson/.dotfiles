@@ -9,7 +9,7 @@ vim.schedule(function()
     { src = "https://github.com/jay-babu/mason-nvim-dap.nvim", version = vim.version.range("*") },
     { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
     { src = "https://github.com/theHamsta/nvim-dap-virtual-text", version = vim.version.range("*") },
-    { src = "https://github.com/rcarriga/nvim-dap-ui", version = vim.version.range("*") },
+    "https://github.com/rcarriga/nvim-dap-ui", -- TODO: use a stable version once there's a new release
     { src = "https://github.com/Weissle/persistent-breakpoints.nvim", version = vim.version.range("*") },
   })
 

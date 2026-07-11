@@ -21,9 +21,8 @@
       "version": ">=0.0.0"
     },
     "auto-session": {
-      "rev": "79ef41274354a486cf4f100a7adf4a7575802ccf",
-      "src": "https://github.com/rmagatti/auto-session",
-      "version": ">=0.0.0"
+      "rev": "6cde3874a9283c2db55627acca5f28e4fa402320",
+      "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
@@ -89,9 +88,8 @@
       "version": ">=0.0.0"
     },
     "live-command.nvim": {
-      "rev": "b0723697bf60d89ede953c4a5fedce3157784c15",
-      "src": "https://github.com/smjonas/live-command.nvim",
-      "version": ">=0.0.0"
+      "rev": "fc8c36d7e5b96945fbc52af7029facc317a47377",
+      "src": "https://github.com/smjonas/live-command.nvim"
     },
     "live-preview.nvim": {
       "rev": "5977060965161f7b3be3166467d03e09d10c68ea",
@@ -182,9 +180,8 @@
       "version": ">=0.0.0"
     },
     "nvim-dap-ui": {
-      "rev": "f7d75cca202b52a60c520ec7b1ec3414d6e77b0f",
-      "src": "https://github.com/rcarriga/nvim-dap-ui",
-      "version": ">=0.0.0"
+      "rev": "1a66cabaa4a4da0be107d5eda6d57242f0fe7e49",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
     "nvim-dap-virtual-text": {
       "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
@@ -247,9 +244,8 @@
       "version": ">=0.0.0"
     },
     "plenary.nvim": {
-      "rev": "50012918b2fc8357b87cff2a7f7f0446e47da174",
-      "src": "https://github.com/nvim-lua/plenary.nvim",
-      "version": ">=0.0.0"
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "promise-async": {
       "rev": "38a4575da9497326badd3995e768b4ccf0bb153e",

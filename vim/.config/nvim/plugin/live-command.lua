@@ -1,6 +1,6 @@
 vim.schedule(function()
   vim.pack.add({
-    { src = "https://github.com/smjonas/live-command.nvim", version = vim.version.range("*") },
+    "https://github.com/smjonas/live-command.nvim", -- TODO: use a stable version once there's a new release
   })
 
   require("live-command").setup({

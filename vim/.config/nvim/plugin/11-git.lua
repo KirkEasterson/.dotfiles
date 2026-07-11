@@ -15,8 +15,8 @@ vim.schedule(function()
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/folke/snacks.nvim",
     -- "https://github.com/echasnovski/mini.icons",
+    -- "https://github.com/nvim-lua/plenary.nvim"
 
-    { src = "https://github.com/nvim-lua/plenary.nvim", version = vim.version.range("*") },
     { src = "https://github.com/ruifm/gitlinker.nvim", version = vim.version.range("*") },
     { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
     { src = "https://github.com/sindrets/diffview.nvim", version = vim.version.range("*") },
