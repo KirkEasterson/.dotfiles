@@ -1,15 +1,11 @@
 vim.pack.add({
-  { src = "https://github.com/Tsuzat/NeoSolarized.nvim", version = vim.version.range("*") },
+  "https://github.com/RRethy/base16-nvim",
   { src = "https://github.com/nvim-mini/mini.icons", version = vim.version.range("*") },
   { src = "https://github.com/NvChad/nvim-colorizer.lua", version = vim.version.range("*") },
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim", version = vim.version.range("*") },
 })
 
-require("NeoSolarized").setup({
-  terminal_colors = false,
-})
-
-vim.cmd.colorscheme("NeoSolarized")
+vim.cmd("colorscheme base16-colors")
 
 local mini_icons = require("mini.icons")
 mini_icons.setup()

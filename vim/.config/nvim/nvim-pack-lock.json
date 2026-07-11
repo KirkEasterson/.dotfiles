@@ -15,14 +15,13 @@
       "src": "https://github.com/L3MON4D3/LuaSnip",
       "version": ">=0.0.0"
     },
-    "NeoSolarized.nvim": {
-      "rev": "3c55ad358c062aa4879950c4f83b4deeac6b72df",
-      "src": "https://github.com/Tsuzat/NeoSolarized.nvim",
-      "version": ">=0.0.0"
-    },
     "auto-session": {
       "rev": "6cde3874a9283c2db55627acca5f28e4fa402320",
       "src": "https://github.com/rmagatti/auto-session"
+    },
+    "base16-nvim": {
+      "rev": "21233d5fd574439ae1e2f5e4bfbc574214f4ab3d",
+      "src": "https://github.com/RRethy/base16-nvim"
     },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
