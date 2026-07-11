@@ -2,6 +2,10 @@ local g = vim.g
 local opt = vim.opt
 local o = vim.o
 
+-- Used to suppress deprecation warnings from plugins. This should occasionally
+-- be toggled to ensure there is no deprecated code in this config.
+vim.deprecate = function() end
+
 g.mapleader = " " -- prefix key
 g.maplocalleader = " " -- secondary prefix key
 
