@@ -1,6 +1,6 @@
 vim.schedule(function()
   vim.pack.add({
-    { src = "https://github.com/chentoast/marks.nvim", version = vim.version.range("*") },
+    "https://github.com/chentoast/marks.nvim",
   })
 
   require("marks").setup({

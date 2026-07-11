@@ -18,7 +18,7 @@ vim.schedule(function()
     -- "https://github.com/rcarriga/nvim-dap-ui",
 
     { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
-    { src = "https://github.com/antoinemadec/FixCursorHold.nvim", version = vim.version.range("*") },
+    "https://github.com/antoinemadec/FixCursorHold.nvim",
     { src = "https://github.com/fredrikaverpil/neotest-golang", version = vim.version.range("*") },
     -- { src = "https://github.com/marilari88/neotest-vitest", version = vim.version.range("*") },
     -- { src = "https://github.com/rouge8/neotest-rust", version = vim.version.range("*") },

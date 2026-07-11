@@ -4,13 +4,13 @@ vim.schedule(function()
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
     -- "https://github.com/williamboman/mason.nvim",
 
-    { src = "https://github.com/leoluz/nvim-dap-go", version = vim.version.range("*") },
+    "https://github.com/leoluz/nvim-dap-go",
     { src = "https://github.com/mfussenegger/nvim-dap", version = vim.version.range("*") },
     { src = "https://github.com/jay-babu/mason-nvim-dap.nvim", version = vim.version.range("*") },
     { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
-    { src = "https://github.com/theHamsta/nvim-dap-virtual-text", version = vim.version.range("*") },
+    "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/rcarriga/nvim-dap-ui", -- TODO: use a stable version once there's a new release
-    { src = "https://github.com/Weissle/persistent-breakpoints.nvim", version = vim.version.range("*") },
+    "https://github.com/Weissle/persistent-breakpoints.nvim",
   })
 
   vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "red" })

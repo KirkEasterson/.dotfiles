@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = "https://github.com/nvim-lualine/lualine.nvim", version = vim.version.range("*") },
+  "https://github.com/nvim-lualine/lualine.nvim",
 })
 
 require("lualine").setup({

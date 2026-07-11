@@ -1,7 +1,7 @@
 vim.schedule(function()
   vim.pack.add({
-    { src = "https://github.com/aserowy/tmux.nvim", version = vim.version.range("*") },
-    { src = "https://github.com/sindrets/winshift.nvim", version = vim.version.range("*") },
+    "https://github.com/aserowy/tmux.nvim",
+    "https://github.com/sindrets/winshift.nvim",
   })
 
   require("tmux").setup({

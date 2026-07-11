@@ -1,7 +1,7 @@
 vim.pack.add({
   "https://github.com/RRethy/base16-nvim",
   { src = "https://github.com/nvim-mini/mini.icons", version = vim.version.range("*") },
-  { src = "https://github.com/NvChad/nvim-colorizer.lua", version = vim.version.range("*") },
+  "https://github.com/NvChad/nvim-colorizer.lua",
   { src = "https://github.com/lukas-reineke/indent-blankline.nvim", version = vim.version.range("*") },
 })
 

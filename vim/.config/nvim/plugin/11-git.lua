@@ -17,9 +17,9 @@ vim.schedule(function()
     -- "https://github.com/echasnovski/mini.icons",
     -- "https://github.com/nvim-lua/plenary.nvim"
 
-    { src = "https://github.com/ruifm/gitlinker.nvim", version = vim.version.range("*") },
+    "https://github.com/ruifm/gitlinker.nvim",
     { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
-    { src = "https://github.com/sindrets/diffview.nvim", version = vim.version.range("*") },
+    "https://github.com/sindrets/diffview.nvim",
     { src = "https://github.com/kirkeasterson/neogit", version = "dev" },
   })
 
