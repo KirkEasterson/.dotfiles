@@ -133,6 +133,7 @@ vim.schedule(function()
     auto_show_console = false,
     console_timeout = 5000,
     disable_commit_confirmation = true,
+    treesitter_diff_highlight= true,
     disable_hint = true,
     disable_insert_on_commit = false, -- start commits in insert mode
     prompt_amend_commit = false, -- no confirmation for already published commits
