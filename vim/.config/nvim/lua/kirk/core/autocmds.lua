@@ -159,3 +159,34 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
+
+local makeprg_group = vim.api.nvim_create_augroup("MakePrg", {})
+vim.api.nvim_create_autocmd("User", {
+  desc = "Set makeprg",
+  group = makeprg_group,
+  once = true,
+  pattern = { "*" },
+  callback = function()
+    -- these are set in order of priority
+    local makeprgs = {
+      { marker = "Makefile", cmd = "make" },
+      { marker = "go.mod", cmd = "go build" },
+      { marker = "build.zig", cmd = "zig build" },
+      { marker = "Cargo.toml", cmd = "cargo build" },
+      { marker = "package.json", cmd = "npm run" },
+    }
+    local current_dir = vim.fn.expand("%:p:h")
+    local stopdir = vim.fs.root(current_dir, ".git") or vim.uv.os_homedir()
+    for _, item in ipairs(makeprgs) do
+      local found = vim.fs.find(item.marker, {
+        path = current_dir,
+        upward = true,
+        stop = stopdir,
+      })
+      if #found > 0 then
+        vim.o.makeprg = item.cmd
+        break
+      end
+    end
+  end,
+})
