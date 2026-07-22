@@ -23,7 +23,7 @@ vim.pack.add({
   -- "https://github.com/echasnovski/mini.icons",
   -- "https://github.com/nvim-lua/plenary.nvim"
 
-  "https://github.com/sindrets/diffview.nvim",
+  "https://github.com/dlyongemallo/diffview-plus.nvim",
   "https://github.com/ruifm/gitlinker.nvim",
   { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
   { src = "https://github.com/kirkeasterson/neogit", version = "dev" },
