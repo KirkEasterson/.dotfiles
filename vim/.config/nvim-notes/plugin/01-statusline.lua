@@ -2,7 +2,7 @@ vim.pack.add({
   -- ALREADY LOADED DEPENDENCIES
   -- "https://github.com/echasnovski/mini.icons",
 
-   "https://github.com/nvim-lualine/lualine.nvim",
+  "https://github.com/nvim-lualine/lualine.nvim",
 })
 
 require("lualine").setup({

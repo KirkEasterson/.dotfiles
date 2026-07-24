@@ -3,7 +3,7 @@ vim.schedule(function()
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/williamboman/mason.nvim",
 
-     "https://github.com/mfussenegger/nvim-lint",
+    "https://github.com/mfussenegger/nvim-lint",
     { src = "https://github.com/rshkarin/mason-nvim-lint", version = vim.version.range("*") },
   })
 
