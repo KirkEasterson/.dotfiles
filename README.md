@@ -13,7 +13,7 @@ Repository for my linux/macOS dotfiles, managed by GNU stow.
 Run the following command:
 
 ```
-./install.sh
+make install
 ```
 
 There may be conflicts with certain files (e.g. `.bashrc`, `.profile`, etc). In that case, the conflicting files won't be sym-linked. The original file must be removed if the file from this repository is to be used. After removing/renaming the conflicting file, running the install script again will create the new sym-link.
