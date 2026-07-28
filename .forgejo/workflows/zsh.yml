@@ -6,14 +6,10 @@ jobs:
   config-check:
     runs-on: docker
     container:
-      image: debian:13-slim
+      image: node:26-trixie-slim # needed for actions/checkout
     steps:
-      - name: "Install workflow dependencies"
-        run: apt update && apt install -y lsb-release nodejs
+      - run: apt update && apt install -y stow zsh
       - uses: "actions/checkout@v6"
-      - run: "apt install -y stow"
       - run: "stow shell"
-
-      - run: "apt install -y zsh"
-      - name: "Check zsh"
+      - name: "Run zsh"
         run: "ZDOTDIR=~/.config/zsh zsh --version"
