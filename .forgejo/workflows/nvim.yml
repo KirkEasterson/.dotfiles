@@ -14,8 +14,12 @@ jobs:
       image: node:26-trixie-slim # needed for actions/checkout
     steps:
       - uses: actions/checkout@v6
+      - name: Clone External stylue-action
+        run: |
+          git clone https://github.com/JohnnyMorganz/stylua-action.git .github/actions/style-action
+          cd .github/actions/stylua-action && git checkout v5.0.0
       - name: "Run stylua"
-        uses: JohnnyMorganz/stylua-action@v5
+        uses: ./.github/actions/stylua-action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v2.5.2
