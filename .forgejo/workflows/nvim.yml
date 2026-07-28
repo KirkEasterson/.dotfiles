@@ -11,7 +11,7 @@ jobs:
   stylua:
     runs-on: docker
     container:
-      image: node:26-trixie
+      image: node:26-trixie-slim
     steps:
       - run: apt update && apt install -y stow cargo
       - uses: actions/checkout@v6
