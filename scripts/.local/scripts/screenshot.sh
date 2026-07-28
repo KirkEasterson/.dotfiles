@@ -21,8 +21,8 @@ sound() {
 	pw-play /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
+screenshots_dir="$(xdg-user-dir PICTURES)/screenshots"
 if [ ! -d "${screenshots_dir}" ]; then
-	screenshots_dir="$(xdg-user-dir PICTURES)/screenshots"
 	mkdir -p "${screenshots_dir}"
 fi
 
