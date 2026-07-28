@@ -7,15 +7,8 @@ jobs:
   install:
     runs-on: docker
     container:
-      image: debian:13-slim
+      image: node:26-trixie-slim # needed for actions/checkout
     steps:
-      - name: "Install node"
-        run: apt update && apt install -y make lsb-release nodejs
-
       - uses: actions/checkout@v6
-
-      - name: Install stow
-        run: apt-get install -y stow
-
-      - name: Run install script
-        run: make install
+      - run: apt install -y stow
+      - run: make install
