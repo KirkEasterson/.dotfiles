@@ -11,7 +11,7 @@ jobs:
   stylua:
     runs-on: docker
     container:
-      image: debian:13-slim
+      image: node:27-trixie
     steps:
       - run: apt update && apt install -y curl git
       - name: "Install Homebrew"
@@ -20,7 +20,7 @@ jobs:
           echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
 
       - name: "Install workflow dependencies"
-        run: brew install nodejs stow
+        run: brew install stow
 
       - uses: actions/checkout@v6
 
