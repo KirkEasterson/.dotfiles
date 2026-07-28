@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eu
+
 # NOTE: Manually specifying the current wayland desktop to sway is intentional,
 # since flameshot does not yet support river. But it works fine on river ¯\_(ツ)_/¯
 
