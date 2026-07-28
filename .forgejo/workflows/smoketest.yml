@@ -10,5 +10,5 @@ jobs:
       image: node:26-trixie-slim # needed for actions/checkout
     steps:
       - uses: actions/checkout@v6
-      - run: apt install -y stow
+      - run: apt-get install -y stow
       - run: make install
