@@ -1,0 +1,15 @@
+version: 1
+git_protocol: ssh
+prompt: enabled
+prefer_editor_prompt: disabled
+# A pager program to send command output to, e.g. "less". If blank, will refer to environment. Set the value to "cat" to disable the pager.
+pager: delta --side-by-side --color-only
+aliases:
+    co: pr checkout
+
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
+http_unix_socket:
+# What web browser gh should use when opening URLs. If blank, will refer to environment.
+browser:
