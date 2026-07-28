@@ -5,6 +5,7 @@ on: ["push"]
 
 env:
   NVIM_BASE_DIR: "vim/.config/nvim"
+  STYLUA_BASE_DIR: "formatters/.config/stylua"
 
 jobs:
   stylua:
@@ -27,4 +28,4 @@ jobs:
         run: brew install stylua
 
       - name: "Run stylua"
-        run: stylua --allow-hidden --check -f ${{ env.NVIM_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+        run: stylua --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
