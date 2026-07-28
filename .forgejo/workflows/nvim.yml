@@ -11,7 +11,7 @@ jobs:
   stylua:
     runs-on: docker
     container:
-      image: debian:13-slim
+      image: node:26-trixie-slim # needed for actions/checkout
     steps:
       - run: apt update && apt install -y stow cargo
       - uses: actions/checkout@v6
