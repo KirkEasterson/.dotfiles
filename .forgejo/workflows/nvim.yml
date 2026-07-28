@@ -11,7 +11,7 @@ jobs:
   stylua:
     runs-on: docker
     container:
-      image: node:27-trixie
+      image: node:26-trixie
     steps:
       - run: apt update && apt install -y curl git
       - name: "Install Homebrew"
