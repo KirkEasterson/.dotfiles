@@ -13,15 +13,11 @@ jobs:
     container:
       image: node:26-trixie-slim # needed for actions/checkout
     steps:
-      - uses: actions/checkout@v6
-      - run: apt update && apt install -y git
-      - name: Clone stylua-action
+      - name: "Install Homebrew"
         run: |
-          git clone https://github.com/JohnnyMorganz/stylua-action.git .github/actions/stylua-action
-          cd .github/actions/stylua-action && git checkout v5.0.0
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
+      - uses: actions/checkout@v6
+      - run: brew install stylua
       - name: "Run stylua"
-        uses: ./.github/actions/stylua-action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: v2.5.2
-          args: --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+        run: stylua --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
