@@ -13,12 +13,8 @@ jobs:
     container:
       image: debian:13-slim
     steps:
-      - run: apt update && apt install -y curl git stow
-      - name: "Install Homebrew"
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
+      - run: apt update && apt install -y stow cargo
       - uses: actions/checkout@v6
-      - run: brew install stylua
+      - run: cargo install stylua
       - name: "Run stylua"
         run: stylua --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
