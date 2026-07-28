@@ -13,8 +13,10 @@ jobs:
     container:
       image: node:26-trixie-slim # needed for actions/checkout
     steps:
-      - run: apt update && apt install -y stow cargo
       - uses: actions/checkout@v6
-      - run: cargo install stylua
       - name: "Run stylua"
-        run: stylua --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
+        uses: JohnnyMorganz/stylua-action@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: v2.5.2
+          args: --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
