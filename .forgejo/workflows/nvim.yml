@@ -13,8 +13,12 @@ jobs:
     container:
       image: node:26-trixie-slim
     steps:
-      - run: apt update && apt install -y stow cargo
+      - run: apt update && apt install -y curl git stow
+      - name: "Install Homebrew"
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo "/home/linuxbrew/.linuxbrew/bin" >> $FORGEJO_PATH
       - uses: actions/checkout@v6
-      - run: cargo install stylua
+      - run: brew install stylua
       - name: "Run stylua"
         run: stylua --allow-hidden --check -f ${{ env.STYLUA_BASE_DIR }}/stylua.toml ${{ env.NVIM_BASE_DIR }}
