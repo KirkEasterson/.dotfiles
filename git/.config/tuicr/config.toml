@@ -1,0 +1,27 @@
+diff_view = "side-by-side"
+appearance = "system"
+no_update_check = true
+mouse = true
+leader = " "
+comment_vim = true           # vim modal editing in the review comment box
+review_watch_interval_ms = 0 # set to 0 to disable persisted-review polling
+
+# taken from conventional comment labels
+# https://conventionalcomments.org/#labels
+comment_types = [
+  { id = "praise", label = "praise", definition = "positive feedback", color = "green" },
+  { id = "nitpick", label = "nitpick", definition = "small optional tweaks", color = "orange" },
+  { id = "suggestion", label = "suggestion", definition = "possible improvements", color = "orange" },
+  { id = "issue", label = "issue", definition = "problems to fix", color = "red" },
+  { id = "todo", label = "todo", definition = "TODO", color = "blue" },
+  { id = "question", label = "question", definition = "ask for clarification", color = "blue" },
+  { id = "thought", label = "thought", definition = "thoughts worth adding", color = "blue" },
+  { id = "chore", label = "chore", definition = "simple task before approving", color = "orange" },
+  { id = "note", label = "note", definition = "ask for clarification", color = "blue" },
+  { id = "typo", label = "typo", definition = "misspelling that should be fixed", color = "orange" },
+  { id = "polish", label = "polish", definition = "immediate way to improve quality", color = "orange" },
+  { id = "quibble", label = "quibble", definition = "alias for nitpick", color = "orange" },
+]
+
+[forge]
+comment_type_prefix = true
