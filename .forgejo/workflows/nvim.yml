@@ -17,7 +17,7 @@ jobs:
       - run: apt update && apt install -y git
       - name: Clone stylua-action
         run: |
-          git clone https://github.com/JohnnyMorganz/stylua-action.git .github/actions/style-action
+          git clone https://github.com/JohnnyMorganz/stylua-action.git .github/actions/stylua-action
           cd .github/actions/stylua-action && git checkout v5.0.0
       - name: "Run stylua"
         uses: ./.github/actions/stylua-action
