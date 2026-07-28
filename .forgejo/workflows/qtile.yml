@@ -7,14 +7,10 @@ jobs:
   config-check:
     runs-on: docker
     container:
-      image: ubuntu:26.04 # necessary for setup-python
+      image: python:3.14-slim-trixie
     steps:
-      - name: "Install workflow dependencies"
-        run: apt update && apt install -y lsb-release nodejs libxcb1 libcairo2 libpango-1.0-0 libgdk-pixbuf-2.0-0
+      - run: apt update && apt install -y nodejs
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.14.6"
       - name: "Install qtile"
         run: pip install qtile==0.36.0
       - name: "Validate"
