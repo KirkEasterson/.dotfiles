@@ -18,4 +18,4 @@ jobs:
         run: apt-get install -y stow
 
       - name: Run install script
-        run: ./install.sh
+        run: make install

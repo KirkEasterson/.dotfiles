@@ -28,4 +28,4 @@ jobs:
         if: ${{ matrix.os == 'macos-latest' }}
 
       - name: Run install script
-        run: ./install.sh
+        run: make install
