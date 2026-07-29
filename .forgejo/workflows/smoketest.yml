@@ -9,6 +9,6 @@ jobs:
     container:
       image: node:26-trixie-slim # needed for actions/checkout
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: apt update && apt install -y stow make
       - run: make install

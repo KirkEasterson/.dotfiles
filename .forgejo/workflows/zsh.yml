@@ -9,7 +9,7 @@ jobs:
       image: node:26-trixie-slim # needed for actions/checkout
     steps:
       - run: apt update && apt install -y stow zsh
-      - uses: "actions/checkout@v6"
+      - uses: "actions/checkout@v7"
       - run: "stow shell"
       - name: "Run zsh"
         run: "ZDOTDIR=~/.config/zsh zsh --version"
