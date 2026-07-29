@@ -12,3 +12,8 @@ output "Dell Inc. DELL U2415 7MT0173R0DLS" {
 	alias $home_dell_2
 	mode 1920x1200
 }
+
+output "Dell Inc. DELL U2414H 9TG4651V2N4L" {
+	alias $home_dell_3
+	mode 1920x1080
+}
