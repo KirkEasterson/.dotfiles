@@ -8,12 +8,12 @@ services:
 
   yamllint:
     container_name: yamllint
-    image: registry.gitlab.com/pipeline-components/yamllint:v0.35.16
+    image: registry.gitlab.com/pipeline-components/yamllint:latest
     volumes:
       - ./:/code:ro
 
   markdownlint:
     container_name: markdownlint
-    image: registry.gitlab.com/pipeline-components/markdownlint:v0.14.9
+    image: registry.gitlab.com/pipeline-components/markdownlint:latest
     volumes:
       - ./:/code:ro
