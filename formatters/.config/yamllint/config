@@ -1,5 +1,10 @@
+# vim: filetype=yaml
 ---
 rules:
   key-ordering: disable
   empty-lines:
     max: 1
+
+ignore:
+  - "**/.local/share/"
+  - "**/.local/state/"
