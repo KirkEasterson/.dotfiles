@@ -11,7 +11,7 @@ lint-lua:
 		--check \
 		--allow-hidden \
 		--output-format=summary \
-		-f /src/formatters/.config/stylua/stylua.toml \
+		-f /data/formatters/.config/stylua/stylua.toml \
 		/data/
 
 .PHONY: lint-yaml
