@@ -5,3 +5,9 @@ services:
     image: johnnymorganz/stylua:2.5.2
     volumes:
       - ./:/data:ro
+
+  yamllint:
+    container_name: yamllint
+    image: registry.gitlab.com/pipeline-components/yamllint:latest
+    volumes:
+      - ./:/code:ro

@@ -3,7 +3,7 @@ install:
 	stow -S */ --adopt
 
 .PHONY: lint
-lint: lint-lua
+lint: lint-lua lint-yaml
 
 .PHONY: lint-lua
 lint-lua:
@@ -13,3 +13,9 @@ lint-lua:
 		--output-format=summary \
 		-f /src/formatters/.config/stylua/stylua.toml \
 		/data/
+
+.PHONY: lint-yaml
+lint-yaml:
+	@docker compose run -q --rm yamllint yamllint \
+		--config-file ./formatters/.config/yamllint/config \
+		.
