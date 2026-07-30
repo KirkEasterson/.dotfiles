@@ -2,6 +2,11 @@
 
 Repository for my linux/macOS dotfiles, managed by GNU stow.
 
+## _Mirrors_
+
+All commits are pushed to [codeberg](https://codeberg.org/kirkeasterson/.dotfiles),
+with [github](https://github.com/KirkEasterson/.dotfiles) as a mirror.
+
 ## Prerequisites
 
 - [stow](https://www.gnu.org/software/stow/)
