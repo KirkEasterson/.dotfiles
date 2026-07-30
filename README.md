@@ -17,7 +17,7 @@ with [github](https://github.com/KirkEasterson/.dotfiles) as a mirror.
 
 Run the following command:
 
-```
+```bash
 make install
 ```
 
@@ -31,6 +31,6 @@ sym-link.
 
 Use `stow`:
 
-```
+```bash
 stow vim
 ```
