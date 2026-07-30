@@ -12,11 +12,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   ssh-add --apple-load-keychain -q
 fi
 
-# load cargo
-if [ -s "$XDG_DATA_HOME/cargo/env" ]; then
-  source "$XDG_DATA_HOME/cargo/env"
-fi
-
 # linux
 if [ -f '/home/linuxbrew/.linuxbrew/bin/brew' ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
