@@ -49,10 +49,9 @@ fi
 session_path="${repos_path}${selected}"
 session_name=$(basename "$selected")
 
-# NOTE: tmux implicitly replaces `.` with `_` when creating sessions. attaching
-# to the session will break without this. BUT, this must also be done while
-# creating the session. otherwise a session made from `.` cannot be connected
-# to when using `_`
+# NOTE: tmux implicitly replaces `.` with `_` when creating sessions, but not
+# when attaching to sessions. the substitution must be done for both cases,
+# otherwise a session made from `.` cannot be connected to when using `_`.
 session_name=$(echo "${session_name}" | sed 's/\./_/g')
 
 # ensure session exists
