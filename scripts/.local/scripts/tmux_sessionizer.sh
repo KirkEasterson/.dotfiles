@@ -22,7 +22,7 @@ search_find() {
 		-mindepth 3 \
 		-maxdepth 4 \
 		-name .git \
-		-prune
+		-prune 2>/dev/null
 }
 
 search() {
