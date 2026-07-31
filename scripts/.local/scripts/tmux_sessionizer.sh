@@ -13,7 +13,6 @@ search_fd() {
 		--min-depth 3 \
 		--max-depth 5 \
 		--prune \
-		--type directory \
 		--base-directory "$repos_path" \
 		--glob ".git"
 }
