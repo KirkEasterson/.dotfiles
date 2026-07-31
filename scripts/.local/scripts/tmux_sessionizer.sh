@@ -11,7 +11,7 @@ search_fd() {
 	fd \
 		--hidden \
 		--min-depth 3 \
-		--max-depth 5 \
+		--max-depth 4 \
 		--prune \
 		--base-directory "$repos_path" \
 		--glob ".git"
@@ -20,7 +20,7 @@ search_fd() {
 search_find() {
 	find "$repos_path" \
 		-mindepth 3 \
-		-maxdepth 5 \
+		-maxdepth 4 \
 		-name .git \
 		-prune
 }
