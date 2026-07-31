@@ -20,7 +20,7 @@ search_fd() {
 search_find() {
 	find "$repos_path" \
 		-mindepth 3 \
-		-maxdepth 4 \
+		-maxdepth 5 \
 		-name .git \
 		-prune
 }
