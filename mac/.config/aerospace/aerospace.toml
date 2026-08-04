@@ -107,11 +107,23 @@ cmd-j = 'focus down'
 cmd-k = 'focus up'
 cmd-l = 'focus right'
 
+# See: https://nikitabobko.github.io/AeroSpace/commands#focus-monitor
+cmd-ctrl-h = 'focus-monitor left'
+cmd-ctrl-j = 'focus-monitor down'
+cmd-ctrl-k = 'focus-monitor up'
+cmd-ctrl-l = 'focus-monitor right'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 cmd-shift-h = 'move left'
 cmd-shift-j = 'move down'
 cmd-shift-k = 'move up'
 cmd-shift-l = 'move right'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
+cmd-ctrl-shift-h = 'move-node-to-monitor left'
+cmd-ctrl-shift-j = 'move-node-to-monitor down'
+cmd-ctrl-shift-k = 'move-node-to-monitor up'
+cmd-ctrl-shift-l = 'move-node-to-monitor right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 cmd-1 = 'workspace 1'
