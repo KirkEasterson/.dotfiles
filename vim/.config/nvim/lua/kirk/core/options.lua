@@ -292,7 +292,7 @@ vim.diagnostic.config({
 })
 
 if vim.fn.executable("rg") == 1 then
-  opt.grepprg = "rg --vimgrep"
+  opt.grepprg = "rg --vimgrep --smart-case --hidden"
   opt.grepformat = "%f:%l:%c:%m"
 end
 
