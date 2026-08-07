@@ -63,7 +63,7 @@ local mode = function()
   return string.format(" %s ", mode_info.label):upper() .. "%#Normal#"
 end
 
-vim.api.nvim_set_hl(0, "Filename", { fg = "#ffffff", bg = "#000000", bold = true })
+vim.api.nvim_set_hl(0, "Filename", { fg = "#ffffff", bg = "#000000" })
 local function filename()
   local fname = vim.fn.expand("%:t")
   if fname == "" then
@@ -72,7 +72,7 @@ local function filename()
   return "%#Filename#" .. fname .. "%#Normal#"
 end
 
-vim.api.nvim_set_hl(0, "GitBranch", { fg = "#888888", bg = "#000000", bold = false })
+vim.api.nvim_set_hl(0, "GitBranch", { fg = "#888888", bg = "#000000" })
 local vcs = function()
   local git_info = vim.b.gitsigns_status_dict
   if not git_info or git_info.head == "" then
