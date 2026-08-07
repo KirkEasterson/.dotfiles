@@ -14,5 +14,6 @@ require("auto-session").setup({
     "dashboard",
     "NeogitStatus",
     "NvimTree",
+    "netrw",
   },
 })
