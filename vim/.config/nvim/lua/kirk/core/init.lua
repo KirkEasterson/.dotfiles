@@ -1,6 +1,7 @@
 require("kirk.core.options")
 require("kirk.core.grep")
 require("kirk.core.filetypes")
+require("kirk.core.diagnostics")
 require("kirk.core.mappings")
 require("kirk.core.autocmds")
 require("kirk.core.statusline")
