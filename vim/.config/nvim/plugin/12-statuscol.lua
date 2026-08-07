@@ -21,18 +21,11 @@ require("statuscol").setup({
   ft_ignore = {
     "NeogitStatus",
     "NvimTree",
-    "alpha",
     "dashboard",
     "help",
-    "lazy",
     "mason",
-    "null-ls-info",
-    "packer",
     "scratch",
-    "startify",
     "term",
-    "toggleterm",
-    "trouble",
   },
   segments = {
     { -- marks
