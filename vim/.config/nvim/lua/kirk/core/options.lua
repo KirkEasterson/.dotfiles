@@ -24,10 +24,6 @@ local disabled_plugins = {
   "getscriptPlugin",
   "gzip",
   "logipat",
-  "netrw",
-  "netrwFileHandlers",
-  "netrwPlugin",
-  "netrwSettings",
   -- "node_provider", -- this might be necessary for mason
   "optwin",
   "perl_provider",
