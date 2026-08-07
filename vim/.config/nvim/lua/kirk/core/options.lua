@@ -76,32 +76,6 @@ local session_opts = {
 }
 vim.o.sessionoptions = table.concat(session_opts, ",")
 
-opt.wildignore:append({
-  "*.aux",
-  "*.bbl",
-  "*.blg",
-  "*.cls",
-  "*.fdb",
-  "*.fdb_latexmk",
-  "*.fls",
-  "*.glo",
-  "*.ist",
-  "*.log",
-  "*.o",
-  "*.out",
-  "*.pyc",
-  "*.toc",
-  "*pycache*",
-  "*~",
-  "Cargo.Bazel.lock",
-  "Cargo.lock",
-  "__pycache__",
-  "__site",
-  "**/node_modules/**",
-  "target",
-  "venv",
-})
-
 o.lazyredraw = true
 
 opt.title = true

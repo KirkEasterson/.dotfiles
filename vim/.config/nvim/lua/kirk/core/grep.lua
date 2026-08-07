@@ -1,3 +1,29 @@
+vim.opt.wildignore:append({
+  "*.aux",
+  "*.bbl",
+  "*.blg",
+  "*.cls",
+  "*.fdb",
+  "*.fdb_latexmk",
+  "*.fls",
+  "*.glo",
+  "*.ist",
+  "*.log",
+  "*.o",
+  "*.out",
+  "*.pyc",
+  "*.toc",
+  "*pycache*",
+  "*~",
+  "Cargo.Bazel.lock",
+  "Cargo.lock",
+  "__pycache__",
+  "__site",
+  "**/node_modules/**",
+  "target",
+  "venv",
+})
+
 if vim.fn.executable("rg") == 1 then
   vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
   vim.opt.grepformat = "%f:%l:%c:%m"
