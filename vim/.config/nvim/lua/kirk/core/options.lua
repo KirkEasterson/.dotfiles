@@ -60,7 +60,6 @@ for _, v in pairs(enabled_plugins) do
 end
 
 local session_opts = {
-  "blank",
   "buffers",
   "curdir",
   "folds",
