@@ -80,37 +80,6 @@ local session_opts = {
 }
 vim.o.sessionoptions = table.concat(session_opts, ",")
 
--- neovide
-if g.neovide then
-  opt.linespace = 4
-  g.neovide_remember_window_size = false
-  g.neovide_hide_mouse_when_typing = true
-
-  g.neovide_window_blurred = false
-  g.neovide_transparency = 1.0
-  g.neovide_floating_blur_amount_y = 0.0
-  g.neovide_floating_shadow = false
-  g.neovide_show_border = false
-
-  g.neovide_position_animation_length = 0.1
-  g.neovide_scroll_animation_length = 0.1
-
-  g.neovide_cursor_animation_length = 0.0
-  g.neovide_cursor_trail_size = 0.0
-  g.neovide_cursor_antialiasing = true
-  g.neovide_cursor_animate_in_insert_mode = false
-  g.neovide_cursor_animate_command_line = false
-
-  g.neovide_input_macos_alt_is_meta = true
-  g.neovide_refresh_rate = 60
-  g.neovide_refresh_rate_idle = 5
-
-  vim.keymap.set("v", "<D-c>", "\"+y") -- Copy
-  vim.keymap.set("i", "<D-v>", "<ESC>l\"+Pli") -- Paste insert mode
-else
-  opt.mousescroll = "ver:3,hor:3"
-end
-
 opt.wildignore:append({
   "*.aux",
   "*.bbl",
