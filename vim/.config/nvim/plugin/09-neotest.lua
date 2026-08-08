@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   desc = "Build neotest-golang",
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
-    if name == "neotest-golang" and (kind == "update" or kind == "install") then
+    if vim.fn.executable("go") == 1 and name == "neotest-golang" and (kind == "update" or kind == "install") then
       vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
     end
   end,
