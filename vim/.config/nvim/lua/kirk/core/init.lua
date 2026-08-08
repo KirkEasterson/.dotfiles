@@ -1,3 +1,4 @@
+vim.loader.enable()
 require("kirk.core.options")
 require("kirk.core.grep")
 require("kirk.core.filetypes")
