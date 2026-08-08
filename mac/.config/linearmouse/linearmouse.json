@@ -1,5 +1,5 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.2",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.4",
   "schemes" : [
     {
       "buttons" : {
@@ -18,10 +18,7 @@
       },
       "scrolling" : {
         "acceleration" : 1,
-        "distance" : {
-          "horizontal" : "36px",
-          "vertical" : 1
-        },
+        "distance" : "36px",
         "modifiers" : {
           "vertical" : {
             "command" : {
@@ -120,6 +117,7 @@
             }
           }
         },
+        "reverse" : false,
         "smoothed" : {
           "enabled" : false
         },
