@@ -26,7 +26,7 @@ sketchybar --default \
     icon.padding_right=2 \
     icon.font="$FONT:Regular:30.0" \
     icon.color=0xffebdbb2 \
-    updates=when_shown
+    updates=on
 
 ##### LEFT ITEMS #####
 sketchybar --add item apple.logo left \
