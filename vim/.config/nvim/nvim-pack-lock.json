@@ -29,7 +29,7 @@
     },
     "cloak.nvim": {
       "rev": "648aca6d33ec011dc3166e7af3b38820d01a71e4",
-      "src": "https://github.com/laytan/cloak.nvim"
+      "src": "git@github.com:laytan/cloak.nvim"
     },
     "conform.nvim": {
       "rev": "3543d000dafbc41cc7761d860cfdb24e82154f75",
@@ -78,7 +78,7 @@
     },
     "live-preview.nvim": {
       "rev": "a30e54e51e7480d7060c8c8185f2a963ad3518b4",
-      "src": "https://github.com/brianhuster/live-preview.nvim"
+      "src": "git@github.com:brianhuster/live-preview.nvim"
     },
     "luvit-meta": {
       "rev": "cc9b2d412d2fbd30b94a70cfc214c2a3be27a0a2",
@@ -239,7 +239,7 @@
     },
     "table-nvim": {
       "rev": "816d251963bf4c8c3d765dab40ebac3c259c7b6d",
-      "src": "https://github.com/SCJangra/table-nvim"
+      "src": "git@github.com:SCJangra/table-nvim"
     },
     "tmux.nvim": {
       "rev": "32ceaf2793582955ef9576809730878c4d2d9426",
