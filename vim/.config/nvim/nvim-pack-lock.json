@@ -36,11 +36,6 @@
       "src": "https://github.com/stevearc/conform.nvim",
       "version": ">=0.0.0"
     },
-    "dial.nvim": {
-      "rev": "f0404ec1f83a03f2c3457e60087c6331d1cbb83f",
-      "src": "https://github.com/monaqa/dial.nvim",
-      "version": ">=0.0.0"
-    },
     "diffview-plus.nvim": {
       "rev": "62dc5adf4e77489a2a6d3bf36ef6e4ac5738b634",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
