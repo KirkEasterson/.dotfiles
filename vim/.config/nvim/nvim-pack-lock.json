@@ -31,10 +31,6 @@
       "rev": "648aca6d33ec011dc3166e7af3b38820d01a71e4",
       "src": "https://github.com/laytan/cloak.nvim"
     },
-    "colorful-winsep.nvim": {
-      "rev": "6134b5cd4a38990c7b720adc90973ed32f726179",
-      "src": "https://github.com/nvim-zh/colorful-winsep.nvim"
-    },
     "conform.nvim": {
       "rev": "3543d000dafbc41cc7761d860cfdb24e82154f75",
       "src": "https://github.com/stevearc/conform.nvim",
@@ -48,15 +44,6 @@
     "diffview-plus.nvim": {
       "rev": "62dc5adf4e77489a2a6d3bf36ef6e4ac5738b634",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
-    },
-    "diffview.nvim": {
-      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
-      "src": "git@github.com:sindrets/diffview.nvim"
-    },
-    "duck.nvim": {
-      "rev": "644cc9e457b640a0125820f50195684b628aae63",
-      "src": "https://github.com/tamton-aquib/duck.nvim",
-      "version": ">=0.0.0"
     },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
