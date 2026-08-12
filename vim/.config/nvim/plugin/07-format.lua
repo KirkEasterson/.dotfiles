@@ -28,6 +28,7 @@ vim.schedule(function()
       python = { "black" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
+      sql = { "sqlfmt" },
       terraform = { "terraform" },
       ["terraform-vars"] = { "terraform" },
       tf = { "terraform" },
