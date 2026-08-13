@@ -126,11 +126,10 @@ opt.colorcolumn = "80" -- show line for 80char soft-limit
 
 -- formatting options (`:h fo-table`)
 --  - "c": enable formatting for comments
---  - "a": automatically apply formatting
 --  - "n": recognize lists
 --  - "v": break line at empty space
 --  - "j": remove comment leader when joining lines
--- opt.formatoptions = "canvj" -- automatically apply text width only to comments
+opt.formatoptions = "cnvj" -- automatically apply text width only to comments
 
 opt.tabstop = 4 -- number of visual spaces per tab
 opt.softtabstop = 4 -- number of spaces in tab when editing
