@@ -105,6 +105,7 @@ fi
 
 # xdg aliases
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
+alias w3m='w3m -config "${XDG_CONFIG_HOME}/w3m/config"'
 alias xbindkeys='xbindkeys -f "$XDG_CONFIG_HOME/xbindkeys/config"'
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 # alias keychain='keychain --absolute --dir "$XDG_RUNTIME_DIR/keychain"'
