@@ -198,3 +198,4 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.o.statusline = "%!v:lua.Statusline.active()"
+vim.o.showmode = false -- its already in statusline
