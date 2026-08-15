@@ -78,3 +78,11 @@ firefox/*
 
 **/vale/styles/*
 !**/vale/styles/config/
+
+
+**/w3m/cookie
+**/w3m/history
+**/w3m/mailcap
+**/w3m/mime.types
+**/w3m/passwd
+**/w3m/pre_form
