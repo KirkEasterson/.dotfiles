@@ -1,5 +1,17 @@
 local util = require("util")
 
+-- default LSP mappings
+--  - "gra" (Normal and Visual mode) -> vim.lsp.buf.code_action()
+--  - "gri" -> vim.lsp.buf.implementation()
+--  - "grn" -> vim.lsp.buf.rename()
+--  - "grr" -> vim.lsp.buf.references()
+--  - "grt" -> vim.lsp.buf.type_definition()
+--  - "grx" -> vim.lsp.codelens.run()
+--  - "gO" -> vim.lsp.buf.document_symbol()
+--  - CTRL-S (Insert mode) -> vim.lsp.buf.signature_help()
+--  - v_an and v_in fall back to LSP vim.lsp.buf.selection_range() if treesitter is not active.
+--  - gx handles textDocument/documentLink.
+
 -- center the cursor on movements
 util.map("n", "<C-i>", "<C-i>zz")
 util.map("n", "<C-o>", "<C-o>zz")
