@@ -195,7 +195,7 @@ opt.autoread = true -- sync buffers automatically
 
 opt.splitright = true --  splits open to the right
 opt.splitbelow = true --  splits open below
-opt.splitkeep = "topline" -- keep topline on split resizing
+opt.splitkeep = "cursor" -- keep topline on split resizing
 
 -- NOTE: this isn't backwards compatible. it still requires the user to press
 -- enter for empty messages. don't restore this comment until that issue is fixed
