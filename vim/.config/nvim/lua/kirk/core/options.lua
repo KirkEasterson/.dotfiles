@@ -9,6 +9,7 @@ vim.deprecate = function() end
 g.mapleader = " " -- prefix key
 g.maplocalleader = " " -- secondary prefix key
 
+opt.updatetime = 200 -- ms to wait for trigger an event
 g.timeout = true
 g.ttimeout = true
 g.timeoutlen = 100
@@ -113,7 +114,6 @@ opt.belloff = "esc"
 opt.hidden = true -- Enable background buffers
 opt.history = 100 -- Remember N lines in history
 opt.lazyredraw = false
-opt.updatetime = 250 -- ms to wait for trigger an event
 
 opt.syntax = "enable" -- show syntax highlighting
 opt.showmatch = true -- highlight matching brackets
