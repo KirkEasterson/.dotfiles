@@ -1,5 +1,7 @@
 ---
 prSections:
+  - title: Open
+    filters: is:open
   - title: Created
     filters: is:open author:@me
   - title: Mentioned
