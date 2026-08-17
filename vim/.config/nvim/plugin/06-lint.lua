@@ -61,13 +61,13 @@ vim.schedule(function()
       "golangcilint",
       "jsonlint",
       "luacheck",
+      "markdownlint",
       "pylint",
       "shellcheck",
       "stylelint",
       "terraform",
       "vale",
       "yamllint",
-      "markdownlint",
     },
   })
 
