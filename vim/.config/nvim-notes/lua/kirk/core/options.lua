@@ -67,17 +67,7 @@ opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"
 
 opt.winbar = "%{%v:lua.require('util').winbar()%}"
 
-opt.spell = true
-opt.spelllang = {
-  "en_us",
-  "sv",
-  "nb",
-}
-vim.api.nvim_set_hl(0, "SpellBad", { fg = nil, cterm = { undercurl = true } })
-vim.api.nvim_set_hl(0, "SpellCap", { fg = nil, cterm = { undercurl = true } })
-vim.api.nvim_set_hl(0, "SpellRare", { fg = nil, cterm = { undercurl = true } })
-vim.api.nvim_set_hl(0, "SpellLocal", { fg = nil, cterm = { undercurl = true } })
-
+opt.spell = false
 opt.number = true -- show line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.cursorline = true -- highlight the current line
