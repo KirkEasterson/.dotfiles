@@ -60,11 +60,16 @@ keybindings:
   issues: []
   prs:
     - key: i
-      name: tmux-checkout
+      name: checkout
       command: |
-        tmux new-window -c {{.RepoPath}}
+        tmux new-window -n "PR-{{.PrNumber}}" -c {{.RepoPath}}
         'gh pr checkout {{.PrNumber}} &&
           nvim -c ":DiffviewOpen main...{{.HeadRefName}}"'
+    - key: I
+      name: tuicr
+      command: >
+        tmux new-window -n "PR-{{.PrNumber}}"
+        'tuicr pr {{.PrNumber}}'
 
 theme:
   ui:
