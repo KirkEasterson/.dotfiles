@@ -1,4 +1,10 @@
 ---
+pager:
+  diff: delta
+confirmQuit: false
+showAuthorIcons: true
+smartFilteringAtLaunch: true
+
 prSections:
   - title: Open
     filters: is:open
