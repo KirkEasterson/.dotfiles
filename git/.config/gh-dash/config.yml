@@ -26,7 +26,7 @@ issuesSections:
 defaults:
   preview:
     open: true
-    width: 50
+    width: 0.7
   prsLimit: 20
   issuesLimit: 20
   view: prs
