@@ -72,10 +72,7 @@ keybindings:
         'gh pr checkout {{.PrNumber}} && nvim'
     - key: I
       name: tuicr
-      command: >
-        tmux new-window -n "PR-{{.PrNumber}}"
-        'tuicr pr {{.PrNumber}}'
-
+      command: tmux new-window -n "PR-{{.PrNumber}}" 'tuicr pr {{.PrNumber}}'
 theme:
   ui:
     table:
