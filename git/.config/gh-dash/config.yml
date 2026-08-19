@@ -16,12 +16,12 @@ prSections:
     filters: is:open review-requested:@me
 
 issuesSections:
-  - title: Created
-    filters: is:open author:@me
   - title: Assigned
     filters: is:open assignee:@me
   - title: Involved
-    filters: is:open -author:@me
+    filters: is:open involves:@me
+  - title: Open
+    filters: is:open
 
 defaults:
   preview:
