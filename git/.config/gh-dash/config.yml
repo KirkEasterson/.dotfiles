@@ -1,6 +1,6 @@
 ---
 pager:
-  diff: delta
+  diff: diffnav
 confirmQuit: false
 showAuthorIcons: true
 smartFilteringAtLaunch: true
