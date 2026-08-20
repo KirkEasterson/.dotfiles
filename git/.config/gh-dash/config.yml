@@ -66,13 +66,11 @@ keybindings:
   issues: []
   prs:
     - key: i
-      name: checkout
-      command: |
-        tmux new-window -n "PR-{{.PrNumber}}" -c {{.RepoPath}}
-        'gh pr checkout {{.PrNumber}} && nvim'
+      name: Review
+      command: "tuicr pr {{.PrNumber}}"
     - key: I
-      name: tuicr
-      command: tmux new-window -n "PR-{{.PrNumber}}" 'tuicr pr {{.PrNumber}}'
+      name: CI/CD
+      command: "gh enhance -R {{.RepoName}} {{.PrNumber}}"
 theme:
   ui:
     table:
