@@ -78,7 +78,7 @@ local vcs = function()
   if not git_info or git_info.head == "" then
     return ""
   end
-  local branch_name = git_info.head
+  local branch_name = vim.b.gitsigns_head -- TODO: make this work when in buffers without a file
   if #branch_name > 30 then
     branch_name = branch_name:sub(1, 19) .. "…"
   end
