@@ -3,5 +3,5 @@ show-failed-attempts
 daemonize
 show-keyboard-layout
 
-font=JetBrains Mono
+font=Iosevka Mono
 image=$XDG_CONFIG_HOME/wallpaper
