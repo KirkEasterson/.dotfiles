@@ -194,7 +194,7 @@ if is_wayland:
             Key(
                 [MOD, "control"],
                 "q",
-                lazy.spawn("lock.sh"),
+                lazy.spawn("loginctl lock-session"),
                 desc="Lock",
             ),
             # change keyboard layout

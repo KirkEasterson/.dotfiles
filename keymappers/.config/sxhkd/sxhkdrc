@@ -14,7 +14,7 @@ super + {_,shift +} e
 
 # screen locker
 super + ctrl + q
-	lock.sh
+	loginctl lock-session
 
 # program launcher
 XF86Search
