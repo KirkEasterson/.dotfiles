@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
 	LOCK_IMG="${XDG_CONFIG_HOME}/wallpaper"

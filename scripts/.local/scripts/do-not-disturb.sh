@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 enable() {
 	case $NOTIFIER in
 	"dunst")

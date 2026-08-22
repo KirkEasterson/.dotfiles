@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 url="https://wttr.in/?format=%c%t&m"
 resp=$(wget --content-on-error --server-response -qO- "$url" 2>&1)

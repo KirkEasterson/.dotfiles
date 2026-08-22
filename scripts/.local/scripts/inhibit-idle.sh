@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # Inspired by manjaro-sway
 #
 # https://github.com/manjaro-sway/desktop-settings/blob/sway/community/sway/usr/bin/inhibit-idle

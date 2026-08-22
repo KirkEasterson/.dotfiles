@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# set -u
+
+set -euo pipefail
 
 bar_pid=$(pidof -x "$BAR")
 

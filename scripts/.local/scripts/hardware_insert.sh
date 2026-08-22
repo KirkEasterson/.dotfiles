@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # https://ubuntuforums.org/showthread.php?t=380002
 #
 # USB Insert / Remove sound script

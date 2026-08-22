@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 # usage: import-gsettings
 config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"

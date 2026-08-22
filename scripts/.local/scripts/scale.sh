@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 if [ ! -x "$(command -v wlr-randr)" ]; then
 	echo "wlr-randr not installed"
