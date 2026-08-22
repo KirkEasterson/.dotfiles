@@ -1,36 +1,36 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "56d6277"
-hash = "5b1c276b75cae91cbbdbe7863f39a540"
+rev = "4848aac"
+hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "56d6277"
-hash = "7b625412411be411153886894d9acaf"
+rev = "4848aac"
+hash = "f281261ff04ad7ec867c3f802a50835f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "56d6277"
-hash = "88e56a64b7ce7c4314427452343fef17"
+rev = "4848aac"
+hash = "5bb0bfab901d3601c370eafdd66edd31"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "56d6277"
-hash = "f23ecc89ce0f9eeefdd4cea14e2a9ba7"
+rev = "4848aac"
+hash = "45a533508a9840cc5a10cf6129f63e6a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "56d6277"
+rev = "4848aac"
 hash = "3e023d31f29201efdac2a6ae35fedb78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "56d6277"
+rev = "4848aac"
 hash = "e8e279463ee99c940e6945a14cf4aa9e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "56d6277"
+rev = "4848aac"
 hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [flavor]
