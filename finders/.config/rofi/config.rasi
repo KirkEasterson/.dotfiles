@@ -7,7 +7,7 @@ configuration {
 	display-drun: "Applications";
 	display-window: "Windows";
 	drun-display-format: "{icon} {name}";
-	font: "JetBrains Mono Nerd Font 20";
+	font: "Iosevka Mono 20";
 	icon-theme: "Papirus-Dark";
 	matching: "fuzzy";
 	modi: "window,run,drun";
