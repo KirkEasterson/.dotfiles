@@ -14,8 +14,8 @@ riverctl map normal Super+Control R spawn "${XDG_CONFIG_HOME}/river/init && noti
 riverctl map normal Super+Shift X exit
 
 # scaling
-riverctl map normal Super Plus spawn "scale.sh up"
-riverctl map normal Super Minus spawn "scale.sh down"
+riverctl map -repeat normal Super Plus spawn "scale.sh up"
+riverctl map -repeat normal Super Minus spawn "scale.sh down"
 riverctl map normal Super 0 spawn "scale.sh reset"
 
 ################################
@@ -68,16 +68,16 @@ riverctl map normal Super+Shift Q close
 riverctl map normal Super Z zoom
 
 # focus the next/previous view in the layout stack
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view previous
-riverctl map normal Super Down focus-view next
-riverctl map normal Super Up focus-view previous
+riverctl map -repeat normal Super J focus-view next
+riverctl map -repeat normal Super K focus-view previous
+riverctl map -repeat normal Super Down focus-view next
+riverctl map -repeat normal Super Up focus-view previous
 
 # swap the focused view with the next/previous view in the layout stack
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift K swap previous
-riverctl map normal Super+Shift Down swap next
-riverctl map normal Super+Shift Up swap previous
+riverctl map -repeat normal Super+Shift J swap next
+riverctl map -repeat normal Super+Shift K swap previous
+riverctl map -repeat normal Super+Shift Down swap next
+riverctl map -repeat normal Super+Shift Up swap previous
 
 # focus the next/previous output
 riverctl map normal Super+Control J focus-output next
@@ -92,10 +92,10 @@ riverctl map normal Super+Control+Shift Down send-to-output -current-tags next
 riverctl map normal Super+Control+Shift Up send-to-output -current-tags previous
 
 # decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
-riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map -repeat normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map -repeat normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map -repeat normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map -repeat normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
 
 # increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count -1"
@@ -104,14 +104,14 @@ riverctl map normal Super+Shift Left send-layout-cmd rivertile "main-count -1"
 riverctl map normal Super+Shift Up send-layout-cmd rivertile "main-count +1"
 
 # move floating views (will convert view from tiled to floating)
-riverctl map normal Super+Alt H move left 100
-riverctl map normal Super+Alt J move down 100
-riverctl map normal Super+Alt K move up 100
-riverctl map normal Super+Alt L move right 100
-riverctl map normal Super+Alt Left move left 100
-riverctl map normal Super+Alt Down move down 100
-riverctl map normal Super+Alt Up move up 100
-riverctl map normal Super+Alt Right move right 100
+riverctl map -repeat normal Super+Alt H move left 100
+riverctl map -repeat normal Super+Alt J move down 100
+riverctl map -repeat normal Super+Alt K move up 100
+riverctl map -repeat normal Super+Alt L move right 100
+riverctl map -repeat normal Super+Alt Left move left 100
+riverctl map -repeat normal Super+Alt Down move down 100
+riverctl map -repeat normal Super+Alt Up move up 100
+riverctl map -repeat normal Super+Alt Right move right 100
 
 # snap floating views to screen edges (will convert view from tiled to floating)
 riverctl map normal Super+Alt+Control H snap left
@@ -124,14 +124,14 @@ riverctl map normal Super+Alt+Control Up snap up
 riverctl map normal Super+Alt+Control Right snap right
 
 # resize floating views (will convert view from tiled to floating)
-riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
-riverctl map normal Super+Alt+Shift L resize horizontal 100
-riverctl map normal Super+Alt+Shift Left resize horizontal -100
-riverctl map normal Super+Alt+Shift Down resize vertical 100
-riverctl map normal Super+Alt+Shift Up resize vertical -100
-riverctl map normal Super+Alt+Shift Right resize horizontal 100
+riverctl map -repeat normal Super+Alt+Shift H resize horizontal -100
+riverctl map -repeat normal Super+Alt+Shift J resize vertical 100
+riverctl map -repeat normal Super+Alt+Shift K resize vertical -100
+riverctl map -repeat normal Super+Alt+Shift L resize horizontal 100
+riverctl map -repeat normal Super+Alt+Shift Left resize horizontal -100
+riverctl map -repeat normal Super+Alt+Shift Down resize vertical 100
+riverctl map -repeat normal Super+Alt+Shift Up resize vertical -100
+riverctl map -repeat normal Super+Alt+Shift Right resize horizontal 100
 
 # manipulate floating views
 riverctl map-pointer normal Super BTN_LEFT move-view
