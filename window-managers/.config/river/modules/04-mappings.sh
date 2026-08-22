@@ -5,7 +5,7 @@
 ################################
 
 # lock
-riverctl map normal Super+Control Q spawn lock.sh
+riverctl map normal Super+Control Q spawn "loginctl lock-session"
 
 # restart river
 riverctl map normal Super+Control R spawn "${XDG_CONFIG_HOME}/river/init && notify-send \"Reloaded riverwm\" -i \"system-reboot\""

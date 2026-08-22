@@ -2,5 +2,4 @@
 
 set -euo pipefail
 
-lock.sh
 systemctl suspend

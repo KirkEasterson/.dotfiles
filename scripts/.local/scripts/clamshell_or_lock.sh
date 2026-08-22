@@ -13,9 +13,7 @@ get_num_displays() {
 }
 
 num_displays=$(get_num_displays)
-if [ "$num_displays" -gt 1 ]; then
-	clamshell.sh
-else
+if [ "$num_displays" == 1 ]; then
 	inhibit-idle.sh off
-	lock.sh
+	loginctl lock-session
 fi
