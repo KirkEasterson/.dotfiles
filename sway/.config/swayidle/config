@@ -1,3 +1,4 @@
 timeout 300 'loginctl lock-session'
 timeout 600 'systemctl suspend'
 lock 'lock.sh'
+idlehint 1
