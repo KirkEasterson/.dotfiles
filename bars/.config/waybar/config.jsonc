@@ -19,6 +19,7 @@
   ],
   "modules-right": [
     "mpris",
+    "custom/separator",
     "tray",
     "custom/separator",
     "privacy",
@@ -92,14 +93,19 @@
     },
   },
   "mpris": {
+    "format": "{player_icon}  {status_icon} <i>{dynamic}</i>",
+    "dynamic-order": ["title", "artist"],
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
     "player-icons": {
       "default": "",
-      "firefox": "󰈹"
+      "firefox": "󰈹",
+      "spotify": "",
+      "discord": "",
     },
     "status-icons": {
       "playing": "",
       "paused": "",
-      "stopped": ""
+      "stopped": "",
     },
   },
   "tray": {
