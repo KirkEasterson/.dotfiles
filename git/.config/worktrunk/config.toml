@@ -16,3 +16,6 @@ cd = true
 
 [post-start]
 copy = "wt step copy-ignored"
+
+[list]
+summary = false
