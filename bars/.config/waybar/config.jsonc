@@ -19,6 +19,7 @@
   ],
   "modules-right": [
     // "custom/media",
+    "mpris",
     "tray",
     "custom/separator",
     "privacy",
@@ -89,6 +90,17 @@
     "on-click-middle": "close",
     "rewrite": {
       "Firefox Web Browser": "Firefox",
+    },
+  },
+  "mpris": {
+    "player-icons": {
+      "default": "",
+      "firefox": "󰈹"
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
     },
   },
   "tray": {
