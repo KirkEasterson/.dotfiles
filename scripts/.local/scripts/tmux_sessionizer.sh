@@ -39,7 +39,7 @@ else
 	selected=$(
 		search |
 			sed -e "s|^$repos_path||" -e "s|\/.git[\/]\{0,1\}$||" |
-			fzf
+			fzf --prompt="REPO: "
 	)
 	if [ -z "$selected" ]; then
 		exit 1
