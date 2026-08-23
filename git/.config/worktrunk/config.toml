@@ -7,7 +7,7 @@ stage = "none"
 squash = false
 commit = false
 rebase = true
-remove = false
+remove = true
 verify = false
 ff = true
 
