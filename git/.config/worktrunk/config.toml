@@ -13,3 +13,6 @@ ff = true
 
 [switch]
 cd = true
+
+[post-start]
+copy = "wt step copy-ignored"
