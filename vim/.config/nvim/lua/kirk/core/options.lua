@@ -108,7 +108,8 @@ opt.linebreak = true -- if wrapping, wrap on complete words
 opt.breakindent = true -- preserve indenting on wrapped lines
 
 opt.visualbell = false
-opt.errorbells = true
+opt.errorbells = false
+opt.showcmd = false
 opt.belloff = "esc"
 
 opt.hidden = true -- Enable background buffers
