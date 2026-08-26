@@ -46,13 +46,29 @@ else
 	fi
 fi
 
-session_path="${repos_path}${selected}"
-session_name=$(basename "$selected")
-
+repo_path="${repos_path}${selected}"
 # NOTE: tmux implicitly replaces `.` with `_` when creating sessions, but not
 # when attaching to sessions. the substitution must be done for both cases,
 # otherwise a session made from `.` cannot be connected to when using `_`.
-session_name=$(echo "${session_name}" | sed 's/\./_/g')
+repo_name=$(basename "$selected" | sed 's/\./_/g')
+session_name=$repo_name
+session_path=$repo_path
+
+is_bare_repo=$(git -C ${repo_path} rev-parse --is-bare-repository)
+if [ "$is_bare_repo" == "true" ]; then
+	branch=$(
+		git -C ${repo_path} branch --format='%(refname:short)' |
+			fzf --prompt="WORKTREE: "
+	)
+
+	session_name="$repo_name - $branch"
+	session_path="${repo_path}/.worktrees/${branch}"
+
+	# create worktree if not exists
+	if ! git -C ${repo_path} worktree list | grep -q "\[${branch}\]"; then
+		git -C ${repo_path} worktree add "${session_path}" "$branch"
+	fi
+fi
 
 # ensure session exists
 is_tmux_running=$(pgrep tmux)
