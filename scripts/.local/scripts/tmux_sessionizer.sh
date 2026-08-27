@@ -66,6 +66,7 @@ if [ "$is_bare_repo" == "true" ]; then
 
 	# create worktree if not exists
 	if ! git -C ${repo_path} worktree list | grep -q "\[${branch}\]"; then
+		# TODO: copy ignored files
 		git -C ${repo_path} worktree add "${session_path}" "$branch"
 	fi
 fi
