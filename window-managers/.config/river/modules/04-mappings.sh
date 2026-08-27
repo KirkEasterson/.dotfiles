@@ -185,4 +185,11 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioNext spawn "playerctl next"
 	riverctl map -repeat $mode None XF86AudioRewind spawn "playerctl position 5-"
 	riverctl map -repeat $mode None XF86AudioForward spawn "playerctl position 5+"
+	# F10-12 keys on my laptop
+	riverctl map $mode None XF86PickupPhone spawn "playerctl previous" # F10
+	riverctl map -repeat $mode Shift XF86PickupPhone spawn "playerctl position 5-" # shift+F10
+	riverctl map $mode None XF86HangupPhone spawn "playerctl play-pause" # F11
+	riverctl map $mode None XF86HangupPhone spawn "playerctl stop" # shift+F11
+	riverctl map $mode None XF86Favorites spawn "playerctl next" # F12
+	riverctl map -repeat $mode Shift XF86Favorites spawn "playerctl position 5+" # shift+F12
 done
