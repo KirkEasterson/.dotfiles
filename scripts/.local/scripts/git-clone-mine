@@ -18,6 +18,7 @@ clone_bare() {
 	echo "gitdir: ./.bare" >.git
 	git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 	git fetch origin
+	# TODO: add worktree for default branch
 	cd - || exit 1
 }
 
