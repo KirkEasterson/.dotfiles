@@ -95,6 +95,10 @@
   "mpris": {
     "format": "{player_icon}  {status_icon} <i>{dynamic}</i>",
     "dynamic-order": ["title", "artist"],
+    "dynamic-len": 20,
+    "title-len": 20,
+    "artist-len": 20,
+    "album-len": 20,
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "player-icons": {
       "default": "",
