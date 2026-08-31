@@ -58,7 +58,6 @@ vim.schedule(function()
       "editorconfig-checker",
       "eslint_d",
       "gitlint",
-      "golangcilint",
       "jsonlint",
       "luacheck",
       "markdownlint",
