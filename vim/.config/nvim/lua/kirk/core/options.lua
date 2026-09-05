@@ -141,7 +141,7 @@ vim.opt.mousemoveevent = true
 vim.opt.nrformats = "alpha,octal,hex,bin"
 
 vim.opt.wildmenu = true -- visual autocompletion for command menu
-vim.opt.wildmode = { "full", "list", "longest" }
+vim.opt.wildmode = { "full", "longest" }
 
 vim.opt.list = true -- enable rendering of listchars
 vim.opt.listchars:append({
