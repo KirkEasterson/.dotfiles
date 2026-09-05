@@ -12,6 +12,15 @@ local util = require("util")
 --  - v_an and v_in fall back to LSP vim.lsp.buf.selection_range() if treesitter is not active.
 --  - gx handles textDocument/documentLink.
 
+-- https://github.com/rmagatti/auto-session/issues/512#issuecomment-3999927434
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp_mappings", { clear = true }),
+  desc = "LSP mappings",
+  callback = function()
+    util.map("n", "K", vim.lsp.buf.hover)
+  end,
+})
+
 -- center the cursor on movements
 util.map("n", "<C-i>", "<C-i>zz")
 util.map("n", "<C-o>", "<C-o>zz")
