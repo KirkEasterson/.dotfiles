@@ -19,6 +19,8 @@ vim.schedule(function()
 
     { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
     "https://github.com/antoinemadec/FixCursorHold.nvim",
+
+    -- TODO: this doesn't work with testing std library
     { src = "https://github.com/fredrikaverpil/neotest-golang", version = vim.version.range("*") },
     -- { src = "https://github.com/marilari88/neotest-vitest", version = vim.version.range("*") },
     -- { src = "https://github.com/rouge8/neotest-rust", version = vim.version.range("*") },
