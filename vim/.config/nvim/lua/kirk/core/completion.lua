@@ -8,9 +8,9 @@ vim.opt.completeopt = {
   "fuzzy",
 }
 
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#444444", fg = "#ffffff" })
-vim.api.nvim_set_hl(0, "PmenuKind", { bg = "#333333", fg = "#ffffff" })
-vim.api.nvim_set_hl(0, "PmenuExtra", { bg = "#222222", fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#222222", fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "PmenuKind", { bg = "#222222", fg = "#666666" })
+vim.api.nvim_set_hl(0, "PmenuExtra", { bg = "#222222", fg = "#666666" })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#555555", fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "PmenuBorder", { bg = "#000000", fg = "#ffffff" })
 

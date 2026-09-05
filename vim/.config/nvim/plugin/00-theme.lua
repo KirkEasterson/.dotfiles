@@ -10,7 +10,7 @@ require("NeoSolarized").setup({
   on_highlights = function(highlights)
     -- this theme overrides values in completion.lua, so we must override the overrides
     highlights.Pmenu = {
-      bg = "#444444",
+      bg = "#222222",
       fg = "#ffffff",
     }
     highlights.PmenuSel = {
