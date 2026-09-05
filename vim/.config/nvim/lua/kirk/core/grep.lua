@@ -24,6 +24,18 @@ vim.opt.wildignore:append({
   "venv",
 })
 
+vim.api.nvim_create_user_command("Grep", function(opts)
+  vim.cmd({
+    cmd = "grep",
+    args = opts.fargs,
+    bang = opts.bang,
+    mods = { silent = true },
+  })
+end, {
+  desc = "Silent grep",
+  nargs = "*",
+})
+
 if vim.fn.executable("rg") == 1 then
   vim.opt.grepprg = "rg --vimgrep --smart-case --hidden --no-ignore"
   vim.opt.grepformat = "%f:%l:%c:%m"
