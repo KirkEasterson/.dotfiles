@@ -1,7 +1,9 @@
 vim.pack.add({
+  -- ALREADY LOADED DEPENDENCIES
+  -- "https://github.com/lewis6991/gitsigns.nvim"
+
   { src = "https://github.com/kevinhwang91/promise-async", version = vim.version.range("*") },
   { src = "https://github.com/kevinhwang91/nvim-ufo", version = vim.version.range("*") },
-  { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
   "https://github.com/luukvbaal/statuscol.nvim",
 })
 
