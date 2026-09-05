@@ -1,19 +1,15 @@
-local g = vim.g
-local opt = vim.opt
-local o = vim.o
-
 -- Used to suppress deprecation warnings from plugins. This should occasionally
 -- be toggled to ensure there is no deprecated code in this config.
 vim.deprecate = function() end
 
-g.mapleader = " " -- prefix key
-g.maplocalleader = " " -- secondary prefix key
+vim.g.mapleader = " " -- prefix key
+vim.g.maplocalleader = " " -- secondary prefix key
 
-opt.updatetime = 200 -- ms to wait for trigger an event
-g.timeout = true
-g.ttimeout = true
-g.timeoutlen = 100
-g.ttimeoutlen = 100
+vim.opt.updatetime = 200 -- ms to wait for trigger an event
+vim.g.timeout = true
+vim.g.ttimeout = true
+vim.g.timeoutlen = 100
+vim.g.ttimeoutlen = 100
 
 -- disable builtin plugins
 local disabled_plugins = {
@@ -46,7 +42,7 @@ local disabled_plugins = {
   -- "matchparen",
 }
 for _, v in pairs(disabled_plugins) do
-  g["loaded_" .. v] = true
+  vim.g["loaded_" .. v] = true
 end
 
 -- enable builtin plugins
@@ -57,7 +53,7 @@ local enabled_plugins = {
   "perl_provider",
 }
 for _, v in pairs(enabled_plugins) do
-  g["loaded_" .. v] = false
+  vim.g["loaded_" .. v] = false
 end
 
 local session_opts = {
@@ -76,16 +72,16 @@ local session_opts = {
 }
 vim.o.sessionoptions = table.concat(session_opts, ",")
 
-o.lazyredraw = true
+vim.o.lazyredraw = true
 
-opt.title = true
-opt.titlelen = 0
-opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"
+vim.opt.title = true
+vim.opt.titlelen = 0
+vim.opt.titlestring = "nvim - %{substitute(getcwd(), $HOME, '~', '')}"
 
-opt.winbar = "%{%v:lua.require('util').winbar()%}"
+vim.opt.winbar = "%{%v:lua.require('util').winbar()%}"
 
-opt.spell = true
-opt.spelllang = {
+vim.opt.spell = true
+vim.opt.spelllang = {
   "en_us",
   -- "sv",
   "nb",
@@ -95,60 +91,60 @@ vim.api.nvim_set_hl(0, "SpellCap", { fg = nil, cterm = { undercurl = true } })
 vim.api.nvim_set_hl(0, "SpellRare", { fg = nil, cterm = { undercurl = true } })
 vim.api.nvim_set_hl(0, "SpellLocal", { fg = nil, cterm = { undercurl = true } })
 
-opt.number = true -- show line numbers
-opt.relativenumber = true -- show relative line numbers
-opt.cursorline = true -- highlight the current line
-opt.cursorlineopt = "both" -- highlight both line and number
-opt.termguicolors = true -- allow custom highlighting
-opt.incsearch = true -- highlight matches as you type
-opt.hlsearch = false -- unhighlight matches after searching
-opt.autoindent = true -- new lines inherit indenting
-opt.wrap = false -- don't wrap lines
-opt.linebreak = true -- if wrapping, wrap on complete words
-opt.breakindent = true -- preserve indenting on wrapped lines
+vim.opt.number = true -- show line numbers
+vim.opt.relativenumber = true -- show relative line numbers
+vim.opt.cursorline = true -- highlight the current line
+vim.opt.cursorlineopt = "both" -- highlight both line and number
+vim.opt.termguicolors = true -- allow custom highlighting
+vim.opt.incsearch = true -- highlight matches as you type
+vim.opt.hlsearch = false -- unhighlight matches after searching
+vim.opt.autoindent = true -- new lines inherit indenting
+vim.opt.wrap = false -- don't wrap lines
+vim.opt.linebreak = true -- if wrapping, wrap on complete words
+vim.opt.breakindent = true -- preserve indenting on wrapped lines
 
-opt.visualbell = false
-opt.errorbells = false
-opt.showcmd = false
-opt.belloff = "esc"
+vim.opt.visualbell = false
+vim.opt.errorbells = false
+vim.opt.showcmd = false
+vim.opt.belloff = "esc"
 
-opt.hidden = true -- Enable background buffers
-opt.history = 100 -- Remember N lines in history
-opt.lazyredraw = false
+vim.opt.hidden = true -- Enable background buffers
+vim.opt.history = 100 -- Remember N lines in history
+vim.opt.lazyredraw = false
 
-opt.syntax = "enable" -- show syntax highlighting
-opt.showmatch = true -- highlight matching brackets
-opt.scrolloff = 4 -- scroll when y away from vertical edge
--- opt.smoothscroll = true -- doesn't work for some reason
-opt.sidescrolloff = 8 -- scroll when x away from horizontal edge
-opt.signcolumn = "yes" -- column for linting
-opt.colorcolumn = "80" -- show line for 80char soft-limit
--- opt.textwidth = 80 -- text limit, but will only be applied to comments
+vim.opt.syntax = "enable" -- show syntax highlighting
+vim.opt.showmatch = true -- highlight matching brackets
+vim.opt.scrolloff = 4 -- scroll when y away from vertical edge
+-- vim.opt.smoothscroll = true -- doesn't work for some reason
+vim.opt.sidescrolloff = 8 -- scroll when x away from horizontal edge
+vim.opt.signcolumn = "yes" -- column for linting
+vim.opt.colorcolumn = "80" -- show line for 80char soft-limit
+-- vim.opt.textwidth = 80 -- text limit, but will only be applied to comments
 
 -- formatting options (`:h fo-table`)
 --  - "c": enable formatting for comments
 --  - "n": recognize lists
 --  - "v": break line at empty space
 --  - "j": remove comment leader when joining lines
-opt.formatoptions = "cnvj" -- automatically apply text width only to comments
+vim.opt.formatoptions = "cnvj" -- automatically apply text width only to comments
 
-opt.tabstop = 4 -- number of visual spaces per tab
-opt.softtabstop = 4 -- number of spaces in tab when editing
-opt.shiftwidth = 4 -- number of spaces when indenting with <> keys
+vim.opt.tabstop = 4 -- number of visual spaces per tab
+vim.opt.softtabstop = 4 -- number of spaces in tab when editing
+vim.opt.shiftwidth = 4 -- number of spaces when indenting with <> keys
 
-opt.mouse = "a" -- enable mouse for scrolling and resizing
-opt.mousehide = true
-opt.mousemodel = "extend" -- don't show right click menu
-opt.mousemoveevent = true
--- opt.mousesshape = "vs:lrsizing"
+vim.opt.mouse = "a" -- enable mouse for scrolling and resizing
+vim.opt.mousehide = true
+vim.opt.mousemodel = "extend" -- don't show right click menu
+vim.opt.mousemoveevent = true
+-- vim.opt.mousesshape = "vs:lrsizing"
 
-opt.nrformats = "alpha,octal,hex,bin"
+vim.opt.nrformats = "alpha,octal,hex,bin"
 
-opt.wildmenu = true -- visual autocompletion for command menu
-opt.wildmode = { "full", "list", "longest" }
+vim.opt.wildmenu = true -- visual autocompletion for command menu
+vim.opt.wildmode = { "full", "list", "longest" }
 
-opt.list = true -- enable rendering of listchars
-opt.listchars:append({
+vim.opt.list = true -- enable rendering of listchars
+vim.opt.listchars:append({
   extends = "…",
   lead = " ",
   precedes = "…",
@@ -161,7 +157,7 @@ opt.listchars:append({
   -- multispace     = "│ ",
   -- tab            = "│ ", -- this must be two characters
 })
-opt.fillchars:append({
+vim.opt.fillchars:append({
   eob = " ",
   diff = "╱",
 
@@ -181,30 +177,30 @@ opt.fillchars:append({
   verthoriz = "╋",
 })
 
-o.foldenable = true
-o.foldcolumn = "1"
-o.foldlevel = 99
-o.foldlevelstart = 99
-o.foldmethod = "expr"
+vim.o.foldenable = true
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- short messages
-opt.shortmess:append("IWsA")
+vim.opt.shortmess:append("IWsA")
 
-opt.swapfile = false -- don't create swap files
-opt.autoread = true -- sync buffers automatically
+vim.opt.swapfile = false -- don't create swap files
+vim.opt.autoread = true -- sync buffers automatically
 
-opt.splitright = true --  splits open to the right
-opt.splitbelow = true --  splits open below
-opt.splitkeep = "cursor" -- keep topline on split resizing
+vim.opt.splitright = true --  splits open to the right
+vim.opt.splitbelow = true --  splits open below
+vim.opt.splitkeep = "cursor" -- keep topline on split resizing
 
 -- NOTE: this isn't backwards compatible. it still requires the user to press
 -- enter for empty messages. don't restore this comment until that issue is fixed
 -- opt.cmdheight = 0 -- hide the command line
 
-opt.undofile = true -- persistent undos
-opt.confirm = true -- show confirm dialog when closing unsaved files
+vim.opt.undofile = true -- persistent undos
+vim.opt.confirm = true -- show confirm dialog when closing unsaved files
 
-opt.laststatus = 3 -- aesthetic win separators
+vim.opt.laststatus = 3 -- aesthetic win separators
 
-opt.winborder = "rounded"
+vim.opt.winborder = "rounded"
