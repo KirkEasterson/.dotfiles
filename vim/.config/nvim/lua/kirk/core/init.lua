@@ -1,6 +1,7 @@
 vim.loader.enable()
 require("kirk.core.options")
 require("kirk.core.grep")
+require("kirk.core.completion")
 require("kirk.core.filetypes")
 require("kirk.core.diagnostics")
 require("kirk.core.mappings")

@@ -88,3 +88,12 @@ vim.keymap.set({ "n" }, "<leader>fL", function()
     sort = { fields = { "idx" } },
   })
 end, { desc = "Git log file" })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "snacks_picker_input" then
+      vim.opt_local.autocomplete = false
+    end
+  end,
+})

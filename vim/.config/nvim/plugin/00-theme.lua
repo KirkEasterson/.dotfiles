@@ -7,6 +7,17 @@ vim.pack.add({
 
 require("NeoSolarized").setup({
   terminal_colors = false,
+  on_highlights = function(highlights)
+    -- this theme overrides values in completion.lua, so we must override the overrides
+    highlights.Pmenu = {
+      bg = "#444444",
+      fg = "#ffffff",
+    }
+    highlights.PmenuSel = {
+      bg = "#555555",
+      fg = "#ffffff",
+    }
+  end,
 })
 
 vim.cmd.colorscheme("NeoSolarized")

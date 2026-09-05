@@ -207,6 +207,4 @@ opt.confirm = true -- show confirm dialog when closing unsaved files
 
 opt.laststatus = 3 -- aesthetic win separators
 
-opt.completeopt = { "menu", "menuone", "noselect" }
-
 opt.winborder = "rounded"
