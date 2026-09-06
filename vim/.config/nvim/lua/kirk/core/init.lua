@@ -11,5 +11,8 @@ require("kirk.core.dial")
 require("kirk.core.netrw")
 require("kirk.core.neovide")
 
--- -- TODO: use this once snippet become more mature
+-- TODO: use this once snippet become more mature
 -- require("kirk.core.snippets")
+
+-- TODO: use this once I can get exact row and col of last edit
+-- require("kirk.core.undo")
