@@ -32,7 +32,7 @@ require("statuscol").setup({
   segments = {
     { -- marks
       sign = {
-        namespace = { "MarkSigns" },
+        namespace = { "UserMarksSignColumn" },
         name = { ".*" },
         maxwidth = 2,
         colwidth = 1,
