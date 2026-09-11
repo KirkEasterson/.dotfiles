@@ -1,5 +1,6 @@
 vim.o.autocomplete = true
 vim.o.autocompletedelay = 200
+vim.opt.smartcase = true
 vim.opt.complete:append("o") -- append omnifunc
 vim.opt.completeopt = {
   "menuone",
