@@ -19,6 +19,7 @@ vim.schedule(function()
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context", version = vim.version.range("*") },
+    "https://github.com/JoosepAlviste/nvim-ts-context-commentstring",
     { src = "https://github.com/folke/ts-comments.nvim", version = vim.version.range("*") },
   })
 
