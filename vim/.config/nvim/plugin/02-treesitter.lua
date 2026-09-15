@@ -14,16 +14,110 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
+vim.pack.add({
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+})
+
+vim.treesitter.language.register("markdown", "octo")
+
+local parsers = {
+  "bash",
+  "bibtex",
+  "c",
+  "c_sharp",
+  "cmake",
+  "comment",
+  "commonlisp",
+  "cpp",
+  "css",
+  "csv",
+  "devicetree",
+  "diff",
+  "dockerfile",
+  "fish",
+  "git_config",
+  "git_rebase",
+  "gitattributes",
+  "gitcommit",
+  "gitignore",
+  "go",
+  "gomod",
+  "gosum",
+  "gotmpl",
+  "gowork",
+  "hcl",
+  "hjson",
+  "html",
+  "http",
+  "ini",
+  "java",
+  "javascript",
+  "json",
+  "json5",
+  -- "jsonc",
+  "latex",
+  "lua",
+  "luadoc",
+  "luap",
+  "luau",
+  "make",
+  "markdown",
+  "markdown_inline",
+  -- "norg",
+  "ocaml",
+  "ocaml_interface",
+  "odin",
+  "prisma",
+  "proto",
+  "python",
+  "query",
+  "regex",
+  "rust",
+  "scss",
+  "svelte",
+  "sxhkdrc",
+  "terraform",
+  "todotxt",
+  "toml",
+  "tsx",
+  "tsv",
+  "typescript",
+  "typst",
+  "vim",
+  "vimdoc",
+  "vue",
+  "xml",
+  "yaml",
+  "zig",
+}
+
+vim.api.nvim_create_autocmd("User", {
+  group = group,
+  -- event = "VimEnter",
+  once = true,
+  desc = "Install treesitter parsers",
+  callback = function()
+    require("nvim-treesitter").install(parsers)
+  end,
+})
+
+-- enable highlighting on FileType
+vim.api.nvim_create_autocmd("FileType", {
+  group = group,
+  pattern = parsers,
+  desc = "Enable treesitter highlighting and indentation",
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+
 vim.schedule(function()
   vim.pack.add({
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context", version = vim.version.range("*") },
     "https://github.com/JoosepAlviste/nvim-ts-context-commentstring",
     { src = "https://github.com/folke/ts-comments.nvim", version = vim.version.range("*") },
   })
-
-  vim.treesitter.language.register("markdown", "octo")
 
   require("treesitter-context").setup({
     mode = "topline",
@@ -32,7 +126,7 @@ vim.schedule(function()
     multiline_threshold = 1,
   })
 
-  require("ts-comments").setup({})
+  require("ts-comments").setup()
 
   require("nvim-treesitter-textobjects").setup({
     select = {
@@ -40,8 +134,8 @@ vim.schedule(function()
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["as"] = "@class.outer",
+        ["is"] = "@class.inner",
         ["ak"] = "@block.outer",
         ["ik"] = "@block.inner",
         ["ar"] = "@parameter.outer",
@@ -82,10 +176,10 @@ vim.schedule(function()
   end)
 
   -- class
-  vim.keymap.set({ "x", "o" }, "ac", function()
+  vim.keymap.set({ "x", "o" }, "as", function()
     require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
   end)
-  vim.keymap.set({ "x", "o" }, "ic", function()
+  vim.keymap.set({ "x", "o" }, "is", function()
     require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
   end)
 
@@ -202,95 +296,4 @@ vim.schedule(function()
       "textobjects"
     )
   end)
-
-  local parsers = {
-    "bash",
-    "bibtex",
-    "c",
-    "c_sharp",
-    "cmake",
-    "comment",
-    "commonlisp",
-    "cpp",
-    "css",
-    "csv",
-    "devicetree",
-    "diff",
-    "dockerfile",
-    "fish",
-    "git_config",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "go",
-    "gomod",
-    "gosum",
-    "gotmpl",
-    "gowork",
-    "hcl",
-    "hjson",
-    "html",
-    "http",
-    "ini",
-    "java",
-    "javascript",
-    "json",
-    "json5",
-    -- "jsonc",
-    "latex",
-    "lua",
-    "luadoc",
-    "luap",
-    "luau",
-    "make",
-    "markdown",
-    "markdown_inline",
-    -- "norg",
-    "ocaml",
-    "ocaml_interface",
-    "odin",
-    "prisma",
-    "proto",
-    "python",
-    "query",
-    "regex",
-    "rust",
-    "scss",
-    "svelte",
-    "sxhkdrc",
-    "terraform",
-    "todotxt",
-    "toml",
-    "tsx",
-    "tsv",
-    "typescript",
-    "typst",
-    "vim",
-    "vimdoc",
-    "vue",
-    "xml",
-    "yaml",
-    "zig",
-  }
-
-  vim.api.nvim_create_autocmd("User", {
-    group = group,
-    -- event = "VimEnter",
-    once = true,
-    desc = "Install treesitter parsers",
-    callback = function()
-      require("nvim-treesitter").install(parsers)
-    end,
-  })
-
-  -- enable highlighting on FileType
-  vim.api.nvim_create_autocmd("FileType", {
-    group = group,
-    pattern = parsers,
-    desc = "Enable treesitter highlighting and indentation",
-    callback = function()
-      vim.treesitter.start()
-    end,
-  })
 end)
