@@ -71,11 +71,8 @@ if [ "$is_bare_repo" == "true" ]; then
 	fi
 fi
 
-# ensure session exists
-is_tmux_running=$(pgrep tmux)
-if [ -z "$is_tmux_running" ] || ! tmux has-session -t="$session_name" 2>/dev/null; then
-	tmux new-session -d -s "$session_name" -c "$session_path"
-fi
+# create session if it doesn't exist
+tmux has-session -t "$session_name" 2>/dev/null || tmux new-session -d -s "$session_name" -c "$session_path"
 
 if [ -n "$TMUX" ]; then # if inside tmux
 	tmux switch-client -t "$session_name"
