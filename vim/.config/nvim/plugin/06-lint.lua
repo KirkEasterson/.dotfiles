@@ -20,6 +20,7 @@ vim.schedule(function()
     javascriptreact = { "eslint_d" },
     json = { "jsonlint" },
     lua = { "luacheck" },
+    make = { "checkmake" },
     -- markdown = { "markdownlint", "vale" },
     markdown = { "markdownlint" },
     python = { "pylint" },
@@ -54,6 +55,7 @@ vim.schedule(function()
     ensure_installed = {
       "actionlint",
       "ansible_lint",
+      "checkmake",
       "cmakelint",
       "codespell",
       "commitlint",
