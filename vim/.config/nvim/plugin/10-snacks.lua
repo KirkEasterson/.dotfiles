@@ -11,6 +11,9 @@ require("snacks").setup({
     layout = {
       preset = "ivy_split",
     },
+    exclude = {
+      "vendor",
+    },
   },
   image = {
     enabled = false,
