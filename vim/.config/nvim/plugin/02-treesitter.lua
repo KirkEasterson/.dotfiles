@@ -26,7 +26,7 @@ vim.schedule(function()
   vim.treesitter.language.register("markdown", "octo")
 
   require("treesitter-context").setup({
-    mode = "cursor",
+    mode = "topline",
     multiwindow = true,
     max_lines = 5,
     multiline_threshold = 1,
