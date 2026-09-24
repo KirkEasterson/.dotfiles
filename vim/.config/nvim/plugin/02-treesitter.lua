@@ -63,6 +63,11 @@ vim.schedule(function()
     },
   })
 
+  vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#111111" })
+  vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#111111" })
+  vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "#222222", underline = true })
+  vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { sp = "#222222", underline = true })
+
   -- -- SELECT
   -- function
   vim.keymap.set({ "x", "o" }, "af", function()
