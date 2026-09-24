@@ -71,6 +71,9 @@ keybindings:
     - key: I
       name: CI/CD
       command: "gh enhance -R {{.RepoName}} {{.PrNumber}}"
+    - key: O
+      name: Checkout - worktree
+      command: "gh pr checkout {{.PrNumber}} --worktree '../{{.BaseRefName}}'"
 theme:
   ui:
     table:
