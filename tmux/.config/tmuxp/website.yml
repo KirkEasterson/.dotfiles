@@ -1,8 +1,0 @@
----
-session_name: website
-start_directory: ~/dev/kirkeasterson.github.io/
-
-windows:
-  - window_name: nvim
-    panes:
-      - "nvim"
