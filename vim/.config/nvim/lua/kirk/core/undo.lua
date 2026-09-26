@@ -3,19 +3,19 @@ vim.api.nvim_set_hl(0, "FlashUndo", { bg = "#888888", fg = "#000000", default = 
 
 local function highlight_undo(cmd)
   vim.cmd(cmd)
-  local start_pos = vim.fn.getpos("'[")
-  local end_pos = vim.fn.getpos("']")
+  -- TODO: replace with `[ and `] marks
+  -- local start_pos = vim.fn.getpos("'[")
+  -- local end_pos = vim.fn.getpos("']")
+  local bufnr = vim.api.nvim_get_current_buf()
+  local start_pos = vim.api.nvim_buf_get_mark(bufnr, "[")
+  local end_pos = vim.api.nvim_buf_get_mark(bufnr, "]")
 
-  local start_row = start_pos[2]
-  local start_col = start_pos[3]
-  local end_row = end_pos[2]
-  local end_col = end_pos[3]
+  local start_row = start_pos[1]
+  local start_col = start_pos[2]
+  local end_row = end_pos[1]
+  local end_col = end_pos[2]
 
   if start_row == 0 or end_row == 0 or start_row >= end_row then
-    return
-  end
-
-  if start_row == end_row and start_col == end_col then
     return
   end
 
