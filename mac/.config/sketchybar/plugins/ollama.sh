@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ ! -x "$(command -v ollama)" ]; then
+	echo "ollama must installed"
+	exit 1
+fi
+
 # icons for the taskbar
 BASE_ICON="✨"
 ON_ICON="${BASE_ICON}✔"
