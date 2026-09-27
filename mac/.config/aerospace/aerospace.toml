@@ -9,17 +9,17 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget borders',
-    'exec-and-forget sketchybar',
+	'exec-and-forget borders',
+	'exec-and-forget sketchybar',
 ]
 
 exec-on-workspace-change = [
-    '/bin/bash',
-    '-c',
-    'echo $AEROSPACE_FOCUSED_WORKSPACE > ~/.local/share/aerospace/focused_workspace && sketchybar --trigger aerospace_workspace_change',
+	'/bin/bash',
+	'-c',
+	'echo $AEROSPACE_FOCUSED_WORKSPACE > ~/.local/share/aerospace/focused_workspace && sketchybar --trigger aerospace_workspace_change',
 ]
 on-focus-changed = [
-    'exec-and-forget aerospace list-workspaces --monitor all --empty > ~/.local/share/aerospace/empty_workspaces && sketchybar --trigger aerospace_workspace_change',
+	'exec-and-forget aerospace list-workspaces --monitor all --empty > ~/.local/share/aerospace/empty_workspaces && sketchybar --trigger aerospace_workspace_change',
 ]
 
 # Start AeroSpace at login
@@ -65,11 +65,11 @@ inner.vertical = 0
 outer.left = 0
 outer.bottom = 0
 outer.top = [
-    { monitor.'Built-in Retina Display' = 0 },
-    { monitor.'DELL U2414H' = 38 },
-    { monitor.'LEN P27q-10' = 38 },
-    { monitor.'LS49C95xU' = 38 },
-    0,
+	{ monitor.'Built-in Retina Display' = 0 },
+	{ monitor.'DELL U2414H' = 38 },
+	{ monitor.'LEN P27q-10' = 38 },
+	{ monitor.'LS49C95xU' = 38 },
+	0,
 ]
 outer.right = 0
 
