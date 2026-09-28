@@ -97,8 +97,8 @@ vim.keymap.del("n", "<C-W>d")
 vim.keymap.del("n", "<C-W><C-D>")
 
 -- closing buffers
-util.map("n", "<C-w>", vim.cmd.bd, { desc = "Delete current buffer" })
-util.map("n", "<M-w>", function()
+util.map("n", "<leader>bd", vim.cmd.bd, { desc = "Delete current buffer" })
+util.map("n", "<leader>bo", function()
   local bufs = vim.api.nvim_list_bufs()
   local current_buf = vim.api.nvim_get_current_buf()
   for _, i in ipairs(bufs) do
