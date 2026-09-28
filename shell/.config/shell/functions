@@ -122,6 +122,9 @@ from_clipboard() {
 
 godoc() {
 	pkg=$(go list all | fzf)
+	if [ -z "$pkg" ]; then
+		return
+	fi
 	go doc -all "$pkg" | bat -p --color always --language go
 }
 
