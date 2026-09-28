@@ -82,6 +82,12 @@ vim.opt.winbar = "%{%v:lua.require('util').winbar()%}"
 vim.api.nvim_set_hl(0, "Winbar", { bg = "#0000FF", fg = "#FFFFFF", cterm = { underline = true } })
 vim.api.nvim_set_hl(0, "WinbarNC", { bg = "#444444", cterm = { undercurl = true } })
 
+vim.api.nvim_set_hl(0, "WinSeparator", {
+  fg = "#AAAAAA",
+  bg = "none",
+  bold = true,
+})
+
 vim.opt.spell = true
 vim.opt.spelllang = {
   "en_us",

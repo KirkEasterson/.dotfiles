@@ -17,6 +17,11 @@ require("NeoSolarized").setup({
       bg = "#555555",
       fg = "#ffffff",
     }
+    highlights.WinSeparator = {
+      fg = "#AAAAAA",
+      bg = "none",
+      bold = true,
+    }
   end,
 })
 
