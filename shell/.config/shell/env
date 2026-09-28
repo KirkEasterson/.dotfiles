@@ -34,6 +34,8 @@ export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME/bash-completion/bash_completi
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+export ENHANCE_THEME="3024 Night"
+
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export SPACESHIP_CONFIG_FILE="$XDG_CONFIG_HOME/spaceship/spaceship.zsh"
 
