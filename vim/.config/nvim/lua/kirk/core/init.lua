@@ -17,3 +17,7 @@ require("kirk.core.neovide")
 
 -- TODO: use this once I can get exact row and col of last edit
 -- require("kirk.core.undo")
+
+
+-- TODO: use this once I fix the flashing issues
+-- require("kirk.core.cmd-preview")
