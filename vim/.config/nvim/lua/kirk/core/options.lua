@@ -88,10 +88,10 @@ vim.opt.spelllang = {
   -- "sv",
   "nb",
 }
-vim.api.nvim_set_hl(0, "SpellBad", { fg = nil, cterm = { undercurl = true } })
-vim.api.nvim_set_hl(0, "SpellCap", { fg = nil, cterm = { undercurl = true } })
-vim.api.nvim_set_hl(0, "SpellRare", { fg = nil, cterm = { undercurl = true } })
-vim.api.nvim_set_hl(0, "SpellLocal", { fg = nil, cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellBad", { cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellCap", { cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellRare", { cterm = { undercurl = true } })
+vim.api.nvim_set_hl(0, "SpellLocal", { cterm = { undercurl = true } })
 
 vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
