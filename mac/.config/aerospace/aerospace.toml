@@ -60,18 +60,18 @@ key-mapping.preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 0
-inner.vertical = 0
-outer.left = 0
-outer.bottom = 0
+inner.horizontal = 2
+inner.vertical = 2
+outer.left = 2
+outer.bottom = 2
 outer.top = [
-	{ monitor.'Built-in Retina Display' = 0 },
+	{ monitor.'Built-in Retina Display' = 2 },
 	{ monitor.'DELL U2414H' = 38 },
 	{ monitor.'LEN P27q-10' = 38 },
 	{ monitor.'LS49C95xU' = 38 },
-	0,
+	2,
 ]
-outer.right = 0
+outer.right = 2
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'

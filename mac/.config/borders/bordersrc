@@ -4,7 +4,7 @@
 
 options=(
 	style=uniform
-	width=1.0
+	width=2.0
 	hidpi=off
 	active_color=0xffffff00
 	inactive_color=0xff000000
