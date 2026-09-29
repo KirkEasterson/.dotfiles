@@ -66,9 +66,9 @@ outer.left = 2
 outer.bottom = 2
 outer.top = [
 	{ monitor.'Built-in Retina Display' = 2 },
-	{ monitor.'DELL U2414H' = 38 },
-	{ monitor.'LEN P27q-10' = 38 },
-	{ monitor.'LS49C95xU' = 38 },
+	{ monitor.'DELL U2414H' = 32 },
+	{ monitor.'LEN P27q-10' = 32 },
+	{ monitor.'LS49C95xU' = 32 },
 	2,
 ]
 outer.right = 2
