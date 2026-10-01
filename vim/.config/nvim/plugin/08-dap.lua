@@ -6,7 +6,7 @@ vim.schedule(function()
     callback = function(ev)
       local name, kind = ev.data.spec.name, ev.data.kind
       if name == "lua-json5" and (kind == "update" or kind == "install") then
-        local dir = vim.fn.stdpath("data") .. "/site/pack/core/opt/lua-json5/"
+        local dir = vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack", "core", "opt", "lua-json5")
         vim.system({ "./install.sh" }, { cwd = dir }):wait()
       end
     end,
