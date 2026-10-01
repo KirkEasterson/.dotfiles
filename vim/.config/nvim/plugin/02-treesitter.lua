@@ -67,7 +67,6 @@ local parsers = {
   "ocaml",
   "ocaml_interface",
   "odin",
-  "prisma",
   "proto",
   "python",
   "query",
