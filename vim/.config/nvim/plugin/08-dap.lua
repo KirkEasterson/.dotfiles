@@ -1,4 +1,17 @@
 vim.schedule(function()
+  local group = vim.api.nvim_create_augroup("Json5Setup", { clear = true })
+  vim.api.nvim_create_autocmd("PackChanged", {
+    group = group,
+    desc = "Build json5 parser",
+    callback = function(ev)
+      local name, kind = ev.data.spec.name, ev.data.kind
+      if name == "lua-json5" and (kind == "update" or kind == "install") then
+        local dir = vim.fn.stdpath("data") .. "/site/pack/core/opt/lua-json5/"
+        vim.system({ "./install.sh" }, { cwd = dir }):wait()
+      end
+    end,
+  })
+
   vim.pack.add({
     -- ALREADY LOADED DEPENDENCIES
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -11,6 +24,8 @@ vim.schedule(function()
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/rcarriga/nvim-dap-ui", -- TODO: use a stable version once there's a new release
     "https://github.com/Weissle/persistent-breakpoints.nvim",
+
+    "https://github.com/Joakker/lua-json5",
   })
 
   vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "red" })
@@ -46,6 +61,7 @@ vim.schedule(function()
     virt_text_pos = "eol",
   })
 
+  require("dap.ext.vscode").json_decode = require("json5").parse
   local dap, dapui = require("dap"), require("dapui")
   dapui.setup({
     expand_lines = false,
