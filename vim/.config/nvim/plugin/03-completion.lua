@@ -5,7 +5,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
     if name == "LuaSnip" and (kind == "update" or kind == "install") then
-      -- TODO: check that this is correct
       vim.cmd("make install_jsregexp")
     end
   end,
