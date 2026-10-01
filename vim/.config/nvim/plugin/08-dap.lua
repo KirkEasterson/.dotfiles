@@ -7,7 +7,11 @@ vim.schedule(function()
       local name, kind = ev.data.spec.name, ev.data.kind
       if name == "lua-json5" and (kind == "update" or kind == "install") then
         local dir = vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack", "core", "opt", "lua-json5")
-        vim.system({ "./install.sh" }, { cwd = dir }):wait()
+        if vim.fn.has("win32") == 1 then
+          vim.system({ "powershell ./install.ps1" }, { cwd = dir })
+        else
+          vim.system({ "./install.sh" }, { cwd = dir })
+        end
       end
     end,
   })
