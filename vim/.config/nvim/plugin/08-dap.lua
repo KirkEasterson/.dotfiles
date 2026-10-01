@@ -65,7 +65,11 @@ vim.schedule(function()
     virt_text_pos = "eol",
   })
 
+  -- NOTE: This line will result in a `module 'json5' not found` error on first
+  -- install. This can be ignored as in the install script is run _after_ this
+  -- line is called, and a restart resolves that error.
   require("dap.ext.vscode").json_decode = require("json5").parse
+
   local dap, dapui = require("dap"), require("dapui")
   dapui.setup({
     expand_lines = false,
