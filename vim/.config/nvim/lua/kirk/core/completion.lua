@@ -1,6 +1,7 @@
 vim.o.autocomplete = true
 vim.o.autocompletedelay = 200
 vim.opt.smartcase = true
+vim.opt.pumheight = 8
 vim.opt.complete = {
   "o", -- omnifunc
   ".", -- currrent buffer
