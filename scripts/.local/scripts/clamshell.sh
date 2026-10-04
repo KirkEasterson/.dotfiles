@@ -38,7 +38,7 @@ disable_laptop() {
 
 if [ "$num_displays" == 1 ]; then
 	if is_lid_closed; then
-		systemctl suspend-then-hibernate
+		systemctl sleep
 	fi
 	exit 0
 fi
