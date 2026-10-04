@@ -20,11 +20,10 @@ enable_laptop() {
 	if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
 		# TODO: not use '--auto'
 		xrandr --output $laptop --auto
-		autorandr --change
 	else
 		wlr-randr --output $laptop --on
-		refresh-kanshi.sh
 	fi
+		refresh-displays.sh
 }
 
 disable_laptop() {
