@@ -3,8 +3,9 @@ vim.o.autocompletedelay = 200
 vim.opt.smartcase = true
 vim.opt.pumheight = 8
 vim.opt.complete = {
-  "o", -- omnifunc
-  ".", -- currrent buffer
+  "o^10", -- omnifunc
+  ".^5", -- currrent buffer
+  "w^5", -- open windows
 }
 vim.opt.completeopt = {
   "menuone",
