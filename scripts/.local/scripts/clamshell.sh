@@ -10,11 +10,10 @@ is_lid_closed() {
 
 get_num_displays() {
 	if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
-		num_displays=$(xrandr | grep -c " connected")
+    xrandr | grep -c " connected"
 	else
-		num_displays=$(wlr-randr | grep -c -v "^ ")
+    wlr-randr | grep -c -v "^ "
 	fi
-	echo -n "$num_displays"
 }
 
 enable_laptop() {
@@ -36,8 +35,9 @@ disable_laptop() {
 	fi
 }
 
-if [ "$num_displays" == 1 ]; then
+if [ "$(get_num_displays)" == 1 ]; then
 	if is_lid_closed; then
+    lock.sh
 		systemctl sleep
 	fi
 	exit 0
