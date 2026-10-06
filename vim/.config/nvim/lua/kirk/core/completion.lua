@@ -6,6 +6,7 @@ vim.opt.complete = {
   "o^10", -- omnifunc
   ".^5", -- currrent buffer
   "w^5", -- open windows
+  "t^5", -- tags
 }
 vim.opt.completeopt = {
   "menuone",
