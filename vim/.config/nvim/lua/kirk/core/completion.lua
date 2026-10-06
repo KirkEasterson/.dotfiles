@@ -4,9 +4,9 @@ vim.opt.smartcase = true
 vim.opt.pumheight = 8
 vim.opt.complete = {
   "o^10", -- omnifunc
-  ".^5", -- currrent buffer
-  "w^5", -- open windows
   "t^5", -- tags
+  ".^2", -- currrent buffer
+  "w^2", -- open windows
 }
 vim.opt.completeopt = {
   "menuone",
