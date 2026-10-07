@@ -69,6 +69,7 @@ outer.top = [
 	{ monitor.'DELL U2414H' = 32 },
 	{ monitor.'LEN P27q-10' = 32 },
 	{ monitor.'LS49C95xU' = 32 },
+	{ monitor.'T34w-30' = 32 },
 	2,
 ]
 outer.right = 2
