@@ -22,7 +22,7 @@ vim.schedule(function()
 
     -- TODO: this doesn't work with testing std library
     { src = "https://github.com/fredrikaverpil/neotest-golang", version = vim.version.range("*") },
-    -- { src = "https://github.com/marilari88/neotest-vitest", version = vim.version.range("*") },
+    "https://github.com/marilari88/neotest-vitest",
     -- { src = "https://github.com/rouge8/neotest-rust", version = vim.version.range("*") },
     -- { src = "https://github.com/lawrence-laz/neotest-zig", version = vim.version.range("*") },
 
@@ -57,7 +57,11 @@ vim.schedule(function()
       require("neotest-golang")({
         warn_test_name_dupes = false, -- native go packages have many duplicate tests
       }),
-      -- require("neotest-vitest"),
+      require("neotest-vitest")({
+        filter_dir = function(name, rel_path, root)
+          return name ~= "node_modules"
+        end,
+      }),
     },
     status = {
       virtual_text = false,
