@@ -69,6 +69,14 @@ tmux_sessionizer() {
 zle -N tmux_sessionizer
 bindkey -M viins '^F' tmux_sessionizer
 bindkey -M vicmd '^F' tmux_sessionizer
+tmux_sessions() {
+	zle push-line
+	BUFFER='tmux_sessions.sh'
+	zle accept-line
+}
+zle -N tmux_sessions
+bindkey -M viins '^O' tmux_sessions
+bindkey -M vicmd '^O' tmux_sessions
 
 # like my nvim mapping
 bindkey -M viins '^Y' autosuggest-accept
