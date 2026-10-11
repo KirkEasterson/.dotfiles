@@ -1,6 +1,6 @@
 #!/bin/sh
 
-riverctl spawn "swaybg --image ${XDG_CONFIG_HOME}/wallpaper"
+riverctl spawn "swaybg --mode fill --image ${XDG_CONFIG_HOME}/wallpaper"
 riverctl spawn "dunst"
 riverctl spawn "${XDG_CONFIG_HOME}/waybar/start.sh"
 riverctl spawn "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"

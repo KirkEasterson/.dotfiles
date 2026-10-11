@@ -9,7 +9,7 @@ cmp --silent "${XDG_CONFIG_HOME}/wallpaper" "$file" && exit 0
 cp "$file" "${XDG_CONFIG_HOME}/wallpaper"
 
 if [ -n "$DISPLAY" ] && [ -n "$WAYLAND_DISPLAY" ]; then
-	swaybg -m stretch --image "${XDG_CONFIG_HOME}/wallpaper" &
+	swaybg --mode fill --image "${XDG_CONFIG_HOME}/wallpaper" &
 	disown
 else
 	feh --no-fehbg --bg-scale "${XDG_CONFIG_HOME}/wallpaper" &
