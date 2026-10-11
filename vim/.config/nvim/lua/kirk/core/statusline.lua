@@ -80,7 +80,7 @@ local vcs = function()
   end
   local branch_name = vim.b.gitsigns_head -- TODO: make this work when in buffers without a file
   if #branch_name > 30 then
-    branch_name = branch_name:sub(1, 19) .. "…"
+    branch_name = branch_name:sub(1, 29) .. "…"
   end
 
   local branch = git_info.added and ("%#GitBranch# " .. branch_name .. " ") or ""
