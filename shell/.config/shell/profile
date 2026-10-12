@@ -8,16 +8,10 @@
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	if [ -n "${DISPLAY}" ]; then
 
-		flameshot &
 		nm-applet &
 		blueman-applet &
-		udiskie -a &
-		dunst &
 
-		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-			kanshi &
-
-		else
+		if [ "$XDG_SESSION_TYPE" != "wayland" ]; then
 			picom &
 			sxhkd &
 			~/.config/polybar/launch.sh &

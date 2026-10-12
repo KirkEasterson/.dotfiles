@@ -1,0 +1,15 @@
+[Unit]
+Description=Dynamic output configuration for Wayland
+Documentation=man:kanshi(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi
+Environment=XDG_CONFIG_HOME=%h/.config
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target

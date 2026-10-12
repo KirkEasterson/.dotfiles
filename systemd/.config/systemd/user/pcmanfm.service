@@ -1,0 +1,13 @@
+[Unit]
+Description=PCManFM File Manager Daemon
+After = graphical-session.target
+PartOf = graphical-session.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/pcmanfm --daemon-mode
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
