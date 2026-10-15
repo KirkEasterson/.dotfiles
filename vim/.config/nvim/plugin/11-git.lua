@@ -1,3 +1,5 @@
+-- TODO: restart LSP when changing branch on neogit
+
 vim.g.diffs = {
   integrations = {
     neogit = true,
