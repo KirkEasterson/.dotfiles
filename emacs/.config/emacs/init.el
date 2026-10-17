@@ -1,4 +1,10 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: t; -*-
+
+;;; package --- Summary
+
+;;; Commentary:
+
+;;; Code:
 
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file 'noerror)

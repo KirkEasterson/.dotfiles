@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("4dc6d1878cc81242da301a39200ba777e90ac9efef84010b4632f9f0f6f4d9b4"
+   '("aaff0b24e45f9d1b245b4e49fe1ce7e475f100d6aae26133633fef420a8b502d"
      default))
  '(package-selected-packages
    '(exec-path-from-shell evil-commentary which-key magit lsp-ui lsp-ivy
