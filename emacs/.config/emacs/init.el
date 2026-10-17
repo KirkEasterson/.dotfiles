@@ -175,13 +175,14 @@
   :config
   (global-evil-surround-mode 1))
 
-(use-package evil-numbers
-	     :config
-	     (global-evil-surround-mode 1)
-	     :bind (
-		:map evil-normal-state-map
-		("C-a" . 'evil-numbers/inc-at-pt)
-		("C-x" . 'evil-numbers/dec-at-pt)))
+;; ;; NOTE: overriding "C-x" is a bad idea
+;; (use-package evil-numbers
+;; 	     :config
+;; 	     (global-evil-surround-mode 1)
+;; 	     :bind (
+;; 		:map evil-normal-state-map
+;; 		("C-a" . 'evil-numbers/inc-at-pt)
+;; 		("C-x" . 'evil-numbers/dec-at-pt)))
 
 (use-package evil-commentary
   :ensure t
