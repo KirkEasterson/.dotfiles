@@ -12,6 +12,9 @@
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 (load-theme 'basic)
 
+;; syntax highlighting
+(setq font-lock-maximum-decoration t)
+
 ;;; OS specific config
 (defconst *is-mac* (eq system-type 'darwin))
 (defconst *is-linux* (eq system-type 'gnu/linux))
