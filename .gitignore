@@ -12,7 +12,6 @@
 
 monitors.conf
 
-elpa/
 transient/
 
 scripts/.local/bin/*
@@ -52,8 +51,12 @@ firefox/*
 **/nvim/plugged
 **/nvim/db_ui
 
+**/emacs/*.~undo-tree~
+**/emacs/*projectile*
 **/emacs/auto-save-list
 **/emacs/eln-cache
+**/emacs/elpa
+**/emacs/tramp
 
 **/btop/btop.log
 
