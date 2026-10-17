@@ -1,5 +1,10 @@
+;; -*- lexical-binding: nil; -*-
+
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file 'noerror)
+
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+(load-theme 'basic)
 
 ;;; OS specific config
 (defconst *is-mac* (eq system-type 'darwin))
@@ -24,7 +29,9 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(set-face-attribute 'default nil :font "Iosevka Term Nerd Font Mono" :height 150)
+(set-face-attribute 'default nil :font "Iosevka Term Nerd Font Mono" :height 130)
+(set-face-attribute 'fixed-pitch nil :font "IosevkaTerm Nerd Font Mono")
+(set-face-attribute 'variable-pitch nil :font "IosevkaTerm Nerd Font Mono")
 
 (column-number-mode)
 (global-display-line-numbers-mode t)
@@ -58,49 +65,16 @@
  use-package-always-ensure t ;; download new packages if not downloaded already
  use-package-verbose t) ;; add logging for package installs
 
-;;  ;; slurp environment variables from the shell.
-;; (use-package exec-path-from-shell
-;;   :config
-;;   (exec-path-from-shell-initialize))
+;; slurp environment variables from the shell.
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; nerd fonts
 (defcustom ek-use-nerd-fonts t
   "Configuration for using Nerd Fonts Symbols."
   :type 'boolean
   :group 'appearance)
-
-(use-package ewal
-  :init (setq ewal-use-built-in-always-p nil
-              ewal-use-built-in-on-failure-p t
-              ewal-built-in-palette "sexy-material"))
-(use-package ewal-spacemacs-themes
-  :init (progn
-          (setq spacemacs-theme-underline-parens t
-                my:rice:font (font-spec
-                              :family "Source Code Pro"
-                              :weight 'semi-bold
-                              :size 11.0))
-          (show-paren-mode +1)
-          (global-hl-line-mode)
-          (set-frame-font my:rice:font nil t)
-          (add-to-list  'default-frame-alist
-                        `(font . ,(font-xlfd-name my:rice:font))))
-  :config (progn
-            (load-theme 'ewal-spacemacs-modern t)
-            (enable-theme 'ewal-spacemacs-modern)))
-(use-package ewal-evil-cursors
-  :after (ewal-spacemacs-themes)
-  :config (ewal-evil-cursors-get-colors
-           :apply t :spaceline t))
-(use-package spaceline
-  :after (ewal-evil-cursors winum)
-  :init (setq powerline-default-separator nil)
-  :config (spaceline-spacemacs-theme))
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
-
 
 (use-package magit)
 (use-package swiper)
@@ -176,50 +150,11 @@
   (add-hook 'prog-mode-hook 'flycheck-mode) ;; always lint my code
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-;; Package for interacting with language servers
-(use-package lsp-mode
-  :commands lsp
-  :config
-  (setq lsp-prefer-flymake nil ;; Flymake is outdated
-        lsp-headerline-breadcrumb-mode nil))
-
-;; (use-package lsp-mode
-;;   :init
-;;   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-;;   (setq lsp-keymap-prefix "C-c l")
-;;   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-;;          (XXX-mode . lsp)
-;;          ;; if you want which-key integration
-;;          (lsp-mode . lsp-enable-which-key-integration))
-;;   :commands lsp)
-
-;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
-;; if you are ivy user
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-
-;; ;; optionally if you want to use debugger
-;; (use-package dap-mode)
-;; ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(package-selected-packages
-;;    '(evil-numbers helm-lsp which-key magit lsp-ui lsp-ivy ivy-rich helpful evil-surround doom-themes doom-modeline dap-mode counsel)))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
-
 (use-package evil
   :ensure t
   :config
   (evil-mode 1))
+(defvar evil-mode-buffers '())
 ;; (evil-want-fine-undo 1))
 (setq evil-undo-system 'undo-tree)
 (setq evil-insert 'bar)
@@ -252,7 +187,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(exec-path-from-shell evil-commentary which-key magit lsp-ui lsp-ivy ivy-rich helpful evil-surround evil-numbers doom-themes doom-modeline dap-mode counsel)))
+   '(exec-path-from-shell evil-commentary which-key magit lsp-ui lsp-ivy ivy-rich helpful evil-surround evil-numbers dap-mode counsel)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
