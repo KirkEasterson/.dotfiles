@@ -4,8 +4,7 @@ vim.pack.add({
 
   { src = "https://github.com/neovim/nvim-lspconfig", version = vim.version.range("*") },
   { src = "https://github.com/williamboman/mason-lspconfig.nvim", version = vim.version.range("*") },
-  "https://github.com/nvim-lua/plenary.nvim", -- TODO: use a stable version once there's a new release
-  "https://github.com/antosha417/nvim-lsp-file-operations",
+  { src = "https://github.com/antosha417/nvim-lsp-file-operations", version = vim.version.range("*") },
 })
 
 require("lspconfig.ui.windows").default_options.border = "rounded"

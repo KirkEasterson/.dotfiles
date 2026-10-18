@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.schedule(function()
   vim.pack.add({
     -- ALREADY LOADED DEPENDENCIES
-    -- "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/nvim-lua/plenary.nvim",
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
     -- "https://github.com/rcarriga/nvim-dap-ui",
 
