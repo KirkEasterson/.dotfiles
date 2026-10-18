@@ -29,7 +29,8 @@ vim.schedule(function()
     "https://github.com/dlyongemallo/diffview-plus.nvim",
     "https://github.com/ruifm/gitlinker.nvim",
     { src = "https://github.com/lewis6991/gitsigns.nvim", version = vim.version.range("*") },
-    { src = "https://github.com/kirkeasterson/neogit", version = "dev" },
+    -- { src = "https://github.com/kirkeasterson/neogit", version = "dev" },
+    "https://github.com/NeogitOrg/neogit",
   })
 
   require("gitlinker").setup({
