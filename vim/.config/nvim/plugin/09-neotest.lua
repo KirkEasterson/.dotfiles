@@ -67,6 +67,15 @@ vim.schedule(function()
       virtual_text = false,
       signs = true,
     },
+    discovery = {
+      enabled = false,
+    },
+    running = {
+      concurrent = true,
+    },
+    summary = {
+      animated = false,
+    },
   })
 
   local open_clear_panel = function()
