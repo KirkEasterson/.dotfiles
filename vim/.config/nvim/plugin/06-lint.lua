@@ -4,11 +4,7 @@ vim.schedule(function()
     -- "https://github.com/williamboman/mason.nvim",
 
     "https://github.com/mfussenegger/nvim-lint",
-    -- { src = "https://github.com/rshkarin/mason-nvim-lint", version = vim.version.range("*") },
-    {
-      src = "https://github.com/kirkeasterson/mason-nvim-lint",
-      version = "kirk_2026-05-16_07-44-08_add-commitlint-and-gitlint-mapping",
-    },
+    "https://github.com/rshkarin/mason-nvim-lint", -- TODO: use a version
   })
 
   require("lint").linters_by_ft = {
