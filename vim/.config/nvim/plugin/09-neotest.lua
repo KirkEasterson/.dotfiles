@@ -17,16 +17,15 @@ vim.schedule(function()
     -- "https://github.com/nvim-treesitter/nvim-treesitter",
     -- "https://github.com/rcarriga/nvim-dap-ui",
 
-    { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
-    "https://github.com/antoinemadec/FixCursorHold.nvim",
-
     -- TODO: this doesn't work with testing std library
     { src = "https://github.com/fredrikaverpil/neotest-golang", version = vim.version.range("*") },
     "https://github.com/marilari88/neotest-vitest",
     -- { src = "https://github.com/rouge8/neotest-rust", version = vim.version.range("*") },
     -- { src = "https://github.com/lawrence-laz/neotest-zig", version = vim.version.range("*") },
 
-    "https://github.com/nvim-neotest/neotest",
+    { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
+    "https://github.com/antoinemadec/FixCursorHold.nvim",
+    { src = "https://github.com/nvim-neotest/neotest", version = vim.version.range("*") },
   })
 
   -- TODO: find out where I got this from
