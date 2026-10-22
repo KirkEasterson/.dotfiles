@@ -3,5 +3,5 @@
 if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
   autorandr --change
 else
-  pgrep kanshi | xargs kill -HUP
+  systemctl --user restart kanshi.service
 fi
