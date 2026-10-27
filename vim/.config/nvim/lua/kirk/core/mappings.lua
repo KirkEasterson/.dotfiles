@@ -17,7 +17,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_mappings", { clear = true }),
   desc = "LSP mappings",
   callback = function()
-    util.map("n", "K", vim.lsp.buf.hover)
+    util.map("n", "K", function()
+      vim.lsp.buf.hover()
+    end)
   end,
 })
 
