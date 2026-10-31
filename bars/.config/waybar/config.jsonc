@@ -160,7 +160,7 @@
     },
   },
   "cpu": {
-    "format": " {usage}%",
+    "format": " {usage:02}%",
     "on-click": "$TERMINAL -e htop",
     "interval": 1,
   },
@@ -179,7 +179,7 @@
   },
   "backlight": {
     // "device": "acpi_video1",
-    "format": "{icon} {percent}%",
+    "format": "{icon} {percent:3}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-up": "change_brightness.sh lower",
     "on-scroll-down": "change_brightness.sh raise",
@@ -214,12 +214,12 @@
   },
   "wireplumber": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-bluetooth-muted": "󰖁 {volume}%",
-    "format-muted": "󰖁 {volume}%",
-    "format-source": " {volume}%",
-    "format-source-muted": "{volume}%",
+    "format": "{icon} {volume:3}%",
+    "format-bluetooth": "{icon} {volume:3}%",
+    "format-bluetooth-muted": "󰖁 {volume:3}%",
+    "format-muted": "󰖁 {volume:3}%",
+    "format-source": " {volume:3}%",
+    "format-source-muted": "{volume:3}%",
     "tooltip-format": "{volume}%",
     "format-icons": {
       "headphone": "",
