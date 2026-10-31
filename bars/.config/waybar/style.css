@@ -85,8 +85,28 @@ window#waybar {
   background: @red;
 }
 
+#wireplumber {
+  border-bottom: 3px solid @red;
+}
+
 #wireplumber.muted {
   color: @grey;
+}
+
+#cpu {
+  border-bottom: 3px solid @green;
+}
+
+#memory {
+  border-bottom: 3px solid @magenta;
+}
+
+#backlight {
+  border-bottom: 3px solid @violet;
+}
+
+#custom-weather {
+  border-bottom: 3px solid @red;
 }
 
 @keyframes blink {
@@ -94,6 +114,10 @@ window#waybar {
     background: inherit;
     color: inherit;
   }
+}
+
+#temperature {
+  border-bottom: 3px solid @cyan;
 }
 
 #temperature.critical {
@@ -104,6 +128,10 @@ window#waybar {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#battery {
+  border-bottom: 3px solid @blue;
 }
 
 #battery.warning:not(.charging) {
@@ -131,6 +159,7 @@ window#waybar {
   background: @base02;
   font-weight: bold;
   padding: 0px 5px;
+  border-bottom: 3px solid @orange;
 }
 
 #custom-line-separator {
