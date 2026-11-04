@@ -1,7 +1,7 @@
 # vi: ft=bash
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-FONT="IosevkaTerm Nerd Font Mono"
+FONT="IosevkaTerm Nerd Font"
 
 ##### create bar #####
 sketchybar --bar \
@@ -24,7 +24,7 @@ sketchybar --default \
     label.padding_right=2 \
     icon.padding_left=2 \
     icon.padding_right=2 \
-    icon.font="$FONT:Regular:30.0" \
+    icon.font="$FONT:Regular:16.0" \
     icon.color=0xffffffff \
     updates=on
 
