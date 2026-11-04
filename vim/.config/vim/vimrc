@@ -1,6 +1,12 @@
+" TODO:
+"   - disable swap files
+
 """""""""" OPTIONS
 let mapleader=" " " leader is space
 let g:mapleader = "\<Space>"
+
+set background=dark
+colorscheme elflord
 
 set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_DATA_HOME/vim
@@ -21,7 +27,7 @@ if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 
 set updatetime=50 " fast update times
 
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,noselect,fuzzy
 set number relativenumber " turn hybrid line numbers on
 set cursorline " highlight current line
 set termguicolors
@@ -38,7 +44,7 @@ set linebreak " avoid wrapping a line in the middle of a word
 syntax enable " enable syntax highlighting
 set showmatch " highlight matching [{()}]
 
-set scrolloff=8 " scroll when x away from edge
+set scrolloff=4 " scroll when x away from edge
 set signcolumn=yes " column for linting
 set colorcolumn=80 " 80col limit
 
@@ -48,15 +54,28 @@ set shiftwidth=4 " number of spaces when indenting with <>
 filetype indent on " load filetype-specific indent files
 filetype plugin indent on " TODO: is this line redundant?
 
-let g:highlightedyank_highlight_duration = 200
+let g:highlightedyank_highlight_duration = 100
 
 set mouse=a " enable mouse for scrolling and resizing
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to.
 set exrc " use local vimrc, if it exists
 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+let &t_SI = "\e[6 q" " vertical bar in insert mode
+let &t_EI = "\e[2 q" " block in normal mode
+
+" use rg for grep
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+  set grepformat=%f:%l:%c:%m
+endif
+
+" netrw options
+let g:netrw_liststyle = 3 " tree view
+let g:netrw_banner = 0 " hide the top banner
+let g:netrw_winsize = 25 " fix the left split width
+let g:netrw_browse_split = 0 " open files in the previous window
+let g:netrw_altfile = 1 " keep the alternate file correct
 
 """""""""" MAPPINGS
 " navigation
@@ -69,6 +88,10 @@ nnoremap <C-l> <C-w>l
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
+nnoremap <C-i> <C-i>zz
+nnoremap <C-o> <C-o>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
 
 " easier undos
 inoremap , ,<c-g>u
@@ -86,14 +109,61 @@ nnoremap <leader>z :qa<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-" easy window navigation shortcuts
-nnoremap <silent> <leader>h :wincmd h<CR>
-nnoremap <silent> <leader>j :wincmd j<CR>
-nnoremap <silent> <leader>k :wincmd k<CR>
-nnoremap <silent> <leader>l :wincmd l<CR>
+" rehighlight crementing
+vnoremap <C-a> <C-a> gv
+vnoremap <C-x> <C-x>gv
 
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" quickfix navigation
+nnoremap [Q :cfirst<CR>
+nnoremap ]q :cprev<CR>
+nnoremap [q :cnext<CR>
+nnoremap ]Q :clast<CR>
+function! ToggleQuickfix()
+    let qf_open = 0
+    for win in range(1, winnr('$'))
+        if getwinvar(win, '&buftype') == 'quickfix'
+            let qf_open = 1
+            break
+        endif
+    endfor
+    if qf_open
+        cclose
+    else
+        copen
+    endif
+endfunction
+nnoremap <silent> <leader>tq :call ToggleQuickfix()<CR>
+
+
+" locationlist navigation
+nnoremap [L :lfirst<CR>
+nnoremap ]l :lprev<CR>
+nnoremap [l :lnext<CR>
+nnoremap ]L :llast<CR>
+
+" delete current buffer
+nnoremap <leader>bd :bdelete<CR>
+
+" don't move cursor on yank
+vnoremap y ygv<ESC>
+
+" use system clipboard
+noremap <leader>x "+x
+noremap <leader>y "+y
+noremap <leader>p "+p
+noremap <leader>P "+P
+
+" don't add brackets to jump list
+nnoremap { :keepjumps normal! {<CR>
+nnoremap } :keepjumps normal! }<CR>
+vnoremap { :keepjumps normal! gv{<CR>
+vnoremap } :keepjumps normal! gv}<CR>
+
+" toggle relative linenumber
+nnoremap <leader>rt :set relativenumber!<CR>
+
+" toggle fold under cursor
+nnoremap <Tab>za
 
 """""""""" AUTOCMDS
 augroup WrapLineInLatexFile
@@ -108,69 +178,3 @@ augroup END
 
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" build notes
-autocmd BufWritePost *note-*.md silent !notes.sh build %:p
-
-"""""""""" PLUGINS
-" Bootstrap vim-plug
-if empty(glob('~/.config/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-call plug#begin()
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'liuchengxu/vim-which-key'
-Plug 'vim-fuzzbox/fuzzbox.vim'
-
-call plug#end()
-
-let g:airline_theme='simple'
-let g:airline#extensions#tabline#enabled = 1
-
-let g:NERDTreeWinPos = 'right'
-let g:NERDTreeShowHidden = 1
-
-set background=dark
-colorscheme elflord
-
-" autocommands that call SyncNerdTree() when the buffer is changed or written
-" to
-augroup nerd_tree_sync_current_dir
-  autocmd!
-  autocmd BufEnter * call SyncNERDTree()
-augroup end
-
-" sync NERDTree with the current file open
-function SyncNERDTree()
-  " make sure the buffer isn't a NERDTree buffer, it is not empty, and also
-  " make sure the buffer contains a file
-  " file
-  if stridx(bufname('%'), 'NERD_tree_') == -1 && bufname() != "" && &buftype == "" && &filetype != ""
-    cd %:p:h
-    " open a new NERDTree buffer and close it
-    NERDTree
-    NERDTreeClose
-  endif
-endfunction
-
-nnoremap <silent> <leader>gg :Git<CR>
-
-" let g:fuzzbox_compact = 1
-
-nnoremap <silent> <leader>ff :FuzzyFiles<CR>
-nnoremap <silent> <leader>fg :FuzzyGrep<CR>
-nnoremap <silent> <leader>fb :FuzzyBuffers<CR>
