@@ -19,13 +19,13 @@ sketchybar --default \
     padding_left=5 \
     padding_right=5 \
     label.font="$FONT:Regular:16.0" \
-    label.color=0xffebdbb2 \
+    label.color=0xffffffff \
     label.padding_left=2 \
     label.padding_right=2 \
     icon.padding_left=2 \
     icon.padding_right=2 \
     icon.font="$FONT:Regular:30.0" \
-    icon.color=0xffebdbb2 \
+    icon.color=0xffffffff \
     updates=on
 
 ##### LEFT ITEMS #####
@@ -36,7 +36,7 @@ sketchybar --add item apple.logo left \
     popup.background.border_width=2 \
     popup.background.corner_radius=3 \
     popup.background.color=0xff000000 \
-    popup.background.border_color=0xff9dd274 \
+    popup.background.border_color=0xffffff00 \
     --add item apple.about popup.apple.logo \
     --set apple.about icon= \
     label="About This Mac" \
@@ -125,13 +125,13 @@ sketchybar --add item cpu right \
     --set cpu script="$PLUGIN_DIR/cpu.sh" \
     update_freq=1 \
     icon= \
-    icon.color=0xffcc241d
+    icon.color=0xffff0000
 
 sketchybar --add item ram right \
     --set ram script="$PLUGIN_DIR/ram.sh" \
     update_freq=1 \
     icon= \
-    icon.color=0xffcc241d
+    icon.color=0xffff0000
 
 sketchybar --add item volume right \
     --subscribe volume volume_change \
@@ -145,7 +145,7 @@ sketchybar --add item kb right \
     --set kb script="$PLUGIN_DIR/kb_layout.sh" \
     label.font="$FONT:Italic:16.0" \
     icon= \
-    icon.color=0xffa89984
+    icon.color=0xff458588
 
 sketchybar --add item weather right \
     --set weather script="$PLUGIN_DIR/weather.sh" \
@@ -167,7 +167,7 @@ sketchybar --add item ollama right \
 sketchybar --add item brew right \
     --set brew script="$PLUGIN_DIR/brew.sh" \
     update_freq=60 \
-    icon.color=0xffd65d0e
+    icon.color=0xffff0000
 
 sketchybar --add item spotify right \
     --add event spotify_change "com.spotify.client.PlaybackStateChanged" \

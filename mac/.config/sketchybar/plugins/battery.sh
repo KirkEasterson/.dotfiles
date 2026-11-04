@@ -45,13 +45,13 @@ esac
 
 case ${PERCENTAGE} in
 [8-9][0-9] | 100)
-  HIGHLIGHT="0xff98971a"
+  HIGHLIGHT="0xff00ff00"
   ;;
 [3-7][0-9])
-  HIGHLIGHT="0xfffabd2f"
+  HIGHLIGHT="0xffffff00"
   ;;
 *)
-  HIGHLIGHT="0xffcc241d"
+  HIGHLIGHT="0xffff0000"
   ICON="󱈸${ICON}"
   ;;
 esac
