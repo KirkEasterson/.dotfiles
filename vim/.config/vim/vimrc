@@ -60,7 +60,7 @@ hi SpellLocal cterm=undercurl ctermfg=NONE ctermbg=NONE gui=undercurl guifg=NONE
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " number of spaces when indenting with <>
-filetype plugin indent on " TODO: is this line redundant?
+filetype plugin indent on
 
 set shortmess+=IWsA
 
