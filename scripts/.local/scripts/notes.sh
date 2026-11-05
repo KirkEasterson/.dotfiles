@@ -15,7 +15,7 @@ edit_today() {
 		printf "# Notes for %s" "${today}" >"${today_note_file}"
 	fi
 
-	NVIM_APPNAME="$nvim_appname" nvim \
+	vim \
 		-c "norm Go" \
 		-c "norm Go## ${now}" \
 		-c "norm G2o" \
