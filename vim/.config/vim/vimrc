@@ -4,6 +4,9 @@ colorscheme basic_dark
 let mapleader=" " " leader is space
 let g:mapleader = "\<Space>"
 
+set timeoutlen=1000
+set ttimeoutlen=0
+
 set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_DATA_HOME/vim
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
