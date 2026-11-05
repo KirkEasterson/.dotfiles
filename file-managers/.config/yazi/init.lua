@@ -1,4 +1,4 @@
-require("full-border"):setup({ type = ui.Border.PLAIN })
+require("full-border"):setup({ set = "plain" })
 require("no-status"):setup()
 
 th.git = th.git or {}
