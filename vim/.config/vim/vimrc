@@ -39,7 +39,7 @@ set autoindent " new lines inherit the indentation of previous lines.
 set nowrap " don't wrap lines
 set linebreak " avoid wrapping a line in the middle of a word
 
-syntax enable " enable syntax highlighting
+syntax on " enable syntax highlighting
 set showmatch " highlight matching [{()}]
 
 set scrolloff=4 " scroll when x away from edge
