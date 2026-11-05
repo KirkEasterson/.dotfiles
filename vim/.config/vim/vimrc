@@ -1,12 +1,9 @@
-" TODO:
-"   - disable swap files
+set background=dark
+colorscheme elflord
 
 """""""""" OPTIONS
 let mapleader=" " " leader is space
 let g:mapleader = "\<Space>"
-
-set background=dark
-colorscheme elflord
 
 set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_DATA_HOME/vim
@@ -34,7 +31,6 @@ set termguicolors
 set confirm
 
 set incsearch " highlight matches as you type
-set hlsearch " highlight matches once a search is complete
 set nohlsearch " turn off search highlight
 
 set autoindent " new lines inherit the indentation of previous lines.
@@ -48,11 +44,27 @@ set scrolloff=4 " scroll when x away from edge
 set signcolumn=yes " column for linting
 set colorcolumn=80 " 80col limit
 
+set lazyredraw " faster macros
+set noswapfile " disable swap files
+set sessionoptions=buffers,curdir,folds,globals,help,localoptions,options,tabpages,terminal,winpos,winsize,
+set nospell
+set spell
+set spelllang=en_us,nb,sv
+
+set autoread " sync buffers automatically
+
+hi SpellBad cterm=undercurl ctermfg=NONE ctermbg=NONE gui=undercurl guifg=NONE guibg=NONE
+hi SpellCap cterm=undercurl ctermfg=NONE ctermbg=NONE gui=undercurl guifg=NONE guibg=NONE
+hi SpellRare cterm=undercurl ctermfg=NONE ctermbg=NONE gui=undercurl guifg=NONE guibg=NONE
+hi SpellLocal cterm=undercurl ctermfg=NONE ctermbg=NONE gui=undercurl guifg=NONE guibg=NONE
+
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " number of spaces when indenting with <>
 filetype indent on " load filetype-specific indent files
 filetype plugin indent on " TODO: is this line redundant?
+
+set shortmess+=IWsA
 
 let g:highlightedyank_highlight_duration = 100
 
@@ -61,8 +73,15 @@ set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to.
 set exrc " use local vimrc, if it exists
 
+set splitright " splits open to the right
+set splitbelow " splits open below
+set splitkeep=cursor " keep cursorline on split resizing
+
+set termguicolors
 let &t_SI = "\e[6 q" " vertical bar in insert mode
 let &t_EI = "\e[2 q" " block in normal mode
+let &t_Cs = "\e[4:3m" " enable undercurl
+let &t_Ce = "\e[4:0m" " set undercurl color
 
 " use rg for grep
 if executable('rg')
@@ -76,6 +95,9 @@ let g:netrw_banner = 0 " hide the top banner
 let g:netrw_winsize = 25 " fix the left split width
 let g:netrw_browse_split = 0 " open files in the previous window
 let g:netrw_altfile = 1 " keep the alternate file correct
+let g:netrw_preview = 1
+
+hi VertSplit cterm=bold ctermfg=white ctermbg=NONE gui=bold guifg=white guibg=NONE
 
 """""""""" MAPPINGS
 " navigation
@@ -112,7 +134,7 @@ vnoremap > >gv
 " rehighlight crementing
 vnoremap <C-a> <C-a> gv
 vnoremap <C-x> <C-x>gv
-
+"
 " quickfix navigation
 nnoremap [Q :cfirst<CR>
 nnoremap ]q :cprev<CR>
@@ -163,7 +185,11 @@ vnoremap } :keepjumps normal! gv}<CR>
 nnoremap <leader>rt :set relativenumber!<CR>
 
 " toggle fold under cursor
-nnoremap <Tab>za
+nnoremap <Tab> za
+
+nnoremap <leader>e :Lexplore!<CR>
+
+set fillchars+=vert:┃
 
 """""""""" AUTOCMDS
 augroup WrapLineInLatexFile
@@ -178,3 +204,38 @@ augroup END
 
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
+
+
+"""""""""" STATUSLINE
+set laststatus=2 " show statusline
+
+autocmd FileType netrw setlocal statusline=%#Normal#
+
+let g:currentmode = {
+    \ 'n'  : 'NORMAL',
+    \ 'v'  : 'VISUAL',
+    \ 'V'  : 'V-LINE',
+    \ ' ' : 'V-BLOCK',
+    \ 'i'  : 'INSERT',
+    \ 'R'  : 'REPLACE',
+    \ 'c'  : 'COMMAND',
+    \ 't'  : 'TERMINAL'
+    \}
+
+" Function to get the current mode label
+function! GetModeLabel()
+    let l:mode = mode()
+    return get(g:currentmode, l:mode, l:mode)
+endfunction
+
+set statusline= " clear existing statusline
+
+" left side
+set statusline+=%#Visual#\ %{GetModeLabel()}\       " mode
+set statusline+=%#Normal#\ %f\                      " relative path to file
+set statusline+=%#Normal#\ %m%r%w\                  " flags
+
+" right side
+set statusline+=%=                                   " separator
+set statusline+=%#Normal#\ %3p%%\                    " file progress
+set statusline+=%#Normal#\ %l:%c                     " cursor coordinates
