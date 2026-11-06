@@ -191,16 +191,6 @@ nnoremap <Tab> za
 nnoremap <leader>e :Lexplore!<CR>
 
 """""""""" AUTOCMDS
-augroup WrapLineInLatexFile
-	autocmd!
-	autocmd FileType tex setlocal wrap
-augroup END
-
-augroup WrapLineInMarkdownFile
-	autocmd!
-	autocmd FileType markdown setlocal wrap
-augroup END
-
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
 
