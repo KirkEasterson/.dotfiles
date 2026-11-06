@@ -123,6 +123,10 @@ inoremap [ [<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" searching
+nnoremap <leader>fg :silent grep!<Space>
+nnoremap <leader>fG :silent grep! <cword><CR>
+
 " easy saving/quitting
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
