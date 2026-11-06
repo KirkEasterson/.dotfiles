@@ -98,7 +98,6 @@ let g:netrw_browse_split = 0 " open files in the previous window
 let g:netrw_altfile = 1 " keep the alternate file correct
 let g:netrw_preview = 1
 
-let g:markdown_recommended_style=0
 
 """""""""" MAPPINGS
 " navigation
