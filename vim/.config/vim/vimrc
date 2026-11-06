@@ -193,8 +193,6 @@ nnoremap <leader>e :Lexplore!<CR>
 set fillchars+=vert:┃
 
 """""""""" AUTOCMDS
-autocmd BufWritePost *note-*.md silent !notes.sh build %:p
-
 augroup WrapLineInLatexFile
 	autocmd!
 	autocmd FileType tex setlocal wrap
