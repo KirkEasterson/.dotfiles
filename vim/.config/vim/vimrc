@@ -194,6 +194,12 @@ nnoremap <leader>e :Lexplore!<CR>
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" automatically open quickfix list
+augroup quickfix
+  autocmd!
+  autocmd QuickFixCmdPost [^l]* cwindow
+  autocmd QuickFixCmdPost l* lwindow
+augroup END
 
 """""""""" STATUSLINE
 set laststatus=2 " show statusline
