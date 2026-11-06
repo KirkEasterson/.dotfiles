@@ -138,8 +138,8 @@ vnoremap <C-x> <C-x>gv
 "
 " quickfix navigation
 nnoremap [Q :cfirst<CR>
-nnoremap ]q :cprev<CR>
-nnoremap [q :cnext<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprev<CR>
 nnoremap ]Q :clast<CR>
 function! ToggleQuickfix()
     let qf_open = 0
@@ -160,8 +160,8 @@ nnoremap <silent> <leader>tq :call ToggleQuickfix()<CR>
 
 " locationlist navigation
 nnoremap [L :lfirst<CR>
-nnoremap ]l :lprev<CR>
-nnoremap [l :lnext<CR>
+nnoremap ]l :lnext<CR>
+nnoremap [l :lprev<CR>
 nnoremap ]L :llast<CR>
 
 " delete current buffer
