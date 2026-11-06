@@ -98,6 +98,7 @@ let g:netrw_browse_split = 0 " open files in the previous window
 let g:netrw_altfile = 1 " keep the alternate file correct
 let g:netrw_preview = 1
 
+set fillchars+=vert:┃
 
 """""""""" MAPPINGS
 " navigation
@@ -188,8 +189,6 @@ nnoremap <leader>rt :set relativenumber!<CR>
 nnoremap <Tab> za
 
 nnoremap <leader>e :Lexplore!<CR>
-
-set fillchars+=vert:┃
 
 """""""""" AUTOCMDS
 augroup WrapLineInLatexFile
