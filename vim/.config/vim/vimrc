@@ -208,6 +208,12 @@ augroup quickfix
   autocmd QuickFixCmdPost l* lwindow
 augroup END
 
+command! MakeTags !ctags -R .
+augroup ctags_auto_update
+    autocmd!
+    autocmd BufWritePost * silent! ! ctags -R &
+augroup END
+
 """""""""" STATUSLINE
 set laststatus=2 " show statusline
 
