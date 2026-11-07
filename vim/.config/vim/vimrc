@@ -204,6 +204,7 @@ set tags=./tags;,tags; " set tags file
 augroup ft_tags
     autocmd!
     autocmd FileType c setlocal tags+=$XDG_DATA_HOME/ctags/c/tags
+    autocmd FileType cpp setlocal tags+=$XDG_DATA_HOME/ctags/cpp/tags
     autocmd FileType go setlocal tags+=$XDG_DATA_HOME/ctags/go/tags
     autocmd FileType rust setlocal tags+=$XDG_DATA_HOME/ctags/rust/tags
 augroup END

@@ -14,6 +14,20 @@ gen_c_ctags() {
 		/usr/include
 }
 
+gen_cpp_ctags() {
+	echo "generating ctags for C++..."
+	CPP_CTAGS_DIR="${CTAGS_DIR}/cpp"
+	mkdir -p "$CPP_CTAGS_DIR"
+	touch "${CPP_CTAGS_DIR}/tags"
+	ctags -R --languages=c++ \
+		-f "${CPP_CTAGS_DIR}/tags" \
+		--c++-kinds=+p \
+		--fields=+iaS \
+		--extras=+q \
+		-I _GLIBCXX_NOEXCEPT \
+		/usr/include/c++/$(ls /usr/include/c++/ | tail -n 1)
+}
+
 gen_go_ctags() {
 	echo "generating ctags for Golang..."
 	GO_CTAGS_DIR="${CTAGS_DIR}/go"
@@ -38,11 +52,15 @@ gen_rust_tags() {
 case "${1}" in
 "all")
 	gen_c_ctags
+	gen_cpp_ctags
 	gen_go_ctags
 	gen_rust_ctags
 	;;
 "c")
 	gen_c_ctags
+	;;
+"cpp")
+	gen_cpp_ctags
 	;;
 "go")
 	gen_go_ctags
