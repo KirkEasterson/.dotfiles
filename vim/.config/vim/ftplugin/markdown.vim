@@ -14,4 +14,4 @@ setlocal shiftwidth=2 " number of spaces when indenting with <> keys
 setlocal expandtab " use spaces for tabs
 
 " build notes
-autocmd BufWritePost *note-*.md silent !notes.sh build %:p
+autocmd BufWritePost *note-*.md silent !nohup notes.sh build %:p &
