@@ -200,6 +200,7 @@ nnoremap <leader>e :Lexplore!<CR>
 """""""""" CTAGS
 set tags=./tags;,tags; " set tags file
 
+" language specific tags
 augroup ft_tags
     autocmd!
     autocmd FileType go setlocal tags+=$XDG_DATA_HOME/ctags/go/tags
