@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fencesandbox/fence/main/docs/schema/fence.schema.json",
+  "extends": "code",
+  "filesystem": {
+    "allowWrite": [],
+    "denyRead": [
+      "~/Desktop",
+      "~/Documents",
+      "~/Downloads",
+      "~/Pictures",
+      "~/Videos"
+    ]
+  },
+  "command": { "deny": ["git push"] },
+  "network": {
+    "allowLocalOutbound": true,
+    "allowLocalOutboundPorts": [5432, 6379]
+  }
+}
