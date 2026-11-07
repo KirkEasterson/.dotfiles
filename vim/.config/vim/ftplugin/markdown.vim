@@ -4,7 +4,7 @@ let g:markdown_json_frontmatter = 1
 let g:markdown_recommended_style=0
 let g:markdown_toml_frontmatter = 1
 
-setlocal textwidth=80
+" setlocal textwidth=80
 setlocal formatoptions=croqnv1j
 
 setlocal wrap " wrap lines
