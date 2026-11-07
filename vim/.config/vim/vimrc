@@ -205,8 +205,8 @@ augroup ft_tags
     autocmd FileType go setlocal tags+=$XDG_DATA_HOME/ctags/go/tags
 augroup END
 
-" goto definition
-nnoremap gd <C-]>
+" goto definition (ctag under cursor)
+nnoremap <silent> gd :silent! execute "normal! \<lt>C-]>"<CR>
 
 " Go to tag choice list / implementation-like picker (like Neovim's gi or gr)
 nnoremap gi g]
