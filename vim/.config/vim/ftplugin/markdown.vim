@@ -1,5 +1,4 @@
 let g:markdown_fenced_languages = ['python', 'javascript', 'typescript', 'html', 'css', 'bash', 'vim', 'go', 'mermaid']
-let g:markdown_folding = 1
 let g:markdown_frontmatter = 1
 let g:markdown_json_frontmatter = 1
 let g:markdown_recommended_style=0
