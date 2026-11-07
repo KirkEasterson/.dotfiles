@@ -25,16 +25,30 @@ gen_go_ctags() {
 		"$(go env GOPATH)/pkg/mod"
 }
 
+gen_rust_tags() {
+	echo "generating ctags for Rust..."
+	RUST_CTAGS_DIR="${CTAGS_DIR}/rust"
+	mkdir -p "$RUST_CTAGS_DIR"
+	touch "${RUST_CTAGS_DIR}/tags"
+	ctags -R --languages=rust \
+		-f "${RUST_CTAGS_DIR}/tags" \
+		"$(rustc --print sysroot)/lib/rustlib/src/rust/library/"
+}
+
 case "${1}" in
 "all")
 	gen_c_ctags
 	gen_go_ctags
+	gen_rust_ctags
 	;;
 "c")
 	gen_c_ctags
 	;;
 "go")
 	gen_go_ctags
+	;;
+"rust")
+	gen_rust_tags
 	;;
 *)
 	exit 0
