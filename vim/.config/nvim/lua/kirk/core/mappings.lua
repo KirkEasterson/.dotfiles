@@ -114,6 +114,10 @@ end, { desc = "Delete all but current buffer" })
 util.map("v", "<", "<gv")
 util.map("v", ">", ">gv")
 
+-- reselect after crementing in visual mode
+util.map("v", "<C-a>", "<C-a>gv")
+util.map("v", "<C-x>", "<C-x>gv")
+
 -- easier navigation
 util.map("n", "n", "nzzzv")
 util.map("n", "N", "Nzzzv")
