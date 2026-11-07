@@ -197,6 +197,27 @@ nnoremap <Tab> za
 
 nnoremap <leader>e :Lexplore!<CR>
 
+"""""""""" CTAGS
+set tags=./tags;,tags; " set tags file
+
+" goto definition
+nnoremap gd <C-]>
+
+" Go to tag choice list / implementation-like picker (like Neovim's gi or gr)
+nnoremap gi g]
+nnoremap gr :tselect <C-R><C-W><CR>
+
+" toggle ptag preview
+nnoremap <silent> K :if len(filter(range(1, winnr('$')), 'getwinvar(v:val, "&previewwindow")')) \| pclose \| else \| execute "ptag " . expand("<cword>") \| endif<CR>
+
+if executable('ctags')
+  command! MakeTags !ctags -R .
+  " augroup ctags_auto_update
+  "   autocmd!
+  "   autocmd BufWritePost * silent! ! ctags -R &
+  " augroup END
+endif
+
 """""""""" AUTOCMDS
 " remove trailing whitespace on each save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -207,14 +228,6 @@ augroup quickfix
   autocmd QuickFixCmdPost [^l]* cwindow
   autocmd QuickFixCmdPost l* lwindow
 augroup END
-
-if executable('ctags')
-  command! MakeTags !ctags -R .
-  augroup ctags_auto_update
-    autocmd!
-    autocmd BufWritePost * silent! ! ctags -R &
-  augroup END
-endif
 
 """""""""" STATUSLINE
 set laststatus=2 " show statusline
