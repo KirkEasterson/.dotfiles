@@ -4,6 +4,8 @@ colorscheme basic_dark
 let mapleader=" " " leader is space
 let g:mapleader = "\<Space>"
 
+set path+=** " recursive searching by default
+
 set timeoutlen=1000
 set ttimeoutlen=0
 
