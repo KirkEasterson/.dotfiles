@@ -23,7 +23,6 @@ ensure_today_srcdir_exists() {
 }
 
 ensure_today_pdfdir_exists() {
-  echo "making today pdf dir"
   mkdir -p "$(today_pdfdir)"
 }
 
