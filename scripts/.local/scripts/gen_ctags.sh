@@ -39,7 +39,7 @@ gen_go_ctags() {
 		"$(go env GOPATH)/pkg/mod"
 }
 
-gen_rust_tags() {
+gen_rust_ctags() {
 	echo "generating ctags for Rust..."
 	RUST_CTAGS_DIR="${CTAGS_DIR}/rust"
 	mkdir -p "$RUST_CTAGS_DIR"
@@ -66,7 +66,7 @@ case "${1}" in
 	gen_go_ctags
 	;;
 "rust")
-	gen_rust_tags
+	gen_rust_ctags
 	;;
 *)
 	exit 0
