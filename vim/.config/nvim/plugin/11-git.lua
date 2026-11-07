@@ -142,7 +142,7 @@ vim.schedule(function()
 
   require("neogit").setup({
     auto_show_console = false,
-    console_timeout = 5000,
+    console_timeout = 10 * 1000,
     disable_commit_confirmation = true,
     treesitter_diff_highlight = true,
     disable_hint = true,
