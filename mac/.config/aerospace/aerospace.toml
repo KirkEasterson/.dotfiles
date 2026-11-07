@@ -64,10 +64,7 @@ inner.horizontal = 2
 inner.vertical = 2
 outer.left = 2
 outer.bottom = 2
-outer.top = [
-	{ monitor.'Built-in Retina Display' = 2 },
-	32,
-]
+outer.top = [{ monitor.'Built-in Retina Display' = 0 }, 32]
 outer.right = 2
 
 [workspace-to-monitor-force-assignment]
