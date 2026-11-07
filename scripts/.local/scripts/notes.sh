@@ -1,57 +1,94 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eo pipefail
 
-nvim_appname="nvim-notes"
+notes_dir="${NOTES:=${HOME}/Documents/notes}"
+src_dir="${notes_dir}/src"
+pdf_dir="${notes_dir}/pdf"
+
+today_subdir() {
+  date +%Y/%m
+}
+
+today_srcdir() {
+  echo "${src_dir}/$(today_subdir)"
+}
+
+today_pdfdir() {
+  echo "${pdf_dir}/$(today_subdir)"
+}
+
+ensure_today_srcdir_exists() {
+  mkdir -p "$(today_srcdir)"
+}
+
+ensure_today_pdfdir_exists() {
+  echo "making today pdf dir"
+  mkdir -p "$(today_pdfdir)"
+}
+
+today_file() {
+  echo "note_$(date +%Y-%m-%d).md"
+}
+
+today_src_path() {
+  echo "$(today_srcdir)/$(today_file)"
+}
 
 # edit toay's note
 edit_today() {
-	now=$(date +%H:%M:%S)
-	today=$(date +%Y-%m-%d)
-	today_note_file="${src_dir}/note-${today}.md"
+  ensure_today_srcdir_exists
+  today_note_file="$(today_src_path)"
+  now=$(date +%H:%M:%S)
 
-	# check if file exists
-	if [ ! -f "${today_note_file}" ]; then
-		printf "# Notes for %s" "${today}" >"${today_note_file}"
-	fi
+  # check if file exists
+  if [ ! -f "${today_note_file}" ]; then
+    printf "# Notes for %s" "$(date +%Y-%m-%d)" >"${today_note_file}"
+  fi
 
-	vim \
-		-c "norm Go" \
-		-c "norm Go## ${now}" \
-		-c "norm G2o" \
-		-c "startinsert" "${today_note_file}"
+  vim \
+    -c "norm Go" \
+    -c "norm Go## ${now}" \
+    -c "norm G2o" \
+    -c "startinsert" "${today_note_file}"
 }
 
 # build a specified note
 build() {
-	src="$1"
-	target="${pdf_dir}/$(basename "$src" .md).pdf"
+  ensure_today_srcdir_exists
+  ensure_today_pdfdir_exists
+  subdir=$(today_subdir)
+  today_note_dir="${pdf_dir}/${subdir}"
 
-	# run in the background
-	# TODO: support emojis
-	pandoc "${src}" -o "${target}" --pdf-engine=lualatex &
-	disown
+  src="$1"
+  target="${today_note_dir}/$(basename "$src" .md).pdf"
+
+  # run in the background
+  # TODO: support emojis
+  pandoc "${src}" -o "${target}" --pdf-engine=lualatex &
+  disown
 }
 
 # view the latest note
 view_latest() {
-	latest=$(
-		find "${pdf_dir}" \( -name "*.pdf" \) -print |
-			sort -r |
-			head -n 1
-	)
+  ensure_today_pdfdir_exists
+  year=$(date +%Y)
+  month=$(date +%m)
 
-	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-		xdg-open "$latest"
-	elif [[ "$OSTYPE" == "darwin"* ]]; then
-		open "$latest"
-	fi
+  today_note_dir="${pdf_dir}/${year}/${month}"
+
+  latest=$(
+    find "${today_note_dir}" \( -name "*.pdf" \) -print |
+      sort -r |
+      head -n 1
+  )
+
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    xdg-open "$latest"
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    open "$latest"
+  fi
 }
-
-# initialize nvim notes data
-mkdir -p "${XDG_DATA_HOME}/$nvim_appname"
-mkdir -p "${XDG_STATE_HOME}/$nvim_appname"
-mkdir -p "${XDG_CACHE_HOME}/$nvim_appname"
 
 # initialize variables
 notes_dir="${NOTES:=${HOME}/Documents/notes}"
@@ -60,24 +97,24 @@ pdf_dir="${notes_dir}/pdf"
 
 # ensure notes directories exist
 if [ ! -d "${src_dir}" ]; then
-	mkdir -p "${src_dir}"
+  mkdir -p "${src_dir}"
 fi
 if [ ! -d "${pdf_dir}" ]; then
-	mkdir -p "${pdf_dir}"
+  mkdir -p "${pdf_dir}"
 fi
 
 # process args
 case "${1}" in
 "edit")
-	edit_today
-	;;
+  edit_today
+  ;;
 "build")
-	build "$2"
-	;;
+  build "$2"
+  ;;
 "view")
-	view_latest
-	;;
+  view_latest
+  ;;
 *)
-	exit 0
-	;;
+  exit 0
+  ;;
 esac
