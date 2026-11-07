@@ -29,6 +29,7 @@ if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 set updatetime=50 " fast update times
 
 set completeopt=menu,menuone,noselect,fuzzy
+set wildmenu
 set number relativenumber " turn hybrid line numbers on
 set cursorline " highlight current line
 set termguicolors
