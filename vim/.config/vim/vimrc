@@ -304,11 +304,22 @@ function! s:SaveSessionFunc()
   execute 'mksession! ' . s:GetSessionFile()
 endfunction
 
+let s:session_deleted = 0
+function! s:DeleteSessionFunc()
+  let l:session_file = s:GetSessionFile()
+  if filereadable(l:session_file)
+    if delete(l:session_file) == 0
+      let s:session_deleted = 1
+    endif
+  endif
+endfunction
+
 command! SaveSession call s:SaveSessionFunc()
 command! LoadSession call s:LoadSessionFunc()
+command! DeleteSession call s:DeleteSessionFunc()
 
 augroup SessionManagement
   autocmd!
   autocmd VimEnter * if argc() == 0 | execute 'LoadSession' | endif
-  autocmd VimLeavePre * execute 'SaveSession'
+  autocmd VimLeavePre * if s:session_deleted == 0 | execute 'SaveSession' | endif
 augroup END
