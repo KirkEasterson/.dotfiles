@@ -241,6 +241,11 @@ augroup quickfix
   autocmd QuickFixCmdPost l* lwindow
 augroup END
 
+augroup ClearJumpsOnStart
+  autocmd!
+  autocmd VimEnter * clearjumps
+augroup END
+
 """""""""" STATUSLINE
 set laststatus=2 " show statusline
 
