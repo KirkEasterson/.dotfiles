@@ -279,3 +279,36 @@ set statusline+=%#Normal#\ %m%r%w\                  " flags
 set statusline+=%=                                   " separator
 set statusline+=%#Normal#\ %3p%%\                    " file progress
 set statusline+=%#Normal#\ %l:%c                     " cursor coordinates
+
+"""""""""" SESSIONS
+
+let g:session_dir = expand('$XDG_DATA_HOME/vim/sessions')
+if !isdirectory(g:session_dir)
+    call mkdir(g:session_dir, 'p')
+endif
+
+function! s:GetSessionFile()
+  let cwd = getcwd()
+  let safe_name = substitute(cwd, '[/\\]', '__', 'g')
+  return g:session_dir . '/' . safe_name . '.vim'
+endfunction
+
+function! s:LoadSessionFunc()
+  let l:session_file = s:GetSessionFile()
+  if filereadable(l:session_file)
+    execute 'source ' . l:session_file
+  endif
+endfunction
+
+function! s:SaveSessionFunc()
+  execute 'mksession! ' . s:GetSessionFile()
+endfunction
+
+command! SaveSession call s:SaveSessionFunc()
+command! LoadSession call s:LoadSessionFunc()
+
+augroup SessionManagement
+  autocmd!
+  autocmd VimEnter * if argc() == 0 | execute 'LoadSession' | endif
+  autocmd VimLeavePre * execute 'SaveSession'
+augroup END
