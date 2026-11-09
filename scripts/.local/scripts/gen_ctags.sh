@@ -49,6 +49,24 @@ gen_rust_ctags() {
 		"$(rustc --print sysroot)/lib/rustlib/src/rust/library/"
 }
 
+usage() {
+	cat <<EOF >&2
+Usage: $(basename "$0") [OPTIONS]
+
+This script generates ctags for system libraries of various programming
+languages. ctags must be installed for this script to work properly.
+
+Options:
+  c               Generate ctags for C system libraries
+  cpp             Generate ctags for C++ system libraries
+  go              Generate ctags for Golang system libraries
+  rust            Generate ctags for Rust system libraries
+  all             Generate ctags for C, C++, Golang, and Rust system libraries
+EOF
+	exit 1
+}
+
+# TODO: support multiple arguments (e.g., c go)
 case "${1}" in
 "all")
 	gen_c_ctags
@@ -69,6 +87,6 @@ case "${1}" in
 	gen_rust_ctags
 	;;
 *)
-	exit 0
+	usage
 	;;
 esac
