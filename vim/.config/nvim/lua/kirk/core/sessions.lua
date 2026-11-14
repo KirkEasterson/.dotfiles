@@ -37,8 +37,20 @@ local vim_escape = function(str)
   return vim.fn.shellescape(str, 1):sub(2, -2)
 end
 
+local function get_git_branch()
+  local branch = vim.fn.system("git branch --show-current")
+  if vim.v.shell_error ~= 0 then
+    return nil -- Not a git repository
+  end
+  return vim.trim(branch)
+end
+
 local get_session_filepath = function()
   local cwd = vim.uv.cwd()
+  local git_branch = get_git_branch()
+  if git_branch ~= "" then
+    cwd = cwd .. "|" .. git_branch
+  end
   local filename = encode(cwd) .. ".vim"
   return sessions_dir .. "/" .. filename
 end
