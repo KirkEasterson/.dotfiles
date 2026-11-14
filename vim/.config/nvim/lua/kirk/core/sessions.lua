@@ -55,8 +55,16 @@ local get_session_filepath = function()
   return sessions_dir .. "/" .. filename
 end
 
-local load_session = function()
-  local session_filepath = get_session_filepath()
+local parse_session_file_path = function(session_filepath)
+  if session_filepath == nil or next(session_filepath) == nil then
+    return get_session_filepath()
+  end
+  return session_filepath[1]
+end
+
+local load_session = function(session_filepath)
+  -- TODO: close all current buffers before loading
+  session_filepath = parse_session_file_path(session_filepath)
   if vim.uv.fs_stat(session_filepath) == nil then
     return
   end
@@ -65,8 +73,8 @@ local load_session = function()
   })
 end
 
-local save_session = function()
-  local session_filepath = get_session_filepath()
+local save_session = function(session_filepath)
+  session_filepath = parse_session_file_path(session_filepath)
   vim.cmd.mksession({
     args = { vim_escape(session_filepath) },
     bang = true,
@@ -74,8 +82,8 @@ local save_session = function()
   disable_autosave = false
 end
 
-local delete_session = function()
-  local session_filepath = get_session_filepath()
+local delete_session = function(session_filepath)
+  session_filepath = parse_session_file_path(session_filepath)
   if vim.fn.filereadable(session_filepath) ~= 1 then
     return
   end
@@ -86,13 +94,13 @@ end
 -- USER COMMAND
 
 local cmd_handler = function(opts)
-  local args = vim.trim(opts.args)
-  if args == "save" then
-    save_session()
-  elseif args == "load" then
-    load_session()
-  elseif args == "delete" then
-    delete_session()
+  local args = vim.split(vim.trim(opts.args), " ", { trimempty = true })
+  if args[1] == "save" then
+    save_session(vim.list_slice(args, 2))
+  elseif args[1] == "load" then
+    load_session(vim.list_slice(args, 2))
+  elseif args[1] == "delete" then
+    delete_session(vim.list_slice(args, 2))
   else
     vim.notify("invalid argument to [Session]", vim.log.levels.ERROR)
   end
