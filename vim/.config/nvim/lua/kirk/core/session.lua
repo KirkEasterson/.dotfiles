@@ -62,7 +62,9 @@ local parse_session_file_path = function(session_filepath)
   return session_filepath[1]
 end
 
-local load_session = function(session_filepath)
+local M = {}
+
+function M.load_session(session_filepath)
   -- TODO: close all current buffers before loading
   session_filepath = parse_session_file_path(session_filepath)
   if vim.uv.fs_stat(session_filepath) == nil then
@@ -73,7 +75,7 @@ local load_session = function(session_filepath)
   })
 end
 
-local save_session = function(session_filepath)
+function M.save_session(session_filepath)
   session_filepath = parse_session_file_path(session_filepath)
   vim.cmd.mksession({
     args = { vim_escape(session_filepath) },
@@ -82,7 +84,7 @@ local save_session = function(session_filepath)
   disable_autosave = false
 end
 
-local delete_session = function(session_filepath)
+function M.delete_session(session_filepath)
   session_filepath = parse_session_file_path(session_filepath)
   if vim.fn.filereadable(session_filepath) ~= 1 then
     return
@@ -96,11 +98,11 @@ end
 local cmd_handler = function(opts)
   local args = vim.split(vim.trim(opts.args), " ", { trimempty = true })
   if args[1] == "save" then
-    save_session(vim.list_slice(args, 2))
+    M.save_session(vim.list_slice(args, 2))
   elseif args[1] == "load" then
-    load_session(vim.list_slice(args, 2))
+    M.load_session(vim.list_slice(args, 2))
   elseif args[1] == "delete" then
-    delete_session(vim.list_slice(args, 2))
+    M.delete_session(vim.list_slice(args, 2))
   else
     vim.notify("invalid argument to [Session]", vim.log.levels.ERROR)
   end
@@ -115,7 +117,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
   desc = "Load session at startup",
   group = session_group,
   callback = function()
-    load_session()
+    M.load_session()
   end,
 })
 vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
@@ -125,6 +127,8 @@ vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
     if disable_autosave then
       return
     end
-    save_session()
+    M.save_session()
   end,
 })
+
+return M
