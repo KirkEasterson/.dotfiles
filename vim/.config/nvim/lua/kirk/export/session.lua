@@ -1,10 +1,5 @@
--- ensure sessions dir exists
 local sessions_dir = vim.fn.stdpath("data") .. "/sessions"
 vim.fn.mkdir(sessions_dir, "p")
-
--- CORE FUNCTIONALITY
-
-local disable_autosave = false -- to avoid delete-then-autosave loops
 
 local function encode(str)
   if not str then
@@ -48,6 +43,9 @@ end
 
 local M = {}
 
+-- to avoid delete-then-autosave loops
+M.disable_autosave = false
+
 function M.load_session(session_filepath)
   -- TODO: close all current buffers before loading
   session_filepath = parse_session_file_path(session_filepath)
@@ -65,7 +63,7 @@ function M.save_session(session_filepath)
     args = { vim_escape(session_filepath) },
     bang = true,
   })
-  disable_autosave = false
+  M.disable_autosave = false
 end
 
 function M.delete_session(session_filepath)
@@ -74,7 +72,7 @@ function M.delete_session(session_filepath)
     return
   end
   os.remove(session_filepath)
-  disable_autosave = true
+  M.disable_autosave = true
 end
 
 return M
