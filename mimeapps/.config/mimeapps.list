@@ -35,6 +35,7 @@ x-scheme-handler/io.element.desktop=element.desktop
 x-scheme-handler/element=element.desktop
 x-scheme-handler/rshub=jagex-launcher.desktop
 x-scheme-handler/discord-409416265891971072=discord-409416265891971072.desktop
+x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-W14R41.desktop;userapp-Thunderbird-IS8OQ2.desktop;
