@@ -23,5 +23,5 @@ lint-yaml:
 .PHONY: lint-markdown
 lint-markdown:
 	@docker compose run -q --rm markdownlint mdl \
-		-c ./formatters/.config/markdownlint/mdlrc \
+		--config ./formatters/.config/markdownlint/mdlrc \
 		.
