@@ -52,6 +52,7 @@ function M.load_session(session_filepath)
   if vim.uv.fs_stat(session_filepath) == nil then
     return
   end
+  vim.cmd("%bdelete") -- delete all buffers
   vim.cmd.source({
     args = { vim_escape(session_filepath) },
   })
