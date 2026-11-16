@@ -11,9 +11,7 @@ require("kirk.core.statusline")
 require("kirk.core.dial")
 require("kirk.core.netrw")
 require("kirk.core.neovide")
-
--- TODO: use this once it's stable for work
--- require("kirk.core.session")
+require("kirk.core.session")
 
 -- TODO: use this once snippet become more mature
 -- require("kirk.core.snippets")

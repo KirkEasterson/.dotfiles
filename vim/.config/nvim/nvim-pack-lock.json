@@ -18,10 +18,6 @@
       "rev": "3c55ad358c062aa4879950c4f83b4deeac6b72df",
       "src": "https://github.com/Tsuzat/NeoSolarized.nvim"
     },
-    "auto-session": {
-      "rev": "02a5588f677970a9bc784115c62bef9e5855499b",
-      "src": "https://github.com/rmagatti/auto-session"
-    },
     "cloak.nvim": {
       "rev": "648aca6d33ec011dc3166e7af3b38820d01a71e4",
       "src": "git@github.com:laytan/cloak.nvim"
