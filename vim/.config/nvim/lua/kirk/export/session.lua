@@ -27,7 +27,7 @@ end
 local get_session_filepath = function()
   local cwd = vim.uv.cwd()
   local git_branch = get_git_branch()
-  if git_branch ~= "" then
+  if git_branch ~= nil and git_branch ~= "" then
     cwd = cwd .. "|" .. git_branch
   end
   local filename = encode(cwd) .. ".vim"
