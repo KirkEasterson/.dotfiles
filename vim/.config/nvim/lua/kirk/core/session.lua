@@ -38,7 +38,6 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
       -- nvim opened with a file, don't load session
       return
     end
-
     require("kirk.export.session").load_session()
   end,
 })
