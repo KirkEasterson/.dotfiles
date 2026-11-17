@@ -172,10 +172,10 @@ vim.schedule(function()
     hooks = {
       ["PreBranchCheckout"] = function()
         local neogit = require("neogit")
-        local autosession = require("auto-session")
+        local autosession = require("kirk.export.session")
 
         neogit.close()
-        autosession.save_session(nil, { show_message = false, is_autosave = true })
+        autosession.save_session()
         neogit.open()
       end,
     },
@@ -189,9 +189,9 @@ vim.schedule(function()
     group = neogit_group,
     callback = function()
       local neogit = require("neogit")
-      local autosession = require("auto-session")
+      local autosession = require("kirk.export.session")
       neogit.close()
-      autosession.restore_session(nil, { show_message = false })
+      autosession.load_session()
       neogit.open()
     end,
   })
@@ -202,9 +202,9 @@ vim.schedule(function()
     group = neogit_group,
     callback = function()
       local neogit = require("neogit")
-      local autosession = require("auto-session")
+      local autosession = require("kirk.export.session")
       neogit.close()
-      autosession.save_session(nil, { show_message = false, is_autosave = true })
+      autosession.save_session()
       neogit.open()
     end,
   })
@@ -215,10 +215,10 @@ vim.schedule(function()
     group = neogit_group,
     callback = function()
       local neogit = require("neogit")
-      local autosession = require("auto-session")
+      local autosession = require("kirk.export.session")
 
       neogit.close()
-      autosession.restore_session(nil, { show_message = false })
+      autosession.load_session()
       neogit.open()
     end,
   })
@@ -229,10 +229,10 @@ vim.schedule(function()
     group = neogit_group,
     callback = function()
       local neogit = require("neogit")
-      local autosession = require("auto-session")
+      local autosession = require("kirk.export.session")
 
       neogit.close()
-      autosession.save_session(nil, { show_message = false, is_autosave = true })
+      autosession.save_session()
       neogit.open()
     end,
   })
