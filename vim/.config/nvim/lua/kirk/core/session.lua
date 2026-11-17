@@ -24,7 +24,7 @@ local cmd_handler = function(opts)
   elseif args[1] == "delete" then
     session.delete_session(vim.list_slice(args, 2))
   else
-    vim.notify("invalid argument to [Session]", vim.log.levels.ERROR)
+    vim.notify("invalid argument to [" .. opts.name .. "]", vim.log.levels.ERROR)
   end
 end
 vim.api.nvim_create_user_command("Session", cmd_handler, { desc = "Manage sessions", nargs = "+" })
