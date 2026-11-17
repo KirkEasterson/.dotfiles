@@ -34,6 +34,11 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
   desc = "Load session at startup",
   group = session_group,
   callback = function()
+    if vim.fn.argc() ~= 0 and vim.fn.isdirectory(vim.fn.argv(0)) ~= 1 then
+      -- nvim opened with a file, don't load session
+      return
+    end
+
     require("kirk.export.session").load_session()
   end,
 })
