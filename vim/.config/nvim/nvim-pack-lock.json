@@ -28,11 +28,11 @@
       "version": ">=0.0.0"
     },
     "diffview-plus.nvim": {
-      "rev": "3aba39f4d1704cc7aa26af487ab5579b5c614437",
+      "rev": "fae72d6c981075dce2e0f946f002382ce0cb44e1",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "friendly-snippets": {
-      "rev": "b2ea5c41a150ba72fb656eedb4ed0a86d138d945",
+      "rev": "7a1c9f7897a4eb078b157a04c7af81e5869215b1",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "garbage-day.nvim": {
@@ -112,7 +112,7 @@
       "version": ">=0.0.0"
     },
     "neogit": {
-      "rev": "697ad3ee86a73cf6b6758b838d7a7d76cf3b9f86",
+      "rev": "0288a0fe32bce35f4ea1195f9b546a71c5977a82",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "neotest": {
@@ -185,7 +185,7 @@
       "version": ">=0.0.0"
     },
     "nvim-treesitter": {
-      "rev": "0195cd62fa89950f34c0e0d648ea7897ab85d4d3",
+      "rev": "b706d642dd20d0922e7e92365dc73617f0fdb4ea",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
